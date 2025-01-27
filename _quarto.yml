@@ -1,0 +1,103 @@
+project: 
+  type: website
+  output-dir: docs
+  title: "Eastern Bering Sea walleye pollock stock assessment"
+  
+  render: 
+    - "doc/CIE.qmd"
+    - "!doc/fishery.qmd"
+    - "!doc/model.qmd"
+    - "!doc/modeleq.qmd"
+    - "ebswp.qmd"
+    - "doc/sept.qmd"
+    - "!doc/DoubleLogistic.Rmd"
+    - "!doc/SSC_Minutes.qmd"
+
+website: 
+  page-navigation: true
+  title: "Assessment of walleye pollock in the eastern Bering Sea" 
+  site-url: "https://nmfs-opensci.github.io/NOAA-quarto-simple" 
+  repo-url: "https://github.com/noaa-afsc/ebs_pollock"
+  repo-actions: [edit, source, issue]
+  favicon: images/favicon.ico
+  
+  page-footer:
+    right: "This page is built with [Quarto](https://quarto.org/)."
+    left: "&copy; CC-1.0"
+  
+  sidebar:
+    logo: "https://afsc-assessments.github.io/ebswp/logo.png"
+    favicon: images/favicon.ico
+    pinned: true
+    align: center
+    tools: 
+      - icon: globe
+        href: https://nmfs-opensci.github.io
+        text: "NMFS Open Science"
+      - icon: github
+        href: https://github.com/afsc-assessments/ebs_pollock_safe
+        text: "EBS Pollock assessment"
+
+    style: "docked"
+    search: true
+    collapse-level: 0
+    
+    contents:
+      - href: doc/preface.qmd
+        text: Preface
+      #- href: doc/SSC_Minutes.qmd
+        #text: SSC minutes
+      - href: ebswp.qmd
+        text: 2024 main assessment document
+      #- href: doc/platforms.Rmd
+        #text: Alternative software platforms
+      - href: doc/sept.qmd
+        text: September 2024 EBS pollock assessment
+
+lightbox: true
+engine: knitr
+date: now
+date-format: "YYYY-MM-DD HH:mm"
+css: mystyle.css
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss] 
+      dark: [cosmo, theme-dark.scss]
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    toc-title: 'Contents'
+    embed-resources: false
+    #numbering: false
+    #number-sections: false
+    code-summary: "Show the code"
+    code-fold: true
+  pdf:
+    documentclass: scrreprt
+    papersize: letter
+    #numbering: false
+    #number-sections: false
+    header-includes:
+      - \counterwithout{figure}{chapter}
+      # - \usepackage{fancyhdr}
+      # - \pagestyle{fancy}
+      # - \fancyhf{}
+      # - \lhead{September}
+      # - \rhead{2024}
+      # - \chead{--Draft--}
+      # - \rfoot{\thepage}
+      # - \lfoot{EBS pollock assessment discussion paper }
+
+  epub:
+    metadata:
+      title: "Eastern Bering Sea walleye pollock stock assessment"
+  docx:
+    reference-docx: "template.docx"
+
+bibliography: doc/references.bib
+
+filters:
+  - include-files.lua
+  - quarto
+
