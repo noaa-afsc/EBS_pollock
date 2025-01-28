@@ -1,0 +1,45 @@
+\usepackage{fancyhdr}
+\fancyhf{}
+\lhead{\textit{November 2024 Plan Team}}
+\rhead{\textit{EBS pollock }}
+\chead{\textit{--Draft--}}
+\cfoot{\textit{\thepage}}
+\rfoot{}
+\lfoot{}
+\setlength{\footskip}{4cm} # Lower the footer
+% \usepackage{lipsum}
+% \usepackage{lastpage}
+\usepackage{booktabs}
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage{longtable}
+
+\usepackage{rotating}
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\renewcommand{\thesection}{1.\arabic{section}}
+\usepackage{tabulary}
+\usepackage{caption}
+\captionsetup[table]{skip=10pt} % Adjust spacing if needed
+\usepackage[labelsep=period]{caption}
+\usepackage{array}
+\usepackage{adjustbox}
+\def\rot{\rotatebox}
+\makeatletter
+\setlist[itemize,1]{leftmargin=\dimexpr 26pt-.5in}
+% \pagenumbering{gobble}
+\renewcommand{\figurename}{Figure 1-\@gobble}
+\renewcommand{\tablename}{Table 1-\@gobble}
+\makeatother
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+% \usepackage{float}
+% \let\origfigure\figure
+% \let\endorigfigure\endfigure
+% \renewenvironment{figure}[1][2] {
+%     \expandafter\origfigure\expandafter[H]
+% } {
+%     \endorigfigure
+% }

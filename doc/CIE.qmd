@@ -1,0 +1,65 @@
+---
+output: html
+title: "Eastern Bering Sea walleye pollock stock assessment"
+subtitle: May 2025, CIE review
+author: "Jim Ianelli and Carey McGilliard"
+date: April 2024
+editor_options: 
+  chunk_output_type: console
+editor: 
+  markdown: 
+    wrap: 90
+---
+
+```{r startup, echo=FALSE, warnings=FALSE, message=FALSE, eval=TRUE}
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+library(ebswp)
+library(tidyverse)
+library(patchwork)
+library(gganimate)
+library(ggridges)
+.OVERLAY <- TRUE
+.THEME <- ggthemes::theme_few()
+options(warn = -1)
+do_sigmaR_profile=0
+do_anim=0
+do_abc_sel=0
+do_yearloop=0
+do_srrlst=0
+do_selsens=0
+
+Plot_Sel <- function(sel = all_sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 2023) {
+  sdf <- pivot_longer(sel, names_to = "age", values_to = "sel", cols = 2:(nages + 1)) |>
+    filter(Year >= styr, Year <= endyr) |>
+    mutate(age = as.numeric(age))
+  p1 <- sdf |> ggplot(
+    aes(x = age, y = as.factor(Year), height = sel)
+  ) +
+    geom_density_ridges(
+      stat = "identity", scale = 2.8,
+      alpha = .3, fill = "goldenrod", color = "tan"
+    ) +
+    ggthemes::theme_few() +
+    ylab("Year") +
+    xlab("Age (years)") +
+    scale_x_continuous(limits = c(fage, lage), breaks = fage:lage) +
+    scale_y_discrete(limits = rev(levels(as.factor(sdf$Year)))) +
+    facet_grid(. ~ source)
+  return(p1)
+}
+```
+
+# Executive Summary
+
+## Summary of Changes in Assessment Inputs
+
+The work presented below was based on the same data sets used in the 2023 assessment. The
+model was updated so that it could handle a number of requests from the SSC. We enhanced
+the capability of the code to deal with some alternative hypotheses of factors that affect
+the stock recruitment relationship (SRR). We stepped through a number of sensitivity
+analyses to evaluate the stock-recruitment relationship (SRR) and the steepness of the
+SRR. We also evaluated the impact of including the natural mortality-at-age estimates from
+CEATTLE model.
+
+## Summary of Results
