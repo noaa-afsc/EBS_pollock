@@ -1,6 +1,9 @@
 # Instructions for including your repository in the noaa-afsc organization
+# Alaska pollock, aka walleye pollock (*Gadus chalcogrammus*)
 
-This is a default template for a noaa-afsc repository. It includes a `secretScan.yml` file that helps us check for secrets when new commits are made to the repositories.
+This is a repository for developing analysese on the eastern Bering Sea pollock resource.
+
+A separate package (ebswp) facilitates plotting and data processing of results.
 
 ## Collaborators
 
@@ -11,7 +14,6 @@ The primary author(s) responsible for maintaining this repository are:
 ## Repository Structure
 
 
-### Alaska pollock, aka walleye pollock (*Gadus chalcogrammus*)
 
 
 ## Disclaimer
