@@ -1,7 +1,0 @@
- The logarithm of the determinant of the hessian = 18.1994
- index   name        value      std.dev       1       2       3       4       5   
-     1   log_Rzero  1.0241e+01 1.5039e-01   1.0000
-     2   steepness  7.1905e-01 1.5809e-02  -0.0909  1.0000
-     3   sigr       6.9793e-01 7.4166e-02   0.4365 -0.0252  1.0000
-     4   dummy      0.0000e+00 7.0711e-01   0.0000  0.0000  0.0000  1.0000
-     5   Bzero      7.1331e+03 1.0727e+03   1.0000 -0.0909  0.4365  0.0000  1.0000

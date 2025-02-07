@@ -19,6 +19,12 @@ library(tidyverse)
 library(patchwork)
 library(gganimate)
 library(ggridges)
+library(viridis)
+# Set ggplot theme
+#devtools::install_github("seananderson/ggsidekick")
+library(ggsidekick)
+theme_set(theme_sleek())
+library(reshape2)
 .OVERLAY <- TRUE
 .THEME <- ggthemes::theme_few()
 options(warn = -1)
@@ -63,3 +69,82 @@ SRR. We also evaluated the impact of including the natural mortality-at-age esti
 CEATTLE model.
 
 ## Summary of Results
+
+```{r ft1}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-ft1
+#| fig.cap: "Model results comparing last year's selected model -2021)"
+if (do_ft1) {
+  ft <- list()
+  ft[[1]] <- read_rep(here::here("runs", "last_yr_db", "pm.rep"))
+  ft[[2]] <- read_rep(here::here("runs", "last_yr_db_ae", "pm.rep"))
+  ft[[3]] <- read_rep(here::here("runs", "ftnir1", "pm.rep"))
+  ft[[4]] <- read_rep(here::here("runs", "ftnir2", "pm.rep"))
+  names(ft) <- c("2024 TMA", "2024 TMA w/age-error",
+                     "FT-NIR fleet-specific",
+                     "FT-NIR fleets aggregated"
+                     )
+  saveRDS(ft, here::here("runs", "ftnir.rds"))
+} else{
+  ft <- readRDS(here::here("runs", "ftnir.rds"))
+}
+plot_srr(ft[c( 4,3)], alpha = .2, xlim = c(0, 4200), ylim = c(0, 95000), sizeout = 3, sizein = 3, yrsin = c(1964:2021), ebar = TRUE)
+plot_recruitment(ft[1:2])
+plot_recruitment(ft[c(2,4)])
+plot_recruitment(ft[c(3,4)])
+p2 <- plot_ssb(ft[c(4, 3)], xlim = c(1979.5, 2024.5), 
+               breaks = seq(1964, 2024, by = 4), alpha = .2); p2
+plot_ssb(ft[c(3,4)])
+plot_agefit(ft[2])
+plot_ssb(ft)
+?plot_ssb
+
+# Set working directory & plot save directory
+this_year <- 2024
+
+#workDir <- here("species_specific_code","BS","pollock")  # define working directory
+#save_dir <- here(workDir, "results", paste0(this_year, " production"))
+
+# Read in proportions & shape for plotting
+proportions <- data.frame(ft[[1]]$pobs_bts)
+prop_ftnir <- data.frame(ft[[3]]$pobs_bts)
+
+names(prop_ftnir)[1:16] <- c("Year",1:15)
+names(proportions)[1:16] <- c("Year",1:15)
+props <- pivot_longer(proportions, cols=2:16, 
+              names_to = "Age", values_to = "Proportion") |> mutate(Age=as.numeric(Age))
+prop_ftnir <- pivot_longer(prop_ftnir, cols=2:16, 
+              names_to = "Age", values_to = "Proportion") |> mutate(Age=as.numeric(Age))
+props <- rbind(props,data.frame(Year=2020,Age=1,Proportion=0))
+# Only EBS age comp
+props_ebs <- props %>% 
+  arrange(Year, Age)
+props_ftnir <- prop_ftnir %>% 
+  arrange(Year, Age)
+
+# Set up shifting colors for each year to track cohorts
+colors <- rep(1:16, length(1982:this_year))
+
+colors
+props_ebs$color <- colors[1:nrow(props_ebs)]
+props_ftnir$color <- colors[1:nrow(props_ftnir)]
+
+prop_plot <- ggplot(props_ebs, aes(x = Age, y = Proportion, fill = color)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  geom_line(data = props_ftnir, aes(x = Age, y = Proportion),  size = .5) +  
+  scale_fill_viridis(option = "turbo") +
+  scale_x_discrete(breaks = c(1, 5, 10, 15)) +
+  scale_y_continuous(limits = c(0, 0.5), breaks = c(0, 0.2, 0.4)) +
+  ylab("Proportion") + 
+  guides(fill = "none") +
+  facet_wrap(~ Year, ncol = 4, dir = "v") +
+  theme(strip.text.x = element_blank()) +
+  geom_text(x = 13, y = 0.45, aes(label = Year), color = "grey30", size = 2.8)
+prop_plot
+
+ggsave(prop_plot, filename = here(save_dir, "Age_comp.png"),
+       width=120, height=180, units="mm", dpi=300)
+
+```
