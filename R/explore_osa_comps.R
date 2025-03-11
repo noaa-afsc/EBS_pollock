@@ -10,28 +10,70 @@ library(cowplot)
 library(reshape2)
 library(dplyr)
 library(tidyr)
+library(afscOSA)
 theme_set(theme_bw())
 library(here)
 #source(here::here("tools", "plot_osa_comps.R"))
-get_osa_out <- function(M=M,label="BTS") {
-  o    <- M$pobs_bts[,2:16]
-  p    <- M$phat_bts[,2:16]
-  M$EffN_bts
-  Neff <- M$sam_bts
+gear="ATS"
+M<- modlst
+get_osa_out <- function(M=M,label="BTS",gear="BTS") {
+  if(gear == "BTS") {
+    o    <- M$pobs_bts[,2:16]
+    p    <- M$phat_bts[,2:16]
+    Neff <- M$EffN_bts[,2]
+    yrs  <- M$yr_bts
+    age  <- 1:15
+  }
+  if(gear=="ATS") {
+    o    <- M$pobs_ats[,3:16]
+    p    <- M$phat_ats[,3:16]
+    Neff <- M$EffN_ats[,2]
+    yrs  <- M$yr_ats
+    years <- M$pobs_ats[,1]
+    age  <- 2:15
+  }
+  if(gear=="Fishery")  {
+    o    <- M$pobs_fsh[,2:16]
+    p    <- M$phat_fsh[,2:16]
+    Neff <- M$EffN_fsh[,2]
+    yrs  <- 1964:2023
+    age  <- 1:15
+    years <- M$pobs_fsh[,1]
+  }
   #Neff <- M$EffN_bts[,2]
-  yrs  <- M$yr_bts
-  age  <- 1:15
   pearson <- Neff*(o-p)/sqrt(p*Neff)
-  years <- M$pobs_bts[,1]
   out <- afscOSA::run_osa(fleet = label, index_label = 'Age',
                            obs = o, exp = p, N = Neff, index = age, years = yrs)
   return(out)
 }
 
-out1 <- get_osa_out(M=M,label="BTS")
-out2 <-get_osa_out(M=Fix,label="Fix")
-input <- list(out1, out2)
-osaplots <- plot_osa(input)
+names(M)
+out1 <- get_osa_out(M=M[[2]],label="Base", gear="BTS")
+out2 <-get_osa_out(M=M[[3]],label="FT-NIR1",gear="BTS")
+out3 <-get_osa_out(M=M[[4]],label="FT-NIR2",gear="BTS")
+input <- list(out1, out2,out3)
+p <- plot_osa(input)  
+p1 <- p$bubble + ggthemes::theme_few(base_size = 15) + ggtitle("Bottom trawl survey")
+p2 <- p$qq + ggthemes::theme_few(base_size = 15) 
+p1/p2
+
+out1 <-get_osa_out(M=M[[2]],label="Base",gear="ATS")
+out2 <-get_osa_out(M=M[[3]],label="FT-NIR1",gear="ATS")
+out3 <-get_osa_out(M=M[[4]],label="FT-NIR2",gear="ATS")
+input <- list(out1, out2,out3)
+p <- plot_osa(input) 
+p1 <- p$bubble + ggthemes::theme_few(base_size = 15) + ggtitle("Acoustic trawl survey")
+p2 <- p$qq + ggthemes::theme_few(base_size = 15) 
+p1/p2
+
+out1 <- get_osa_out(M=M[[2]],label="Base", gear="Fishery")
+out2 <-get_osa_out(M=M[[3]],label="FT-NIR1",gear="Fishery")
+out3 <-get_osa_out(M=M[[4]],label="FT-NIR2",gear="Fishery")
+input <- list(out1, out2,out3)
+p <- plot_osa(input) 
+p1 <- p$bubble + ggthemes::theme_few(base_size = 15) + ggtitle("Fishery")
+p2 <- p$qq + ggthemes::theme_few(base_size = 15) 
+p1/p2
 
 
 o    <- M$pobs_ats[,3:16]

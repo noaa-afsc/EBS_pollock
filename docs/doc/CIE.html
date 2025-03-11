@@ -42,6 +42,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-9a8838679f0a72b28e35bc713d4045e6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-801a2ba1fb51b95897f211c1a2136f2b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -69,6 +72,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="../site_libs/tabwid-1.1.3/tabwid.js"></script>
 
 
 <link rel="stylesheet" href="../mystyle.css">
@@ -131,11 +136,12 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary">Executive Summary</a>
   <ul class="collapse">
-  <li><a href="#summary-of-changes-in-assessment-inputs" id="toc-summary-of-changes-in-assessment-inputs" class="nav-link" data-scroll-target="#summary-of-changes-in-assessment-inputs">Summary of Changes in Assessment Inputs</a></li>
   <li><a href="#summary-of-results" id="toc-summary-of-results" class="nav-link" data-scroll-target="#summary-of-results">Summary of Results</a></li>
   </ul></li>
+  <li><a href="#comparing-ft-nir-compositions-with-traditional-methods" id="toc-comparing-ft-nir-compositions-with-traditional-methods" class="nav-link" data-scroll-target="#comparing-ft-nir-compositions-with-traditional-methods">Comparing FT-NIR compositions with traditional methods</a></li>
+  <li><a href="#fit-to-models" id="toc-fit-to-models" class="nav-link" data-scroll-target="#fit-to-models">Fit to models</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/noaa-afsc/ebs_pollock/edit/main/doc/CIE.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/blob/main/doc/CIE.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="CIE.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="CIE.epub"><i class="bi bi-file"></i>ePub</a></li><li><a href="CIE.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/noaa-afsc/ebs_pollock/edit/main/doc/CIE.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/blob/main/doc/CIE.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="CIE.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -174,15 +180,245 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="executive-summary" class="level1">
 <h1>Executive Summary</h1>
-<section id="summary-of-changes-in-assessment-inputs" class="level2">
-<h2 class="anchored" data-anchor-id="summary-of-changes-in-assessment-inputs">Summary of Changes in Assessment Inputs</h2>
-<p>The work presented below was based on the same data sets used in the 2023 assessment. The model was updated so that it could handle a number of requests from the SSC. We enhanced the capability of the code to deal with some alternative hypotheses of factors that affect the stock recruitment relationship (SRR). We stepped through a number of sensitivity analyses to evaluate the stock-recruitment relationship (SRR) and the steepness of the SRR. We also evaluated the impact of including the natural mortality-at-age estimates from CEATTLE model.</p>
-</section>
+<p>The work presented below was based on the same data sets used in the 2024 assessment. The first task was to update the model runs to include the 2023 data. The model runs were updated and the results are presented below. The model runs were then used to compare the FT-NIR data with the traditional data sources (BTS and ATS). The results of these comparisons are presented below. The model fits to the data are presented in the tables at the end of the document.</p>
 <section id="summary-of-results" class="level2">
 <h2 class="anchored" data-anchor-id="summary-of-results">Summary of Results</h2>
-
-
+<div class="cell" data-warnings="false" data-messages="false">
+<div class="cell-output-display">
+<div id="fig-data" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-data-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Data extent by age composition and model runs."><img src="CIE_files/figure-html/fig-data-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Data extent by age composition and model runs.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-warnings="false" data-messages="false">
+<div class="cell-output-display">
+<div id="fig-ft1-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-2.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-3.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-4.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;6: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-5.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;7: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-6.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;8: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-7.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-8" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;9: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-8.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-9" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure&nbsp;10: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-9.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;11: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-10.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-11" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure&nbsp;12: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-11.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-12" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure&nbsp;13: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-12.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-13" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure&nbsp;14: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-13.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div id="fig-ft1-14" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ft1-14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-ft1-14.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure&nbsp;15: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-ft1-14.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ft1-14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
+</section>
+<section id="comparing-ft-nir-compositions-with-traditional-methods" class="level1">
+<h1>Comparing FT-NIR compositions with traditional methods</h1>
+<div class="cell" data-warnings="false" data-messages="false">
+<div class="cell-output-display">
+<div id="fig-comp_bts" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-comp_bts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-comp_bts-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure&nbsp;16: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-comp_bts-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comp_bts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-warnings="false" data-messages="false">
+<div class="cell-output-display">
+<div id="fig-comp_fsh" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-comp_fsh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-comp_fsh-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure&nbsp;17: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-comp_fsh-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comp_fsh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-warnings="false" data-messages="false">
+<div class="cell-output-display">
+<div id="fig-comp_ats" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-comp_ats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="CIE_files/figure-html/fig-comp_ats-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure&nbsp;18: Model results comparing last year’s selected model -2021)"><img src="CIE_files/figure-html/fig-comp_ats-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comp_ats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18: Model results comparing last year’s selected model -2021)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fit-to-models" class="level1">
+<h1>Fit to models</h1>
+<div class="tabwid"><style>.cl-bcf4a4ec{}.cl-bcf0070c{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-bcf1d7c6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-bcf1d7c7{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-bcf1ee50{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-bcf1ee5a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-bcf1ee5b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-bcf1ee64{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-bcf1ee65{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-bcf1ee6e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-bcf4a4ec"><thead><tr style="overflow-wrap:break-word;"><th class="cl-bcf1ee50"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">Component</span></p></th><th class="cl-bcf1ee5a"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">Base</span></p></th><th class="cl-bcf1ee5a"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">FT-NIR fleets aggregated</span></p></th><th class="cl-bcf1ee5a"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">FT-NIR fleet-specific</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">RMSE BTS</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.150</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.151</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.152</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">RMSE ATS</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.167</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.190</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.187</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">RMSE AVO</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.216</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.242</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.237</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">RMSE CPUE</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.097</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.097</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.097</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">SDNR BTS</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.890</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.900</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.880</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">SDNR ATS</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.930</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">1.100</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">1.080</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">SDNR AVO</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">0.950</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">1.080</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">1.060</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">Eff. N Fishery</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">357.670</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">335.530</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">380.470</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">Eff. N BTS</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">159.430</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">147.120</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">152.060</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">Eff. N ATS</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">233.170</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">215.240</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">216.130</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">Catch NLL</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">2.960</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">4.120</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">3.050</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">BTS NLL</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">23.910</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">24.400</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">23.390</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">ATS NLL</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">7.750</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">10.820</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">10.480</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">AVO NLL</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">8.240</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">10.570</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">10.070</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">Fish Age NLL</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">416.810</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">558.610</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">613.780</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">BTS Age NLL</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">286.120</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">331.600</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">315.560</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">ATS Age NLL</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">42.550</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">48.770</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">50.570</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">NLL selectivity</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">212.700</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">209.860</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">209.720</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">NLL Priors</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">20.330</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">20.650</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">20.720</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee5b"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">Data NLL</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">807.120</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">1,009.930</span></p></td><td class="cl-bcf1ee64"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">1,049.560</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-bcf1ee65"><p class="cl-bcf1d7c6"><span class="cl-bcf0070c">Total NLL</span></p></td><td class="cl-bcf1ee6e"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">1,110.900</span></p></td><td class="cl-bcf1ee6e"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">1,308.410</span></p></td><td class="cl-bcf1ee6e"><p class="cl-bcf1d7c7"><span class="cl-bcf0070c">1,345.830</span></p></td></tr></tbody></table></div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -761,6 +997,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

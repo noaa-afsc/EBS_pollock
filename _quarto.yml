@@ -82,11 +82,11 @@ format:
       # - \rfoot{\thepage}
       # - \lfoot{EBS pollock assessment discussion paper }
 
-  epub:
-    metadata:
-      title: "Eastern Bering Sea walleye pollock stock assessment"
-  docx:
-    reference-docx: "template.docx"
+  #epub:
+    #metadata:
+      #title: "Eastern Bering Sea walleye pollock stock assessment"
+  #docx:
+    #reference-docx: "template.docx"
 
 bibliography: doc/references.bib
 
