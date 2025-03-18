@@ -121,7 +121,8 @@ p1/p2
 plot_agefit(modlst[[2]],case_label="Base")
 plot_agefit(modlst[[3]],case_label=names(modlst)[3]) 
 plot_agefit(modlst[[2]],case_label=names(modlst)[2],gear="ats","Acoustic survey")
-plot_agefit(modlst[[3]],case_label=names(modlst)[3],gear="ats","Acoustic survey")
+plot_agefit(modlst[[2]],case_label=names(modlst)[3],gear="ats","Acoustic survey")
+plot_agefit(modlst[[4]],case_label=names(modlst)[4],gear="ats","Acoustic survey")
 plot_agefit(modlst[[1]],case_label=names(modlst)[1],gear="fsh",type="fishery",styr=1980) 
 plot_agefit(modlst[[3]],case_label=names(modlst)[3],gear="fsh",type="fishery",styr=1980) 
 ```
@@ -137,7 +138,7 @@ plot_agefit(modlst[[3]],case_label=names(modlst)[3],gear="fsh",type="fishery",st
 # Set working directory & plot save directory
 this_year <- 2024
 # Read in proportions & shape for plotting
-proportions <- data.frame(modlst[[1]]$pobs_bts)
+proportions <- data.frame(modlst[[2]]$pobs_bts)
 prop_ftnir <- data.frame(modlst[[3]]$pobs_bts)
 
 names(prop_ftnir)[1:16] <- c("Year",1:15)
@@ -227,7 +228,7 @@ prop_plot
 #| label: fig-comp_ats
 #| fig.cap: "Model results comparing last year's selected model -2021)"
 # Set working directory & plot save directory
-proportions <- data.frame(modlst[[1]]$pobs_ats)
+proportions <- data.frame(modlst[[2]]$pobs_ats)
 prop_ftnir <- data.frame(modlst[[3]]$pobs_ats)
 
 names(prop_ftnir)[1:16] <- c("Year",1:15)
