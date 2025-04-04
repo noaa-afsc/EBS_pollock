@@ -2,6 +2,8 @@
 *.d
 unbounded.csv
 *.RDS
+*.sso
+ss3
 
 # Compiled Object files
 *.slo
