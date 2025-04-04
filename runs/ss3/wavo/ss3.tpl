@@ -1,0 +1,1 @@
+/Users/jim/_mymods/ss/stock-synthesis/ss3.tpl
