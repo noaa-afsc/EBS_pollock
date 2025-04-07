@@ -14,20 +14,16 @@ if (length(pkg_to_install)) install.packages(pkg_to_install)
 
 lapply(required_pkg, library, character.only = TRUE)
 
-#devtools::install_github("r4ss/r4ss")
+devtools::install_github("r4ss/r4ss",
+                         ref = "c53f82fcfb3f54296d79ba3a4163990150981285"
+)
 getwd()
 library(r4ss)
 library(tidyverse)
 library(ggridges)
 # get FMSY
-r1 <- SS_output(dir = here::here("runs","ss",'wavo') )
-r2 <- SS_output(dir = here::here("runs","ss",'base') )
-r3 <- SS_output(dir = here::here("runs","ss",'base') )
-SS_plots(r1)
-mods <- SSgetoutput(dirvec = c(here::here("runs","ss3","base"), here::here("runs","ss3","wavo") ) )
-modsum<-SSsummarize(mods)
-SSplotComparisons(modsum)
-
+r1 <- SS_output(dir = '.'); 
+#SS_plots(r1)
 r1$natage
 r1$SS_output
 (unique(c(r1$ageselex$Fleet,r1$ageselex$Factor) ))
@@ -69,7 +65,14 @@ plot_sel <- function(Year=M$Yr,sel=M$sel_fsh, styr=1977, fage=NULL, lage=NULL, a
     scale_y_discrete(limits=rev(levels(as.factor(sdf$Year))))
   return(p1)
 }
+M<- 
 
+
+
+
+
+r2 <- SS_output(dir = '../selvary'); 
+r3 <- SS_output(dir = '../Hake_2023_Model_Files'); 
 mods <- SSgetoutput(dirvec = c(".", "../selvary") )
 modsum<-SSsummarize(mods)
 SSplotComparisons(modsum)
