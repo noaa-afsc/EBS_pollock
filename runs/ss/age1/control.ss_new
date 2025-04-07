@@ -167,9 +167,11 @@
 #_5:  0/1 for biasadj or not
 #_6:  0/1 to float
 #_   fleet      link link_info  extra_se   biasadj     float  #  fleetname
-         2         1         0         1         0         1  #  Acoustic_Survey
-         3         1         0         1         0         1  #  bottom_Survey
-         4         1         0         1         0         1  #  AVO
+         2         1         0         0         0         1  #  Acoustic_Survey
+         3         1         0         0         0         1  #  bottom_Survey
+         4         1         0         0         0         1  #  AVO
+         5         1         0         1         0         1  #  Age1_ATS
+         6         1         0         1         0         1  #  Age1_BTS
 -9999 0 0 0 0 0
 #
 #_Q_parameters
@@ -180,6 +182,10 @@
           0.01           1.2     0.0100115        0.0755           0.8             0         -4          0          0          0          0          0          0          0  #  Q_extraSD_bottom_Survey(3)
            -15            15      -8.23005             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_AVO(4)
           0.01           1.2     0.0100115        0.0755           0.8             0         -4          0          0          0          0          0          0          0  #  Q_extraSD_AVO(4)
+           -15            15      -8.23005             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Age1_ATS(5)
+          0.01           1.2     0.0100115        0.0755           0.8             0         -4          0          0          0          0          0          0          0  #  Q_extraSD_Age1_ATS(5)
+           -15            15      -8.23005             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Age1_BTS(6)
+          0.01           1.2     0.0100115        0.0755           0.8             0         -4          0          0          0          0          0          0          0  #  Q_extraSD_Age1_BTS(6)
 #_no timevary Q parameters
 #
 #_size_selex_patterns
@@ -206,6 +212,8 @@
  0 0 0 0 # 2 Acoustic_Survey
  0 0 0 0 # 3 bottom_Survey
  0 0 0 0 # 4 AVO
+ 0 0 0 0 # 4 AVO
+ 0 0 0 0 # 4 AVO
 #
 #_age_selex_patterns
 #Pattern:_0; parm=0; selex=1.0 for ages 0 to maxage
@@ -230,6 +238,8 @@
  17 0 0 15 # 2 Acoustic_Survey
  17 0 0 15 # 3 bottom_Survey
  15 0 0 2 # 4 AVO
+ 11 0 0 0 # 3 Age1_Survey
+ 11 0 0 0 # 3 Age1_Survey
 #
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
 # 1   Fishery LenSelex
@@ -288,6 +298,12 @@
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P15_bottom_Survey(3)
             -5             9             0            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P16_bottom_Survey(3)
 # 4   AVO AgeSelex
+# 5   Age1_ATS AgeSelex
+             1             1             1            -1          0.01             0        -99          0          0          0          0          0          0          0  #  minage@sel=1_Age1_Survey(3)
+             1             1             1            -1          0.01             0        -99          0          0          0          0          0          0          0  #  maxage@sel=1_Age1_Survey(3)
+# 6   Age1_BTS AgeSelex
+             1             1             1            -1          0.01             0        -99          0          0          0          0          0          0          0  #  minage@sel=1_Age1_Survey(3)
+             1             1             1            -1          0.01             0        -99          0          0          0          0          0          0          0  #  maxage@sel=1_Age1_Survey(3)
 #_Dirichlet and/or MV Tweedie parameters for composition error
 #_multiple_fleets_can_refer_to_same_parm;_but_list_cannot_have_gaps
             -5            20             0             0            99             0         -2          0          0          0          0          0          0          0  #  ln(DM_theta)_Age_P1
