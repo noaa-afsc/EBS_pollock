@@ -307,7 +307,7 @@
 #	set	up	population	length	bin	structure	(note	-	irrelevant	if	not	using	size	data	and	using	empirical	wtatage													
 2	#	length	bin	method:	1=use	databins;	2=generate	from	binwidth,min,max	below;	3=read	vector																			
 2	#	binwidth	for	population	size	comp																									
-10	#	minimum	size	in	the	population	(lower	edge	of	first	bin	and	size	at	age	0.00)															
+4	#	minimum	size	in	the	population	(lower	edge	of	first	bin	and	size	at	age	0.00)															
 70	#	maximum	size	in	the	population	(lower	edge	of	last	bin)																				
 1	#	use	length	composition	data	(0/1/2)	where	2	invokes	new	comp_control	format																			
 #_mintailcomp:	upper	and	lower	distribution	for	females	and	males	separately	are	accumulated	until	exceeding	this	level.																
@@ -349,12 +349,12 @@
 #_minsamplesize:	minimum	sample	size;	set	to	1	to	match	3.24,	minimum	value	is	0.001																		
 #																															
 #_mintailcomp	addtocomp	combM+F	CompressBins	CompError	ParmSelect	minsamplesize																									
--1	0.001	0	0	1	1	0.001	#_fleet:1_Fishery																								
--1	0.001	0	0	1	2	0.001	#_fleet:2_Acoustic_Survey																								
--1	0.001	0	0	1	3	0.001	#_fleet:3_bottom_Survey																								
--1	0.001	0	0	1	4	0.001	#_fleet:4_AVO																								
--1	0.001	0	0	1	5	0.001	#_fleet:4_AVO																								
--1	0.001	0	0	1	6	0.001	#_fleet:4_AVO																								
+-1	0.001	0	0	0	0	0.001	#_fleet:1_Fishery																								
+-1	0.001	0	0	0	0	0.001	#_fleet:2_Acoustic_Survey																								
+-1	0.001	0	0	0	0	0.001	#_fleet:3_bottom_Survey																								
+-1	0.001	0	0	0	0	0.001	#_fleet:4_AVO																								
+-1	0.001	0	0	0	0	0.001	#_fleet:4_AVO																								
+-1	0.001	0	0	0	0	0.001	#_fleet:4_AVO																								
 1	#_Lbin_method_for_Age_Data:	1=poplenbins;	2=datalenbins;	3=lengths																											
 #	sex	codes:	0=combined;	1=use	female	only;	2=use	male	only;	3=use	both	as	joint	sexxlength	distribution																
 #	partition	codes:	(0=combined;	1=discard;	2=retained																										

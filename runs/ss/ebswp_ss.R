@@ -21,12 +21,16 @@ library(tidyverse)
 library(ggridges)
 # get FMSY
 r1 <- SS_output(dir = here::here("runs","ss",'wavo') )
-r2 <- SS_output(dir = here::here("runs","ss",'base') )
 r3 <- SS_output(dir = here::here("runs","ss",'age1') )
+
+r3 <- SS_output(dir = here::here("runs","ss",'hake2') )
 #r3 <- SS_output(dir = here::here("runs","ss",'hake') )
 unique(r3$FleetNames)
+r2 <- SS_output(dir = here::here("runs","ss",'base') )
 SS_plots(r2)
 SS_plots(r3)
+
+
 mods <- SSgetoutput(dirvec = c(here::here("runs","ss3","base"), here::here("runs","ss3","age1") ) )
 modsum<-SSsummarize(mods)
 SSplotComparisons(modsum)
