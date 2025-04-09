@@ -1,4 +1,4 @@
-#V3.30.xx.yy;_safe;_compile_date:_Mar 12 2024;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
+#V3.30.xx.yy;_safe;_compile_date:_Apr  7 2025;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.2
 #C 2018 Hake forecast file
 # for all year entries except rebuilder; enter either: actual year, -999 for styr, 0 for endyr, neg number for rel. endyr
 1 # Benchmarks: 0=skip; 1=calc F_spr,F_btgt,F_msy; 2=calc F_spr,F0.1,F_msy; 3=add F_Blimit; 
@@ -59,7 +59,7 @@
 # Note that fleet allocation values is used directly as F if Do_Forecast=4 
 2 # basis for fcast catch tuning and for fcast catch caps and allocation  (2=deadbio; 3=retainbio; 5=deadnum; 6=retainnum); NOTE: same units for all fleets
 # Conditional input if relative F choice = 2
-# enter list of:  season,  fleet, relF; if used, terminate with season=-9999
+# enter list of:  season, fleet, relF; if used, terminate with season=-9999
 # 1 1 1
 # -9999 0 0  # terminator for list of relF
 # enter list of: fleet number, max annual catch for fleets with a max; terminate with fleet=-9999
@@ -75,7 +75,7 @@
 #
 2 # basis for input Fcast catch: -1=read basis with each obs; 2=dead catch; 3=retained catch; 99=input apical_F; NOTE: bio vs num based on fleet's catchunits
 #enter list of Fcast catches or Fa; terminate with line having year=-9999
-#_Yr Seas Fleet Catch(or_F)
+#_year seas fleet catch(or_F)
 -9999 1 1 0 
 #
 999 # verify end of input 
