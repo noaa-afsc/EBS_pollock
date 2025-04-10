@@ -248,7 +248,7 @@
 # 5   Age1_ATS LenSelex
 # 6   Age1_BTS LenSelex
 # 1   Fishery AgeSelex
-             0            10             5            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_ScaleAgeLo
+             0            10             3            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_ScaleAgeLo
              0            18             8            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_ScaleAgeHi
          -1002             3         -1000            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P1_Acoustic_Survey(2)
          -1002             3         -1000            -1          0.01             0         -2          0          0          0          0          0          0          0  #  AgeSel_P2_Acoustic_Survey(2)

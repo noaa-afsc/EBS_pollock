@@ -20,20 +20,28 @@ library(r4ss)
 library(tidyverse)
 library(ggridges)
 # get FMSY
-r1 <- SS_output(dir = here::here("runs","ss",'wavo') )
-r3 <- SS_output(dir = here::here("runs","ss",'age1') )
-
-r3 <- SS_output(dir = here::here("runs","ss",'hake2') )
 #r3 <- SS_output(dir = here::here("runs","ss",'hake') )
 unique(r3$FleetNames)
-r2 <- SS_output(dir = here::here("runs","ss",'base') )
-SS_plots(r2)
+r1 <- SS_output(dir = here::here("runs","ss",'base') )
+r2 <- SS_output(dir = here::here("runs","ss",'a39') )
+r3 <- SS_output(dir = here::here("runs","ss",'a45') )
+r4 <- SS_output(dir = here::here("runs","ss",'flex') )
+SS_plots(r1)
 SS_plots(r3)
+SS_plots(r4)
 
 
-mods <- SSgetoutput(dirvec = c(here::here("runs","ss3","base"), here::here("runs","ss3","age1") ) )
+
+mods <- SSgetoutput(dirvec = c(here::here("runs","ss","base"), 
+                               here::here("runs","ss","a39") ,
+                               here::here("runs","ss","a45") ,
+                               here::here("runs","ss","flex") 
+                               ) )
 modsum<-SSsummarize(mods)
-SSplotComparisons(modsum)
+SSplotComparisons(modsum, pdf=TRUE,
+                  legendlabels = c("Base","A39","A45","Flex"),
+                  plotdir = here::here("runs","ss","comparison") 
+)
 
 r1$natage
 r1$SS_output
