@@ -7,6 +7,7 @@ devtools::load_all()
 required_pkg <- c(
   "devtools", "here"
 )
+remotes::install_github("PIFSCstockassessments/ss3diags")
 
 pkg_to_install <- required_pkg[!(required_pkg %in%
                                    installed.packages()[, "Package"])]
@@ -17,6 +18,7 @@ lapply(required_pkg, library, character.only = TRUE)
 #devtools::install_github("r4ss/r4ss")
 getwd()
 library(r4ss)
+library(ss3diags)
 library(tidyverse)
 library(ggridges)
 # get FMSY

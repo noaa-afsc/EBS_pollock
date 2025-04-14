@@ -1,0 +1,205 @@
+"file","caption","alt_text","category","png_time","StartTime"
+"bio5_weightatsize.png","Weight-at-age for females",NA,"Bio",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"bio6_maturity.png","Spawning output at age (maturity x fecundity)",NA,"Bio",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"sel02_multiple_fleets_age1.png","Selectivity at age for multiple fleets.",NA,"Sel",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"sel02_multiple_fleets_age2.png","Selectivity at age derived from selectivity at length for multiple fleets.",NA,"Sel",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"sel11_timevary_surf_flt1sex1.png","Time-varying selectivity for Fishery",NA,"Sel",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"sel12_timevary_contour_flt1sex1.png","Time-varying selectivity for Fishery",NA,"Sel",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"sel13_age_flt1sex1.png","Ending year selectivity for Fishery",NA,"Sel",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"sel14_age_flt2sex1.png","Ending year selectivity for Acoustic_Survey",NA,"Sel",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"sel22_uncertaintysexFem.png","Uncertainty in selectivity for Acoustic_Survey ",NA,"Sel",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"ts7_Spawning_output.png","Spawning output",NA,"Timeseries",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"ts7_Spawning_output_with_95_intervals.png","Spawning output with ~95% asymptotic intervals",NA,"Timeseries",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"ts9_Relative_spawning_output.png","Relative spawning output: B/B_0",NA,"Timeseries",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"ts9_Relative_spawning_output_intervals.png","Relative spawning output: B/B_0 with ~95% asymptotic intervals",NA,"Timeseries",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"ts1_Total_biomass_(t).png","Total biomass (t)",NA,"Timeseries",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"ts4_Summary_biomass_(t).png","Summary biomass (t)",NA,"Timeseries",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"ts11_Age-0_recruits_(1000s).png","Age-0 recruits (1,000s)",NA,"Timeseries",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"ts11_Age-0_recruits_(1000s)_with_95_asymptotic_intervals.png","Age-0 recruits (1,000s) with ~95% asymptotic intervals",NA,"Timeseries",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"ts_summaryF.png","Summary F (definition of F depends on setting in starter.ss)",NA,"Timeseries",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"ts_DynamicB0.png","Dynamic B0 plot. The lower line shows the time series of estimated Spawning output in the presence of fishing mortality. The upper line shows the time series that could occur under the same dynamics (including deviations in recruitment), but without fishing. The point at the left represents the unfished equilibrium.",NA,"Timeseries",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"recdevs1_points.png","Recruitment deviations",NA,"RecDev",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"recdevs2_withbars.png","Recruitment deviations with 95% intervals",NA,"RecDev",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"recdevs3_varcheck.png","Recruitment deviations variance check.<br> See later figure of transformed variance values for comparison with bias adjustment settings in the model.",NA,"RecDev",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"recruit_fit_bias_adjust.png","Points are transformed variances. Red line shows current settings for bias adjustment specified in control file. Blue line shows least squares estimate of alternative bias adjustment relationship for recruitment deviations (which may or may not be an improvement. For more information, see<br> 
+<blockquote>Methot, R.D. and Taylor, I.G., 2011. Adjusting for bias due to variability of estimated recruitments in fishery assessment models. <i>Can. J. Fish. Aquat. Sci.</i>, 68:1744-1760.</blockquote><br> 
+Estimated alternative inputs to SS control file associated with blue line in figure: 
+<pre>1950.3   #_last_early_yr_nobias_adj_in_MPD 
+1975.3   #_first_yr_fullbias_adj_in_MPD 
+2021.0   #_last_yr_fullbias_adj_in_MPD 
+2023.5   #_first_recent_yr_nobias_adj_in_MPD 
+0.9054  #_max_bias_adj_in_MPD (1.0 to mimic pre-2009 models) </pre>",NA,"RecDev",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"SR_curve.png","Stock-recruit curve.  Point colors indicate year, with warmer colors indicating earlier years and cooler colors in showing later years.",NA,"S-R",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"SR_curve2.png","Stock-recruit curve with labels on first, last, and years with (log) deviations > 0.5. Point colors indicate year, with warmer colors indicating earlier years and cooler colors in showing later years.",NA,"S-R",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"SR_resids.png","Deviations around the stock-recruit curve. Labels are on first, last, and years with (log) deviations > 0.5. Point colors indicate year, with warmer colors indicating earlier years and cooler colors in showing later years.",NA,"S-R",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"catch1_landings.png","landings",NA,"Catch",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"catch2_landings_stacked.png","landings_stacked",NA,"Catch",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"catch9_harvest_rate.png","harvest_rate",NA,"Catch",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"SPR1_series.png","Timeseries of SPR. Horizontal line is at SPR target: 0.4",NA,"SPR",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"SPR2_minusSPRseries.png","Timeseries of 1-SPR. Horizontal line is at 1 - SPR target: 1 - 0.4 = 0.6",NA,"SPR",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"SPR3_ratiointerval.png","Timeseries of SPR ratio: (1-SPR)/(1-SPR_40%)",NA,"SPR",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"SPR4_phase.png","Phase plot of biomass ratio vs. SPR ratio.<br> Each point represents the biomass ratio at the start of the year and the relative fishing intensity in that same year. Warmer colors (red) represent early years and colder colors (blue) represent recent years. Lines through the final point show 95% intervals based on the asymptotic uncertainty for each dimension. The shaded ellipse is a 95% region which accounts for the estimated correlation between the two quantities: -0.702. The vertical line at 0.4 indicates the reference point as defined in the forecast.ss which can be removed from the plot via <code>SS_plots(..., btarg = -1)</code>. ",NA,"SPR",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"index1_cpuedata_Acoustic_Survey.png","Index data for Acoustic_Survey. Lines indicate 95% uncertainty interval around index values based on the model assumption of lognormal error. Thicker lines (if present) indicate input uncertainty before addition of estimated additional uncertainty parameter.",NA,"Index",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"index2_cpuefit_Acoustic_Survey.png","Fit to index data for Acoustic_Survey. Lines indicate 95% uncertainty interval around index values based on the model assumption of lognormal error. Thicker lines (if present) indicate input uncertainty before addition of estimated additional uncertainty parameter.",NA,"Index",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"index3_obs_vs_exp_Acoustic_Survey.png","Observed vs. expected index values with smoother for Acoustic_Survey",NA,"Index",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"index4_logcpuedata_Acoustic_Survey.png","Log index data for Acoustic_Survey. Lines indicate 95% uncertainty interval around index values based on the model assumption of lognormal error. Thicker lines (if present) indicate input uncertainty before addition of estimated additional uncertainty parameter.",NA,"Index",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"index5_logcpuefit_Acoustic_Survey.png","Fit to log index data on log scale for Acoustic_Survey. Lines indicate 95% uncertainty interval around index values based on the model assumption of lognormal error. Thicker lines (if present) indicate input uncertainty before addition of estimated additional uncertainty parameter.",NA,"Index",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"index6_log_obs_vs_exp_Acoustic_Survey.png","log(observed) vs. log(expected) index values with smoother for Acoustic_Survey",NA,"Index",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"index10_resids_SE_total_Acoustic_Survey.png","Residuals of fit to index for Acoustic_Survey.<br>Values are (log(Obs) - log(Exp))/SE where SE is the total standard error including any estimated additional uncertainty.",NA,"Index",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"index12_resids_SE_total_Acoustic_Survey.png","Deviations for fit to index for Acoustic_Survey.<br>Values are log(Obs) - log(Exp) and thus independent of index uncertainty.",NA,"Index",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"index9_standcpueall.png","Standardized indices overlaid. Each index is rescaled to have mean observation = 1.0.",NA,"Index",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers1_sex1_beg.png","Beginning of year expected numbers at age in (max ~ 11.4 billion)",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers1_sex1_mid.png","Middle of year expected numbers at age in (max ~ 10.3 billion)",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers6_len_sex1.png","Beginning of year expected numbers at length in (max ~ 12.1 billion)",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers6_len_sex1.png","Middle of year expected numbers at length in (max ~ 10.3 billion)",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers4_equilagecomp.png","Equilibrium age distribution",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers5_ageerrorSD.png","Ageing imprecision: SD of observed age (yr)",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_1.png","Distribution of observed age at true age 
+ for ageing error type 1",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_2.png","Distribution of observed age at true age 
+ for ageing error type 2",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_3.png","Distribution of observed age at true age 
+ for ageing error type 3",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_4.png","Distribution of observed age at true age 
+ for ageing error type 4",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_5.png","Distribution of observed age at true age 
+ for ageing error type 5",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_6.png","Distribution of observed age at true age 
+ for ageing error type 6",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_7.png","Distribution of observed age at true age 
+ for ageing error type 7",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_8.png","Distribution of observed age at true age 
+ for ageing error type 8",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_9.png","Distribution of observed age at true age 
+ for ageing error type 9",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_10.png","Distribution of observed age at true age 
+ for ageing error type 10",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_11.png","Distribution of observed age at true age 
+ for ageing error type 11",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_12.png","Distribution of observed age at true age 
+ for ageing error type 12",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_13.png","Distribution of observed age at true age 
+ for ageing error type 13",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_14.png","Distribution of observed age at true age 
+ for ageing error type 14",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_15.png","Distribution of observed age at true age 
+ for ageing error type 15",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_16.png","Distribution of observed age at true age 
+ for ageing error type 16",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_17.png","Distribution of observed age at true age 
+ for ageing error type 17",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_18.png","Distribution of observed age at true age 
+ for ageing error type 18",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_19.png","Distribution of observed age at true age 
+ for ageing error type 19",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_20.png","Distribution of observed age at true age 
+ for ageing error type 20",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_21.png","Distribution of observed age at true age 
+ for ageing error type 21",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_22.png","Distribution of observed age at true age 
+ for ageing error type 22",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_23.png","Distribution of observed age at true age 
+ for ageing error type 23",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_24.png","Distribution of observed age at true age 
+ for ageing error type 24",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_25.png","Distribution of observed age at true age 
+ for ageing error type 25",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_26.png","Distribution of observed age at true age 
+ for ageing error type 26",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_27.png","Distribution of observed age at true age 
+ for ageing error type 27",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_28.png","Distribution of observed age at true age 
+ for ageing error type 28",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_29.png","Distribution of observed age at true age 
+ for ageing error type 29",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_30.png","Distribution of observed age at true age 
+ for ageing error type 30",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_31.png","Distribution of observed age at true age 
+ for ageing error type 31",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_32.png","Distribution of observed age at true age 
+ for ageing error type 32",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_33.png","Distribution of observed age at true age 
+ for ageing error type 33",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_34.png","Distribution of observed age at true age 
+ for ageing error type 34",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_35.png","Distribution of observed age at true age 
+ for ageing error type 35",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_36.png","Distribution of observed age at true age 
+ for ageing error type 36",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_37.png","Distribution of observed age at true age 
+ for ageing error type 37",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_38.png","Distribution of observed age at true age 
+ for ageing error type 38",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_39.png","Distribution of observed age at true age 
+ for ageing error type 39",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_40.png","Distribution of observed age at true age 
+ for ageing error type 40",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_41.png","Distribution of observed age at true age 
+ for ageing error type 41",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_42.png","Distribution of observed age at true age 
+ for ageing error type 42",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_43.png","Distribution of observed age at true age 
+ for ageing error type 43",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_44.png","Distribution of observed age at true age 
+ for ageing error type 44",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_45.png","Distribution of observed age at true age 
+ for ageing error type 45",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_46.png","Distribution of observed age at true age 
+ for ageing error type 46",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_47.png","Distribution of observed age at true age 
+ for ageing error type 47",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_48.png","Distribution of observed age at true age 
+ for ageing error type 48",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_49.png","Distribution of observed age at true age 
+ for ageing error type 49",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_50.png","Distribution of observed age at true age 
+ for ageing error type 50",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_51.png","Distribution of observed age at true age 
+ for ageing error type 51",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"numbers10_ageerror_matrix_52.png","Distribution of observed age at true age 
+ for ageing error type 52",NA,"Numbers",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agedat__aggregated_across_time.png","Age comp data, aggregated across time by fleet.
+ <br> Note: tail compression in use makes aggregated plots more difficult to interpret.
+ <br> Labels 'retained' and 'discard' indicate discarded or retained sampled for each fleet. Panels without this designation represent the whole catch.
+",NA,"CompDat",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agedat__multi-fleet_comparison.png","Age comp data,  comparing across fleets",NA,"CompDat",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agedat_flt1mkt0_page1.png","Age comp data, whole catch, Fishery (plot 1 of 3).<br>'N input' is the input sample size. 'N adj.' is the sample size after adjustment by the Dirichlet-Multinomial <i>&#920</i> parameter based on the formula N adj. = 1 / (1+<i>&#920</i>) + N * <i>&#920</i> / (1+<i>&#920</i>). <br>For this fleet, <i>&#920</i> = 0.767 and the sample size multiplier is approximately <i>&#920</i> / (1+<i>&#920</i>) = 0.434. For more info, see <a href=https://doi.org/10.1016/j.fishres.2016.06.005>Thorson et al. (2017)</a>.",NA,"CompDat",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agedat_flt1mkt0_page2.png","Age comp data, whole catch, Fishery (plot 1 of 3).<br>'N input' is the input sample size. 'N adj.' is the sample size after adjustment by the Dirichlet-Multinomial <i>&#920</i> parameter based on the formula N adj. = 1 / (1+<i>&#920</i>) + N * <i>&#920</i> / (1+<i>&#920</i>). <br>For this fleet, <i>&#920</i> = 0.767 and the sample size multiplier is approximately <i>&#920</i> / (1+<i>&#920</i>) = 0.434. For more info, see <a href=https://doi.org/10.1016/j.fishres.2016.06.005>Thorson et al. (2017)</a>. (plot 2 of 3)",NA,"CompDat",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agedat_flt1mkt0_page3.png","Age comp data, whole catch, Fishery (plot 1 of 3).<br>'N input' is the input sample size. 'N adj.' is the sample size after adjustment by the Dirichlet-Multinomial <i>&#920</i> parameter based on the formula N adj. = 1 / (1+<i>&#920</i>) + N * <i>&#920</i> / (1+<i>&#920</i>). <br>For this fleet, <i>&#920</i> = 0.767 and the sample size multiplier is approximately <i>&#920</i> / (1+<i>&#920</i>) = 0.434. For more info, see <a href=https://doi.org/10.1016/j.fishres.2016.06.005>Thorson et al. (2017)</a>. (plot 2 of 3) (plot 3 of 3)",NA,"CompDat",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agedat_bubflt1mkt0_page3.png","Age comp data, whole catch, Fishery (max=0.71) (plot 3 of 3)",NA,"CompDat",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agedat_data_weighting_timeseries_part0_Fishery.png","Mean age for Fishery with 95% confidence intervals based on current sample sizes.",NA,"CompDat",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agedat_data_weighting_TA1-8_Fishery.png","Mean age for Fishery with 95% confidence intervals based on current sample sizes.",NA,"CompDat",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agedat_flt2mkt0.png","Age comp data, whole catch, Acoustic_Survey.<br>'N input' is the input sample size. 'N adj.' is the sample size after adjustment by the Dirichlet-Multinomial <i>&#920</i> parameter based on the formula N adj. = 1 / (1+<i>&#920</i>) + N * <i>&#920</i> / (1+<i>&#920</i>). <br>For this fleet, <i>&#920</i> = 14.782 and the sample size multiplier is approximately <i>&#920</i> / (1+<i>&#920</i>) = 0.937. For more info, see <a href=https://doi.org/10.1016/j.fishres.2016.06.005>Thorson et al. (2017)</a>.",NA,"CompDat",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agedat_bubflt2mkt0.png","Age comp data, whole catch, Acoustic_Survey (max=0.74)",NA,"CompDat",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agedat_data_weighting_timeseries_part0_Acoustic_Survey.png","Mean age for Acoustic_Survey with 95% confidence intervals based on current sample sizes.",NA,"CompDat",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agedat_data_weighting_TA1-8_Acoustic_Survey.png","Mean age for Acoustic_Survey with 95% confidence intervals based on current sample sizes.",NA,"CompDat",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agefit__aggregated_across_time.png","Age comps, aggregated across time by fleet.
+ <br> Note: tail compression in use makes aggregated plots more difficult to interpret.
+ <br> Labels 'retained' and 'discard' indicate discarded or retained sampled for each fleet. Panels without this designation represent the whole catch.
+",NA,"AgeComp",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agefit__multi-fleet_comparison.png","Pearson residuals,  comparing across fleets <br> 
+Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).",NA,"AgeComp",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agefit_flt1mkt0_page1.png","Age comps, whole catch, Fishery (plot 1 of 3).<br>'N input' is the input sample size. 'N adj.' is the sample size after adjustment by the Dirichlet-Multinomial <i>&#920</i> parameter based on the formula N adj. = 1 / (1+<i>&#920</i>) + N * <i>&#920</i> / (1+<i>&#920</i>). <br>For this fleet, <i>&#920</i> = 0.767 and the sample size multiplier is approximately <i>&#920</i> / (1+<i>&#920</i>) = 0.434. For more info, see <a href=https://doi.org/10.1016/j.fishres.2016.06.005>Thorson et al. (2017)</a>.",NA,"AgeComp",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agefit_flt1mkt0_page2.png","Age comps, whole catch, Fishery (plot 1 of 3).<br>'N input' is the input sample size. 'N adj.' is the sample size after adjustment by the Dirichlet-Multinomial <i>&#920</i> parameter based on the formula N adj. = 1 / (1+<i>&#920</i>) + N * <i>&#920</i> / (1+<i>&#920</i>). <br>For this fleet, <i>&#920</i> = 0.767 and the sample size multiplier is approximately <i>&#920</i> / (1+<i>&#920</i>) = 0.434. For more info, see <a href=https://doi.org/10.1016/j.fishres.2016.06.005>Thorson et al. (2017)</a>. (plot 2 of 3)",NA,"AgeComp",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agefit_flt1mkt0_page3.png","Age comps, whole catch, Fishery (plot 1 of 3).<br>'N input' is the input sample size. 'N adj.' is the sample size after adjustment by the Dirichlet-Multinomial <i>&#920</i> parameter based on the formula N adj. = 1 / (1+<i>&#920</i>) + N * <i>&#920</i> / (1+<i>&#920</i>). <br>For this fleet, <i>&#920</i> = 0.767 and the sample size multiplier is approximately <i>&#920</i> / (1+<i>&#920</i>) = 0.434. For more info, see <a href=https://doi.org/10.1016/j.fishres.2016.06.005>Thorson et al. (2017)</a>. (plot 2 of 3) (plot 3 of 3)",NA,"AgeComp",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agefit_residsflt1mkt0_page3.png","Pearson residuals, whole catch, Fishery (max=6.29) (plot 3 of 3) <br> 
+Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).",NA,"AgeComp",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agefit_data_weighting_timeseries_part0_Fishery.png","Mean age for Fishery with 95% confidence intervals based on current sample sizes (including any D-M weighting).",NA,"AgeComp",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agefit_data_weighting_TA1-8_Fishery.png","Mean age for Fishery with 95% confidence intervals based on current sample sizes.<br>Francis data weighting method TA1.8: thinner intervals (with capped ends) show result of further adjusting sample sizes based on suggested multiplier (with 95% interval) for age data from Fishery:<br>1.2246 (0.7896-2.5352) <br>For more info, see  <a href=https://doi.org/10.1139/f2011-025> Francis (2011)</a>.",NA,"AgeComp",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agefit_flt2mkt0.png","Age comps, whole catch, Acoustic_Survey.<br>'N input' is the input sample size. 'N adj.' is the sample size after adjustment by the Dirichlet-Multinomial <i>&#920</i> parameter based on the formula N adj. = 1 / (1+<i>&#920</i>) + N * <i>&#920</i> / (1+<i>&#920</i>). <br>For this fleet, <i>&#920</i> = 14.782 and the sample size multiplier is approximately <i>&#920</i> / (1+<i>&#920</i>) = 0.937. For more info, see <a href=https://doi.org/10.1016/j.fishres.2016.06.005>Thorson et al. (2017)</a>.",NA,"AgeComp",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agefit_residsflt2mkt0.png","Pearson residuals, whole catch, Acoustic_Survey (max=5.16) <br> 
+Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).",NA,"AgeComp",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agefit_data_weighting_timeseries_part0_Acoustic_Survey.png","Mean age for Acoustic_Survey with 95% confidence intervals based on current sample sizes (including any D-M weighting).",NA,"AgeComp",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"comp_agefit_data_weighting_TA1-8_Acoustic_Survey.png","Mean age for Acoustic_Survey with 95% confidence intervals based on current sample sizes.<br>Francis data weighting method TA1.8: thinner intervals (with capped ends) show result of further adjusting sample sizes based on suggested multiplier (with 95% interval) for age data from Acoustic_Survey:<br>0.4414 (0.2127-2.6177) <br>For more info, see  <a href=https://doi.org/10.1139/f2011-025> Francis (2011)</a>.",NA,"AgeComp",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"yield1_yield_curve.png","Yield curve",NA,"Yield",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"yield2_yield_curve_with_refpoints.png","Yield curve with reference points",NA,"Yield",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"yield3_surplus_production.png","Surplus production vs. total biomass plot. For interpretation, see<br> <blockquote>Walters, Hilborn, and  Christensen, 2008, Surplus production dynamics in declining and recovering fish populations. <i>Can. J. Fish. Aquat. Sci.</i> 65: 2536-2551. <a href='https://doi.org/10.1139/F08-170'>https://doi.org/10.1139/F08-170</a>.</blockquote>",NA,"Yield",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"yield4_surplus_production.png","Surplus production vs. spawning biomass plot. For interpretation, see<br> <blockquote>Forrest, Kronlund, Cleary, and Grinnell. 2023. An evidence-based approach for selecting a limit reference point for Pacific herring (<i>Clupea pallasii</i>) stocks in British Columbia, Canada. <i>Can. J. Fish. Aquat. Sci.</i> 80: 1071-1083. <a href='https://doi.org/10.1139/cjfas-2022-0168'>https://doi.org/10.1139/cjfas-2022-0168</a>.</blockquote>",NA,"Yield",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"yield5_YPR_timeseries.png","Time series of yield per recruit (kg)",NA,"Yield",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"data_plot.png","Data presence by year for each fleet and data type.",NA,"Data",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"data_plot2.png","Data presence by year for each fleet, where circle area is <br>  relative within a data type. Circles are proportional to <br>  total catch for catches; to precision for indices, discards, and <br>  mean body weight observations; and to total sample size for <br> compositions and mean weight- or length-at-age observations. <br> Observations excluded from the likelihood have <br> equal size for all years. <br> Note that since the circles are are scaled relative <br>  to maximum within each type, the scaling within separate plots <br>  should not be compared.",NA,"Data",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"parameter_distributions_page1.png","Parameter distribution plots (plot 1 of 2). <br>Deviation parameters are not included. <br>Plotting range is equal to input limits on parameters. Use fitrange = TRUE to scale the range to the estimates.",NA,"Pars",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"parameter_distributions_page2.png","Parameter distribution plots (plot 2 of 2).",NA,"Pars",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"parameterchecks.html","<b>Estimated parameters (excluding deviation parameters)</b><br> Any parameter with a gradient value with an absolute value above 0.001 or a parameter on bounds is colored in red.",NA,"DiagnosticTables",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"correlationcheck.html","<b>Highly correlated parameter pairs</b><br> Pairs of parameters with the  50  highest correlations, sorted by absolute value of the correlation. Correlations above 0.95 (in absolute value) are colored in red. These parameters may be confounded or may cause convergence issues.",NA,"DiagnosticTables",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"
+"lowcorrelationcheck.html","<b>Parameters with low correlations</b><br> Estimated parameters that are the least correlated with all other parameters. The correlation value represents the maximum correlation between the parameter in question and all other estimated parameters. Uncorrelated parameters may not be playing a significant role in the model. Maximum correlations below 0.01 are colored in red.",NA,"DiagnosticTables",2025-04-04 14:41:09.843292,"StartTime: Fri Apr 4 13:46:10 2025"

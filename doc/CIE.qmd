@@ -14,6 +14,9 @@ editor:
 ```{r startup, echo=FALSE, warnings=FALSE, message=FALSE, eval=TRUE}
 knitr::opts_chunk$set(message = FALSE)
 knitr::opts_chunk$set(warning = FALSE)
+library(plotly)
+library(r4ss)
+library(ggridges)
 library(ebswp)
 library(tidyverse)
 library(patchwork)
@@ -35,7 +38,7 @@ do_yearloop=0
 do_srrlst=0
 do_selsens=0
 
-Plot_Sel <- function(sel = all_sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 2023) {
+Plot_Sel <- function(sel = all_sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 2024) {
   sdf <- pivot_longer(sel, names_to = "age", values_to = "sel", cols = 2:(nages + 1)) |>
     filter(Year >= styr, Year <= endyr) |>
     mutate(age = as.numeric(age))
@@ -53,6 +56,33 @@ Plot_Sel <- function(sel = all_sel, fage = 1, lage = 13, nages = 15, styr = 1964
     scale_y_discrete(limits = rev(levels(as.factor(sdf$Year)))) +
     facet_grid(. ~ source)
   return(p1)
+}
+
+loadup<-FALSE
+#loadup<-TRUE
+if (loadup){
+  #source(here::here("GetResults.R"))
+  
+  ra <- SS_obj(SS_output(dir = here("ss","noramp"),verbose=FALSE),src="noramp") 
+  r2 <- SS_obj(SS_output(dir = here("ss","mod")),src="mod")  
+  r3 <- SS_obj(SS_output(dir = here("ss","mix")),src="mix")  
+  r4 <- SS_obj(SS_output(dir = here("ss","high")),src="high")  
+  #r5 <- SS_obj(SS_output(dir = here("ss","autocor")),src="autocor")  
+  ss_sel <- rbind(r1$sel,r2$sel,r3$sel,r4$sel)#,r5$sel)
+  #compute_matrix_summary(sel[,2:16])
+  gp_run<-gp_obj()
+  pm_run<-pm_obj()
+  pm_run2<-pm_obj(pm2, src="Pollock_model VPA-like")
+  load(here("SAM","poll23","run","model2.RData"))
+  sam_run <- SAM_obj()
+  am_run<-AMAK_obj(run_dir=here("amak2","runs", "base"))
+  am_run2<-AMAK_obj(run_dir=here("amak2","runs", "3par"),src="AMAK-3par-logistic")
+  am_run3<-AMAK_obj(run_dir=here("amak2","runs", "cpue"),src="AMAK w CPUE", nind=6)
+  all_sel <- rbind(sam_run$sel,pm_run$sel,am_run$sel,ss_run$sel,gp_run$sel)
+  all_ts <- rbind( sam_run$ts,pm_run$ts,am_run$ts,ss_run$ts,gp_run$ts)
+  save.image(file=here::here("compares.Rdata"))
+} else {
+  load(here::here("compares.Rdata"))
 }
 
 ``` 
