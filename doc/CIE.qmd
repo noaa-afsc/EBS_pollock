@@ -3,7 +3,7 @@ output: html
 title: "Eastern Bering Sea walleye pollock stock assessment"
 subtitle: May 2025, CIE review
 author: "Jim Ianelli and Carey McGilliard"
-date: April 2024
+date: April 2025
 editor_options: 
   chunk_output_type: console
 editor: 
