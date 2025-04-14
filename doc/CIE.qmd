@@ -82,7 +82,7 @@ if (loadup){
   all_ts <- rbind( sam_run$ts,pm_run$ts,am_run$ts,ss_run$ts,gp_run$ts)
   save.image(file=here::here("compares.Rdata"))
 } else {
-  load(here::here("compares.Rdata"))
+ # load(here::here("compares.Rdata"))
 }
 
 ``` 
