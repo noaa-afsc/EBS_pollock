@@ -1,0 +1,15 @@
+# Assuming props_lines is your additional dataset with columns: Age, Proportion, and Year
+prop_plot <- ggplot(props_ebs, aes(x = Age, y = Proportion, fill = color)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  geom_line(data = props_lines, aes(x = Age, y = Proportion, color = "Line Proportion"), size = 1) +  # Add lines
+  scale_fill_viridis(option = "turbo") +
+  scale_color_manual(name = "Legend", values = c("Line Proportion" = "black")) +  # Customize line color
+  scale_x_discrete(breaks = c(1, 5, 10, 15)) +
+  scale_y_continuous(limits = c(0, 0.5), breaks = c(0, 0.2, 0.4)) +
+  ylab("Proportion") + 
+  guides(fill = "none") +
+  facet_wrap(~ Year, ncol = 4, dir = "v") +
+  theme(strip.text.x = element_blank()) +
+  geom_text(x = 13, y = 0.45, aes(label = Year), color = "grey30", size = 2.8)
+
+print(prop_plot)
