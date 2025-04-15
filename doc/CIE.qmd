@@ -32,7 +32,7 @@ library(reshape2)
 .THEME <- ggthemes::theme_few()
 options(warn = -1)
 do_sigmaR_profile=0
-do_ft=0
+do_ft=1
 do_abc_sel=0
 do_yearloop=0
 do_srrlst=0
