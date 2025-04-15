@@ -6,6 +6,7 @@ author: "Jim Ianelli and Carey McGilliard"
 date: April 2025
 editor_options: 
   chunk_output_type: console
+bibliography: references.bib
 editor: 
   markdown: 
     wrap: 90
@@ -27,9 +28,10 @@ library(viridis)
 #devtools::install_github("seananderson/ggsidekick")
 library(ggsidekick)
 theme_set(theme_sleek())
+.THEME=theme_sleek()
+.OVERLAY=TRUE
 library(reshape2)
-.OVERLAY <- TRUE
-.THEME <- ggthemes::theme_few()
+#theme_set(ggthemes::theme_few()) 
 options(warn = -1)
 do_sigmaR_profile=0
 do_ft=0
@@ -63,7 +65,7 @@ loadup<-FALSE
 if (loadup){
   #source(here::here("GetResults.R"))
   
-  ra <- SS_obj(SS_output(dir = here("ss","noramp"),verbose=FALSE),src="noramp") 
+  ra <- SS_obj(SS_output(dir = here("runs","ss","base"),verbose=FALSE),src="base") 
   r2 <- SS_obj(SS_output(dir = here("ss","mod")),src="mod")  
   r3 <- SS_obj(SS_output(dir = here("ss","mix")),src="mix")  
   r4 <- SS_obj(SS_output(dir = here("ss","high")),src="high")  
@@ -85,36 +87,115 @@ if (loadup){
  # load(here::here("compares.Rdata"))
 }
 
-``` 
-
+```
 
 # Executive Summary
 
-The work presented below was based on the same data sets used in the 2024 assessment. The first task was to update the model runs to include the 2023 data. The model runs were updated and the results are presented below. The model runs were then used to compare the FT-NIR data with the traditional data sources (BTS and ATS). The results of these comparisons are presented below. The model fits to the data are presented in the tables at the end of the document. 
+The work presented below was based on the same data sets used in the 2024 assessment. The
+first task was to update the model runs to include the 2023 data. The model runs were
+updated and the results are presented below. The model runs were then used to compare the
+FT-NIR data with the traditional data sources (BTS and ATS). The results of these
+comparisons are presented below. The model fits to the data are presented in the tables at
+the end of the document.
 
-## Summary of Results
+
+# Comparing FT-NIR compositions with traditional microscope age estimations
+
+The fish age and growth lab at the AFSC have endeavored to expand on new technologies
+ (@helser2019). 
+
+Examining the abundance-at-age (for design-based estimates of the bottom-trawl age compositions) we show that in general, the TMA estimates show a high level of consistency 
+by cohort (@fig-consisTMA). For these same data, when applied to the FTNIRs age-estimation method, the consistency was lower (@fig-consisFTN).
+
+When preparing the data for the assessment, we plotted out the proportions-at-age for the TMA data and noted the differences in the estimates using the FTNIRs age estimates 
+(@fig-proportionsFSH, @fig-proportionsBTS, and @fig-proportionsATS). Other preparations involved estimating the age-determination errors for 
+each method following that of @punt2008. For the FTNIRs data, we optionally estimated separate age-estimation error 
+matrices by gear type. The appearance of the fleet-aggregated and fleet-specific input data files is shown in @fig-dataFile.
+
+```{r consisTMA}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-consisTMA
+#| fig.cap: "Cohort consistency over different ages based on log-abundance from the bottom-trawl survey data for pollock in recent years for traditional microscope age estimates. The cohorts are shown in the labels."
+  knitr::include_graphics("figs/consisTMA.png")
+```
+
+```{r consisFTN}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-consisFTN
+#| fig.cap: "Cohort consistency over different ages based on log-abundance from the bottom-trawl survey data for pollock in recent years for FTNIRs  age estimates. The cohorts are shown in the labels."
+  knitr::include_graphics("figs/consisFTN.png")
+```
+
+
+```{r proportionsFSH}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-proportionsFSH
+#| fig.cap: "Proportions at age for recent years for the fishery data where the columns represent the traditional microscope age estimates (TMA)  compared to the FTNIRs   age estimates (lines for the red-outlined panels)."
+  knitr::include_graphics("figs/proportionsFSH.png")
+```
+
+```{r proportionsBTS}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-proportionsBTS
+#| fig.cap: "Proportions at age for recent years for the bottom-trawl survey data where the columns represent the traditional microscope age estimates (TMA)  compared to the FTNIRs   age estimates (lines for the red-outlined panels)."
+  knitr::include_graphics("figs/proportionsBTS.png")
+```
+
+```{r proportionsATS}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-proportionsATS
+#| fig.cap: "Proportions at age for recent years for the acoustic-trawl survey data where the columns represent the traditional microscope age estimates (TMA)  compared to the FTNIRs   age estimates (lines for the red-outlined panels)."
+  knitr::include_graphics("figs/proportionsATS.png")
+```
+
+```{r dataFile}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-dataFile
+#| fig.cap: "Schematic of input datafile showing the breakout of the fleet-specific FTNIRs age-error matrices (right panel) compared to that where the global FTNIRs age-error matrices are used (left panel). "
+  knitr::include_graphics("figs/dataFile.png")
+```
+
+For the assessment model, the alternatives are shown based on the coverage of data and availability among types of ageing is shown in @fig-dataExtent.
+
 
 
 ```{r data}
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
-#| label: fig-data
-#| fig.cap: "Data extent by age composition and model runs."
+#| label: fig-dataExtent
+#| fig.cap: "Data extent by age composition for the models with FTNIRs age estimates. The data types are for the Fishery, bottom trawl survey (BTS), and acoustic trawl survey (ATS) and the years of coverage are shown in the x-axis."
 # Sample data
-df <- data.frame(
-  type = factor(c("Fishery-TMA", "Fishery-FTN", "BTS-TMA", "BTS-FTN","ATS-TMA","ATS-FTN"),
-    levels     =c("Fishery-TMA", "Fishery-FTN", "BTS-TMA", "BTS-FTN","ATS-TMA","ATS-FTN")),
-  start_year = c(1964, 2016, 1982, 2014, 1994, 2014),
-  end_year   = c(2015, 2023, 2013, 2023, 2013, 2023)
-)
-# Plot
-ggplot(df, aes(y = type,color=type)) +
-  geom_segment(aes(x = start_year, xend = end_year, y = type, yend = type), 
-               linewidth = 5) +
-  scale_x_continuous(breaks = seq(1960, 2025, 5)) +
-  theme_minimal() + theme(legend.position = "none") +
-  labs(title = "Coverage of years by type, EBS pollock", x = "Years", y = "Type")
+if (do_ft){
+  df <- data.frame(
+    type = factor(c("Fishery-TMA", "Fishery-FTN", "BTS-TMA", "BTS-FTN","ATS-TMA","ATS-FTN"),
+      levels     =c("Fishery-TMA", "Fishery-FTN", "BTS-TMA", "BTS-FTN","ATS-TMA","ATS-FTN")),
+    start_year = c(1964, 2016, 1982, 2014, 1994, 2014),
+    end_year   = c(2015, 2023, 2013, 2023, 2013, 2023)
+  )
+  # Plot
+  ggplot(df, aes(y = type,color=type)) +
+    geom_segment(aes(x = start_year, xend = end_year, y = type, yend = type), 
+                 linewidth = 5) +
+    scale_x_continuous(breaks = seq(1960, 2025, 5)) +
+    theme_minimal() + theme(legend.position = "none") +
+    labs(title = "Coverage of years by type, EBS pollock", x = "Years", y = "Type")
+}else{
+  knitr::include_graphics("figs/DataExtent.png")
+}
+
 
 ```
 
@@ -125,39 +206,17 @@ ggplot(df, aes(y = type,color=type)) +
 #| label: fig-ft1
 #| fig.cap: "Model results comparing last year's selected model -2021)"
 if (do_ft) {
-  source(here::here("R","pm_CIE.R"))
-  saveRDS(modlst, here::here("runs", "ftnir.rds"))
+  thisyr=2024; nextyr=thisyr+1; dec_tab_ord <<- 1:8
+  mod_names <- c("2024 TMA", "Base","FT-NIR fleets aggregated", "FT-NIR fleet-specific")
+  mod_dir <- c("lastyrdb", "lastyrdbae", "ftnir1", "ftnir2")
+  ftn_lst <- get_results(rundir = "runs")
+  #source(here::here("R","pm_CIE.R"))
+  saveRDS(ftn_lst, here::here("runs", "ftnir.rds"))
 } else{
-  modlst <- readRDS(here::here("runs", "ftnir.rds"))
+  ftn_lst <- readRDS(here::here("runs", "ftnir.rds"))
 }
-#plot_srr(modlst[c(1,3)], alpha = .2, xlim = c(0, 4200), ylim = c(0, 95000), sizeout = 3, sizein = 3, yrsin = c(1964:2021), ebar = TRUE)
-plot_avo(modlst[c(2,4)]) +scale_x_continuous(limits=c(2005,2025),breaks=seq(2006,2025,2)) 
-plot_ats(modlst[c(2,4)]) +
- scale_x_continuous(limits=c(2005,2025),breaks=seq(2006,2025,2)) +
-  ggthemes::theme_few()
-  
-plot_bts(modlst[c(2,4)],xlim=c(1980.5, 2024.5))
-plot_mnage(modlst[c(2,3)],xlim=c(1980.5, 2022.5), ylim=c(3,7.5)) + 
-  ggthemes::theme_few(base_size = 15) + facet_grid(type ~ .,scales='free') + 
-  scale_x_continuous(limits=c(2010.5,2025),breaks=seq(2010,2025,2)) 
 
-plot_ser(modlst[c(2,3)],xlim=c(1980.5, 2022.5),ylim=c(0,.33))
-plot_Nage_3(modlst[c(2,4)],xlim=c(1980.5, 2022.5))
-#plot_recruitment(modlst[c(3,4)])
-p1 <- plot_recruitment(modlst[c(4,3)],xlim=c(1980.5, 2022.5))
-p2 <- plot_ssb(modlst[c(4, 3)], xlim = c(1979.5, 2024.5), 
-               breaks = seq(1964, 2024, by = 4), alpha = .2); p2
-p1/p2
-plot_agefit(modlst[[2]],case_label="Base")
-plot_agefit(modlst[[3]],case_label=names(modlst)[3]) 
-plot_agefit(modlst[[2]],case_label=names(modlst)[2],gear="ats","Acoustic survey")
-plot_agefit(modlst[[2]],case_label=names(modlst)[3],gear="ats","Acoustic survey")
-plot_agefit(modlst[[4]],case_label=names(modlst)[4],gear="ats","Acoustic survey")
-plot_agefit(modlst[[1]],case_label=names(modlst)[1],gear="fsh",type="fishery",styr=1980) 
-plot_agefit(modlst[[3]],case_label=names(modlst)[3],gear="fsh",type="fishery",styr=1980) 
 ```
-
-# Comparing FT-NIR compositions with traditional methods
 
 ```{r comp_bts}
 #| echo: false
@@ -166,44 +225,6 @@ plot_agefit(modlst[[3]],case_label=names(modlst)[3],gear="fsh",type="fishery",st
 #| label: fig-comp_bts
 #| fig.cap: "Model results comparing last year's selected model -2021)"
 # Set working directory & plot save directory
-this_year <- 2024
-# Read in proportions & shape for plotting
-proportions <- data.frame(modlst[[2]]$pobs_bts)
-prop_ftnir <- data.frame(modlst[[3]]$pobs_bts)
-
-names(prop_ftnir)[1:16] <- c("Year",1:15)
-names(proportions)[1:16] <- c("Year",1:15)
-props <- pivot_longer(proportions, cols=2:16, 
-              names_to = "Age", values_to = "Proportion") |>
-  mutate(Age=as.numeric(Age))
-prop_ftnir <- pivot_longer(prop_ftnir, cols=2:16, 
-              names_to = "Age", values_to = "Proportion") |> mutate(Age=as.numeric(Age))
-props <- rbind(props,data.frame(Year=2020,Age=1,Proportion=0))
-# Only EBS age comp
-props_ebs <- props %>% 
-  arrange(Year, Age)
-props_ftnir <- prop_ftnir %>% 
-  arrange(Year, Age)
-# Set up shifting colors for each year to track cohorts
-colors <- rep(1:16, length(1982:2024))
-
-props_ebs$color <- colors[1:nrow(props_ebs)]
-props_ftnir$color <- colors[1:nrow(props_ftnir)]
-
-prop_plot <- ggplot(props_ebs, aes(x = Age, y = Proportion, fill = color)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  geom_line(data = props_ftnir, aes(x = Age, y = Proportion),  size = .5) +  
-  scale_fill_viridis(option = "turbo") +
-  scale_x_continuous(breaks = c(1, 5, 10, 15)) +
-  scale_y_continuous(limits = c(0, 0.5), breaks = c(0, 0.2, 0.4)) +
-  ylab("Proportion") + 
-  guides(fill = "none") +
-  facet_wrap(~ Year, ncol = 4, dir = "v") +
-  theme(strip.text.x = element_blank()) +
-  geom_text(x = 13, y = 0.45, aes(label = Year), color = "grey30", size = 2.8)
-prop_plot
-
-#ggsave(prop_plot, filename = here(save_dir, "Age_comp.png"), width=120, height=180, units="mm", dpi=300)
 
 ```
 
@@ -214,41 +235,7 @@ prop_plot
 #| label: fig-comp_fsh
 #| fig.cap: "Model results comparing last year's selected model -2021)"
 # Read in proportions & shape for plotting
-proportions <- data.frame(modlst[[1]]$pobs_fsh)
-prop_ftnir <- data.frame(modlst[[3]]$pobs_fsh)
 
-names(prop_ftnir)[1:16] <- c("Year",1:15)
-names(proportions)[1:16] <- c("Year",1:15)
-props <- pivot_longer(proportions, cols=2:16, 
-              names_to = "Age", values_to = "Proportion") |> mutate(Age=as.numeric(Age))
-prop_ftnir <- pivot_longer(prop_ftnir, cols=2:16, 
-              names_to = "Age", values_to = "Proportion") |> mutate(Age=as.numeric(Age))
-#props <- rbind(props,data.frame(Year=2020,Age=1,Proportion=0))
-# Only EBS age comp
-props_ebs <- props %>% filter(Year>1979) |> 
-  arrange(Year, Age)
-props_ftnir <- prop_ftnir %>% filter(Year>1979) |> 
-  arrange(Year, Age)
-
-# Set up shifting colors for each year to track cohorts
-colors <- rep(1:16, length(1980:2023))
-
-props_ebs$color <- colors[1:nrow(props_ebs)]
-props_ftnir$color <- colors[1:nrow(props_ftnir)]
-
-prop_plot <- ggplot(props_ebs, aes(x = Age, y = Proportion, fill = color)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  geom_line(data = props_ftnir, aes(x = Age, y = Proportion),  size = .5) +  
-  scale_fill_viridis(option = "turbo") +
-  scale_x_continuous(breaks = c(1, 5, 10, 15)) +
-  scale_y_continuous(limits = c(0, NA), breaks = c(0, 0.3, 0.6)) +
-  ylab("Proportion") + 
-  guides(fill = "none") +
-  facet_wrap(~ Year, ncol = 4, dir = "v") +
-  theme(strip.text.x = element_blank()) +
-  geom_text(x = 13, y = 0.45, aes(label = Year), 
-            color = "grey30", size = 2.8)
-prop_plot
 ```
 
 ```{r comp_ats}
@@ -258,54 +245,16 @@ prop_plot
 #| label: fig-comp_ats
 #| fig.cap: "Model results comparing last year's selected model -2021)"
 # Set working directory & plot save directory
-proportions <- data.frame(modlst[[2]]$pobs_ats)
-prop_ftnir <- data.frame(modlst[[3]]$pobs_ats)
 
-names(prop_ftnir)[1:16] <- c("Year",1:15)
-names(proportions)[1:16] <- c("Year",1:15)
-props <- pivot_longer(proportions, cols=2:16, 
-              names_to = "Age", values_to = "Proportion") |>
-  mutate(Age=as.numeric(Age), 
-         Proportion=ifelse(Year==2020,0,Proportion)) |> 
-         filter(Age>1, Age<11)
-prop_ftnir <- pivot_longer(prop_ftnir, cols=2:16, 
-              names_to = "Age", values_to = "Proportion") |>
-  mutate(Age=as.numeric(Age),
-         Proportion=ifelse(Year==2020,0,Proportion)) |> 
-         filter(Age>1,Age<11)
-# Only EBS age comp
-props_ebs <- props %>% filter(Year>1979) |> 
-  arrange(Year, Age)
-props_ftnir <- prop_ftnir %>% filter(Year>1979) |> 
-  arrange(Year, Age)
-
-# Set up shifting colors for each year to track cohorts
-colors <- rep(1:16, length(1980:2024))
-props_ebs$color <- colors[1:nrow(props_ebs)]
-props_ftnir$color <- colors[1:nrow(props_ftnir)]
-
-prop_plot <- ggplot(props_ebs, aes(x = Age, y = Proportion, fill = color)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  geom_line(data = props_ftnir, aes(x = Age, y = Proportion),  size = .5) +  
-  scale_fill_viridis(option = "turbo") +
-  scale_x_continuous(breaks = c(2, 4, 6, 8, 10)) +
-  scale_y_continuous(limits = c(0, NA), breaks = c(0, 0.3, 0.6)) +
-  ylab("Proportion") + 
-  guides(fill = "none") +
-  facet_wrap(~ Year, ncol = 4, dir = "v") +
-  theme(strip.text.x = element_blank()) +
-  geom_text(x = 8, y = 0.55, aes(label = Year), 
-            color = "grey30", size = 3.8)
-prop_plot
 ```
 
-# Fit to models
+## Fit to models
 
 ```{r modfits, results = "asis",echo=FALSE}
 #| output: asis
 #| echo: false
 # Fit to data-------------------
-df <- tab_fit(modlst[c(2,4,3)])
+df <- tab_fit(ftn_lst[c(2,4,3)])
 tab <- xtable::xtable(df,
   caption = "\\label{tbl:modfits}Goodness-of-fit measures to primary data for different data and age-error applications.
 RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals,
@@ -319,7 +268,42 @@ print(tab,
   include.rownames = FALSE, sanitize.text.function = function(x) { x }
 )
 
-flextable::flextable(tab_fit(modlst,mod_scen=c(2:4)))
+flextable::flextable(tab_fit(ftn_lst,mod_scen=c(2:4)))
 
 
 ```
+
+
+# Alternative assessment software
+
+## Stock-synthesis 3
+Stock synthesis 3 (SS3) is a well establish framework and is common in many diverse settings.
+(@methot2013)
+For EBS pollock, we extended an initial framework based on the configurations used for Pacific
+hake (@hake2024) since there are many similarities in the type of data available. Namely, empirical
+weight-at-age, acoustic survey data, and indices of 1-year olds (ref).
+
+## WHAM
+The "Woods Hole Assessment model" (WHAM) is written in TMB and is a fully state-space model
+(@stock2021). 
+
+## RTMB model
+
+Work at AFSC has developed a general model which has flexibility to specify regions and a variety of options including random effects. While this model is not yet fully developed, we
+present preliminary results here. The model is written in TMB and is similar to the WHAM model. 
+We pursue this model to explore the potential for a more flexible model that can be used for
+more explicit considerations of stocks linked to different regions (e.g., the US and Russian 
+portions of the EBS). Also, this model to add sex-specificity and random 
+effects (@cheng2025). 
+
+
+## CEATTLE model
+
+The CEATTLE model is a new model developed by the AFSC and is written in TMB (@adams2022). The model is
+an extension of the ADMB version used for the three-species multi-species model (@jurado2005, @holsman2024).
+
+# Bottom-trawl survey spatial distribution modeling
+
+Sophia's work here
+
+# References
