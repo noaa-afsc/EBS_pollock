@@ -21,8 +21,10 @@ dec_tab_ord <<- 1:8
 
 #--Main models to presesnt in Sept   -----------
 # NOTE: sequence weird because ATS FTNIR data messed up
-mod_names <- c("2024 TMA", "Base","FTNIR1","FTNIR2","LOO BTS comps")
+
+mod_names <- c("2024 TMA", "Base","FT-NIR fleets aggregated", "FT-NIR fleet-specific","LOO BTS comps")
 mod_dir <- c("lastyrdb", "lastyrdbae", "ftnir1", "ftnir2","loo_bts_comp")
+
 # run_proj(rundir="2023_runs")
 modlst <- get_results(rundir = "runs")
 # names(modlst)
