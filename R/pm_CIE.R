@@ -27,6 +27,9 @@ mod_dir <- c("lastyrdb", "lastyrdbae", "ftnir1", "ftnir2","loo_bts_comp")
 
 # run_proj(rundir="2023_runs")
 modlst <- get_results(rundir = "runs")
+mod_dir[1]
+
+read_fit(paste0("runs/",mod_dir[1],"/pm"))
 # names(modlst)
 M <<- modlst[[thismod]]
 #Fix <<- modlst[[6]]
