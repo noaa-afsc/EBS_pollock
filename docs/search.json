@@ -1,0 +1,62 @@
+[
+  {
+    "objectID": "doc/CIE.html",
+    "href": "doc/CIE.html",
+    "title": "Eastern Bering Sea walleye pollock stock assessment",
+    "section": "",
+    "text": "NULL",
+    "crumbs": [
+      "White-paper for CIE review"
+    ]
+  },
+  {
+    "objectID": "doc/CIE.html#fit-to-models",
+    "href": "doc/CIE.html#fit-to-models",
+    "title": "Eastern Bering Sea walleye pollock stock assessment",
+    "section": "Fit to models",
+    "text": "Fit to models\nComponentBaseFT-NIR fleets aggregatedFT-NIR fleet-specificRMSE BTS0.1500.1520.152RMSE ATS0.1670.1920.184RMSE AVO0.2160.2410.237RMSE CPUE0.0970.0970.097SDNR BTS0.8900.9000.880SDNR ATS0.9301.1301.070SDNR AVO0.9501.0801.050Eff. N Fishery357.670335.240380.560Eff. N BTS159.430147.180152.120Eff. N ATS233.170214.610227.210Catch NLL2.9604.2503.010BTS NLL23.91024.41023.430ATS NLL7.75011.39010.080AVO NLL8.24010.53010.060Fish Age NLL416.810558.820613.350BTS Age NLL286.120330.370314.100ATS Age NLL42.55046.97045.970NLL selectivity212.700209.530209.850NLL Priors20.33020.65020.730Data NLL807.1201,007.7701,042.700Total NLL1,110.9001,305.9301,339.140",
+    "crumbs": [
+      "White-paper for CIE review"
+    ]
+  },
+  {
+    "objectID": "doc/CIE.html#stock-synthesis-3",
+    "href": "doc/CIE.html#stock-synthesis-3",
+    "title": "Eastern Bering Sea walleye pollock stock assessment",
+    "section": "Stock-synthesis 3",
+    "text": "Stock-synthesis 3\nStock synthesis 3 (SS3) is a well establish framework and is common in many diverse settings. (Methot and Wetzel (2013)) For EBS pollock, we extended an initial framework based on the configurations used for Pacific hake (Grandin et al. (2024)) since there are many similarities in the type of data available. Namely, empirical weight-at-age, acoustic survey data, and indices of 1-year olds (ref).",
+    "crumbs": [
+      "White-paper for CIE review"
+    ]
+  },
+  {
+    "objectID": "doc/CIE.html#wham",
+    "href": "doc/CIE.html#wham",
+    "title": "Eastern Bering Sea walleye pollock stock assessment",
+    "section": "WHAM",
+    "text": "WHAM\nThe “Woods Hole Assessment model” (WHAM) is written in TMB and is a fully state-space model (Stock and Miller (2021)).",
+    "crumbs": [
+      "White-paper for CIE review"
+    ]
+  },
+  {
+    "objectID": "doc/CIE.html#rtmb-model",
+    "href": "doc/CIE.html#rtmb-model",
+    "title": "Eastern Bering Sea walleye pollock stock assessment",
+    "section": "RTMB model",
+    "text": "RTMB model\nWork at AFSC has developed a general model which has flexibility to specify regions and a variety of options including random effects. While this model is not yet fully developed, we present preliminary results here. The model is written in TMB and is similar to the WHAM model. We pursue this model to explore the potential for a more flexible model that can be used for more explicit considerations of stocks linked to different regions (e.g., the US and Russian portions of the EBS). Also, this model to add sex-specificity and random effects (Cheng et al. (2025)).",
+    "crumbs": [
+      "White-paper for CIE review"
+    ]
+  },
+  {
+    "objectID": "doc/CIE.html#ceattle-model",
+    "href": "doc/CIE.html#ceattle-model",
+    "title": "Eastern Bering Sea walleye pollock stock assessment",
+    "section": "CEATTLE model",
+    "text": "CEATTLE model\nThe CEATTLE model is a new model developed by the AFSC and is written in TMB (Adams et al. (2022)). The model is an extension of the ADMB version used for the three-species multi-species model (Jurado-Molina, Livingston, and Ianelli (2005), Holsman et al. (2024)).",
+    "crumbs": [
+      "White-paper for CIE review"
+    ]
+  }
+]
