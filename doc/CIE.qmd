@@ -39,7 +39,7 @@ do_abc_sel=0
 do_yearloop=0
 do_srrlst=0
 do_selsens= 0
-do_loo = 1
+do_loo = 0
 
 Plot_Sel <- function(sel = all_sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 2024) {
   sdf <- pivot_longer(sel, names_to = "age", values_to = "sel", cols = 2:(nages + 1)) |>
@@ -281,17 +281,22 @@ Here we present model runs that downweight one source of age composition data at
 #| warnings: FALSE
 #| messages: FALSE
 #| label: fig-loo
-#| fig.cap: "Model results comparing models that downweight one data source at a time)"
+#| fig.cap: "Model results comparing models that downweight one data source at a time"
 if (do_loo) {
   thisyr=2024; nextyr=thisyr+1; dec_tab_ord <<- 1:8
   mod_names <- c("2024 accepted", "LOO BTS age comps", "LOO ATS age comps","LOO survey indices")
   mod_dir <- c("lastyr", "loo_bts_comp", "loo_ats_comp", "loo_srv_indices")
-  loo_lst <- get_results(rundir = "runs")
+  loo_lst <- get_results(rundir = here::here("runs"))
   #source(here::here("R","pm_CIE.R"))
   saveRDS(loo_lst, here::here("runs", "loo.rds"))
+  p1<-plot_ssb(loo_lst,xlim = c(1964,2024),breaks = seq(1964, 2024, 4))
+  ggsave(filename = here::here("doc/figs/loo_ssb.png"),plot = p1,width = 8, height = 4,units = "in",device = "png")
+   # knitr::include_graphics("doc/figs/loo_ssb.png")
 } else{
   loo_lst <- readRDS(here::here("runs", "loo.rds"))
+  knitr::include_graphics(here::here("doc/figs/loo_ssb.png"))
 }
+
 
 ```
 
