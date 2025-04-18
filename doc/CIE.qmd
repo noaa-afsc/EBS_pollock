@@ -1,7 +1,7 @@
 ---
 output: html
 title: "Eastern Bering Sea walleye pollock stock assessment"
-subtitle: May 2025, CIE review
+subtitle: "May 2025, CIE review"
 author: "Jim Ianelli and Carey McGilliard"
 date: April 2025
 editor_options: 
@@ -34,12 +34,12 @@ library(reshape2)
 #theme_set(ggthemes::theme_few()) 
 options(warn = -1)
 do_sigmaR_profile=0
-do_ft=0
+do_ft=1
 do_abc_sel=0
 do_yearloop=0
 do_srrlst=0
 do_selsens= 0
-do_loo = 0
+do_loo = 1
 
 Plot_Sel <- function(sel = all_sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 2024) {
   sdf <- pivot_longer(sel, names_to = "age", values_to = "sel", cols = 2:(nages + 1)) |>
@@ -210,7 +210,7 @@ if (do_ft) {
   thisyr=2024; nextyr=thisyr+1; dec_tab_ord <<- 1:8
   mod_names <- c("2024 TMA", "Base","FT-NIR fleets aggregated", "FT-NIR fleet-specific")
   mod_dir <- c("lastyrdb", "lastyrdbae", "ftnir1", "ftnir2")
-  ftn_lst <- get_results(rundir = "runs")
+  ftn_lst <- get_results(rundir = here::here("runs"))
   #source(here::here("R","pm_CIE.R"))
   saveRDS(ftn_lst, here::here("runs", "ftnir.rds"))
 } else{
@@ -286,15 +286,19 @@ if (do_loo) {
   thisyr=2024; nextyr=thisyr+1; dec_tab_ord <<- 1:8
   mod_names <- c("2024 accepted", "LOO BTS age comps", "LOO ATS age comps","LOO survey indices")
   mod_dir <- c("lastyr", "loo_bts_comp", "loo_ats_comp", "loo_srv_indices")
+#  source("C:/GitProjects/ebswp/R/get-results.R", echo=TRUE)
+#  source("C:/GitProjects/ebswp/R/get-vars.R", echo=TRUE)
+#  source("C:/GitProjects/ebswp/R/get-tier3-res.R", echo=TRUE)
+#  therundir<-as.character(here::here("runs"))
   loo_lst <- get_results(rundir = here::here("runs"))
   #source(here::here("R","pm_CIE.R"))
   saveRDS(loo_lst, here::here("runs", "loo.rds"))
   p1<-plot_ssb(loo_lst,xlim = c(1964,2024),breaks = seq(1964, 2024, 4))
-  ggsave(filename = here::here("doc/figs/loo_ssb.png"),plot = p1,width = 8, height = 4,units = "in",device = "png")
-   # knitr::include_graphics("doc/figs/loo_ssb.png")
+  ggsave(filename = "figs/loo_ssb.png",plot = p1,width = 8, height = 4,units = "in",device = "png")
+  knitr::include_graphics("figs/loo_ssb.png")
 } else{
   loo_lst <- readRDS(here::here("runs", "loo.rds"))
-  knitr::include_graphics(here::here("doc/figs/loo_ssb.png"))
+  knitr::include_graphics("figs/loo_ssb.png")
 }
 
 
