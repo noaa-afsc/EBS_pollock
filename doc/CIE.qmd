@@ -30,6 +30,9 @@ library(ggsidekick)
 theme_set(theme_sleek())
 .THEME=theme_sleek()
 .OVERLAY=TRUE
+#plot_ssb(loo_lst)
+#plot_recruitment(loo_lst)
+#plot_ser(loo_lst)
 library(reshape2)
 #theme_set(ggthemes::theme_few()) 
 options(warn = -1)
@@ -39,7 +42,7 @@ do_abc_sel=0
 do_yearloop=0
 do_srrlst=0
 do_selsens= 0
-do_loo = 1
+do_loo = 0
 
 Plot_Sel <- function(sel = all_sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 2024) {
   sdf <- pivot_longer(sel, names_to = "age", values_to = "sel", cols = 2:(nages + 1)) |>
