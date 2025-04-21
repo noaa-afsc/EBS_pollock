@@ -328,6 +328,7 @@ library(adnuts)
 #adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm_or.parxx"))
 #adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm"))
 
+
 Get_EDF <- function(rundir, redo=FALSE) {
   if(redo){
     file.remove(here::here(rundir, "h1.hes")) 
@@ -385,17 +386,41 @@ Get_EDF <- function(rundir, redo=FALSE) {
 t1<- Get_EDF(rundir = here::here(rundir="runs/lastyrdbae/")) |> mutate(Model="Base")  #|> 
 t2<- Get_EDF(rundir = here::here(rundir="runs/ftnir1/"), redo=FALSE)   |> mutate(Model="FTNIR1")  
 t3<- Get_EDF(rundir = here::here(rundir="runs/ftnir2/"), redo=FALSE)   |> mutate(Model="FTNIR2")  
-cbind(t1, t2[,3], t3[,3]) |> gt::gt()
-  tab |> mutate(edf = round(edf, 1)) |> 
-  gt::gt() |> 
-  gt::fmt_number(columns = 3, decimals = 1) |> 
-  gt::fmt_markdown(columns = 1) |> 
-  gt::cols_label(par_names = "Parameter name", N="N", edf = "Effective degrees of freedom") |>
-  gt::tab_spanner(label = "Effective degrees of freedom", columns = c(1:3)) 
+df<-rbind(t1, t2, t3) #|> gt::gt()
+n_check <- df %>%
+  group_by(par_names) %>%
+  summarize(n_unique = n_distinct(N))
+
+# If all n_unique values are 1, then proceed with the transformation
+df_wide <- df %>%
+  # Get one copy of N per par_names
+  group_by(par_names) %>%
+  mutate(N = first(N)) %>%
+  ungroup() %>%
+  # Convert to wide format
+  pivot_wider(
+    id_cols = c(par_names, N),
+    names_from = Model,
+    values_from = edf
+  )
+
+df_wide |>  gt::gt() |> 
+  # Format all numeric columns except N to one decimal place
+  gt::fmt_number(
+    columns = -c(par_names, N),  # All columns except par_names and N
+    decimals = 0
+  ) %>%
+  # Keep N as integers (no decimals)
+  gt::fmt_number(
+    columns = N,
+    decimals = 0
+  ) %>%
+  # Add table header
+  gt::tab_header(
+    title = "EDF Values by Model and Parameter"
+  )
 
 #gt::gt(tab) |> gt::fmt_number(columns = 3, decimals = 1)
-
-
 
 ```
 
