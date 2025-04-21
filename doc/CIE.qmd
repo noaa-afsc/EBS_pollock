@@ -343,11 +343,11 @@ Get_EDF <- function(rundir, redo=FALSE) {
     system("cp admodel.hes h0.hes")
   }
   ## Read in the Hessians
-  h1 <- getADMBHess(filename=here(rundir, "h1.hes"))
-  h0 <- getADMBHess(filename=here(rundir, "h0.hes"))
+  h1 <- getADMBHess(filename=here::here(rundir, "h1.hes"))
+  h0 <- getADMBHess(filename=here::here(rundir, "h0.hes"))
   ## Create a vector of indices where fixed-effect parameters----
   #pars <- read_fit( here("runs/lastyrdb/pm"))
-  pars <- adnuts:::.read_mle_fit("pm", here(rundir))
+  pars <- adnuts:::.read_mle_fit("pm", here::here(rundir))
   indx <- h1[1, ] ;
   indx <- as.logical(indx)
   indx[] <- FALSE
@@ -383,8 +383,8 @@ Get_EDF <- function(rundir, redo=FALSE) {
 }
 
 t1<- Get_EDF(rundir = here::here(rundir="runs/lastyrdbae/")) |> mutate(Model="Base")  #|> 
-t2<- Get_EDF(rundir = here::here(rundir="runs/ftnir1/"), redo=TRUE)   |> mutate(Model="FTNIR1")  
-t3<- Get_EDF(rundir = here::here(rundir="runs/ftnir2/"), redo=TRUE)   |> mutate(Model="FTNIR2")  
+t2<- Get_EDF(rundir = here::here(rundir="runs/ftnir1/"), redo=FALSE)   |> mutate(Model="FTNIR1")  
+t3<- Get_EDF(rundir = here::here(rundir="runs/ftnir2/"), redo=FALSE)   |> mutate(Model="FTNIR2")  
 cbind(t1, t2[,3], t3[,3]) |> gt::gt()
   tab |> mutate(edf = round(edf, 1)) |> 
   gt::gt() |> 
