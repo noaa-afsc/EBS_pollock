@@ -21,7 +21,7 @@ pacman::p_load(dplyr,
                knitr,
                doParallel)
 devtools::install_github("kaskr/TMB_contrib_R/TMBhelper")
-remotes::install_github("grantdadams/Rceattle", ref = "dev_srr") # dev_srr branch is most up to date
+remotes::install_github("grantdadams/Rceattle", ref = "dev-name-change") # dev_srr branch is most up to date
 
 
 # Load libraries ----
@@ -31,7 +31,7 @@ library(dplyr)
 
 
 # Read in data ----
-mydata_pollock <- Rceattle::read_data( file = "GOA_24_pollock_single_species_1970-2024.xlsx")
+bsp0 <- Rceattle::read_data( file = here::here("runs", "ceattle", "bsp04.xlsx"))
 
 
 # - Fit single-species models
