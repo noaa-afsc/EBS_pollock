@@ -37,7 +37,7 @@ library(reshape2)
 #theme_set(ggthemes::theme_few()) 
 options(warn = -1)
 do_sigmaR_profile=0
-do_ft=1
+do_ft=0
 do_abc_sel=0
 do_yearloop=0
 do_srrlst=0
@@ -69,27 +69,44 @@ loadup<-FALSE
 if (loadup){
   #source(here::here("GetResults.R"))
   
-  ra <- SS_obj(SS_output(dir = here("runs","ss","base"),verbose=FALSE),src="base") 
-  r2 <- SS_obj(SS_output(dir = here("ss","mod")),src="mod")  
-  r3 <- SS_obj(SS_output(dir = here("ss","mix")),src="mix")  
-  r4 <- SS_obj(SS_output(dir = here("ss","high")),src="high")  
+  r1 <- SS_obj(SS_output(dir = here("runs","ss","base"),verbose=FALSE),src="base") 
+  r2 <- SS_obj(SS_output(dir = here("runs","ss","tight"),verbose=FALSE),src="Constrained") 
+  r3 <- SS_obj(SS_output(dir = here("runs","ss","flex"),verbose=FALSE),src="Flexible") 
   #r5 <- SS_obj(SS_output(dir = here("ss","autocor")),src="autocor")  
-  ss_sel <- rbind(r1$sel,r2$sel,r3$sel,r4$sel)#,r5$sel)
+  ss_sel <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
   #compute_matrix_summary(sel[,2:16])
-  gp_run<-gp_obj()
+  #gp_run<-gp_obj()
   pm_run<-pm_obj()
-  pm_run2<-pm_obj(pm2, src="Pollock_model VPA-like")
-  load(here("SAM","poll23","run","model2.RData"))
-  sam_run <- SAM_obj()
-  am_run<-AMAK_obj(run_dir=here("amak2","runs", "base"))
-  am_run2<-AMAK_obj(run_dir=here("amak2","runs", "3par"),src="AMAK-3par-logistic")
-  am_run3<-AMAK_obj(run_dir=here("amak2","runs", "cpue"),src="AMAK w CPUE", nind=6)
-  all_sel <- rbind(sam_run$sel,pm_run$sel,am_run$sel,ss_run$sel,gp_run$sel)
-  all_ts <- rbind( sam_run$ts,pm_run$ts,am_run$ts,ss_run$ts,gp_run$ts)
+  #pm_run2<-pm_obj(pm2, src="Pollock_model VPA-like")
+  #load(here("SAM","poll23","run","model2.RData"))
+  #sam_run <- SAM_obj()
+  #am_run<-AMAK_obj(run_dir=here("amak2","runs", "base"))
+  #am_run2<-AMAK_obj(run_dir=here("amak2","runs", "3par"),src="AMAK-3par-logistic")
+  #am_run3<-AMAK_obj(run_dir=here("amak2","runs", "cpue"),src="AMAK w CPUE", nind=6)
+  #all_sel <- rbind(sam_run$sel,pm_run$sel,am_run$sel,ss_run$sel,gp_run$sel)
+  all_sel <- rbind(pm_run$sel,r1$sel,r2$sel,r3$sel)#,gp_run$sel)
+  all_ts <- rbind(pm_run$ts,r1$ts,r2$ts,r3$ts)#,gp_run$sel)
+  #all_ts <- rbind( sam_run$ts,pm_run$ts,am_run$ts,ss_run$ts,gp_run$ts)
   save.image(file=here::here("compares.Rdata"))
 } else {
  # load(here::here("compares.Rdata"))
 }
+
+#---Redo of Cole's get hessian routine to get files----
+getADMBHess <- function(filename = "admodel.hes") {
+  if (!file.exists(filename)) {
+    stop(paste0("file not found: ", filename))
+  }
+  f <- file(filename, "rb")
+  on.exit(close(f))
+  num.pars <- readBin(f, "integer", 1)
+  hes.vec <- readBin(f, "numeric", num.pars^2)
+  hes <- matrix(hes.vec, ncol = num.pars, nrow = num.pars)
+  hybrid_bounded_flag <- readBin(f, "integer", 1)
+  scale <- readBin(f, "numeric", num.pars)
+  return(hes)
+}
+
 
 ```
 
@@ -102,19 +119,23 @@ FT-NIR data with the traditional data sources (BTS and ATS). The results of thes
 comparisons are presented below. The model fits to the data are presented in the tables at
 the end of the document.
 
-
 # Comparing FT-NIR compositions with traditional microscope age estimations
 
 The fish age and growth lab at the AFSC have endeavored to expand on new technologies
- (@helser2019). 
+(@helser2019).
 
-Examining the abundance-at-age (for design-based estimates of the bottom-trawl age compositions) we show that in general, the TMA estimates show a high level of consistency 
-by cohort (@fig-consisTMA). For these same data, when applied to the FTNIRs age-estimation method, the consistency was lower (@fig-consisFTN).
+Examining the abundance-at-age (for design-based estimates of the bottom-trawl age
+compositions) we show that in general, the TMA estimates show a high level of consistency
+by cohort (@fig-consisTMA). For these same data, when applied to the FTNIRs age-estimation
+method, the consistency was lower (@fig-consisFTN).
 
-When preparing the data for the assessment, we plotted out the proportions-at-age for the TMA data and noted the differences in the estimates using the FTNIRs age estimates 
-(@fig-proportionsFSH, @fig-proportionsBTS, and @fig-proportionsATS). Other preparations involved estimating the age-determination errors for 
-each method following that of @punt2008. For the FTNIRs data, we optionally estimated separate age-estimation error 
-matrices by gear type. The appearance of the fleet-aggregated and fleet-specific input data files is shown in @fig-dataFile.
+When preparing the data for the assessment, we plotted out the proportions-at-age for the
+TMA data and noted the differences in the estimates using the FTNIRs age estimates
+(@fig-proportionsFSH, @fig-proportionsBTS, and @fig-proportionsATS). Other preparations
+involved estimating the age-determination errors for each method following that of
+@punt2008. For the FTNIRs data, we optionally estimated separate age-estimation error
+matrices by gear type. The appearance of the fleet-aggregated and fleet-specific input
+data files is shown in @fig-dataFile.
 
 ```{r consisTMA}
 #| echo: false
@@ -133,7 +154,6 @@ matrices by gear type. The appearance of the fleet-aggregated and fleet-specific
 #| fig.cap: "Cohort consistency over different ages based on log-abundance from the bottom-trawl survey data for pollock in recent years for FTNIRs  age estimates. The cohorts are shown in the labels."
   knitr::include_graphics("figs/consisFTN.png")
 ```
-
 
 ```{r proportionsFSH}
 #| echo: false
@@ -171,9 +191,8 @@ matrices by gear type. The appearance of the fleet-aggregated and fleet-specific
   knitr::include_graphics("figs/dataFile.png")
 ```
 
-For the assessment model, the alternatives are shown based on the coverage of data and availability among types of ageing is shown in @fig-dataExtent.
-
-
+For the assessment model, the alternatives are shown based on the coverage of data and
+availability among types of ageing is shown in @fig-dataExtent.
 
 ```{r data}
 #| echo: false
@@ -276,8 +295,114 @@ flextable::flextable(tab_fit(ftn_lst,mod_scen=c(2:4)))
 
 
 ```
+
+# Developments on estimating the effective degrees of freedom
+
+In @zheng2024 they present a new method for estimating the effective degrees of freedom
+(EDF) for general model applications. They note that "...hierarchical models can express
+ecological dynamics using a combination of fixed and random effects, and measurement of
+their complexity requires estimating how much random
+effects are shrunk toward a shared mean. Estimating EDF is helpful to (1) penalize
+complexity during model selection and (2) to improve understanding of model behavior. ”
+Specifically, with application to common stock assessment problems we wish to evaluate the
+relationship between the information content of the data and the level of model
+complexity. See the paper for details (equaion 6). The conceptual steps to implement are
+based on the availability of the Hessian matrix. The Hessian matrix is a square matrix of
+second-order partial derivatives of a scalar-valued function. In this case, the Hessian is
+used to approximate the curvature of the log-likelihood function with respect to the model
+parameters. The diagonal elements of the Hessian matrix represent the second partial
+derivatives of the log-likelihood with respect to each parameter, and they can be used to
+estimate the EDF for each parameter. The first step is to
+
+estimate the Hessian from the full log-posterior (data and priors/penalties). Then, we map
+out the effect of the data on the log-likelihood by only the effect of the
+priors/penalties. This gives insight on the non-data impact on log-likelihood. For the
+pollock model, we added a command-line argument "`-do_nodata`".
+
+```{r nodata}
+#| output: asis
+#| echo: false
+
+library(adnuts)
+
+#adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm_or.parxx"))
+#adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm"))
+
+Get_EDF <- function(rundir, redo=FALSE) {
+  if(redo){
+    file.remove(here::here(rundir, "h1.hes")) 
+    file.remove(here::here(rundir, "h0.hes")) 
+  }
+  if (file.exists(here::here(rundir, "h1.hes")) &  file.exists(here::here(rundir, "h0.hes")) ) {
+  }else{
+    setwd(here::here(rundir))
+    system("pm ") 
+    system("cp admodel.hes h1.hes")
+  
+    system("pm -nodata -binp pm.bar -phase 22 -maxfn 0")
+    system("cp admodel.hes h0.hes")
+  }
+  ## Read in the Hessians
+  h1 <- getADMBHess(filename=here(rundir, "h1.hes"))
+  h0 <- getADMBHess(filename=here(rundir, "h0.hes"))
+  ## Create a vector of indices where fixed-effect parameters----
+  #pars <- read_fit( here("runs/lastyrdb/pm"))
+  pars <- adnuts:::.read_mle_fit("pm", here(rundir))
+  indx <- h1[1, ] ;
+  indx <- as.logical(indx)
+  indx[] <- FALSE
+  ## Read in the parameter names----
+  indx[] <- (grepl("dev",pars$names))
+  #glimpse(pars$names[indx])
+  
+  ## Get the indices of the fixed-effect parameters----
+  #indx[9:83] <- TRUE
+  #indx[9:1062] <- TRUE
+  #indx[1085:1213] <- TRUE
+  #indx[1214:1218] <- TRUE
+  #indx[1235:1366] <- TRUE
+  
+  ## Total number of fixed-effect parameters----
+  sum(indx)
+  
+  ## Get the submatrices----
+  h1s <- h1[indx, indx]
+  h0s <- h0[indx, indx]
+  
+  ## Compute the negative EDF----
+  negEDF <- Matrix::diag(Matrix::solve(h1s, h0s))
+  
+  
+  ## Put in  a dataframe because jim hates tapply----
+  df <- data.frame(negEDF = negEDF, par_names = sub("\\[.*", "", pars$par.names[indx]))
+  
+  tab <- df |> group_by(par_names) |> summarize(N = n(), edf = N - sum(negEDF))
+  tab <- rbind(tab,df |> summarize(par_names="Total",N = n(), edf = N - sum(negEDF)))
+
+  return(tab)
+}
+
+t1<- Get_EDF(rundir = here::here(rundir="runs/lastyrdbae/")) |> mutate(Model="Base")  #|> 
+t2<- Get_EDF(rundir = here::here(rundir="runs/ftnir1/"), redo=TRUE)   |> mutate(Model="FTNIR1")  
+t3<- Get_EDF(rundir = here::here(rundir="runs/ftnir2/"), redo=TRUE)   |> mutate(Model="FTNIR2")  
+cbind(t1, t2[,3], t3[,3]) |> gt::gt()
+  tab |> mutate(edf = round(edf, 1)) |> 
+  gt::gt() |> 
+  gt::fmt_number(columns = 3, decimals = 1) |> 
+  gt::fmt_markdown(columns = 1) |> 
+  gt::cols_label(par_names = "Parameter name", N="N", edf = "Effective degrees of freedom") |>
+  gt::tab_spanner(label = "Effective degrees of freedom", columns = c(1:3)) 
+
+#gt::gt(tab) |> gt::fmt_number(columns = 3, decimals = 1)
+
+
+
+```
+
 # Leave-one-out sensitivity analysis
-Here we present model runs that downweight one source of age composition data at a time, as well as a run that downweights all survey biomass indices.
+
+Here we present model runs that downweight one source of age composition data at a time,
+as well as a run that downweights all survey biomass indices.
 
 ```{r loo}
 #| echo: false
@@ -310,30 +435,33 @@ if (do_loo) {
 # Alternative assessment software
 
 ## Stock-synthesis 3
-Stock synthesis 3 (SS3) is a well establish framework and is common in many diverse settings.
-(@methot2013)
-For EBS pollock, we extended an initial framework based on the configurations used for Pacific
-hake (@hake2024) since there are many similarities in the type of data available. Namely, empirical
-weight-at-age, acoustic survey data, and indices of 1-year olds (ref).
+
+Stock synthesis 3 (SS3) is a well establish framework and is common in many diverse
+settings. (@methot2013) For EBS pollock, we extended an initial framework based on the
+configurations used for Pacific hake (@hake2024) since there are many similarities in the
+type of data available. Namely, empirical weight-at-age, acoustic survey data, and indices
+of 1-year olds.
 
 ## WHAM
-The "Woods Hole Assessment model" (WHAM) is written in TMB and is a fully state-space model
-(@stock2021). 
+
+The "Woods Hole Assessment model" (WHAM) is written in TMB and is a fully state-space
+model (@stock2021).
 
 ## RTMB model
 
-Work at AFSC has developed a general model which has flexibility to specify regions and a variety of options including random effects. While this model is not yet fully developed, we
-present preliminary results here. The model is written in TMB and is similar to the WHAM model. 
-We pursue this model to explore the potential for a more flexible model that can be used for
-more explicit considerations of stocks linked to different regions (e.g., the US and Russian 
-portions of the EBS). Also, this model to add sex-specificity and random 
-effects (@cheng2025). 
-
+Work at AFSC has developed a general model which has flexibility to specify regions and a
+variety of options including random effects. While this model is not yet fully developed,
+we present preliminary results here. The model is written in TMB and is similar to the
+WHAM model. We pursue this model to explore the potential for a more flexible model that
+can be used for more explicit considerations of stocks linked to different regions (e.g.,
+the US and Russian portions of the EBS). Also, this model to add sex-specificity and
+random effects (@cheng2025).
 
 ## CEATTLE model
 
-The CEATTLE model is a new model developed by the AFSC and is written in TMB (@adams2022). The model is
-an extension of the ADMB version used for the three-species multi-species model (@jurado2005, @holsman2024).
+The CEATTLE model is a new model developed by the AFSC and is written in TMB (@adams2022).
+The model is an extension of the ADMB version used for the three-species multi-species
+model (@jurado2005, @holsman2024).
 
 # Bottom-trawl survey spatial distribution modeling
 

@@ -37,7 +37,7 @@ website:
     
     contents:
       - href: doc/CIE.qmd
-        text: White-paper for CIE review
+        text: Discussion-paper for CIE review
       #- href: doc/SSC_Minutes.qmd
         #text: SSC minutes
       #- href: ebswp.qmd
