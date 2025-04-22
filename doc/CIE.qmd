@@ -69,9 +69,9 @@ loadup<-FALSE
 if (loadup){
   #source(here::here("GetResults.R"))
   
-  r1 <- SS_obj(SS_output(dir = here("runs","ss","base"),verbose=FALSE),src="base") 
-  r2 <- SS_obj(SS_output(dir = here("runs","ss","tight"),verbose=FALSE),src="Constrained") 
-  r3 <- SS_obj(SS_output(dir = here("runs","ss","flex"),verbose=FALSE),src="Flexible") 
+  r1 <- SS_obj(SS_output(dir = here::here("runs","ss","base"),verbose=FALSE),src="base") 
+  r2 <- SS_obj(SS_output(dir = here::here("runs","ss","tight"),verbose=FALSE),src="Constrained") 
+  r3 <- SS_obj(SS_output(dir = here::here("runs","ss","flex"),verbose=FALSE),src="Flexible") 
   #r5 <- SS_obj(SS_output(dir = here("ss","autocor")),src="autocor")  
   ss_sel <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
   #compute_matrix_summary(sel[,2:16])
@@ -296,6 +296,13 @@ flextable::flextable(tab_fit(ftn_lst,mod_scen=c(2:4)))
 
 ```
 
+# R Library for assessment compilations (ebswp)
+
+The `ebswp` library is a collection of functions for compiling and analyzing results from
+the stock assessment models for the eastern Bering Sea walleye pollock. The library is designed to work with
+the ADMB code and depends on a consistent format for the report files generated.
+
+
 # Developments on estimating the effective degrees of freedom
 
 In @zheng2024 they present a new method for estimating the effective degrees of freedom
@@ -327,6 +334,7 @@ library(adnuts)
 
 #adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm_or.parxx"))
 #adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm"))
+#rundir <- here::here("runs/lastyrdb/")
 
 
 Get_EDF <- function(rundir, redo=FALSE) {
@@ -347,13 +355,17 @@ Get_EDF <- function(rundir, redo=FALSE) {
   h1 <- getADMBHess(filename=here::here(rundir, "h1.hes"))
   h0 <- getADMBHess(filename=here::here(rundir, "h0.hes"))
   ## Create a vector of indices where fixed-effect parameters----
-  #pars <- read_fit( here("runs/lastyrdb/pm"))
-  pars <- adnuts:::.read_mle_fit("pm", here::here(rundir))
+  fit <- read_fit( here("runs/lastyrdb/pm"))
+  par.names <- fit$names[1:fit$nopar]
+  names(fit)
+  nll <- fit$nlogl
+  
+  #pars <- adnuts:::.read_mle_fit("pm", here::here(rundir))
   indx <- h1[1, ] ;
   indx <- as.logical(indx)
   indx[] <- FALSE
   ## Read in the parameter names----
-  indx[] <- (grepl("dev",pars$names))
+  indx[] <- (grepl("dev",par.names))
   #glimpse(pars$names[indx])
   
   ## Get the indices of the fixed-effect parameters----
@@ -375,17 +387,28 @@ Get_EDF <- function(rundir, redo=FALSE) {
   
   
   ## Put in  a dataframe because jim hates tapply----
-  df <- data.frame(negEDF = negEDF, par_names = sub("\\[.*", "", pars$par.names[indx]))
+  df <- data.frame(negEDF = negEDF, par_names = sub("\\[.*", "", par.names[indx]))
   
   tab <- df |> group_by(par_names) |> summarize(N = n(), edf = N - sum(negEDF))
   tab <- rbind(tab,df |> summarize(par_names="Total",N = n(), edf = N - sum(negEDF)))
-
+  tab <- rbind(tab,df |> summarise(par_names="AIC",  N = " ", edf = 2*nll + 2*(n() - sum(negEDF)) ) )
   return(tab)
 }
 
 t1<- Get_EDF(rundir = here::here(rundir="runs/lastyrdbae/")) |> mutate(Model="Base")  #|> 
 t2<- Get_EDF(rundir = here::here(rundir="runs/ftnir1/"), redo=FALSE)   |> mutate(Model="FTNIR1")  
 t3<- Get_EDF(rundir = here::here(rundir="runs/ftnir2/"), redo=FALSE)   |> mutate(Model="FTNIR2")  
+
+p1 <- t1
+p2 <- Get_EDF(rundir = here::here(rundir="runs/separable/"), redo=FALSE) |> mutate(Model="Separable F")  #|> 
+p3 <- Get_EDF(rundir = here::here(rundir="runs/vpa/"),       redo=FALSE) |> mutate(Model="VPA-like")  #|> 
+p4 <- Get_EDF(rundir = here::here(rundir="runs/const0.1/"),  redo=FALSE) |> mutate(Model="Const-0.1")  #|> 
+p5 <- Get_EDF(rundir = here::here(rundir="runs/const0.05/"),  redo=FALSE) |> mutate(Model="Const-0.05")  #|> 
+
+q2 <- Get_EDF(rundir = here::here(rundir="runs/rewt/"), redo=FALSE) |> mutate(Model="Francis re-wt")  #|> 
+
+df<-rbind(t1, q2)
+df<-rbind(p1, p5, p4, p3) #|> gt::gt()
 df<-rbind(t1, t2, t3) #|> gt::gt()
 n_check <- df %>%
   group_by(par_names) %>%
