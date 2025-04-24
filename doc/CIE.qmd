@@ -67,30 +67,45 @@ Plot_Sel <- function(sel = all_sel, fage = 1, lage = 13, nages = 15, styr = 1964
 loadup<-FALSE
 #loadup<-TRUE
 if (loadup){
-  #source(here::here("GetResults.R"))
+  source(here::here("R", "GetResults.R"))
   
-  r1 <- SS_obj(SS_output(dir = here::here("runs","ss","base"),verbose=FALSE),src="base") 
-  r2 <- SS_obj(SS_output(dir = here::here("runs","ss","tight"),verbose=FALSE),src="Constrained") 
-  r3 <- SS_obj(SS_output(dir = here::here("runs","ss","flex"),verbose=FALSE),src="Flexible") 
+  r1 <- SS_obj(SS_output(dir = here::here("runs","ss","base"),verbose=FALSE),src="SS3 base") 
+  r2 <- SS_obj(SS_output(dir = here::here("runs","ss","tight"),verbose=FALSE),src="SS3 Constrained") 
+  r3 <- SS_obj(SS_output(dir = here::here("runs","ss","flex"),verbose=FALSE),src="SS3 Flexible") 
+  c1 <- cea_obj(cea_run=fm0, src="CEA 0.7")
+  c2 <- cea_obj(cea_run=fm0DM, src="CEA 0.7, DM")
+  #c3 <- cea_obj(cea_run=fm2, src="CEA 0.1")
+  c4 <- cea_obj(cea_run=fm5, src="CEA RE")
+  #cea_obj <- function(cea_run = fm, yrmin = 1964, yrmax = 2024, src = "CEATTLE") {
+
   #r5 <- SS_obj(SS_output(dir = here("ss","autocor")),src="autocor")  
-  ss_sel <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
+  ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
+  cea_sel <- rbind(c1$sel,c2$sel,c4$sel)#,r4$sel)#,r5$sel)
+Plot_Sel(ss_sel) + ggthemes::theme_few(base_size = 9)
+Plot_Sel(cea_sel) + ggthemes::theme_few(base_size = 9)
   #compute_matrix_summary(sel[,2:16])
   #gp_run<-gp_obj()
   pm_run<-pm_obj()
   #pm_run2<-pm_obj(pm2, src="Pollock_model VPA-like")
   #load(here("SAM","poll23","run","model2.RData"))
-  #sam_run <- SAM_obj()
+  sam_run <- SAM_obj()
   #am_run<-AMAK_obj(run_dir=here("amak2","runs", "base"))
   #am_run2<-AMAK_obj(run_dir=here("amak2","runs", "3par"),src="AMAK-3par-logistic")
   #am_run3<-AMAK_obj(run_dir=here("amak2","runs", "cpue"),src="AMAK w CPUE", nind=6)
   #all_sel <- rbind(sam_run$sel,pm_run$sel,am_run$sel,ss_run$sel,gp_run$sel)
-  all_sel <- rbind(pm_run$sel,r1$sel,r2$sel,r3$sel)#,gp_run$sel)
-  all_ts <- rbind(pm_run$ts,r1$ts,r2$ts,r3$ts)#,gp_run$sel)
+  #all_sel <- rbind(pm_run$sel,r1$sel,r2$sel,r3$sel)#,gp_run$sel)
+  all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
+Plot_Sel(all_sel) + ggthemes::theme_few(base_size = 9)
+  all_ts <- rbind(pm_run$ts,r1$ts,c2$ts,c3$ts)#,gp_run$sel)
+  all_ts <- rbind(pm_run$ts,r1$ts,c1$ts)
+Plot_SSB(rbind(c1$ts,pm_run$ts)) + ggthemes::theme_few(base_size = 19)
   #all_ts <- rbind( sam_run$ts,pm_run$ts,am_run$ts,ss_run$ts,gp_run$ts)
   save.image(file=here::here("compares.Rdata"))
 } else {
- # load(here::here("compares.Rdata"))
+  load(here::here("compares.Rdata"))
 }
+Plot_Sel() + ggthemes::theme_few(base_size = 9)
+
 
 #---Redo of Cole's get hessian routine to get files----
 getADMBHess <- function(filename = "admodel.hes") {
@@ -331,6 +346,7 @@ pollock model, we added a command-line argument "`-do_nodata`".
 #| echo: false
 
 library(adnuts)
+library(here)
 
 #adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm_or.parxx"))
 #adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm"))
@@ -507,9 +523,21 @@ random effects (@cheng2025).
 
 ## CEATTLE model
 
-The CEATTLE model is a new model developed by the AFSC and is written in TMB (@adams2022).
-The model is an extension of the ADMB version used for the three-species multi-species
-model (@jurado2005, @holsman2024).
+The Rceattle model is developed by the AFSC and is written in TMB (@adams2022).
+The model is an extension of the ADMB version used for multi-species model 
+in the Eastern Bering Sea (@jurado2005, @holsman2024) and has a number of newer
+features. It is generalizable to include a variety of data types using lengths and 
+can be set up for species tracked for sexual dimorphic growth and other processes.
+Since it has been recast into TMB, it allows for the ability to specify random 
+effects in a number of processes. One development of the model is to have the flexibility
+to bridge among extant single-species modeling platforms by using it in "single-species" mode.
+To illustrate that, we introduce an application of Rceattle to the EBS pollock
+data set. The model is not yet fully developed, but we present preliminary results for consideration.
+
+
+
+
+
 
 # Bottom-trawl survey spatial distribution modeling
 
