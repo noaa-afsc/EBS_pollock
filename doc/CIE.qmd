@@ -509,8 +509,13 @@ Plot_Sel(ss_sel) + ggthemes::theme_few(base_size = 9)
 
 ## SAM
 
-The Stock Assessment Model (SAM) is a state-space model written in TMB (@nielsen2014,
-@nielsen2021).
+The Stock Assessment Model (SAM) is a state-space model written in TMB (@nielsen2014, @nielsen2021). 
+We attempted to configure the settings to have similar levels of flexibility
+to the reference model used for catch advice in 2024 and the settings and results
+can be found 
+[here](https://github.com/noaa-afsc/EBS_pollock/tree/main/runs/SAM/poll24 "SAM model runs" )).
+
+
 
 ```{r}
 #| echo: false
