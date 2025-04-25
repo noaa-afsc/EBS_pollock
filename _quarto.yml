@@ -62,6 +62,8 @@ format:
     toc: true
     toc-title: 'Contents'
     toc-location: left
+    fig-cap-location: margin
+    tbl-cap-location: margin
     embed-resources: false
     #numbering: false
     #number-sections: false
