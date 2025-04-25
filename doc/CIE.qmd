@@ -286,7 +286,6 @@ The model fits to the data are shown in @tbl-modfits. The table shows the goodne
 #| messages: FALSE
 #| label: tbl-modfits
 #| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
-#| tbl-cap-location: margin
 library(gt)
 tab <- gt(tab_fit(ftn_lst[c(2,4,3)])) %>%
   tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 1) ) %>%
@@ -451,7 +450,6 @@ edf_table <- function(df) {
 #| echo: false
 #| label: tbl-edf1
 #| tbl-cap: "Effective degrees of freedom (EDF) for the different models. The models are the base model (Base), the FT-NIRs age estimates with fleet-aggregated data (FTNIR1), and the FT-NIRs age estimates with fleet-specific data (FTNIR2)."
-#| tbl-cap-location: margin
 edf_table (df=rbind(t1, q2))
 #gt::gt(tab) |> gt::fmt_number(columns = 3, decimals = 1)
 ```
@@ -459,14 +457,12 @@ edf_table (df=rbind(t1, q2))
 #| echo: false
 #| label: tbl-edf2
 #| tbl-cap: "Effective degrees of freedom (EDF) for the different models. The models are the base model (Base), the FT-NIRs age estimates with fleet-aggregated data (FTNIR1), and the FT-NIRs age estimates with fleet-specific data (FTNIR2)."
-#| tbl-cap-location: margin
 edf_table (df=rbind(p1,p5,p4,p3))
 ```
 ```{r edf3}
 #| echo: false
 #| label: tbl-edf3
 #| tbl-cap: "Effective degrees of freedom (EDF) for the different models. The models are the base model (Base), the FT-NIRs age estimates with fleet-aggregated data (FTNIR1), and the FT-NIRs age estimates with fleet-specific data (FTNIR2)."
-#| tbl-cap-location: margin
 edf_table (df=rbind(t1, t2, t3))
 ```
 # Leave-one-out sensitivity analysis
