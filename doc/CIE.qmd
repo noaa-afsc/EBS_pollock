@@ -37,6 +37,7 @@ library(reshape2)
 #theme_set(ggthemes::theme_few()) 
 options(warn = -1)
 do_sigmaR_profile=0
+do_edf=0
 do_ft=0
 do_abc_sel=0
 do_yearloop=0
@@ -92,20 +93,7 @@ if (loadup){
 #Plot_Sel() + ggthemes::theme_few(base_size = 9)
 
 
-#---Redo of Cole's get hessian routine to get files----
-getADMBHess <- function(filename = "admodel.hes") {
-  if (!file.exists(filename)) {
-    stop(paste0("file not found: ", filename))
-  }
-  f <- file(filename, "rb")
-  on.exit(close(f))
-  num.pars <- readBin(f, "integer", 1)
-  hes.vec <- readBin(f, "numeric", num.pars^2)
-  hes <- matrix(hes.vec, ncol = num.pars, nrow = num.pars)
-  hybrid_bounded_flag <- readBin(f, "integer", 1)
-  scale <- readBin(f, "numeric", num.pars)
-  return(hes)
-}
+
 
 
 ```
@@ -321,12 +309,11 @@ scalar-valued function. In this case, the Hessian is used to approximate the cur
 the log-likelihood function with respect to the model parameters. The diagonal elements of
 the Hessian matrix represent the second partial derivatives of the log-likelihood with
 respect to each parameter, and they can be used to estimate the EDF for each parameter.
-The first step is to
-
-estimate the Hessian from the full log-posterior (data and priors/penalties). Then, we map
+The first step is to estimate the Hessian from the full log-posterior (data and priors/penalties). Then, we map
 out the effect of the data on the log-likelihood by only the effect of the
 priors/penalties. This gives insight on the non-data impact on log-likelihood. For the
 pollock model, we added a command-line argument "`-do_nodata`".
+
 
 ```{r nodata}
 #| output: asis
@@ -339,77 +326,95 @@ library(here)
 #adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm"))
 #rundir <- here::here("runs/lastyrdb/")
 
-
-Get_EDF <- function(rundir, redo=FALSE) {
-  if(redo){
-    file.remove(here::here(rundir, "h1.hes")) 
-    file.remove(here::here(rundir, "h0.hes")) 
+if (do_edf){
+  #---Redo of Cole's get hessian routine to get files----
+  getADMBHess <- function(filename = "admodel.hes") {
+    if (!file.exists(filename)) {
+      stop(paste0("file not found: ", filename))
+    }
+    f <- file(filename, "rb")
+    on.exit(close(f))
+    num.pars <- readBin(f, "integer", 1)
+    hes.vec <- readBin(f, "numeric", num.pars^2)
+    hes <- matrix(hes.vec, ncol = num.pars, nrow = num.pars)
+    hybrid_bounded_flag <- readBin(f, "integer", 1)
+    scale <- readBin(f, "numeric", num.pars)
+    return(hes)
   }
-  if (file.exists(here::here(rundir, "h1.hes")) &  file.exists(here::here(rundir, "h0.hes")) ) {
-  }else{
-    setwd(here::here(rundir))
-    system("pm ") 
-    system("cp admodel.hes h1.hes")
-  
-    system("pm -nodata -binp pm.bar -phase 22 -maxfn 0")
-    system("cp admodel.hes h0.hes")
+  Get_EDF <- function(rundir, redo=FALSE) {
+    if(redo){
+      file.remove(here::here(rundir, "h1.hes")) 
+      file.remove(here::here(rundir, "h0.hes")) 
+    }
+    if (file.exists(here::here(rundir, "h1.hes")) &  file.exists(here::here(rundir, "h0.hes")) ) {
+    }else{
+      setwd(here::here(rundir))
+      system("pm ") 
+      system("cp admodel.hes h1.hes")
+      
+      system("pm -nodata -binp pm.bar -phase 22 -maxfn 0")
+      system("cp admodel.hes h0.hes")
+    }
+    ## Read in the Hessians
+    h1 <- getADMBHess(filename=here::here(rundir, "h1.hes"))
+    h0 <- getADMBHess(filename=here::here(rundir, "h0.hes"))
+    ## Create a vector of indices where fixed-effect parameters----
+    fit <- read_fit( here("runs/lastyrdb/pm"))
+    par.names <- fit$names[1:fit$nopar]
+    names(fit)
+    nll <- fit$nlogl
+    
+    #pars <- adnuts:::.read_mle_fit("pm", here::here(rundir))
+    indx <- h1[1, ] ;
+    indx <- as.logical(indx)
+    indx[] <- FALSE
+    ## Read in the parameter names----
+    indx[] <- (grepl("dev",par.names))
+    #glimpse(pars$names[indx])
+    
+    ## Get the indices of the fixed-effect parameters----
+    #indx[9:83] <- TRUE
+    #indx[9:1062] <- TRUE
+    #indx[1085:1213] <- TRUE
+    #indx[1214:1218] <- TRUE
+    #indx[1235:1366] <- TRUE
+    
+    ## Total number of fixed-effect parameters----
+    sum(indx)
+    
+    ## Get the submatrices----
+    h1s <- h1[indx, indx]
+    h0s <- h0[indx, indx]
+    
+    ## Compute the negative EDF----
+    negEDF <- Matrix::diag(Matrix::solve(h1s, h0s))
+    
+    
+    ## Put in  a dataframe because jim hates tapply----
+    df <- data.frame(negEDF = negEDF, par_names = sub("\\[.*", "", par.names[indx]))
+    
+    tab <- df |> group_by(par_names) |> summarize(N = n(), edf = N - sum(negEDF))
+    tab <- rbind(tab,df |> summarize(par_names="Total",N = n(), edf = N - sum(negEDF)))
+    tab <- rbind(tab,df |> summarise(par_names="AIC",  N = " ", edf = 2*nll + 2*(n() - sum(negEDF)) ) )
+    return(tab)
   }
-  ## Read in the Hessians
-  h1 <- getADMBHess(filename=here::here(rundir, "h1.hes"))
-  h0 <- getADMBHess(filename=here::here(rundir, "h0.hes"))
-  ## Create a vector of indices where fixed-effect parameters----
-  fit <- read_fit( here("runs/lastyrdb/pm"))
-  par.names <- fit$names[1:fit$nopar]
-  names(fit)
-  nll <- fit$nlogl
   
-  #pars <- adnuts:::.read_mle_fit("pm", here::here(rundir))
-  indx <- h1[1, ] ;
-  indx <- as.logical(indx)
-  indx[] <- FALSE
-  ## Read in the parameter names----
-  indx[] <- (grepl("dev",par.names))
-  #glimpse(pars$names[indx])
+  t1<- Get_EDF(rundir = here::here(rundir="runs/lastyrdbae/")) |> mutate(Model="Base")  #|> 
+  t2<- Get_EDF(rundir = here::here(rundir="runs/ftnir1/"), redo=FALSE)   |> mutate(Model="FTNIR1")  
+  t3<- Get_EDF(rundir = here::here(rundir="runs/ftnir2/"), redo=FALSE)   |> mutate(Model="FTNIR2")  
   
-  ## Get the indices of the fixed-effect parameters----
-  #indx[9:83] <- TRUE
-  #indx[9:1062] <- TRUE
-  #indx[1085:1213] <- TRUE
-  #indx[1214:1218] <- TRUE
-  #indx[1235:1366] <- TRUE
+  p1 <- t1
+  p2 <- Get_EDF(rundir = here::here(rundir="runs/separable/"), redo=FALSE) |> mutate(Model="Separable F")  #|> 
+  p3 <- Get_EDF(rundir = here::here(rundir="runs/vpa/"),       redo=FALSE) |> mutate(Model="VPA-like")  #|> 
+  p4 <- Get_EDF(rundir = here::here(rundir="runs/const0.1/"),  redo=FALSE) |> mutate(Model="Const-0.1")  #|> 
+  p5 <- Get_EDF(rundir = here::here(rundir="runs/const0.05/"),  redo=FALSE) |> mutate(Model="Const-0.05")  #|> 
   
-  ## Total number of fixed-effect parameters----
-  sum(indx)
-  
-  ## Get the submatrices----
-  h1s <- h1[indx, indx]
-  h0s <- h0[indx, indx]
-  
-  ## Compute the negative EDF----
-  negEDF <- Matrix::diag(Matrix::solve(h1s, h0s))
-  
-  
-  ## Put in  a dataframe because jim hates tapply----
-  df <- data.frame(negEDF = negEDF, par_names = sub("\\[.*", "", par.names[indx]))
-  
-  tab <- df |> group_by(par_names) |> summarize(N = n(), edf = N - sum(negEDF))
-  tab <- rbind(tab,df |> summarize(par_names="Total",N = n(), edf = N - sum(negEDF)))
-  tab <- rbind(tab,df |> summarise(par_names="AIC",  N = " ", edf = 2*nll + 2*(n() - sum(negEDF)) ) )
-  return(tab)
+  q2 <- Get_EDF(rundir = here::here(rundir="runs/rewt/"), redo=FALSE) |> mutate(Model="Francis re-wt")  #|> 
+  # Save all variables into one file
+  save(t1, t2, t3, p1, p2, p3, p4, p5, q2, file = here::here("edf_data.RData"))
+}else{
+  load(file = here::here("edf_data.RData"))
 }
-
-t1<- Get_EDF(rundir = here::here(rundir="runs/lastyrdbae/")) |> mutate(Model="Base")  #|> 
-t2<- Get_EDF(rundir = here::here(rundir="runs/ftnir1/"), redo=FALSE)   |> mutate(Model="FTNIR1")  
-t3<- Get_EDF(rundir = here::here(rundir="runs/ftnir2/"), redo=FALSE)   |> mutate(Model="FTNIR2")  
-
-p1 <- t1
-p2 <- Get_EDF(rundir = here::here(rundir="runs/separable/"), redo=FALSE) |> mutate(Model="Separable F")  #|> 
-p3 <- Get_EDF(rundir = here::here(rundir="runs/vpa/"),       redo=FALSE) |> mutate(Model="VPA-like")  #|> 
-p4 <- Get_EDF(rundir = here::here(rundir="runs/const0.1/"),  redo=FALSE) |> mutate(Model="Const-0.1")  #|> 
-p5 <- Get_EDF(rundir = here::here(rundir="runs/const0.05/"),  redo=FALSE) |> mutate(Model="Const-0.05")  #|> 
-
-q2 <- Get_EDF(rundir = here::here(rundir="runs/rewt/"), redo=FALSE) |> mutate(Model="Francis re-wt")  #|> 
-
 df<-rbind(t1, q2)
 df<-rbind(p1, p5, p4, p3) #|> gt::gt()
 df<-rbind(t1, t2, t3) #|> gt::gt()
