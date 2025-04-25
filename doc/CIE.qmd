@@ -105,7 +105,22 @@ first task was to update the model runs to include the 2023 data. The model runs
 updated and the results are presented below. The model runs were then used to compare the
 FT-NIR data with the traditional data sources (BTS and ATS). The results of these
 comparisons are presented below. The model fits to the data are presented in the tables at
-the end of the document.
+the end of the document. The first section steers towards the R library used for 
+processing model results for EBS pollock. The second section presents the comparisons of the
+FT-NIR data with the traditional data sources. The third section compares results of
+different software platforms (e.g., SS3, CEA, and AMAK) for the assessment. The fourth section
+shows results comparing newer model-based estimates from survey data.
+
+
+#  R Library for assessment compilations (ebswp)
+
+The `ebswp` library is a collection of functions for compiling and analyzing results from
+the stock assessment models for the eastern Bering Sea walleye pollock (@ianelli2025). The
+library is designed to work with the ADMB code and depends on a consistent format for the
+report files generated. The link in the reference provides access to some notes on
+applications as vignettes to the package (e.g., .
+[here](https://afsc-assessments.github.io/ebswp/index.html "EBSWP Library")).
+
 
 # Comparing FT-NIR compositions with traditional microscope age estimations
 
@@ -259,39 +274,32 @@ if (do_ft) {
 
 ```
 
-## Fit to models
 
-```{r modfits, results = "asis",echo=FALSE}
-#| output: asis
+
+## Comparisons of fit to FT-NIRS models
+
+The model fits to the data are shown in @tbl-modfits. The table shows the goodness-of-fit
+
+```{r}
 #| echo: false
-# Fit to data-------------------
-df <- tab_fit(ftn_lst[c(2,4,3)])
-tab <- xtable::xtable(df,
-  caption = "\\label{tbl:modfits}Goodness-of-fit measures to primary data for different data and age-error applications.
-RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals,
-Eff. N=effective sample size for composition data). See text for incremental model descriptions.",
-  label = "tbl:modfits", digits = 2, align = paste0("ll", paste0(rep("r", length(df) - 1), collapse = ""))
-)
-hlines <- c(-1, 0, 4, 7, 10, 17, nrow(tab) - 2, nrow(tab))
-print(tab,
-  caption.placement = "top",
-  hline.after = hlines, comment = FALSE,
-  include.rownames = FALSE, sanitize.text.function = function(x) { x }
-)
-
-flextable::flextable(tab_fit(ftn_lst,mod_scen=c(2:4)))
-
-
+#| warnings: FALSE
+#| messages: FALSE
+#| label: tbl-modfits
+#| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
+#| tbl-cap-location: margin
+library(gt)
+tab <- gt(tab_fit(ftn_lst[c(2,4,3)])) %>%
+  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 1) ) %>%
+  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 5) ) %>%
+  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 8) ) %>%
+  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 11) ) %>%
+  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 18) ) |> 
+  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 21) ) |> 
+  tab_style( style = cell_borders(sides = "bottom", weight = px(2), color = "black"), locations = cells_body(rows = 21) )
+tab
 ```
 
-#  R Library for assessment compilations (ebswp)
 
-The `ebswp` library is a collection of functions for compiling and analyzing results from
-the stock assessment models for the eastern Bering Sea walleye pollock (@ianelli2025). The
-library is designed to work with the ADMB code and depends on a consistent format for the
-report files generated. The link in the reference provides access to some notes on
-applications as vignettes to the package (e.g., .
-[here](https://afsc-assessments.github.io/ebswp/index.html "EBSWP Library")).
 
 # Developments on estimating the effective degrees of freedom
 
@@ -314,18 +322,19 @@ out the effect of the data on the log-likelihood by only the effect of the
 priors/penalties. This gives insight on the non-data impact on log-likelihood. For the
 pollock model, we added a command-line argument "`-do_nodata`".
 
+@tbl-edf1
+
+@tbl-edf2
+
+@tbl-edf3
+
 
 ```{r nodata}
 #| output: asis
 #| echo: false
 
-library(adnuts)
+#library(adnuts)
 library(here)
-
-#adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm_or.parxx"))
-#adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm"))
-#rundir <- here::here("runs/lastyrdb/")
-
 if (do_edf){
   #---Redo of Cole's get hessian routine to get files----
   getADMBHess <- function(filename = "admodel.hes") {
@@ -363,36 +372,21 @@ if (do_edf){
     par.names <- fit$names[1:fit$nopar]
     names(fit)
     nll <- fit$nlogl
-    
     #pars <- adnuts:::.read_mle_fit("pm", here::here(rundir))
     indx <- h1[1, ] ;
     indx <- as.logical(indx)
     indx[] <- FALSE
     ## Read in the parameter names----
     indx[] <- (grepl("dev",par.names))
-    #glimpse(pars$names[indx])
-    
-    ## Get the indices of the fixed-effect parameters----
-    #indx[9:83] <- TRUE
-    #indx[9:1062] <- TRUE
-    #indx[1085:1213] <- TRUE
-    #indx[1214:1218] <- TRUE
-    #indx[1235:1366] <- TRUE
-    
     ## Total number of fixed-effect parameters----
     sum(indx)
-    
     ## Get the submatrices----
     h1s <- h1[indx, indx]
     h0s <- h0[indx, indx]
-    
     ## Compute the negative EDF----
     negEDF <- Matrix::diag(Matrix::solve(h1s, h0s))
-    
-    
     ## Put in  a dataframe because jim hates tapply----
     df <- data.frame(negEDF = negEDF, par_names = sub("\\[.*", "", par.names[indx]))
-    
     tab <- df |> group_by(par_names) |> summarize(N = n(), edf = N - sum(negEDF))
     tab <- rbind(tab,df |> summarize(par_names="Total",N = n(), edf = N - sum(negEDF)))
     tab <- rbind(tab,df |> summarise(par_names="AIC",  N = " ", edf = 2*nll + 2*(n() - sum(negEDF)) ) )
@@ -415,46 +409,66 @@ if (do_edf){
 }else{
   load(file = here::here("edf_data.RData"))
 }
-df<-rbind(t1, q2)
-df<-rbind(p1, p5, p4, p3) #|> gt::gt()
-df<-rbind(t1, t2, t3) #|> gt::gt()
-n_check <- df %>%
-  group_by(par_names) %>%
-  summarize(n_unique = n_distinct(N))
 
-# If all n_unique values are 1, then proceed with the transformation
-df_wide <- df %>%
-  # Get one copy of N per par_names
-  group_by(par_names) %>%
-  mutate(N = first(N)) %>%
-  ungroup() %>%
-  # Convert to wide format
-  pivot_wider(
-    id_cols = c(par_names, N),
-    names_from = Model,
-    values_from = edf
-  )
-
-df_wide |>  gt::gt() |> 
-  # Format all numeric columns except N to one decimal place
-  gt::fmt_number(
-    columns = -c(par_names, N),  # All columns except par_names and N
-    decimals = 0
-  ) %>%
-  # Keep N as integers (no decimals)
-  gt::fmt_number(
-    columns = N,
-    decimals = 0
-  ) %>%
-  # Add table header
-  gt::tab_header(
-    title = "EDF Values by Model and Parameter"
-  )
-
-#gt::gt(tab) |> gt::fmt_number(columns = 3, decimals = 1)
+edf_table <- function(df) {
+  n_check <- df %>%
+    group_by(par_names) %>%
+    summarize(n_unique = n_distinct(N))
+  
+  # If all n_unique values are 1, then proceed with the transformation
+  df_wide <- df %>%
+    # Get one copy of N per par_names
+    group_by(par_names) %>%
+    mutate(N = first(N)) %>%
+    ungroup() %>%
+    # Convert to wide format
+    pivot_wider(
+      id_cols = c(par_names, N),
+      names_from = Model,
+      values_from = edf
+    )
+  
+  df_wide |>  gt::gt() |> 
+    # Format all numeric columns except N to one decimal place
+    gt::fmt_number(
+      columns = -c(par_names, N),  # All columns except par_names and N
+      decimals = 0
+    ) %>%
+    # Keep N as integers (no decimals)
+    gt::fmt_number(
+      columns = N,
+      decimals = 0
+    ) %>%
+    # Add table header
+    gt::tab_header(
+      title = "EDF Values by Model and Parameter"
+    )
+}
 
 ```
 
+```{r edf1}
+#| echo: false
+#| label: tbl-edf1
+#| tbl-cap: "Effective degrees of freedom (EDF) for the different models. The models are the base model (Base), the FT-NIRs age estimates with fleet-aggregated data (FTNIR1), and the FT-NIRs age estimates with fleet-specific data (FTNIR2)."
+#| tbl-cap-location: margin
+edf_table (df=rbind(t1, q2))
+#gt::gt(tab) |> gt::fmt_number(columns = 3, decimals = 1)
+```
+```{r edf2}
+#| echo: false
+#| label: tbl-edf2
+#| tbl-cap: "Effective degrees of freedom (EDF) for the different models. The models are the base model (Base), the FT-NIRs age estimates with fleet-aggregated data (FTNIR1), and the FT-NIRs age estimates with fleet-specific data (FTNIR2)."
+#| tbl-cap-location: margin
+edf_table (df=rbind(p1,p5,p4,p3))
+```
+```{r edf3}
+#| echo: false
+#| label: tbl-edf3
+#| tbl-cap: "Effective degrees of freedom (EDF) for the different models. The models are the base model (Base), the FT-NIRs age estimates with fleet-aggregated data (FTNIR1), and the FT-NIRs age estimates with fleet-specific data (FTNIR2)."
+#| tbl-cap-location: margin
+edf_table (df=rbind(t1, t2, t3))
+```
 # Leave-one-out sensitivity analysis
 
 Here we present model runs that downweight one source of age composition data at a time,
@@ -625,9 +639,6 @@ Plot_SSB(rbind(c1$ts,pm_run$ts,sam_run$ts)) + ggthemes::theme_few(base_size = 19
 
 # Bottom-trawl survey spatial distribution modeling
 
-Sophia's work here
-# Model-based Methods for the Bering Sea
-
 ## Abundance Index Methods
 
 For model-based indices in the Bering Sea, we fitted observations of numerical abundance or biomass per unit area (where the choice of abundance or biomass varied by stock at the request of assessors) from all sampling locations in the 83-112 bottom trawl survey of the EBS, 1982-2025, including:
@@ -658,6 +669,7 @@ We estimated the spatial range assuming geometric isotropy (i.e, spatial autocor
 The estimates of abundance at age were bias-corrected with the same method as the abundance index. We implemented the same diagnostics to check convergence and model fit as those used for the abundance index.
 
 Both the model-based bottom trawl index and age composition estimates were calculated using code in the AFSC GAP model-based indices GitHub repository (https://github.com/afsc-gap-products/model-based-indices). Design-based estimates of bottom trawl products were calculated using code in the gapindex R package (https://github.com/afsc-gap-products/gapindex).
+
 
 
 # References

@@ -4,17 +4,17 @@
     "href": "doc/CIE.html",
     "title": "Eastern Bering Sea walleye pollock stock assessment",
     "section": "",
-    "text": "The work presented below was based on the same data sets used in the 2024 assessment. The first task was to update the model runs to include the 2023 data. The model runs were updated and the results are presented below. The model runs were then used to compare the FT-NIR data with the traditional data sources (BTS and ATS). The results of these comparisons are presented below. The model fits to the data are presented in the tables at the end of the document.",
+    "text": "The work presented below was based on the same data sets used in the 2024 assessment. The first task was to update the model runs to include the 2023 data. The model runs were updated and the results are presented below. The model runs were then used to compare the FT-NIR data with the traditional data sources (BTS and ATS). The results of these comparisons are presented below. The model fits to the data are presented in the tables at the end of the document. The first section steers towards the R library used for processing model results for EBS pollock. The second section presents the comparisons of the FT-NIR data with the traditional data sources. The third section compares results of different software platforms (e.g., SS3, CEA, and AMAK) for the assessment. The fourth section shows results comparing newer model-based estimates from survey data.",
     "crumbs": [
       "Discussion-paper for CIE review"
     ]
   },
   {
-    "objectID": "doc/CIE.html#fit-to-models",
-    "href": "doc/CIE.html#fit-to-models",
+    "objectID": "doc/CIE.html#comparisons-of-fit-to-ft-nirs-models",
+    "href": "doc/CIE.html#comparisons-of-fit-to-ft-nirs-models",
     "title": "Eastern Bering Sea walleye pollock stock assessment",
-    "section": "Fit to models",
-    "text": "Fit to models\nComponentBaseFT-NIR fleets aggregatedFT-NIR fleet-specificRMSE BTS0.1500.1520.152RMSE ATS0.1670.1920.184RMSE AVO0.2160.2410.237RMSE CPUE0.0970.0970.097SDNR BTS0.8900.9000.880SDNR ATS0.9301.1301.070SDNR AVO0.9501.0801.050Eff. N Fishery357.670335.240380.560Eff. N BTS159.430147.180152.120Eff. N ATS233.170214.610227.210Catch NLL2.9604.2503.010BTS NLL23.91024.41023.430ATS NLL7.75011.39010.080AVO NLL8.24010.53010.060Fish Age NLL416.810558.820613.350BTS Age NLL286.120330.370314.100ATS Age NLL42.55046.97045.970NLL selectivity212.700209.530209.850NLL Priors20.33020.65020.730Data NLL807.1201,007.7701,042.700Total NLL1,110.9001,305.9301,339.140",
+    "section": "Comparisons of fit to FT-NIRS models",
+    "text": "Comparisons of fit to FT-NIRS models\nThe model fits to the data are shown in Table 1. The table shows the goodness-of-fit\n\n\n\n\n\n\n\n\n\n\n\nComponent\nBase\nFT-NIR fleet-specific\nFT-NIR fleets aggregated\n\n\n\n\nRMSE BTS\n0.150\n0.152\n0.152\n\n\nRMSE ATS\n0.167\n0.184\n0.192\n\n\nRMSE AVO\n0.216\n0.237\n0.241\n\n\nRMSE CPUE\n0.097\n0.097\n0.097\n\n\nSDNR BTS\n0.890\n0.880\n0.900\n\n\nSDNR ATS\n0.930\n1.070\n1.130\n\n\nSDNR AVO\n0.950\n1.050\n1.080\n\n\nEff. N Fishery\n357.670\n380.560\n335.240\n\n\nEff. N BTS\n159.430\n152.120\n147.180\n\n\nEff. N ATS\n233.170\n227.210\n214.610\n\n\nCatch NLL\n2.960\n3.010\n4.250\n\n\nBTS NLL\n23.910\n23.430\n24.410\n\n\nATS NLL\n7.750\n10.080\n11.390\n\n\nAVO NLL\n8.240\n10.060\n10.530\n\n\nFish Age NLL\n416.810\n613.350\n558.820\n\n\nBTS Age NLL\n286.120\n314.100\n330.370\n\n\nATS Age NLL\n42.550\n45.970\n46.970\n\n\nNLL selectivity\n212.700\n209.850\n209.530\n\n\nNLL Priors\n20.330\n20.730\n20.650\n\n\nData NLL\n807.120\n1042.700\n1007.770\n\n\nTotal NLL\n1110.900\n1339.140\n1305.930\n\n\n\n\n\n\n\n\nTable 1: Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions.",
     "crumbs": [
       "Discussion-paper for CIE review"
     ]

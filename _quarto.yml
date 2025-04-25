@@ -61,6 +61,7 @@ format:
     code-overflow: wrap
     toc: true
     toc-title: 'Contents'
+    toc-location: left
     embed-resources: false
     #numbering: false
     #number-sections: false

@@ -95,14 +95,12 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<link href="../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
-<script src="../site_libs/tabwid-1.1.3/tabwid.js"></script>
 
 
 <link rel="stylesheet" href="../mystyle.css">
 </head>
 
-<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -310,20 +308,16 @@ div.csl-indent {
 </li>
     </ul>
     </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul>
   <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary">Executive Summary</a></li>
+  <li><a href="#r-library-for-assessment-compilations-ebswp" id="toc-r-library-for-assessment-compilations-ebswp" class="nav-link" data-scroll-target="#r-library-for-assessment-compilations-ebswp">R Library for assessment compilations (ebswp)</a></li>
   <li><a href="#comparing-ft-nir-compositions-with-traditional-microscope-age-estimations" id="toc-comparing-ft-nir-compositions-with-traditional-microscope-age-estimations" class="nav-link" data-scroll-target="#comparing-ft-nir-compositions-with-traditional-microscope-age-estimations">Comparing FT-NIR compositions with traditional microscope age estimations</a>
   <ul class="collapse">
-  <li><a href="#fit-to-models" id="toc-fit-to-models" class="nav-link" data-scroll-target="#fit-to-models">Fit to models</a></li>
+  <li><a href="#comparisons-of-fit-to-ft-nirs-models" id="toc-comparisons-of-fit-to-ft-nirs-models" class="nav-link" data-scroll-target="#comparisons-of-fit-to-ft-nirs-models">Comparisons of fit to FT-NIRS models</a></li>
   </ul></li>
-  <li><a href="#r-library-for-assessment-compilations-ebswp" id="toc-r-library-for-assessment-compilations-ebswp" class="nav-link" data-scroll-target="#r-library-for-assessment-compilations-ebswp">R Library for assessment compilations (ebswp)</a></li>
   <li><a href="#developments-on-estimating-the-effective-degrees-of-freedom" id="toc-developments-on-estimating-the-effective-degrees-of-freedom" class="nav-link" data-scroll-target="#developments-on-estimating-the-effective-degrees-of-freedom">Developments on estimating the effective degrees of freedom</a></li>
   <li><a href="#leave-one-out-sensitivity-analysis" id="toc-leave-one-out-sensitivity-analysis" class="nav-link" data-scroll-target="#leave-one-out-sensitivity-analysis">Leave-one-out sensitivity analysis</a></li>
   <li><a href="#alternative-assessment-software" id="toc-alternative-assessment-software" class="nav-link" data-scroll-target="#alternative-assessment-software">Alternative assessment software</a>
@@ -342,9 +336,13 @@ div.csl-indent {
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/noaa-afsc/ebs_pollock/edit/main/doc/CIE.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/blob/main/doc/CIE.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="CIE.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -381,9 +379,13 @@ div.csl-indent {
 
 <section id="executive-summary" class="level1">
 <h1>Executive Summary</h1>
-<p>The work presented below was based on the same data sets used in the 2024 assessment. The first task was to update the model runs to include the 2023 data. The model runs were updated and the results are presented below. The model runs were then used to compare the FT-NIR data with the traditional data sources (BTS and ATS). The results of these comparisons are presented below. The model fits to the data are presented in the tables at the end of the document.</p>
+<p>The work presented below was based on the same data sets used in the 2024 assessment. The first task was to update the model runs to include the 2023 data. The model runs were updated and the results are presented below. The model runs were then used to compare the FT-NIR data with the traditional data sources (BTS and ATS). The results of these comparisons are presented below. The model fits to the data are presented in the tables at the end of the document. The first section steers towards the R library used for processing model results for EBS pollock. The second section presents the comparisons of the FT-NIR data with the traditional data sources. The third section compares results of different software platforms (e.g., SS3, CEA, and AMAK) for the assessment. The fourth section shows results comparing newer model-based estimates from survey data.</p>
 </section>
-<section id="comparing-ft-nir-compositions-with-traditional-microscope-age-estimations" class="level1">
+<section id="r-library-for-assessment-compilations-ebswp" class="level1">
+<h1>R Library for assessment compilations (ebswp)</h1>
+<p>The <code>ebswp</code> library is a collection of functions for compiling and analyzing results from the stock assessment models for the eastern Bering Sea walleye pollock (<span class="citation" data-cites="ianelli2025">Ianelli (<a href="#ref-ianelli2025" role="doc-biblioref">2025</a>)</span>). The library is designed to work with the ADMB code and depends on a consistent format for the report files generated. The link in the reference provides access to some notes on applications as vignettes to the package (e.g., . <a href="https://afsc-assessments.github.io/ebswp/index.html" title="EBSWP Library">here</a>).</p>
+</section>
+<section id="comparing-ft-nir-compositions-with-traditional-microscope-age-estimations" class="level1 page-columns page-full">
 <h1>Comparing FT-NIR compositions with traditional microscope age estimations</h1>
 <p>The fish age and growth lab at the AFSC have endeavored to expand on new technologies (<span class="citation" data-cites="helser2019">Helser et al. (<a href="#ref-helser2019" role="doc-biblioref">2019</a>)</span>).</p>
 <p>Examining the abundance-at-age (for design-based estimates of the bottom-trawl age compositions) we show that in general, the TMA estimates show a high level of consistency by cohort (<a href="#fig-consisTMA" class="quarto-xref">Figure&nbsp;1</a>). For these same data, when applied to the FTNIRs age-estimation method, the consistency was lower (<a href="#fig-consisFTN" class="quarto-xref">Figure&nbsp;2</a>).</p>
@@ -487,35 +489,31 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
 </div>
 </div>
 </div>
-<section id="fit-to-models" class="level2">
-<h2 class="anchored" data-anchor-id="fit-to-models">Fit to models</h2>
-<div class="tabwid"><style>.cl-fb36a3e6{}.cl-fb340564{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-fb350f54{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fb350f55{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-fb351bd4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb351bd5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb351bd6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb351bd7{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb351bde{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fb351be8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-fb36a3e6"><thead><tr style="overflow-wrap:break-word;"><th class="cl-fb351bd4"><p class="cl-fb350f54"><span class="cl-fb340564">Component</span></p></th><th class="cl-fb351bd5"><p class="cl-fb350f55"><span class="cl-fb340564">Base</span></p></th><th class="cl-fb351bd5"><p class="cl-fb350f55"><span class="cl-fb340564">FT-NIR fleets aggregated</span></p></th><th class="cl-fb351bd5"><p class="cl-fb350f55"><span class="cl-fb340564">FT-NIR fleet-specific</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">RMSE BTS</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.150</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.152</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.152</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">RMSE ATS</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.167</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.192</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.184</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">RMSE AVO</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.216</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.241</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.237</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">RMSE CPUE</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.097</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.097</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.097</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">SDNR BTS</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.890</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.900</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.880</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">SDNR ATS</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.930</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">1.130</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">1.070</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">SDNR AVO</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">0.950</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">1.080</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">1.050</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">Eff. N Fishery</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">357.670</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">335.240</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">380.560</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">Eff. N BTS</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">159.430</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">147.180</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">152.120</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">Eff. N ATS</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">233.170</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">214.610</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">227.210</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">Catch NLL</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">2.960</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">4.250</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">3.010</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">BTS NLL</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">23.910</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">24.410</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">23.430</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">ATS NLL</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">7.750</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">11.390</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">10.080</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">AVO NLL</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">8.240</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">10.530</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">10.060</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">Fish Age NLL</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">416.810</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">558.820</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">613.350</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">BTS Age NLL</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">286.120</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">330.370</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">314.100</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">ATS Age NLL</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">42.550</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">46.970</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">45.970</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">NLL selectivity</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">212.700</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">209.530</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">209.850</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">NLL Priors</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">20.330</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">20.650</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">20.730</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bd6"><p class="cl-fb350f54"><span class="cl-fb340564">Data NLL</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">807.120</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">1,007.770</span></p></td><td class="cl-fb351bd7"><p class="cl-fb350f55"><span class="cl-fb340564">1,042.700</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-fb351bde"><p class="cl-fb350f54"><span class="cl-fb340564">Total NLL</span></p></td><td class="cl-fb351be8"><p class="cl-fb350f55"><span class="cl-fb340564">1,110.900</span></p></td><td class="cl-fb351be8"><p class="cl-fb350f55"><span class="cl-fb340564">1,305.930</span></p></td><td class="cl-fb351be8"><p class="cl-fb350f55"><span class="cl-fb340564">1,339.140</span></p></td></tr></tbody></table></div>
-</section>
-</section>
-<section id="r-library-for-assessment-compilations-ebswp" class="level1">
-<h1>R Library for assessment compilations (ebswp)</h1>
-<p>The <code>ebswp</code> library is a collection of functions for compiling and analyzing results from the stock assessment models for the eastern Bering Sea walleye pollock (<span class="citation" data-cites="ianelli2025">Ianelli (<a href="#ref-ianelli2025" role="doc-biblioref">2025</a>)</span>). The library is designed to work with the ADMB code and depends on a consistent format for the report files generated. The link in the reference provides access to some notes on applications as vignettes to the package (e.g., . <a href="https://afsc-assessments.github.io/ebswp/index.html" title="EBSWP Library">here</a>).</p>
-</section>
-<section id="developments-on-estimating-the-effective-degrees-of-freedom" class="level1">
-<h1>Developments on estimating the effective degrees of freedom</h1>
-<p>In <span class="citation" data-cites="zheng2024">Zheng, Cadigan, and Thorson (<a href="#ref-zheng2024" role="doc-biblioref">2024</a>)</span> they present a new method for estimating the effective degrees of freedom (EDF) for general model applications. They note that “…hierarchical models can express ecological dynamics using a combination of fixed and random effects, and measurement of their complexity requires estimating how much random effects are shrunk toward a shared mean. Estimating EDF is helpful to (1) penalize complexity during model selection and (2) to improve understanding of model behavior.” Specifically, with application to common stock assessment problems we wish to evaluate the relationship between the information content of the data and the level of model complexity. See the paper for details (equaion 6). The conceptual steps to implement are based on the availability of the Hessian matrix. The Hessian matrix is a square matrix of second-order partial derivatives of a scalar-valued function. In this case, the Hessian is used to approximate the curvature of the log-likelihood function with respect to the model parameters. The diagonal elements of the Hessian matrix represent the second partial derivatives of the log-likelihood with respect to each parameter, and they can be used to estimate the EDF for each parameter. The first step is to estimate the Hessian from the full log-posterior (data and priors/penalties). Then, we map out the effect of the data on the log-likelihood by only the effect of the priors/penalties. This gives insight on the non-data impact on log-likelihood. For the pollock model, we added a command-line argument “<code>-do_nodata</code>”.</p>
-<div id="mbixznfkpx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mbixznfkpx table {
+<section id="comparisons-of-fit-to-ft-nirs-models" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="comparisons-of-fit-to-ft-nirs-models">Comparisons of fit to FT-NIRS models</h2>
+<p>The model fits to the data are shown in <a href="#tbl-modfits" class="quarto-xref">Table&nbsp;1</a>. The table shows the goodness-of-fit</p>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false" data-tbl-cap-location="margin">
+<div id="tbl-modfits" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-warnings="false" data-messages="false" data-tbl-cap-location="margin">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-modfits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="rmbixznfkp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rmbixznfkp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mbixznfkpx thead, #mbixznfkpx tbody, #mbixznfkpx tfoot, #mbixznfkpx tr, #mbixznfkpx td, #mbixznfkpx th {
+#rmbixznfkp thead, #rmbixznfkp tbody, #rmbixznfkp tfoot, #rmbixznfkp tr, #rmbixznfkp td, #rmbixznfkp th {
   border-style: none;
 }
 
-#mbixznfkpx p {
+#rmbixznfkp p {
   margin: 0;
   padding: 0;
 }
 
-#mbixznfkpx .gt_table {
+#rmbixznfkp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -541,12 +539,12 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   border-left-color: #D3D3D3;
 }
 
-#mbixznfkpx .gt_caption {
+#rmbixznfkp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mbixznfkpx .gt_title {
+#rmbixznfkp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -558,7 +556,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   border-bottom-width: 0;
 }
 
-#mbixznfkpx .gt_subtitle {
+#rmbixznfkp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -570,7 +568,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   border-top-width: 0;
 }
 
-#mbixznfkpx .gt_heading {
+#rmbixznfkp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -582,13 +580,13 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   border-right-color: #D3D3D3;
 }
 
-#mbixznfkpx .gt_bottom_border {
+#rmbixznfkp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mbixznfkpx .gt_col_headings {
+#rmbixznfkp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -603,7 +601,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   border-right-color: #D3D3D3;
 }
 
-#mbixznfkpx .gt_col_heading {
+#rmbixznfkp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -623,7 +621,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   overflow-x: hidden;
 }
 
-#mbixznfkpx .gt_column_spanner_outer {
+#rmbixznfkp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -635,15 +633,15 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   padding-right: 4px;
 }
 
-#mbixznfkpx .gt_column_spanner_outer:first-child {
+#rmbixznfkp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mbixznfkpx .gt_column_spanner_outer:last-child {
+#rmbixznfkp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mbixznfkpx .gt_column_spanner {
+#rmbixznfkp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -655,11 +653,11 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   width: 100%;
 }
 
-#mbixznfkpx .gt_spanner_row {
+#rmbixznfkp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mbixznfkpx .gt_group_heading {
+#rmbixznfkp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -685,7 +683,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   text-align: left;
 }
 
-#mbixznfkpx .gt_empty_group_heading {
+#rmbixznfkp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -700,15 +698,15 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   vertical-align: middle;
 }
 
-#mbixznfkpx .gt_from_md > :first-child {
+#rmbixznfkp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mbixznfkpx .gt_from_md > :last-child {
+#rmbixznfkp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mbixznfkpx .gt_row {
+#rmbixznfkp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -727,7 +725,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   overflow-x: hidden;
 }
 
-#mbixznfkpx .gt_stub {
+#rmbixznfkp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -740,7 +738,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   padding-right: 5px;
 }
 
-#mbixznfkpx .gt_stub_row_group {
+#rmbixznfkp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -754,15 +752,15 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   vertical-align: top;
 }
 
-#mbixznfkpx .gt_row_group_first td {
+#rmbixznfkp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mbixznfkpx .gt_row_group_first th {
+#rmbixznfkp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mbixznfkpx .gt_summary_row {
+#rmbixznfkp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -772,16 +770,16 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   padding-right: 5px;
 }
 
-#mbixznfkpx .gt_first_summary_row {
+#rmbixznfkp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mbixznfkpx .gt_first_summary_row.thick {
+#rmbixznfkp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mbixznfkpx .gt_last_summary_row {
+#rmbixznfkp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -791,7 +789,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   border-bottom-color: #D3D3D3;
 }
 
-#mbixznfkpx .gt_grand_summary_row {
+#rmbixznfkp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -801,7 +799,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   padding-right: 5px;
 }
 
-#mbixznfkpx .gt_first_grand_summary_row {
+#rmbixznfkp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -811,7 +809,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   border-top-color: #D3D3D3;
 }
 
-#mbixznfkpx .gt_last_grand_summary_row_top {
+#rmbixznfkp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -821,11 +819,11 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   border-bottom-color: #D3D3D3;
 }
 
-#mbixznfkpx .gt_striped {
+#rmbixznfkp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mbixznfkpx .gt_table_body {
+#rmbixznfkp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -834,7 +832,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   border-bottom-color: #D3D3D3;
 }
 
-#mbixznfkpx .gt_footnotes {
+#rmbixznfkp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -848,7 +846,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   border-right-color: #D3D3D3;
 }
 
-#mbixznfkpx .gt_footnote {
+#rmbixznfkp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -857,7 +855,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   padding-right: 5px;
 }
 
-#mbixznfkpx .gt_sourcenotes {
+#rmbixznfkp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -871,7 +869,7 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   border-right-color: #D3D3D3;
 }
 
-#mbixznfkpx .gt_sourcenote {
+#rmbixznfkp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -879,77 +877,1812 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
   padding-right: 5px;
 }
 
-#mbixznfkpx .gt_left {
+#rmbixznfkp .gt_left {
   text-align: left;
 }
 
-#mbixznfkpx .gt_center {
+#rmbixznfkp .gt_center {
   text-align: center;
 }
 
-#mbixznfkpx .gt_right {
+#rmbixznfkp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mbixznfkpx .gt_font_normal {
+#rmbixznfkp .gt_font_normal {
   font-weight: normal;
 }
 
-#mbixznfkpx .gt_font_bold {
+#rmbixznfkp .gt_font_bold {
   font-weight: bold;
 }
 
-#mbixznfkpx .gt_font_italic {
+#rmbixznfkp .gt_font_italic {
   font-style: italic;
 }
 
-#mbixznfkpx .gt_super {
+#rmbixznfkp .gt_super {
   font-size: 65%;
 }
 
-#mbixznfkpx .gt_footnote_marks {
+#rmbixznfkp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mbixznfkpx .gt_asterisk {
+#rmbixznfkp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mbixznfkpx .gt_indent_1 {
+#rmbixznfkp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mbixznfkpx .gt_indent_2 {
+#rmbixznfkp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mbixznfkpx .gt_indent_3 {
+#rmbixznfkp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mbixznfkpx .gt_indent_4 {
+#rmbixznfkp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mbixznfkpx .gt_indent_5 {
+#rmbixznfkp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#mbixznfkpx .katex-display {
+#rmbixznfkp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#mbixznfkpx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rmbixznfkp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top table" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Component" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Component</th>
+<th id="Base" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Base</th>
+<th id="FT-NIR-fleet-specific" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FT-NIR fleet-specific</th>
+<th id="FT-NIR-fleets-aggregated" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FT-NIR fleets aggregated</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">RMSE BTS</td>
+<td class="gt_row gt_right" headers="Base" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">0.150</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">0.152</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">0.152</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">RMSE ATS</td>
+<td class="gt_row gt_right" headers="Base">0.167</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">0.184</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">0.192</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">RMSE AVO</td>
+<td class="gt_row gt_right" headers="Base">0.216</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">0.237</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">0.241</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">RMSE CPUE</td>
+<td class="gt_row gt_right" headers="Base">0.097</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">0.097</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">0.097</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">SDNR BTS</td>
+<td class="gt_row gt_right" headers="Base" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">0.890</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">0.880</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">0.900</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">SDNR ATS</td>
+<td class="gt_row gt_right" headers="Base">0.930</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">1.070</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">1.130</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">SDNR AVO</td>
+<td class="gt_row gt_right" headers="Base">0.950</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">1.050</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">1.080</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">Eff. N Fishery</td>
+<td class="gt_row gt_right" headers="Base" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">357.670</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">380.560</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">335.240</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">Eff. N BTS</td>
+<td class="gt_row gt_right" headers="Base">159.430</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">152.120</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">147.180</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">Eff. N ATS</td>
+<td class="gt_row gt_right" headers="Base">233.170</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">227.210</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">214.610</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">Catch NLL</td>
+<td class="gt_row gt_right" headers="Base" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">2.960</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">3.010</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">4.250</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">BTS NLL</td>
+<td class="gt_row gt_right" headers="Base">23.910</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">23.430</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">24.410</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">ATS NLL</td>
+<td class="gt_row gt_right" headers="Base">7.750</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">10.080</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">11.390</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">AVO NLL</td>
+<td class="gt_row gt_right" headers="Base">8.240</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">10.060</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">10.530</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">Fish Age NLL</td>
+<td class="gt_row gt_right" headers="Base">416.810</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">613.350</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">558.820</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">BTS Age NLL</td>
+<td class="gt_row gt_right" headers="Base">286.120</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">314.100</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">330.370</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">ATS Age NLL</td>
+<td class="gt_row gt_right" headers="Base">42.550</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">45.970</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">46.970</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">NLL selectivity</td>
+<td class="gt_row gt_right" headers="Base" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">212.700</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">209.850</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated" style="border-top-width: 2px; border-top-style: solid; border-top-color: black">209.530</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">NLL Priors</td>
+<td class="gt_row gt_right" headers="Base">20.330</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">20.730</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">20.650</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">Data NLL</td>
+<td class="gt_row gt_right" headers="Base">807.120</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">1042.700</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">1007.770</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">Total NLL</td>
+<td class="gt_row gt_right" headers="Base" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">1110.900</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">1339.140</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated" style="border-top-width: 2px; border-top-style: solid; border-top-color: black; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">1305.930</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-modfits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="developments-on-estimating-the-effective-degrees-of-freedom" class="level1 page-columns page-full">
+<h1>Developments on estimating the effective degrees of freedom</h1>
+<p>In <span class="citation" data-cites="zheng2024">Zheng, Cadigan, and Thorson (<a href="#ref-zheng2024" role="doc-biblioref">2024</a>)</span> they present a new method for estimating the effective degrees of freedom (EDF) for general model applications. They note that “…hierarchical models can express ecological dynamics using a combination of fixed and random effects, and measurement of their complexity requires estimating how much random effects are shrunk toward a shared mean. Estimating EDF is helpful to (1) penalize complexity during model selection and (2) to improve understanding of model behavior.” Specifically, with application to common stock assessment problems we wish to evaluate the relationship between the information content of the data and the level of model complexity. See the paper for details (equaion 6). The conceptual steps to implement are based on the availability of the Hessian matrix. The Hessian matrix is a square matrix of second-order partial derivatives of a scalar-valued function. In this case, the Hessian is used to approximate the curvature of the log-likelihood function with respect to the model parameters. The diagonal elements of the Hessian matrix represent the second partial derivatives of the log-likelihood with respect to each parameter, and they can be used to estimate the EDF for each parameter. The first step is to estimate the Hessian from the full log-posterior (data and priors/penalties). Then, we map out the effect of the data on the log-likelihood by only the effect of the priors/penalties. This gives insight on the non-data impact on log-likelihood. For the pollock model, we added a command-line argument “<code>-do_nodata</code>”.</p>
+<p><a href="#tbl-edf1" class="quarto-xref">Table&nbsp;2</a></p>
+<p><a href="#tbl-edf2" class="quarto-xref">Table&nbsp;3</a></p>
+<p><a href="#tbl-edf3" class="quarto-xref">Table&nbsp;4</a></p>
+<div class="cell page-columns page-full" data-tbl-cap-location="margin">
+<div id="tbl-edf1" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-tbl-cap-location="margin">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-edf1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="xroddchiuu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xroddchiuu table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xroddchiuu thead, #xroddchiuu tbody, #xroddchiuu tfoot, #xroddchiuu tr, #xroddchiuu td, #xroddchiuu th {
+  border-style: none;
+}
+
+#xroddchiuu p {
+  margin: 0;
+  padding: 0;
+}
+
+#xroddchiuu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xroddchiuu .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xroddchiuu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xroddchiuu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xroddchiuu .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xroddchiuu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xroddchiuu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xroddchiuu .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xroddchiuu .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xroddchiuu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xroddchiuu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xroddchiuu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xroddchiuu .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xroddchiuu .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xroddchiuu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xroddchiuu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xroddchiuu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xroddchiuu .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xroddchiuu .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xroddchiuu .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xroddchiuu .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xroddchiuu .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xroddchiuu .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xroddchiuu .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xroddchiuu .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xroddchiuu .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xroddchiuu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xroddchiuu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xroddchiuu .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xroddchiuu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xroddchiuu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xroddchiuu .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xroddchiuu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xroddchiuu .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xroddchiuu .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xroddchiuu .gt_left {
+  text-align: left;
+}
+
+#xroddchiuu .gt_center {
+  text-align: center;
+}
+
+#xroddchiuu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xroddchiuu .gt_font_normal {
+  font-weight: normal;
+}
+
+#xroddchiuu .gt_font_bold {
+  font-weight: bold;
+}
+
+#xroddchiuu .gt_font_italic {
+  font-style: italic;
+}
+
+#xroddchiuu .gt_super {
+  font-size: 65%;
+}
+
+#xroddchiuu .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xroddchiuu .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xroddchiuu .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xroddchiuu .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xroddchiuu .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xroddchiuu .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xroddchiuu .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xroddchiuu .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xroddchiuu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<th colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">EDF Values by Model and Parameter</th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="par_names" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">par_names</th>
+<th id="N" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">N</th>
+<th id="Base" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Base</th>
+<th id="Francis-re-wt" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Francis re-wt</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="par_names">log_F_devs</td>
+<td class="gt_row gt_right" headers="N">61</td>
+<td class="gt_row gt_right" headers="Base">57</td>
+<td class="gt_row gt_right" headers="Francis re-wt">57</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="par_names">log_initdevs</td>
+<td class="gt_row gt_right" headers="N">14</td>
+<td class="gt_row gt_right" headers="Base">9</td>
+<td class="gt_row gt_right" headers="Francis re-wt">9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="par_names">log_rec_devs</td>
+<td class="gt_row gt_right" headers="N">61</td>
+<td class="gt_row gt_right" headers="Base">54</td>
+<td class="gt_row gt_right" headers="Francis re-wt">57</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="par_names">rec_dev_future</td>
+<td class="gt_row gt_right" headers="N">5</td>
+<td class="gt_row gt_right" headers="Base">0</td>
+<td class="gt_row gt_right" headers="Francis re-wt">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="par_names">sel_a50_bts_dev</td>
+<td class="gt_row gt_right" headers="N">43</td>
+<td class="gt_row gt_right" headers="Base">26</td>
+<td class="gt_row gt_right" headers="Francis re-wt">27</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="par_names">sel_age_one_bts_dev</td>
+<td class="gt_row gt_right" headers="N">43</td>
+<td class="gt_row gt_right" headers="Base">30</td>
+<td class="gt_row gt_right" headers="Francis re-wt">36</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="par_names">sel_devs_ats</td>
+<td class="gt_row gt_right" headers="N">210</td>
+<td class="gt_row gt_right" headers="Base">10</td>
+<td class="gt_row gt_right" headers="Francis re-wt">16</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="par_names">sel_devs_fsh</td>
+<td class="gt_row gt_right" headers="N">708</td>
+<td class="gt_row gt_right" headers="Base">118</td>
+<td class="gt_row gt_right" headers="Francis re-wt">73</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="par_names">sel_slp_bts_dev</td>
+<td class="gt_row gt_right" headers="N">43</td>
+<td class="gt_row gt_right" headers="Base">25</td>
+<td class="gt_row gt_right" headers="Francis re-wt">38</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="par_names">Total</td>
+<td class="gt_row gt_right" headers="N">1188</td>
+<td class="gt_row gt_right" headers="Base">329</td>
+<td class="gt_row gt_right" headers="Francis re-wt">313</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="par_names">AIC</td>
+<td class="gt_row gt_right" headers="N"></td>
+<td class="gt_row gt_right" headers="Base">14,796</td>
+<td class="gt_row gt_right" headers="Francis re-wt">14,765</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-edf1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Effective degrees of freedom (EDF) for the different models. The models are the base model (Base), the FT-NIRs age estimates with fleet-aggregated data (FTNIR1), and the FT-NIRs age estimates with fleet-specific data (FTNIR2).
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell page-columns page-full" data-tbl-cap-location="margin">
+<div id="tbl-edf2" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-tbl-cap-location="margin">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-edf2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="fhbrhsjguu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fhbrhsjguu table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#fhbrhsjguu thead, #fhbrhsjguu tbody, #fhbrhsjguu tfoot, #fhbrhsjguu tr, #fhbrhsjguu td, #fhbrhsjguu th {
+  border-style: none;
+}
+
+#fhbrhsjguu p {
+  margin: 0;
+  padding: 0;
+}
+
+#fhbrhsjguu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#fhbrhsjguu .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#fhbrhsjguu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#fhbrhsjguu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#fhbrhsjguu .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fhbrhsjguu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fhbrhsjguu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fhbrhsjguu .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#fhbrhsjguu .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#fhbrhsjguu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#fhbrhsjguu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#fhbrhsjguu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#fhbrhsjguu .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#fhbrhsjguu .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#fhbrhsjguu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#fhbrhsjguu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#fhbrhsjguu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#fhbrhsjguu .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#fhbrhsjguu .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fhbrhsjguu .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#fhbrhsjguu .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#fhbrhsjguu .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#fhbrhsjguu .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fhbrhsjguu .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#fhbrhsjguu .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#fhbrhsjguu .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fhbrhsjguu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fhbrhsjguu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#fhbrhsjguu .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fhbrhsjguu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#fhbrhsjguu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fhbrhsjguu .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fhbrhsjguu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fhbrhsjguu .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fhbrhsjguu .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fhbrhsjguu .gt_left {
+  text-align: left;
+}
+
+#fhbrhsjguu .gt_center {
+  text-align: center;
+}
+
+#fhbrhsjguu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#fhbrhsjguu .gt_font_normal {
+  font-weight: normal;
+}
+
+#fhbrhsjguu .gt_font_bold {
+  font-weight: bold;
+}
+
+#fhbrhsjguu .gt_font_italic {
+  font-style: italic;
+}
+
+#fhbrhsjguu .gt_super {
+  font-size: 65%;
+}
+
+#fhbrhsjguu .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#fhbrhsjguu .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#fhbrhsjguu .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#fhbrhsjguu .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#fhbrhsjguu .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#fhbrhsjguu .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#fhbrhsjguu .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#fhbrhsjguu .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#fhbrhsjguu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<th colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border">EDF Values by Model and Parameter</th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="par_names" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">par_names</th>
+<th id="N" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">N</th>
+<th id="Base" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Base</th>
+<th id="Const-0.05" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Const-0.05</th>
+<th id="Const-0.1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Const-0.1</th>
+<th id="VPA-like" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">VPA-like</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="par_names">log_F_devs</td>
+<td class="gt_row gt_right" headers="N">61</td>
+<td class="gt_row gt_right" headers="Base">57</td>
+<td class="gt_row gt_right" headers="Const-0.05">59</td>
+<td class="gt_row gt_right" headers="Const-0.1">58</td>
+<td class="gt_row gt_right" headers="VPA-like">54</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="par_names">log_initdevs</td>
+<td class="gt_row gt_right" headers="N">14</td>
+<td class="gt_row gt_right" headers="Base">9</td>
+<td class="gt_row gt_right" headers="Const-0.05">9</td>
+<td class="gt_row gt_right" headers="Const-0.1">9</td>
+<td class="gt_row gt_right" headers="VPA-like">9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="par_names">log_rec_devs</td>
+<td class="gt_row gt_right" headers="N">61</td>
+<td class="gt_row gt_right" headers="Base">54</td>
+<td class="gt_row gt_right" headers="Const-0.05">55</td>
+<td class="gt_row gt_right" headers="Const-0.1">55</td>
+<td class="gt_row gt_right" headers="VPA-like">55</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="par_names">rec_dev_future</td>
+<td class="gt_row gt_right" headers="N">5</td>
+<td class="gt_row gt_right" headers="Base">0</td>
+<td class="gt_row gt_right" headers="Const-0.05">0</td>
+<td class="gt_row gt_right" headers="Const-0.1">0</td>
+<td class="gt_row gt_right" headers="VPA-like">4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="par_names">sel_a50_bts_dev</td>
+<td class="gt_row gt_right" headers="N">43</td>
+<td class="gt_row gt_right" headers="Base">26</td>
+<td class="gt_row gt_right" headers="Const-0.05">25</td>
+<td class="gt_row gt_right" headers="Const-0.1">25</td>
+<td class="gt_row gt_right" headers="VPA-like">23</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="par_names">sel_age_one_bts_dev</td>
+<td class="gt_row gt_right" headers="N">43</td>
+<td class="gt_row gt_right" headers="Base">30</td>
+<td class="gt_row gt_right" headers="Const-0.05">30</td>
+<td class="gt_row gt_right" headers="Const-0.1">30</td>
+<td class="gt_row gt_right" headers="VPA-like">31</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="par_names">sel_devs_ats</td>
+<td class="gt_row gt_right" headers="N">210</td>
+<td class="gt_row gt_right" headers="Base">10</td>
+<td class="gt_row gt_right" headers="Const-0.05">11</td>
+<td class="gt_row gt_right" headers="Const-0.1">11</td>
+<td class="gt_row gt_right" headers="VPA-like">9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="par_names">sel_devs_fsh</td>
+<td class="gt_row gt_right" headers="N">708</td>
+<td class="gt_row gt_right" headers="Base">118</td>
+<td class="gt_row gt_right" headers="Const-0.05">23</td>
+<td class="gt_row gt_right" headers="Const-0.1">41</td>
+<td class="gt_row gt_right" headers="VPA-like">158</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="par_names">sel_slp_bts_dev</td>
+<td class="gt_row gt_right" headers="N">43</td>
+<td class="gt_row gt_right" headers="Base">25</td>
+<td class="gt_row gt_right" headers="Const-0.05">25</td>
+<td class="gt_row gt_right" headers="Const-0.1">25</td>
+<td class="gt_row gt_right" headers="VPA-like">24</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="par_names">Total</td>
+<td class="gt_row gt_right" headers="N">1188</td>
+<td class="gt_row gt_right" headers="Base">329</td>
+<td class="gt_row gt_right" headers="Const-0.05">236</td>
+<td class="gt_row gt_right" headers="Const-0.1">255</td>
+<td class="gt_row gt_right" headers="VPA-like">370</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="par_names">AIC</td>
+<td class="gt_row gt_right" headers="N"></td>
+<td class="gt_row gt_right" headers="Base">14,796</td>
+<td class="gt_row gt_right" headers="Const-0.05">14,612</td>
+<td class="gt_row gt_right" headers="Const-0.1">14,648</td>
+<td class="gt_row gt_right" headers="VPA-like">14,878</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="par_names">NA</td>
+<td class="gt_row gt_right" headers="N">4</td>
+<td class="gt_row gt_right" headers="Base">NA</td>
+<td class="gt_row gt_right" headers="Const-0.05">NA</td>
+<td class="gt_row gt_right" headers="Const-0.1">NA</td>
+<td class="gt_row gt_right" headers="VPA-like">4</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-edf2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Effective degrees of freedom (EDF) for the different models. The models are the base model (Base), the FT-NIRs age estimates with fleet-aggregated data (FTNIR1), and the FT-NIRs age estimates with fleet-specific data (FTNIR2).
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell page-columns page-full" data-tbl-cap-location="margin">
+<div id="tbl-edf3" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-tbl-cap-location="margin">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-edf3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="mrsitltmhu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mrsitltmhu table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mrsitltmhu thead, #mrsitltmhu tbody, #mrsitltmhu tfoot, #mrsitltmhu tr, #mrsitltmhu td, #mrsitltmhu th {
+  border-style: none;
+}
+
+#mrsitltmhu p {
+  margin: 0;
+  padding: 0;
+}
+
+#mrsitltmhu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mrsitltmhu .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mrsitltmhu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mrsitltmhu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mrsitltmhu .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mrsitltmhu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mrsitltmhu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mrsitltmhu .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mrsitltmhu .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mrsitltmhu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mrsitltmhu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mrsitltmhu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mrsitltmhu .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mrsitltmhu .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mrsitltmhu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mrsitltmhu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mrsitltmhu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mrsitltmhu .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mrsitltmhu .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mrsitltmhu .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mrsitltmhu .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mrsitltmhu .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mrsitltmhu .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mrsitltmhu .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mrsitltmhu .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mrsitltmhu .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mrsitltmhu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mrsitltmhu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mrsitltmhu .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mrsitltmhu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mrsitltmhu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mrsitltmhu .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mrsitltmhu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mrsitltmhu .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mrsitltmhu .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mrsitltmhu .gt_left {
+  text-align: left;
+}
+
+#mrsitltmhu .gt_center {
+  text-align: center;
+}
+
+#mrsitltmhu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mrsitltmhu .gt_font_normal {
+  font-weight: normal;
+}
+
+#mrsitltmhu .gt_font_bold {
+  font-weight: bold;
+}
+
+#mrsitltmhu .gt_font_italic {
+  font-style: italic;
+}
+
+#mrsitltmhu .gt_super {
+  font-size: 65%;
+}
+
+#mrsitltmhu .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mrsitltmhu .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mrsitltmhu .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mrsitltmhu .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mrsitltmhu .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mrsitltmhu .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mrsitltmhu .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#mrsitltmhu .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mrsitltmhu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
 <th colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border">EDF Values by Model and Parameter</th>
@@ -1043,6 +2776,14 @@ Figure&nbsp;7: Data extent by age composition for the models with FTNIRs age est
 </tbody>
 </table>
 
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-edf3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Effective degrees of freedom (EDF) for the different models. The models are the base model (Base), the FT-NIRs age estimates with fleet-aggregated data (FTNIR1), and the FT-NIRs age estimates with fleet-specific data (FTNIR2).
+</figcaption>
+</figure>
+</div>
 </div>
 </section>
 <section id="leave-one-out-sensitivity-analysis" class="level1">
@@ -1186,7 +2927,6 @@ Figure&nbsp;15: Model results comparing last year’s model with the Rceattle mo
 </section>
 <section id="bottom-trawl-survey-spatial-distribution-modeling" class="level1">
 <h1>Bottom-trawl survey spatial distribution modeling</h1>
-<p>Sophia’s work here # Model-based Methods for the Bering Sea</p>
 <section id="abundance-index-methods" class="level2">
 <h2 class="anchored" data-anchor-id="abundance-index-methods">Abundance Index Methods</h2>
 <p>For model-based indices in the Bering Sea, we fitted observations of numerical abundance or biomass per unit area (where the choice of abundance or biomass varied by stock at the request of assessors) from all sampling locations in the 83-112 bottom trawl survey of the EBS, 1982-2025, including:</p>
