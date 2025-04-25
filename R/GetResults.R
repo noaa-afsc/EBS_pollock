@@ -186,19 +186,19 @@ gp_obj <- function(path = here("colepoll", "2023"), gp_sd = asdrep, gp_rep = are
 # here()
 #load("SAM/poll23/baserun/model.RData")
 load(here::here("runs","SAM/poll24/baserun/model.RData"))
-names(fit)
+#names(fit)
 #myfit=fit;yrmin=1964;yrmax=2024
 # load(here("SAM","poll23","run","model2.RData"))
 SAM_obj <- function(myfit = fit, yrmin = 1964, yrmax = 2024) {
   ssb <- data.frame(stockassessment::ssbtable(myfit))
   ssb$Year <- as.numeric(row.names(ssb))
   ssb <- ssb |>
-    mutate(value = Estimate / 2, type = "SSB", se = (log(High) - log(Estimate)), source = "SAM") |>
+    mutate(value = 1e-6*Estimate / 2, type = "SSB", se = 1e-6*((High) - (Estimate))/1.96, source = "SAM") |>
     select(Year, source, type, se, value)
   rec <- data.frame(stockassessment::rectable(myfit))
   rec$Year <- as.numeric(row.names(rec))
   rec <- rec |>
-    mutate(value = Estimate, type = "Recruits", se = (log(High) - log(Estimate)), source = "SAM") |>
+    mutate(value = 1e-6*Estimate, type = "Recruits", se = 1e-6*((High) - (Estimate))/1.96, source = "SAM") |>
     select(Year, source, type, se, value)
   sel <- data.frame(stockassessment::faytable(myfit))
   sel <- as.data.frame(t(apply(sel, 1, function(x) x / max(x))))
@@ -208,7 +208,7 @@ SAM_obj <- function(myfit = fit, yrmin = 1964, yrmax = 2024) {
   return(list(sel = sel, ts = rbind(rec, ssb), fit=myfit))
 }
  sam_run<- SAM_obj()
- names(sam_run)
+ tail(sam_run$ts)
 
 #--Read in results from AMAK2 run----
 # setwd("~/_mymods/afsc-assessments/ebs_pollock_mod_alts/amak2/runs")
@@ -291,19 +291,19 @@ Plot_index <- function(df, idx = c(1, 2, 5)) {
   return(p1)
 }
 
-unique(all_ts$type)
-(all_ts) |>
-  group_by(source, type) |>
-  summarise(mean(value))
+#unique(all_ts$type) (all_ts) |> group_by(source, type) |> summarise(mean(value))
 Plot_SSB <- function(df = all_ts) {
   p1 <- df |>
-    filter(type %in% c("SSB", "Recruits"), Year < 2025, Year > 1963) |>
-    ggplot(aes(
-      x = Year,
-      y = value, color = source
-    )) +
+    filter(type == "SSB", Year < 2025, Year > 1963) |>
+    # Given values
+    mutate(lnhat = log(value), cv=se/value, 
+           lnse = sqrt(log(1 + cv^2)),
+           lb=exp(lnhat-1.96*lnse),
+           ub=exp(lnhat+1.96*lnse)) |>
+    ggplot(aes( x = Year, ymin=lb,  ymax=ub,  y = value, fill = source )) +
     geom_line(stat = "identity") +
     geom_point(stat = "identity") +
+    geom_ribbon(alpha=.55) +
     ggthemes::theme_few() +
     ylab("SSB") +
     xlab("Year") +
@@ -311,8 +311,37 @@ Plot_SSB <- function(df = all_ts) {
     facet_grid(type ~ ., scales = "free_y")
   return(p1)
 }
-# glimpse(all_ts)
+#Plot_SSB(rbind(sam_run$ts,pm_run$ts) ) 
+#Plot_SSB(rbind(c1$ts,pm_run$ts) ) 
+#Plot_SSB(rbind(pm_run$ts) ) 
 
+
+Plot_Rec <- function(df = all_ts) {
+  p1 <- df |>
+    filter(type %in% c("Recruits"), Year < 2025, Year > 1963) |>
+    mutate(lnhat = log(value), cv = se/value, 
+           lnse = sqrt(log(1 + cv^2)),
+           lb = exp(lnhat - 1.96 * lnse),
+           ub = exp(lnhat + 1.96 * lnse)) |>
+    ggplot(aes(x = Year, ymin = lb, ymax = ub, y = value, color = source)) +
+    geom_point(size=.8, position = position_dodge(width = 0.5), stat = "identity") +
+    geom_errorbar(position = position_dodge(width = 0.5), width = 0.4) +
+    geom_line(stat = "identity", position = position_dodge(width = 0.5), linewidth=.1) +
+    ggthemes::theme_few() +
+    ylab("Age-1 recruits") +
+    xlab("Year") +
+    ylim(0, NA) +
+    facet_grid(type ~ ., scales = "free_y")
+  
+  return(p1)
+}
+#( Plot_Rec(rbind(c1$ts, pm_run$ts)) )
+#( Plot_Rec(rbind(sam_run$ts, pm_run$ts)) )
+#( Plot_Rec(rbind(r1$ts, pm_run$ts)) ) + ggthemes::theme_few(base_size=14)
+#( Plot_Rec(rbind(c1$ts, pm_run$ts, r1$ts)) )
+#( Plot_Rec(pm_run$ts) )
+#
+# glimpse(all_ts)
 # all_ts |> pivot_wider(names_from=type,values_from=value,-se) |> select(1:5) |> tail()
 
 Plot_SRR <- function(df = all_ts) {
@@ -389,6 +418,29 @@ compute_matrix_summary <- function(matrix_data) {
   col_cv <- apply(normalized_matrix, 2, function(x) sd(x) / mean(x))
   return(list(CV_row = mean(row_cv), CV_col = mean(col_cv)))
 }
+
+library(Rceattle) # https://github.com/grantdadams/Rceattle/tree/dev-name-change
+Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE) {
+  bsp0 <- Rceattle::read_data( file = here::here("runs","ceattle",fn) )
+  bsp0$estDynamics = 0
+  bsp0$index_data$Log_sd <- bsp0$index_data$Log_sd/bsp0$index_data$Observation
+  bsp0$catch_data$Catch <- bsp0$catch_data$Catch*1000
+  bsp0$catch_data$Log_sd <- 0.05
+  # - Fix M
+  fit <- Rceattle::fit_mod(data_list = bsp0,
+                           inits = NULL, # Initial parameters = 0
+                           file = NULL, # Don't save
+                           estimateMode = 0, # Estimate
+                           random_rec = rand_rec, # Random recruitment
+                           random_sel = rand_sel, # selectivity RE
+                           msmMode = 0, # Single species mode
+                           verbose = 1,
+                           phase = TRUE,
+                           initMode = 2) # Unfished equilibrium with init_dev's turned on
+  return(fit)
+}
+fm0DM<- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=FALSE)
+fm0 <- Fit_bsp(fn = "bsp0.xlsx")
 
 # compute_matrix_summary(matrix_data)
 

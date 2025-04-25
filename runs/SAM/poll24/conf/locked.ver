@@ -1,0 +1,6 @@
+## If you wish to lock specific version(s) of R-package(s)   
+## Simply list package name(s) and SHA code(s) below this 
+## comment section. One line per package. E.g: 
+## 
+## fishfollower/SAM/stockassessment sha12321sha
+
