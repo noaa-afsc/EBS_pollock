@@ -1,0 +1,8 @@
+library(stockassessment)
+setwd("run")
+load("data.RData")
+conf<-loadConf(dat,"../conf/model.cfg", patch=TRUE)
+par<-defpar(dat,conf)
+fit<-sam.fit(dat,conf,par)
+if(fit$opt$convergence!=0) stop("Model did not converge.")
+save(fit, file="model.RData")

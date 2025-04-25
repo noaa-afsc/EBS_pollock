@@ -11,8 +11,11 @@ FTNIR folder the start for testing FT-NIR results
 
 WHAM for wham model try...
 
-ss for SS3 model tries...
+ss for SS3 model tries..."base" is main case, "tight" constrained selectivity, "flex" flexibile selex
 
 CEATTLE folder is for porting from the GOA pollock example to bridge with single-species mode of EBS pollock
+
+SAM folder for a try w/ stockassessment.org
+
 
 
