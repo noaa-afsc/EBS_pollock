@@ -34,7 +34,7 @@
     "href": "doc/CIE.html#sam",
     "title": "Eastern Bering Sea walleye pollock stock assessment",
     "section": "SAM",
-    "text": "SAM\nThe Stock Assessment Model (SAM) is a state-space model written in TMB (A. Nielsen and Berg (2014), J. M. Nielsen et al. (2021)).\n\n\n\n\n\n\n\n\nFigure 10: Model results comparing last year’s model with the SAM model.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 11: Model results comparing last year’s model with the SAM model.",
+    "text": "SAM\nThe Stock Assessment Model (SAM) is a state-space model written in TMB (Nielsen and Berg (2014), Nielsen et al. (2021)).\n\n\n\n\n\n\n\n\nFigure 10: Model results comparing last year’s model with the SAM model.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 11: Model results comparing last year’s model with the SAM model.",
     "crumbs": [
       "Discussion-paper for CIE review"
     ]
