@@ -303,7 +303,7 @@ Plot_SSB <- function(df = all_ts) {
     ggplot(aes( x = Year, ymin=lb,  ymax=ub,  y = value, fill = source )) +
     geom_line(stat = "identity") +
     geom_point(stat = "identity") +
-    geom_ribbon(alpha=.55) +
+    geom_ribbon(alpha=.29) +
     ggthemes::theme_few() +
     ylab("SSB") +
     xlab("Year") +
