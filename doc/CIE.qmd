@@ -518,14 +518,25 @@ We checked model fits for convergence by confirming that the derivative of the m
 
 For model-based estimation of age compositions in the Bering Sea, we fitted observations of numerical abundance-at-age at each sampling location. This was made possible by applying a year-specific, region-specific (EBS and NBS) age-length key to records of numerical abundance and length composition. In subcategories (combinations of year, length, age, sex) that contained insufficient data, age composition was computed from length composition given a globally pooled age-length key.
 
-We computed these estimates in the tinyVAST R package (https://vast-lib.github.io/tinyVAST; @Thorson2024), assuming a Poisson-link delta-model [@Thorson2018] involving two linear predictors, and a gamma distribution to model positive catch rates. We did not include any density covariates in estimation of age composition for consistency with models used in the previous assessments and due to computational limitations.
+We computed these estimates in the tinyVAST R package (https://vast-lib.github.io/tinyVAST; @Thorson2024), assuming a Poisson-link delta-model [@Thorson2018] involving two linear predictors, and a gamma distribution to model positive catch rates. We did not include any density covariates in estimation of age composition for consistency with models used in the previous assessments and due to computational limitations. 
 
 We estimated the spatial range assuming geometric isotropy (i.e, spatial autocorrelation declines with equal rates over distance in all cardinal directions). We used the same extrapolation grid as implemented for abundance indices, but here we modeled spatial and spatiotemporal fields with a mesh with a coarser spatial resolution than the index model, here using 50 "knots". This reduction in the spatial resolution of the model, relative to that used for the abundance indices, was necessary due to the increased computational load of fitting multiple age categories.
 
-The estimates of abundance at age were bias-corrected with the same method as the abundance index. We implemented the same diagnostics to check convergence and model fit as those used for the abundance index.
+The estimates of abundance at age were bias-corrected with the same method as the abundance index. We implemented the same diagnostics to check convergence and model fit as those used for the abundance index. Results compared favorably among methods (@fig-sdm_age).
 
 Both the model-based bottom trawl index and age composition estimates were calculated using code in the AFSC GAP model-based indices GitHub repository (https://github.com/afsc-gap-products/model-based-indices). Design-based estimates of bottom trawl products were calculated using code in the gapindex R package (https://github.com/afsc-gap-products/gapindex).
 
+
+```{r sdm_age}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-sdm_age
+#| fig.cap: "Model results comparing last year's model with the sdmTMB model."
+
+  knitr::include_graphics("figs/VAST_Age_Compare.png")
+
+```
 
 
 # References
