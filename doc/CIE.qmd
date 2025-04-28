@@ -275,7 +275,7 @@ if (do_ft) {
 
 The model fits to the data are shown in @tbl-modfits. The table shows the goodness-of-fit
 
-```{r}
+```{r modfits}
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
@@ -339,10 +339,10 @@ type of data available. Namely, empirical weight-at-age, acoustic survey data, a
 of 1-year olds. @fig-ss3 shows the model results comparing the last year's model some
 alternative model platforms.
 Comparing the SS3 output with three different configurations on selectivity constraint
-shows xxx (@fig-ss3_ts).
-Comparing the SS3 output with last year's reference model shows that xxx (@fig-ss3_ts_ref).
+shows xxx (@fig-ss3ts).
+Comparing the SS3 output with last year's reference model shows that xxx (@fig-ss3tsref).
 
-```{r}
+```{r ss3}
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
@@ -353,11 +353,11 @@ Plot_Sel(ss_sel) + ggthemes::theme_few(base_size = 9)
 ```
 
 
-```{r}
+```{r ss3ts}
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
-#| label: fig-ss3_ts
+#| label: fig-ss3ts
 #| fig.cap: "Model results comparing three different SS3 model configurations. The models are the base model (Base), the constrained model (Constrained), and the flexible model (Flexible)."
 #| 
 all_ts <- rbind(r1$ts,r2$ts, r3$ts)
@@ -368,11 +368,11 @@ plotly::ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
 ```
 
 
-```{r}
+```{r ss3tsref}
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
-#| label: fig-ss3_ts_ref
+#| label: fig-ss3tsref
 #| fig.cap: "Model results comparing three different SS3 model configurations. The models are the base model (Base), the constrained model (Constrained), and the flexible model (Flexible)."
 #| 
 all_ts <- rbind(r1$ts,pm_run$ts)
