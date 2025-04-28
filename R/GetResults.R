@@ -1,7 +1,7 @@
 library(ebswp)
 library(here)
 library(r4ss)
-library(GOApollock)
+#library(GOApollock)
 select <- dplyr::select
 #---Main pollock model run-----
 here::here()
