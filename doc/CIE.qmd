@@ -298,17 +298,20 @@ tab
 # Leave-one-out sensitivity analysis
 
 Here we present model runs that downweight one source of age composition data at a time,
-as well as a run that downweights all survey biomass indices.
+as well as a run that downweights all survey biomass indices. @tbl-loo_runs shows the combinations of data
+types included for this analysis.
 
-```{r loo}
+Results show that the model is sensitive to the inclusion of the ... data (@tbl-loo_fits)
+
+```{r loo_runs}
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
-#| label: fig-loo
-#| fig.cap: "Model results comparing models that downweight one data source at a time"
+#| label: tbl-loo_runs
+#| tbl-cap: "Configuration of different model options testing the impact of different data components"
 if (do_loo) {
   thisyr=2024; nextyr=thisyr+1; dec_tab_ord <<- 1:8
-  mod_names <- c("2024 accepted", "LOO BTS age comps", "LOO ATS age comps","LOO survey indices")
+  mod_names <- c("2024 accepted", "Drop BTS age comps", "Drop ATS age comps","Drop survey indices")
   mod_dir <- c("lastyr", "loo_bts_comp", "loo_ats_comp", "loo_srv_indices")
 #  source("C:/GitProjects/ebswp/R/get-results.R", echo=TRUE)
 #  source("C:/GitProjects/ebswp/R/get-vars.R", echo=TRUE)
@@ -318,14 +321,71 @@ if (do_loo) {
   #source(here::here("R","pm_CIE.R"))
   saveRDS(loo_lst, here::here("runs", "loo.rds"))
   p1<-plot_ssb(loo_lst,xlim = c(1964,2024),breaks = seq(1964, 2024, 4))
-  ggsave(filename = "figs/loo_ssb.png",plot = p1,width = 8, height = 4,units = "in",device = "png")
-  knitr::include_graphics("figs/loo_ssb.png")
+  ggsave(filename = here::here("doc","figs","loo_ssb.png"), plot = p1, width = 8, height = 4,units = "in",device = "png")
 } else{
   loo_lst <- readRDS(here::here("runs", "loo.rds"))
-  knitr::include_graphics("figs/loo_ssb.png")
 }
 
+df <- read_csv(here::here("doc","data","loo_runs.csv"))
+gt::gt(df) %>%
+  # Replace NA values with blank
+  fmt_missing(
+    columns = everything(),
+    missing_text = ""
+  ) %>%
+  # Center align all columns' content
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  tab_spanner(
+    label = "Model description",
+    columns = -1  # All columns except the first
+  ) %>%
+  # Optional: Add other styling as needed
+  tab_options(
+    table.font.size = px(12),
+    column_labels.font.weight = "bold"
+  )
+```
 
+```{r loo_fits}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: tbl-loo_fits
+#| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
+gt_table <- gt::gt(tab_fit(loo_lst[c(1:4)])) #|> 
+numeric_cols <- 2:5 # Specify the numeric columns to format
+target_rows <- c(8:21) 
+for (col in numeric_cols) {
+  gt_table <- gt_table %>%
+    fmt_number(
+      columns = col,
+      rows = target_rows,
+      decimals = 0,
+      use_seps = TRUE
+    )
+}
+gt_table %>%
+  tab_style(
+    style = cell_borders(sides = "top", weight = px(2), color = "black"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = cell_borders(sides = "bottom", weight = px(2), color = "black"),
+    locations = cells_body(rows = c( 4, 7, 10, 18, 21))
+  )
+
+```
+
+```{r loo}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo
+#| fig.cap: "Model results comparing models that downweight one data source at a time"
+  knitr::include_graphics(here::here("doc","figs","loo_ssb.png"))
 ```
 
 # Alternative assessment software

@@ -98,7 +98,12 @@ Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE,
 
 fm0DM_re<- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=TRUE, rand_rec = TRUE, verbose=1)
 fm0_re1 <- Fit_bsp(fn = "bsp0.xlsx",rand_sel=FALSE, rand_rec = TRUE)
-fm0DM   <- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=FALSE, rand_rec = FALSE)
+fm0DM   <- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=FALSE, rand_rec = FALSE, verbose=2)
+names(fm0DM)
+names(fm0DM$opt)
+names(fm0DM$opt$par)
+names(fm0DM$quantities)
+(fm0DM$initial_params)
 fm0     <- Fit_bsp(fn = "bsp0.xlsx",rand_sel=FALSE, rand_rec = FALSE)
 
 
