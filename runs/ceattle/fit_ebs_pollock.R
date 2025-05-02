@@ -61,31 +61,52 @@ library(dplyr)
 names(bsp0)
 ?fit_mod
 
-build_map(bsp0)
-pars<-build_params(bsp0)
 
-library(Rceattle) # https://github.com/grantdadams/Rceattle/tree/dev-name-change
-Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE) {
-  bsp0 <- Rceattle::read_data( file = here::here("runs","ceattle",fn) )
-  bsp0$estDynamics = 0
-  bsp0$index_data$Log_sd <- bsp0$index_data$Log_sd/bsp0$index_data$Observation
-  bsp0$catch_data$Catch <- bsp0$catch_data$Catch*1000
-  bsp0$catch_data$Log_sd <- 0.05
+
+#library(Rceattle) # https://github.com/grantdadams/Rceattle/tree/dev-name-change
+fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=FALSE
+
+Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE, 
+                     sigR=FALSE, sigSel=FALSE, verbose=1) {
+  bsp <- Rceattle::read_data( file = here::here("runs","ceattle",fn) )
+  bsp$estDynamics = 0
+  bsp$index_data$Log_sd <- bsp$index_data$Log_sd/bsp$index_data$Observation
+  bsp$catch_data$Catch <- bsp$catch_data$Catch*1000
+  bsp$catch_data$Log_sd <- 0.05
+  bsp$initMode = 1
+  bsp$M1_model = 0
+  bsp$srr_fun = 0
+  bsp$srr_pred_fun = 0
+  bsp$srr_est_mode = 0
+  bsp$estDynamics = 0
+  bsp$msmMode = 0
+ pars<-build_params(bsp)
+ build_map(bsp, params = pars, debug = FALSE, random_rec = sigR, random_sel = sigSel)
   # - Fix M
-  fit <- Rceattle::fit_mod(data_list = bsp0,
+  fit <- Rceattle::fit_mod(data_list = bsp,
                                     inits = NULL, # Initial parameters = 0
                                     file = NULL, # Don't save
                                     estimateMode = 0, # Estimate
                                     random_rec = rand_rec, # Random recruitment
                                     random_sel = rand_sel, # selectivity RE
                                     msmMode = 0, # Single species mode
-                                    verbose = 1,
+                                    verbose = verbose,
                                     phase = TRUE,
                                     initMode = 2) # Unfished equilibrium with init_dev's turned on
   return(fit)
 }
-fm0DM<- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=FALSE)
-fm0 <- Fit_bsp(fn = "bsp0.xlsx")
+
+fm0DM_re<- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=TRUE, rand_rec = TRUE, verbose=1)
+fm0_re1 <- Fit_bsp(fn = "bsp0.xlsx",rand_sel=FALSE, rand_rec = TRUE)
+fm0DM   <- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=FALSE, rand_rec = FALSE, verbose=2)
+names(fm0DM)
+names(fm0DM$opt)
+names(fm0DM$opt$par)
+names(fm0DM$quantities)
+(fm0DM$initial_params)
+fm0     <- Fit_bsp(fn = "bsp0.xlsx",rand_sel=FALSE, rand_rec = FALSE)
+
+
 #,rand_sel=TRUE, rand_rec = TRUE)
 fm1 <- Fit_bsp(fn = "bsp1.xlsx")
 fm2 <- Fit_bsp(fn = "bsp2.xlsx")
