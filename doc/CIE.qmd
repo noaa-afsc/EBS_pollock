@@ -69,6 +69,9 @@ loadup<-FALSE
 #loadup<-TRUE
 if (loadup){
   source(here::here("R", "GetResults.R"))
+  source(here::here("runs","spock", "FitSpock.R"))
+  spock <- spock_obj(src="RTMB")
+ # names(spock)
   r1 <- SS_obj(SS_output(dir = here::here("runs","ss","base"),verbose=FALSE),src="SS3 base") 
   r2 <- SS_obj(SS_output(dir = here::here("runs","ss","tight"),verbose=FALSE),src="SS3 Constrained") 
   r3 <- SS_obj(SS_output(dir = here::here("runs","ss","flex"),verbose=FALSE),src="SS3 Flexible") 
@@ -551,6 +554,29 @@ Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19)
   all_ts <- rbind(pm_run$ts,r1$ts,c1$ts)
 Plot_SSB(rbind(c1$ts,pm_run$ts,sam_run$ts)) + ggthemes::theme_few(base_size = 19)
 Plot_Rec(rbind(c1$ts,pm_run$ts,sam_run$ts)) + ggthemes::theme_few(base_size = 19)
+```
+
+# Spatial modeling of the EBS pollock stock
+
+In development is a spatially disaggregated general model by colleagues at the Auke Bay
+lab and the University of Alaska, Fairbanks (@spock). 
+
+```{r}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-spock_ts
+#| fig.cap: "Model results comparing last year's model with the SPock model."
+
+  all_ts <- rbind(pm_run$ts,spock$ts,r2$ts)
+  all_ts <- rbind(pm_run$ts,spock$ts)
+  all_ts <- rbind(spock$ts,r2$ts)
+  all_ts <- rbind(pm_run$ts,r2$ts)
+ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
+#Plot_Rec(rbind(pm_run$ts,spock$ts,r2$ts), width=2, 
+Plot_Rec(all_ts,  width=2, 
+         size=3, alpha=.3) + ggthemes::theme_few(base_size = 19)
+
 ```
 
 # Bottom-trawl survey spatial distribution modeling
