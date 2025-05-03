@@ -1,8 +1,7 @@
 Dataset,Drop all BTS,Drop all ATS,Drop all indices,Drop BTS Age composition,Drop ATS Age composition
 BTS age 2+ Index,X,,X,,
 ATS age 2+ Index,,X,X,,
-BTS age 1 Index,X,X,X,,
-ATS age 1 Index,,,?,,
-AVO Index,,,,,
+ATS age 1 Index,,X,?,,
+AVO Index,,,?,,
 BTS comps,X,,,X,
 ATS comps,,X,,,X
