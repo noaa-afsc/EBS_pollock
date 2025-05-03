@@ -1,0 +1,313 @@
+# Load in packages
+library(SPoCK) 
+library(here)
+library(RTMB)
+library(tidyverse)
+spock_obj <- function (src="SPoCK") {
+  data("sgl_rg_ebswp_data") # load in data
+  input_list <- Setup_Mod_Dim(
+    years = sgl_rg_ebswp_data$years,
+    # vector of years
+    ages = sgl_rg_ebswp_data$ages,
+    # vector of ages
+    lens = NA,
+    # number of lengths
+    n_regions = 1,
+    # number of regions
+    n_sexes = 1,
+    # number of sexes
+    n_fish_fleets = 1,
+    # number of fishery fleets
+    n_srv_fleets = 3 # number of survey fleets
+  )
+  input_list <- Setup_Mod_Rec(
+    input_list = input_list,
+    # Model options
+    do_rec_bias_ramp = 0,
+    # do bias ramp (0 == don't do bias ramp, 1 == do bias ramp)
+    sigmaR_switch = 1,
+    # when to switch from early to late sigmaR (switch in first year)
+    ln_sigmaR = log(c(0.6, 0.6)),
+    # Starting values for early and late sigmaR
+    rec_model = "mean_rec",
+    # recruitment model
+    sigmaR_spec = "fix",
+    # fix early sigmaR and late sigmaR
+    sexratio = as.vector(c(1.0)),
+    # recruitment sex ratio
+    init_age_strc = 1,
+    ln_global_R0 = 12
+    # starting value for r0
+  )
+  
+  
+  # Setup Biological Dynamics
+  
+  input_list <- Setup_Mod_Biologicals(
+    input_list = input_list,
+    # Data inputs
+    WAA = sgl_rg_ebswp_data$WAA,
+    MatAA = sgl_rg_ebswp_data$MatAA,
+    AgeingError = sgl_rg_ebswp_data$AgeingError,
+    # ageing error
+    
+    # Model options
+    Use_M_prior = 1,
+    # use natural mortality prior
+    M_prior = c(0.3, 0.1),
+    # mean and sd for M prior
+    fit_lengths = 0,
+    # don't fit length compositions
+    ln_M = log(0.3),
+    M_spec = "est_ln_M_only"
+    # estimating log M
+  )
+  # Setup Movement and Tagging
+  input_list <- Setup_Mod_Movement(
+    input_list = input_list,
+    use_fixed_movement = 1,
+    Fixed_Movement = NA,
+    do_recruits_move = 0
+  )
+  
+  input_list <- Setup_Mod_Tagging(input_list = input_list, 
+                                  UseTagging = 0)
+  # Setup Natural Mortality
+  input_list <- Setup_Mod_Catch_and_F(
+    input_list = input_list,
+    # Data inputs
+    ObsCatch = sgl_rg_ebswp_data$ObsCatch,
+    Catch_Type = sgl_rg_ebswp_data$Catch_Type,
+    UseCatch = sgl_rg_ebswp_data$UseCatch,
+    # Model options
+    Use_F_pen = 1,
+    # whether to use f penalty, == 0 don't use, == 1 use
+    sigmaC_spec = "fix",
+    # fixing catch standard deviation
+    ln_sigmaC = matrix(log(0.05), 1, 1)
+    # starting / fixed value for catch standard deviation
+  )
+  
+  # Setup Fishery Indices and Compositions
+  input_list <- Setup_Mod_FishIdx_and_Comps(
+    input_list = input_list,
+    # data inputs
+    ObsFishIdx = array(NA, dim = c(1, length(input_list$data$years), 1)),
+    ObsFishIdx_SE = array(NA, dim = c(1, length(input_list$data$years), 1)),
+    UseFishIdx = array(0, dim = c(1, length(input_list$data$years), 1)),
+    ObsFishAgeComps = sgl_rg_ebswp_data$ObsFishAgeComps,
+    UseFishAgeComps = sgl_rg_ebswp_data$UseFishAgeComps,
+    ISS_FishAgeComps = sgl_rg_ebswp_data$ISS_FishAgeComps,
+    ObsFishLenComps = array(NA_real_,  dim = c(1, length(input_list$data$years), 
+                                    length(input_list$data$lens), 1, 1)),
+    UseFishLenComps = array(0, dim = c(1, length(input_list$data$years), 1)),
+    ISS_FishLenComps = NULL,
+    # Model options
+    fish_idx_type = c("none"),
+    # indices for fishery
+    FishAgeComps_LikeType = c("Multinomial"),
+    # age comp likelihoods for fishery fleet
+    FishLenComps_LikeType = c("none"),
+    # length comp likelihoods for fishery
+    FishAgeComps_Type = c("agg_Year_1-61_Fleet_1"),
+    # age comp structure for fishery
+    FishLenComps_Type = c("none_Year_1-61_Fleet_1"),
+    # length comp structure for fishery
+    FishAge_comp_agg_type = c(0),
+    # ADMB aggregation quirks, ideally get rid of this
+    FishLen_comp_agg_type = c(1)
+    # ADMB aggregation quirks, ideally get rid of this
+  )
+  
+  # Setup Survey Indices and Compositions
+  input_list <- Setup_Mod_SrvIdx_and_Comps(
+    input_list = input_list,
+    # data inputs
+    ObsSrvIdx = sgl_rg_ebswp_data$ObsSrvIdx,
+    ObsSrvIdx_SE = sgl_rg_ebswp_data$ObsSrvIdx_SE,
+    UseSrvIdx = sgl_rg_ebswp_data$UseSrvIdx,
+    ObsSrvAgeComps = sgl_rg_ebswp_data$ObsSrvAgeComps,
+    ISS_SrvAgeComps = sgl_rg_ebswp_data$ISS_SrvAgeComps,
+    UseSrvAgeComps = sgl_rg_ebswp_data$UseSrvAgeComps,
+    ObsSrvLenComps = array(NA_real_, dim = c(1, length(input_list$data$years),
+                                             length(input_list$data$lens), 1, 3)),
+    UseSrvLenComps = array(0, dim = c(1, length(input_list$data$years), 3)),
+    ISS_SrvLenComps = NULL,
+    
+    # Model options
+    srv_idx_type = c("biom", "biom", "biom"),
+    # abundance and biomass for survey fleet 1, 2, and 3
+    SrvAgeComps_LikeType = c("Multinomial", "Multinomial", "Multinomial"),
+    # survey age composition likelihood for survey fleet 1, 2, and 3
+    SrvLenComps_LikeType = c("none", "none", "none"),
+    #  survey length composition likelihood for survey fleet 1, 2, and 3
+    SrvAgeComps_Type = c(
+      "agg_Year_1-61_Fleet_1",
+      "agg_Year_1-61_Fleet_2",
+      "none_Year_1-61_Fleet_3"
+    ),
+    # survey age comp type
+    SrvLenComps_Type = c(
+      "none_Year_1-61_Fleet_1",
+      "none_Year_1-61_Fleet_2",
+      "none_Year_1-61_Fleet_3"
+    ),
+    # survey length comp type
+    SrvAge_comp_agg_type = c(1, 1, 1),
+    # ADMB aggregation quirks, ideally get rid of this
+    SrvLen_comp_agg_type = c(0, 0, 0)
+    # ADMB aggregation quirks, ideally get rid of this
+  )
+  
+  
+  # Setup fishery selectivity and catchability
+  ?Setup_Mod_Fishsel_and_Q
+  input_list <- Setup_Mod_Fishsel_and_Q(
+    input_list = input_list,
+    # Model options
+    # fishery selectivity, whether continuous time-varying
+    #cont_tv_fish_sel = c("none_Fleet_1"),
+    cont_tv_fish_sel = c("none_Fleet_1"),
+    # fishery selectivity blocks
+    fish_sel_blocks = c("none_Fleet_1"),
+    # fishery selectivity form
+    fish_sel_model = c("logist1_Fleet_1"),
+    # fishery catchability blocks
+    fish_q_blocks = c("none_Fleet_1"),
+    # whether to estiamte all fixed effects for fishery selectivity
+    fish_fixed_sel_pars = c("est_all"),
+    # whether to estiamte all fixed effects for fishery catchability
+    fish_q_spec = c("fix")
+  )
+  
+  # Setup Fishery Selectivity and Catchability
+  input_list <- Setup_Mod_Fishsel_and_Q(
+    input_list = input_list,
+    # Model options
+    # fishery selectivity, whether continuous time-varying
+    cont_tv_fish_sel = c("none_Fleet_1"),
+    # fishery selectivity blocks
+    fish_sel_blocks = c("none_Fleet_1"),
+    # fishery selectivity form
+    fish_sel_model = c("logist1_Fleet_1"),
+    # fishery catchability blocks
+    fish_q_blocks = c("none_Fleet_1"),
+    # whether to estiamte all fixed effects for fishery selectivity
+    fish_fixed_sel_pars = c("est_all"),
+    # whether to estiamte all fixed effects for fishery catchability
+    fish_q_spec = c("fix")
+  )
+  
+  # Setup Survey Selectivity and Catchability
+  input_list <- Setup_Mod_Srvsel_and_Q(
+    input_list = input_list,
+    
+    # Model options
+    # survey selectivity, whether continuous time-varying
+    cont_tv_srv_sel = c("none_Fleet_1", "none_Fleet_2", "none_Fleet_3"),
+    # survey selectivity blocks
+    srv_sel_blocks = c("none_Fleet_1", "none_Fleet_2", "none_Fleet_3"),
+    # survey selectivity form
+    srv_sel_model = c(
+      "logist1_Fleet_1",
+      "logist1_Fleet_2",
+      "logist1_Fleet_3"
+    ),
+    # survey catchability blocks
+    srv_q_blocks = c("none_Fleet_1", "none_Fleet_2", "none_Fleet_3"),
+    # whether to estiamte all fixed effects for survey selectivity
+    srv_fixed_sel_pars_spec = c("est_all", "est_all", "est_all"),
+    # whether to estiamte all fixed effects for survey catchability
+    srv_q_spec = c("est_all", "est_all", "est_all")
+  )
+  
+  # note that AVO (fleet 3) does not have any comp data, and needs to share
+  # selectivity with ATS (fleet 2)
+  input_list$map$ln_srv_fixed_sel_pars <- factor(c(1, 2, 3, 4, 3, 4)) 
+  
+  # Setup Model Weighting
+  input_list <- Setup_Mod_Weighting(
+    input_list = input_list,
+    sablefish_ADMB = 0,
+    likelihoods = 1, # using TMB likelihoods
+    Wt_Catch = 1,
+    Wt_FishIdx = 1,
+    Wt_SrvIdx = 1,
+    Wt_Rec = 1,
+    Wt_F = 1,
+    Wt_FishAgeComps = array(1, dim = c(input_list$data$n_regions,
+                                       length(input_list$data$years),
+                                       input_list$data$n_sexes,
+                                       input_list$data$n_srv_fleets)),
+    Wt_FishLenComps = array(1, dim = c(input_list$data$n_regions,
+                                       length(input_list$data$years),
+                                       input_list$data$n_sexes,
+                                       input_list$data$n_srv_fleets)),
+    Wt_SrvAgeComps = array(1, dim = c(input_list$data$n_regions,
+                                      length(input_list$data$years),
+                                      input_list$data$n_sexes,
+                                      input_list$data$n_srv_fleets)),
+    Wt_SrvLenComps = array(1, dim = c(input_list$data$n_regions,
+                                      length(input_list$data$years),
+                                      input_list$data$n_sexes,
+                                      input_list$data$n_srv_fleets))
+  )
+  
+  # Fit Model and Plot
+  # extract out lists updated with helper functions
+  data <- input_list$data
+  parameters <- input_list$par
+  mapping <- input_list$map
+  
+  # Fit model
+  ebswp_rtmb_model <- fit_model(data,
+                                parameters,
+                                mapping,
+                                random = NULL,
+                                newton_loops = 3,
+                                silent = TRUE )
+  # Get standard error report
+  ebswp_rtmb_model$sd_rep <- RTMB::sdreport(ebswp_rtmb_model)
+  m1 <- ebswp_rtmb_model
+  sel=as.data.frame(t(as.matrix(m1$rep$fish_sel[1,1,,1,1])))
+  names(sel) <- 1:15
+  #sel
+  
+  # Get the summary as a matrix first
+  smry <- summary(m1$sd_rep)
+  # Create a tibble manually with the exact parameter names
+  df <- tibble(
+    type = rownames(smry),
+    value = smry[, "Estimate"],
+    se = smry[, "Std. Error"]
+  )
+  
+  #unique(df$type)
+  # View the result
+  ts <- df |> filter(type=="SSB"|type=="Rec") |> mutate(type=ifelse(type=="Rec","Recruits",type), 
+                                                        se=ifelse(type=="SSB",se/1,se), 
+                                                        value=ifelse(type=="SSB",value/1,value)) 
+  ts$Year <- rep(1964:2024,2) 
+  ts$source <- src
+  # Get recruitment time-series
+  #rec_series <- reshape2::melt((ebswp_rtmb_model$rep$Rec))
+  #rec_series$Par <- "Recruitment"
+  # Get SSB time-series
+  #ssb_series <- reshape2::melt((ebswp_rtmb_model$rep$SSB))
+  #ssb_series$Par <- "Spawning Biomass"
+  
+  #ts_df <- rbind(ssb_series,rec_series) # bind together
+  
+  # Do some data munging here
+  #ts_df <- ts_df %>% dplyr::rename(Region = Var1, Year = Var2) %>% 
+  
+  #dplyr::mutate(Year = Year + 1963)
+  # plot!
+  #ggplot(ts_df, aes(x = Year, y = value, color = Region)) + geom1G1G_line(lwd = 1.3) +
+  #facet_wrap(~Par, scales = "free_y") + labs(y = "Value")  + theme_bw(base_size = 13) + theme(legend.position = 'none')
+  
+  return(list(sel=sel, ts= ts, obj=m1) )
+}
+#t<-spock_obj()
+#names(t)
+#t$ts
