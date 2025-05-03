@@ -1,7 +1,7 @@
 library(ebswp)
 library(here)
 library(r4ss)
-library(GOApollock)
+#library(GOApollock)
 select <- dplyr::select
 #---Main pollock model run-----
 here::here()
@@ -14,11 +14,12 @@ pm1 <- read_rep("pm.rep")
 setwd(here("runs", "lastyrdb"))
 pm2 <- read_rep("pm.rep")
 # names(pm1)
-#yrmin = 1964; yrmax = 2024; projyr=2050
-#src="shit"
-cea_obj <- function(cea_run = fm, yrmin = 1964, yrmax = 2024, src = "CEATTLE") {
+# yrmin = 1964; yrmax = 2024; projyr=2050
+# src="shit"
+# cea_run=fm0
+cea_obj <- function(cea_run = fm, yrmin = 1964, yrmax = 2024, projyr = 2050, src = "CEATTLE") {
   yrs <- yrmin:yrmax
-  sel <- as_tibble(t(fm$quantities$sel[1,1,,1:length(yrs)]) ) 
+  sel <- as_tibble(t(cea_run$quantities$sel[1, 1, , 1:length(yrs)]))
   names(sel) <- 1:15
   sel <- sel |>
     mutate(Year = yrs) |>
@@ -26,28 +27,32 @@ cea_obj <- function(cea_run = fm, yrmin = 1964, yrmax = 2024, src = "CEATTLE") {
     mutate(source = src) |>
     filter(Year >= yrmin, Year <= yrmax)
   # Now complete SSB and R and Biomass for fm CEATTLE
-  # 
-  #fm$quantities$ssb[,1:length(yrs)]
-  #fm$quantities$R[,1:length(yrs)]
-  #fm$quantities$biomass[,1:length(yrs)]
-  #str(fm$quantities$ssb)
-  #str(fm$sdrep$value)
-  
- df <-  data.frame(
-    type = names(fm$sdrep$value),
+  #
+  # fm$quantities$ssb[,1:length(yrs)]
+  # fm$quantities$R[,1:length(yrs)]
+  # fm$quantities$biomass[,1:length(yrs)]
+  # str(fm$quantities$ssb)
+  # str(fm$sdrep$value)
+
+  df <- data.frame(
+    type = names(cea_run$sdrep$value),
     source = src,
-    se   = as.numeric(fm$sdrep$sd),
-    value = as.numeric(fm$sdrep$value)
+    se = as.numeric(cea_run$sdrep$sd) / 1e3,
+    value = as.numeric(cea_run$sdrep$value / 1e3)
   )
- df$Year <-  rep(yrmin:projyr, each = 3)
- df <- df |> mutate(type = ifelse(type == "ssb", "SSB",
-                                  ifelse(type == "R","Recruits","Biomass"))) |> 
-    filter(Year <= yrmax, Year>= yrmin)
- 
-  return(list(sel = sel, ts = df, lst = fm))
+  # df$Year <-  rep(yrmin:projyr, each = 3)
+  df$Year <- rep(yrmin:projyr, 3)
+  df <- df |>
+    mutate(type = ifelse(type == "ssb", "SSB",
+      ifelse(type == "R", "Recruits", "Biomass")
+    )) |>
+    filter(Year <= yrmax, Year >= yrmin)
+
+  return(list(sel = sel, ts = df, lst = cea_run))
 }
-#cea_run <- cea_obj()
-  
+# cea_run <- cea_obj()
+# fm
+
 pm_obj <- function(pm_run = pm1, yrmin = 1964, yrmax = 2024, src = "Pollock_model") {
   sel_pm <- as_tibble(pm_run$sel_fsh) |>
     rowwise() |>
@@ -91,7 +96,7 @@ setwd(here())
 
 SS_obj <- function(ss_run = r1, ssdir = "runs/ss/base", yrmin = 1964, yrmax = 2024,
                    atype = c("Asel"), src = "SS") {
-  r1 <- SS_output(dir = here(ssdir))
+  # r1 <- SS_output(dir = here(ssdir))
   sel_ss <- ss_run$ageselex |>
     filter(Yr >= yrmin, Yr <= yrmax, Factor %in% atype) |>
     mutate(fleet = ss_run$FleetNames[Fleet]) |>
@@ -123,7 +128,7 @@ SS_obj <- function(ss_run = r1, ssdir = "runs/ss/base", yrmin = 1964, yrmax = 20
   )
   return(list(sel = sel_ss, ts = tmp))
 }
- #ss_run<-SS_obj()
+# ss_run<-SS_obj()
 # ss_run$ts
 # ss_run$sel
 # tail(tmp)
@@ -179,25 +184,31 @@ gp_obj <- function(path = here("colepoll", "2023"), gp_sd = asdrep, gp_rep = are
 
 #--Read in results from SAM run----
 # here()
-# load("SAM/poll23/baserun/model.RData")
+#load("SAM/poll23/baserun/model.RData")
+load(here::here("runs","SAM/poll24/baserun/model.RData"))
+#names(fit)
+#myfit=fit;yrmin=1964;yrmax=2024
 # load(here("SAM","poll23","run","model2.RData"))
-# SAM_obj <- function(myfit=fit, yrmin=1964,yrmax=2024) {
-# ssb <-  data.frame(stockassessment::ssbtable(myfit))
-# ssb$Year<- as.numeric(row.names(ssb))
-# ssb <- ssb |> mutate(value=Estimate/2,type="SSB",se=(log(High)-log(Estimate)),source="SAM")  |>
-# select(Year,source,type,se,value)
-# rec <-  data.frame(stockassessment::rectable(myfit))
-# rec$Year<- as.numeric(row.names(rec))
-# rec <- rec |> mutate(value=Estimate,type="Recruits",se=(log(High)-log(Estimate)),source="SAM") |>
-# select(Year,source,type,se,value)
-# sel <-  data.frame(stockassessment::faytable(myfit))
-# sel <- as.data.frame(t(apply(sel, 1, function(x) x / max(x))))
-# sel <- cbind(as.numeric(row.names(sel)),sel)
-# sel$source <- "SAM"
-# names(sel)<-c("Year",1:15,"source")
-# return(list(sel=sel,ts=rbind(rec,ssb)))
-# }
-# sam_run<- SAM_obj()
+SAM_obj <- function(myfit = fit, yrmin = 1964, yrmax = 2024) {
+  ssb <- data.frame(stockassessment::ssbtable(myfit))
+  ssb$Year <- as.numeric(row.names(ssb))
+  ssb <- ssb |>
+    mutate(value = 1e-6*Estimate / 2, type = "SSB", se = 1e-6*((High) - (Estimate))/1.96, source = "SAM") |>
+    select(Year, source, type, se, value)
+  rec <- data.frame(stockassessment::rectable(myfit))
+  rec$Year <- as.numeric(row.names(rec))
+  rec <- rec |>
+    mutate(value = 1e-6*Estimate, type = "Recruits", se = 1e-6*((High) - (Estimate))/1.96, source = "SAM") |>
+    select(Year, source, type, se, value)
+  sel <- data.frame(stockassessment::faytable(myfit))
+  sel <- as.data.frame(t(apply(sel, 1, function(x) x / max(x))))
+  sel <- cbind(as.numeric(row.names(sel)), sel)
+  sel$source <- "SAM"
+  names(sel) <- c("Year", 1:15, "source")
+  return(list(sel = sel, ts = rbind(rec, ssb), fit=myfit))
+}
+ sam_run<- SAM_obj()
+ tail(sam_run$ts)
 
 #--Read in results from AMAK2 run----
 # setwd("~/_mymods/afsc-assessments/ebs_pollock_mod_alts/amak2/runs")
@@ -280,15 +291,19 @@ Plot_index <- function(df, idx = c(1, 2, 5)) {
   return(p1)
 }
 
+#unique(all_ts$type) (all_ts) |> group_by(source, type) |> summarise(mean(value))
 Plot_SSB <- function(df = all_ts) {
   p1 <- df |>
-    filter(Year < 2024, Year > 1963) |>
-    ggplot(aes(
-      x = Year,
-      y = value, color = source
-    )) +
+    filter(type == "SSB", Year < 2025, Year > 1963) |>
+    # Given values
+    mutate(lnhat = log(value), cv=se/value, 
+           lnse = sqrt(log(1 + cv^2)),
+           lb=exp(lnhat-1.96*lnse),
+           ub=exp(lnhat+1.96*lnse)) |>
+    ggplot(aes( x = Year, ymin=lb,  ymax=ub,  y = value, fill = source )) +
     geom_line(stat = "identity") +
     geom_point(stat = "identity") +
+    geom_ribbon(alpha=.29) +
     ggthemes::theme_few() +
     ylab("SSB") +
     xlab("Year") +
@@ -296,8 +311,37 @@ Plot_SSB <- function(df = all_ts) {
     facet_grid(type ~ ., scales = "free_y")
   return(p1)
 }
-# glimpse(all_ts)
+#Plot_SSB(rbind(sam_run$ts,pm_run$ts) ) 
+#Plot_SSB(rbind(c1$ts,pm_run$ts) ) 
+#Plot_SSB(rbind(pm_run$ts) ) 
 
+
+Plot_Rec <- function(df = all_ts) {
+  p1 <- df |>
+    filter(type %in% c("Recruits"), Year < 2025, Year > 1963) |>
+    mutate(lnhat = log(value), cv = se/value, 
+           lnse = sqrt(log(1 + cv^2)),
+           lb = exp(lnhat - 1.96 * lnse),
+           ub = exp(lnhat + 1.96 * lnse)) |>
+    ggplot(aes(x = Year, ymin = lb, ymax = ub, y = value, color = source)) +
+    geom_point(size=.8, position = position_dodge(width = 0.5), stat = "identity") +
+    geom_errorbar(position = position_dodge(width = 0.5), width = 0.4) +
+    geom_line(stat = "identity", position = position_dodge(width = 0.5), linewidth=.1) +
+    ggthemes::theme_few() +
+    ylab("Age-1 recruits") +
+    xlab("Year") +
+    ylim(0, NA) +
+    facet_grid(type ~ ., scales = "free_y")
+  
+  return(p1)
+}
+#( Plot_Rec(rbind(c1$ts, pm_run$ts)) )
+#( Plot_Rec(rbind(sam_run$ts, pm_run$ts)) )
+#( Plot_Rec(rbind(r1$ts, pm_run$ts)) ) + ggthemes::theme_few(base_size=14)
+#( Plot_Rec(rbind(c1$ts, pm_run$ts, r1$ts)) )
+#( Plot_Rec(pm_run$ts) )
+#
+# glimpse(all_ts)
 # all_ts |> pivot_wider(names_from=type,values_from=value,-se) |> select(1:5) |> tail()
 
 Plot_SRR <- function(df = all_ts) {
@@ -374,6 +418,29 @@ compute_matrix_summary <- function(matrix_data) {
   col_cv <- apply(normalized_matrix, 2, function(x) sd(x) / mean(x))
   return(list(CV_row = mean(row_cv), CV_col = mean(col_cv)))
 }
+
+library(Rceattle) # https://github.com/grantdadams/Rceattle/tree/dev-name-change
+Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE) {
+  bsp0 <- Rceattle::read_data( file = here::here("runs","ceattle",fn) )
+  bsp0$estDynamics = 0
+  bsp0$index_data$Log_sd <- bsp0$index_data$Log_sd/bsp0$index_data$Observation
+  bsp0$catch_data$Catch <- bsp0$catch_data$Catch*1000
+  bsp0$catch_data$Log_sd <- 0.05
+  # - Fix M
+  fit <- Rceattle::fit_mod(data_list = bsp0,
+                           inits = NULL, # Initial parameters = 0
+                           file = NULL, # Don't save
+                           estimateMode = 0, # Estimate
+                           random_rec = rand_rec, # Random recruitment
+                           random_sel = rand_sel, # selectivity RE
+                           msmMode = 0, # Single species mode
+                           verbose = 1,
+                           phase = TRUE,
+                           initMode = 2) # Unfished equilibrium with init_dev's turned on
+  return(fit)
+}
+fm0DM<- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=FALSE)
+fm0 <- Fit_bsp(fn = "bsp0.xlsx")
 
 # compute_matrix_summary(matrix_data)
 

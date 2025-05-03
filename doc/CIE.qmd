@@ -1,9 +1,9 @@
 ---
 output: html
-title: "Eastern Bering Sea walleye pollock stock assessment"
+title: "Discussion paper for CIE review of the eastern Bering Sea walleye pollock stock assessment"
 subtitle: "May 2025, CIE review"
-author: "Jim Ianelli and Carey McGilliard"
-date: April 2025
+author: "Jim Ianelli, Carey McGilliard, Sofia Wassermann"
+date: May 2025
 editor_options: 
   chunk_output_type: console
 bibliography: references.bib
@@ -37,14 +37,15 @@ library(reshape2)
 #theme_set(ggthemes::theme_few()) 
 options(warn = -1)
 do_sigmaR_profile=0
-do_ft=0
+do_edf=0
+do_ft=1
 do_abc_sel=0
 do_yearloop=0
 do_srrlst=0
 do_selsens= 0
 do_loo = 0
 
-Plot_Sel <- function(sel = all_sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 2024) {
+Plot_Sel <- function(sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 2024) {
   sdf <- pivot_longer(sel, names_to = "age", values_to = "sel", cols = 2:(nages + 1)) |>
     filter(Year >= styr, Year <= endyr) |>
     mutate(age = as.numeric(age))
@@ -67,47 +68,29 @@ Plot_Sel <- function(sel = all_sel, fage = 1, lage = 13, nages = 15, styr = 1964
 loadup<-FALSE
 #loadup<-TRUE
 if (loadup){
-  #source(here::here("GetResults.R"))
-  
-  r1 <- SS_obj(SS_output(dir = here("runs","ss","base"),verbose=FALSE),src="base") 
-  r2 <- SS_obj(SS_output(dir = here("runs","ss","tight"),verbose=FALSE),src="Constrained") 
-  r3 <- SS_obj(SS_output(dir = here("runs","ss","flex"),verbose=FALSE),src="Flexible") 
-  #r5 <- SS_obj(SS_output(dir = here("ss","autocor")),src="autocor")  
-  ss_sel <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
-  #compute_matrix_summary(sel[,2:16])
+  source(here::here("R", "GetResults.R"))
+  r1 <- SS_obj(SS_output(dir = here::here("runs","ss","base"),verbose=FALSE),src="SS3 base") 
+  r2 <- SS_obj(SS_output(dir = here::here("runs","ss","tight"),verbose=FALSE),src="SS3 Constrained") 
+  r3 <- SS_obj(SS_output(dir = here::here("runs","ss","flex"),verbose=FALSE),src="SS3 Flexible") 
+  c1 <- cea_obj(cea_run=fm0, src="CEA 0.7")
+  c2 <- cea_obj(cea_run=fm0DM, src="CEA 0.7, DM")
   #gp_run<-gp_obj()
   pm_run<-pm_obj()
   #pm_run2<-pm_obj(pm2, src="Pollock_model VPA-like")
   #load(here("SAM","poll23","run","model2.RData"))
-  #sam_run <- SAM_obj()
+  sam_run <- SAM_obj()
   #am_run<-AMAK_obj(run_dir=here("amak2","runs", "base"))
   #am_run2<-AMAK_obj(run_dir=here("amak2","runs", "3par"),src="AMAK-3par-logistic")
   #am_run3<-AMAK_obj(run_dir=here("amak2","runs", "cpue"),src="AMAK w CPUE", nind=6)
   #all_sel <- rbind(sam_run$sel,pm_run$sel,am_run$sel,ss_run$sel,gp_run$sel)
-  all_sel <- rbind(pm_run$sel,r1$sel,r2$sel,r3$sel)#,gp_run$sel)
-  all_ts <- rbind(pm_run$ts,r1$ts,r2$ts,r3$ts)#,gp_run$sel)
+  #all_sel <- rbind(pm_run$sel,r1$sel,r2$sel,r3$sel)#,gp_run$sel)
+
   #all_ts <- rbind( sam_run$ts,pm_run$ts,am_run$ts,ss_run$ts,gp_run$ts)
   save.image(file=here::here("compares.Rdata"))
 } else {
- # load(here::here("compares.Rdata"))
+  load(here::here("compares.Rdata"))
 }
-
-#---Redo of Cole's get hessian routine to get files----
-getADMBHess <- function(filename = "admodel.hes") {
-  if (!file.exists(filename)) {
-    stop(paste0("file not found: ", filename))
-  }
-  f <- file(filename, "rb")
-  on.exit(close(f))
-  num.pars <- readBin(f, "integer", 1)
-  hes.vec <- readBin(f, "numeric", num.pars^2)
-  hes <- matrix(hes.vec, ncol = num.pars, nrow = num.pars)
-  hybrid_bounded_flag <- readBin(f, "integer", 1)
-  scale <- readBin(f, "numeric", num.pars)
-  return(hes)
-}
-
-
+#Plot_Sel() + ggthemes::theme_few(base_size = 9)
 ```
 
 # Executive Summary
@@ -117,7 +100,22 @@ first task was to update the model runs to include the 2023 data. The model runs
 updated and the results are presented below. The model runs were then used to compare the
 FT-NIR data with the traditional data sources (BTS and ATS). The results of these
 comparisons are presented below. The model fits to the data are presented in the tables at
-the end of the document.
+the end of the document. The first section steers towards the R library used for 
+processing model results for EBS pollock. The second section presents the comparisons of the
+FT-NIR data with the traditional data sources. The third section compares results of
+different software platforms (e.g., SS3, CEA, and AMAK) for the assessment. The fourth section
+shows results comparing newer model-based estimates from survey data.
+
+
+#  R Library for assessment compilations (ebswp)
+
+The `ebswp` library is a collection of functions for compiling and analyzing results from
+the stock assessment models for the eastern Bering Sea walleye pollock (@ianelli2025). The
+library is designed to work with the ADMB code and depends on a consistent format for the
+report files generated. The link in the reference provides access to some notes on
+applications as vignettes to the package (e.g., .
+[here](https://afsc-assessments.github.io/ebswp/index.html "EBSWP Library")).
+
 
 # Comparing FT-NIR compositions with traditional microscope age estimations
 
@@ -271,148 +269,49 @@ if (do_ft) {
 
 ```
 
-## Fit to models
 
-```{r modfits, results = "asis",echo=FALSE}
-#| output: asis
+
+## Comparisons of fit to FT-NIRS models
+
+The model fits to the data are shown in @tbl-modfits. The table shows the goodness-of-fit
+
+```{r modfits}
 #| echo: false
-# Fit to data-------------------
-df <- tab_fit(ftn_lst[c(2,4,3)])
-tab <- xtable::xtable(df,
-  caption = "\\label{tbl:modfits}Goodness-of-fit measures to primary data for different data and age-error applications.
-RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals,
-Eff. N=effective sample size for composition data). See text for incremental model descriptions.",
-  label = "tbl:modfits", digits = 2, align = paste0("ll", paste0(rep("r", length(df) - 1), collapse = ""))
-)
-hlines <- c(-1, 0, 4, 7, 10, 17, nrow(tab) - 2, nrow(tab))
-print(tab,
-  caption.placement = "top",
-  hline.after = hlines, comment = FALSE,
-  include.rownames = FALSE, sanitize.text.function = function(x) { x }
-)
-
-flextable::flextable(tab_fit(ftn_lst,mod_scen=c(2:4)))
-
-
+#| warnings: FALSE
+#| messages: FALSE
+#| label: tbl-modfits
+#| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
+library(gt)
+tab <- gt(tab_fit(ftn_lst[c(2,4,3)])) %>%
+  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 1) ) %>%
+  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 5) ) %>%
+  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 8) ) %>%
+  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 11) ) %>%
+  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 18) ) |> 
+  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 21) ) |> 
+  tab_style( style = cell_borders(sides = "bottom", weight = px(2), color = "black"), locations = cells_body(rows = 21) )
+tab
 ```
 
-# Developments on estimating the effective degrees of freedom
 
-In @zheng2024 they present a new method for estimating the effective degrees of freedom
-(EDF) for general model applications. They note that "...hierarchical models can express
-ecological dynamics using a combination of fixed and random effects, and measurement of
-their complexity requires estimating how much random
-effects are shrunk toward a shared mean. Estimating EDF is helpful to (1) penalize
-complexity during model selection and (2) to improve understanding of model behavior. ”
-Specifically, with application to common stock assessment problems we wish to evaluate the
-relationship between the information content of the data and the level of model
-complexity. See the paper for details (equaion 6). The conceptual steps to implement are
-based on the availability of the Hessian matrix. The Hessian matrix is a square matrix of
-second-order partial derivatives of a scalar-valued function. In this case, the Hessian is
-used to approximate the curvature of the log-likelihood function with respect to the model
-parameters. The diagonal elements of the Hessian matrix represent the second partial
-derivatives of the log-likelihood with respect to each parameter, and they can be used to
-estimate the EDF for each parameter. The first step is to
-
-estimate the Hessian from the full log-posterior (data and priors/penalties). Then, we map
-out the effect of the data on the log-likelihood by only the effect of the
-priors/penalties. This gives insight on the non-data impact on log-likelihood. For the
-pollock model, we added a command-line argument "`-do_nodata`".
-
-```{r nodata}
-#| output: asis
-#| echo: false
-
-library(adnuts)
-
-#adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm_or.parxx"))
-#adnuts:::.read_mle_fit(here("2024/runs/m23/", "pm"))
-
-Get_EDF <- function(rundir, redo=FALSE) {
-  if(redo){
-    file.remove(here::here(rundir, "h1.hes")) 
-    file.remove(here::here(rundir, "h0.hes")) 
-  }
-  if (file.exists(here::here(rundir, "h1.hes")) &  file.exists(here::here(rundir, "h0.hes")) ) {
-  }else{
-    setwd(here::here(rundir))
-    system("pm ") 
-    system("cp admodel.hes h1.hes")
-  
-    system("pm -nodata -binp pm.bar -phase 22 -maxfn 0")
-    system("cp admodel.hes h0.hes")
-  }
-  ## Read in the Hessians
-  h1 <- getADMBHess(filename=here::here(rundir, "h1.hes"))
-  h0 <- getADMBHess(filename=here::here(rundir, "h0.hes"))
-  ## Create a vector of indices where fixed-effect parameters----
-  #pars <- read_fit( here("runs/lastyrdb/pm"))
-  pars <- adnuts:::.read_mle_fit("pm", here::here(rundir))
-  indx <- h1[1, ] ;
-  indx <- as.logical(indx)
-  indx[] <- FALSE
-  ## Read in the parameter names----
-  indx[] <- (grepl("dev",pars$names))
-  #glimpse(pars$names[indx])
-  
-  ## Get the indices of the fixed-effect parameters----
-  #indx[9:83] <- TRUE
-  #indx[9:1062] <- TRUE
-  #indx[1085:1213] <- TRUE
-  #indx[1214:1218] <- TRUE
-  #indx[1235:1366] <- TRUE
-  
-  ## Total number of fixed-effect parameters----
-  sum(indx)
-  
-  ## Get the submatrices----
-  h1s <- h1[indx, indx]
-  h0s <- h0[indx, indx]
-  
-  ## Compute the negative EDF----
-  negEDF <- Matrix::diag(Matrix::solve(h1s, h0s))
-  
-  
-  ## Put in  a dataframe because jim hates tapply----
-  df <- data.frame(negEDF = negEDF, par_names = sub("\\[.*", "", pars$par.names[indx]))
-  
-  tab <- df |> group_by(par_names) |> summarize(N = n(), edf = N - sum(negEDF))
-  tab <- rbind(tab,df |> summarize(par_names="Total",N = n(), edf = N - sum(negEDF)))
-
-  return(tab)
-}
-
-t1<- Get_EDF(rundir = here::here(rundir="runs/lastyrdbae/")) |> mutate(Model="Base")  #|> 
-t2<- Get_EDF(rundir = here::here(rundir="runs/ftnir1/"), redo=FALSE)   |> mutate(Model="FTNIR1")  
-t3<- Get_EDF(rundir = here::here(rundir="runs/ftnir2/"), redo=FALSE)   |> mutate(Model="FTNIR2")  
-cbind(t1, t2[,3], t3[,3]) |> gt::gt()
-  tab |> mutate(edf = round(edf, 1)) |> 
-  gt::gt() |> 
-  gt::fmt_number(columns = 3, decimals = 1) |> 
-  gt::fmt_markdown(columns = 1) |> 
-  gt::cols_label(par_names = "Parameter name", N="N", edf = "Effective degrees of freedom") |>
-  gt::tab_spanner(label = "Effective degrees of freedom", columns = c(1:3)) 
-
-#gt::gt(tab) |> gt::fmt_number(columns = 3, decimals = 1)
-
-
-
-```
 
 # Leave-one-out sensitivity analysis
 
 Here we present model runs that downweight one source of age composition data at a time,
-as well as a run that downweights all survey biomass indices.
+as well as a run that downweights all survey biomass indices. @tbl-loo_runs shows the combinations of data
+types included for this analysis.
 
-```{r loo}
+Results show that the model is sensitive to the inclusion of the ... data (@tbl-loo_fits)
+
+```{r loo_runs}
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
-#| label: fig-loo
-#| fig.cap: "Model results comparing models that downweight one data source at a time"
+#| label: tbl-loo_runs
+#| tbl-cap: "Configuration of different model options testing the impact of different data components"
 if (do_loo) {
   thisyr=2024; nextyr=thisyr+1; dec_tab_ord <<- 1:8
-  mod_names <- c("2024 accepted", "LOO BTS age comps", "LOO ATS age comps","LOO survey indices")
+  mod_names <- c("2024 accepted", "Drop BTS age comps", "Drop ATS age comps","Drop survey indices")
   mod_dir <- c("lastyr", "loo_bts_comp", "loo_ats_comp", "loo_srv_indices")
 #  source("C:/GitProjects/ebswp/R/get-results.R", echo=TRUE)
 #  source("C:/GitProjects/ebswp/R/get-vars.R", echo=TRUE)
@@ -422,14 +321,71 @@ if (do_loo) {
   #source(here::here("R","pm_CIE.R"))
   saveRDS(loo_lst, here::here("runs", "loo.rds"))
   p1<-plot_ssb(loo_lst,xlim = c(1964,2024),breaks = seq(1964, 2024, 4))
-  ggsave(filename = "figs/loo_ssb.png",plot = p1,width = 8, height = 4,units = "in",device = "png")
-  knitr::include_graphics("figs/loo_ssb.png")
+  ggsave(filename = here::here("doc","figs","loo_ssb.png"), plot = p1, width = 8, height = 4,units = "in",device = "png")
 } else{
   loo_lst <- readRDS(here::here("runs", "loo.rds"))
-  knitr::include_graphics("figs/loo_ssb.png")
 }
 
+df <- read_csv(here::here("doc","data","loo_runs.csv"))
+gt::gt(df) %>%
+  # Replace NA values with blank
+  fmt_missing(
+    columns = everything(),
+    missing_text = ""
+  ) %>%
+  # Center align all columns' content
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  tab_spanner(
+    label = "Model description",
+    columns = -1  # All columns except the first
+  ) %>%
+  # Optional: Add other styling as needed
+  tab_options(
+    table.font.size = px(12),
+    column_labels.font.weight = "bold"
+  )
+```
 
+```{r loo_fits}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: tbl-loo_fits
+#| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
+gt_table <- gt::gt(tab_fit(loo_lst[c(1:4)])) #|> 
+numeric_cols <- 2:5 # Specify the numeric columns to format
+target_rows <- c(8:21) 
+for (col in numeric_cols) {
+  gt_table <- gt_table %>%
+    fmt_number(
+      columns = col,
+      rows = target_rows,
+      decimals = 0,
+      use_seps = TRUE
+    )
+}
+gt_table %>%
+  tab_style(
+    style = cell_borders(sides = "top", weight = px(2), color = "black"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = cell_borders(sides = "bottom", weight = px(2), color = "black"),
+    locations = cells_body(rows = c( 4, 7, 10, 18, 21))
+  )
+
+```
+
+```{r loo}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo
+#| fig.cap: "Model results comparing models that downweight one data source at a time"
+  knitr::include_graphics(here::here("doc","figs","loo_ssb.png"))
 ```
 
 # Alternative assessment software
@@ -440,7 +396,89 @@ Stock synthesis 3 (SS3) is a well establish framework and is common in many dive
 settings. (@methot2013) For EBS pollock, we extended an initial framework based on the
 configurations used for Pacific hake (@hake2024) since there are many similarities in the
 type of data available. Namely, empirical weight-at-age, acoustic survey data, and indices
-of 1-year olds.
+of 1-year olds. @fig-ss3 shows the model results comparing the last year's model some
+alternative model platforms.
+Comparing the SS3 output with three different configurations on selectivity constraint
+shows xxx (@fig-ss3ts).
+Comparing the SS3 output with last year's reference model shows that xxx (@fig-ss3tsref).
+
+```{r ss3}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-ss3
+#| fig.cap: "Model results comparing three different SS3 model configurations. The models are the base model (Base), the constrained model (Constrained), and the flexible model (Flexible)."
+  ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
+Plot_Sel(ss_sel) + ggthemes::theme_few(base_size = 9)
+```
+
+
+```{r ss3ts}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-ss3ts
+#| fig.cap: "Model results comparing three different SS3 model configurations. The models are the base model (Base), the constrained model (Constrained), and the flexible model (Flexible)."
+#| 
+all_ts <- rbind(r1$ts,r2$ts, r3$ts)
+plotly::ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
+(Plot_Rec(all_ts) + ggthemes::theme_few(base_size = 19)) 
+  #all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
+  #ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
+```
+
+
+```{r ss3tsref}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-ss3tsref
+#| fig.cap: "Model results comparing three different SS3 model configurations. The models are the base model (Base), the constrained model (Constrained), and the flexible model (Flexible)."
+#| 
+all_ts <- rbind(r1$ts,pm_run$ts)
+plotly::ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
+plotly::ggplotly(Plot_Rec(all_ts) + ggthemes::theme_few(base_size = 19)) 
+  #all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
+  #ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
+```
+## SAM
+
+The Stock Assessment Model (SAM) is a state-space model written in TMB (@nielsen2014, @nielsen2021). 
+We attempted to configure the settings to have similar levels of flexibility
+to the reference model used for catch advice in 2024 and the settings and results
+can be found 
+[here](https://github.com/noaa-afsc/EBS_pollock/tree/main/runs/SAM/poll24 "SAM model runs" )). Comparing "selectivity" in the SAM model to the reference
+model, we see broad similarities but slightly lower inter-annual variability in the SAM run (@fig-sam). The spawning biomass trend largely overlaps in the uncertainty (@fig-sam_ts).
+
+
+
+```{r}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-sam
+#| fig.cap: "Model results comparing last year's model with the SAM model."
+#| 
+
+  sam_sel <- rbind(sam_run$sel,pm_run$sel)#,r4$sel)#,r5$sel)
+Plot_Sel(sam_sel) + ggthemes::theme_few(base_size = 9)
+  #all_ts <- rbind(pm_run$ts,r1$ts,c1$ts)
+  #ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
+```
+
+```{r}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-sam_ts
+#| fig.cap: "Model results comparing last year's model with the SAM model for spawning biomass (top) and recruitment at age 1 (bottom)."
+#| 
+all_ts <- rbind(pm_run$ts,r1$ts,c1$ts,sam_run$ts)#,gp_run$sel)
+plotly::ggplotly(Plot_SSB(rbind(sam_run$ts,pm_run$ts)) + ggthemes::theme_few(base_size = 19))
+plotly::ggplotly(Plot_Rec(rbind(sam_run$ts,pm_run$ts)) + ggthemes::theme_few(base_size = 19)) 
+  #all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
+  #ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
+```
 
 ## WHAM
 
@@ -459,12 +497,106 @@ random effects (@cheng2025).
 
 ## CEATTLE model
 
-The CEATTLE model is a new model developed by the AFSC and is written in TMB (@adams2022).
-The model is an extension of the ADMB version used for the three-species multi-species
-model (@jurado2005, @holsman2024).
+The Rceattle model is developed by the AFSC and is written in TMB (@adams2022). The model
+is an extension of the ADMB version used for multi-species model in the Eastern Bering Sea
+(@jurado2005, @holsman2024) and has a number of newer features. It is generalizable to
+include a variety of data types using lengths and can be set up for species tracked for
+sexual dimorphic growth and other processes. Since it has been recast into TMB, it allows
+for the ability to specify random effects in a number of processes. One development of the
+model is to have the flexibility to bridge among extant single-species modeling platforms
+by using it in "single-species" mode. To illustrate that, we introduce an application of
+Rceattle to the EBS pollock data set. The model is not yet fully developed, but we present
+preliminary results for consideration.
+
+```{r}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-rceattle
+#| fig.cap: "Model results comparing last year's model with the Rceattle model."
+
+  cea_sel <- rbind(c1$sel,c2$sel,pm_run$sel)#,r4$sel)#,r5$sel)
+Plot_Sel(cea_sel) + ggthemes::theme_few(base_size = 9)
+
+```
+
+```{r}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-rceattle_ts
+#| fig.cap: "Model results comparing last year's model with the Rceattle model."
+
+  all_ts <- rbind(pm_run$ts,c1$ts,c2$ts)
+Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19)
+
+```
+
+```{r}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-all
+#| fig.cap: "Model results comparing last year's model with the Rceattle model."
+  all_sel <- rbind(pm_run$sel,r1$sel,c1$sel, sam_run$sel)#,gp_run$sel)
+  Plot_Sel(all_sel) + ggthemes::theme_few(base_size = 9)
+```
+
+```{r}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-all_ts
+#| fig.cap: "Model results comparing last year's model with the Rceattle model."
+  all_ts <- rbind(pm_run$ts,r1$ts,c1$ts)
+Plot_SSB(rbind(c1$ts,pm_run$ts,sam_run$ts)) + ggthemes::theme_few(base_size = 19)
+Plot_Rec(rbind(c1$ts,pm_run$ts,sam_run$ts)) + ggthemes::theme_few(base_size = 19)
+```
 
 # Bottom-trawl survey spatial distribution modeling
 
-Sophia's work here
+## Abundance Index Methods
+
+For model-based indices in the Bering Sea, we fitted observations of numerical abundance or biomass per unit area (where the choice of abundance or biomass varied by stock at the request of assessors) from all sampling locations in the 83-112 bottom trawl survey of the EBS, 1982-2025, including:
+
+- Exploratory northern extension samples in 2001, 2005, and 2006
+- 83-112 samples available in the NBS in 1982, 1985, 1988, 1991, 2010, 2017-2019, 2021-2023, and 2025
+
+NBS samples collected prior to 2010 and in 2018 did not follow the 20 nautical mile sampling grid that was used in other survey years. Assimilating these unbalanced data requires extrapolating into unsampled areas, facilitated by including a spatially varying response to cold-pool extent [@Thorson2019]. This spatially varying coefficient term was estimated for both linear predictors of a delta-model, and detailed comparison of results for EBS pollock has shown that it has a small but notable effect on these indices and resulting stock assessment outputs [@OLeary2020].
+
+Rather than using the cold-pool covariate for yellowfin sole, we instead used the mean bottom temperature within the inner and middle domain strata from an interpolated temperature product. All models were fitted in the sdmTMB R package (https://pbs-assess.github.io/sdmTMB; @Anderson2022). All environmental data used as covariates were computed within the coldpool R package (https://github.com/afsc-gap-products/coldpool; @Rohan2023).
+
+We used a spatiotemporal Poisson-link delta-model [@Thorson2018] involving two linear predictors and a gamma distribution to model positive catch rates. We predicted population density across the entire EBS and NBS in each year, using AFSC GAP-approved prediction grids. Spatial and spatiotemporal fields were estimated using a spatial mesh including 250 "knots" whose locations were determined using a K-means algorithm to place the knots evenly over space, in proportion to the dimensions of the prediction grid.
+
+While the prior VAST model was fitted with a 750 knot mesh, we found that sdmTMB models fitted with mesh resolutions from 250-750 knots all provided extremely similar index estimates and that reducing the number of knots dramatically improved computation time. We estimated geometric anisotropy (how spatial autocorrelation declines with differing rates over distance in some cardinal directions than others) and included a spatial and spatiotemporal term for both linear predictors.
+
+To facilitate prediction of density in regions with unsampled years, we specified that the spatiotemporal fields were structured over time as an AR(1) process (where the magnitude of autocorrelation was estimated as a fixed effect for each linear predictor). However, in cases where the AR(1) correlation parameter ⍴ was estimated to be close to 1 for either model component, the model would be collapsed into a simpler structure by specifying ⍴ = 1, i.e., modeling spatiotemporal variation as a random walk. We did not include any temporal correlation for intercepts, which we treated as fixed effects for each linear predictor and year. Finally, we used epsilon bias-correction to correct for retransformation bias [@Thorson2016].
+
+We checked model fits for convergence by confirming that the derivative of the marginal likelihood with respect to each fixed effect was sufficiently small (less than ~ 0.001) and that the Hessian matrix was positive definite, along with other model checks produced by the function `sdmTMB::sanity()`. We then checked goodness of model fit by computing Dunn-Smyth randomized quantile residuals [@Dunn1996] and visualizing these using a quantile-quantile plot within the DHARMa R package [@Hartig2021]. We also evaluated the distribution of these residuals over space in each year, and inspected them for evidence of residual spatiotemporal patterns.
+
+## Model-based Age Composition Methods
+
+For model-based estimation of age compositions in the Bering Sea, we fitted observations of numerical abundance-at-age at each sampling location. This was made possible by applying a year-specific, region-specific (EBS and NBS) age-length key to records of numerical abundance and length composition. In subcategories (combinations of year, length, age, sex) that contained insufficient data, age composition was computed from length composition given a globally pooled age-length key.
+
+We computed these estimates in the tinyVAST R package (https://vast-lib.github.io/tinyVAST; @Thorson2024), assuming a Poisson-link delta-model [@Thorson2018] involving two linear predictors, and a gamma distribution to model positive catch rates. We did not include any density covariates in estimation of age composition for consistency with models used in the previous assessments and due to computational limitations. 
+
+We estimated the spatial range assuming geometric isotropy (i.e, spatial autocorrelation declines with equal rates over distance in all cardinal directions). We used the same extrapolation grid as implemented for abundance indices, but here we modeled spatial and spatiotemporal fields with a mesh with a coarser spatial resolution than the index model, here using 50 "knots". This reduction in the spatial resolution of the model, relative to that used for the abundance indices, was necessary due to the increased computational load of fitting multiple age categories.
+
+The estimates of abundance at age were bias-corrected with the same method as the abundance index. We implemented the same diagnostics to check convergence and model fit as those used for the abundance index. Results compared favorably among methods (@fig-sdm_age).
+
+Both the model-based bottom trawl index and age composition estimates were calculated using code in the AFSC GAP model-based indices GitHub repository (https://github.com/afsc-gap-products/model-based-indices). Design-based estimates of bottom trawl products were calculated using code in the gapindex R package (https://github.com/afsc-gap-products/gapindex).
+
+
+```{r sdm_age}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-sdm_age
+#| fig.cap: "Model results comparing last year's model with the sdmTMB model."
+
+  knitr::include_graphics("figs/VAST_Age_Compare.png")
+
+```
+
 
 # References
