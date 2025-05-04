@@ -368,7 +368,7 @@ Plot_Sel_age <- function(sel = all_sel, fage = 1, lage = 15, nages = 15) {
   sdf <- pivot_longer(sel, names_to = "age", values_to = "sel", cols = 2:(nages + 1)) %>%
     filter(Year >= 1991, Year < 2024) %>%
     mutate(age = as.numeric(age)) |>
-    filter(age > 2, age < 11)
+    filter(age > 2, age < 12)
   p1 <- sdf |> ggplot(aes(
     x = Year,
     y = sel, color = source
@@ -399,7 +399,7 @@ Plot_Sel <- function(sel = all_sel, fage = 1, lage = 10, nages = 15, styr = 1964
     xlab("Age (years)") +
     scale_x_continuous(limits = c(fage, lage), breaks = fage:lage) +
     scale_y_discrete(limits = rev(levels(as.factor(sdf$Year)))) +
-    facet_grid(. ~ source)
+    facet_grid(. ~ source, scales = "free") 
   return(p1)
 }
 
