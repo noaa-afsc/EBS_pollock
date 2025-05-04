@@ -135,13 +135,6 @@ compositions) we show that in general, the TMA estimates show a high level of co
 by cohort (@fig-consisTMA). For these same data, when applied to the FTNIRs age-estimation
 method, the consistency was lower (@fig-consisFTN).
 
-When preparing the data for the assessment, we plotted out the proportions-at-age for the
-TMA data and noted the differences in the estimates using the FTNIRs age estimates
-(@fig-proportionsFSH, @fig-proportionsBTS, and @fig-proportionsATS). Other preparations
-involved estimating the age-determination errors for each method following that of
-@punt2008. For the FTNIRs data, we optionally estimated separate age-estimation error
-matrices by gear type. The appearance of the fleet-aggregated and fleet-specific input
-data files is shown in @fig-dataFile.
 
 ```{r consisTMA}
 #| echo: false
@@ -160,6 +153,15 @@ data files is shown in @fig-dataFile.
 #| fig.cap: "Cohort consistency over different ages based on log-abundance from the bottom-trawl survey data for pollock in recent years for FTNIRs  age estimates. The cohorts are shown in the labels."
   knitr::include_graphics("figs/consisFTN.png")
 ```
+
+
+When preparing the data for the assessment, we plotted out the proportions-at-age for the
+TMA data and noted the differences in the estimates using the FTNIRs age estimates
+(@fig-proportionsFSH, @fig-proportionsBTS, and @fig-proportionsATS). Other preparations
+involved estimating the age-determination errors for each method following that of
+@punt2008. For the FTNIRs data, we optionally estimated separate age-estimation error
+matrices by gear type. The appearance of the fleet-aggregated and fleet-specific input
+data files is shown in @fig-dataFile.
 
 ```{r proportionsFSH}
 #| echo: false
@@ -300,6 +302,8 @@ tab <- gt(tab_fit(ftn_lst[c(2,4,3)])) %>%
   tab_style( style = cell_borders(sides = "bottom", weight = px(2), color = "black"), locations = cells_body(rows = 21) )
 tab
 ```
+
+
 
 
 
