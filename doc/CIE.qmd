@@ -38,7 +38,7 @@ library(reshape2)
 options(warn = -1)
 do_sigmaR_profile=0
 do_edf=0
-do_ft=1
+do_ft=0
 do_abc_sel=0
 do_yearloop=0
 do_srrlst=0
@@ -556,7 +556,7 @@ Plot_SSB(rbind(c1$ts,pm_run$ts,sam_run$ts)) + ggthemes::theme_few(base_size = 19
 Plot_Rec(rbind(c1$ts,pm_run$ts,sam_run$ts)) + ggthemes::theme_few(base_size = 19)
 ```
 
-# Spatial modeling of the EBS pollock stock
+## Spatial modeling of the EBS pollock stock
 
 In development is a spatially disaggregated general model by colleagues at the Auke Bay
 lab and the University of Alaska, Fairbanks (@spock). 
@@ -566,13 +566,18 @@ lab and the University of Alaska, Fairbanks (@spock).
 #| warnings: FALSE
 #| messages: FALSE
 #| label: fig-spock_ts
+#| fig.width: 8
+#| fig.height: 4
 #| fig.cap: "Model results comparing last year's model with the SPock model."
 
   all_ts <- rbind(pm_run$ts,spock$ts,r2$ts)
   all_ts <- rbind(pm_run$ts,spock$ts)
   all_ts <- rbind(spock$ts,r2$ts)
   all_ts <- rbind(pm_run$ts,r2$ts)
-ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
+#ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
+#library(plotly)
+p1 <- ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
+htmlwidgets::saveWidget(p1, "plot1.html", selfcontained = TRUE)
 #Plot_Rec(rbind(pm_run$ts,spock$ts,r2$ts), width=2, 
 Plot_Rec(all_ts,  width=2, 
          size=3, alpha=.3) + ggthemes::theme_few(base_size = 19)
