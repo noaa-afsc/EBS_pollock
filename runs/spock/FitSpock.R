@@ -253,6 +253,37 @@ spock_obj <- function (src="SPoCK") {
                                       input_list$data$n_srv_fleets))
   )
   
+  input_list <- Setup_Mod_Fishsel_and_Q(
+    
+    input_list = input_list,
+    
+    # Model options
+    # fishery selectivity, whether continuous time-varying
+    cont_tv_fish_sel = c("3dcond_Fleet_1"),
+    fishsel_pe_pars_spec = "est_all",
+    fish_sel_devs_spec = "est_all",
+    # corr_opt_semipar = "corr_zero_y_a_c",
+    # fishery selectivity blocks
+    fish_sel_blocks = c("none_Fleet_1"),
+    # fishery selectivity form
+    fish_sel_model = c("logist1_Fleet_1"),
+    # fishery catchability blocks
+    fish_q_blocks = c("none_Fleet_1"),
+    # whether to estiamte all fixed effects for fishery selectivity
+    fish_fixed_sel_pars = c("est_all"),
+    # whether to estiamte all fixed effects for fishery catchability
+    fish_q_spec = c("fix")
+  ) 
+  
+  # Fit model
+  ebswp_rtmb_model <- fit_model(data,
+                                parameters,
+                                mapping,
+                                # random = NULL,
+                                newton_loops = 3,
+                                silent = FALSE,
+                                random = 'ln_fishsel_devs'
+  )
   # Fit Model and Plot
   # extract out lists updated with helper functions
   data <- input_list$data
