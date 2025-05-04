@@ -161,7 +161,7 @@ spock_obj <- function (src="SPoCK") {
   
   
   # Setup fishery selectivity and catchability
-  ?Setup_Mod_Fishsel_and_Q
+  #?Setup_Mod_Fishsel_and_Q
   input_list <- Setup_Mod_Fishsel_and_Q(
     input_list = input_list,
     # Model options
@@ -253,6 +253,12 @@ spock_obj <- function (src="SPoCK") {
                                       input_list$data$n_srv_fleets))
   )
   
+  
+  # Fit Model and Plot
+  # extract out lists updated with helper functions
+  data <- input_list$data
+  parameters <- input_list$par
+  mapping <- input_list$map
   input_list <- Setup_Mod_Fishsel_and_Q(
     
     input_list = input_list,
@@ -284,25 +290,19 @@ spock_obj <- function (src="SPoCK") {
                                 silent = FALSE,
                                 random = 'ln_fishsel_devs'
   )
-  # Fit Model and Plot
-  # extract out lists updated with helper functions
-  data <- input_list$data
-  parameters <- input_list$par
-  mapping <- input_list$map
-  
   # Fit model
-  ebswp_rtmb_model <- fit_model(data,
-                                parameters,
-                                mapping,
-                                random = NULL,
-                                newton_loops = 3,
-                                silent = TRUE )
-  # Get standard error report
+  #ebswp_rtmb_model <- fit_model(data,
+  #                              parameters,
+  #                              mapping,
+  #                              random = NULL,
+  #                              newton_loops = 3,
+  #                              silent = TRUE )
+  ## Get standard error report
   ebswp_rtmb_model$sd_rep <- RTMB::sdreport(ebswp_rtmb_model)
   m1 <- ebswp_rtmb_model
-  sel=as.data.frame(t(as.matrix(m1$rep$fish_sel[1,1,,1,1])))
+  #sel=as.data.frame(t(as.matrix(m1$rep$fish_sel[1,1,,1,1])))
+  sel <- as.data.frame((as.matrix(m1$rep$fish_sel[1,,,1,1])))
   names(sel) <- 1:15
-  #sel
   
   # Get the summary as a matrix first
   smry <- summary(m1$sd_rep)
@@ -319,6 +319,7 @@ spock_obj <- function (src="SPoCK") {
                                                         se=ifelse(type=="SSB",se/1,se), 
                                                         value=ifelse(type=="SSB",value/1,value)) 
   ts$Year <- rep(1964:2024,2) 
+  src<- "Spock"
   ts$source <- src
   # Get recruitment time-series
   #rec_series <- reshape2::melt((ebswp_rtmb_model$rep$Rec))
@@ -339,6 +340,6 @@ spock_obj <- function (src="SPoCK") {
   
   return(list(sel=sel, ts= ts, obj=m1) )
 }
-#t<-spock_obj()
+tmp<-spock_obj()
 #names(t)
 #t$ts

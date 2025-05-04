@@ -69,8 +69,9 @@ loadup<-FALSE
 #loadup<-TRUE
 if (loadup){
   source(here::here("R", "GetResults.R"))
-  source(here::here("runs","spock", "FitSpock.R"))
+  #source(here::here("runs","spock", "FitSpock.R"))
   spock <- spock_obj(src="RTMB")
+  spock <- list(sel=sel, ts=ts, obj=m1)
  # names(spock)
   r1 <- SS_obj(SS_output(dir = here::here("runs","ss","base"),verbose=FALSE),src="SS3 base") 
   r2 <- SS_obj(SS_output(dir = here::here("runs","ss","tight"),verbose=FALSE),src="SS3 Constrained") 
@@ -92,6 +93,10 @@ if (loadup){
   save.image(file=here::here("compares.Rdata"))
 } else {
   load(here::here("compares.Rdata"))
+  spock$sel <- spock$sel %>%
+    rowwise() %>%
+    mutate(across(`1`:`15`, ~ . / max(c_across(`1`:`15`)))) %>%
+    ungroup()
 }
 #Plot_Sel() + ggthemes::theme_few(base_size = 9)
 ```
@@ -545,6 +550,7 @@ Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19)
   Plot_Sel(all_sel) + ggthemes::theme_few(base_size = 9)
 ```
 
+
 ```{r}
 #| echo: false
 #| warnings: FALSE
@@ -559,7 +565,20 @@ Plot_Rec(rbind(c1$ts,pm_run$ts,sam_run$ts)) + ggthemes::theme_few(base_size = 19
 ## Spatial modeling of the EBS pollock stock
 
 In development is a spatially disaggregated general model by colleagues at the Auke Bay
-lab and the University of Alaska, Fairbanks (@spock). 
+lab and the University of Alaska, Fairbanks (@spock).  @fig-spock_sel shows the model results
+comparing time-varying selectivity whereas @fig-spock_ts shows the model results time series. The difference in the age-1 recruits is likely due to the fact that the 
+spatial model currently has constant M-at-age compared to the base model.
+
+```{r}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-spock_sel
+#| fig.cap: "Model results comparing last year's model with the SPock model."
+#| 
+all_sel <- rbind(pm_run$sel, spock$sel) #, c2$sel)#,gp_run$sel)
+Plot_Sel_age(all_sel)
+```
 
 ```{r}
 #| echo: false
@@ -569,15 +588,14 @@ lab and the University of Alaska, Fairbanks (@spock).
 #| fig.width: 8
 #| fig.height: 4
 #| fig.cap: "Model results comparing last year's model with the SPock model."
-
-  all_ts <- rbind(pm_run$ts,spock$ts,r2$ts)
+  #all_ts <- rbind(pm_run$ts,spock$ts,r2$ts)
   all_ts <- rbind(pm_run$ts,spock$ts)
-  all_ts <- rbind(spock$ts,r2$ts)
-  all_ts <- rbind(pm_run$ts,r2$ts)
+  #all_ts <- rbind(spock$ts,r2$ts)
+  #all_ts <- rbind(pm_run$ts,r2$ts)
 #ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
 #library(plotly)
-p1 <- ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
-htmlwidgets::saveWidget(p1, "plot1.html", selfcontained = TRUE)
+ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
+#htmlwidgets::saveWidget(p1, "figs/plot1.html", selfcontained = TRUE)
 #Plot_Rec(rbind(pm_run$ts,spock$ts,r2$ts), width=2, 
 Plot_Rec(all_ts,  width=2, 
          size=3, alpha=.3) + ggthemes::theme_few(base_size = 19)
