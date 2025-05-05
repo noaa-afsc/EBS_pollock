@@ -451,8 +451,8 @@ gt::gt(df) %>%
 #| messages: FALSE
 #| label: tbl-loo_fits
 #| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
-gt_table <- gt::gt(tab_fit(loo_lst[c(1:4)])) #|>
-numeric_cols <- 2:5 # Specify the numeric columns to format
+gt_table <- gt::gt(tab_fit(loo_lst[c(1:7)])) #|>
+numeric_cols <- 2:8 # Specify the numeric columns to format
 target_rows <- c(8:21)
 for (col in numeric_cols) {
   gt_table <- gt_table %>%
