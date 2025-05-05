@@ -416,12 +416,25 @@ if (do_loo) {
   loo_lst <- get_results(rundir = here::here("runs"))
   # source(here::here("R","pm_CIE.R"))
   saveRDS(loo_lst, here::here("runs", "loo.rds"))
-  p1 <- plot_ssb(loo_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4))
-  ggsave(filename = here::here("doc", "figs", "loo_ssb.png"), plot = p1, width = 8, height = 4, units = "in", device = "png")
+
 } else {
   loo_lst <- readRDS(here::here("runs", "loo.rds"))
 }
 
+  #do some plots
+  p1 <- plot_ssb(loo_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4))
+  ggsave(filename = here::here("doc", "figs", "loo_ssb.png"), plot = p1, width = 8, height = 4, units = "in", device = "png")
+  
+  p1b<-plot_ssb_rel(loo_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4))
+  ggsave(filename = here::here("doc", "figs", "loo_rel_ssb.png"), plot = p1b, width = 8, height = 4, units = "in", device = "png")
+  
+  #this one is pretty ugly:
+  p2<-plot_recruitment(loo_lst, xlim = c(1964, 2024))
+  ggsave(filename = here::here("doc", "figs", "loo_recruits.png"), plot = p2, width = 15, height = 5, units = "in", device = "png")
+  
+  
+  
+#do some tables  
 df <- read_csv(here::here("doc", "data", "loo_runs.csv"))
 gt::gt(df) %>%
   # Replace NA values with blank
