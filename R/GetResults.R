@@ -316,7 +316,7 @@ Plot_SSB <- function(df = all_ts) {
 #Plot_SSB(rbind(pm_run$ts) ) 
 
 
-Plot_Rec <- function(df = all_ts) {
+Plot_Rec <- function(df = all_ts, width=0.5,alpha=1,size=.8) {
   p1 <- df |>
     filter(type %in% c("Recruits"), Year < 2025, Year > 1963) |>
     mutate(lnhat = log(value), cv = se/value, 
@@ -324,14 +324,13 @@ Plot_Rec <- function(df = all_ts) {
            lb = exp(lnhat - 1.96 * lnse),
            ub = exp(lnhat + 1.96 * lnse)) |>
     ggplot(aes(x = Year, ymin = lb, ymax = ub, y = value, color = source)) +
-    geom_point(size=.8, position = position_dodge(width = 0.5), stat = "identity") +
-    geom_errorbar(position = position_dodge(width = 0.5), width = 0.4) +
-    geom_line(stat = "identity", position = position_dodge(width = 0.5), linewidth=.1) +
+    geom_point(size=size, position = position_dodge(width = 0.5), stat = "identity") +
+    geom_errorbar(position = position_dodge(width = 0.5), width = .2, linewidth=width, alpha=alpha) +
+    geom_line(stat = "identity", position = position_dodge(width = 0.5), linewidth=.2, alpha=alpha) +
     ggthemes::theme_few() +
     ylab("Age-1 recruits") +
     xlab("Year") +
-    ylim(0, NA) +
-    facet_grid(type ~ ., scales = "free_y")
+    ylim(0, NA) 
   
   return(p1)
 }
@@ -369,7 +368,7 @@ Plot_Sel_age <- function(sel = all_sel, fage = 1, lage = 15, nages = 15) {
   sdf <- pivot_longer(sel, names_to = "age", values_to = "sel", cols = 2:(nages + 1)) %>%
     filter(Year >= 1991, Year < 2024) %>%
     mutate(age = as.numeric(age)) |>
-    filter(age > 2, age < 11)
+    filter(age > 2, age < 12)
   p1 <- sdf |> ggplot(aes(
     x = Year,
     y = sel, color = source
@@ -400,7 +399,7 @@ Plot_Sel <- function(sel = all_sel, fage = 1, lage = 10, nages = 15, styr = 1964
     xlab("Age (years)") +
     scale_x_continuous(limits = c(fage, lage), breaks = fage:lage) +
     scale_y_discrete(limits = rev(levels(as.factor(sdf$Year)))) +
-    facet_grid(. ~ source)
+    facet_grid(. ~ source, scales = "free") 
   return(p1)
 }
 
