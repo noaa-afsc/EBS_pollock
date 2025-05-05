@@ -133,7 +133,8 @@ The fish age and growth lab at the AFSC have endeavored to expand on new technol
 Examining the abundance-at-age (for design-based estimates of the bottom-trawl age
 compositions) we show that in general, the TMA estimates show a high level of consistency
 by cohort (@fig-consisTMA). For these same data, when applied to the FTNIRs age-estimation
-method, the consistency was lower (@fig-consisFTN).
+method, the consistency was lower (@fig-consisFTN). The extent that this is a concern
+is unknown.
 
 
 ```{r consisTMA}
@@ -200,7 +201,9 @@ data files is shown in @fig-dataFile.
 ```
 
 For the assessment model, the alternatives are shown based on the coverage of data and
-availability among types of ageing is shown in @fig-dataExtent.
+availability among types of ageing is shown in @fig-dataExtent. These figures are 
+intended to show what data are available for the model testing and 
+the different ways of treating age determination error matrices.
 
 ```{r data}
 #| echo: false
@@ -256,6 +259,7 @@ if (do_ft) {
 #| label: fig-comp_bts
 #| fig.cap: "Model results comparing last year's selected model -2021)"
 # Set working directory & plot save directory
+
 
 ```
 
