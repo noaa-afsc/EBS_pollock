@@ -24,26 +24,27 @@ library(patchwork)
 library(gganimate)
 library(ggridges)
 library(viridis)
+library(gt)
 # Set ggplot theme
-#devtools::install_github("seananderson/ggsidekick")
+# devtools::install_github("seananderson/ggsidekick")
 library(ggsidekick)
 theme_set(theme_sleek())
-.THEME=theme_sleek()
-.OVERLAY=TRUE
-#plot_ssb(loo_lst)
-#plot_recruitment(loo_lst)
-#plot_ser(loo_lst)
+.THEME <- theme_sleek()
+.OVERLAY <- TRUE
+# plot_ssb(loo_lst)
+# plot_recruitment(loo_lst)
+# plot_ser(loo_lst)
 library(reshape2)
-#theme_set(ggthemes::theme_few()) 
+# theme_set(ggthemes::theme_few())
 options(warn = -1)
-do_sigmaR_profile=0
-do_edf=0
-do_ft=0
-do_abc_sel=0
-do_yearloop=0
-do_srrlst=0
-do_selsens= 0
-do_loo = 0
+do_sigmaR_profile <- 0
+do_edf <- 0
+do_ft <- 0
+do_abc_sel <- 0
+do_yearloop <- 0
+do_srrlst <- 0
+do_selsens <- 0
+do_loo <- 0
 
 Plot_Sel <- function(sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 2024) {
   sdf <- pivot_longer(sel, names_to = "age", values_to = "sel", cols = 2:(nages + 1)) |>
@@ -65,32 +66,32 @@ Plot_Sel <- function(sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 
   return(p1)
 }
 
-loadup<-FALSE
-#loadup<-TRUE
-if (loadup){
+loadup <- FALSE
+# loadup<-TRUE
+if (loadup) {
   source(here::here("R", "GetResults.R"))
-  #source(here::here("runs","spock", "FitSpock.R"))
-  spock <- spock_obj(src="RTMB")
-  spock <- list(sel=sel, ts=ts, obj=m1)
- # names(spock)
-  r1 <- SS_obj(SS_output(dir = here::here("runs","ss","base"),verbose=FALSE),src="SS3 base") 
-  r2 <- SS_obj(SS_output(dir = here::here("runs","ss","tight"),verbose=FALSE),src="SS3 Constrained") 
-  r3 <- SS_obj(SS_output(dir = here::here("runs","ss","flex"),verbose=FALSE),src="SS3 Flexible") 
-  c1 <- cea_obj(cea_run=fm0, src="CEA 0.7")
-  c2 <- cea_obj(cea_run=fm0DM, src="CEA 0.7, DM")
-  #gp_run<-gp_obj()
-  pm_run<-pm_obj()
-  #pm_run2<-pm_obj(pm2, src="Pollock_model VPA-like")
-  #load(here("SAM","poll23","run","model2.RData"))
+  # source(here::here("runs","spock", "FitSpock.R"))
+  spock <- spock_obj(src = "RTMB")
+  spock <- list(sel = sel, ts = ts, obj = m1)
+  # names(spock)
+  r1 <- SS_obj(SS_output(dir = here::here("runs", "ss", "base"), verbose = FALSE), src = "SS3 base")
+  r2 <- SS_obj(SS_output(dir = here::here("runs", "ss", "tight"), verbose = FALSE), src = "SS3 Constrained")
+  r3 <- SS_obj(SS_output(dir = here::here("runs", "ss", "flex"), verbose = FALSE), src = "SS3 Flexible")
+  c1 <- cea_obj(cea_run = fm0, src = "CEA 0.7")
+  c2 <- cea_obj(cea_run = fm0DM, src = "CEA 0.7, DM")
+  # gp_run<-gp_obj()
+  pm_run <- pm_obj()
+  # pm_run2<-pm_obj(pm2, src="Pollock_model VPA-like")
+  # load(here("SAM","poll23","run","model2.RData"))
   sam_run <- SAM_obj()
-  #am_run<-AMAK_obj(run_dir=here("amak2","runs", "base"))
-  #am_run2<-AMAK_obj(run_dir=here("amak2","runs", "3par"),src="AMAK-3par-logistic")
-  #am_run3<-AMAK_obj(run_dir=here("amak2","runs", "cpue"),src="AMAK w CPUE", nind=6)
-  #all_sel <- rbind(sam_run$sel,pm_run$sel,am_run$sel,ss_run$sel,gp_run$sel)
-  #all_sel <- rbind(pm_run$sel,r1$sel,r2$sel,r3$sel)#,gp_run$sel)
+  # am_run<-AMAK_obj(run_dir=here("amak2","runs", "base"))
+  # am_run2<-AMAK_obj(run_dir=here("amak2","runs", "3par"),src="AMAK-3par-logistic")
+  # am_run3<-AMAK_obj(run_dir=here("amak2","runs", "cpue"),src="AMAK w CPUE", nind=6)
+  # all_sel <- rbind(sam_run$sel,pm_run$sel,am_run$sel,ss_run$sel,gp_run$sel)
+  # all_sel <- rbind(pm_run$sel,r1$sel,r2$sel,r3$sel)#,gp_run$sel)
 
-  #all_ts <- rbind( sam_run$ts,pm_run$ts,am_run$ts,ss_run$ts,gp_run$ts)
-  save.image(file=here::here("compares.Rdata"))
+  # all_ts <- rbind( sam_run$ts,pm_run$ts,am_run$ts,ss_run$ts,gp_run$ts)
+  save.image(file = here::here("compares.Rdata"))
 } else {
   load(here::here("compares.Rdata"))
   spock$sel <- spock$sel %>%
@@ -98,7 +99,7 @@ if (loadup){
     mutate(across(`1`:`15`, ~ . / max(c_across(`1`:`15`)))) %>%
     ungroup()
 }
-#Plot_Sel() + ggthemes::theme_few(base_size = 9)
+# Plot_Sel() + ggthemes::theme_few(base_size = 9)
 ```
 
 # Executive Summary
@@ -126,9 +127,10 @@ applications as vignettes to the package (e.g., .
 
 
 # Comparing FT-NIR compositions with traditional microscope age estimations
-
 The fish age and growth lab at the AFSC have endeavored to expand on new technologies
 (@helser2019).
+
+## FT-NIRS data consistency comparisons
 
 Examining the abundance-at-age (for design-based estimates of the bottom-trawl age
 compositions) we show that in general, the TMA estimates show a high level of consistency
@@ -143,7 +145,7 @@ is unknown.
 #| messages: FALSE
 #| label: fig-consisTMA
 #| fig.cap: "Cohort consistency over different ages based on log-abundance from the bottom-trawl survey data for pollock in recent years for traditional microscope age estimates. The cohorts are shown in the labels."
-  knitr::include_graphics("figs/consisTMA.png")
+knitr::include_graphics("figs/consisTMA.png")
 ```
 
 ```{r consisFTN}
@@ -152,7 +154,7 @@ is unknown.
 #| messages: FALSE
 #| label: fig-consisFTN
 #| fig.cap: "Cohort consistency over different ages based on log-abundance from the bottom-trawl survey data for pollock in recent years for FTNIRs  age estimates. The cohorts are shown in the labels."
-  knitr::include_graphics("figs/consisFTN.png")
+knitr::include_graphics("figs/consisFTN.png")
 ```
 
 
@@ -170,7 +172,7 @@ data files is shown in @fig-dataFile.
 #| messages: FALSE
 #| label: fig-proportionsFSH
 #| fig.cap: "Proportions at age for recent years for the fishery data where the columns represent the traditional microscope age estimates (TMA)  compared to the FTNIRs   age estimates (lines for the red-outlined panels)."
-  knitr::include_graphics("figs/proportionsFSH.png")
+knitr::include_graphics("figs/proportionsFSH.png")
 ```
 
 ```{r proportionsBTS}
@@ -179,7 +181,7 @@ data files is shown in @fig-dataFile.
 #| messages: FALSE
 #| label: fig-proportionsBTS
 #| fig.cap: "Proportions at age for recent years for the bottom-trawl survey data where the columns represent the traditional microscope age estimates (TMA)  compared to the FTNIRs   age estimates (lines for the red-outlined panels)."
-  knitr::include_graphics("figs/proportionsBTS.png")
+knitr::include_graphics("figs/proportionsBTS.png")
 ```
 
 ```{r proportionsATS}
@@ -188,7 +190,7 @@ data files is shown in @fig-dataFile.
 #| messages: FALSE
 #| label: fig-proportionsATS
 #| fig.cap: "Proportions at age for recent years for the acoustic-trawl survey data where the columns represent the traditional microscope age estimates (TMA)  compared to the FTNIRs   age estimates (lines for the red-outlined panels)."
-  knitr::include_graphics("figs/proportionsATS.png")
+knitr::include_graphics("figs/proportionsATS.png")
 ```
 
 ```{r dataFile}
@@ -197,7 +199,7 @@ data files is shown in @fig-dataFile.
 #| messages: FALSE
 #| label: fig-dataFile
 #| fig.cap: "Schematic of input datafile showing the breakout of the fleet-specific FTNIRs age-error matrices (right panel) compared to that where the global FTNIRs age-error matrices are used (left panel). "
-  knitr::include_graphics("figs/dataFile.png")
+knitr::include_graphics("figs/dataFile.png")
 ```
 
 For the assessment model, the alternatives are shown based on the coverage of data and
@@ -212,45 +214,134 @@ the different ways of treating age determination error matrices.
 #| label: fig-dataExtent
 #| fig.cap: "Data extent by age composition for the models with FTNIRs age estimates. The data types are for the Fishery, bottom trawl survey (BTS), and acoustic trawl survey (ATS) and the years of coverage are shown in the x-axis."
 # Sample data
-if (do_ft){
+if (do_ft) {
   df <- data.frame(
-    type = factor(c("Fishery-TMA", "Fishery-FTN", "BTS-TMA", "BTS-FTN","ATS-TMA","ATS-FTN"),
-      levels     =c("Fishery-TMA", "Fishery-FTN", "BTS-TMA", "BTS-FTN","ATS-TMA","ATS-FTN")),
+    type = factor(c("Fishery-TMA", "Fishery-FTN", "BTS-TMA", "BTS-FTN", "ATS-TMA", "ATS-FTN"),
+      levels = c("Fishery-TMA", "Fishery-FTN", "BTS-TMA", "BTS-FTN", "ATS-TMA", "ATS-FTN")
+    ),
     start_year = c(1964, 2016, 1982, 2014, 1994, 2014),
-    end_year   = c(2015, 2023, 2013, 2023, 2013, 2023)
+    end_year = c(2015, 2023, 2013, 2023, 2013, 2023)
   )
   # Plot
-  ggplot(df, aes(y = type,color=type)) +
-    geom_segment(aes(x = start_year, xend = end_year, y = type, yend = type), 
-                 linewidth = 5) +
+  ggplot(df, aes(y = type, color = type)) +
+    geom_segment(aes(x = start_year, xend = end_year, y = type, yend = type),
+      linewidth = 5
+    ) +
     scale_x_continuous(breaks = seq(1960, 2025, 5)) +
-    theme_minimal() + theme(legend.position = "none") +
+    theme_minimal() +
+    theme(legend.position = "none") +
     labs(title = "Coverage of years by type, EBS pollock", x = "Years", y = "Type")
-}else{
+  thisyr <- 2024
+  nextyr <- thisyr + 1
+  dec_tab_ord <<- 1:8
+  mod_names <- c("2024 TMA", "Base", "FT-NIR fleets aggregated", "FT-NIR fleet-specific")
+  mod_dir <- c("lastyrdb", "lastyrdbae", "ftnir1", "ftnir2")
+  ftn_lst <- get_results(rundir = here::here("runs"))
+  # source(here::here("R","pm_CIE.R"))
+  saveRDS(ftn_lst, here::here("runs", "ftnir.rds"))
+} else {
+  ftn_lst <- readRDS(here::here("runs", "ftnir.rds"))
   knitr::include_graphics("figs/DataExtent.png")
 }
-
-
 ```
 
-```{r ft1}
+
+
+## Comparisons of fit to FT-NIRS models
+
+The layout of model runs comparing the traditional microscope ages (TMA) with the
+FT-NIRS ages is shown in @tbl-ftn_runs. The models are run with the FT-NIRS data with 
+different age-error matrix specficiations. 
+The model fits to the data are shown in @tbl-modfits. The table shows the goodness-of-fit
+```{r ftn_runs}
+#| echo: false
+#| warnings: FALSE
+#| label: tbl-ftn_runs
+#| tbl-cap: "Configuration of different model options testing the impact of different treatment of the age composition data and ageing error."
+
+df <- read_csv(here::here("doc", "data", "ftn_runs.csv"))
+gt(df) %>%
+  # Replace NA values with blank
+  fmt_missing(
+    columns = everything(),
+    missing_text = ""
+  ) %>%
+  # Center align all columns' content
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  tab_spanner(
+    label = "Model description",
+    columns = -1 # All columns except the first
+  ) %>%
+  # Optional: Add other styling as needed
+  tab_options(
+    table.font.size = px(12),
+    column_labels.font.weight = "bold"
+  )
+```
+
+
+```{r modfits}
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
-#| label: fig-ft1
-#| fig.cap: "Model results comparing last year's selected model -2021)"
-if (do_ft) {
-  thisyr=2024; nextyr=thisyr+1; dec_tab_ord <<- 1:8
-  mod_names <- c("2024 TMA", "Base","FT-NIR fleets aggregated", "FT-NIR fleet-specific")
-  mod_dir <- c("lastyrdb", "lastyrdbae", "ftnir1", "ftnir2")
-  ftn_lst <- get_results(rundir = here::here("runs"))
-  #source(here::here("R","pm_CIE.R"))
-  saveRDS(ftn_lst, here::here("runs", "ftnir.rds"))
-} else{
-  ftn_lst <- readRDS(here::here("runs", "ftnir.rds"))
-}
-
+#| label: tbl-modfits
+#| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
+tab <- gt(tab_fit(ftn_lst[c(2, 4, 3)])) %>%
+  tab_style(style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 1)) %>%
+  tab_style(style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 5)) %>%
+  tab_style(style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 8)) %>%
+  tab_style(style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 11)) %>%
+  tab_style(style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 18)) |>
+  tab_style(style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 21)) |>
+  tab_style(style = cell_borders(sides = "bottom", weight = px(2), color = "black"), locations = cells_body(rows = 21))
+tab
 ```
+
+
+
+```{r mod_fit_agg_comp}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-mod_fit_agg_comp
+#| fig.cap: "One-step ahead residuals for different model specifications for the fishery composition data"
+# Set working directory & plot save directory
+knitr::include_graphics("figs/mod_fit_agg_comp.png")
+```
+
+```{r fish_osa}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-bts_fish
+#| fig.cap: "One-step ahead residuals for different model specifications for the fishery composition data"
+# Set working directory & plot save directory
+knitr::include_graphics("figs/fish_osa.png")
+```
+
+```{r bts_osa}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-bts_osa
+#| fig.cap: "One-step ahead residuals for different model specifications for the bottom-trawl survey composition data"
+# Read in proportions & shape for plotting
+knitr::include_graphics("figs/bts_osa.png")
+```
+
+```{r ats_osa}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-ats_osa
+#| fig.cap: "One-step ahead residuals for different model specifications for the acoustic-trawl survey composition data"
+# Set working directory & plot save directory
+knitr::include_graphics("figs/ats_osa.png")
+```
+
 
 ```{r comp_bts}
 #| echo: false
@@ -259,8 +350,6 @@ if (do_ft) {
 #| label: fig-comp_bts
 #| fig.cap: "Model results comparing last year's selected model -2021)"
 # Set working directory & plot save directory
-
-
 ```
 
 ```{r comp_fsh}
@@ -270,7 +359,6 @@ if (do_ft) {
 #| label: fig-comp_fsh
 #| fig.cap: "Model results comparing last year's selected model -2021)"
 # Read in proportions & shape for plotting
-
 ```
 
 ```{r comp_ats}
@@ -280,33 +368,7 @@ if (do_ft) {
 #| label: fig-comp_ats
 #| fig.cap: "Model results comparing last year's selected model -2021)"
 # Set working directory & plot save directory
-
 ```
-
-
-
-## Comparisons of fit to FT-NIRS models
-
-The model fits to the data are shown in @tbl-modfits. The table shows the goodness-of-fit
-
-```{r modfits}
-#| echo: false
-#| warnings: FALSE
-#| messages: FALSE
-#| label: tbl-modfits
-#| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
-library(gt)
-tab <- gt(tab_fit(ftn_lst[c(2,4,3)])) %>%
-  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 1) ) %>%
-  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 5) ) %>%
-  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 8) ) %>%
-  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 11) ) %>%
-  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 18) ) |> 
-  tab_style( style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 21) ) |> 
-  tab_style( style = cell_borders(sides = "bottom", weight = px(2), color = "black"), locations = cells_body(rows = 21) )
-tab
-```
-
 
 
 
@@ -326,23 +388,25 @@ Results show that the model is sensitive to the inclusion of the ... data (@tbl-
 #| label: tbl-loo_runs
 #| tbl-cap: "Configuration of different model options testing the impact of different data components"
 if (do_loo) {
-  thisyr=2024; nextyr=thisyr+1; dec_tab_ord <<- 1:8
-  mod_names <- c("2024 accepted", "Drop BTS age comps", "Drop ATS age comps","Drop survey indices")
+  thisyr <- 2024
+  nextyr <- thisyr + 1
+  dec_tab_ord <<- 1:8
+  mod_names <- c("2024 accepted", "Drop BTS age comps", "Drop ATS age comps", "Drop survey indices")
   mod_dir <- c("lastyr", "loo_bts_comp", "loo_ats_comp", "loo_srv_indices")
-#  source("C:/GitProjects/ebswp/R/get-results.R", echo=TRUE)
-#  source("C:/GitProjects/ebswp/R/get-vars.R", echo=TRUE)
-#  source("C:/GitProjects/ebswp/R/get-tier3-res.R", echo=TRUE)
-#  therundir<-as.character(here::here("runs"))
+  #  source("C:/GitProjects/ebswp/R/get-results.R", echo=TRUE)
+  #  source("C:/GitProjects/ebswp/R/get-vars.R", echo=TRUE)
+  #  source("C:/GitProjects/ebswp/R/get-tier3-res.R", echo=TRUE)
+  #  therundir<-as.character(here::here("runs"))
   loo_lst <- get_results(rundir = here::here("runs"))
-  #source(here::here("R","pm_CIE.R"))
+  # source(here::here("R","pm_CIE.R"))
   saveRDS(loo_lst, here::here("runs", "loo.rds"))
-  p1<-plot_ssb(loo_lst,xlim = c(1964,2024),breaks = seq(1964, 2024, 4))
-  ggsave(filename = here::here("doc","figs","loo_ssb.png"), plot = p1, width = 8, height = 4,units = "in",device = "png")
-} else{
+  p1 <- plot_ssb(loo_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4))
+  ggsave(filename = here::here("doc", "figs", "loo_ssb.png"), plot = p1, width = 8, height = 4, units = "in", device = "png")
+} else {
   loo_lst <- readRDS(here::here("runs", "loo.rds"))
 }
 
-df <- read_csv(here::here("doc","data","loo_runs.csv"))
+df <- read_csv(here::here("doc", "data", "loo_runs.csv"))
 gt::gt(df) %>%
   # Replace NA values with blank
   fmt_missing(
@@ -356,7 +420,7 @@ gt::gt(df) %>%
   ) %>%
   tab_spanner(
     label = "Model description",
-    columns = -1  # All columns except the first
+    columns = -1 # All columns except the first
   ) %>%
   # Optional: Add other styling as needed
   tab_options(
@@ -371,9 +435,9 @@ gt::gt(df) %>%
 #| messages: FALSE
 #| label: tbl-loo_fits
 #| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
-gt_table <- gt::gt(tab_fit(loo_lst[c(1:4)])) #|> 
+gt_table <- gt::gt(tab_fit(loo_lst[c(1:4)])) #|>
 numeric_cols <- 2:5 # Specify the numeric columns to format
-target_rows <- c(8:21) 
+target_rows <- c(8:21)
 for (col in numeric_cols) {
   gt_table <- gt_table %>%
     fmt_number(
@@ -390,9 +454,8 @@ gt_table %>%
   ) %>%
   tab_style(
     style = cell_borders(sides = "bottom", weight = px(2), color = "black"),
-    locations = cells_body(rows = c( 4, 7, 10, 18, 21))
+    locations = cells_body(rows = c(4, 7, 10, 18, 21))
   )
-
 ```
 
 ```{r loo}
@@ -401,7 +464,7 @@ gt_table %>%
 #| messages: FALSE
 #| label: fig-loo
 #| fig.cap: "Model results comparing models that downweight one data source at a time"
-  knitr::include_graphics(here::here("doc","figs","loo_ssb.png"))
+knitr::include_graphics(here::here("doc", "figs", "loo_ssb.png"))
 ```
 
 # Alternative assessment software
@@ -424,7 +487,7 @@ Comparing the SS3 output with last year's reference model shows that xxx (@fig-s
 #| messages: FALSE
 #| label: fig-ss3
 #| fig.cap: "Model results comparing three different SS3 model configurations. The models are the base model (Base), the constrained model (Constrained), and the flexible model (Flexible)."
-  ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
+ss_sel <- rbind(r1$sel, r2$sel, r3$sel) # ,r4$sel)#,r5$sel)
 Plot_Sel(ss_sel) + ggthemes::theme_few(base_size = 9)
 ```
 
@@ -435,12 +498,12 @@ Plot_Sel(ss_sel) + ggthemes::theme_few(base_size = 9)
 #| messages: FALSE
 #| label: fig-ss3ts
 #| fig.cap: "Model results comparing three different SS3 model configurations. The models are the base model (Base), the constrained model (Constrained), and the flexible model (Flexible)."
-#| 
-all_ts <- rbind(r1$ts,r2$ts, r3$ts)
+#|
+all_ts <- rbind(r1$ts, r2$ts, r3$ts)
 plotly::ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
-(Plot_Rec(all_ts) + ggthemes::theme_few(base_size = 19)) 
-  #all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
-  #ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
+(Plot_Rec(all_ts) + ggthemes::theme_few(base_size = 19))
+# all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
+# ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
 
 
@@ -450,12 +513,12 @@ plotly::ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
 #| messages: FALSE
 #| label: fig-ss3tsref
 #| fig.cap: "Model results comparing three different SS3 model configurations. The models are the base model (Base), the constrained model (Constrained), and the flexible model (Flexible)."
-#| 
-all_ts <- rbind(r1$ts,pm_run$ts)
+#|
+all_ts <- rbind(r1$ts, pm_run$ts)
 plotly::ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
-plotly::ggplotly(Plot_Rec(all_ts) + ggthemes::theme_few(base_size = 19)) 
-  #all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
-  #ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
+plotly::ggplotly(Plot_Rec(all_ts) + ggthemes::theme_few(base_size = 19))
+# all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
+# ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
 ## SAM
 
@@ -474,12 +537,12 @@ model, we see broad similarities but slightly lower inter-annual variability in 
 #| messages: FALSE
 #| label: fig-sam
 #| fig.cap: "Model results comparing last year's model with the SAM model."
-#| 
+#|
 
-  sam_sel <- rbind(sam_run$sel,pm_run$sel)#,r4$sel)#,r5$sel)
+sam_sel <- rbind(sam_run$sel, pm_run$sel) # ,r4$sel)#,r5$sel)
 Plot_Sel(sam_sel) + ggthemes::theme_few(base_size = 9)
-  #all_ts <- rbind(pm_run$ts,r1$ts,c1$ts)
-  #ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
+# all_ts <- rbind(pm_run$ts,r1$ts,c1$ts)
+# ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
 
 ```{r}
@@ -488,12 +551,12 @@ Plot_Sel(sam_sel) + ggthemes::theme_few(base_size = 9)
 #| messages: FALSE
 #| label: fig-sam_ts
 #| fig.cap: "Model results comparing last year's model with the SAM model for spawning biomass (top) and recruitment at age 1 (bottom)."
-#| 
-all_ts <- rbind(pm_run$ts,r1$ts,c1$ts,sam_run$ts)#,gp_run$sel)
-plotly::ggplotly(Plot_SSB(rbind(sam_run$ts,pm_run$ts)) + ggthemes::theme_few(base_size = 19))
-plotly::ggplotly(Plot_Rec(rbind(sam_run$ts,pm_run$ts)) + ggthemes::theme_few(base_size = 19)) 
-  #all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
-  #ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
+#|
+all_ts <- rbind(pm_run$ts, r1$ts, c1$ts, sam_run$ts) # ,gp_run$sel)
+plotly::ggplotly(Plot_SSB(rbind(sam_run$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 19))
+plotly::ggplotly(Plot_Rec(rbind(sam_run$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 19))
+# all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
+# ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
 
 ## WHAM
@@ -531,9 +594,8 @@ preliminary results for consideration.
 #| label: fig-rceattle
 #| fig.cap: "Model results comparing last year's model with the Rceattle model."
 
-  cea_sel <- rbind(c1$sel,c2$sel,pm_run$sel)#,r4$sel)#,r5$sel)
+cea_sel <- rbind(c1$sel, c2$sel, pm_run$sel) # ,r4$sel)#,r5$sel)
 Plot_Sel(cea_sel) + ggthemes::theme_few(base_size = 9)
-
 ```
 
 ```{r}
@@ -543,9 +605,8 @@ Plot_Sel(cea_sel) + ggthemes::theme_few(base_size = 9)
 #| label: fig-rceattle_ts
 #| fig.cap: "Model results comparing last year's model with the Rceattle model."
 
-  all_ts <- rbind(pm_run$ts,c1$ts,c2$ts)
+all_ts <- rbind(pm_run$ts, c1$ts, c2$ts)
 Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19)
-
 ```
 
 ```{r}
@@ -554,8 +615,8 @@ Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19)
 #| messages: FALSE
 #| label: fig-all
 #| fig.cap: "Model results comparing last year's model with the Rceattle model."
-  all_sel <- rbind(pm_run$sel,r1$sel,c1$sel, sam_run$sel)#,gp_run$sel)
-  Plot_Sel(all_sel) + ggthemes::theme_few(base_size = 9)
+all_sel <- rbind(pm_run$sel, r1$sel, c1$sel, sam_run$sel) # ,gp_run$sel)
+Plot_Sel(all_sel) + ggthemes::theme_few(base_size = 9)
 ```
 
 
@@ -565,9 +626,9 @@ Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19)
 #| messages: FALSE
 #| label: fig-all_ts
 #| fig.cap: "Model results comparing last year's model with the Rceattle model."
-  all_ts <- rbind(pm_run$ts,r1$ts,c1$ts)
-Plot_SSB(rbind(c1$ts,pm_run$ts,sam_run$ts)) + ggthemes::theme_few(base_size = 19)
-Plot_Rec(rbind(c1$ts,pm_run$ts,sam_run$ts)) + ggthemes::theme_few(base_size = 19)
+all_ts <- rbind(pm_run$ts, r1$ts, c1$ts)
+Plot_SSB(rbind(c1$ts, pm_run$ts, sam_run$ts)) + ggthemes::theme_few(base_size = 19)
+Plot_Rec(rbind(c1$ts, pm_run$ts, sam_run$ts)) + ggthemes::theme_few(base_size = 19)
 ```
 
 ## Spatial modeling of the EBS pollock stock
@@ -583,8 +644,8 @@ spatial model currently has constant M-at-age compared to the base model.
 #| messages: FALSE
 #| label: fig-spock_sel
 #| fig.cap: "Model results comparing last year's model with the SPock model."
-#| 
-all_sel <- rbind(pm_run$sel, spock$sel) #, c2$sel)#,gp_run$sel)
+#|
+all_sel <- rbind(pm_run$sel, spock$sel) # , c2$sel)#,gp_run$sel)
 Plot_Sel_age(all_sel)
 ```
 
@@ -596,18 +657,19 @@ Plot_Sel_age(all_sel)
 #| fig.width: 8
 #| fig.height: 4
 #| fig.cap: "Model results comparing last year's model with the SPock model."
-  #all_ts <- rbind(pm_run$ts,spock$ts,r2$ts)
-  all_ts <- rbind(pm_run$ts,spock$ts)
-  #all_ts <- rbind(spock$ts,r2$ts)
-  #all_ts <- rbind(pm_run$ts,r2$ts)
-#ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
-#library(plotly)
+# all_ts <- rbind(pm_run$ts,spock$ts,r2$ts)
+all_ts <- rbind(pm_run$ts, spock$ts)
+# all_ts <- rbind(spock$ts,r2$ts)
+# all_ts <- rbind(pm_run$ts,r2$ts)
+# ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
+# library(plotly)
 ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
-#htmlwidgets::saveWidget(p1, "figs/plot1.html", selfcontained = TRUE)
-#Plot_Rec(rbind(pm_run$ts,spock$ts,r2$ts), width=2, 
-Plot_Rec(all_ts,  width=2, 
-         size=3, alpha=.3) + ggthemes::theme_few(base_size = 19)
-
+# htmlwidgets::saveWidget(p1, "figs/plot1.html", selfcontained = TRUE)
+# Plot_Rec(rbind(pm_run$ts,spock$ts,r2$ts), width=2,
+Plot_Rec(all_ts,
+  width = 2,
+  size = 3, alpha = .3
+) + ggthemes::theme_few(base_size = 19)
 ```
 
 # Bottom-trawl survey spatial distribution modeling
@@ -651,8 +713,7 @@ Both the model-based bottom trawl index and age composition estimates were calcu
 #| label: fig-sdm_age
 #| fig.cap: "Model results comparing last year's model with the sdmTMB model."
 
-  knitr::include_graphics("figs/VAST_Age_Compare.png")
-
+knitr::include_graphics("figs/VAST_Age_Compare.png")
 ```
 
 
