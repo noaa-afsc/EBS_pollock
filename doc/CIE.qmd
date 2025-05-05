@@ -491,15 +491,46 @@ gt_table %>%
   )
 ```
 
-```{r loo}
+```{r loo relative ssb}
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
-#| label: fig-loo
-#| fig.cap: "Model results comparing models that downweight one data source at a time"
-knitr::include_graphics(here::here("doc", "figs", "loo_ssb.png"))
+#| label: fig-loo-ssb
+#| fig.cap: "Comparison of spawning biomass (SSB) relative to the 2024 accepted model for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_rel_ssb.png"))
 ```
-
+```{r loo recruitment}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-recruitment
+#| fig.cap: "Comparison of recruitment estimates for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_recruits.png"))
+```
+```{r loo bts index}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-bts-index
+#| fig.cap: "Comparison of fits to the Eastern Bering Sea Bottom Trawl Survey (BTS) biomass index for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_bts_index.png"))
+```
+```{r loo ats index}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-ats-index
+#| fig.cap: "Comparison of fits to the Acoustic Trawl Survey (ATS) biomass index for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_ats_index.png"))
+```
+```{r loo avo index}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-avo-index
+#| fig.cap: "Comparison of fits to the Acoustic Vessels of Opportunity (AVO) biomass index for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_avo_index.png"))
+```
 # Alternative assessment software
 
 ## Stock-synthesis 3
