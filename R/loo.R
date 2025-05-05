@@ -48,7 +48,7 @@ writeLines(as.character(pm.dat$X1),here::here("runs/loo_ats_all/pm.dat"))
 ctl_base<-read_ctl(here::here("runs/lastyr/control.dat"))
 ctl_loo_ats<-ctl_base
 ctl_loo_ats$`#ctrl_flag`[9,]<- 0.1
-ctl_loo_ats$'#age1_sigma_ats'[1,]<-10000
+ctl_loo_ats$'#age1_sigma_ats'[1]<-10000
 write_dat(output_file = here::here("runs/loo_ats_all/control.dat"),indata = ctl_loo_ats)
 
 
