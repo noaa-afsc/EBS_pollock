@@ -409,10 +409,6 @@ if (do_loo) {
     "loo_bts_comp",
     "loo_ats_comp"
   )
-  #  source("C:/GitProjects/ebswp/R/get-results.R", echo=TRUE)
-  #  source("C:/GitProjects/ebswp/R/get-vars.R", echo=TRUE)
-  #  source("C:/GitProjects/ebswp/R/get-tier3-res.R", echo=TRUE)
-  #  therundir<-as.character(here::here("runs"))
   loo_lst <- get_results(rundir = here::here("runs"))
   # source(here::here("R","pm_CIE.R"))
   saveRDS(loo_lst, here::here("runs", "loo.rds"))
