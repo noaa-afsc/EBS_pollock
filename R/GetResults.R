@@ -292,6 +292,32 @@ Plot_index <- function(df, idx = c(1, 2, 5)) {
 }
 
 #unique(all_ts$type) (all_ts) |> group_by(source, type) |> summarise(mean(value))
+ #df<-all_ts
+ #df$source
+ #key="SS3 base"
+Plot_rel_SSB <- function(df = all_ts, key="pm",ylim=2) {
+  
+  df <- df |> filter(type == "SSB", Year < 2025, Year > 1963)
+  df1 <- df |> filter( source == key) |> 
+    select(Year, key_value = value)  
+    # Join back to all rows
+   p1 <- df1 |> right_join(df, by = "Year") %>%
+    # Normalize value by key_value
+    mutate(norm_value = value / key_value) |> 
+    ggplot(aes( x = Year, 
+                y = norm_value, color = source )) +
+    geom_line(stat = "identity") +
+    #geom_point(stat = "identity") +
+    ggthemes::theme_few() +
+    ylab("SSB") +
+    xlab("Year") +
+    ylim(0, ylim) 
+  return(p1)
+}
+p1$data
+p1
+df1
+  
 Plot_SSB <- function(df = all_ts) {
   p1 <- df |>
     filter(type == "SSB", Year < 2025, Year > 1963) |>
