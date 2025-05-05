@@ -34,7 +34,7 @@ theme_set(theme_sleek())
 # plot_ssb(loo_lst)
 # plot_recruitment(loo_lst)
 # plot_ser(loo_lst)
-library(reshape2)
+#library(reshape2)
 # theme_set(ggthemes::theme_few())
 options(warn = -1)
 do_sigmaR_profile <- 0
@@ -391,8 +391,24 @@ if (do_loo) {
   thisyr <- 2024
   nextyr <- thisyr + 1
   dec_tab_ord <<- 1:8
-  mod_names <- c("2024 accepted", "Drop BTS age comps", "Drop ATS age comps", "Drop survey indices")
-  mod_dir <- c("lastyr", "loo_bts_comp", "loo_ats_comp", "loo_srv_indices")
+  mod_names <- c(
+    "2024 accepted",
+    "Drop BTS", 
+    "Drop ATS ", 
+    "Drop AVO ", 
+    "Drop indices",
+    "Drop BTS age ", 
+    "Drop ATS age " 
+  )
+  mod_dir <- c(
+    "lastyr",
+    "loo_bts_all",
+    "loo_ats_all",
+    "loo_avo",
+    "loo_srv_indices",
+    "loo_bts_comp",
+    "loo_ats_comp"
+  )
   #  source("C:/GitProjects/ebswp/R/get-results.R", echo=TRUE)
   #  source("C:/GitProjects/ebswp/R/get-vars.R", echo=TRUE)
   #  source("C:/GitProjects/ebswp/R/get-tier3-res.R", echo=TRUE)
