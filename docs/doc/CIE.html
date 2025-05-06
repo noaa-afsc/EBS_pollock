@@ -357,7 +357,7 @@ window.Quarto = {
   <li><a href="#ft-nirs-data-consistency-comparisons" id="toc-ft-nirs-data-consistency-comparisons" class="nav-link" data-scroll-target="#ft-nirs-data-consistency-comparisons">FT-NIRS data consistency comparisons</a></li>
   <li><a href="#comparisons-of-fit-to-ft-nirs-models" id="toc-comparisons-of-fit-to-ft-nirs-models" class="nav-link" data-scroll-target="#comparisons-of-fit-to-ft-nirs-models">Comparisons of fit to FT-NIRS models</a></li>
   </ul></li>
-  <li><a href="#leave-one-out-sensitivity-analysis" id="toc-leave-one-out-sensitivity-analysis" class="nav-link" data-scroll-target="#leave-one-out-sensitivity-analysis">Leave-one-out sensitivity analysis</a></li>
+  <li><a href="#leave-one-out-survey-sensitivity-analysis" id="toc-leave-one-out-survey-sensitivity-analysis" class="nav-link" data-scroll-target="#leave-one-out-survey-sensitivity-analysis">Leave-one-out survey sensitivity analysis</a></li>
   <li><a href="#alternative-assessment-software" id="toc-alternative-assessment-software" class="nav-link" data-scroll-target="#alternative-assessment-software">Alternative assessment software</a>
   <ul class="collapse">
   <li><a href="#stock-synthesis-3" id="toc-stock-synthesis-3" class="nav-link" data-scroll-target="#stock-synthesis-3">Stock-synthesis 3</a></li>
@@ -1033,7 +1033,7 @@ Table&nbsp;1: Configuration of different model options testing the impact of dif
 </figure>
 </div>
 </div>
-<div id="tbl-modfits" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false" data-warnings="false">
+<div id="tbl-modfits" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-warnings="false" data-messages="false">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-modfits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div id="mrbmfeofif" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -2235,12 +2235,11 @@ Figure&nbsp;11: One-step ahead residuals for different model specifications for 
 </div>
 </section>
 </section>
-<section id="leave-one-out-sensitivity-analysis" class="level1 page-columns page-full">
-<h1>Leave-one-out sensitivity analysis</h1>
-<p>Here we present model runs that downweight one source of age composition data at a time, as well as a run that downweights all survey biomass indices. <a href="#tbl-loo_runs" class="quarto-xref">Table&nbsp;4</a> shows the combinations of data types included for this analysis.</p>
-<p>Results show that the model is sensitive to the inclusion of the … data (<a href="#tbl-loo_fits" class="quarto-xref">Table&nbsp;5</a>)</p>
+<section id="leave-one-out-survey-sensitivity-analysis" class="level1 page-columns page-full">
+<h1>Leave-one-out survey sensitivity analysis</h1>
+<p>Here we present model runs that downweight one or more sources of survey data at a time. <a href="#tbl-loo_runs" class="quarto-xref">Table&nbsp;4</a> shows the combinations of data types included for this analysis, which includes six model runs: (1) drop all Acoustic Trawl Survey (ATS) data (age 1 survey index, age 2+ survey biomass index, and age composition data), (2) drop the ATS age composition data, (3) drop the Acoustic Vessels of Opportunity (AVO) data (survey biomass index), (4) drop all Eastern Bering Sea Trawl Survey (BTS) data (age 1+ survey biomass index and age composition data), (5) drop the BTS age composition data, and (6) drop all survey biomass indices (BTS, ATS, and AVO survey biomass indices). The ATS age 1 data are included as a separate survey index in the assessment model, while BTS age 1 data are included with the age composition data in the multinomial objective function component.</p>
 <div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div id="tbl-loo_runs" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false" data-warnings="false">
+<div id="tbl-loo_runs" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-warnings="false" data-messages="false">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-loo_runs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2812,8 +2811,8 @@ Table&nbsp;4: Configuration of different model options testing the impact of dif
 </figure>
 </div>
 </div>
-<p>Among these models, when downweighting the BTS data, the model estimates of spawning biomass changed in trends <a href="#fig-loo-ssb" class="quarto-xref">Figure&nbsp;12</a> . The model estimates of recruitment were less dramatic in appearance but was consistent for the run where all of the bottom-trawl survey data were excluded <a href="#fig-loo-recruitment" class="quarto-xref">Figure&nbsp;13</a>. The relative fits to the different indices by data component ommission show that the model is relatively insensitive to data being excluded (see <a href="#fig-loo-bts-index" class="quarto-xref">Figure&nbsp;14</a>, <a href="#fig-loo-ats-index" class="quarto-xref">Figure&nbsp;15</a>, and <a href="#fig-loo-avo-index" class="quarto-xref">Figure&nbsp;16</a>). The consistency can also be noted in the goodness-of-fit measures in <a href="#tbl-loo_fits" class="quarto-xref">Table&nbsp;5</a>. The table shows the goodness-of-fit in different ways to the components that are dropped successively.</p>
-<p>In conclusion, the data sources suggest a good level of consistency driving the trends–that is there appears to be relatively low levels of conflict. This is likely due to the constant natural mortality-at-age and highly precise fishery catch-at-age. That is, the traditional “VPA” approach of back-calculating the abundance based on the numbers caught result in a relatively consistent estimate of the population size. The importance of the survey data can be seen in some of the reference calculations where the uncertainty increases dramatically and the stock-status perception is quite differen <a href="#tbl-loo_ref" class="quarto-xref">Table&nbsp;6</a>.</p>
+<p>Among these models, when downweighting the BTS data, the model estimates of spawning biomass changed in trends <a href="#fig-loo-ssb" class="quarto-xref">Figure&nbsp;12</a> . The model estimates of recruitment were less variable across sensitivity runs, but estimates differed the most from the 2024 accepted model when all BTS data and BTS age composition data were dropped <a href="#fig-loo-recruitment" class="quarto-xref">Figure&nbsp;13</a>. The relative fits to the different indices by data component ommission show that the model is relatively insensitive to data being excluded (see <a href="#fig-loo-bts-index" class="quarto-xref">Figure&nbsp;14</a>, <a href="#fig-loo-ats-index" class="quarto-xref">Figure&nbsp;15</a>, and <a href="#fig-loo-avo-index" class="quarto-xref">Figure&nbsp;16</a>). The consistency can also be noted in the goodness-of-fit measures in <a href="#tbl-loo_fits" class="quarto-xref">Table&nbsp;5</a>. The table shows several measures of goodness-of-fit for components that are dropped successively.</p>
+<p>In conclusion, the data sources suggest a good level of consistency driving the trends– there appears to be relatively low levels of conflict between data sources. This is likely due to the constant natural mortality-at-age, highly precise fishery catch-at-age, and estimation of time-varying fishery selectivity. That is, the traditional “VPA” approach of back-calculating the abundance based on the numbers caught results in a relatively consistent estimate of the population size. The importance of the survey data can be seen in some of the reference calculations where the uncertainty increases dramatically and the stock-status perception is quite different across sensitivity runs <a href="#tbl-loo_ref" class="quarto-xref">Table&nbsp;6</a>. Most dramatically, dropping all survey indices led to a CV in “<span class="math inline">\(B_{MSY}\)</span>” estimates of 1.26 as compared to 0.13 in the 2024 accepted model.</p>
 <div class="cell page-columns page-full" data-warnings="false" data-messages="false">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-loo-ssb" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
@@ -2885,7 +2884,7 @@ Figure&nbsp;16: Comparison of fits to the Acoustic Vessels of Opportunity (AVO) 
 </div>
 </div>
 <div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div id="tbl-loo_fits" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false" data-warnings="false">
+<div id="tbl-loo_fits" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-warnings="false" data-messages="false">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-loo_fits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -3580,7 +3579,7 @@ Figure&nbsp;16: Comparison of fits to the Acoustic Vessels of Opportunity (AVO) 
 </div>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-loo_fits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;5: Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions.
+Table&nbsp;5: Goodness-of-fit measures to primary data for leave-one-out model sensitivity runs. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions.
 </figcaption>
 </figure>
 </div>
@@ -4038,10 +4037,10 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 }
 </style>
 
-<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="Component" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Component</th>
+<th id="Estimated-Quantity" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Estimated Quantity</th>
 <th id="a2024-accepted" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2024 accepted</th>
 <th id="Drop-BTS" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Drop BTS</th>
 <th id="Drop-ATS-" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Drop ATS</th>
@@ -4053,7 +4052,7 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="Component"><span class="math inline">\({B}_{2025}\)</span></td>
+<td class="gt_row gt_left" headers="Estimated Quantity"><span class="math inline">\({B}_{2025}\)</span></td>
 <td class="gt_row gt_right" headers="2024 accepted">3,100</td>
 <td class="gt_row gt_right" headers="Drop BTS">2,800</td>
 <td class="gt_row gt_right" headers="Drop ATS ">3,600</td>
@@ -4063,7 +4062,7 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 <td class="gt_row gt_right" headers="Drop ATS age ">3,300</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Component"><span class="math inline">\(CV_{B_{2025}}\)</span></td>
+<td class="gt_row gt_left" headers="Estimated Quantity"><span class="math inline">\(CV_{B_{2025}}\)</span></td>
 <td class="gt_row gt_right" headers="2024 accepted">0.13</td>
 <td class="gt_row gt_right" headers="Drop BTS">0.15</td>
 <td class="gt_row gt_right" headers="Drop ATS ">0.14</td>
@@ -4073,7 +4072,7 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 <td class="gt_row gt_right" headers="Drop ATS age ">0.13</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Component"><span class="math inline">\(B_{MSY}\)</span></td>
+<td class="gt_row gt_left" headers="Estimated Quantity"><span class="math inline">\(B_{MSY}\)</span></td>
 <td class="gt_row gt_right" headers="2024 accepted">2,310</td>
 <td class="gt_row gt_right" headers="Drop BTS">2,301</td>
 <td class="gt_row gt_right" headers="Drop ATS ">2,360</td>
@@ -4083,7 +4082,7 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 <td class="gt_row gt_right" headers="Drop ATS age ">2,334</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Component"><span class="math inline">\(CV_{B_{MSY}}\)</span></td>
+<td class="gt_row gt_left" headers="Estimated Quantity"><span class="math inline">\(CV_{B_{MSY}}\)</span></td>
 <td class="gt_row gt_right" headers="2024 accepted">0.3</td>
 <td class="gt_row gt_right" headers="Drop BTS">0.32</td>
 <td class="gt_row gt_right" headers="Drop ATS ">0.31</td>
@@ -4093,7 +4092,7 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 <td class="gt_row gt_right" headers="Drop ATS age ">0.31</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Component"><span class="math inline">\({B}_{2025}/B_{MSY}\)</span></td>
+<td class="gt_row gt_left" headers="Estimated Quantity"><span class="math inline">\({B}_{2025}/B_{MSY}\)</span></td>
 <td class="gt_row gt_right" headers="2024 accepted">135%</td>
 <td class="gt_row gt_right" headers="Drop BTS">123%</td>
 <td class="gt_row gt_right" headers="Drop ATS ">151%</td>
@@ -4103,7 +4102,7 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 <td class="gt_row gt_right" headers="Drop ATS age ">142%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Component"><span class="math inline">\(B_0\)</span></td>
+<td class="gt_row gt_left" headers="Estimated Quantity"><span class="math inline">\(B_0\)</span></td>
 <td class="gt_row gt_right" headers="2024 accepted">5,975</td>
 <td class="gt_row gt_right" headers="Drop BTS">5,904</td>
 <td class="gt_row gt_right" headers="Drop ATS ">6,120</td>
@@ -4113,7 +4112,7 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 <td class="gt_row gt_right" headers="Drop ATS age ">6,050</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Component"><span class="math inline">\(B_{35\%}\)</span></td>
+<td class="gt_row gt_left" headers="Estimated Quantity"><span class="math inline">\(B_{35\%}\)</span></td>
 <td class="gt_row gt_right" headers="2024 accepted">2,066</td>
 <td class="gt_row gt_right" headers="Drop BTS">1,994</td>
 <td class="gt_row gt_right" headers="Drop ATS ">2,101</td>
@@ -4123,7 +4122,7 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 <td class="gt_row gt_right" headers="Drop ATS age ">2,082</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Component">SPR rate at <span class="math inline">\(F_{MSY}\)</span></td>
+<td class="gt_row gt_left" headers="Estimated Quantity">SPR rate at <span class="math inline">\(F_{MSY}\)</span></td>
 <td class="gt_row gt_right" headers="2024 accepted">31%</td>
 <td class="gt_row gt_right" headers="Drop BTS">33%</td>
 <td class="gt_row gt_right" headers="Drop ATS ">31%</td>
@@ -4133,7 +4132,7 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 <td class="gt_row gt_right" headers="Drop ATS age ">31%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Component">Steepness</td>
+<td class="gt_row gt_left" headers="Estimated Quantity">Steepness</td>
 <td class="gt_row gt_right" headers="2024 accepted">0.62</td>
 <td class="gt_row gt_right" headers="Drop BTS">0.61</td>
 <td class="gt_row gt_right" headers="Drop ATS ">0.62</td>
@@ -4143,7 +4142,7 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 <td class="gt_row gt_right" headers="Drop ATS age ">0.62</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Component">Est. <span class="math inline">\(B_{2024} / B_{2024,no fishing}\)</span></td>
+<td class="gt_row gt_left" headers="Estimated Quantity">Est. <span class="math inline">\(B_{2024} / B_{2024,no fishing}\)</span></td>
 <td class="gt_row gt_right" headers="2024 accepted">0.61</td>
 <td class="gt_row gt_right" headers="Drop BTS">0.56</td>
 <td class="gt_row gt_right" headers="Drop ATS ">0.63</td>
@@ -4153,7 +4152,7 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 <td class="gt_row gt_right" headers="Drop ATS age ">0.61</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Component"><span class="math inline">\(B_{2024} / B_{MSY}\)</span></td>
+<td class="gt_row gt_left" headers="Estimated Quantity"><span class="math inline">\(B_{2024} / B_{MSY}\)</span></td>
 <td class="gt_row gt_right" headers="2024 accepted">147%</td>
 <td class="gt_row gt_right" headers="Drop BTS">138%</td>
 <td class="gt_row gt_right" headers="Drop ATS ">158%</td>
@@ -4167,8 +4166,8 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 
 </div>
 </div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl quarto-uncaptioned margin-caption" id="tbl-loo_ref-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;6
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-loo_ref-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6: Estimated derived quantities and selected corresponding CVs for leave-one-out sensitivity analysis runs. See text for incremental model descriptions.
 </figcaption>
 </figure>
 </div>
