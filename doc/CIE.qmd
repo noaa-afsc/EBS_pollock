@@ -27,6 +27,7 @@ library(viridis)
 library(gt)
 # Set ggplot theme
 # devtools::install_github("seananderson/ggsidekick")
+thisyr=2024
 library(ggsidekick)
 theme_set(theme_sleek())
 .THEME <- theme_sleek()
@@ -44,7 +45,7 @@ do_abc_sel <- 0
 do_yearloop <- 0
 do_srrlst <- 0
 do_selsens <- 0
-do_loo <- 1
+do_loo <- 0
 
 Plot_Sel <- function(sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 2024) {
   sdf <- pivot_longer(sel, names_to = "age", values_to = "sel", cols = 2:(nages + 1)) |>
@@ -285,22 +286,90 @@ gt(df) %>%
 
 ```{r modfits}
 #| echo: false
+#| results: asis
 #| warnings: FALSE
 #| messages: FALSE
 #| label: tbl-modfits
 #| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
-tab <- gt(tab_fit(ftn_lst[c(2, 4, 3)])) %>%
-  tab_style(style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 1)) %>%
-  tab_style(style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 5)) %>%
-  tab_style(style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 8)) %>%
-  tab_style(style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 11)) %>%
-  tab_style(style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 18)) |>
-  tab_style(style = cell_borders(sides = "top", weight = px(2), color = "black"), locations = cells_body(rows = 21)) |>
-  tab_style(style = cell_borders(sides = "bottom", weight = px(2), color = "black"), locations = cells_body(rows = 21))
-tab
+
+gt_table <- gt::gt(tab_fit(ftn_lst[c(2:4)])) #|>
+numeric_cols <- 2:4 # Specify the numeric columns to format
+target_rows <- c(8:21)
+for (col in numeric_cols) {
+  gt_table <- gt_table %>%
+    fmt_number(
+      columns = col,
+      rows = target_rows,
+      decimals = 0,
+      use_seps = TRUE
+    )
+}
+#gt_table %>%
+#  tab_style(
+#    style = cell_borders(sides = "top", weight = px(2), color = "black"),
+#    locations = cells_column_labels()
+#  ) %>%
+#  tab_style(
+#    style = cell_borders(sides = "bottom", weight = px(2), color = "black"),
+#    locations = cells_body(rows = c(4, 7, 10, 18, 21))
+#  )
 ```
 
 
+
+```{r ftn_ref}
+#| results: asis
+#| echo: false
+#| messages: FALSE
+#| label: tbl-ftn_ref
+#| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
+library(xtable)
+
+# Mgt quants by final
+df <- NULL
+mod_scen <- c(2:4)
+for (ii in mod_scen) {
+  x <- ftn_lst[[ii]]
+  ssb <- x$nextyrssbs
+  names(ssb) <- paste0("${B}_{", nextyr, "}$")
+  ssbcv <- round(x$nextyrssb.cv, 2)
+  names(ssbcv) <- paste0("$CV_{B_{", nextyr, "}}$")
+  Bmsy <- x$bmsys
+  names(Bmsy) <- "$B_{MSY}$"
+  Bmsycv <- round(x$bmsy.cv, 2)
+  names(Bmsycv) <- "$CV_{B_{MSY}}$"
+  spr <- paste0(round(x$sprmsy * 100, 0), "\\%")
+  names(spr) <- "SPR rate at $F_{MSY}$"
+  b35 <- x$b35s
+  names(b35) <- paste0("$B_{35\\%}$")
+  pbmsy <- paste0(round(100 * x$ssb1 / x$bmsy, 0), "\\%")
+  names(pbmsy) <- paste0("${B}_{", nextyr, "}/B_{MSY}$")
+  bzero <- x$b0s
+  names(bzero) <- paste0("$B_0$")
+  dynb0 <- x$dynb0s
+  names(dynb0) <- paste0("Est. $B_{", thisyr, "} / B_{", thisyr, ",no fishing}$")
+  b_bmsy <- paste0(round(x$curssb / x$bmsy * 100, 0), "\\%")
+  names(b_bmsy) <- paste0("$B_{", thisyr, "} / B_{MSY}$")
+  steep <- round(x$steep, 2)
+  names(steep) <- "Steepness"
+  v <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero, b35, spr, steep, dynb0, b_bmsy)
+  df <- cbind(df, v)
+}
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component", mod_names[mod_scen])
+tab <- xtable(df, caption = "\\label{tbl:ressumm}Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tbl:ressumm", digits = 3, align = paste0("ll", strrep("r", length(mod_scen))))
+# tab <- xtable(df, caption = tabcap[28], digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
+print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x) { x }, comment = FALSE)
+```
+
+```{r mod_fit_agg_comp}
+library(kableExtra)
+kbl(tab_ref(ftn_lst[2:4]), align = "cc", booktabs = TRUE, escape = FALSE) #|>
+    #add_header_above(
+    #header = setNames(c(1,2),
+                      #c(" ", "something" )) ,
+    #bold = TRUE) #|> pack_rows( names(dimnames(tbltext))[1] , 1, 2)
+```
 
 ```{r mod_fit_agg_comp}
 #| echo: false
@@ -540,12 +609,13 @@ settings. (@methot2013) For EBS pollock, we extended an initial framework based 
 configurations used for Pacific hake (@hake2024) since there are many similarities in the
 type of data available. Namely, empirical weight-at-age, acoustic survey data, and indices
 of 1-year olds. @fig-ss3 shows the model results comparing the last year's model some
+@fig-synts shows the model results comparing the last year's model some
 alternative model platforms.
-Comparing the SS3 output with three different configurations on selectivity constraint
-shows xxx (@fig-ss3ts).
-Comparing the SS3 output with last year's reference model shows that xxx (@fig-ss3tsref).
+In @fig-synts, comparing the SS3 output with three different configurations on selectivity constraint
+shows similarities in the time series.
+Comparing the SS3 output with last year's reference model shows that xxx @fig-ss3tsref.
 
-```{r ss3}
+```{r }
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
@@ -556,22 +626,22 @@ Plot_Sel(ss_sel) + ggthemes::theme_few(base_size = 9)
 ```
 
 
-```{r ss3ts}
+```{r }
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
-#| label: fig-ss3ts
-#| fig.cap: "Model results comparing three different SS3 model configurations. The models are the base model (Base), the constrained model (Constrained), and the flexible model (Flexible)."
+#| label: fig-synts
+#| fig-cap: "Model results comparing three different SS3 model configurations. The models are the base model (Base), the constrained model (Constrained), and the flexible model (Flexible)."
 #|
 all_ts <- rbind(r1$ts, r2$ts, r3$ts)
-plotly::ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
+(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
 (Plot_Rec(all_ts) + ggthemes::theme_few(base_size = 19))
 # all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
 # ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
 
 
-```{r ss3tsref}
+```{r }
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
@@ -579,8 +649,8 @@ plotly::ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
 #| fig.cap: "Model results comparing three different SS3 model configurations. The models are the base model (Base), the constrained model (Constrained), and the flexible model (Flexible)."
 #|
 all_ts <- rbind(r1$ts, pm_run$ts)
-plotly::ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
-plotly::ggplotly(Plot_Rec(all_ts) + ggthemes::theme_few(base_size = 19))
+(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
+(Plot_Rec(all_ts) + ggthemes::theme_few(base_size = 19))
 # all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
 # ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
@@ -591,7 +661,7 @@ We attempted to configure the settings to have similar levels of flexibility
 to the reference model used for catch advice in 2024 and the settings and results
 can be found 
 [here](https://github.com/noaa-afsc/EBS_pollock/tree/main/runs/SAM/poll24 "SAM model runs" )). Comparing "selectivity" in the SAM model to the reference
-model, we see broad similarities but slightly lower inter-annual variability in the SAM run (@fig-sam). The spawning biomass trend largely overlaps in the uncertainty (@fig-sam_ts).
+model, we see broad similarities but slightly lower inter-annual variability in the SAM run (@fig-sam). The spawning biomass trend largely overlaps in the uncertainty @fig-sam_ts.
 
 
 
@@ -617,8 +687,8 @@ Plot_Sel(sam_sel) + ggthemes::theme_few(base_size = 9)
 #| fig.cap: "Model results comparing last year's model with the SAM model for spawning biomass (top) and recruitment at age 1 (bottom)."
 #|
 all_ts <- rbind(pm_run$ts, r1$ts, c1$ts, sam_run$ts) # ,gp_run$sel)
-plotly::ggplotly(Plot_SSB(rbind(sam_run$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 19))
-plotly::ggplotly(Plot_Rec(rbind(sam_run$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 19))
+(Plot_SSB(rbind(sam_run$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 19))
+(Plot_Rec(rbind(sam_run$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 19))
 # all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
 # ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
@@ -727,7 +797,7 @@ all_ts <- rbind(pm_run$ts, spock$ts)
 # all_ts <- rbind(pm_run$ts,r2$ts)
 # ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
 # library(plotly)
-ggplotly(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
+(Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19))
 # htmlwidgets::saveWidget(p1, "figs/plot1.html", selfcontained = TRUE)
 # Plot_Rec(rbind(pm_run$ts,spock$ts,r2$ts), width=2,
 Plot_Rec(all_ts,
