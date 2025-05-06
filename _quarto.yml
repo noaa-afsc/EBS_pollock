@@ -54,6 +54,7 @@ date-format: "YYYY-MM-DD HH:mm"
 css: mystyle.css
 format:
   html:
+    mathjax: "default"
     theme:
       light: [cosmo] 
       dark: [darkly]
