@@ -4,7 +4,7 @@ library(ebswp)
 library(tidyverse) #need read_table from somewhere in tidyverse
 
 dat_base<-read_dat(here::here("runs/data/pm_24.dat"))
-
+cov_base<-read_table(here::here("runs/data/cov_2024.dat"),col_names = FALSE)
 #--------------------------------------------
 # Leave out whole BTS
 dat_loo_bts<-dat_base
@@ -19,7 +19,15 @@ file.copy(here::here("runs/lastyr/compweights.ctl"),here::here("runs/loo_bts_all
 pm.dat<-read_table(here::here("runs/lastyr/pm.dat"),col_names = FALSE)
 pm.dat[1,]<-"Increased_bts_index_std"
 pm.dat[2,]<-"../data/pm_24_loo_bts_index.dat"
+pm.dat[6,]<-"../data/cov_mod_2024.dat"
 writeLines(as.character(pm.dat$X1),here::here("runs/loo_bts_all/pm.dat"))
+
+#read in cov_2024.dat
+cov_mod<-cov_base
+for (i in 1:nrow(cov_base)) {
+  cov_mod[i,i]<-cov_base[i,i]*10000
+}
+write.table(cov_mod,file = here::here("runs/data/cov_mod_2024.dat"),col.names = FALSE,row.names = FALSE)
 
 #change the control file for lambda for the comp data
 ctl_base<-read_ctl(here::here("runs/lastyr/control.dat"))
