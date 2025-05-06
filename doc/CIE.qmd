@@ -421,13 +421,10 @@ knitr::include_graphics("figs/ats_osa.png")
 # Set working directory & plot save directory
 ```
 
-# Leave-one-out sensitivity analysis
+# Leave-one-out survey sensitivity analysis
 
-Here we present model runs that downweight one source of age composition data at a time,
-as well as a run that downweights all survey biomass indices. @tbl-loo_runs shows the
-combinations of data types included for this analysis.
-
-Results show that the model is sensitive to the inclusion of the ... data (@tbl-loo_fits)
+Here we present model runs that downweight one or more sources of survey data at a time.  @tbl-loo_runs shows the combinations of data types included for this analysis, which includes six model runs: (1) drop all Acoustic Trawl Survey (ATS) data (age 1 survey index, age 2+ survey biomass index, and age composition data), (2) drop the ATS age composition data, (3) drop the Acoustic Vessels of Opportunity (AVO) data (survey biomass index), (4) drop all Eastern Bering Sea Trawl Survey (BTS) data (age 1+ survey biomass index and age composition data), (5) drop the BTS age composition data, and (6) drop all survey biomass indices (BTS, ATS, and AVO survey biomass indices). 
+The ATS age 1 data are included as a separate survey index in the assessment model, while BTS age 1 data are included with the age composition data in the multinomial objective function component.
 
 ```{r loo_runs}
 #| echo: false
@@ -512,21 +509,19 @@ gt::gt(df) %>%
 
 Among these models, when downweighting the BTS data, the model estimates of spawning
 biomass changed in trends @fig-loo-ssb . The model estimates of recruitment were less
-dramatic in appearance but was consistent for the run where all of the bottom-trawl survey
-data were excluded @fig-loo-recruitment. The relative fits to the different indices by
+variable across sensitivity runs, but estimates differed the most from the 2024 accepted model when all BTS data and BTS age composition data were dropped @fig-loo-recruitment. The relative fits to the different indices by
 data component ommission show that the model is relatively insensitive to data being
 excluded (see @fig-loo-bts-index, @fig-loo-ats-index, and @fig-loo-avo-index). The
 consistency can also be noted in the goodness-of-fit measures in @tbl-loo_fits. The table
-shows the goodness-of-fit in different ways to the components that are dropped
-successively.
+shows several measures of goodness-of-fit for components that are dropped successively.
 
 In conclusion, the data sources suggest a good level of consistency driving the
-trends--that is there appears to be relatively low levels of conflict. This is likely due
-to the constant natural mortality-at-age and highly precise fishery catch-at-age. That is,
+trends-- there appears to be relatively low levels of conflict between data sources. This is likely due
+to the constant natural mortality-at-age, highly precise fishery catch-at-age, and estimation of time-varying fishery selectivity. That is,
 the traditional "VPA" approach of back-calculating the abundance based on the numbers
-caught result in a relatively consistent estimate of the population size. The importance
+caught results in a relatively consistent estimate of the population size. The importance
 of the survey data can be seen in some of the reference calculations where the uncertainty
-increases dramatically and the stock-status perception is quite differen @tbl-loo_ref.
+increases dramatically and the stock-status perception is quite different across sensitivity runs @tbl-loo_ref. Most dramatically, dropping all survey indices led to a CV in "$B_{MSY}$" estimates of 1.26 as compared to 0.13 in the 2024 accepted model. 
 
 ```{r loo relative ssb}
 #| echo: false
@@ -578,7 +573,7 @@ knitr::include_graphics(here::here("doc", "figs", "loo_avo_index.png"))
 #| warnings: FALSE
 #| messages: FALSE
 #| label: tbl-loo_fits
-#| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
+#| tbl-cap: "Goodness-of-fit measures to primary data for leave-one-out model sensitivity runs. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
 gt_table <- gt::gt(tab_fit(loo_lst[c(1:7)])) #|>
 numeric_cols <- 2:8 # Specify the numeric columns to format
 target_rows <- c(8:21)
@@ -608,6 +603,7 @@ gt_table %>%
 #| output: asis
 #| messages: FALSE
 #| label: tbl-loo_ref
+#| tbl-cap: "Estimated derived quantities and selected corresponding CVs for leave-one-out sensitivity analysis runs. See text for incremental model descriptions."
 df <- NULL
 mod_scen <- c(1:7)
 for (ii in mod_scen) {
@@ -638,7 +634,7 @@ for (ii in mod_scen) {
   df <- cbind(df, v)
 }
 df <- data.frame(rownames(df), df, row.names = NULL)
-names(df) <- c("Component", names(loo_lst[mod_scen]))
+names(df) <- c("Estimated Quantity", names(loo_lst[mod_scen]))
 gt(df) |> fmt_markdown()
 ```
 
