@@ -110,14 +110,13 @@ first task was to update the model runs to include the 2023 data. The model runs
 updated and the results are presented below. The model runs were then used to compare the
 FT-NIR data with the traditional data sources (BTS and ATS). The results of these
 comparisons are presented below. The model fits to the data are presented in the tables at
-the end of the document. The first section steers towards the R library used for 
-processing model results for EBS pollock. The second section presents the comparisons of the
-FT-NIR data with the traditional data sources. The third section compares results of
-different software platforms (e.g., SS3, CEA, and AMAK) for the assessment. The fourth section
-shows results comparing newer model-based estimates from survey data.
+the end of the document. The first section steers towards the R library used for
+processing model results for EBS pollock. The second section presents the comparisons of
+the FT-NIR data with the traditional data sources. The third section compares results of
+different software platforms (e.g., SS3, CEA, and AMAK) for the assessment. The fourth
+section shows results comparing newer model-based estimates from survey data.
 
-
-#  R Library for assessment compilations (ebswp)
+# R Library for assessment compilations (ebswp)
 
 The `ebswp` library is a collection of functions for compiling and analyzing results from
 the stock assessment models for the eastern Bering Sea walleye pollock (@ianelli2025). The
@@ -126,8 +125,8 @@ report files generated. The link in the reference provides access to some notes 
 applications as vignettes to the package (e.g., .
 [here](https://afsc-assessments.github.io/ebswp/index.html "EBSWP Library")).
 
-
 # Comparing FT-NIR compositions with traditional microscope age estimations
+
 The fish age and growth lab at the AFSC have endeavored to expand on new technologies
 (@helser2019).
 
@@ -136,9 +135,8 @@ The fish age and growth lab at the AFSC have endeavored to expand on new technol
 Examining the abundance-at-age (for design-based estimates of the bottom-trawl age
 compositions) we show that in general, the TMA estimates show a high level of consistency
 by cohort (@fig-consisTMA). For these same data, when applied to the FTNIRs age-estimation
-method, the consistency was lower (@fig-consisFTN). The extent that this is a concern
-is unknown.
-
+method, the consistency was lower (@fig-consisFTN). The extent that this is a concern is
+unknown.
 
 ```{r consisTMA}
 #| echo: false
@@ -157,7 +155,6 @@ knitr::include_graphics("figs/consisTMA.png")
 #| fig.cap: "Cohort consistency over different ages based on log-abundance from the bottom-trawl survey data for pollock in recent years for FTNIRs  age estimates. The cohorts are shown in the labels."
 knitr::include_graphics("figs/consisFTN.png")
 ```
-
 
 When preparing the data for the assessment, we plotted out the proportions-at-age for the
 TMA data and noted the differences in the estimates using the FTNIRs age estimates
@@ -204,9 +201,9 @@ knitr::include_graphics("figs/dataFile.png")
 ```
 
 For the assessment model, the alternatives are shown based on the coverage of data and
-availability among types of ageing is shown in @fig-dataExtent. These figures are 
-intended to show what data are available for the model testing and 
-the different ways of treating age determination error matrices.
+availability among types of ageing is shown in @fig-dataExtent. These figures are intended
+to show what data are available for the model testing and the different ways of treating
+age determination error matrices.
 
 ```{r data}
 #| echo: false
@@ -246,14 +243,13 @@ if (do_ft) {
 }
 ```
 
-
-
 ## Comparisons of fit to FT-NIRS models
 
-The layout of model runs comparing the traditional microscope ages (TMA) with the
-FT-NIRS ages is shown in @tbl-ftn_runs. The models are run with the FT-NIRS data with 
-different age-error matrix specficiations. 
-The model fits to the data are shown in @tbl-modfits. The table shows the goodness-of-fit
+The layout of model runs comparing the traditional microscope ages (TMA) with the FT-NIRS
+ages is shown in @tbl-ftn_runs. The models are run with the FT-NIRS data with different
+age-error matrix specficiations. The model fits to the data are shown in @tbl-modfits. The
+table shows the goodness-of-fit
+
 ```{r ftn_runs}
 #| echo: false
 #| warnings: FALSE
@@ -282,7 +278,6 @@ gt(df) %>%
     column_labels.font.weight = "bold"
   )
 ```
-
 
 ```{r modfits}
 #| echo: false
@@ -314,8 +309,6 @@ for (col in numeric_cols) {
 #    locations = cells_body(rows = c(4, 7, 10, 18, 21))
 #  )
 ```
-
-
 
 ```{r ftn_ref}
 #| results: asis
@@ -411,7 +404,6 @@ knitr::include_graphics("figs/bts_osa.png")
 knitr::include_graphics("figs/ats_osa.png")
 ```
 
-
 ```{r comp_bts}
 #| echo: false
 #| warnings: FALSE
@@ -439,14 +431,11 @@ knitr::include_graphics("figs/ats_osa.png")
 # Set working directory & plot save directory
 ```
 
-
-
-
 # Leave-one-out sensitivity analysis
 
 Here we present model runs that downweight one source of age composition data at a time,
-as well as a run that downweights all survey biomass indices. @tbl-loo_runs shows the combinations of data
-types included for this analysis.
+as well as a run that downweights all survey biomass indices. @tbl-loo_runs shows the
+combinations of data types included for this analysis.
 
 Results show that the model is sensitive to the inclusion of the ... data (@tbl-loo_fits)
 
@@ -531,6 +520,70 @@ gt::gt(df) %>%
   )
 ```
 
+
+Among these models, when downweighting the BTS data, the model estimates of spawning biomass
+changed in trends @fig-loo-ssb .
+The model estimates of recruitment were less dramatic in appearance but was consistent
+for the run where all of the bottom-trawl survey data were excluded @fig-loo-recruitment. 
+The relative fits to the different indices by data component ommission show that 
+the model is relatively insensitive to data being excluded (see @fig-loo-bts-index,
+@fig-loo-ats-index,  and @fig-loo-avo-index).  The consistency can also be noted
+in the goodness-of-fit measures in @tbl-loo_fits. The table shows the goodness-of-fit
+in different ways to the components that are dropped successively.
+
+In conclusion, the data sources suggest a good level of consistency driving the trends--that is
+there appears to be relatively low levels of conflict. This is likely due to the 
+constant natural mortality-at-age and highly precise fishery catch-at-age. That is,
+the traditional "VPA" approach of back-calculating the abundance based on the numbers caught
+result in a relatively consistent estimate of the population size. 
+
+
+```{r loo relative ssb}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-ssb
+#| fig.cap: "Comparison of spawning biomass (SSB) relative to the 2024 accepted model for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_rel_ssb.png"))
+```
+
+```{r loo recruitment}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-recruitment
+#| fig.cap: "Comparison of recruitment estimates for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_recruits.png"))
+```
+
+```{r loo bts index}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-bts-index
+#| fig.cap: "Comparison of fits to the Eastern Bering Sea Bottom Trawl Survey (BTS) biomass index for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_bts_index.png"))
+```
+
+```{r loo ats index}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-ats-index
+#| fig.cap: "Comparison of fits to the Acoustic Trawl Survey (ATS) biomass index for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_ats_index.png"))
+```
+
+```{r loo avo index}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-avo-index
+#| fig.cap: "Comparison of fits to the Acoustic Vessels of Opportunity (AVO) biomass index for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_avo_index.png"))
+```
+
+
 ```{r loo_fits}
 #| echo: false
 #| warnings: FALSE
@@ -560,46 +613,6 @@ gt_table %>%
   )
 ```
 
-```{r loo relative ssb}
-#| echo: false
-#| warnings: FALSE
-#| messages: FALSE
-#| label: fig-loo-ssb
-#| fig.cap: "Comparison of spawning biomass (SSB) relative to the 2024 accepted model for models that downweight one data source at a time"
-knitr::include_graphics(here::here("doc", "figs", "loo_rel_ssb.png"))
-```
-```{r loo recruitment}
-#| echo: false
-#| warnings: FALSE
-#| messages: FALSE
-#| label: fig-loo-recruitment
-#| fig.cap: "Comparison of recruitment estimates for models that downweight one data source at a time"
-knitr::include_graphics(here::here("doc", "figs", "loo_recruits.png"))
-```
-```{r loo bts index}
-#| echo: false
-#| warnings: FALSE
-#| messages: FALSE
-#| label: fig-loo-bts-index
-#| fig.cap: "Comparison of fits to the Eastern Bering Sea Bottom Trawl Survey (BTS) biomass index for models that downweight one data source at a time"
-knitr::include_graphics(here::here("doc", "figs", "loo_bts_index.png"))
-```
-```{r loo ats index}
-#| echo: false
-#| warnings: FALSE
-#| messages: FALSE
-#| label: fig-loo-ats-index
-#| fig.cap: "Comparison of fits to the Acoustic Trawl Survey (ATS) biomass index for models that downweight one data source at a time"
-knitr::include_graphics(here::here("doc", "figs", "loo_ats_index.png"))
-```
-```{r loo avo index}
-#| echo: false
-#| warnings: FALSE
-#| messages: FALSE
-#| label: fig-loo-avo-index
-#| fig.cap: "Comparison of fits to the Acoustic Vessels of Opportunity (AVO) biomass index for models that downweight one data source at a time"
-knitr::include_graphics(here::here("doc", "figs", "loo_avo_index.png"))
-```
 # Alternative assessment software
 
 ## Stock-synthesis 3
@@ -609,11 +622,10 @@ settings. (@methot2013) For EBS pollock, we extended an initial framework based 
 configurations used for Pacific hake (@hake2024) since there are many similarities in the
 type of data available. Namely, empirical weight-at-age, acoustic survey data, and indices
 of 1-year olds. @fig-ss3 shows the model results comparing the last year's model some
-@fig-synts shows the model results comparing the last year's model some
-alternative model platforms.
-In @fig-synts, comparing the SS3 output with three different configurations on selectivity constraint
-shows similarities in the time series.
-Comparing the SS3 output with last year's reference model shows that xxx @fig-ss3tsref.
+@fig-synts shows the model results comparing the last year's model some alternative model
+platforms. In @fig-synts, comparing the SS3 output with three different configurations on
+selectivity constraint shows similarities in the time series. Comparing the SS3 output
+with last year's reference model shows that xxx @fig-ss3tsref.
 
 ```{r }
 #| echo: false
@@ -624,7 +636,6 @@ Comparing the SS3 output with last year's reference model shows that xxx @fig-ss
 ss_sel <- rbind(r1$sel, r2$sel, r3$sel) # ,r4$sel)#,r5$sel)
 Plot_Sel(ss_sel) + ggthemes::theme_few(base_size = 9)
 ```
-
 
 ```{r }
 #| echo: false
@@ -640,7 +651,6 @@ all_ts <- rbind(r1$ts, r2$ts, r3$ts)
 # ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
 
-
 ```{r }
 #| echo: false
 #| warnings: FALSE
@@ -654,16 +664,17 @@ all_ts <- rbind(r1$ts, pm_run$ts)
 # all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
 # ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
+
 ## SAM
 
-The Stock Assessment Model (SAM) is a state-space model written in TMB (@nielsen2014, @nielsen2021). 
-We attempted to configure the settings to have similar levels of flexibility
-to the reference model used for catch advice in 2024 and the settings and results
-can be found 
-[here](https://github.com/noaa-afsc/EBS_pollock/tree/main/runs/SAM/poll24 "SAM model runs" )). Comparing "selectivity" in the SAM model to the reference
-model, we see broad similarities but slightly lower inter-annual variability in the SAM run (@fig-sam). The spawning biomass trend largely overlaps in the uncertainty @fig-sam_ts.
-
-
+The Stock Assessment Model (SAM) is a state-space model written in TMB (@nielsen2014,
+@nielsen2021). We attempted to configure the settings to have similar levels of
+flexibility to the reference model used for catch advice in 2024 and the settings and
+results can be found
+[here](https://github.com/noaa-afsc/EBS_pollock/tree/main/runs/SAM/poll24 "SAM model runs")).
+Comparing "selectivity" in the SAM model to the reference model, we see broad similarities
+but slightly lower inter-annual variability in the SAM run (@fig-sam). The spawning
+biomass trend largely overlaps in the uncertainty @fig-sam_ts.
 
 ```{r}
 #| echo: false
@@ -753,7 +764,6 @@ all_sel <- rbind(pm_run$sel, r1$sel, c1$sel, sam_run$sel) # ,gp_run$sel)
 Plot_Sel(all_sel) + ggthemes::theme_few(base_size = 9)
 ```
 
-
 ```{r}
 #| echo: false
 #| warnings: FALSE
@@ -768,8 +778,9 @@ Plot_Rec(rbind(c1$ts, pm_run$ts, sam_run$ts)) + ggthemes::theme_few(base_size = 
 ## Spatial modeling of the EBS pollock stock
 
 In development is a spatially disaggregated general model by colleagues at the Auke Bay
-lab and the University of Alaska, Fairbanks (@spock).  @fig-spock_sel shows the model results
-comparing time-varying selectivity whereas @fig-spock_ts shows the model results time series. The difference in the age-1 recruits is likely due to the fact that the 
+lab and the University of Alaska, Fairbanks (@spock). @fig-spock_sel shows the model
+results comparing time-varying selectivity whereas @fig-spock_ts shows the model results
+time series. The difference in the age-1 recruits is likely due to the fact that the
 spatial model currently has constant M-at-age compared to the base model.
 
 ```{r}
@@ -810,35 +821,97 @@ Plot_Rec(all_ts,
 
 ## Abundance Index Methods
 
-For model-based indices in the Bering Sea, we fitted observations of numerical abundance or biomass per unit area (where the choice of abundance or biomass varied by stock at the request of assessors) from all sampling locations in the 83-112 bottom trawl survey of the EBS, 1982-2025, including:
+For model-based indices in the Bering Sea, we fitted observations of numerical abundance
+or biomass per unit area (where the choice of abundance or biomass varied by stock at the
+request of assessors) from all sampling locations in the 83-112 bottom trawl survey of the
+EBS, 1982-2025, including:
 
-- Exploratory northern extension samples in 2001, 2005, and 2006
-- 83-112 samples available in the NBS in 1982, 1985, 1988, 1991, 2010, 2017-2019, 2021-2023, and 2025
+-   Exploratory northern extension samples in 2001, 2005, and 2006
+-   83-112 samples available in the NBS in 1982, 1985, 1988, 1991, 2010, 2017-2019,
+    2021-2023, and 2025
 
-NBS samples collected prior to 2010 and in 2018 did not follow the 20 nautical mile sampling grid that was used in other survey years. Assimilating these unbalanced data requires extrapolating into unsampled areas, facilitated by including a spatially varying response to cold-pool extent [@Thorson2019]. This spatially varying coefficient term was estimated for both linear predictors of a delta-model, and detailed comparison of results for EBS pollock has shown that it has a small but notable effect on these indices and resulting stock assessment outputs [@OLeary2020].
+NBS samples collected prior to 2010 and in 2018 did not follow the 20 nautical mile
+sampling grid that was used in other survey years. Assimilating these unbalanced data
+requires extrapolating into unsampled areas, facilitated by including a spatially varying
+response to cold-pool extent [@Thorson2019]. This spatially varying coefficient term was
+estimated for both linear predictors of a delta-model, and detailed comparison of results
+for EBS pollock has shown that it has a small but notable effect on these indices and
+resulting stock assessment outputs [@OLeary2020].
 
-Rather than using the cold-pool covariate for yellowfin sole, we instead used the mean bottom temperature within the inner and middle domain strata from an interpolated temperature product. All models were fitted in the sdmTMB R package (https://pbs-assess.github.io/sdmTMB; @Anderson2022). All environmental data used as covariates were computed within the coldpool R package (https://github.com/afsc-gap-products/coldpool; @Rohan2023).
+Rather than using the cold-pool covariate for yellowfin sole, we instead used the mean
+bottom temperature within the inner and middle domain strata from an interpolated
+temperature product. All models were fitted in the sdmTMB R package
+(https://pbs-assess.github.io/sdmTMB; @Anderson2022). All environmental data used as
+covariates were computed within the coldpool R package
+(https://github.com/afsc-gap-products/coldpool; @Rohan2023).
 
-We used a spatiotemporal Poisson-link delta-model [@Thorson2018] involving two linear predictors and a gamma distribution to model positive catch rates. We predicted population density across the entire EBS and NBS in each year, using AFSC GAP-approved prediction grids. Spatial and spatiotemporal fields were estimated using a spatial mesh including 250 "knots" whose locations were determined using a K-means algorithm to place the knots evenly over space, in proportion to the dimensions of the prediction grid.
+We used a spatiotemporal Poisson-link delta-model [@Thorson2018] involving two linear
+predictors and a gamma distribution to model positive catch rates. We predicted population
+density across the entire EBS and NBS in each year, using AFSC GAP-approved prediction
+grids. Spatial and spatiotemporal fields were estimated using a spatial mesh including 250
+"knots" whose locations were determined using a K-means algorithm to place the knots
+evenly over space, in proportion to the dimensions of the prediction grid.
 
-While the prior VAST model was fitted with a 750 knot mesh, we found that sdmTMB models fitted with mesh resolutions from 250-750 knots all provided extremely similar index estimates and that reducing the number of knots dramatically improved computation time. We estimated geometric anisotropy (how spatial autocorrelation declines with differing rates over distance in some cardinal directions than others) and included a spatial and spatiotemporal term for both linear predictors.
+While the prior VAST model was fitted with a 750 knot mesh, we found that sdmTMB models
+fitted with mesh resolutions from 250-750 knots all provided extremely similar index
+estimates and that reducing the number of knots dramatically improved computation time. We
+estimated geometric anisotropy (how spatial autocorrelation declines with differing rates
+over distance in some cardinal directions than others) and included a spatial and
+spatiotemporal term for both linear predictors.
 
-To facilitate prediction of density in regions with unsampled years, we specified that the spatiotemporal fields were structured over time as an AR(1) process (where the magnitude of autocorrelation was estimated as a fixed effect for each linear predictor). However, in cases where the AR(1) correlation parameter ⍴ was estimated to be close to 1 for either model component, the model would be collapsed into a simpler structure by specifying ⍴ = 1, i.e., modeling spatiotemporal variation as a random walk. We did not include any temporal correlation for intercepts, which we treated as fixed effects for each linear predictor and year. Finally, we used epsilon bias-correction to correct for retransformation bias [@Thorson2016].
+To facilitate prediction of density in regions with unsampled years, we specified that the
+spatiotemporal fields were structured over time as an AR(1) process (where the magnitude
+of autocorrelation was estimated as a fixed effect for each linear predictor). However, in
+cases where the AR(1) correlation parameter ⍴ was estimated to be close to 1 for either
+model component, the model would be collapsed into a simpler structure by specifying ⍴ =
+1, i.e., modeling spatiotemporal variation as a random walk. We did not include any
+temporal correlation for intercepts, which we treated as fixed effects for each linear
+predictor and year. Finally, we used epsilon bias-correction to correct for
+retransformation bias [@Thorson2016].
 
-We checked model fits for convergence by confirming that the derivative of the marginal likelihood with respect to each fixed effect was sufficiently small (less than ~ 0.001) and that the Hessian matrix was positive definite, along with other model checks produced by the function `sdmTMB::sanity()`. We then checked goodness of model fit by computing Dunn-Smyth randomized quantile residuals [@Dunn1996] and visualizing these using a quantile-quantile plot within the DHARMa R package [@Hartig2021]. We also evaluated the distribution of these residuals over space in each year, and inspected them for evidence of residual spatiotemporal patterns.
+We checked model fits for convergence by confirming that the derivative of the marginal
+likelihood with respect to each fixed effect was sufficiently small (less than \~ 0.001)
+and that the Hessian matrix was positive definite, along with other model checks produced
+by the function `sdmTMB::sanity()`. We then checked goodness of model fit by computing
+Dunn-Smyth randomized quantile residuals [@Dunn1996] and visualizing these using a
+quantile-quantile plot within the DHARMa R package [@Hartig2021]. We also evaluated the
+distribution of these residuals over space in each year, and inspected them for evidence
+of residual spatiotemporal patterns.
 
 ## Model-based Age Composition Methods
 
-For model-based estimation of age compositions in the Bering Sea, we fitted observations of numerical abundance-at-age at each sampling location. This was made possible by applying a year-specific, region-specific (EBS and NBS) age-length key to records of numerical abundance and length composition. In subcategories (combinations of year, length, age, sex) that contained insufficient data, age composition was computed from length composition given a globally pooled age-length key.
+For model-based estimation of age compositions in the Bering Sea, we fitted observations
+of numerical abundance-at-age at each sampling location. This was made possible by
+applying a year-specific, region-specific (EBS and NBS) age-length key to records of
+numerical abundance and length composition. In subcategories (combinations of year,
+length, age, sex) that contained insufficient data, age composition was computed from
+length composition given a globally pooled age-length key.
 
-We computed these estimates in the tinyVAST R package (https://vast-lib.github.io/tinyVAST; @Thorson2024), assuming a Poisson-link delta-model [@Thorson2018] involving two linear predictors, and a gamma distribution to model positive catch rates. We did not include any density covariates in estimation of age composition for consistency with models used in the previous assessments and due to computational limitations. 
+We computed these estimates in the tinyVAST R package
+(https://vast-lib.github.io/tinyVAST; @Thorson2024), assuming a Poisson-link delta-model
+[@Thorson2018] involving two linear predictors, and a gamma distribution to model positive
+catch rates. We did not include any density covariates in estimation of age composition
+for consistency with models used in the previous assessments and due to computational
+limitations.
 
-We estimated the spatial range assuming geometric isotropy (i.e, spatial autocorrelation declines with equal rates over distance in all cardinal directions). We used the same extrapolation grid as implemented for abundance indices, but here we modeled spatial and spatiotemporal fields with a mesh with a coarser spatial resolution than the index model, here using 50 "knots". This reduction in the spatial resolution of the model, relative to that used for the abundance indices, was necessary due to the increased computational load of fitting multiple age categories.
+We estimated the spatial range assuming geometric isotropy (i.e, spatial autocorrelation
+declines with equal rates over distance in all cardinal directions). We used the same
+extrapolation grid as implemented for abundance indices, but here we modeled spatial and
+spatiotemporal fields with a mesh with a coarser spatial resolution than the index model,
+here using 50 "knots". This reduction in the spatial resolution of the model, relative to
+that used for the abundance indices, was necessary due to the increased computational load
+of fitting multiple age categories.
 
-The estimates of abundance at age were bias-corrected with the same method as the abundance index. We implemented the same diagnostics to check convergence and model fit as those used for the abundance index. Results compared favorably among methods (@fig-sdm_age).
+The estimates of abundance at age were bias-corrected with the same method as the
+abundance index. We implemented the same diagnostics to check convergence and model fit as
+those used for the abundance index. Results compared favorably among methods
+(@fig-sdm_age).
 
-Both the model-based bottom trawl index and age composition estimates were calculated using code in the AFSC GAP model-based indices GitHub repository (https://github.com/afsc-gap-products/model-based-indices). Design-based estimates of bottom trawl products were calculated using code in the gapindex R package (https://github.com/afsc-gap-products/gapindex).
-
+Both the model-based bottom trawl index and age composition estimates were calculated
+using code in the AFSC GAP model-based indices GitHub repository
+(https://github.com/afsc-gap-products/model-based-indices). Design-based estimates of
+bottom trawl products were calculated using code in the gapindex R package
+(https://github.com/afsc-gap-products/gapindex).
 
 ```{r sdm_age}
 #| echo: false
@@ -849,6 +922,5 @@ Both the model-based bottom trawl index and age composition estimates were calcu
 
 knitr::include_graphics("figs/VAST_Age_Compare.png")
 ```
-
 
 # References
