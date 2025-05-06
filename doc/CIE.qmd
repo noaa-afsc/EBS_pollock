@@ -10,6 +10,22 @@ bibliography: references.bib
 editor: 
   markdown: 
     wrap: 90
+format: 
+    html:
+     html-math-method:
+      method: mathjax
+      url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+      include-in-header:
+        text: |
+          <script>
+            window.MathJax = {
+            tex: {
+              inlineMath: [['\\(', '\\)'], ['$', '$']],
+              displayMath: [['\\[', '\\]'], ['$$', '$$']],
+              processEscapes: true
+            }
+          } ;
+          </script>
 ---
 
 ```{r startup, echo=FALSE, warnings=FALSE, message=FALSE, eval=TRUE}
@@ -32,11 +48,6 @@ library(ggsidekick)
 theme_set(theme_sleek())
 .THEME <- theme_sleek()
 .OVERLAY <- TRUE
-# plot_ssb(loo_lst)
-# plot_recruitment(loo_lst)
-# plot_ser(loo_lst)
-#library(reshape2)
-# theme_set(ggthemes::theme_few())
 options(warn = -1)
 do_sigmaR_profile <- 0
 do_edf <- 0
@@ -299,19 +310,20 @@ for (col in numeric_cols) {
       use_seps = TRUE
     )
 }
-#gt_table %>%
-#  tab_style(
-#    style = cell_borders(sides = "top", weight = px(2), color = "black"),
-#    locations = cells_column_labels()
-#  ) %>%
-#  tab_style(
-#    style = cell_borders(sides = "bottom", weight = px(2), color = "black"),
-#    locations = cells_body(rows = c(4, 7, 10, 18, 21))
-#  )
+gt_table %>%
+  tab_style(
+    style = cell_borders(sides = "top", weight = px(2), color = "black"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = cell_borders(sides = "bottom", weight = px(2), color = "black"),
+    locations = cells_body(rows = c(4, 7, 10, 18, 21))
+  )
 ```
 
 ```{r ftn_ref}
 #| results: asis
+#| output: asis
 #| echo: false
 #| messages: FALSE
 #| label: tbl-ftn_ref
@@ -349,19 +361,13 @@ for (ii in mod_scen) {
   df <- cbind(df, v)
 }
 df <- data.frame(rownames(df), df, row.names = NULL)
-names(df) <- c("Component", mod_names[mod_scen])
-tab <- xtable(df, caption = "\\label{tbl:ressumm}Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tbl:ressumm", digits = 3, align = paste0("ll", strrep("r", length(mod_scen))))
-# tab <- xtable(df, caption = tabcap[28], digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
-print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x) { x }, comment = FALSE)
-```
+names(df) <- c("Component", names(ftn_lst[mod_scen]))
+gt(df) |> fmt_markdown()
 
-```{r mod_fit_agg_comp}
-library(kableExtra)
-kbl(tab_ref(ftn_lst[2:4]), align = "cc", booktabs = TRUE, escape = FALSE) #|>
-    #add_header_above(
-    #header = setNames(c(1,2),
-                      #c(" ", "something" )) ,
-    #bold = TRUE) #|> pack_rows( names(dimnames(tbltext))[1] , 1, 2)
+#tab <- xtable(df, caption = "\\label{tbl:ressumm}Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tbl:ressumm", digits = 3, align = paste0("ll", strrep("r", length(mod_scen))))
+# tab <- xtable(df, caption = tabcap[28], digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
+#print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x) { x }, comment = FALSE)
+
 ```
 
 ```{r mod_fit_agg_comp}
@@ -531,11 +537,15 @@ the model is relatively insensitive to data being excluded (see @fig-loo-bts-ind
 in the goodness-of-fit measures in @tbl-loo_fits. The table shows the goodness-of-fit
 in different ways to the components that are dropped successively.
 
+
 In conclusion, the data sources suggest a good level of consistency driving the trends--that is
 there appears to be relatively low levels of conflict. This is likely due to the 
 constant natural mortality-at-age and highly precise fishery catch-at-age. That is,
 the traditional "VPA" approach of back-calculating the abundance based on the numbers caught
-result in a relatively consistent estimate of the population size. 
+result in a relatively consistent estimate of the population size.  The importance of the survey data can be seen in 
+some of the reference calculations where the uncertainty increases
+dramatically and the stock-status perception is quite differen @tbl-loo_ref.
+
 
 
 ```{r loo relative ssb}
@@ -611,6 +621,47 @@ gt_table %>%
     style = cell_borders(sides = "bottom", weight = px(2), color = "black"),
     locations = cells_body(rows = c(4, 7, 10, 18, 21))
   )
+```
+
+
+```{R}
+#| echo: false
+#| results: asis
+#| output: asis
+#| messages: FALSE
+#| label: tbl-loo_ref
+df <- NULL
+mod_scen <- c(1:7)
+for (ii in mod_scen) {
+  x <- loo_lst[[ii]]
+  ssb <- x$nextyrssbs
+  names(ssb) <- paste0("${B}_{", nextyr, "}$")
+  ssbcv <- round(x$nextyrssb.cv, 2)
+  names(ssbcv) <- paste0("$CV_{B_{", nextyr, "}}$")
+  Bmsy <- x$bmsys
+  names(Bmsy) <- "$B_{MSY}$"
+  Bmsycv <- round(x$bmsy.cv, 2)
+  names(Bmsycv) <- "$CV_{B_{MSY}}$"
+  spr <- paste0(round(x$sprmsy * 100, 0), "\\%")
+  names(spr) <- "SPR rate at $F_{MSY}$"
+  b35 <- x$b35s
+  names(b35) <- paste0("$B_{35\\%}$")
+  pbmsy <- paste0(round(100 * x$ssb1 / x$bmsy, 0), "\\%")
+  names(pbmsy) <- paste0("${B}_{", nextyr, "}/B_{MSY}$")
+  bzero <- x$b0s
+  names(bzero) <- paste0("$B_0$")
+  dynb0 <- x$dynb0s
+  names(dynb0) <- paste0("Est. $B_{", thisyr, "} / B_{", thisyr, ",no fishing}$")
+  b_bmsy <- paste0(round(x$curssb / x$bmsy * 100, 0), "\\%")
+  names(b_bmsy) <- paste0("$B_{", thisyr, "} / B_{MSY}$")
+  steep <- round(x$steep, 2)
+  names(steep) <- "Steepness"
+  v <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero, b35, spr, steep, dynb0, b_bmsy)
+  df <- cbind(df, v)
+}
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component", names(loo_lst[mod_scen]))
+gt(df) |> fmt_markdown()
 ```
 
 # Alternative assessment software

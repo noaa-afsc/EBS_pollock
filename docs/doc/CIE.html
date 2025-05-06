@@ -21,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -130,9 +95,36 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../mystyle.css">
 </head>
@@ -373,7 +365,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/noaa-afsc/ebs_pollock/edit/main/doc/CIE.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/blob/main/doc/CIE.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="CIE.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/noaa-afsc/ebs_pollock/edit/main/doc/CIE.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/blob/main/doc/CIE.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -1037,186 +1029,6 @@ Table&nbsp;1: Configuration of different model options testing the impact of dif
 <div id="tbl-modfits" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false" data-warnings="false">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-modfits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-
-</div>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-modfits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions.
-</figcaption>
-</figure>
-</div>
-<div id="tbl-ftn_ref" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false">
-<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
-<div aria-describedby="tbl-ftn_ref-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-ftn_ref-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions.
-</figcaption>
-</figure>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">tab_ref</span>(ftn_lst[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]), <span class="at">align =</span> <span class="st">"cc"</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">escape =</span> <span class="cn">FALSE</span>) <span class="co">#|&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Component</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Base</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">FT-NIR fleets aggregated</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">FT-NIR fleet-specific</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">${B}_{2025}$</td>
-<td style="text-align: center;">2,800</td>
-<td style="text-align: center;">2,500</td>
-<td style="text-align: center;">2,700</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">$CV_{B_{2025}}$</td>
-<td style="text-align: center;">0.14</td>
-<td style="text-align: center;">0.14</td>
-<td style="text-align: center;">0.14</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">$B_{MSY}$</td>
-<td style="text-align: center;">1,667</td>
-<td style="text-align: center;">1,652</td>
-<td style="text-align: center;">1,670</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">$CV_{B_{MSY}}$</td>
-<td style="text-align: center;">0.23</td>
-<td style="text-align: center;">0.24</td>
-<td style="text-align: center;">0.23</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">${B}_{2025}/B_{MSY}$</td>
-<td style="text-align: center;">165\%</td>
-<td style="text-align: center;">153\%</td>
-<td style="text-align: center;">162\%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">$B_0$</td>
-<td style="text-align: center;">4,318</td>
-<td style="text-align: center;">4,360</td>
-<td style="text-align: center;">4,436</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">$B_{35\%}$</td>
-<td style="text-align: center;">1,935</td>
-<td style="text-align: center;">1,898</td>
-<td style="text-align: center;">1,931</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">SPR rate at $F_{MSY}$</td>
-<td style="text-align: center;">31\%</td>
-<td style="text-align: center;">30\%</td>
-<td style="text-align: center;">29\%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Steepness</td>
-<td style="text-align: center;">0.63</td>
-<td style="text-align: center;">0.64</td>
-<td style="text-align: center;">0.64</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Est. $B_{2024} / B_{2024,no fishing}$</td>
-<td style="text-align: center;">0.65</td>
-<td style="text-align: center;">0.62</td>
-<td style="text-align: center;">0.64</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">$B_{2024} / B_{MSY}$</td>
-<td style="text-align: center;">182\%</td>
-<td style="text-align: center;">169\%</td>
-<td style="text-align: center;">178\%</td>
-</tr>
-</tbody>
-</table>
-</div>
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">#add_header_above(</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">#header = setNames(c(1,2),</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="co">#c(" ", "something" )) ,</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">#bold = TRUE) #|&gt; pack_rows( names(dimnames(tbltext))[1] , 1, 2)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div class="cell-output-display page-columns page-full">
-<div id="fig-mod_fit_agg_comp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-mod_fit_agg_comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/mod_fit_agg_comp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;8: One-step ahead residuals for different model specifications for the fishery composition data"><img src="figs/mod_fit_agg_comp.png" class="img-fluid figure-img" width="1715"></a>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-mod_fit_agg_comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8: One-step ahead residuals for different model specifications for the fishery composition data
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div class="cell-output-display page-columns page-full">
-<div id="fig-bts_fish" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-bts_fish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/fish_osa.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;9: One-step ahead residuals for different model specifications for the fishery composition data"><img src="figs/fish_osa.png" class="img-fluid figure-img" width="1680"></a>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-bts_fish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9: One-step ahead residuals for different model specifications for the fishery composition data
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div class="cell-output-display page-columns page-full">
-<div id="fig-bts_osa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-bts_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/bts_osa.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure&nbsp;10: One-step ahead residuals for different model specifications for the bottom-trawl survey composition data"><img src="figs/bts_osa.png" class="img-fluid figure-img" width="1650"></a>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-bts_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10: One-step ahead residuals for different model specifications for the bottom-trawl survey composition data
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div class="cell-output-display page-columns page-full">
-<div id="fig-ats_osa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-ats_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/ats_osa.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;11: One-step ahead residuals for different model specifications for the acoustic-trawl survey composition data"><img src="figs/ats_osa.png" class="img-fluid figure-img" width="1674"></a>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-ats_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;11: One-step ahead residuals for different model specifications for the acoustic-trawl survey composition data
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="leave-one-out-sensitivity-analysis" class="level1 page-columns page-full">
-<h1>Leave-one-out sensitivity analysis</h1>
-<p>Here we present model runs that downweight one source of age composition data at a time, as well as a run that downweights all survey biomass indices. <a href="#tbl-loo_runs" class="quarto-xref">Table&nbsp;4</a> shows the combinations of data types included for this analysis.</p>
-<p>Results show that the model is sensitive to the inclusion of the … data (<a href="#tbl-loo_fits" class="quarto-xref">Table&nbsp;5</a>)</p>
-<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div id="tbl-loo_runs" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false" data-warnings="false">
-<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
-<div aria-describedby="tbl-loo_runs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
 <div id="mrbmfeofif" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#mrbmfeofif table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1240,7 +1052,7 @@ Figure&nbsp;11: One-step ahead residuals for different model specifications for 
   margin-left: auto;
   margin-right: auto;
   color: #333333;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: normal;
   font-style: normal;
   background-color: #FFFFFF;
@@ -1325,7 +1137,7 @@ Figure&nbsp;11: One-step ahead residuals for different model specifications for 
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: inherit;
   border-left-style: none;
   border-left-width: 1px;
@@ -1345,7 +1157,7 @@ Figure&nbsp;11: One-step ahead residuals for different model specifications for 
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: inherit;
   padding-top: 0;
   padding-bottom: 0;
@@ -1667,201 +1479,161 @@ Figure&nbsp;11: One-step ahead residuals for different model specifications for 
 }
 </style>
 
-<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-</colgroup>
+<table class="gt_table cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
-<tr class="gt_col_headings gt_spanner_row header">
-<th rowspan="2" id="Dataset" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Dataset</th>
-<th colspan="6" id="Model description" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
-Model description
-</div></th>
-</tr>
-<tr class="gt_col_headings even">
-<th id="Drop-all-BTS" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Drop all BTS</th>
-<th id="Drop-all-ATS" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Drop all ATS</th>
-<th id="Drop-all-indices" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Drop all indices</th>
-<th id="Drop-AVO" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Drop AVO</th>
-<th id="Drop-BTS-Age-composition" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Drop BTS Age composition</th>
-<th id="Drop-ATS-Age-composition" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Drop ATS Age composition</th>
+<tr class="gt_col_headings header">
+<th id="Component" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 2px; border-top-style: solid; border-top-color: black" scope="col">Component</th>
+<th id="Base" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-top-width: 2px; border-top-style: solid; border-top-color: black" scope="col">Base</th>
+<th id="FT-NIR-fleets-aggregated" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-top-width: 2px; border-top-style: solid; border-top-color: black" scope="col">FT-NIR fleets aggregated</th>
+<th id="FT-NIR-fleet-specific" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-top-width: 2px; border-top-style: solid; border-top-color: black" scope="col">FT-NIR fleet-specific</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_center" headers="Dataset">BTS age 2+ Index</td>
-<td class="gt_row gt_center" headers="Drop all BTS">X</td>
-<td class="gt_row gt_center" headers="Drop all ATS"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop all indices">X</td>
-<td class="gt_row gt_center" headers="Drop AVO"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop BTS Age composition"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop ATS Age composition"><br>
-</td>
+<td class="gt_row gt_left" headers="Component">RMSE BTS</td>
+<td class="gt_row gt_right" headers="Base">0.150</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">0.151</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">0.152</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Dataset">ATS age 2+ Index</td>
-<td class="gt_row gt_center" headers="Drop all BTS"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop all ATS">X</td>
-<td class="gt_row gt_center" headers="Drop all indices">X</td>
-<td class="gt_row gt_center" headers="Drop AVO"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop BTS Age composition"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop ATS Age composition"><br>
-</td>
+<td class="gt_row gt_left" headers="Component">RMSE ATS</td>
+<td class="gt_row gt_right" headers="Base">0.167</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">0.163</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">0.158</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="Dataset">ATS age 1 Index</td>
-<td class="gt_row gt_center" headers="Drop all BTS"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop all ATS">X</td>
-<td class="gt_row gt_center" headers="Drop all indices">X</td>
-<td class="gt_row gt_center" headers="Drop AVO"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop BTS Age composition"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop ATS Age composition"><br>
-</td>
+<td class="gt_row gt_left" headers="Component">RMSE AVO</td>
+<td class="gt_row gt_right" headers="Base">0.216</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">0.217</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">0.215</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Dataset">AVO Index</td>
-<td class="gt_row gt_center" headers="Drop all BTS"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop all ATS"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop all indices">X</td>
-<td class="gt_row gt_center" headers="Drop AVO"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop BTS Age composition"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop ATS Age composition"><br>
-</td>
+<td class="gt_row gt_left" headers="Component" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">RMSE CPUE</td>
+<td class="gt_row gt_right" headers="Base" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">0.097</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">0.097</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">0.097</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="Dataset">BTS comps</td>
-<td class="gt_row gt_center" headers="Drop all BTS">X</td>
-<td class="gt_row gt_center" headers="Drop all ATS"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop all indices"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop AVO"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop BTS Age composition">X</td>
-<td class="gt_row gt_center" headers="Drop ATS Age composition"><br>
-</td>
+<td class="gt_row gt_left" headers="Component">SDNR BTS</td>
+<td class="gt_row gt_right" headers="Base">0.890</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">0.900</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">0.880</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Dataset">ATS comps</td>
-<td class="gt_row gt_center" headers="Drop all BTS"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop all ATS">X</td>
-<td class="gt_row gt_center" headers="Drop all indices"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop AVO"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop BTS Age composition"><br>
-</td>
-<td class="gt_row gt_center" headers="Drop ATS Age composition">X</td>
+<td class="gt_row gt_left" headers="Component">SDNR ATS</td>
+<td class="gt_row gt_right" headers="Base">0.930</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">0.910</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">0.880</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">SDNR AVO</td>
+<td class="gt_row gt_right" headers="Base" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">0.950</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">0.960</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">0.940</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">Eff. N Fishery</td>
+<td class="gt_row gt_right" headers="Base">358</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">336</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">381</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">Eff. N BTS</td>
+<td class="gt_row gt_right" headers="Base">159</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">148</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">153</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">Eff. N ATS</td>
+<td class="gt_row gt_right" headers="Base" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">233</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">221</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">233</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">Catch NLL</td>
+<td class="gt_row gt_right" headers="Base">3</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">4</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">BTS NLL</td>
+<td class="gt_row gt_right" headers="Base">24</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">24</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">23</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">ATS NLL</td>
+<td class="gt_row gt_right" headers="Base">8</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">7</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">7</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">ATS Age1 NLL</td>
+<td class="gt_row gt_right" headers="Base">7</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">8</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">AVO NLL</td>
+<td class="gt_row gt_right" headers="Base">8</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">8</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">Fish Age NLL</td>
+<td class="gt_row gt_right" headers="Base">417</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">559</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">614</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">BTS Age NLL</td>
+<td class="gt_row gt_right" headers="Base">286</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">330</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">313</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">ATS Age NLL</td>
+<td class="gt_row gt_right" headers="Base" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">43</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">42</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">41</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">NLL selectivity</td>
+<td class="gt_row gt_right" headers="Base">213</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">216</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">215</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">NLL Priors</td>
+<td class="gt_row gt_right" headers="Base">20</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">20</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">20</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">Data NLL</td>
+<td class="gt_row gt_right" headers="Base" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">807</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">995</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: black">1,032</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">Total NLL</td>
+<td class="gt_row gt_right" headers="Base">1110.900</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">1298.930</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">1332.810</td>
 </tr>
 </tbody>
 </table>
 
 </div>
 </div>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-loo_runs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4: Configuration of different model options testing the impact of different data components
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-modfits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions.
 </figcaption>
 </figure>
 </div>
-</div>
-<p>Among these models, when downweighting the BTS data, the model estimates of spawning biomass changed in trends <a href="#fig-loo-ssb" class="quarto-xref">Figure&nbsp;12</a> . The model estimates of recruitment were less dramatic in appearance but was consistent for the run where all of the bottom-trawl survey data were excluded <a href="#fig-loo-recruitment" class="quarto-xref">Figure&nbsp;13</a>. The relative fits to the different indices by data component ommission show that the model is relatively insensitive to data being excluded (see <a href="#fig-loo-bts-index" class="quarto-xref">Figure&nbsp;14</a>, <a href="#fig-loo-ats-index" class="quarto-xref">Figure&nbsp;15</a>, and <a href="#fig-loo-avo-index" class="quarto-xref">Figure&nbsp;16</a>). The consistency can also be noted in the goodness-of-fit measures in <a href="#tbl-loo_fits" class="quarto-xref">Table&nbsp;5</a>. The table shows the goodness-of-fit in different ways to the components that are dropped successively.</p>
-<p>In conclusion, the data sources suggest a good level of consistency driving the trends–that is there appears to be relatively low levels of conflict. This is likely due to the constant natural mortality-at-age and highly precise fishery catch-at-age. That is, the traditional “VPA” approach of back-calculating the abundance based on the numbers caught result in a relatively consistent estimate of the population size.</p>
-<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div class="cell-output-display page-columns page-full">
-<div id="fig-loo-ssb" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-loo-ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/loo_rel_ssb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure&nbsp;12: Comparison of spawning biomass (SSB) relative to the 2024 accepted model for models that downweight one data source at a time"><img src="figs/loo_rel_ssb.png" class="img-fluid figure-img" width="1200"></a>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-loo-ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12: Comparison of spawning biomass (SSB) relative to the 2024 accepted model for models that downweight one data source at a time
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div class="cell-output-display page-columns page-full">
-<div id="fig-loo-recruitment" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-loo-recruitment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/loo_recruits.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure&nbsp;13: Comparison of recruitment estimates for models that downweight one data source at a time"><img src="figs/loo_recruits.png" class="img-fluid figure-img" width="2250"></a>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-loo-recruitment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13: Comparison of recruitment estimates for models that downweight one data source at a time
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div class="cell-output-display page-columns page-full">
-<div id="fig-loo-bts-index" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-loo-bts-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/loo_bts_index.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure&nbsp;14: Comparison of fits to the Eastern Bering Sea Bottom Trawl Survey (BTS) biomass index for models that downweight one data source at a time"><img src="figs/loo_bts_index.png" class="img-fluid figure-img" width="1200"></a>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-loo-bts-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14: Comparison of fits to the Eastern Bering Sea Bottom Trawl Survey (BTS) biomass index for models that downweight one data source at a time
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div class="cell-output-display page-columns page-full">
-<div id="fig-loo-ats-index" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-loo-ats-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/loo_ats_index.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure&nbsp;15: Comparison of fits to the Acoustic Trawl Survey (ATS) biomass index for models that downweight one data source at a time"><img src="figs/loo_ats_index.png" class="img-fluid figure-img" width="1200"></a>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-loo-ats-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15: Comparison of fits to the Acoustic Trawl Survey (ATS) biomass index for models that downweight one data source at a time
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div class="cell-output-display page-columns page-full">
-<div id="fig-loo-avo-index" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-loo-avo-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/loo_avo_index.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure&nbsp;16: Comparison of fits to the Acoustic Vessels of Opportunity (AVO) biomass index for models that downweight one data source at a time"><img src="figs/loo_avo_index.png" class="img-fluid figure-img" width="1200"></a>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-loo-avo-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;16: Comparison of fits to the Acoustic Vessels of Opportunity (AVO) biomass index for models that downweight one data source at a time
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div id="tbl-loo_fits" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false" data-warnings="false">
+<div id="tbl-ftn_ref" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
-<div aria-describedby="tbl-loo_fits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
+<div aria-describedby="tbl-ftn_ref-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div id="ithutbzzcl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#ithutbzzcl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -2312,6 +2084,1254 @@ Figure&nbsp;16: Comparison of fits to the Acoustic Vessels of Opportunity (AVO) 
 }
 </style>
 
+<table class="gt_table cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Component" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Component</th>
+<th id="Base" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Base</th>
+<th id="FT-NIR-fleets-aggregated" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FT-NIR fleets aggregated</th>
+<th id="FT-NIR-fleet-specific" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FT-NIR fleet-specific</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\({B}_{2025}\)</span></td>
+<td class="gt_row gt_right" headers="Base">2,800</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">2,500</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">2,700</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\(CV_{B_{2025}}\)</span></td>
+<td class="gt_row gt_right" headers="Base">0.14</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">0.14</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">0.14</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\(B_{MSY}\)</span></td>
+<td class="gt_row gt_right" headers="Base">1,667</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">1,652</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">1,670</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\(CV_{B_{MSY}}\)</span></td>
+<td class="gt_row gt_right" headers="Base">0.23</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">0.24</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">0.23</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\({B}_{2025}/B_{MSY}\)</span></td>
+<td class="gt_row gt_right" headers="Base">165%</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">153%</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">162%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\(B_0\)</span></td>
+<td class="gt_row gt_right" headers="Base">4,318</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">4,360</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">4,436</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\(B_{35\%}\)</span></td>
+<td class="gt_row gt_right" headers="Base">1,935</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">1,898</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">1,931</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">SPR rate at <span class="math inline">\(F_{MSY}\)</span></td>
+<td class="gt_row gt_right" headers="Base">31%</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">30%</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">29%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">Steepness</td>
+<td class="gt_row gt_right" headers="Base">0.63</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">0.64</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">0.64</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">Est. <span class="math inline">\(B_{2024} / B_{2024,no fishing}\)</span></td>
+<td class="gt_row gt_right" headers="Base">0.65</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">0.62</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">0.64</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\(B_{2024} / B_{MSY}\)</span></td>
+<td class="gt_row gt_right" headers="Base">182%</td>
+<td class="gt_row gt_right" headers="FT-NIR fleets aggregated">169%</td>
+<td class="gt_row gt_right" headers="FT-NIR fleet-specific">178%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-ftn_ref-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions.
+</figcaption>
+</figure>
+</div>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-mod_fit_agg_comp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-mod_fit_agg_comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figs/mod_fit_agg_comp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;8: One-step ahead residuals for different model specifications for the fishery composition data"><img src="figs/mod_fit_agg_comp.png" class="img-fluid figure-img" width="1715"></a>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-mod_fit_agg_comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: One-step ahead residuals for different model specifications for the fishery composition data
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-bts_fish" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-bts_fish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figs/fish_osa.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;9: One-step ahead residuals for different model specifications for the fishery composition data"><img src="figs/fish_osa.png" class="img-fluid figure-img" width="1680"></a>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-bts_fish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: One-step ahead residuals for different model specifications for the fishery composition data
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-bts_osa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-bts_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figs/bts_osa.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure&nbsp;10: One-step ahead residuals for different model specifications for the bottom-trawl survey composition data"><img src="figs/bts_osa.png" class="img-fluid figure-img" width="1650"></a>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-bts_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: One-step ahead residuals for different model specifications for the bottom-trawl survey composition data
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-ats_osa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ats_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figs/ats_osa.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;11: One-step ahead residuals for different model specifications for the acoustic-trawl survey composition data"><img src="figs/ats_osa.png" class="img-fluid figure-img" width="1674"></a>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-ats_osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: One-step ahead residuals for different model specifications for the acoustic-trawl survey composition data
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="leave-one-out-sensitivity-analysis" class="level1 page-columns page-full">
+<h1>Leave-one-out sensitivity analysis</h1>
+<p>Here we present model runs that downweight one source of age composition data at a time, as well as a run that downweights all survey biomass indices. <a href="#tbl-loo_runs" class="quarto-xref">Table&nbsp;4</a> shows the combinations of data types included for this analysis.</p>
+<p>Results show that the model is sensitive to the inclusion of the … data (<a href="#tbl-loo_fits" class="quarto-xref">Table&nbsp;5</a>)</p>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
+<div id="tbl-loo_runs" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false" data-warnings="false">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-loo_runs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="lhrurruajw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lhrurruajw table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#lhrurruajw thead, #lhrurruajw tbody, #lhrurruajw tfoot, #lhrurruajw tr, #lhrurruajw td, #lhrurruajw th {
+  border-style: none;
+}
+
+#lhrurruajw p {
+  margin: 0;
+  padding: 0;
+}
+
+#lhrurruajw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#lhrurruajw .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#lhrurruajw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#lhrurruajw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#lhrurruajw .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lhrurruajw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lhrurruajw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lhrurruajw .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#lhrurruajw .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#lhrurruajw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#lhrurruajw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#lhrurruajw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#lhrurruajw .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#lhrurruajw .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#lhrurruajw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#lhrurruajw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#lhrurruajw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#lhrurruajw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#lhrurruajw .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lhrurruajw .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#lhrurruajw .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#lhrurruajw .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#lhrurruajw .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lhrurruajw .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#lhrurruajw .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#lhrurruajw .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lhrurruajw .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lhrurruajw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#lhrurruajw .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lhrurruajw .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#lhrurruajw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lhrurruajw .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lhrurruajw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lhrurruajw .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lhrurruajw .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lhrurruajw .gt_left {
+  text-align: left;
+}
+
+#lhrurruajw .gt_center {
+  text-align: center;
+}
+
+#lhrurruajw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#lhrurruajw .gt_font_normal {
+  font-weight: normal;
+}
+
+#lhrurruajw .gt_font_bold {
+  font-weight: bold;
+}
+
+#lhrurruajw .gt_font_italic {
+  font-style: italic;
+}
+
+#lhrurruajw .gt_super {
+  font-size: 65%;
+}
+
+#lhrurruajw .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#lhrurruajw .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#lhrurruajw .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#lhrurruajw .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#lhrurruajw .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#lhrurruajw .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#lhrurruajw .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#lhrurruajw .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#lhrurruajw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings gt_spanner_row header">
+<th rowspan="2" id="Dataset" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Dataset</th>
+<th colspan="6" id="Model description" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+Model description
+</div></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Drop-all-BTS" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Drop all BTS</th>
+<th id="Drop-all-ATS" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Drop all ATS</th>
+<th id="Drop-all-indices" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Drop all indices</th>
+<th id="Drop-AVO" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Drop AVO</th>
+<th id="Drop-BTS-Age-composition" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Drop BTS Age composition</th>
+<th id="Drop-ATS-Age-composition" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Drop ATS Age composition</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="Dataset">BTS age 2+ Index</td>
+<td class="gt_row gt_center" headers="Drop all BTS">X</td>
+<td class="gt_row gt_center" headers="Drop all ATS"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop all indices">X</td>
+<td class="gt_row gt_center" headers="Drop AVO"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop BTS Age composition"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop ATS Age composition"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Dataset">ATS age 2+ Index</td>
+<td class="gt_row gt_center" headers="Drop all BTS"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop all ATS">X</td>
+<td class="gt_row gt_center" headers="Drop all indices">X</td>
+<td class="gt_row gt_center" headers="Drop AVO"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop BTS Age composition"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop ATS Age composition"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Dataset">ATS age 1 Index</td>
+<td class="gt_row gt_center" headers="Drop all BTS"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop all ATS">X</td>
+<td class="gt_row gt_center" headers="Drop all indices">X</td>
+<td class="gt_row gt_center" headers="Drop AVO"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop BTS Age composition"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop ATS Age composition"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Dataset">AVO Index</td>
+<td class="gt_row gt_center" headers="Drop all BTS"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop all ATS"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop all indices">X</td>
+<td class="gt_row gt_center" headers="Drop AVO"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop BTS Age composition"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop ATS Age composition"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Dataset">BTS comps</td>
+<td class="gt_row gt_center" headers="Drop all BTS">X</td>
+<td class="gt_row gt_center" headers="Drop all ATS"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop all indices"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop AVO"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop BTS Age composition">X</td>
+<td class="gt_row gt_center" headers="Drop ATS Age composition"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Dataset">ATS comps</td>
+<td class="gt_row gt_center" headers="Drop all BTS"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop all ATS">X</td>
+<td class="gt_row gt_center" headers="Drop all indices"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop AVO"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop BTS Age composition"><br>
+</td>
+<td class="gt_row gt_center" headers="Drop ATS Age composition">X</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-loo_runs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Configuration of different model options testing the impact of different data components
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Among these models, when downweighting the BTS data, the model estimates of spawning biomass changed in trends <a href="#fig-loo-ssb" class="quarto-xref">Figure&nbsp;12</a> . The model estimates of recruitment were less dramatic in appearance but was consistent for the run where all of the bottom-trawl survey data were excluded <a href="#fig-loo-recruitment" class="quarto-xref">Figure&nbsp;13</a>. The relative fits to the different indices by data component ommission show that the model is relatively insensitive to data being excluded (see <a href="#fig-loo-bts-index" class="quarto-xref">Figure&nbsp;14</a>, <a href="#fig-loo-ats-index" class="quarto-xref">Figure&nbsp;15</a>, and <a href="#fig-loo-avo-index" class="quarto-xref">Figure&nbsp;16</a>). The consistency can also be noted in the goodness-of-fit measures in <a href="#tbl-loo_fits" class="quarto-xref">Table&nbsp;5</a>. The table shows the goodness-of-fit in different ways to the components that are dropped successively.</p>
+<p>In conclusion, the data sources suggest a good level of consistency driving the trends–that is there appears to be relatively low levels of conflict. This is likely due to the constant natural mortality-at-age and highly precise fishery catch-at-age. That is, the traditional “VPA” approach of back-calculating the abundance based on the numbers caught result in a relatively consistent estimate of the population size. The importance of the survey data can be seen in some of the reference calculations where the uncertainty increases dramatically and the stock-status perception is quite differen <a href="#tbl-loo_ref" class="quarto-xref">Table&nbsp;6</a>.</p>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-loo-ssb" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-loo-ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figs/loo_rel_ssb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure&nbsp;12: Comparison of spawning biomass (SSB) relative to the 2024 accepted model for models that downweight one data source at a time"><img src="figs/loo_rel_ssb.png" class="img-fluid figure-img" width="1200"></a>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-loo-ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: Comparison of spawning biomass (SSB) relative to the 2024 accepted model for models that downweight one data source at a time
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-loo-recruitment" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-loo-recruitment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figs/loo_recruits.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure&nbsp;13: Comparison of recruitment estimates for models that downweight one data source at a time"><img src="figs/loo_recruits.png" class="img-fluid figure-img" width="2250"></a>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-loo-recruitment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13: Comparison of recruitment estimates for models that downweight one data source at a time
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-loo-bts-index" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-loo-bts-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figs/loo_bts_index.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure&nbsp;14: Comparison of fits to the Eastern Bering Sea Bottom Trawl Survey (BTS) biomass index for models that downweight one data source at a time"><img src="figs/loo_bts_index.png" class="img-fluid figure-img" width="1200"></a>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-loo-bts-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14: Comparison of fits to the Eastern Bering Sea Bottom Trawl Survey (BTS) biomass index for models that downweight one data source at a time
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-loo-ats-index" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-loo-ats-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figs/loo_ats_index.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure&nbsp;15: Comparison of fits to the Acoustic Trawl Survey (ATS) biomass index for models that downweight one data source at a time"><img src="figs/loo_ats_index.png" class="img-fluid figure-img" width="1200"></a>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-loo-ats-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15: Comparison of fits to the Acoustic Trawl Survey (ATS) biomass index for models that downweight one data source at a time
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-loo-avo-index" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-loo-avo-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figs/loo_avo_index.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure&nbsp;16: Comparison of fits to the Acoustic Vessels of Opportunity (AVO) biomass index for models that downweight one data source at a time"><img src="figs/loo_avo_index.png" class="img-fluid figure-img" width="1200"></a>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-loo-avo-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16: Comparison of fits to the Acoustic Vessels of Opportunity (AVO) biomass index for models that downweight one data source at a time
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
+<div id="tbl-loo_fits" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false" data-warnings="false">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-loo_fits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="bdvfnqljrb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bdvfnqljrb table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bdvfnqljrb thead, #bdvfnqljrb tbody, #bdvfnqljrb tfoot, #bdvfnqljrb tr, #bdvfnqljrb td, #bdvfnqljrb th {
+  border-style: none;
+}
+
+#bdvfnqljrb p {
+  margin: 0;
+  padding: 0;
+}
+
+#bdvfnqljrb .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bdvfnqljrb .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bdvfnqljrb .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bdvfnqljrb .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bdvfnqljrb .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bdvfnqljrb .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bdvfnqljrb .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bdvfnqljrb .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bdvfnqljrb .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bdvfnqljrb .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bdvfnqljrb .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bdvfnqljrb .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bdvfnqljrb .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bdvfnqljrb .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bdvfnqljrb .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bdvfnqljrb .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bdvfnqljrb .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bdvfnqljrb .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bdvfnqljrb .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bdvfnqljrb .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bdvfnqljrb .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bdvfnqljrb .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bdvfnqljrb .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bdvfnqljrb .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bdvfnqljrb .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bdvfnqljrb .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bdvfnqljrb .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bdvfnqljrb .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bdvfnqljrb .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bdvfnqljrb .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bdvfnqljrb .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bdvfnqljrb .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bdvfnqljrb .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bdvfnqljrb .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bdvfnqljrb .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bdvfnqljrb .gt_left {
+  text-align: left;
+}
+
+#bdvfnqljrb .gt_center {
+  text-align: center;
+}
+
+#bdvfnqljrb .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bdvfnqljrb .gt_font_normal {
+  font-weight: normal;
+}
+
+#bdvfnqljrb .gt_font_bold {
+  font-weight: bold;
+}
+
+#bdvfnqljrb .gt_font_italic {
+  font-style: italic;
+}
+
+#bdvfnqljrb .gt_super {
+  font-size: 65%;
+}
+
+#bdvfnqljrb .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bdvfnqljrb .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bdvfnqljrb .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bdvfnqljrb .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bdvfnqljrb .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bdvfnqljrb .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bdvfnqljrb .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#bdvfnqljrb .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#bdvfnqljrb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
 <table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
@@ -2557,6 +3577,593 @@ Table&nbsp;5: Goodness-of-fit measures to primary data for different data and ag
 </figcaption>
 </figure>
 </div>
+</div>
+<div id="tbl-loo_ref" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-loo_ref-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="lbwycgyhbl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lbwycgyhbl table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#lbwycgyhbl thead, #lbwycgyhbl tbody, #lbwycgyhbl tfoot, #lbwycgyhbl tr, #lbwycgyhbl td, #lbwycgyhbl th {
+  border-style: none;
+}
+
+#lbwycgyhbl p {
+  margin: 0;
+  padding: 0;
+}
+
+#lbwycgyhbl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#lbwycgyhbl .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#lbwycgyhbl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#lbwycgyhbl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#lbwycgyhbl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lbwycgyhbl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lbwycgyhbl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lbwycgyhbl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#lbwycgyhbl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#lbwycgyhbl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#lbwycgyhbl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#lbwycgyhbl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#lbwycgyhbl .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#lbwycgyhbl .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#lbwycgyhbl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#lbwycgyhbl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#lbwycgyhbl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#lbwycgyhbl .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#lbwycgyhbl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lbwycgyhbl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#lbwycgyhbl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#lbwycgyhbl .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#lbwycgyhbl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lbwycgyhbl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#lbwycgyhbl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#lbwycgyhbl .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lbwycgyhbl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lbwycgyhbl .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#lbwycgyhbl .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lbwycgyhbl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#lbwycgyhbl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lbwycgyhbl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lbwycgyhbl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lbwycgyhbl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lbwycgyhbl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lbwycgyhbl .gt_left {
+  text-align: left;
+}
+
+#lbwycgyhbl .gt_center {
+  text-align: center;
+}
+
+#lbwycgyhbl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#lbwycgyhbl .gt_font_normal {
+  font-weight: normal;
+}
+
+#lbwycgyhbl .gt_font_bold {
+  font-weight: bold;
+}
+
+#lbwycgyhbl .gt_font_italic {
+  font-style: italic;
+}
+
+#lbwycgyhbl .gt_super {
+  font-size: 65%;
+}
+
+#lbwycgyhbl .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#lbwycgyhbl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#lbwycgyhbl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#lbwycgyhbl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#lbwycgyhbl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#lbwycgyhbl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#lbwycgyhbl .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#lbwycgyhbl .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#lbwycgyhbl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Component" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Component</th>
+<th id="a2024-accepted" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2024 accepted</th>
+<th id="Drop-BTS" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Drop BTS</th>
+<th id="Drop-ATS-" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Drop ATS</th>
+<th id="Drop-AVO-" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Drop AVO</th>
+<th id="Drop-indices" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Drop indices</th>
+<th id="Drop-BTS-age-" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Drop BTS age</th>
+<th id="Drop-ATS-age-" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Drop ATS age</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\({B}_{2025}\)</span></td>
+<td class="gt_row gt_right" headers="2024 accepted">3,100</td>
+<td class="gt_row gt_right" headers="Drop BTS">2,800</td>
+<td class="gt_row gt_right" headers="Drop ATS ">3,600</td>
+<td class="gt_row gt_right" headers="Drop AVO ">3,300</td>
+<td class="gt_row gt_right" headers="Drop indices">3,200</td>
+<td class="gt_row gt_right" headers="Drop BTS age ">2,800</td>
+<td class="gt_row gt_right" headers="Drop ATS age ">3,300</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\(CV_{B_{2025}}\)</span></td>
+<td class="gt_row gt_right" headers="2024 accepted">0.13</td>
+<td class="gt_row gt_right" headers="Drop BTS">0.15</td>
+<td class="gt_row gt_right" headers="Drop ATS ">0.14</td>
+<td class="gt_row gt_right" headers="Drop AVO ">0.16</td>
+<td class="gt_row gt_right" headers="Drop indices">0.18</td>
+<td class="gt_row gt_right" headers="Drop BTS age ">0.15</td>
+<td class="gt_row gt_right" headers="Drop ATS age ">0.13</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\(B_{MSY}\)</span></td>
+<td class="gt_row gt_right" headers="2024 accepted">2,310</td>
+<td class="gt_row gt_right" headers="Drop BTS">2,301</td>
+<td class="gt_row gt_right" headers="Drop ATS ">2,360</td>
+<td class="gt_row gt_right" headers="Drop AVO ">2,322</td>
+<td class="gt_row gt_right" headers="Drop indices">3,677</td>
+<td class="gt_row gt_right" headers="Drop BTS age ">2,301</td>
+<td class="gt_row gt_right" headers="Drop ATS age ">2,334</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\(CV_{B_{MSY}}\)</span></td>
+<td class="gt_row gt_right" headers="2024 accepted">0.3</td>
+<td class="gt_row gt_right" headers="Drop BTS">0.32</td>
+<td class="gt_row gt_right" headers="Drop ATS ">0.31</td>
+<td class="gt_row gt_right" headers="Drop AVO ">0.31</td>
+<td class="gt_row gt_right" headers="Drop indices">1.26</td>
+<td class="gt_row gt_right" headers="Drop BTS age ">0.32</td>
+<td class="gt_row gt_right" headers="Drop ATS age ">0.31</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\({B}_{2025}/B_{MSY}\)</span></td>
+<td class="gt_row gt_right" headers="2024 accepted">135%</td>
+<td class="gt_row gt_right" headers="Drop BTS">123%</td>
+<td class="gt_row gt_right" headers="Drop ATS ">151%</td>
+<td class="gt_row gt_right" headers="Drop AVO ">141%</td>
+<td class="gt_row gt_right" headers="Drop indices">86%</td>
+<td class="gt_row gt_right" headers="Drop BTS age ">123%</td>
+<td class="gt_row gt_right" headers="Drop ATS age ">142%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\(B_0\)</span></td>
+<td class="gt_row gt_right" headers="2024 accepted">5,975</td>
+<td class="gt_row gt_right" headers="Drop BTS">5,904</td>
+<td class="gt_row gt_right" headers="Drop ATS ">6,120</td>
+<td class="gt_row gt_right" headers="Drop AVO ">6,009</td>
+<td class="gt_row gt_right" headers="Drop indices">8,934</td>
+<td class="gt_row gt_right" headers="Drop BTS age ">5,904</td>
+<td class="gt_row gt_right" headers="Drop ATS age ">6,050</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\(B_{35\%}\)</span></td>
+<td class="gt_row gt_right" headers="2024 accepted">2,066</td>
+<td class="gt_row gt_right" headers="Drop BTS">1,994</td>
+<td class="gt_row gt_right" headers="Drop ATS ">2,101</td>
+<td class="gt_row gt_right" headers="Drop AVO ">2,080</td>
+<td class="gt_row gt_right" headers="Drop indices">2,074</td>
+<td class="gt_row gt_right" headers="Drop BTS age ">1,994</td>
+<td class="gt_row gt_right" headers="Drop ATS age ">2,082</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">SPR rate at <span class="math inline">\(F_{MSY}\)</span></td>
+<td class="gt_row gt_right" headers="2024 accepted">31%</td>
+<td class="gt_row gt_right" headers="Drop BTS">33%</td>
+<td class="gt_row gt_right" headers="Drop ATS ">31%</td>
+<td class="gt_row gt_right" headers="Drop AVO ">31%</td>
+<td class="gt_row gt_right" headers="Drop indices">42%</td>
+<td class="gt_row gt_right" headers="Drop BTS age ">33%</td>
+<td class="gt_row gt_right" headers="Drop ATS age ">31%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component">Steepness</td>
+<td class="gt_row gt_right" headers="2024 accepted">0.62</td>
+<td class="gt_row gt_right" headers="Drop BTS">0.61</td>
+<td class="gt_row gt_right" headers="Drop ATS ">0.62</td>
+<td class="gt_row gt_right" headers="Drop AVO ">0.62</td>
+<td class="gt_row gt_right" headers="Drop indices">0.52</td>
+<td class="gt_row gt_right" headers="Drop BTS age ">0.61</td>
+<td class="gt_row gt_right" headers="Drop ATS age ">0.62</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Component">Est. <span class="math inline">\(B_{2024} / B_{2024,no fishing}\)</span></td>
+<td class="gt_row gt_right" headers="2024 accepted">0.61</td>
+<td class="gt_row gt_right" headers="Drop BTS">0.56</td>
+<td class="gt_row gt_right" headers="Drop ATS ">0.63</td>
+<td class="gt_row gt_right" headers="Drop AVO ">0.61</td>
+<td class="gt_row gt_right" headers="Drop indices">0.42</td>
+<td class="gt_row gt_right" headers="Drop BTS age ">0.56</td>
+<td class="gt_row gt_right" headers="Drop ATS age ">0.61</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Component"><span class="math inline">\(B_{2024} / B_{MSY}\)</span></td>
+<td class="gt_row gt_right" headers="2024 accepted">147%</td>
+<td class="gt_row gt_right" headers="Drop BTS">138%</td>
+<td class="gt_row gt_right" headers="Drop ATS ">158%</td>
+<td class="gt_row gt_right" headers="Drop AVO ">151%</td>
+<td class="gt_row gt_right" headers="Drop indices">93%</td>
+<td class="gt_row gt_right" headers="Drop BTS age ">138%</td>
+<td class="gt_row gt_right" headers="Drop ATS age ">150%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl quarto-uncaptioned margin-caption" id="tbl-loo_ref-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6
+</figcaption>
+</figure>
 </div>
 </section>
 <section id="alternative-assessment-software" class="level1 page-columns page-full">
