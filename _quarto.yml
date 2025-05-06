@@ -54,7 +54,20 @@ date-format: "YYYY-MM-DD HH:mm"
 css: mystyle.css
 format:
   html:
-    mathjax: "default"
+    html-math-method:
+      method: mathjax
+      url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['\\(', '\\)'], ['$', '$']],
+            displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            processEscapes: true
+          }
+        };
+        </script>
     theme:
       light: [cosmo] 
       dark: [darkly]
@@ -77,20 +90,19 @@ format:
     #number-sections: false
     header-includes:
       - \counterwithout{figure}{chapter}
-      # - \usepackage{fancyhdr}
-      # - \pagestyle{fancy}
-      # - \fancyhf{}
-      # - \lhead{September}
-      # - \rhead{2024}
-      # - \chead{--Draft--}
-      # - \rfoot{\thepage}
-      # - \lfoot{EBS pollock assessment discussion paper }
-
-  #epub:
-    #metadata:
-      #title: "Eastern Bering Sea walleye pollock stock assessment"
-  #docx:
-    #reference-docx: "template.docx"
+      - \usepackage{fancyhdr}
+      - \pagestyle{fancy}
+      - \fancyhf{}
+      - \lhead{May}
+      - \rhead{2025}
+      - \chead{--Draft--}
+      - \rfoot{\thepage}
+      - \lfoot{EBS pollock assessment discussion paper }
+  epub:
+    metadata:
+      title: "Eastern Bering Sea walleye pollock stock assessment CIE discussion paper"
+  docx:
+    reference-docx: "template.docx"
 
 bibliography: doc/references.bib
 
