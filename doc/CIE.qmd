@@ -10,22 +10,7 @@ bibliography: references.bib
 editor: 
   markdown: 
     wrap: 90
-format: 
-    html:
-     html-math-method:
-      method: mathjax
-      url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-      include-in-header:
-        text: |
-          <script>
-            window.MathJax = {
-            tex: {
-              inlineMath: [['\\(', '\\)'], ['$', '$']],
-              displayMath: [['\\[', '\\]'], ['$$', '$$']],
-              processEscapes: true
-            }
-          } ;
-          </script>
+
 ---
 
 ```{r startup, echo=FALSE, warnings=FALSE, message=FALSE, eval=TRUE}
