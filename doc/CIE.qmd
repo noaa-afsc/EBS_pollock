@@ -254,7 +254,7 @@ table shows the goodness-of-fit
 df <- read_csv(here::here("doc", "data", "ftn_runs.csv"))
 gt(df) %>%
   # Replace NA values with blank
-  fmt_missing(
+  gt::fmt_missing(
     columns = everything(),
     missing_text = ""
   ) %>%
@@ -272,6 +272,7 @@ gt(df) %>%
     table.font.size = px(12),
     column_labels.font.weight = "bold"
   )
+
 ```
 
 ```{r modfits}
