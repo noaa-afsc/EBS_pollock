@@ -130,3 +130,4 @@ sims
 *.vrb
 *.tex.bak
 auto/
+runs/ss/hake
