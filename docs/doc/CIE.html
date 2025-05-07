@@ -1033,7 +1033,7 @@ Table&nbsp;1: Configuration of different model options testing the impact of dif
 </figure>
 </div>
 </div>
-<div id="tbl-modfits" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false" data-warnings="false">
+<div id="tbl-modfits" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-warnings="false" data-messages="false">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-modfits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div id="mrbmfeofif" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -2239,7 +2239,7 @@ Figure&nbsp;11: One-step ahead residuals for different model specifications for 
 <h1>Leave-one-out survey sensitivity analysis</h1>
 <p>Here we present model runs that downweight one or more sources of survey data at a time. <a href="#tbl-loo_runs" class="quarto-xref">Table&nbsp;4</a> shows the combinations of data types included for this analysis, which includes six model runs: (1) drop all Acoustic Trawl Survey (ATS) data (age 1 survey index, age 2+ survey biomass index, and age composition data), (2) drop the ATS age composition data, (3) drop the Acoustic Vessels of Opportunity (AVO) data (survey biomass index), (4) drop all Eastern Bering Sea Trawl Survey (BTS) data (age 1+ survey biomass index and age composition data), (5) drop the BTS age composition data, and (6) drop all survey biomass indices (BTS, ATS, and AVO survey biomass indices). The ATS age 1 data are included as a separate survey index in the assessment model, while BTS age 1 data are included with the age composition data in the multinomial objective function component.</p>
 <div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div id="tbl-loo_runs" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false" data-warnings="false">
+<div id="tbl-loo_runs" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-warnings="false" data-messages="false">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-loo_runs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2884,7 +2884,7 @@ Figure&nbsp;16: Comparison of fits to the Acoustic Vessels of Opportunity (AVO) 
 </div>
 </div>
 <div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div id="tbl-loo_fits" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-messages="false" data-warnings="false">
+<div id="tbl-loo_fits" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-warnings="false" data-messages="false">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-loo_fits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -4306,7 +4306,7 @@ Figure&nbsp;33: Model results comparing last year’s model with the SPock model
 </section>
 <section id="bottom-trawl-survey-spatial-distribution-modeling" class="level1 page-columns page-full">
 <h1>Bottom-trawl survey spatial distribution modeling</h1>
-<section id="abundance-index-methods" class="level2">
+<section id="abundance-index-methods" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="abundance-index-methods">Abundance Index Methods</h2>
 <p>For model-based indices in the Bering Sea, we fitted observations of numerical abundance or biomass per unit area (where the choice of abundance or biomass varied by stock at the request of assessors) from all sampling locations in the 83-112 bottom trawl survey of the EBS, 1982-2025, including:</p>
 <ul>
@@ -4319,6 +4319,20 @@ Figure&nbsp;33: Model results comparing last year’s model with the SPock model
 <p>While the prior VAST model was fitted with a 750 knot mesh, we found that sdmTMB models fitted with mesh resolutions from 250-750 knots all provided extremely similar index estimates and that reducing the number of knots dramatically improved computation time. We estimated geometric anisotropy (how spatial autocorrelation declines with differing rates over distance in some cardinal directions than others) and included a spatial and spatiotemporal term for both linear predictors.</p>
 <p>To facilitate prediction of density in regions with unsampled years, we specified that the spatiotemporal fields were structured over time as an AR(1) process (where the magnitude of autocorrelation was estimated as a fixed effect for each linear predictor). However, in cases where the AR(1) correlation parameter ⍴ was estimated to be close to 1 for either model component, the model would be collapsed into a simpler structure by specifying ⍴ = 1, i.e., modeling spatiotemporal variation as a random walk. We did not include any temporal correlation for intercepts, which we treated as fixed effects for each linear predictor and year. Finally, we used epsilon bias-correction to correct for retransformation bias <span class="citation" data-cites="Thorson2016">(<a href="#ref-Thorson2016" role="doc-biblioref">Thorson and Kristensen 2016</a>)</span>.</p>
 <p>We checked model fits for convergence by confirming that the derivative of the marginal likelihood with respect to each fixed effect was sufficiently small (less than ~ 0.001) and that the Hessian matrix was positive definite, along with other model checks produced by the function <code>sdmTMB::sanity()</code>. We then checked goodness of model fit by computing Dunn-Smyth randomized quantile residuals <span class="citation" data-cites="Dunn1996">(<a href="#ref-Dunn1996" role="doc-biblioref">Dunn and Smyth 1996</a>)</span> and visualizing these using a quantile-quantile plot within the DHARMa R package <span class="citation" data-cites="Hartig2021">(<a href="#ref-Hartig2021" role="doc-biblioref">Hartig 2021</a>)</span>. We also evaluated the distribution of these residuals over space in each year, and inspected them for evidence of residual spatiotemporal patterns. Results compared favorably among methods, and the model index result was very similar to previous estimates (<a href="#fig-sdm_index" class="quarto-xref">Figure&nbsp;34</a>).</p>
+<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-sdm_index" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-sdm_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figs/Vast_index_updated.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34" title="Figure&nbsp;34: Model results comparing last year’s model with the revised sdmTMB model."><img src="figs/Vast_index_updated.png" class="img-fluid figure-img" width="468"></a>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-sdm_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;34: Model results comparing last year’s model with the revised sdmTMB model.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="model-based-age-composition-methods" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="model-based-age-composition-methods">Model-based Age Composition Methods</h2>
@@ -4329,27 +4343,13 @@ Figure&nbsp;33: Model results comparing last year’s model with the SPock model
 <p>Both the model-based bottom trawl index and age composition estimates were calculated using code in the AFSC GAP model-based indices GitHub repository (https://github.com/afsc-gap-products/model-based-indices). Design-based estimates of bottom trawl products were calculated using code in the gapindex R package (https://github.com/afsc-gap-products/gapindex).</p>
 <div class="cell page-columns page-full" data-warnings="false" data-messages="false">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-sdm_index" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-sdm_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/Vast_index_updated.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34" title="Figure&nbsp;34: Model results comparing last year’s model with the sdmTMB model."><img src="figs/Vast_index_updated.png" class="img-fluid figure-img" width="468"></a>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-sdm_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;34: Model results comparing last year’s model with the sdmTMB model.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell page-columns page-full" data-warnings="false" data-messages="false">
-<div class="cell-output-display page-columns page-full">
 <div id="fig-sdm_age" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-sdm_age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figs/VAST_Age_Compare.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="Figure&nbsp;35: Model results comparing last year’s model with the sdmTMB model."><img src="figs/VAST_Age_Compare.png" class="img-fluid figure-img" width="1181"></a>
+<a href="figs/VAST_Age_Compare.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="Figure&nbsp;35: Model results comparing last year’s model with the revised sdmTMB model."><img src="figs/VAST_Age_Compare.png" class="img-fluid figure-img" width="1181"></a>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-sdm_age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;35: Model results comparing last year’s model with the sdmTMB model.
+Figure&nbsp;35: Model results comparing last year’s model with the revised sdmTMB model.
 </figcaption>
 </figure>
 </div>
