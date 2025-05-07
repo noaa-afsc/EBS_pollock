@@ -574,9 +574,10 @@ knitr::include_graphics(here::here("doc", "figs", "loo_avo_index.png"))
 #| messages: FALSE
 #| label: tbl-loo_fits
 #| tbl-cap: "Goodness-of-fit measures to primary data for leave-one-out model sensitivity runs. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
-gt_table <- gt::gt(tab_fit(loo_lst[c(1:7)])) #|>
+(tab_fit(loo_lst[c(1:7)])) #|>
+gt_table <- gt::gt(tab_fit(loo_lst[c(1:7)])[1:10,]) #|>
 numeric_cols <- 2:8 # Specify the numeric columns to format
-target_rows <- c(8:21)
+target_rows <- c(8:10)
 for (col in numeric_cols) {
   gt_table <- gt_table %>%
     fmt_number(
@@ -586,14 +587,16 @@ for (col in numeric_cols) {
       use_seps = TRUE
     )
 }
-gt_table %>%
+names(gt_table)
+gt_table %>% 
   tab_style(
     style = cell_borders(sides = "top", weight = px(2), color = "black"),
     locations = cells_column_labels()
   ) %>%
   tab_style(
     style = cell_borders(sides = "bottom", weight = px(2), color = "black"),
-    locations = cells_body(rows = c(4, 7, 10, 18, 21))
+    locations = cells_body(rows = c(4, 7, 10))
+    #locations = cells_body(rows = c(4, 7, 10, 18, 21))
   )
 ```
 
