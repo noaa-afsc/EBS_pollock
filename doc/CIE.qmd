@@ -923,6 +923,8 @@ Dunn-Smyth randomized quantile residuals [@Dunn1996] and visualizing these using
 quantile-quantile plot within the DHARMa R package [@Hartig2021]. We also evaluated the
 distribution of these residuals over space in each year, and inspected them for evidence
 of residual spatiotemporal patterns.
+Results compared favorably among methods, and the model index result was 
+very similar to previous estimates (@fig-sdm_index). 
 
 ## Model-based Age Composition Methods
 
@@ -958,6 +960,16 @@ using code in the AFSC GAP model-based indices GitHub repository
 (https://github.com/afsc-gap-products/model-based-indices). Design-based estimates of
 bottom trawl products were calculated using code in the gapindex R package
 (https://github.com/afsc-gap-products/gapindex).
+
+```{r sdm_index}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-sdm_index
+#| fig.cap: "Model results comparing last year's model with the sdmTMB model."
+
+knitr::include_graphics("figs/Vast_index_updated.png")
+```
 
 ```{r sdm_age}
 #| echo: false
