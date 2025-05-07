@@ -926,6 +926,15 @@ of residual spatiotemporal patterns.
 Results compared favorably among methods, and the model index result was 
 very similar to previous estimates (@fig-sdm_index). 
 
+```{r sdm_index}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-sdm_index
+#| fig.cap: "Model results comparing last year's model with the revised sdmTMB model."
+knitr::include_graphics("figs/Vast_index_updated.png")
+```
+
 ## Model-based Age Composition Methods
 
 For model-based estimation of age compositions in the Bering Sea, we fitted observations
@@ -961,21 +970,14 @@ using code in the AFSC GAP model-based indices GitHub repository
 bottom trawl products were calculated using code in the gapindex R package
 (https://github.com/afsc-gap-products/gapindex).
 
-```{r sdm_index}
-#| echo: false
-#| warnings: FALSE
-#| messages: FALSE
-#| label: fig-sdm_index
-#| fig.cap: "Model results comparing last year's model with the sdmTMB model."
-knitr::include_graphics("figs/Vast_index_updated.png")
-```
+
 
 ```{r sdm_age}
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
 #| label: fig-sdm_age
-#| fig.cap: "Model results comparing last year's model with the sdmTMB model."
+#| fig.cap: "Model results comparing last year's model with the revised sdmTMB model."
 
 knitr::include_graphics("figs/VAST_Age_Compare.png")
 ```
