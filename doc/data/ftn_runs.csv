@@ -1,0 +1,4 @@
+﻿Name,Age type,Age-error
+Base,TMA,Global TMA
+FT-NIR 1,TMA + FT-NIR,"Global TMA, global FT-NIR"
+FT-NIR 2,TMA + FT-NIR,"Global TMA, disaggregated FT-NIR"
