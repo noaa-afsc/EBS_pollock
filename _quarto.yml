@@ -104,6 +104,8 @@ format:
   docx:
     reference-docx: "template.docx"
 
+env:
+  ACTIONS_STEP_DEBUG: true
 bibliography: doc/references.bib
 
 filters:
