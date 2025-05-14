@@ -26,14 +26,6 @@ cea_obj <- function(cea_run = fm, yrmin = 1964, yrmax = 2024, projyr = 2050, src
     select(Year, everything()) |>
     mutate(source = src) |>
     filter(Year >= yrmin, Year <= yrmax)
-  # Now complete SSB and R and Biomass for fm CEATTLE
-  #
-  # fm$quantities$ssb[,1:length(yrs)]
-  # fm$quantities$R[,1:length(yrs)]
-  # fm$quantities$biomass[,1:length(yrs)]
-  # str(fm$quantities$ssb)
-  # str(fm$sdrep$value)
-
   df <- data.frame(
     type = names(cea_run$sdrep$value),
     source = src,
@@ -47,7 +39,6 @@ cea_obj <- function(cea_run = fm, yrmin = 1964, yrmax = 2024, projyr = 2050, src
       ifelse(type == "R", "Recruits", "Biomass")
     )) |>
     filter(Year <= yrmax, Year >= yrmin)
-
   return(list(sel = sel, ts = df, lst = cea_run))
 }
 # cea_run <- cea_obj()

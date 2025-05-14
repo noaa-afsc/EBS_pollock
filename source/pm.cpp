@@ -4177,26 +4177,39 @@ void model_parameters::Selectivity_Likelihood(void)
   //////////////////////////////////////////////////////////////////////////////////
   //--If time changes turned on then do 2nd differencing 
   //  for curvature penalty on subsequent years, otherwise only first year matters
-  sel_like_dev.initialize();
-  if (active(sel_coffs_fsh))
+  sel_like_dev.initialize();  // Initialize penalty vector to zeros
+  if (active(sel_coffs_fsh))  // Check if fishery selectivity coefficients are being estimated
   {
-    if (active(sel_devs_fsh))
+    if (active(sel_devs_fsh))  // Check if time-varying selectivity deviations are being estimated
     {
-      // overall slight penalty on deviations for estimability...
-      sel_like_dev(1)+=ctrl_flag(10)/group_num_fsh*norm2(sel_devs_fsh);
-      // Curvature to regularize selectivity, weighted by number of changes so interpretation of ctrl_flag(11) penalty stays the same...
-      sel_like_dev(1)+=ctrl_flag(11)/nch_fsh *norm2(first_difference( first_difference(log_sel_fsh(styr))));
-      for (i=1;i<=nch_fsh;i++)
+      // Penalty term 1: Overall penalty on the magnitude of selectivity deviations
+      // This improves estimability by shrinking deviations toward zero when not informed by data
+      // Scaled by ctrl_flag(10) parameter and divided by number of fishery groups
+      sel_like_dev(1) += ctrl_flag(10)/group_num_fsh * norm2(sel_devs_fsh);  // norm2() calculates sum of squared values
+      // Penalty term 2: "Smoothness" penalty on the base selectivity curve (in the start year)
+      // Uses second differences (approximating second derivatives) to penalize curves with high curvature
+      // This encourages smoother selectivity patterns
+      // Scaled by ctrl_flag(11) and divided by number of change years to maintain consistent penalty weight
+      sel_like_dev(1) += ctrl_flag(11)/nch_fsh * norm2(first_difference(first_difference(log_sel_fsh(styr))));
+      // Loop through each selectivity change year to add penalties
+      for (i=1; i<=nch_fsh; i++)
       {
-        // Curvature to regularize selectivity, weighted by number of changes so interpretation of ctrl_flag(11) penalty stays the same...
-        sel_like_dev(1) += ctrl_flag(11)/nch_fsh * norm2(first_difference( first_difference(log_sel_fsh(yrs_ch_fsh(i)))));
-        if (yrs_ch_fsh(i)!=styr)
+        // Penalty term 3: "Smoothness" penalty for each change year's selectivity curve
+        // Again uses second differences to penalize high curvature
+        sel_like_dev(1) += ctrl_flag(11)/nch_fsh * norm2(first_difference(first_difference(log_sel_fsh(yrs_ch_fsh(i)))));
+        // Penalty term 4: Year-to-year stability penalty
+        // Penalizes large changes between a change year and the preceding year
+        // Only applies if we're not in the start year (which has no preceding year)
+        // This is a "random walk" penalty weighted by a variance parameter (sel_ch_sig_fsh)
+        if (yrs_ch_fsh(i) != styr)
           sel_like_dev(1) += norm2(log_sel_fsh(yrs_ch_fsh(i)-1) - log_sel_fsh(yrs_ch_fsh(i))) / 
-                             (2*sel_ch_sig_fsh(i) * sel_ch_sig_fsh(i));
+                            (2 * sel_ch_sig_fsh(i) * sel_ch_sig_fsh(i));  // Division by 2*sigma² is standard for normal likelihood
       }
     }
-    else
-      sel_like_dev(1)+=ctrl_flag(11)*norm2(first_difference( first_difference(log_sel_fsh(styr))));
+    else  // If no time-varying deviations, only apply smoothness penalty to the base selectivity
+    {
+      sel_like_dev(1) += ctrl_flag(11) * norm2(first_difference(first_difference(log_sel_fsh(styr))));
+    }
   }
   if (active(sel_a501_fsh_dev))
   {

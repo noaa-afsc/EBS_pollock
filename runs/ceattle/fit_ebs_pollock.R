@@ -58,13 +58,11 @@ library(dplyr)
 #ebs_pollock <- Rceattle::read_data( file = "Data/EBS_2024_pollock_single_species.xlsx")
 #fn = "bsp00.xlsx"
 #rand_sel=TRUE
-names(bsp0)
-?fit_mod
-
-
 
 #library(Rceattle) # https://github.com/grantdadams/Rceattle/tree/dev-name-change
-fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=FALSE
+fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=FALSE; sigSel=FALSE; sigR=FALSE
+fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=TRUE; sigSel=TRUE; sigR=FALSE
+fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=FALSE; sigSel=FALSE; sigR=FALSE
 
 Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE, 
                      sigR=FALSE, sigSel=FALSE, verbose=1) {
@@ -80,13 +78,21 @@ Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE,
   bsp$srr_est_mode = 0
   bsp$estDynamics = 0
   bsp$msmMode = 0
+  bsp$srr_indices = 1
+  bsp$Diet_comp_weights = 1
+  bsp$M1_re = 0
+  #bsp$env_data 
+  #names(bsp)
  pars<-build_params(bsp)
- build_map(bsp, params = pars, debug = FALSE, random_rec = sigR, random_sel = sigSel)
+ #pars$beta_rec_pars
+ mymap <- build_map(bsp, params = pars, debug = FALSE, random_rec = sigR, random_sel = sigSel)
+ #mymap$mapList$beta_rec_pars 
   # - Fix M
   fit <- Rceattle::fit_mod(data_list = bsp,
-                                    inits = NULL, # Initial parameters = 0
+                                    inits = pars, # Initial parameters = 0
                                     file = NULL, # Don't save
                                     estimateMode = 0, # Estimate
+                                    map = mymap, # Estimate
                                     random_rec = rand_rec, # Random recruitment
                                     random_sel = rand_sel, # selectivity RE
                                     msmMode = 0, # Single species mode
@@ -96,21 +102,37 @@ Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE,
   return(fit)
 }
 
-fm0DM_re<- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=TRUE, rand_rec = TRUE, verbose=1)
-fm0_re1 <- Fit_bsp(fn = "bsp0.xlsx",rand_sel=FALSE, rand_rec = TRUE)
+#fm00    <- Fit_bsp(fn = "bsp00.xlsx",rand_sel=FALSE, rand_rec = FALSE)
+fm0     <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=FALSE, rand_rec = FALSE)
+wham::check_estimability(fm0$obj)
+fm0_re1 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=FALSE, rand_rec = TRUE)
+wham::check_estimability(fm0_re1$obj)
+fm0_re2 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=TRUE, rand_rec = FALSE)
+wham::check_estimability(fm0_re2$obj)
+fm0_re3 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=TRUE, rand_rec = TRUE)
+wham::check_estimability(fm0_re3$obj)
+
+cbind((fm0_re3$obj$par), (fm0_re3$obj$gr()) ) #$gra
+summary(fm0_re1$obj$gr()) #$gra
+summary(fm0_re2$obj$gr()) #$gra
+summary(fm0_re3$obj$gr()) #$gra
+summary(fm0_re4$obj$gr()) #$gra
+
+fm0_re4 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=TRUE, rand_rec = TRUE,
+                   sigR=TRUE, sigSel=TRUE)
+wham::check_estimability(fm0_re4$obj)
+
+
+
+##--Dirichlet multinomial runs---------------
 fm0DM   <- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=FALSE, rand_rec = FALSE, verbose=2)
+fm0DM_re<- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=TRUE, rand_rec = TRUE, verbose=1)
 names(fm0DM)
 names(fm0DM$opt)
 names(fm0DM$opt$par)
 names(fm0DM$quantities)
 (fm0DM$initial_params)
-fm0     <- Fit_bsp(fn = "bsp0.xlsx",rand_sel=FALSE, rand_rec = FALSE)
 
-
-#,rand_sel=TRUE, rand_rec = TRUE)
-fm1 <- Fit_bsp(fn = "bsp1.xlsx")
-fm2 <- Fit_bsp(fn = "bsp2.xlsx")
-(t(fm0$quantities$sel[1,1,,1:61]))[,1:8]
 names(fm0$sdrep$par.fixed)
 names(fm0$sdrep$value)
 names(fm0$sdrep)
@@ -124,57 +146,7 @@ dim(fm0$quantities$sel)
 
 
 # - Estimate age-invariant M
-library(Rceattle)
-fm3 <- fit_mod(data_list = bsp0,
-                        inits = NULL,       # Initial parameters = 0
-                        file = NULL,        # Don't save
-                        estimateMode = 0,   # Estimate
-                        random_rec = FALSE, # No random recruitment
-                        random_sel = TRUE, # No random recruitment
-                        msmMode = 0,        # Single species mode
-                        verbose = 2,        # Minimal messages
-                        initMode = 2,       # Unfished equilibrium with init_dev's turned on
-                        phase = TRUE)       # Phase
-
-fm4 <- fit_mod(data_list = bsp0,
-                        inits = NULL,       # Initial parameters = 0
-                        file = NULL,        # Don't save
-                        estimateMode = 0,   # Estimate
-                        random_rec = TRUE, # No random recruitment
-                        random_sel = FALSE, # No random recruitment
-                        msmMode = 0,        # Single species mode
-                        verbose = 2,        # Minimal messages
-                        initMode = 2,       # Unfished equilibrium with init_dev's turned on
-                        phase = TRUE)       # Phase
-fm5 <- fit_mod(data_list = bsp0,
-                        inits = NULL,       # Initial parameters = 0
-                        file = NULL,        # Don't save
-                        estimateMode = 0,   # Estimate
-                        random_rec = TRUE, # No random recruitment
-                        random_sel = TRUE, # No random recruitment
-                        msmMode = 0,        # Single species mode
-                        verbose = 2,        # Minimal messages
-                        initMode = 2,       # Unfished equilibrium with init_dev's turned on
-                        phase = TRUE)       # Phase
-
-#- Estimate age-invariant M and Ricker SRR
-pollock_estM_ricker <- fit_mod(data_list = mydata_pollock,
-                               inits = NULL,       # Initial parameters = 0
-                               file = NULL,        # Don't save
-                               estimateMode = 0,   # Estimate
-                               random_rec = FALSE, # No random recruitment
-                               msmMode = 0,        # Single species mode
-                               verbose = 1,        # Minimal messages
-                               M1Fun = build_M1(M1_model = 1), # Estimate age and time invariant M: see ?build_M1 for more details
-                               recFun = build_srr(srr_fun = 0, # Default no-stock recruit curve
-                                                  srr_pred_fun = 4, # Ricker curve as additional penalty (if srr_fun and srr_pred_fun are the same, no penalty is used)
-                                                  srr_est_mode = 1, # Freely estimate alpha
-                                                  srr_hat_styr = 1977, # Estimate starting 7 years after styr = 1970
-                                                  srr_hat_endyr = 2020
-                               ),
-                               initMode = 2,       # Unfished equilibrium with init_dev's turned on
-                               phase = TRUE)
-c(exp(fm3$estimated_params$sel_dev_ln_sd[1]),exp(fm3$estimated_params$R_ln_sd))
+c(exp(fm0_re2$estimated_params$sel_dev_ln_sd[1]),exp(fm0_re2$estimated_params$R_ln_sd))
 c(exp(fm4$estimated_params$sel_dev_ln_sd[1]),exp(fm4$estimated_params$R_ln_sd))
 c(exp(fm5$estimated_params$sel_dev_ln_sd[1]),exp(fm5$estimated_params$R_ln_sd))
 
