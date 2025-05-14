@@ -60,9 +60,9 @@ library(dplyr)
 #rand_sel=TRUE
 
 #library(Rceattle) # https://github.com/grantdadams/Rceattle/tree/dev-name-change
-fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=FALSE; sigSel=FALSE; sigR=FALSE
-fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=TRUE; sigSel=TRUE; sigR=FALSE
-fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=FALSE; sigSel=FALSE; sigR=FALSE
+#fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=FALSE; sigSel=FALSE; sigR=FALSE
+#fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=TRUE; sigSel=TRUE; sigR=FALSE
+#fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=FALSE; sigSel=FALSE; sigR=FALSE
 
 Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE, 
                      sigR=FALSE, sigSel=FALSE, verbose=1) {

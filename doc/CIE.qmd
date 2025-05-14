@@ -631,6 +631,199 @@ names(df) <- c("Estimated Quantity", names(loo_lst[mod_scen]))
 gt(df) |> fmt_markdown()
 ```
 
+# Incorporating multi-species M-at-age and year estimates
+
+```{r Mmat_runs}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+if (do_loo) {
+  thisyr <- 2024
+  nextyr <- thisyr + 1
+  dec_tab_ord <<- 1:8
+  mod_names <- c(
+    "2024 accepted",
+    "Use CEATTLE M" 
+  )
+  mod_dir <- c(
+    "lastyr",
+    "Mmatrix"
+  )
+  Mmat_lst <- get_results(rundir = here::here("runs"))
+  # source(here::here("R","pm_CIE.R"))
+  saveRDS(Mmat_lst, here::here("runs", "Mmat.rds"))
+  
+} else {
+  Mmat_lst <- readRDS(here::here("runs", "Mmat.rds"))
+}
+  #do some plots
+```
+
+A commonly adopted approach  
+is to use estimated natural mortality-at-age and year from
+multispecies trophic interaction models (e.g., @trijoulet2020).
+The current assessment has an option to include the 2024 CEATTLE estimates of natural
+mortality (@tbl-Mmatrix; @fig-Mmatrix_matrix). This resulted in slightly higher 
+recruitment (@fig-Mmat-recruitment) lower spawning biomass in the near term (@fig-Mmat_ssb1 and @fig-Mmat_ssb2). 
+This is due to the higher natural mortality for most ages and years compared 
+to the base 2024 model.
+
+```{r Mmat_matrix}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-Mmatrix_matrix
+#| fig.cap: "Depiction of the natural mortality (variability from mean value at age)  as estimated from CEATTLE."
+m_matrix <- as.matrix(Mmat_lst[[2]]$M)
+#dim(m_matrix)
+#m_matrix <- scale(m_matrix, center = TRUE, scale = FALSE)
+column_means <- colMeans(m_matrix)
+m_matrix <- sweep(m_matrix, 2, column_means, "/")
+# Convert the matrix into a data frame for ggplot
+Mdf <- reshape2::melt(m_matrix) |> mutate(Var2 = as.numeric(Var2))
+names(Mdf) = c("Year","Age","M")
+# Plot the heatmap using ggplot
+p1<- ggplot(data = Mdf |> filter(Age>2) |> mutate(Year=Year+1963), aes(x = Age, y = Year, fill = M)) +
+  geom_tile() + scale_fill_gradient2(low = "steelblue", mid = "white", high = "coral", midpoint = 1) +
+  theme_minimal() +  labs(x = "Age", y = "Year", fill = "Value") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+p2<- ggplot(data = Mdf |> filter(Age<3) |> mutate(Year=Year+1963), aes(x = Age, y = Year, fill = M)) +
+  geom_tile() + scale_fill_gradient2(low = "blue", mid = "white", high = "red", midpoint = 1) +
+  theme_minimal() + labs(x = "Age", y = "Year", fill = "Value") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+p2+p1 + plot_layout(widths=c(2,12), guides='collect')
+
+```
+
+```{r Mmatrix_table}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: tbl-Mmatrix
+#| tbl-cap: "Natural mortality-at-age used over ages and time based on the CEATTLE 2024 model."
+m_matrix <- as_tibble(Mmat_lst[[2]]$M)[,1:10]
+#dim(m_matrix)
+names(m_matrix) <- 1:10
+rownames(m_matrix) <- 1964:2024
+gt::gt(m_matrix, rownames_to_stub = T) |> gt::fmt_number( columns = 1:10, decimals = 3)
+```
+
+
+```{r Mmat relative ssb}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-Mmat-ssb
+#| fig.cap: "Comparison of spawning biomass (SSB) and SSB relative to the 2024 accepted model for model that uses the M-at-age matrix from CEATTLE."
+  p1 <- plot_ssb(Mmat_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4))
+  #ggsave(filename = here::here("doc", "figs", "Mmat_ssb.png"), plot = p1, width = 8, height = 4, units = "in", device = "png")
+  
+  p1b<-plot_ssb_rel(Mmat_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4), ylim = c(.75, 1.25))
+  #ggsave(filename = here::here("doc", "figs", "Mmat_rel_ssb.png"), plot = p1b, width = 8, height = 4, units = "in", device = "png")
+  p1/p1b + plot_layout(guides='collect')
+  
+
+#plot the indices:  
+```
+
+```{r Mmat recruitment}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-Mmat-recruitment
+#| fig.cap: "Comparison of recruitment estimates comparing 2024 assessment results with one where M-at-age and year is specified from CEATTLE."
+  p2<-plot_recruitment(Mmat_lst, xlim = c(1964, 2024)); p2
+```
+
+
+
+```{r Mmat bts index}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-Mmat-bts-index
+#| fig.cap: "Comparison of fits to the Eastern Bering Sea Bottom Trawl Survey (BTS) biomass index for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "Mmat_bts_index.png"))
+```
+
+
+```{r Mmat_fits}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: tbl-Mmat_fits
+#| tbl-cap: "Goodness-of-fit measures to primary data for leave-one-out model sensitivity runs. RMSE=root-mean square log errors, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)." 
+#(tab_fit(loo_lst[c(1:7)])) #|>
+gt_table <- gt::gt(tab_fit(Mmat_lst[c(1:2)]))
+numeric_cols <- 2:3 # Specify the numeric columns to format
+target_rows <- c(8:22)
+for (col in numeric_cols) {
+  gt_table <- gt_table %>%
+    fmt_number(
+      columns = col,
+      rows = target_rows,
+      decimals = 0,
+      use_seps = TRUE
+    )
+}
+#names(gt_table)
+gt_table %>% 
+  tab_style(
+    style = cell_borders(sides = "top", weight = px(2), color = "black"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = cell_borders(sides = "bottom", weight = px(2), color = "black"),
+    locations = cells_body(rows = c(4, 7))
+    #locations = cells_body(rows = c(4, 7, 10, 18, 21))
+  )
+```
+
+```{R}
+#| echo: false
+#| results: asis
+#| output: asis
+#| messages: FALSE
+#| label: tbl-Mmat_ref
+#| tbl-cap: "Estimated derived quantities and selected corresponding CVs for  sensitivity to natural mortality specification."
+df <- NULL
+mod_scen <- c(1:2)
+for (ii in mod_scen) {
+  x <- Mmat_lst[[ii]]
+  ssb <- x$nextyrssbs
+  names(ssb) <- paste0("${B}_{", nextyr, "}$")
+  ssbcv <- round(x$nextyrssb.cv, 2)
+  names(ssbcv) <- paste0("$CV_{B_{", nextyr, "}}$")
+  Bmsy <- x$bmsys
+  names(Bmsy) <- "$B_{MSY}$"
+  Bmsycv <- round(x$bmsy.cv, 2)
+  names(Bmsycv) <- "$CV_{B_{MSY}}$"
+  spr <- paste0(round(x$sprmsy * 100, 0), "\\%")
+  names(spr) <- "SPR rate at $F_{MSY}$"
+  b35 <- x$b35s
+  names(b35) <- paste0("$B_{35\\%}$")
+  pbmsy <- paste0(round(100 * x$ssb1 / x$bmsy, 0), "\\%")
+  names(pbmsy) <- paste0("${B}_{", nextyr, "}/B_{MSY}$")
+  bzero <- x$b0s
+  names(bzero) <- paste0("$B_0$")
+  dynb0 <- x$dynb0s
+  names(dynb0) <- paste0("Est. $B_{", thisyr, "} / B_{", thisyr, ",no fishing}$")
+  b_bmsy <- paste0(round(x$curssb / x$bmsy * 100, 0), "\\%")
+  names(b_bmsy) <- paste0("$B_{", thisyr, "} / B_{MSY}$")
+  steep <- round(x$steep, 2)
+  names(steep) <- "Steepness"
+  v <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero, b35, spr, steep, dynb0, b_bmsy)
+  df <- cbind(df, v)
+}
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Estimated Quantity", names(Mmat_lst[mod_scen]))
+gt(df) |> fmt_markdown()
+```
+
+
+
+
+
 # Alternative assessment software
 
 ## Stock-synthesis 3
