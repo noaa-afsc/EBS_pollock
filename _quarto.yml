@@ -78,7 +78,7 @@ format:
     toc-location: left
     fig-cap-location: margin
     tbl-cap-location: margin
-    embed-resources: false
+    embed-resources: true
     #numbering: false
     #number-sections: false
     code-summary: "Show the code"
