@@ -35,7 +35,7 @@ theme_set(theme_sleek())
 options(warn = -1)
 do_sigmaR_profile <- 0
 do_edf <- 0
-do_ft <- 1
+do_ft <- 0
 do_abc_sel <- 0
 do_yearloop <- 0
 do_srrlst <- 0
@@ -66,15 +66,18 @@ loadup <- FALSE
 # loadup<-TRUE
 if (loadup) {
   source(here::here("R", "GetResults.R"))
+  source(here::here("runs/spock", "FitSpock.R"))
   # source(here::here("runs","spock", "FitSpock.R"))
   spock <- spock_obj(src = "RTMB")
-  spock <- list(sel = sel, ts = ts, obj = m1)
+  
+  #spock <- list(sel = sel, ts = ts, obj = m1)
   # names(spock)
   r1 <- SS_obj(SS_output(dir = here::here("runs", "ss", "base"), verbose = FALSE), src = "SS3 base")
   r2 <- SS_obj(SS_output(dir = here::here("runs", "ss", "tight"), verbose = FALSE), src = "SS3 Constrained")
   r3 <- SS_obj(SS_output(dir = here::here("runs", "ss", "flex"), verbose = FALSE), src = "SS3 Flexible")
-  c1 <- cea_obj(cea_run = fm0, src = "CEA 0.7")
-  c2 <- cea_obj(cea_run = fm0DM, src = "CEA 0.7, DM")
+  c1 <- cea_obj(cea_run = fm0, src = "CEA, FE ")
+  #c2 <- cea_obj(cea_run = fm0_re1, src = "CEA, R_RE")
+  c2 <- cea_obj(cea_run = fm0_re2, src = "CEA, S_RE")
   # gp_run<-gp_obj()
   pm_run <- pm_obj()
   # pm_run2<-pm_obj(pm2, src="Pollock_model VPA-like")
@@ -94,6 +97,7 @@ if (loadup) {
     rowwise() %>%
     mutate(across(`1`:`15`, ~ . / max(c_across(`1`:`15`)))) %>%
     ungroup()
+#  spock$sel 
 }
 # Plot_Sel() + ggthemes::theme_few(base_size = 9)
 ```
@@ -659,12 +663,13 @@ if (do_loo) {
   #do some plots
 ```
 
-A commonly adopted approach  
-is to use estimated natural mortality-at-age and year from
+A commonly adopted approach is to use estimated natural mortality-at-age and year from
 multispecies trophic interaction models (e.g., @trijoulet2020).
 The current assessment has an option to include the 2024 CEATTLE estimates of natural
 mortality (@tbl-Mmatrix; @fig-Mmatrix_matrix). This resulted in slightly higher 
-recruitment (@fig-Mmat-recruitment) lower spawning biomass in the near term (@fig-Mmat_ssb1 and @fig-Mmat_ssb2). 
+
+
+recruitment (@fig-Mmat-recruitment) lower spawning biomass in the near term (@fig-Mmat-ssb).
 This is due to the higher natural mortality for most ages and years compared 
 to the base 2024 model.
 
@@ -708,6 +713,14 @@ rownames(m_matrix) <- 1964:2024
 gt::gt(m_matrix, rownames_to_stub = T) |> gt::fmt_number( columns = 1:10, decimals = 3)
 ```
 
+```{r Mmat recruitment}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-Mmat-recruitment
+#| fig.cap: "Comparison of recruitment estimates comparing 2024 assessment results with one where M-at-age and year is specified from CEATTLE."
+  p2<-plot_recruitment(Mmat_lst, xlim = c(1964, 2024)); p2
+```
 
 ```{r Mmat relative ssb}
 #| echo: false
@@ -721,24 +734,13 @@ gt::gt(m_matrix, rownames_to_stub = T) |> gt::fmt_number( columns = 1:10, decima
   p1b<-plot_ssb_rel(Mmat_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4), ylim = c(.75, 1.25))
   #ggsave(filename = here::here("doc", "figs", "Mmat_rel_ssb.png"), plot = p1b, width = 8, height = 4, units = "in", device = "png")
   p1/p1b + plot_layout(guides='collect')
-  
-
 #plot the indices:  
 ```
-
-```{r Mmat recruitment}
-#| echo: false
-#| warnings: FALSE
-#| messages: FALSE
-#| label: fig-Mmat-recruitment
-#| fig.cap: "Comparison of recruitment estimates comparing 2024 assessment results with one where M-at-age and year is specified from CEATTLE."
-  p2<-plot_recruitment(Mmat_lst, xlim = c(1964, 2024)); p2
-```
-
 
 
 ```{r Mmat bts index}
 #| echo: false
+#| eval: false
 #| warnings: FALSE
 #| messages: FALSE
 #| label: fig-Mmat-bts-index
@@ -752,7 +754,7 @@ knitr::include_graphics(here::here("doc", "figs", "Mmat_bts_index.png"))
 #| warnings: FALSE
 #| messages: FALSE
 #| label: tbl-Mmat_fits
-#| tbl-cap: "Goodness-of-fit measures to primary data for leave-one-out model sensitivity runs. RMSE=root-mean square log errors, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)." 
+#| tbl-cap: "Goodness-of-fit measures to primary data for model sensitivity to applying the matrix of M-at-age and year instead of constant M-at-age. RMSE=root-mean square log errors, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)." 
 #(tab_fit(loo_lst[c(1:7)])) #|>
 gt_table <- gt::gt(tab_fit(Mmat_lst[c(1:2)]))
 numeric_cols <- 2:3 # Specify the numeric columns to format
@@ -950,12 +952,14 @@ model is to have the flexibility to bridge among extant single-species modeling 
 by using it in "single-species" mode. To illustrate that, we introduce an application of
 Rceattle to the EBS pollock data set. The model is not yet fully developed, but we present
 preliminary results for consideration. Initial runs are favorable but further work is
-needed to bridge the selectivity options (@fig-rceattle).
+needed to bridge the selectivity options.
+<!-- (@fig-rceattle). -->
 
 ```{r}
 #| label: fig-rceattle
 #| fig.cap: "Model results comparing last year's model with the Rceattle model."
 #| echo: false
+#| eval: false
 #| warnings: FALSE
 #| messages: FALSE
 
@@ -966,6 +970,7 @@ Plot_Sel(cea_sel) + ggthemes::theme_few(base_size = 9)
 
 ```{r}
 #| label: fig-rceattle_ts
+#| eval: false
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
@@ -981,7 +986,8 @@ Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19)
 #| messages: FALSE
 #| label: fig-all
 #| fig.cap: "Model results comparing last year's model with the Rceattle model."
-all_sel <- rbind(pm_run$sel, r1$sel, c1$sel, sam_run$sel) # ,gp_run$sel)
+# all_sel <- rbind(pm_run$sel, r1$sel, c1$sel, sam_run$sel) # ,gp_run$sel)
+all_sel <- rbind(pm_run$sel, r1$sel, sam_run$sel) # ,gp_run$sel)
 Plot_Sel(all_sel) + ggthemes::theme_few(base_size = 9)
 ```
 
@@ -1019,6 +1025,8 @@ the base model.
 #| label: fig-spock_sel
 #| fig.cap: "Model results comparing last year's model with the SPock model."
 #|
+#names(spock$sel)
+#names(pm_run$sel)
 all_sel <- rbind(pm_run$sel, spock$sel) # , c2$sel)#,gp_run$sel)
 Plot_Sel_age(all_sel)
 ```

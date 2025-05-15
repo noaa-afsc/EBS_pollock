@@ -303,6 +303,8 @@ spock_obj <- function (src="SPoCK") {
   #sel=as.data.frame(t(as.matrix(m1$rep$fish_sel[1,1,,1,1])))
   sel <- as.data.frame((as.matrix(m1$rep$fish_sel[1,,,1,1])))
   names(sel) <- 1:15
+  sel$source=src
+  sel$Year= 1964:2024
   
   # Get the summary as a matrix first
   smry <- summary(m1$sd_rep)
@@ -340,6 +342,6 @@ spock_obj <- function (src="SPoCK") {
   
   return(list(sel=sel, ts= ts, obj=m1) )
 }
-tmp<-spock_obj()
+#tmp<-spock_obj()
 #names(t)
 #t$ts

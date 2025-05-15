@@ -14,17 +14,17 @@ pm1 <- read_rep("pm.rep")
 setwd(here("runs", "lastyrdb"))
 pm2 <- read_rep("pm.rep")
 # names(pm1)
-# yrmin = 1964; yrmax = 2024; projyr=2050
-# src="shit"
-# cea_run=fm0
+ #yrmin = 1964; yrmax = 2024; projyr=2050
+ #src="shit"
+ #cea_run=fm0_re3
 cea_obj <- function(cea_run = fm, yrmin = 1964, yrmax = 2024, projyr = 2050, src = "CEATTLE") {
   yrs <- yrmin:yrmax
   sel <- as_tibble(t(cea_run$quantities$sel[1, 1, , 1:length(yrs)]))
   names(sel) <- 1:15
+  #names(sel |> mutate(Year=yrs,source=src))
   sel <- sel |>
-    mutate(Year = yrs) |>
-    select(Year, everything()) |>
-    mutate(source = src) |>
+    mutate(Year = yrs, source=src) |>
+    dplyr::select(Year, everything()) |>
     filter(Year >= yrmin, Year <= yrmax)
   df <- data.frame(
     type = names(cea_run$sdrep$value),
@@ -32,16 +32,17 @@ cea_obj <- function(cea_run = fm, yrmin = 1964, yrmax = 2024, projyr = 2050, src
     se = as.numeric(cea_run$sdrep$sd) / 1e3,
     value = as.numeric(cea_run$sdrep$value / 1e3)
   )
-  # df$Year <-  rep(yrmin:projyr, each = 3)
-  df$Year <- rep(yrmin:projyr, 3)
-  df <- df |>
+  #unique(df$type)
+  df <- df |> filter(type %in% c("R","ssb","biomass")) |> 
     mutate(type = ifelse(type == "ssb", "SSB",
       ifelse(type == "R", "Recruits", "Biomass")
-    )) |>
-    filter(Year <= yrmax, Year >= yrmin)
+    )) #|> filter(type %in% c("SSB", "Recruits","Biomass")) 
+  df$Year <- c(rep(yrmin:projyr, 3))
+    df <- df |>  filter(Year <= yrmax, Year >= yrmin)
   return(list(sel = sel, ts = df, lst = cea_run))
 }
-# cea_run <- cea_obj()
+ #cea_run <- cea_obj(cea_run=fm0_re2)
+# cea_run$ts
 # fm
 
 pm_obj <- function(pm_run = pm1, yrmin = 1964, yrmax = 2024, src = "Pollock_model") {
@@ -305,9 +306,9 @@ Plot_rel_SSB <- function(df = all_ts, key="pm",ylim=2) {
     ylim(0, ylim) 
   return(p1)
 }
-p1$data
-p1
-df1
+#p1$data
+#p1
+#df1
   
 Plot_SSB <- function(df = all_ts) {
   p1 <- df |>
@@ -435,28 +436,28 @@ compute_matrix_summary <- function(matrix_data) {
   return(list(CV_row = mean(row_cv), CV_col = mean(col_cv)))
 }
 
-library(Rceattle) # https://github.com/grantdadams/Rceattle/tree/dev-name-change
-Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE) {
-  bsp0 <- Rceattle::read_data( file = here::here("runs","ceattle",fn) )
-  bsp0$estDynamics = 0
-  bsp0$index_data$Log_sd <- bsp0$index_data$Log_sd/bsp0$index_data$Observation
-  bsp0$catch_data$Catch <- bsp0$catch_data$Catch*1000
-  bsp0$catch_data$Log_sd <- 0.05
-  # - Fix M
-  fit <- Rceattle::fit_mod(data_list = bsp0,
-                           inits = NULL, # Initial parameters = 0
-                           file = NULL, # Don't save
-                           estimateMode = 0, # Estimate
-                           random_rec = rand_rec, # Random recruitment
-                           random_sel = rand_sel, # selectivity RE
-                           msmMode = 0, # Single species mode
-                           verbose = 1,
-                           phase = TRUE,
-                           initMode = 2) # Unfished equilibrium with init_dev's turned on
-  return(fit)
-}
-fm0DM<- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=FALSE)
-fm0 <- Fit_bsp(fn = "bsp0.xlsx")
+# library(Rceattle) # https://github.com/grantdadams/Rceattle/tree/dev-name-change
+# Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE) {
+#   bsp0 <- Rceattle::read_data( file = here::here("runs","ceattle",fn) )
+#   bsp0$estDynamics = 0
+#   bsp0$index_data$Log_sd <- bsp0$index_data$Log_sd/bsp0$index_data$Observation
+#   bsp0$catch_data$Catch <- bsp0$catch_data$Catch*1000
+#   bsp0$catch_data$Log_sd <- 0.05
+#   # - Fix M
+#   fit <- Rceattle::fit_mod(data_list = bsp0,
+#                            inits = NULL, # Initial parameters = 0
+#                            file = NULL, # Don't save
+#                            estimateMode = 0, # Estimate
+#                            random_rec = rand_rec, # Random recruitment
+#                            random_sel = rand_sel, # selectivity RE
+#                            msmMode = 0, # Single species mode
+#                            verbose = 1,
+#                            phase = TRUE,
+#                            initMode = 2) # Unfished equilibrium with init_dev's turned on
+#   return(fit)
+# }
+# fm0DM<- Fit_bsp(fn = "bsp0DM.xlsx",rand_sel=FALSE)
+# fm0 <- Fit_bsp(fn = "bsp0.xlsx")
 
 # compute_matrix_summary(matrix_data)
 

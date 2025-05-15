@@ -8,61 +8,11 @@ pacman::p_load(dplyr, ggplot2, MASS, oce, readxl, TMB, devtools, writexl, reshap
                testthat, foreach, R.utils, knitr, doParallel)
 #devtools::install_github("kaskr/TMB_contrib_R/TMBhelper",force=TRUE)
 #remotes::install_github("grantdadams/Rceattle", ref = "dev",force=TRUE) # dev_srr branch is most up to date
-
-
 # Load libraries ----
 library(Rceattle)
 library(readxl)
 library(dplyr)
 
-
-# Read in data ----
-#bsp0 <- Rceattle::read_data( file = here::here("runs", "ceattle", "bsp0.xlsx"))
-
-
-# - Fit single-species models
-#mf0 <- fit_mod(data_list = bsp0,
-               #inits = NULL, # Initial parameters = 0
-               #file = NULL, # Don't save
-               #estimateMode = 0, # Estimate
-               #random_rec = FALSE, # No random recruitment
-               #msmMode = 0, # Single species mode
-               #verbose = 2,
-               #phase = TRUE,
-               #initMode = 2)
-#
-
-# Code to run the bering sea pollock model in CEATTLE
-# model is a single sex, single-species model
-
-# DATA
-# - Fishery catch
-# - Fishery age composition
-# - Fishery weight-at-age
-# - Surveys
-# -- Bottom trawl (random walk-logistic for age > 1, normal deviates for age = 1), additional penalty on selectivity
-# -- AT (age-1 is an index, age > 1 have selectivity smoother)
-# - Bottom temperature
-# - Survey age composition
-# - Catch-at-age methodology
-# - Annual length-at-age and weight-at-age from surveys
-# - Age at maturity
-
-# MODEL
-# - One sex
-# - Ricker recruitment (1978-2017) w/ prior on steepness
-# - Empirical weight-at-age
-# - M = 0.3 for females, estimated for males
-
-# Load data ----
-#ebs_pollock <- Rceattle::read_data( file = "Data/EBS_2024_pollock_single_species.xlsx")
-#fn = "bsp00.xlsx"
-#rand_sel=TRUE
-
-#library(Rceattle) # https://github.com/grantdadams/Rceattle/tree/dev-name-change
-#fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=FALSE; sigSel=FALSE; sigR=FALSE
-#fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=TRUE; sigSel=TRUE; sigR=FALSE
-#fn = "bsp0.xlsx"; rand_rec=FALSE; rand_sel=FALSE; sigSel=FALSE; sigR=FALSE
 
 Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE, 
                      sigR=FALSE, sigSel=FALSE, verbose=1) {
@@ -81,6 +31,7 @@ Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE,
   bsp$srr_indices = 1
   bsp$Diet_comp_weights = 1
   bsp$M1_re = 0
+  bsp$fleet_control$Fleet_type[5:6] <- 2 # Setting as survey
   #bsp$env_data 
   #names(bsp)
  pars<-build_params(bsp)
@@ -104,7 +55,8 @@ Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE,
 
 #fm00    <- Fit_bsp(fn = "bsp00.xlsx",rand_sel=FALSE, rand_rec = FALSE)
 fm0     <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=FALSE, rand_rec = FALSE)
-wham::check_estimability(fm0$obj)
+tail(getFs(fm0) |> filter(year %in% 2010:2024))
+#wham::check_estimability(fm0$obj)
 fm0_re1 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=FALSE, rand_rec = TRUE)
 wham::check_estimability(fm0_re1$obj)
 fm0_re2 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=TRUE, rand_rec = FALSE)
@@ -112,15 +64,42 @@ wham::check_estimability(fm0_re2$obj)
 fm0_re3 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=TRUE, rand_rec = TRUE)
 wham::check_estimability(fm0_re3$obj)
 
+fm0_re4 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=TRUE, rand_rec = TRUE,
+                   sigR=TRUE, sigSel=TRUE)
+wham::check_estimability(fm0_re4$obj)
+
 cbind((fm0_re3$obj$par), (fm0_re3$obj$gr()) ) #$gra
+cbind((fm0_re4$obj$par), (fm0_re4$obj$gr()) ) #$gra
 summary(fm0_re1$obj$gr()) #$gra
 summary(fm0_re2$obj$gr()) #$gra
 summary(fm0_re3$obj$gr()) #$gra
 summary(fm0_re4$obj$gr()) #$gra
 
-fm0_re4 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=TRUE, rand_rec = TRUE,
-                   sigR=TRUE, sigSel=TRUE)
 wham::check_estimability(fm0_re4$obj)
+
+library(dplyr)
+library(tibble)
+
+getFs <- function(fm0) {
+  # 1. extract the age×year matrix for fleet = "Fishery", sex = "Sex combined"
+  F_mat <- fm0$quantities$F_flt_age["Fishery", "Sex combined", , , drop = TRUE]
+  #    dimnames(F_mat)[[1]] → ages (“Age1”,…)
+  #    dimnames(F_mat)[[2]] → years (“1964”,…)
+  
+  # 2. transpose so rows = years, cols = ages, then wrap in a tibble
+  df <- as_tibble(t(F_mat))
+  # 3. name the age-columns
+  colnames(df) <- dimnames(F_mat)[[1]]
+  # 4. add a year column (as integer) up front
+  df <- df %>%
+    add_column(year = as.integer(dimnames(F_mat)[[2]]), .before = 1)
+  
+  # result: tibble with columns
+  #    year | Age1 | Age2 | … | Age15
+  # and one row per year
+  df
+}
+write_csv(df, here::here("runs","ceattle","Fishery_F.csv"))
 
 
 
@@ -140,6 +119,8 @@ names(fm0$sdrep)
 (fm0$bounds$upper$sel_inf)
 (fm0$bounds$lower$sel_inf)
 names(fm0$quantities)
+is.list(fm0$quantities)
+str(fm0$quantities$F_flt_age)
 names(fm0$quantities$sel)
 dim(fm0$quantities$sel)
 (fm0$sdrep$value)
