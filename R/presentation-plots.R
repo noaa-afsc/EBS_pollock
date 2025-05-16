@@ -14,12 +14,12 @@ library(gt)
 thisyr=2024
 library(ggsidekick)
 theme_set(theme_sleek())
-.THEME <- theme_sleek()
+.THEME <- theme_sleek() + theme(text = element_text(size = 18)) #+ theme(axis.text.x = element_text(angle = 90)) 
 .OVERLAY <- TRUE
 options(warn = -1)
 
 
-do_loo<-1
+do_loo<-0
 if (do_loo) {
   thisyr <- 2024
   nextyr <- thisyr + 1
@@ -51,22 +51,22 @@ if (do_loo) {
 }
 
 #do some plots
-p1 <- plot_ssb(loo_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4))
-ggsave(filename = here::here("doc", "figs", "loo_ssb.png"), plot = p1, width = 8, height = 4, units = "in", device = "png")
+p1 <- plot_ssb(loo_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 8))
+ggsave(filename = here::here("doc", "figs", "loo_ssb_present.png"), plot = p1, width = 8, height = 5, units = "in", device = "png")
 
-p1b<-plot_ssb_rel(loo_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4))
-ggsave(filename = here::here("doc", "figs", "loo_rel_ssb.png"), plot = p1b, width = 8, height = 4, units = "in", device = "png")
+p1b<-plot_ssb_rel(loo_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 8))
+ggsave(filename = here::here("doc", "figs", "loo_rel_ssb_present.png"), plot = p1b, width = 8, height = 5, units = "in", device = "png")
 
 #this one is pretty ugly:
 p2<-plot_recruitment(loo_lst, xlim = c(1964, 2024))
-ggsave(filename = here::here("doc", "figs", "loo_recruits.png"), plot = p2, width = 15, height = 5, units = "in", device = "png")
+ggsave(filename = here::here("doc", "figs", "loo_recruits_present.png"), plot = p2, width = 15, height = 5, units = "in", device = "png")
 
 #plot the indices:  
 p3<-plot_bts(loo_lst,error_bars = FALSE)
-ggsave(filename = here::here("doc", "figs", "loo_bts_index.png"), plot = p3, width = 8, height = 4, units = "in", device = "png")
+ggsave(filename = here::here("doc", "figs", "loo_bts_index_present.png"), plot = p3, width = 8, height = 5, units = "in", device = "png")
 
-p4<-plot_ats(loo_lst,error_bars = FALSE)
-ggsave(filename = here::here("doc", "figs", "loo_ats_index.png"), plot = p4, width = 8, height = 4, units = "in", device = "png")
+p4<-plot_ats(loo_lst,error_bars = FALSE) +.THEME
+ggsave(filename = here::here("doc", "figs", "loo_ats_index_present.png"), plot = p4, width = 8, height = 5, units = "in", device = "png")
 
 p5<-plot_avo(loo_lst,error_bars = FALSE)
-ggsave(filename = here::here("doc", "figs", "loo_avo_index.png"), plot = p5, width = 8, height = 4, units = "in", device = "png")
+ggsave(filename = here::here("doc", "figs", "loo_avo_index_present.png"), plot = p5, width = 8, height = 5, units = "in", device = "png")
