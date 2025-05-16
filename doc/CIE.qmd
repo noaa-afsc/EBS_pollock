@@ -567,7 +567,7 @@ knitr::include_graphics(here::here("doc", "figs", "loo_avo_index.png"))
 #| warnings: FALSE
 #| messages: FALSE
 #| label: tbl-loo_fits
-#| tbl-cap: "Goodness-of-fit measures to primary data for leave-one-out model sensitivity runs. RMSE=root-mean square log errors, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)." 
+#| tbl-cap: "Goodness-of-fit measures to primary data for leave-one-out model sensitivity runs. RMSE=root-mean square log errors, Eff. N=effective sample size for composition data)." 
 #(tab_fit(loo_lst[c(1:7)])) #|>
 gt_table <- gt::gt(tab_fit(loo_lst[c(1:7)])[c(1:4,8:10),]) #|>
 numeric_cols <- 2:8 # Specify the numeric columns to format
