@@ -92,7 +92,7 @@ getFs <- function(fm0) {
   colnames(df) <- dimnames(F_mat)[[1]]
   # 4. add a year column (as integer) up front
   df <- df %>%
-    add_column(year = as.integer(dimnames(F_mat)[[2]]), .before = 1)
+    tibble::add_column(year = as.integer(dimnames(F_mat)[[2]]), .before = 1)
   
   # result: tibble with columns
   #    year | Age1 | Age2 | … | Age15
