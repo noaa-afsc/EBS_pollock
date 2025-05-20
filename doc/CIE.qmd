@@ -737,15 +737,25 @@ gt::gt(m_matrix, rownames_to_stub = T) |> gt::fmt_number( columns = 1:10, decima
 #plot the indices:  
 ```
 
+We also include a comparison of revised acoustic-trawl estimates (@urmy2025; 
+@fig-urmy_ats_index). The natural mortaliity alternative run resulted in generally better
+fits to most data components whereas the "untuned" run with the @urmy2025 estimates
+were generally poorer (@tbl-Mmat_fits). 
+Results from the @urmy2025 had minor impact on management-related quantities whereas
+those with the alternative natural mortality specification differed in a number of ways
+(@tbl-Mmat_ref). The most notable difference was the estimated $B_{MSY}$ and $B_{35\%}$ values.
 
-```{r Mmat bts index}
+
+```{r Mmat ats index}
 #| echo: false
-#| eval: false
+#| eval: TRUE
 #| warnings: FALSE
 #| messages: FALSE
-#| label: fig-Mmat-bts-index
-#| fig.cap: "Comparison of fits to the Eastern Bering Sea Bottom Trawl Survey (BTS) biomass index for models that downweight one data source at a time"
+#| label: fig-urmy_ats_index
+#| fig.cap: "Comparison of fits to the Eastern Bering Sea acoustic-Trawl Survey (ATS) biomass index for the accepted 2024 model and one with revised estimates of index values and uncertainty from Urmy et al., (in prep). "
 knitr::include_graphics(here::here("doc", "figs", "Mmat_bts_index.png"))
+  plot_ats(Mmat_lst[c(1,3)],error_bars = TRUE)
+  #ggsave(filename = here::here("doc", "figs", "loo_ats_index.png"), plot = p4, width = 8, height = 4, units = "in", device = "png")
 ```
 
 
