@@ -55,7 +55,7 @@ Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE,
 
 #fm00    <- Fit_bsp(fn = "bsp00.xlsx",rand_sel=FALSE, rand_rec = FALSE)
 fm0     <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=FALSE, rand_rec = FALSE)
-tail(getFs(fm0) |> filter(year %in% 2010:2024))
+head(getFs(fm0) |> filter(year %in% 1964:2024))
 #wham::check_estimability(fm0$obj)
 fm0_re1 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=FALSE, rand_rec = TRUE)
 wham::check_estimability(fm0_re1$obj)
