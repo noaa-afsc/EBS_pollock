@@ -1128,9 +1128,8 @@ Plot_Rec(all_ts,
 
 ## Abundance Index Methods
 
-For model-based indices in the Bering Sea, we fitted observations of numerical abundance
-or biomass per unit area (where the choice of abundance or biomass varied by stock at the
-request of assessors) from all sampling locations in the 83-112 bottom trawl survey of the
+For the model-based index of Bering Sea pollock, we fitted observations of numerical abundance
+or biomass per unit area from all sampling locations in the 83-112 bottom trawl survey of the
 EBS, 1982-2025, including:
 
 -   Exploratory northern extension samples in 2001, 2005, and 2006
@@ -1145,18 +1144,15 @@ estimated for both linear predictors of a delta-model, and detailed comparison o
 for EBS pollock has shown that it has a small but notable effect on these indices and
 resulting stock assessment outputs [@OLeary2020].
 
-Rather than using the cold-pool covariate for yellowfin sole, we instead used the mean
-bottom temperature within the inner and middle domain strata from an interpolated
-temperature product. All models were fitted in the sdmTMB R package
-(https://pbs-assess.github.io/sdmTMB; @Anderson2022). All environmental data used as
-covariates were computed within the coldpool R package
+All models were fitted in the sdmTMB R package(https://pbs-assess.github.io/sdmTMB; @Anderson2022). 
+The cold pool covariate was computed within the coldpool R package
 (https://github.com/afsc-gap-products/coldpool; @Rohan2023).
 
 We used a spatiotemporal Poisson-link delta-model [@Thorson2018] involving two linear
 predictors and a gamma distribution to model positive catch rates. We predicted population
 density across the entire EBS and NBS in each year, using AFSC GAP-approved prediction
 grids. Spatial and spatiotemporal fields were estimated using a spatial mesh including 250
-"knots" whose locations were determined using a K-means algorithm to place the knots
+'knots' whose locations were determined using a K-means algorithm to place the knots
 evenly over space, in proportion to the dimensions of the prediction grid.
 
 While the prior VAST model was fitted with a 750 knot mesh, we found that sdmTMB models
@@ -1182,7 +1178,7 @@ and that the Hessian matrix was positive definite, along with other model checks
 by the function `sdmTMB::sanity()`. We then checked goodness of model fit by computing
 Dunn-Smyth randomized quantile residuals [@Dunn1996] and visualizing these using a
 quantile-quantile plot within the DHARMa R package [@Hartig2021]. We also evaluated the
-distribution of these residuals over space in each year, and inspected them for evidence
+distribution of these residuals over space in each year and inspected them for evidence
 of residual spatiotemporal patterns. Results compared favorably among methods, and the
 model index result was very similar to previous estimates (@fig-sdm_index).
 
@@ -1197,7 +1193,7 @@ knitr::include_graphics("figs/Vast_index_updated.png")
 
 ## Model-based Age Composition Methods
 
-For model-based estimation of age compositions in the Bering Sea, we fitted observations
+For model-based estimation of age composition, we fitted observations
 of numerical abundance-at-age at each sampling location. This was made possible by
 applying a year-specific, region-specific (EBS and NBS) age-length key to records of
 numerical abundance and length composition. In subcategories (combinations of year,
@@ -1213,29 +1209,30 @@ limitations.
 
 We estimated the spatial range assuming geometric isotropy (i.e, spatial autocorrelation
 declines with equal rates over distance in all cardinal directions). We used the same
-extrapolation grid as implemented for abundance indices, but here we modeled spatial and
+extrapolation grid as implemented for abundance indices, but modeled spatial and
 spatiotemporal fields with a mesh with a coarser spatial resolution than the index model,
-here using 50 "knots". This reduction in the spatial resolution of the model, relative to
+here using 50 knots. This reduction in the spatial resolution of the model, relative to
 that used for the abundance indices, was necessary due to the increased computational load
 of fitting multiple age categories.
 
 The estimates of abundance at age were bias-corrected with the same method as the
 abundance index. We implemented the same diagnostics to check convergence and model fit as
 those used for the abundance index. Results compared favorably among methods
-(@fig-sdm_age).
+(@fig-sdm_age). The differences between the VAST and tinyVAST age composition models are
+likely because VAST estimates a separate kappa (the parameter that represents the spatial 
+decorrelation rate) for the fist and second linear predictors, whereas tinyVAST estimates 
+a single kappa (@fig-sdm_age).
 
 Both the model-based bottom trawl index and age composition estimates were calculated
 using code in the AFSC GAP model-based indices GitHub repository
-(https://github.com/afsc-gap-products/model-based-indices). Design-based estimates of
-bottom trawl products were calculated using code in the gapindex R package
-(https://github.com/afsc-gap-products/gapindex).
+(https://github.com/afsc-gap-products/model-based-indices). 
 
 ```{r sdm_age}
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
 #| label: fig-sdm_age
-#| fig.cap: "Model results comparing last year's model with the revised sdmTMB model."
+#| fig.cap: "Model results comparing last year's model with the revised tinyVAST model."
 
 knitr::include_graphics("figs/VAST_Age_Compare.png")
 ```
