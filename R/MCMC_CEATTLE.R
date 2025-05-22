@@ -1,14 +1,23 @@
-library(adnuts)
+remove.packages(adnuts)
 library(TMB)
 install.packages('StanEstimators', repos = c('https://andrjohns.r-universe.dev', 'https://cloud.r-project.org'))
-devtools::install_github("Cole-Monnahan-NOAA/adnuts", ref='sparse_M')
+devtools::install_github("Cole-Monnahan-NOAA/adnuts", ref='sparse_M',force=TRUE)
+library(adnuts)
 
-obj <- (fm5$obj)
-obj <- (fm0$obj)
+obj <- (pollock_RE$obj)
+obj<- mod_fixed_selinf$obj
+obj<-pollock_init4$obj
+obj<-pollock_init3$obj
+names(obj$env$map)
+saveRDS(pollock_base$obs,"c1.RDS")
+saveRDS(obj,"c2.RDS")
+obj<- readRDS("cea_obj.RDS")
 mcmc <- adnuts::sample_sparse_tmb(obj,skip_optimization=TRUE)
-mcpilot <- adnuts::sample_sparse_tmb(obj,skip_optimization=TRUE,iter=2000, chains = 5)
+mcmc <- adnuts::sample_sparse_tmb(obj,skip_optimization=TRUE,iter=3000, chains = 8)
+#mcpilot <- adnuts::sample_sparse_tmb(obj,skip_optimization=TRUE,iter=2000, chains = 5)
 
-pairs_admb(mcpilot, pars=1:8, order='slow')
+pairs_admb(mcmc, pars=1:8, order='slow')
+pairs_admb(mcmc, pars=1:8, order='fast')
 pairs_admb(mcpilot, pars=c("R_ln_sd",'sel_dev_ln_sd')) 
 pairs_admb(mcmc, pars=1:8, order='slow')
 

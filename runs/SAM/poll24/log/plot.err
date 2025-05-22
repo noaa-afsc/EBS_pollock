@@ -1,4 +1,0 @@
-Error in tableit.samforecast(fit, what = what, trans = trans, x = x[1:(length(x) -  : 
-  what not implemented for samforecast
-Calls: source ... plotit.samforecast -> tableit -> tableit.samforecast
-Execution halted

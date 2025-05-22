@@ -75,9 +75,9 @@ if (loadup) {
   r1 <- SS_obj(SS_output(dir = here::here("runs", "ss", "base"), verbose = FALSE), src = "SS3 base")
   r2 <- SS_obj(SS_output(dir = here::here("runs", "ss", "tight"), verbose = FALSE), src = "SS3 Constrained")
   r3 <- SS_obj(SS_output(dir = here::here("runs", "ss", "flex"), verbose = FALSE), src = "SS3 Flexible")
-  c1 <- cea_obj(cea_run = fm0, src = "CEA, FE ")
+  c1 <- cea_obj(cea_run = pollock_base, src = "CEA, FE ")
   #c2 <- cea_obj(cea_run = fm0_re1, src = "CEA, R_RE")
-  c2 <- cea_obj(cea_run = fm0_re2, src = "CEA, S_RE")
+  c2 <- cea_obj(cea_run = pollock_RE, src = "CEA, RE")
   # gp_run<-gp_obj()
   pm_run <- pm_obj()
   # pm_run2<-pm_obj(pm2, src="Pollock_model VPA-like")
@@ -428,8 +428,61 @@ knitr::include_graphics("figs/ats_osa.png")
 
 # Leave-one-out survey sensitivity analysis
 
-Here we present model runs that downweight one or more sources of survey data at a time.  @tbl-loo_runs shows the combinations of data types included for this analysis, which includes six model runs: (1) downweight all Acoustic Trawl Survey (ATS) data (age 1 survey index, age 2+ survey biomass index, and age composition data), (2) downweight the ATS age composition data, (3) downweight the Acoustic Vessels of Opportunity (AVO) data (survey biomass index), (4) downweight all Eastern Bering Sea Trawl Survey (BTS) data (age 1+ survey biomass index and age composition data), (5) downweight the BTS age composition data, and (6) downweight all survey biomass indices (BTS, ATS, and AVO survey biomass indices). 
-The ATS age 1 data are included as a separate survey index in the assessment model, while BTS age 1 data are included with the age composition data in the multinomial objective function component.
+Here we present model runs that downweight one or more sources of survey data at a time.
+@tbl-loo_runs shows the combinations of data types included for this analysis, which
+includes six model runs: (1) downweight all Acoustic Trawl Survey (ATS) data (age 1 survey
+index, age 2+ survey biomass index, and age composition data), (2) downweight the ATS age
+composition data, (3) downweight the Acoustic Vessels of Opportunity (AVO) data (survey
+biomass index), (4) downweight all Eastern Bering Sea Trawl Survey (BTS) data (age 1+
+survey biomass index and age composition data), (5) downweight the BTS age composition
+data, and (6) downweight all survey biomass indices (BTS, ATS, and AVO survey biomass
+indices). The ATS age 1 data are included as a separate survey index in the assessment
+model, while BTS age 1 data are included with the age composition data in the multinomial
+objective function component.
+
+```{r}
+#| echo: false
+#| eval: false
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+# Create data frames for each index
+df_bts <- data.frame(year = M$yr_bts, value = M$ob_bts, index = "bts")
+df_ats <- data.frame(year = M$yr_ats, value = M$ob_ats, index = "ats")
+df_avo <- data.frame(year = M$yrs_avo, value = M$obs_avo, index = "avo")
+
+# Combine the data frames
+df_combined <- rbind(df_bts, df_ats, df_avo)
+
+# Standardize each index separately
+df_standardized <- df_combined %>%
+  group_by(index) %>%
+  mutate(standardized_value = (value - mean(value)) / sd(value)) %>%
+  ungroup()
+
+# Create the plot
+ggplot(df_standardized, aes(x = year, y = standardized_value, color = index)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2) +
+  scale_color_manual(values = c("bts" = "blue", "ats" = "red", "avo" = "green"),
+                     labels = c("Bottom Trawl Survey", "Acoustic Trawl Survey", "Acoustic Vessels of Oportunity")) +
+  labs(title = "Standardized Survey Indices",
+       x = "Year",
+       y = "Standardized Value",
+       color = "Index Type") +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    panel.grid.minor = element_blank(),
+    text = element_text(size = 12),
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  ) +
+  scale_x_continuous(breaks = seq(min(df_standardized$year), max(df_standardized$year), by = 2))
+
+
+
+```
 
 ```{r loo_runs}
 #| echo: false
@@ -512,10 +565,26 @@ gt::gt(df) %>%
   )
 ```
 
-Among these models, downweighting the BTS data (both solely downweighting the BTS age composition data and downweighting all BTS data) led to changes in trends over time in estimated spawning biomass @fig-loo-ssb . The model estimates of recruitment were
-variable across sensitivity runs, but estimates differed the most from the 2024 accepted model when all BTS data were downweighted @fig-loo-recruitment. Estimates of BTS survey biomass fit the BTS data very poorly in most years when the BTS data were downweighted (@fig-loo-bts-index). Additionally, the fits to the BTS survey biomass were affected by downweighting the BTS age composition data (without downweighting the BTS survey index). The model was relatively insensitive to other data being excluded, and fits to the ATS and AVO indices were relatively insensitive to downweighting the BTS data (see @fig-loo-bts-index, @fig-loo-ats-index, and @fig-loo-avo-index). The root mean square error (RMSE)  in @tbl-loo_fits for the model run that downweighted all BTS data was large and the and effective sample size (Eff. N) was low as compared to the 2024 accepted model. Additionally, downweighting solely the BTS age composition data led to low effective sample size for the BTS.
+Among these models, downweighting the BTS data (both solely downweighting the BTS age
+composition data and downweighting all BTS data) led to changes in trends over time in
+estimated spawning biomass @fig-loo-ssb . The model estimates of recruitment were variable
+across sensitivity runs, but estimates differed the most from the 2024 accepted model when
+all BTS data were downweighted @fig-loo-recruitment. Estimates of BTS survey biomass fit
+the BTS data very poorly in most years when the BTS data were downweighted
+(@fig-loo-bts-index). Additionally, the fits to the BTS survey biomass were affected by
+downweighting the BTS age composition data (without downweighting the BTS survey index).
+The model was relatively insensitive to other data being excluded, and fits to the ATS and
+AVO indices were relatively insensitive to downweighting the BTS data (see
+@fig-loo-bts-index, @fig-loo-ats-index, and @fig-loo-avo-index). The root mean square
+error (RMSE) in @tbl-loo_fits for the model run that downweighted all BTS data was large
+and the and effective sample size (Eff. N) was low as compared to the 2024 accepted model.
+Additionally, downweighting solely the BTS age composition data led to low effective
+sample size for the BTS.
 
-The importance of the survey data can be seen in some of the reference calculations where the uncertainty increases dramatically and the stock-status perception was quite different across sensitivity runs @tbl-loo_ref. Most dramatically, dropping all survey indices led to a CV in "$B_{MSY}$" estimates of 1.26 as compared to 0.13 in the 2024 accepted model. 
+The importance of the survey data can be seen in some of the reference calculations where
+the uncertainty increases dramatically and the stock-status perception was quite different
+across sensitivity runs @tbl-loo_ref. Most dramatically, dropping all survey indices led
+to a CV in "$B_{MSY}$" estimates of 1.26 as compared to 0.13 in the 2024 accepted model.
 
 ```{r loo relative ssb}
 #| echo: false
@@ -666,12 +735,11 @@ if (do_loo) {
 ```
 
 A commonly adopted approach is to use estimated natural mortality-at-age and year from
-multispecies trophic interaction models (e.g., @trijoulet2020).
-The current assessment has an option to include the 2024 CEATTLE estimates of natural
-mortality (@tbl-Mmatrix; @fig-Mmatrix_matrix). This resulted in slightly higher 
-recruitment (@fig-Mmat-recruitment) lower spawning biomass in the near term (@fig-Mmat-ssb).
-This is due to the higher natural mortality for most ages and years compared 
-to the base 2024 model.
+multispecies trophic interaction models (e.g., @trijoulet2020). The current assessment has
+an option to include the 2024 CEATTLE estimates of natural mortality (@tbl-Mmatrix;
+@fig-Mmatrix_matrix). This resulted in slightly higher recruitment (@fig-Mmat-recruitment)
+lower spawning biomass in the near term (@fig-Mmat-ssb). This is due to the higher natural
+mortality for most ages and years compared to the base 2024 model.
 
 ```{r Mmat_matrix}
 #| echo: false
@@ -737,14 +805,13 @@ gt::gt(m_matrix, rownames_to_stub = T) |> gt::fmt_number( columns = 1:10, decima
 #plot the indices:  
 ```
 
-We also include a comparison of revised acoustic-trawl estimates (@urmy2025; 
-@fig-urmy_ats). The natural mortaliity alternative run resulted in generally better
-fits to most data components whereas the "untuned" run with the @urmy2025 estimates
-were generally poorer (@tbl-Mmat_fits). 
-Results from the @urmy2025 had minor impact on management-related quantities whereas
-those with the alternative natural mortality specification differed in a number of ways
-(@tbl-Mmat_ref). The most notable difference was the estimated $B_{MSY}$ and $B_{35\%}$ values.
-
+We also include a comparison of revised acoustic-trawl estimates (@urmy2025;
+@fig-urmy_ats). The natural mortaliity alternative run resulted in generally better fits
+to most data components whereas the "untuned" run with the @urmy2025 estimates were
+generally poorer (@tbl-Mmat_fits). Results from the @urmy2025 had minor impact on
+management-related quantities whereas those with the alternative natural mortality
+specification differed in a number of ways (@tbl-Mmat_ref). The most notable difference
+was the estimated $B_{MSY}$ and $B_{35\%}$ values.
 
 ```{r urmy_ats}
 #| echo: false
@@ -756,7 +823,6 @@ those with the alternative natural mortality specification differed in a number 
 plot_ats(Mmat_lst[c(1,3)], error_bars = TRUE)
   #ggsave(filename = here::here("doc", "figs", "loo_ats_index.png"), plot = p4, width = 8, height = 4, units = "in", device = "png")
 ```
-
 
 ```{r Mmat_fits}
 #| echo: false
@@ -831,10 +897,6 @@ names(df) <- c("Estimated Quantity", names(Mmat_lst[mod_scen]))
 gt(df) |> fmt_markdown()
 ```
 
-
-
-
-
 # Alternative assessment software
 
 ## Stock-synthesis 3
@@ -847,7 +909,7 @@ of 1-year olds.
 
 Within the SS3 framework, we evaluated different configurations for fishery selectivity
 variability (@fig-ss3). These showed the impact on the uncertainty and stock trends
-(@fig-synts-1 for SSB and @fig-synts-2 for recruitment). 
+(@fig-synts-1 for SSB and @fig-synts-2 for recruitment).
 
 ```{r }
 #| echo: false
@@ -858,7 +920,6 @@ variability (@fig-ss3). These showed the impact on the uncertainty and stock tre
 ss_sel <- rbind(r1$sel, r2$sel, r3$sel) # ,r4$sel)#,r5$sel)
 Plot_Sel(ss_sel) + ggthemes::theme_few(base_size = 9)
 ```
-
 
 ```{r }
 #| label: fig-synts
@@ -874,10 +935,9 @@ all_ts <- rbind(r1$ts, r2$ts, r3$ts)
 # ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
 
-Comparing the "base" SS3 model with the pollock model showed different patterns in 
-the early periods for 
-selectivity (@fig-ss3vpmsel) but slight differences in SSB and recruitment estimates
-(@fig-pmvss3-1 and @fig-pmvss3-2).
+Comparing the "base" SS3 model with the pollock model showed different patterns in the
+early periods for selectivity (@fig-ss3vpmsel) but slight differences in SSB and
+recruitment estimates (@fig-pmvss3-1 and @fig-pmvss3-2).
 
 ```{r }
 #| label: fig-ss3vpmsel
@@ -888,7 +948,6 @@ selectivity (@fig-ss3vpmsel) but slight differences in SSB and recruitment estim
 ss_sel <- rbind(pm_run$sel, r1$sel) # ,r4$sel)#,r5$sel)
 Plot_Sel(ss_sel) + ggthemes::theme_few(base_size = 11)
 ```
-
 
 ```{r }
 #| label: fig-pmvss3
@@ -927,9 +986,8 @@ Plot_Sel(sam_sel) + ggthemes::theme_few(base_size = 9)
 # ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
 
-The spawning biomass trend largely overlaps in the uncertainty between the SAM
-and pollock model (@fig-samts-1). The recruitment estimates are similar as well
-(@fig-samts-2). 
+The spawning biomass trend largely overlaps in the uncertainty between the SAM and pollock
+model (@fig-samts-1). The recruitment estimates are similar as well (@fig-samts-2).
 
 ```{r samts}
 #| label: fig-samts
@@ -938,9 +996,13 @@ and pollock model (@fig-samts-1). The recruitment estimates are similar as well
 #| warnings: FALSE
 #| messages: FALSE
 #|
+c1$ts
 all_ts <- rbind(pm_run$ts, r1$ts, c1$ts, sam_run$ts) # ,gp_run$sel)
 (Plot_SSB(rbind(sam_run$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
+(Plot_SSB(rbind(c2$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
+(Plot_SSB(rbind(c2$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
 (Plot_Rec(rbind(sam_run$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
+(Plot_Rec(rbind(c1$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
 # all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
 # ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
@@ -961,8 +1023,7 @@ model is to have the flexibility to bridge among extant single-species modeling 
 by using it in "single-species" mode. To illustrate that, we introduce an application of
 Rceattle to the EBS pollock data set. The model is not yet fully developed, but we present
 preliminary results for consideration. Initial runs are favorable but further work is
-needed to bridge the selectivity options.
-<!-- (@fig-rceattle). -->
+needed to bridge the selectivity options. <!-- (@fig-rceattle). -->
 
 ```{r}
 #| label: fig-rceattle
@@ -1023,9 +1084,9 @@ linked to different regions (e.g., the US and Russian portions of the EBS). Also
 model to add sex-specificity and random effects (@cheng2025).
 
 @fig-spock_sel shows the model results comparing time-varying selectivity whereas
-@fig-spock_ts-1 shows the model results time series. The difference in the age-1 recruits (@fig-spock_ts-2) is
-likely due to the fact that the spatial model currently has constant M-at-age compared to
-the base model.
+@fig-spock_ts-1 shows the model results time series. The difference in the age-1 recruits
+(@fig-spock_ts-2) is likely due to the fact that the spatial model currently has constant
+M-at-age compared to the base model.
 
 ```{r}
 #| echo: false
@@ -1122,9 +1183,8 @@ by the function `sdmTMB::sanity()`. We then checked goodness of model fit by com
 Dunn-Smyth randomized quantile residuals [@Dunn1996] and visualizing these using a
 quantile-quantile plot within the DHARMa R package [@Hartig2021]. We also evaluated the
 distribution of these residuals over space in each year, and inspected them for evidence
-of residual spatiotemporal patterns.
-Results compared favorably among methods, and the model index result was 
-very similar to previous estimates (@fig-sdm_index). 
+of residual spatiotemporal patterns. Results compared favorably among methods, and the
+model index result was very similar to previous estimates (@fig-sdm_index).
 
 ```{r sdm_index}
 #| echo: false
@@ -1170,8 +1230,6 @@ using code in the AFSC GAP model-based indices GitHub repository
 bottom trawl products were calculated using code in the gapindex R package
 (https://github.com/afsc-gap-products/gapindex).
 
-
-
 ```{r sdm_age}
 #| echo: false
 #| warnings: FALSE
@@ -1181,5 +1239,123 @@ bottom trawl products were calculated using code in the gapindex R package
 
 knitr::include_graphics("figs/VAST_Age_Compare.png")
 ```
+
+
+# Pollock model fishery selectivity notes
+
+The following provides more detail based on the actual code as adopted from @butterworth2003statistical.
+
+## Initial Setup
+
+### Average Selectivity
+$$\overline{sel} = \log\left(\text{mean}(\exp(\mathbf{c}))\right)$$
+
+where $\mathbf{c}$ is the vector of base selectivity coefficients.
+
+### Base Year Selectivity (t = stsel)
+For ages 1 to nsel:
+$$\log(S_{t,a}) = c_a \quad \text{for } a = 1, 2, ..., nsel$$
+
+For older ages (plateau assumption):
+$$\log(S_{t,a}) = c_{nsel} \quad \text{for } a = nsel+1, ..., nages$$
+
+### Initial Normalization
+$$\log(S_{t,a}) = \log(S_{t,a}) - \log\left(\frac{1}{nages}\sum_{a=1}^{nages} \exp(\log(S_{t,a}))\right)$$
+
+This ensures: $\prod_{a=1}^{nages} S_{t,a}^{1/nages} = 1$
+
+## Time-Varying Component
+
+### Selectivity Evolution (t > stsel)
+For years without regime changes:
+$$\log(S_{t+1,a}) = \log(S_{t,a}) \quad \text{for all ages}$$
+
+For years with regime changes (when $t+1 \in \text{yrs\_ch\_fsh}$):
+
+**Ages 1 to nsel:**
+$$\log(S_{t+1,a}) = \log(S_{t,a}) + \delta_{ii,a} \quad \text{for } a = 1, 2, ..., nsel$$
+
+**Older ages (plateau maintained):**
+$$\log(S_{t+1,a}) = \log(S_{t+1,nsel}) \quad \text{for } a = nsel+1, ..., nages$$
+
+where:
+- $\delta_{ii,a}$ is the selectivity deviation for change event $ii$ and age $a$
+- $ii$ is the index of the current selectivity change event
+
+### Annual Normalization
+For each year $t$:
+$$\log(S_{t,a}) = \log(S_{t,a}) - \log\left(\frac{1}{nages}\sum_{a=1}^{nages} \exp(\log(S_{t,a}))\right)$$
+
+and the actual selectivity is:
+$$S_{t,a} = \exp(\log(S_{t,a}))$$
+
+## Constraints and Properties
+
+1. **Normalization Constraint**: 
+   $$\prod_{a=1}^{nages} S_{t,a}^{1/nages} = 1 \quad \forall t$$
+
+2. **Dome-shaped Constraint**: 
+   $$S_{t,a} = S_{t,nsel} \quad \text{for } a > nsel$$
+
+3. **Continuity**: Selectivity changes only occur in specified years (`yrs_ch_fsh`)
+
+4. **Deviation Structure**: 
+   $$\delta_{ii} \sim \text{estimated deviations with penalties}$$
+
+## Implementation Notes
+
+- Base coefficients $\mathbf{c}$ are estimated parameters
+- Deviations $\boldsymbol{\delta}$ are typically penalized to prevent overfitting
+- The plateau assumption prevents unrealistic selectivity patterns for older ages
+- Geometric mean normalization maintains interpretability relative to fishing mortality
+
+# Regularization and Penalty Terms
+
+The selectivity model includes several penalty terms to ensure realistic and stable estimates:
+Penalty Term 1: Deviation Magnitude Penalty
+$P_1 = \frac{\lambda_1}{N_{groups}} \sum_{i=1}^{N_{changes}} \sum_{a=1}^{nsel} \delta_{i,a}^2$
+where:
+
+$\lambda_1$ = ctrl_flag(10) (penalty weight parameter)
+$N_{groups}$ = group_num_fsh (number of fishery groups)
+This shrinks deviations toward zero when not informed by data
+
+Penalty Term 2: Base Selectivity Smoothness Penalty
+$P_2 = \frac{\lambda_2}{N_{changes}} \sum_{a=1}^{nsel-2} \left[\nabla^2 \log(S_{styr,a})\right]^2$
+where:
+
+$\lambda_2$ = ctrl_flag(11) (smoothness penalty weight)
+$\nabla^2 \log(S_{t,a}) = \log(S_{t,a+2}) - 2\log(S_{t,a+1}) + \log(S_{t,a})$ (second difference)
+This penalizes high curvature in the base selectivity pattern
+
+Penalty Term 3: Change Year Smoothness Penalty
+$P_3 = \frac{\lambda_2}{N_{changes}} \sum_{i=1}^{N_{changes}} \sum_{a=1}^{nsel-2} \left[\nabla^2 \log(S_{t_i,a})\right]^2$
+where $t_i$ represents each change year. This maintains smooth selectivity curves in all change years.
+Penalty Term 4: Temporal Stability Penalty (Random Walk)
+$P_4 = \sum_{i=1}^{N_{changes}} \frac{1}{2\sigma_i^2} \sum_{a=1}^{nages} \left[\log(S_{t_i-1,a}) - \log(S_{t_i,a})\right]^2$
+where:
+
+$\sigma_i$ = sel_ch_sig_fsh(i) (change magnitude parameter for change event $i$)
+This penalizes large year-to-year changes in selectivity
+Only applied when $t_i \neq styr$ (change year is not the start year)
+
+Total Penalty Function
+$P_{total} = P_1 + P_2 + P_3 + P_4$
+The total negative log-likelihood becomes:
+$-\log L = -\log L_{data} + P_{total}$
+Penalty Interpretation
+
+$P_1$: Prevents overfitting by shrinking deviations toward zero
+$P_2$ and $P_3$: Enforce smooth, realistic selectivity curves (penalize jagged patterns)
+$P_4$: Constrains temporal evolution (selectivity changes smoothly over time)
+
+The penalty weights ($\lambda_1$, $\lambda_2$) and variance parameters ($\sigma_i$) control the balance between fitting data and maintaining realistic selectivity patterns.
+Implementation Notes
+
+Base coefficients $\mathbf{c}$ are estimated parameters
+Deviations $\boldsymbol{\delta}$ are penalized to prevent overfitting
+The plateau assumption prevents unrealistic selectivity patterns for older ages
+Geometric mean normalization maintains interpretability relative to fishing mortality
+Second differences approximate curvature (second derivatives) for smoothness penalties
 
 # References

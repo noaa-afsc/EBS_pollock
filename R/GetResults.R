@@ -29,8 +29,8 @@ cea_obj <- function(cea_run = fm, yrmin = 1964, yrmax = 2024, projyr = 2050, src
   df <- data.frame(
     type = names(cea_run$sdrep$value),
     source = src,
-    se = as.numeric(cea_run$sdrep$sd) / 1e3,
-    value = as.numeric(cea_run$sdrep$value / 1e3)
+    se = as.numeric(cea_run$sdrep$sd) ,
+    value = as.numeric(cea_run$sdrep$value )
   )
   #unique(df$type)
   df <- df |> filter(type %in% c("R","ssb","biomass")) |> 

@@ -15,7 +15,7 @@ library(readxl)
 library(dplyr)
 
 
-Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE, 
+Fit_bsp <- function (fn = "bsp0.xlsx", initmode=4, rand_rec=FALSE, rand_sel=FALSE, 
                      sigR=FALSE, sigSel=FALSE, verbose=1) {
   bsp <- Rceattle::read_data( file = here::here("runs","ceattle",fn) )
   bsp$estDynamics = 0
@@ -48,7 +48,7 @@ Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE,
     ))
   
   # Switches 
-  bsp$initMode = 2 # Unfished equilibrium with init_dev's turned on
+  bsp$initMode = initmode # Unfished equilibrium with init_dev's turned on
   bsp$M1_model = 0
   bsp$srr_fun = 0
   bsp$srr_pred_fun = 0
@@ -75,22 +75,24 @@ Fit_bsp <- function (fn = "bsp0.xlsx", rand_rec=FALSE, rand_sel=FALSE,
                            msmMode = 0, # Single species mode
                            verbose = verbose,
                            phase = TRUE,
-                           initMode = 2) # Unfished equilibrium with init_dev's turned on
+                           initMode = initmode) # Unfished equilibrium with init_dev's turned on
   return(fit)
 }
 
 #fm00    <- Fit_bsp(fn = "bsp00.xlsx",rand_sel=FALSE, rand_rec = FALSE)
-fm0     <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=FALSE, rand_rec = FALSE)
+fm0     <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=FALSE, rand_rec = FALSE, initmode=2)
 tail(getFs(fm0) |> filter(year %in% 2010:2024))
 plot_selectivity(fm0)
 #wham::check_estimability(fm0$obj)
-fm0_re1 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=FALSE, rand_rec = TRUE)
+fm0_re1 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=FALSE, rand_rec = TRUE, initmode=4, sigR=TRUE)
 wham::check_estimability(fm0_re1$obj)
 fm0_re2 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=TRUE, rand_rec = FALSE)
 wham::check_estimability(fm0_re2$obj)
 fm0_re3 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=TRUE, rand_rec = TRUE)
 wham::check_estimability(fm0_re3$obj)
 
+fm0_re4 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=TRUE, rand_rec = TRUE, initmode=4, 
+                   sigR=TRUE, sigSel=TRUE)
 fm0_re4 <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=TRUE, rand_rec = TRUE,
                    sigR=TRUE, sigSel=TRUE)
 wham::check_estimability(fm0_re4$obj)
