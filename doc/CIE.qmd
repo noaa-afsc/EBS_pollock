@@ -41,6 +41,10 @@ do_yearloop <- 0
 do_srrlst <- 0
 do_selsens <- 0
 do_loo <- 0 #this also turns on/off making the mmat rds
+F_t <- read_table(here::here("runs/lastyr/F40_t.rep"))
+names(F_t)
+F_t |> select(Year, F35, Fmsy) |> pivot_longer(  cols = c(F35, Fmsy), names_to = "Type", values_to = "F" ) |>
+ggplot(aes(x=Year, y=F, color=Type )) + geom_point() + geom_line() + ggthemes::theme_few() + ylim(c(0,NA))
 
 Plot_Sel <- function(sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 2024) {
   sdf <- pivot_longer(sel, names_to = "age", values_to = "sel", cols = 2:(nages + 1)) |>
@@ -996,13 +1000,14 @@ model (@fig-samts-1). The recruitment estimates are similar as well (@fig-samts-
 #| warnings: FALSE
 #| messages: FALSE
 #|
-c1$ts
+#c1$ts
 all_ts <- rbind(pm_run$ts, r1$ts, c1$ts, sam_run$ts) # ,gp_run$sel)
 (Plot_SSB(rbind(sam_run$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
 (Plot_SSB(rbind(c2$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
 (Plot_SSB(rbind(c2$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
 (Plot_Rec(rbind(sam_run$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
-(Plot_Rec(rbind(c1$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
+all_ts <- rbind(pm_run$ts, c2$ts, c1$ts ) |> filter(Year > 2000, Year<2024)
+Plot_Rec( all_ts) + ggthemes::theme_few(base_size = 12)
 # all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
 # ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
