@@ -1,16 +1,21 @@
 rm(list = ls())
+# Read in last year's estimates for comparisons----------
+library(ebswp)
+setwd(here::here("runs", "lastyr"))
+pm_admb <- read_rep("pm.rep")
+
 source(here::here("R", "utilities.R"))
 #--Get the parameters (from ADMB converged model!)------------
 parms <- read_pars(here::here("Rtmb", "pm.par"))
-dat <- build_model_inputs(here::here("Rtmb", "input.dat"), fn = here::here("Rtmb", "rpm.dat"))
+dat <- build_model_inputs(here::here("Rtmb", "input.dat"), 
+                          fn = here::here("Rtmb", "rpm.dat"))
 dat$spawnmo <- 4. # scalar, month of spawning
 dat$yrfrac <- (dat$spawnmo - 1.) / 12 # scalar, fraction of year for spawning
 
-shit <- preliminary_calcs(data = dat, parameters = parms)
-names(shit)
+prel_vars <- preliminary_calcs(data = dat, parameters = parms)
 
 # rpm <- function(parms) {
-getAll(shit$data, shit$parameters, warn = TRUE)
+getAll(prel_vars$data, prel_vars$parameters, warn = TRUE)
 # dim(dat$cov_matrix )
 ## Optional (enables extra RTMB features)
 
@@ -24,11 +29,17 @@ tmp <- compute_selectivity_fsh(
   endyr_r = endyr_r,
   nages = nages,
   coffs = sel_coffs_fsh,
-  sel_devs = sel_devs_fsh
+  sel_devs = sel_devs_fsh,
+  yrs_ch_fsh=1965:2023
 )
 log_sel_fsh <- tmp$log_sel
 avgsel_fsh <- tmp$avgsel
 sel_fsh <- exp(log_sel_fsh)
+rowMeans(sel_fsh)
+rowMeans(pm_admb$sel_fsh)
+matplot(sel_fsh-pm_admb$sel_fsh, type="b")
+matplot(sel_fsh, type="b")
+matplot(pm_admb$sel_fsh, type="b")
 # compute_selectivity_ind <- function(stsel, slp, a50, se, ae, age_vector, endyr_r)
 # sel_slp_bts_dev
 # sel_a50_bts_dev
@@ -149,7 +160,7 @@ names(pred_rec) <- years
 
 # Initial numbers at age
 log_initage <- log_avginit + log_initdevs
-log_initage
+# log_initage
 natage[as.character(styr), 2:nages] <- exp(log_initage) # Eq. 1
 # Loop over years
 # for (i in styr:(endyr_r - 1)) {
@@ -172,7 +183,7 @@ for (i in 1:(nyrs - 1)) {
 natage[yr1, 1] <- exp(log_avgrec + log_rec_devs[i+1]) # Eq. 1
 # 
 # natage[50:61,1]
-# pm1$N[50:61,1]
+# pm_admb$N[50:61,1]
 
 # Convert complete ADMB expected values calculation to R
 #--Catch at age and other predicitons-------
@@ -324,10 +335,6 @@ for (i in 1:n_ats) {
 #     et_ats[i] <- sum((ntmp * exp(log_sel_ats[iyr, ]))[mina_ats:nages]) * q_ats
 #   }
 # }
-# Read in last year's estimates for comparisons----------
-library(ebswp)
-setwd(here::here("runs", "lastyr"))
-pm1 <- read_rep("pm.rep")
 
 
 

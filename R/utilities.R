@@ -1,5 +1,3 @@
-
-
 build_model_inputs <- function(filepath, fn=here::here("Rtmb","rpm.dat")) {
 
   # Utilities to read .dat-style content
@@ -313,7 +311,7 @@ read_data <- function(file) {
 # data <- read_data(file_path)
 
 # compute_fsh_selectivity <- function(nsel, stsel, endyr_r, nages, avgsel, coffs, sel_devs, nch_fsh, yrs_ch_fsh) {
-compute_selectivity_fsh <- function(nsel, stsel, endyr_r, nages, coffs, sel_devs) {
+compute_selectivity_fsh <- function(nsel, stsel, endyr_r, nages, coffs, sel_devs, yrs_ch_fsh) {
   # nsel: number of selectivity ages
   # stsel: starting year (integer)
   # endyr_r: ending year (integer)
@@ -340,15 +338,15 @@ compute_selectivity_fsh <- function(nsel, stsel, endyr_r, nages, coffs, sel_devs
   for (i in 1:(nyrs-1)) { # i is index for year, not actual year
     year <- stsel + i - 1
      if (ii <= nch_fsh) {
-      # if (year == yrs_ch_fsh[ii]) {
+       if (year == yrs_ch_fsh[ii]) {
         # Apply deviation
         log_sel[i+1, 1:nsel] <- log_sel[i, 1:nsel] + sel_devs[ii,]
         log_sel[i+1, (nsel+1):nages] <- log_sel[i+1, nsel]
-        print(log_sel[i+1,])
+        #print(log_sel[i+1,])
         ii <- ii + 1
-      # } else {
-        # log_sel[i+1, ] <- log_sel[i, ]
-      # }
+       } else {
+         log_sel[i+1, ] <- log_sel[i, ]
+       }
      } else {
        log_sel[i+1, ] <- log_sel[i, ]
      }
