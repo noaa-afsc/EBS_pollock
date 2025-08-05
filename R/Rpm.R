@@ -1,4 +1,5 @@
 rm(list = ls())
+library(RTMB)
 # Read in last year's estimates for comparisons----------
 library(ebswp)
 setwd(here::here("runs", "lastyr"))
@@ -354,3 +355,4 @@ for (i in 1:n_ats) {
 # ## Return
 # nll
 # # }
+
