@@ -25,3 +25,7 @@ read_data <- function(file) {
   
   return(result)
 }
+# Example usage:
+# file_path <- "path/to/your/file.dat" 
+# data <- read_data(file_path)
+

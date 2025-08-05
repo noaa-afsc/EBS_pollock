@@ -1,4 +1,12 @@
-in1 <-  build_model_inputs(here::here("Rtmb","input.dat")) 
+rm(list=ls())
+source(here::here("R","utilities.R"))
+#--Get the parameters (from ADMB converged model!)------------
+parms <- read_pars(here::here("Rtmb", "pm.par"))
+
+#--Get the data------------
+
+dat <-  build_model_inputs(here::here("Rtmb","input.dat")) 
+
 names(in1$constants)
 in1 <- c(in1, in1$constants)
 in1$constants <- NULL
