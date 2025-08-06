@@ -12,9 +12,11 @@ dat <- build_model_inputs(here::here("Rtmb", "input.dat"),
                           fn = here::here("Rtmb", "rpm.dat"))
 dat$spawnmo <- 4. # scalar, month of spawning
 dat$yrfrac <- (dat$spawnmo - 1.) / 12 # scalar, fraction of year for spawning
-
+dat$yrfrac <- (dat$spawnmo - 1.) / 12 # scalar, fraction of year for spawning
+dat$inv_bts_cov <- solve(dat$cov_matrix)  # inverse covariance matrix
+dat$obs_cpue_var <- dat$obs_cpue_std^2 # observation variance for CPUE
 prel_vars <- preliminary_calcs(data = dat, parameters = parms)
-
+dat$obs_avo_var <- dat$ob_avo_std^2 # observation variance for AVO
 # rpm <- function(parms) {
 getAll(prel_vars$data, prel_vars$parameters, warn = TRUE)
 # dim(dat$cov_matrix )
@@ -355,4 +357,12 @@ for (i in 1:n_ats) {
 # ## Return
 # nll
 # # }
+
+# dat$ob_avo
+obs_avo_var <- ob_avo_std
+BTS_likelihood()
+ATS_likelihood()
+CPUE_likelihood()
+AVO_likelihood()
+Survey_likelihood()
 
