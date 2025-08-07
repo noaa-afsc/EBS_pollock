@@ -380,35 +380,86 @@ compute_selectivity_ind <- function(stsel, slp, a50, se, ae, age_vector, endyr_r
   return(log_sel)
 }
 
-# stsel=1994
-compute_selectivity_ats_devs <- function(nsel, stsel, endyr_r, coffs, sel_devs) {
-  nyrs <- endyr_r - stsel + 1
-  log_sel <- matrix(0, nrow = nyrs, ncol = nages)
-  rownames(log_sel) <- as.character(stsel:endyr_r)
+# # stsel=1994
+# compute_selectivity_ats_devs <- function(nsel, stsel, endyr_r, coffs, sel_devs) {
+#   nyrs <- endyr_r - stsel + 1
+#   log_sel <- matrix(0, nrow = nyrs, ncol = nages)
+#   rownames(log_sel) <- as.character(stsel:endyr_r)
+#   dim_sel_ats <- dim(sel_devs)[1]
+#   # 1. Compute avgsel (on log scale)
+#   avgsel <- log(mean(exp(coffs)))
+#   # 2. Set selectivity in first year
+#   log_sel[1, 2:nsel] <- coffs
+#   log_sel[1, (nsel + 1):nages] <- coffs[nsel - 1]
+#   # print(log_sel)
+#   # 3. Mean-center on arithmetic scale
+#   log_sel[1, ] <- log_sel[1, ] - log(mean(exp(log_sel[1, ])))
+#   ii <- 1
+#   yrs_ch_ats <- 1995:2024
+#   for (i in 2:nyrs) {
+#     year <- stsel + i - 1
+#     prev <- log_sel[i - 1, ]
+#     if (year == yrs_ch_ats[ii]) {
+#       # Apply deviations to selectivity coefficients
+#       prev[2:nsel] <- prev[2:nsel] + sel_devs[ii, ]
+#       prev[(nsel + 1):nages] <- prev[nsel]
+#       if (ii <= dim_sel_ats){
+#         ii <- ii + 1
+#       }
+#       # print(prev)
+#     }else{
+#       
+#     }
+#     
+#     # Assign and center
+#     log_sel[i, ] <- prev
+#     log_sel[i, ] <- log_sel[i, ] - log(mean(exp(log_sel[i, ])))
+#   }
+#   return(log_sel)
+# }
+
+compute_selectivity_ats_devs <- function(nsel, stsel, coffs, sel_devs,
+                                         mina_ats, yrs_ch_ats ) {
   dim_sel_ats <- dim(sel_devs)[1]
-  # 1. Compute avgsel (on log scale)
+  # Initialize log selectivity matrix: years x ages
+  log_sel <- matrix(0, nrow = endyr_r - stsel + 1, ncol = nages,
+                    dimnames = list(stsel:endyr_r, 1:nages))
+  
+  # Calculate average selectivity from coffs
   avgsel <- log(mean(exp(coffs)))
-  # 2. Set selectivity in first year
-  log_sel[1, 2:nsel] <- coffs
-  log_sel[1, (nsel + 1):nages] <- coffs[nsel - 1]
-  # print(log_sel)
-  # 3. Mean-center on arithmetic scale
-  log_sel[1, ] <- log_sel[1, ] - log(mean(exp(log_sel[1, ])))
+  
+  # Insert baseline selectivity for first year (stsel)
+  log_sel[as.character(stsel), mina_ats:nsel] <- coffs
+  log_sel[as.character(stsel), (nsel + 1):nages] <- log_sel[as.character(stsel), nsel] #<- coffs
+  
+  # Normalize selectivity for stsel
+  log_sel[as.character(stsel), ] <- log_sel[as.character(stsel), ] -
+    log(mean(exp(log_sel[as.character(stsel), ])))
+  
+  # Apply year-specific deviations
   ii <- 1
-  for (i in 2:nyrs) {
-    year <- stsel + i - 1
-    prev <- log_sel[i - 1, ]
-    if (ii <= dim_sel_ats) {
-      # Apply deviations to selectivity coefficients
-      prev[2:nsel] <- prev[2:nsel] + sel_devs[ii, ]
-      prev[(nsel + 1):nages] <- prev[nsel]
-      ii <- ii + 1
-      # print(prev)
+  yr<- stsel+1
+  for (yr in (stsel + 1):endyr_r) {
+    ychar <- as.character(yr)
+    yprev <- as.character(yr - 1)
+    
+    if (ii <= length(yrs_ch_ats) && yr == yrs_ch_ats[ii]) {
+      # Apply deviation to first nsel ages
+      log_sel[ychar, mina_ats:nsel] <- log_sel[yprev, mina_ats:nsel] + sel_devs[ii, ]
+      # Extend last sel value to older ages
+      log_sel[ychar, (nsel + 1):nages] <- log_sel[ychar, nsel]
+      
+      if (ii < dim_sel_ats)
+        ii <- ii + 1
+    } else {
+      # Carry forward previous year's selectivity
+      log_sel[ychar, ] <- log_sel[yprev, ]
     }
-    # Assign and center
-    log_sel[i, ] <- prev
-    log_sel[i, ] <- log_sel[i, ] - log(mean(exp(log_sel[i, ])))
+    
+    # Normalize to ensure mean exp(log_sel) = 1
+    log_sel[ychar, ] <- log_sel[ychar, ] - log(mean(exp(log_sel[ychar, ])))
   }
+  
   return(log_sel)
 }
 
@@ -495,6 +546,55 @@ Surv_Likelihood <- function() {
 
 # Helper function for generalized gamma distribution (if not available)
 #--Utilities to read parameters from .dat files-----------
+
+#' Compare RTMB and ADMB model outputs
+#'
+#' @param rtmb list of model outputs from RTMB
+#' @param admb list of model outputs from ADMB
+#' @param tolerance numeric tolerance used in equality checks
+#' @return data.frame summarizing length, mean difference, SD of differences, and correlation
+compare_outputs <- function(rtmb, admb, tolerance = 1e-6) {
+  shared_vars <- intersect(names(rtmb), names(admb))
+  
+  comparisons <- lapply(shared_vars, function(var) {
+    rt <- rtmb[[var]]
+    ad <- admb[[var]]
+    
+    rt_vec <- as.vector(rt)
+    ad_vec <- as.vector(ad)
+    
+    same_length <- length(rt_vec) == length(ad_vec)
+    
+    if (!same_length) {
+      return(data.frame(
+        variable = var,
+        equal = FALSE,
+        length_rtmb = length(rt_vec),
+        length_admb = length(ad_vec),
+        mean_diff = NA,
+        sd_diff = NA,
+        cor = NA
+      ))
+    }
+    
+    equal <- isTRUE(all.equal(rt_vec, ad_vec, tolerance = tolerance))
+    diff <- rt_vec - ad_vec
+    cor_val <- suppressWarnings(cor(rt_vec, ad_vec, use = "complete.obs"))
+    
+    data.frame(
+      variable = var,
+      equal = equal,
+      length_rtmb = length(rt_vec),
+      length_admb = length(ad_vec),
+      mean_diff = mean(diff, na.rm = TRUE),
+      sd_diff = sd(diff, na.rm = TRUE),
+      cor = cor_val
+    )
+  })
+  
+  do.call(rbind, comparisons)
+}
+
 read_pars <- function(file) {
   lines <- readLines(file)
   result <- list()

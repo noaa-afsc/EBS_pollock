@@ -3,7 +3,7 @@ library(RTMB)
 # Read in last year's estimates for comparisons----------
 library(ebswp)
 setwd(here::here("runs", "lastyr"))
-pm_admb <- read_rep("pm.rep")
+pm<- read_rep("pm.rep")
 
 source(here::here("R", "utilities.R"))
 #--Get the parameters (from ADMB converged model!)------------
@@ -39,10 +39,10 @@ log_sel_fsh <- tmp$log_sel
 avgsel_fsh <- tmp$avgsel
 sel_fsh <- exp(log_sel_fsh)
 rowMeans(sel_fsh)
-rowMeans(pm_admb$sel_fsh)
-matplot(sel_fsh-pm_admb$sel_fsh, type="b")
+rowMeans(pm$sel_fsh)
+matplot(sel_fsh-pm$sel_fsh, type="b")
 matplot(sel_fsh, type="b")
-matplot(pm_admb$sel_fsh, type="b")
+matplot(pm$sel_fsh, type="b")
 # compute_selectivity_ind <- function(stsel, slp, a50, se, ae, age_vector, endyr_r)
 # sel_slp_bts_dev
 # sel_a50_bts_dev
@@ -58,13 +58,17 @@ log_sel_bts <- compute_selectivity_ind(
 # dim(log_sel_bts)
 # matplot(exp(t(log_sel_bts)), type="l")
 
+# compute_selectivity_ats_devs <- function(nsel, stsel, coffs, sel_devs,
+                                         # mina_ats, yrs_ch_ats ) {
+yrs_ch_ats <- 1995:2024
 log_sel_ats <- compute_selectivity_ats_devs(
   nsel = n_selages_ats,
   stsel = styr_ats,
-  endyr_r = endyr_r,
   coffs = sel_coffs_ats,
-  sel_devs = sel_devs_ats
+  sel_devs = sel_devs_ats,
+  mina_ats, yrs_ch_ats
 )
+log_sel_ats[,1]
 
 # matplot(exp(t(log_sel_ats)), type="l")
 
@@ -186,7 +190,7 @@ for (i in 1:(nyrs - 1)) {
 natage[yr1, 1] <- exp(log_avgrec + log_rec_devs[i+1]) # Eq. 1
 # 
 # natage[50:61,1]
-# pm_admb$N[50:61,1]
+# pm$N[50:61,1]
 
 # Convert complete ADMB expected values calculation to R
 #--Catch at age and other predicitons-------
@@ -298,13 +302,19 @@ for (i in 1:n_bts) {
 
 # Hydro survey (ATS) expected values
 q_ats <- exp(log_q_ats)
+log_q_ats
 
 # Loop for age composition data
-i <- n_ats
+i <- 1
 for (i in 1:n_ats) {
-  iyr <- yrs_ats_data[i] - styr
-  ntmp <- natage[iyr, ] * (S[iyr, ]^0.5)
-
+  iyr <- yrs_ats_data[i] - styr +1
+  ntmp <- (natage[iyr, ] * (S[iyr, ]^0.5))
+  # ntmp
+  # natage[iyr, ] / pm$N[iyr,]
+  # S[iyr, ] / pm$S[iyr,] 
+  # (natage[iyr, ] * (S[iyr, ]^0.5) )/ 
+  #   (pm$N[iyr,]*(pm$S[iyr,]^0.5))
+   # ntmp
   if (use_age_err) {
     # Eq. 15 - with age error
     eac_ats[i, ] <- (age_err[err_ats[i], ] %*% (ntmp * exp(log_sel_ats[iyr, ]))) * q_ats
@@ -312,12 +322,24 @@ for (i in 1:n_ats) {
     # Without age error
     eac_ats[i, ] <- ntmp * exp(log_sel_ats[i, ]) * q_ats
   }
+  #ntmp * exp(log_sel_ats[i, ]) * q_ats
+  #(pm$N[iyr,]*(pm$S[iyr,]^0.5)) * pm$sel_ats[iyr, ] * q_ats
 
+  # i; iyr
+  # matplot(pm$sel_ats[31:61,2:15], type="b")
+  # matplot(exp(log_sel_ats[,2:15]),type="b")
+  # matplot(exp(log_sel_ats[,2:15])/pm$sel_ats[31:61,2:15], type="b")
+  # rowMeans(exp(log_sel_ats[,1:15]))
+  # rowMeans(pm$sel_ats[31:61,1:15])
+  # (exp(log_sel_ats[,1]))
+  # (pm$sel_ats[31:61,1])
+  # 
   # Age-1 expected values (independent of selectivity)
   ea1_ats[i] <- ntmp[1]
 
   # Biomass expected values
-  eb_ats <- rowSums(wt_ats[, mina_ats:nages] * eac_ats[, mina_ats:nages])
+  eb_ats[i] <- sum(wt_ats[i, mina_ats:nages] * eac_ats[i, mina_ats:nages])
+  #pm$eb_ats
 
   # Total expected numbers
   et_ats[i] <- sum(eac_ats[i, mina_ats:nages])
@@ -325,7 +347,7 @@ for (i in 1:n_ats) {
   # Normalize age composition (only for the relevant age range)
   eac_ats[i, mina_ats:nages] <- eac_ats[i, mina_ats:nages] / et_ats[i]
 }
-# eac_ats
+#dim(wt_ats)
 
 # Handle cases where et_ats is greater than age composition data
 # # (for surveys with total abundance but no age composition)
@@ -360,9 +382,7 @@ for (i in 1:n_ats) {
 
 # dat$ob_avo
 obs_avo_var <- ob_avo_std
-BTS_likelihood()
-ATS_likelihood()
-CPUE_likelihood()
-AVO_likelihood()
-Survey_likelihood()
+
+Surv_Likelihood()
+
 
