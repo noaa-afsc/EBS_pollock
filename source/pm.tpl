@@ -1829,7 +1829,7 @@ FUNCTION GetNumbersAtAge
         pred_rec(i) = natage(endyr_r,1); 
 				if (do_check) cout << i <<" "<< pred_rec(i) <<" "<<SSB(i)<<" ";
       }  
-			if (do_check) exit(1);
+			// if (do_check) exit(1);
 	  }
 	  else
 	  {
@@ -3682,7 +3682,12 @@ FUNCTION Selectivity_Likelihood
   //--If time changes turned on then do 2nd differencing 
   //  for curvature penalty on subsequent years, otherwise only first year matters
   sel_like_dev.initialize();  // Initialize penalty vector to zeros
-  
+  dvariable p1; 
+  dvariable p2; 
+  dvariable p3; 
+	p1 = 0;
+	p2 = 0;
+	p3 = 0;
   if (active(sel_coffs_fsh))  // Check if fishery selectivity coefficients are being estimated
   {
     if (active(sel_devs_fsh))  // Check if time-varying selectivity deviations are being estimated
@@ -3690,29 +3695,45 @@ FUNCTION Selectivity_Likelihood
       // Penalty term 1: Overall penalty on the magnitude of selectivity deviations
       // This improves estimability by shrinking deviations toward zero when not informed by data
       // Scaled by ctrl_flag(10) parameter and divided by number of fishery groups
-      sel_like_dev(1) += ctrl_flag(10)/group_num_fsh * norm2(sel_devs_fsh);  // norm2() calculates sum of squared values
+      p1 += ctrl_flag(10)/group_num_fsh * norm2(sel_devs_fsh);  // norm2() calculates sum of squared values
       
       // Penalty term 2: "Smoothness" penalty on the base selectivity curve (in the start year)
       // Uses second differences (approximating second derivatives) to penalize curves with high curvature
       // This encourages smoother selectivity patterns
       // Scaled by ctrl_flag(11) and divided by number of change years to maintain consistent penalty weight
-      sel_like_dev(1) += ctrl_flag(11)/nch_fsh * norm2(first_difference(first_difference(log_sel_fsh(styr))));
+      p2 += ctrl_flag(11)/nch_fsh * norm2(first_difference(first_difference(log_sel_fsh(styr))));
       
       // Loop through each selectivity change year to add penalties
       for (i=1; i<=nch_fsh; i++)
       {
         // Penalty term 3: "Smoothness" penalty for each change year's selectivity curve
         // Again uses second differences to penalize high curvature
-        sel_like_dev(1) += ctrl_flag(11)/nch_fsh * norm2(first_difference(first_difference(log_sel_fsh(yrs_ch_fsh(i)))));
+        p2 += ctrl_flag(11)/nch_fsh * norm2(first_difference(first_difference(log_sel_fsh(yrs_ch_fsh(i)))));
         
         // Penalty term 4: Year-to-year stability penalty
         // Penalizes large changes between a change year and the preceding year
         // Only applies if we're not in the start year (which has no preceding year)
         // This is a "random walk" penalty weighted by a variance parameter (sel_ch_sig_fsh)
         if (yrs_ch_fsh(i) != styr)
-          sel_like_dev(1) += norm2(log_sel_fsh(yrs_ch_fsh(i)-1) - log_sel_fsh(yrs_ch_fsh(i))) / 
-                            (2 * sel_ch_sig_fsh(i) * sel_ch_sig_fsh(i));  // Division by 2*sigma² is standard for normal likelihood
+					// Division by 2*sigma² is standard for normal likelihood
+          p3 += norm2(log_sel_fsh(yrs_ch_fsh(i)-1) - log_sel_fsh(yrs_ch_fsh(i))) / (2 * sel_ch_sig_fsh(i) * sel_ch_sig_fsh(i));  
+			    if (do_check) {
+									cout 
+									<< p3<<" "<<
+									   yrs_ch_fsh(i) <<" "<<
+									   norm2(log_sel_fsh(yrs_ch_fsh(i)-1) - log_sel_fsh(yrs_ch_fsh(i))) / (2 * sel_ch_sig_fsh(i) * sel_ch_sig_fsh(i))  <<" "<<
+									   log_sel_fsh(yrs_ch_fsh(i)-1)<<" "<<
+										 sel_ch_sig_fsh(i)           <<" "<<
+										 // (2 * sel_ch_sig_fsh(i) * sel_ch_sig_fsh(i))  <<" "<<
+									   endl;
+					}
       }
+			if (do_check) {
+							cout<<"p1= "<<p1<<endl;
+							cout<< "p2= "<<p2<<endl;
+							cout<< "p3= "<<p3<<endl;
+			}
+			sel_like_dev(1) += p1+p2+p3;
     }
     else  // If no time-varying deviations, only apply smoothness penalty to the base selectivity
     {
@@ -3741,14 +3762,16 @@ FUNCTION Selectivity_Likelihood
     else
       sel_like_dev(2)+=ctrl_flag(21)*norm2(first_difference( first_difference(log_sel_bts(styr))));
   }
+
   if (active(sel_a50_bts_dev))
   {
-    // sel_like_dev(2) += 12.5*norm2(first_difference(sel_a50_bts_dev)); 
-    // sel_like_dev(2) += 12.5*norm2(first_difference(sel_slp_bts_dev)); 
+	  if (do_check && last_phase() && !sd_phase()) write_log << 0 << " "<<sel_like_dev(2) <<" "<<endl;
+    dvar_matrix lnseltmp = trans(log_sel_bts);
     if(ctrl_flag(19)>0.){
-      dvar_matrix lnseltmp = trans(log_sel_bts);
-      for (j=q_amin;j<q_amax;j++)
+      for (j=q_amin;j<q_amax;j++) {
         sel_like_dev(2) += ctrl_flag(26)*norm2(first_difference(lnseltmp(j))); 
+				// if (do_check && last_phase() && !sd_phase()) write_log << j << " "<<sel_like_dev(2) <<" "<<endl;
+				}
     } else {
       sel_like_dev(2) += 50.*norm2(first_difference(sel_a50_bts_dev)); 
       sel_like_dev(2) += 50.*norm2(first_difference(sel_slp_bts_dev)); 
@@ -3757,6 +3780,10 @@ FUNCTION Selectivity_Likelihood
     if (active(sel_age_one_bts_dev))
       sel_like_dev(2) += 8.*norm2(first_difference(sel_age_one_bts_dev)); // 25% CV on this
       // sel_like_dev(2) += 3.125*norm2(first_difference(sel_age_one_bts_dev)); // 40% CV on this
+	// if (do_check && last_phase() && !sd_phase()) write_log << 
+        // ctrl_flag(26)<<" "<<8.*norm2(first_difference(sel_age_one_bts_dev)) <<" "<<endl<<
+				// lnseltmp(3) << endl<< 
+        // ctrl_flag(26)*norm2(first_difference(lnseltmp(3)))<<endl;exit(1); 
   }
  
   //////////////////////////////////////////////////////////////////////////////////
@@ -3764,6 +3791,9 @@ FUNCTION Selectivity_Likelihood
   like_tmp.initialize();
 
   like_tmp(1)  = ctrl_flag(22) * norm2(first_difference( first_difference(log_sel_ats(styr))));
+        // ctrl_flag(26)<<" "<<8.*norm2(first_difference(sel_age_one_bts_dev)) <<" "<<endl<<
+				// lnseltmp(3) << endl<< 
+        // ctrl_flag(26)*norm2(first_difference(lnseltmp(3)))<<endl;exit(1); 
   if (active(sel_devs_ats))
   {
     for (i=1;i<=nch_ats;i++)
@@ -3771,8 +3801,13 @@ FUNCTION Selectivity_Likelihood
       like_tmp(1) += ctrl_flag(22) * norm2(first_difference( first_difference(log_sel_ats(yrs_ch_ats(i)))));
       like_tmp(2) += norm2(log_sel_ats(yrs_ch_ats(i)-1) - log_sel_ats(yrs_ch_ats(i))) / 
                          (2*sel_ch_sig_ats(i) * sel_ch_sig_ats(i));
+	    if (do_check && last_phase() && !sd_phase()) 
+							write_log << ctrl_flag(22) * norm2(first_difference( first_difference(log_sel_ats(yrs_ch_ats(i)))))<<endl<<
+													 like_tmp(2)<<endl ;
     }
   }
+
+	    if (do_check && last_phase() && !sd_phase()) exit(1);
 	//COUT(like_tmp);
   sel_like_dev(3)  = sum(like_tmp);
 FUNCTION Surv_Likelihood
@@ -6710,6 +6745,12 @@ REPORT_SECTION
   cout << all_like <<endl<<"Length like: "<<len_like<<endl;;
   if (ctrl_flag(28)==0 && last_phase())
   {
+  report << "avgsel_like" << endl 
+	       << 10.*square(avgsel_fsh)+ 
+      10.*square(avgsel_bts)+ 
+      10.*square(avgsel_ats)<<endl;
+  report << "age_like_offset"<<endl;
+  report << age_like_offset<<endl;
   report << "N"<<endl;
   report << natage<<endl;
   report << "C"<<endl;

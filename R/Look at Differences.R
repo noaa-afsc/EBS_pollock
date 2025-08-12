@@ -1,42 +1,9 @@
-pm$phat_ats <- pm$phat_ats[,2:16]
-pm$sel_ats <- pm$sel_ats[31:61,]
-pm$sel_bts <- pm$sel_bts[19:61,]
-
-rtmb <- list(
-  N = natage,                               # from GetNumbersAtAge()
-  Z = Z,                                    # from Get_Mortality_Rates()
-  F = F,                                    # from Get_Mortality_Rates()
-  M = M,                                    # from Get_Mortality_Rates()
-  S = exp(-Z),                              # or from Get_Mortality_Rates()
-  C = C,  #F / Z * (1 - exp(-Z)) * natage,       # Baranov catch
-  pred_catch = pred_catch,
-  obs_catch = obs_catch,               # if available
-  SSB = SSB,                                # computed inside GetNumbersAtAge()
-  phizero = phizero,                  # from Get_Bzero()
-  Bzero = Bzero,                      # from Get_Bzero()
-  steepness = steepness,              # input parameter
-  pred_cpue=pred_cpue,
-  pred_avo=pred_avo,
-  eb_bts = eb_bts,                        # BTS biomass
-  eb_ats = eb_ats,                        # BTS biomass
-  sel_fsh = sel_fsh,                        # selectivity-at-age
-  sel_bts = exp(log_sel_bts),
-  sel_ats = exp(log_sel_ats),
-  phat_fsh = eac_fsh,
-  phat_bts = eac_bts,
-  phat_ats = eac_ats,
-  bts_like = BTS_likelihood(),
-  ats_like = ATS_likelihood(),
-  ats_age1_like = ATS_age1_likelihood(),
-  cpue_like = CPUE_likelihood(),
-  avo_like = AVO_likelihood()
-)
-
-# Example usage (assuming rtmb and admb are defined in your environment):
-rtmb <- rtmb[ sapply(rtmb, function(x) is.numeric(x) || is.matrix(x) || is.array(x)) ]
-pm <- pm[ sapply(pm, function(x) is.numeric(x) || is.matrix(x) || is.array(x)) ]
-comp <- compare_outputs(rtmb, pm)
-gt::gt(comp)
+source(here::here("R/rpm.R"))
+gt_compare_table(rtmb, pm, tolerance = 1e-2, sort_by_diff=FALSE)
+sel_like_dev/pm$sel_like_dev
+sel_like_dev;pm$sel_like_dev
+tot_like;pm$tot_like
+pm$rec_like
 
 names(pm)
 #--Need to fix admb matrices that have year as a column
@@ -66,7 +33,7 @@ plot(pm$eb_ats)
 dim(pm$sel_ats)
 dim(log_sel_ats)
 dim(pm$sel_ats[(1994:endyr-1)-1963,])
-matplot(exp(log_sel_ats[,2:10])/pm$sel_ats[(1994:endyr)-1963,2:10],type='b')
+matplot(exp(log_sel_ats[,1:15])/pm$sel_ats[,1:15],type='b')
 matplot(exp(log_sel_ats[,1:10]), type='b')
 rowMeans(exp(log_sel_ats[,1:15]))
 rowMeans(pm$sel_ats[,1:15])

@@ -1,0 +1,59 @@
+---
+title: "EBS R Dag"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+Great! Here’s how to render the EBS pollock recruitment DAG in Quarto, including both a code block for R (using ggdag) and a diagram label. This is useful for inclusion in a stock assessment document, paper, or ecosystem modeling report.
+
+⸻
+
+✅ Quarto-Formatted DAG for EBS Pollock Recruitment
+
+## Figure: Causal DAG for EBS Pollock Recruitment
+
+This DAG shows hypothesized causal drivers of Eastern Bering Sea walleye pollock recruitment. Environmental conditions, spawning biomass, and predation all influence recruitment through various direct and indirect pathways.
+
+```{r}
+library(ggdag)
+library(ggplot2)
+library(dagitty)
+
+pollock_dag <- dagitty("
+dag {
+  SeaIce -> BottomTemp
+  BottomTemp -> Zooplankton
+  Zooplankton -> Recruitment
+  BottomTemp -> Recruitment
+  SpawningBiomass -> Recruitment
+  SpawningBiomass -> Cannibalism
+  Cannibalism -> Recruitment
+  FishingMortality -> SpawningBiomass
+  CodAbundance -> Recruitment
+}
+")
+
+# tidy and plot with ggdag
+ggdag(pollock_dag, layout = "circle") +
+  ggplot2::theme_minimal() +
+  labs(title = "Causal DAG for EBS Pollock Recruitment")
+
+---
+
+### 🔍 **Node Descriptions (optional table)**
+
+| Node             | Description                                             |
+|------------------|---------------------------------------------------------|
+| `Recruitment`    | Age-0 or age-1 pollock abundance                        |
+| `SpawningBiomass`| Adult biomass contributing to reproduction              |
+| `FishingMortality`| Exploitation rate affecting spawning biomass           |
+| `Cannibalism`    | Predation by older pollock on juveniles                |
+| `CodAbundance`   | Alternate predator on early life stages                |
+| `BottomTemp`     | Temperature at spawning and nursery depths              |
+| `SeaIce`         | Spring ice extent/retreat affecting temp/timing         |
+| `Zooplankton`    | Larval food availability and match-mismatch             |
+
+---
+
+Would you like to include prior knowledge or uncertainty in the arrows (e.g., confidence or weights)? Or would you prefer a more quantitative causal model next (e.g., in `brms` or TMB)?

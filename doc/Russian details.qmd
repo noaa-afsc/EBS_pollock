@@ -1,0 +1,70 @@
+---
+title: "Notes on the pollock fishery in the western Bering Sea"
+subtitle: "As of June 8, 2025"
+author: |
+  TINRO, Laboratory of Pollock and Herring  
+  Based on TINRO Observer Reports
+format: html
+date: 2025-06-08
+---
+
+## Bering Sea – Western Bering Sea Zone (Navarin Area)
+
+To monitor the pollock and herring fisheries in the Bering Sea, two TINRO observers have currently been deployed aboard vessels of the **Pollock Catchers Association (ADM)**.
+
+### Pollock
+
+In 2025, the authorized period for the **B-season targeted pollock fishery** began on **June 1**. According to **Vessel Satellite Data (VSD)** and the **Coordination Group leadership**, by **June 8**, the **cumulative catch** in the **Western Bering Sea Zone** amounted to:
+
+- **47.3 thousand tonnes**,  
+- representing **6.8%** of the Total Allowable Catch (TAC).  
+
+For comparison, during the same period last year, the cumulative catch was:
+
+- **67.7 thousand tonnes**,  
+- representing **9.7%** of the TAC.
+
+#### Fleet Deployment and Fishing Effort
+
+Between **June 1 and 8**, the fleet operated primarily in the **southeastern part** of the Western Bering Sea Zone—specifically within the **Navarin Canyon sector** and extending toward the **Russia–U.S. boundary line**.
+
+- **25 to 33 vessels** were engaged in the fishery:
+  - **19–25 large-capacity trawlers**,  
+  - **6–8 medium-capacity vessels**.
+
+Average fishing productivity by vessel type:
+
+- **62.5 t/day** for large-capacity vessels,  
+- **25.6 t/day** for medium-capacity vessels.
+
+In addition, **12–21 vessels** equipped with **Danish seines** and **longlines** operated in the area, with average catch rates of:
+
+- **1.1 t/day**.
+
+Fishing operations took place over depth ranges of:
+
+- **10 to 300 meters**.
+
+#### Catch Summary
+
+- **Average daily catch** during the week: **1.7 thousand tonnes**.  
+  - (compared to **2.3 thousand tonnes** in the same period of 2024)  
+- **Total catch for the period (June 1–8)**:  
+  - **13.7 thousand tonnes** in 2025  
+  - **19.7 thousand tonnes** in 2024
+
+::: {.callout-note appearance="minimal"}
+**Figure 1.** Distribution and catch of the pollock fishing fleet in the Navarin area, *June 1–8, 2025*.
+:::
+
+*(Insert spatial distribution map or fleet effort heatmap here if available)*
+
+---
+
+### Herring
+
+As of **June 8, 2025**, no commercial vessels had commenced harvest of **Pacific herring** in the Western Bering Sea Zone.
+
+- **Cumulative catch**: **0 tonnes**.
+
+---

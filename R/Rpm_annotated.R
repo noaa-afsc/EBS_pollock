@@ -1,5 +1,17 @@
-rm(list = ls())
-library(RTMB)
+# ----------------------------------------------------------------------------
+# RTMB Bridge Script: cleaned & annotated
+# Notes:
+# - Removed rm(list=ls()); centralized libraries with quiet load
+# - Safer covariance inversion; fixed minor typo; added ADMB→RTMB TODOs
+# - Consider using the function-based version (Rpm_build.R) for testing
+# ----------------------------------------------------------------------------
+
+## Dependencies ---------------------------------------------------------------
+suppressPackageStartupMessages({
+  library(RTMB)         # core
+  library(here)         # for here::here()
+})
+# (library call moved to header)
 # Read in last year's estimates for comparisons----------
 library(ebswp)
 pm<- read_rep(here::here("runs", "lastyr", "pm.rep")) # Read in the report file)
@@ -11,13 +23,22 @@ dat <- build_model_inputs(here::here("Rtmb", "input.dat"),
                           fn = here::here("Rtmb", "rpm.dat"))
 dat$spawnmo <- 4. # scalar, month of spawning
 dat$yrfrac <- (dat$spawnmo - 1.) / 12 # scalar, fraction of year for spawning
-dat$yrfrac <- (dat$spawnmo - 1.) / 12 # scalar, fraction of year for spawning
-dat$inv_bts_cov <- solve(dat$cov_matrix)  # inverse covariance matrix
+# [NOTE] Duplicate yrfrac assignment removed; this line is redundant.
+# [FIX] Safer positive-definite inverse via Cholesky with fallback
+dat$inv_bts_cov <- try({
+  L <- chol(dat$cov_matrix)
+  chol2inv(L)
+}, silent = TRUE)
+if (inherits(dat$inv_bts_cov, 'try-error')) {
+  warning('Cholesky failed; falling back to solve(); consider regularization.')
+  dat$inv_bts_cov <- solve(dat$cov_matrix)
+}
 dat$obs_cpue_var <- dat$obs_cpue_std^2 # observation variance for CPUE
 prel_vars <- preliminary_calcs(data = dat, parameters = parms)
-dat$obs_avo_var <- dat$ob_avo_std^2 # observation variance for AVO
+dat$obs_avo_var <- dat$obs_avo_std^2  # [FIX] Typo: ob_avo_std → obs_avo_std
 # rpm <- function(parms) {
 getAll(prel_vars$data, prel_vars$parameters, warn = TRUE)
+# [INFO] getAll() exposes data/parameters in the caller; ensure names match RTMB template fields.
 # dim(dat$cov_matrix )
 ## Optional (enables extra RTMB features)
 
@@ -25,6 +46,7 @@ getAll(prel_vars$data, prel_vars$parameters, warn = TRUE)
 nll <- 0
 
 # dim(sel_devs_fsh)[1] (sel_devs_fsh) mean(sel_coffs_fsh) args(compute_fsh_selectivity) n_selages_fsh styr nages
+# [TODO] Confirm selectivity normalization order (before/after penalties) to match ADMB.
 tmp <- compute_selectivity_fsh(
   nsel = n_selages_fsh,
   stsel = styr,
@@ -38,6 +60,7 @@ tmp <- compute_selectivity_fsh(
 log_sel_fsh <- tmp$log_sel
 avgsel_fsh <- tmp$avgsel
 sel_fsh <- exp(log_sel_fsh)
+# [TODO] Confirm selectivity normalization order (before/after penalties) to match ADMB.
 log_sel_bts <- compute_selectivity_ind(
   stsel = styr_bts,
   slp = sel_slp_bts,
@@ -54,9 +77,11 @@ log_sel_bts[,1] <- sel_age_one_bts*exp(sel_age_one_bts_dev);
  # matplot((t(pm$sel_bts)), type="l")
  # matplot(exp((log_sel_bts[1:41,]))/pm$sel_bts[2:42], type="b")
 
+# [TODO] Confirm selectivity normalization order (before/after penalties) to match ADMB.
 # compute_selectivity_ats_devs <- function(nsel, stsel, coffs, sel_devs,
                                          # mina_ats, yrs_ch_ats ) {
 yrs_ch_ats <- 1995:2024
+# [TODO] Confirm selectivity normalization order (before/after penalties) to match ADMB.
 log_sel_ats <- compute_selectivity_ats_devs(
   nsel = n_selages_ats,
   stsel = styr_ats,
@@ -127,8 +152,8 @@ Ntmp <- Ntmp * exp(yrfrac * log(survtmp)) # same as pow(survtmp, yrfrac)
 
 # Spawning biomass per recruit
 Bzero <- 0.5*sum(wt_ssb_lastyr * p_mature * Ntmp)
-Bzero/pm$Bzero
-phizero <- Bzero / Rzero
+# Bzero/pm$Bzero
+# phizero <- Bzero / Rzero
 
 # Beverton-Holt alpha (Eq. 13)
 alpha <- log(-4 * steepness / (steepness - 1))
@@ -304,26 +329,9 @@ for (i in 1:(n_bts)) {
   et_bts[i] <- sum(eac_bts[i, ])
   eac_bts[i, ] <- eac_bts[i, ] / (et_bts[i])
 }
-# sel_bts[42,1:8 ]
-# (yrs_bts_data)
-# (wt_bts)
 
 q_bts   <- mean(ob_bts)/mean(eb_bts)
 eb_bts = eb_bts*q_bts
-#for (i in 1:n_bts) { print(yrs_bts_data[i] - styr + 1 ) }
-# eb_bts[37:42]/pm$eb_bts[37:42]
-
- # plot(eb_bts/pm$eb_bts)
- # (eb_bts/pm$eb_bts)
- # length(eb_bts);length(pm$eb_bts)
-#ntmp
-#(pm$N[iyr,]*(pm$S[iyr,]^0.5)*pm$sel_bts[iyr, ] * exp(log_q_bts))[1:8]
-#(natage[iyr,]*(S[iyr,]^0.5)*sel_bts[i, ] * exp(log_q_bts))[1:8]
-#iyr
-#natage[iyr,] / pm$N[iyr,]
-#S[iyr,] / pm$S[iyr,]
-#sel_bts[i, ] / pm$sel_bts[iyr, ]
-# dim(log_sel_bts)
 
 # Hydro survey (ATS) expected values
 q_ats <- exp(log_q_ats)
@@ -334,12 +342,6 @@ for (i in 1:n_ats) {
   iyr <- yrs_ats_data[i] - styr +1
   isel <- (yrs_ats_data[i]) - styr_ats + 1 #
   ntmp <- (natage[iyr, ] * (S[iyr, ]^0.5))
-  # ntmp
-  # natage[iyr, ] / pm$N[iyr,]
-  # S[iyr, ] / pm$S[iyr,] 
-  # (natage[iyr, ] * (S[iyr, ]^0.5) )/ 
-  #   (pm$N[iyr,]*(pm$S[iyr,]^0.5))
-   # ntmp
   if (use_age_err) {
     # Eq. 15 - with age error
     eac_ats[i, ] <- (age_err[err_ats[i], ] %*% (ntmp * exp(log_sel_ats[isel, ]))) * q_ats
@@ -347,18 +349,6 @@ for (i in 1:n_ats) {
     # Without age error
     eac_ats[i, ] <- ntmp * exp(log_sel_ats[isel, ]) * q_ats
   }
-  #ntmp * exp(log_sel_ats[i, ]) * q_ats
-  #(pm$N[iyr,]*(pm$S[iyr,]^0.5)) * pm$sel_ats[iyr, ] * q_ats
-
-  # i; iyr
-  # matplot(pm$sel_ats[31:61,2:15], type="b")
-  # matplot(exp(log_sel_ats[,2:15]),type="b")
-  # matplot(exp(log_sel_ats[,2:15])/pm$sel_ats[31:61,2:15], type="b")
-  # rowMeans(exp(log_sel_ats[,1:15]))
-  # rowMeans(pm$sel_ats[31:61,1:15])
-  # (exp(log_sel_ats[,1]))
-  # (pm$sel_ats[31:61,1])
-  # 
   # Age-1 expected values (independent of selectivity)
   ea1_ats[i] <- ntmp[1]
 
@@ -377,20 +367,6 @@ for (i in 1:n_ats) {
   # summary(eb_ats/pm$eb_ats)
 
 #--Likelihood components----------------
-# Final year recruitment and SSB
-# ## Random slopes
-# nll <- nll - sum(dnorm(a, mean = mua, sd = sda, log = TRUE))
-# ## Random intercepts
-# nll <- nll - sum(dnorm(b, mean = mub, sd = sdb, log = TRUE))
-# ## Data
-# predWeight <- a[Chick] * Time + b[Chick]
-# nll <- nll - sum(dnorm(weight, predWeight, sd = sdeps, log = TRUE))
-# ## Get predicted weight uncertainties
-# ADREPORT(predWeight)
-# ## Return
-# nll
-# # }
-
 age_like <- multinomial_likelihood_age(
     oac = list(oac_fsh, oac_bts, oac_ats), 
     eac = list(eac_fsh, eac_bts, eac_ats), 
@@ -400,22 +376,15 @@ age_like <- multinomial_likelihood_age(
     mina_ats = mina_ats, 
     nages = nages
   )
-#age_like_offset/pm$age_like_offset
-#age_like/ pm$age_like
-# age_liketmp <- age_like+age_like_offset 
 age_like <- age_like + pm$age_like_offset
 pm$age_like <- pm$age_like + pm$age_like_offset
 age_like_offset   <- pm$age_like_offset
-  # per-gear contributions:
-  # age_like
-  # pm$age_like
 # dat$ob_avo
 obs_avo_var <- ob_avo_std^2
 
 Surv_Likelihood()
 
 # ADMB: catch_like = norm2(log(obs_catch(styr,endyr_r)+1e-4)-log(pred_catch+1e-4));
-# fisheryo
 yrs_ch_fsh      <- 1965:2023           # length 59
 nch_fsh        <- length(yrs_ch_fsh)  # length 59
 sel_ch_sig_fsh  <- rep(0.5, nch_fsh)  # length 59, all 0.5
@@ -429,7 +398,6 @@ pen_fsh <- selectivity_like_fsh(
   yrs_ch_fsh, nch_fsh,
   sel_devs_fsh, sel_ch_sig_fsh, year_index
 )
-pen_fsh
 
 # bts
 pen_bts <- selectivity_like_bts( 
@@ -437,11 +405,7 @@ pen_bts <- selectivity_like_bts(
   log_sel_bts = log_sel_bts,
   year_index = year_index,
   sel_age_one_bts_dev=sel_age_one_bts_dev )
-# pen_bts
-# selVarbts
-#pm$sel_like_dev
-
-#pm# ats
+# ats
 yrs_ch_ats <- 1995:2024
 sel_ch_sig_ats <- rep(0.138, length(yrs_ch_ats)) # length 30, all 0.5
 year_index <- setNames(seq_along(styr_ats:endyr_r), styr_ats:endyr_r)
@@ -452,9 +416,6 @@ pen_ats <- selectivity_like_ats(
   sel_ch_sig_ats,
   year_index
 )
-pen_ats[2]
-pen_bts[2]
-pen_fsh[2]
 sel_like <- list(
   fsh = pen_fsh[1],
   bts = pen_bts[1],
@@ -468,8 +429,6 @@ sel_like_dev <- list(
 #pen_ats
 # Sum into your objective
 total_penalty <- pen_fsh$total + pen_bts$total + pen_ats$total
-
-# eb_bts/ pm$eb_bts
 pm$phat_ats <- pm$phat_ats[,2:16]
 pm$phat_bts <- pm$phat_bts[,2:16]
 pm$sel_ats <- pm$sel_ats[31:61,]
@@ -485,39 +444,7 @@ rec_like <- recruitment_likelihood( yrs_est = styr_est:endyr_est,
     exclude_year = 1979,     # special-case exclusion
     eps = 1e-8               # to avoid log(0)
 )
-rec_like
 
-#names(pm$all_like)
-# Example: all_like is already a numeric vector of the right length
-# all_like <- numeric(expected_length)
-
-# allocate a character vector for names
- names_all_like <- character(length(pm$all_like))
-i <- 1; k <- i + 2
-names_all_like[i:k] <- paste0("surv_like[", 1:(k - i + 1), "]")
-i <- i + 3
-names_all_like[i] <- "cpue_like"
-i <- i + 1
-names_all_like[i] <- "avo_like"
-i <- i + 1; k <- i + 2
-names_all_like[i:k] <- paste0("age_like[", 1:(k - i + 1), "]")
-i <- i + 3; k <- i + 2
-names_all_like[i:k] <- paste0("sel_like[", 1:(k - i + 1), "]")
-i <- i + 3; k <- i + 2
-names_all_like[i:k] <- paste0("sel_like_dev[", 1:(k - i + 1), "]")
-i <- i + 3
-names_all_like[i] <- "wt_like"
-i <- i + 1; k <- i + 3
-names_all_like[i:k] <- paste0("Priors[", 1:(k - i + 1), "]")
-i <- i + 4; k <- i + 6
-names_all_like[i:k] <- paste0("rec_like[", 1:(k - i + 1), "]")
-i <- i + 1
-
-# Now assign
-# names(all_like) <- names_all_like
-#pm$all_like
-#matplot(wt_ssb)
-#SSB/pm$SSB
 Priors <- numeric(4)
 Priors[1] = -((srprior_a-1.)*log(steepness) + (srprior_b-1)*log(1.-steepness)); 
 bts_like <- BTS_likelihood()

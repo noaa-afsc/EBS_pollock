@@ -1,0 +1,273 @@
+---
+title: "Appendix — ADMB → RTMB Code "
+subtitle: "Tracking translation details while bridging ADMB to RTMB"
+format:
+  html:
+    toc: true
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    embed-resources: true
+  pdf:
+    toc: true
+    number-sections: true
+    documentclass: scrartcl
+execute:
+  echo: false
+  warning: false
+  message: false
+editor: source
+editor_options: 
+  chunk_output_type: console
+---
+
+# Purpose
+
+This standalone appendix tracks items to verify or refactor as the model is bridged from **ADMB** to **RTMB**. Each entry records the ADMB behavior, intended RTMB behavior, priority, and links/tests.
+
+# Model implementation
+
+The RTMB model code is implemented in the `R/` directory, with the main entry point 
+in `R/Rpm.R`. 
+
+
+## Comparison of ADMB and RTMB by components
+
+The initial steps to bridge ADMB to RTMB involve identifying key components and their behaviors. The following table summarizes the components, their ADMB behavior, intended RTMB behavior, and current status.
+
+```{r}
+#| echo: false
+#| results: asis
+#| message: false
+#| warning: false
+#| error: false
+rm(list = ls())
+# source(here::here("R/Rpm_annotated.R"))
+source(here::here("R/Rpm.R"))
+# eb_bts/ pm$eb_bts
+
+gt_compare_table(rtmb, pm, tolerance = 1e-2, sort_by_diff=FALSE)
+```
+
+## Tuning
+
+
+## Issues register for next steps
+
+```{r}
+#| label: issues-register
+# Self-contained chunk (defines has_gt here to avoid scoping issues)
+has_gt <- requireNamespace("gt", quietly = TRUE)
+
+needs <- c("dplyr","tibble","stringr","glue")
+ok <- vapply(needs, function(p) requireNamespace(p, quietly = TRUE), logical(1))
+if (!all(ok)) stop("Please install packages: ", paste(needs[!ok], collapse = ", "))
+invisible(lapply(c("dplyr","tibble"), library, character.only = TRUE))
+
+issues_path <- file.path("inst","issues.csv")
+if (file.exists(issues_path)) {
+  issues <- read.csv(issues_path, stringsAsFactors = FALSE)
+} else {
+  issues <- tibble::tibble(
+    id        = c("ISS-001","ISS-002","ISS-003"),
+    component = c("Selectivity (temporal devs)",
+                  "Selectivity (age-smoothing)",
+                  "Survey likelihood (lognormal scaling)"),
+    admb_behavior = c(
+      "First-difference penalty in **time** with year 1 anchored to 0 (Δ log s_{y,a} = log s_{y,a} - log s_{y-1,a}, with log s_{0,a}≡0).",
+      "First-difference penalty in **age** with minimum age anchored to 0 (Δ log s_{y,a} = log s_{y,a} - log s_{y,a-1}, with log s_{y,a_min-1}≡0).",
+      "ADMB often uses −(n/2)log(2πσ^2) − Σ (log(O_i)−log(E_i))^2 / (2σ^2). Verify whether σ is on log or natural scale and whether bias-corrected ln residuals are used."
+    ),
+    rtmb_behavior = c(
+      "Replicate identical time FD penalty in R/RTMB; ensure first row uses 0 as the lag.",
+      "Replicate identical age FD penalty with explicit 0 anchor at a_min in each year.",
+      "Match exact scaling, including any constants and phase-dependent weights; confirm whether to include the normalizing constant in objective function."
+    ),
+    status    = c("Pending","Pending","Pending"),
+    priority  = c("High","Medium","High"),
+    test_ref  = c("test-fd-penalty-time","test-fd-penalty-age","test-survey-lognorm")
+  )
+}
+
+if (has_gt) {
+  dom_status <- function(x) dplyr::case_when(
+    x %in% c("Pending","Blocked") ~ 0.9,
+    x %in% c("In progress")       ~ 0.5,
+    TRUE                          ~ 0.1
+  )
+  dom_pri <- function(x) dplyr::case_when(
+    x == "High"   ~ 0.9,
+    x == "Medium" ~ 0.5,
+    TRUE          ~ 0.2
+  )
+  plt <- gt::gt(issues)
+  plt <- gt::data_color(
+    plt, columns = c(status),
+    fn = function(vals) grDevices::colorRampPalette(c("white","gold","orangered"))(100)[
+      ceiling(pmax(pmin(dom_status(vals),1),0)*99)+1
+    ],
+    autocolor_text = TRUE
+  )
+  plt <- gt::data_color(
+    plt, columns = c(priority),
+    fn = function(vals) grDevices::colorRampPalette(c("white","lightblue","royalblue"))(100)[
+      ceiling(pmax(pmin(dom_pri(vals),1),0)*99)+1
+    ],
+    autocolor_text = TRUE
+  )
+  gt::tab_caption(plt, "ADMB → RTMB Issues Register")
+} else {
+  knitr::kable(issues, caption = "ADMB → RTMB Issues Register")
+}
+```
+
+### Auto-generated anchors
+
+```{r}
+#| label: issues-anchors
+#| results: asis
+stopifnot(requireNamespace("glue", quietly = TRUE))
+issues |>
+  dplyr::rowwise() |>
+  dplyr::mutate(block = {
+    glue::glue("
+#### {id}: {component}
+
+**ADMB behavior**: {admb_behavior}
+
+**RTMB target**: {rtmb_behavior}
+
+**Status**: {status} &nbsp; | &nbsp; **Priority**: {priority}
+
+See test/ref: `#{test_ref}`.
+")
+  }) |>
+  dplyr::pull(block) |>
+  cat(sep = "\n\n")
+```
+
+
+::: callout-tip
+**Usage**  
+Edit the CSV at `inst/issues.csv`. Re‑render to update the register and anchors.
+:::
+
+
+
+```{r}
+needs <- c("dplyr","tibble","stringr","glue")
+ok <- vapply(needs, function(p) requireNamespace(p, quietly = TRUE), logical(1))
+if (!all(ok)) stop("Please install packages: ", paste(needs[!ok], collapse = ", "))
+invisible(lapply(c("dplyr","tibble"), library, character.only = TRUE))
+
+has_gt <- requireNamespace("gt", quietly = TRUE)
+```
+
+## Model changes
+
+### First‑difference selectivity penalty (temporal) {#test-fd-penalty-time}
+
+We need the penalty used in ADMB where the **first year is compared to zero** (not to a previous estimated year). For a matrix of log‑selectivities \( \log s_{y,a} \) (years \(y=1,\ldots,T\), ages \(a=1,\ldots,A\)), the penalty is:
+
+$$
+\mathcal{P}_{\text{FD,time}} \,=\, w \sum_{a=1}^{A}
+\Big[
+\big(\log s_{1,a}-0\big)^2
++ \sum_{y=2}^{T}\big(\log s_{y,a}-\log s_{y-1,a}\big)^2
+\Big].
+$$
+
+#### RTMB/R implementation
+
+```{r}
+#| echo: true
+# log_sel: matrix [T x A] of log-selectivities (year rows, age cols)
+# w: scalar or length-A vector of weights
+fd_penalty_time <- function(log_sel, w = 1) {
+  stopifnot(is.matrix(log_sel))
+  T <- nrow(log_sel); A <- ncol(log_sel)
+  if (length(w) == 1) w <- rep(w, A)
+  stopifnot(length(w) == A)
+
+  diffs <- rbind(log_sel[1, , drop = FALSE] - 0,   # year 1 vs 0
+                 apply(log_sel, 2, diff))          # y>=2 diffs
+  sum(colSums((sqrt(w) * diffs)^2))
+}
+```
+
+### Sanity check
+
+```{r}
+#| echo: true
+set.seed(42)
+T <- 5; A <- 3
+L <- matrix(rnorm(T*A, sd=0.2), T, A); w <- c(1, 2, 0.5)
+
+fd_loop <- function(L, w){
+  acc <- 0
+  for (a in seq_len(ncol(L))) {
+    acc <- acc + w[a]*(L[1,a]-0)^2
+    for (y in 2:nrow(L)) acc <- acc + w[a]*(L[y,a]-L[y-1,a])^2
+  }
+  acc
+}
+
+all.equal(fd_penalty_time(L, w), fd_loop(L, w))
+```
+
+### First‑difference selectivity penalty (age) {#test-fd-penalty-age}
+
+For within-year smoothing over age with a **zero anchor at the minimum age**:
+
+$$
+\mathcal{P}_{\text{FD,age}} \,=\, w \sum_{y=1}^{T}
+\Big[
+\big(\log s_{y,a_{\min}}-0\big)^2
++ \sum_{a=a_{\min}+1}^{A}\big(\log s_{y,a}-\log s_{y,a-1}\big)^2
+\Big].
+$$
+
+#### RTMB/R implementation
+
+```{r}
+#| echo: true
+# log_sel: matrix [T x A] of log-selectivities (year rows, age cols)
+# a_min: column index of minimum age within 'log_sel' (default = 1)
+fd_penalty_age <- function(log_sel, w = 1, a_min = 1) {
+  stopifnot(is.matrix(log_sel))
+  T <- nrow(log_sel); A <- ncol(log_sel)
+  stopifnot(a_min >= 1, a_min <= A)
+  if (length(w) == 1) w <- rep(w, T)
+  stopifnot(length(w) == T)
+
+  # Build diffs across age with anchor at a_min (assumes a_min=1; if not, set zeros below a_min)
+  diffs <- matrix(0, nrow = T, ncol = A)
+  diffs[, a_min] <- log_sel[, a_min] - 0
+  if (a_min < A) {
+    for (a in (a_min+1):A) {
+      diffs[, a] <- log_sel[, a] - log_sel[, a-1]
+    }
+  }
+  sum(rowSums((sqrt(w) * diffs)^2))
+}
+```
+
+## Reference: survey lognormal scaling (consistency check) {#test-survey-lognorm}
+
+When porting lognormal survey likelihoods, confirm whether ADMB’s objective includes the normalizing constant and whether \(\sigma\) is on the **log** scale:
+
+$$
+\ell(\sigma) = -\sum_i \frac{(\log O_i - \log E_i)^2}{2\sigma^2}
+\; -\; n\log\sigma \; -\; \frac{n}{2}\log(2\pi).
+$$
+
+```{r}
+#| echo: true
+lognorm_nll <- function(obs, exp, sigma_log, include_const = TRUE) {
+  r <- log(pmax(obs, .Machine$double.eps)) - log(pmax(exp, .Machine$double.eps))
+  n <- length(r)
+  nll <- sum(r^2) / (2 * sigma_log^2)
+  if (include_const) nll <- nll + n*log(sigma_log) + n*0.5*log(2*pi)
+  nll
+}
+```

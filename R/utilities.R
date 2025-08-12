@@ -1,3 +1,195 @@
+# Helper function for generalized gamma distribution (if not available)
+#--Utilities to read parameters from .dat files-----------
+
+norm2  <- function(x) sum(x^2, na.rm = TRUE)
+first_difference <- fdiff  <- function(x) diff(x)             # first_difference
+second_difference <- sdiff  <- function(x) diff(diff(x))       # second_difference
+cf     <- function(ctrl_flag, i) if (i <= length(ctrl_flag)) ctrl_flag[i] else 0
+sq <- function(x) x * x
+
+
+# 1. Comparison function with max |% diff|
+compare_outputs_max_pct <- function(rtmb, admb, tolerance = 1e-6) {
+  is_ok <- function(x) is.numeric(x) || is.matrix(x) || is.array(x)
+  shared_vars <- intersect(names(rtmb), names(admb))
+  
+  comps <- lapply(shared_vars, function(var) {
+    rt <- rtmb[[var]]
+    ad <- admb[[var]]
+    
+    if (!(is_ok(rt) && is_ok(ad))) {
+      return(data.frame(
+        variable = var, equal = NA, length_rtmb = NA_integer_,
+        length_admb = NA_integer_, max_abs_pct_diff = NA_real_, cor = NA_real_
+      ))
+    }
+    
+    rt_vec <- as.vector(rt)
+    ad_vec <- as.vector(ad)
+    
+    if (length(rt_vec) != length(ad_vec)) {
+      return(data.frame(
+        variable = var, equal = FALSE,
+        length_rtmb = length(rt_vec), length_admb = length(ad_vec),
+        max_abs_pct_diff = NA_real_, cor = NA_real_
+      ))
+    }
+    
+    # % diff relative to ADMB
+    eps <- .Machine$double.eps
+    pct_diff <- abs(rt_vec - ad_vec) / pmax(abs(ad_vec), eps) * 100
+    max_abs_pct_diff <- suppressWarnings(max(pct_diff, na.rm = TRUE))
+    if (!is.finite(max_abs_pct_diff)) max_abs_pct_diff <- NA_real_
+    
+    equal <- isTRUE(all.equal(rt_vec, ad_vec, tolerance = tolerance))
+    cor_val <- suppressWarnings(cor(rt_vec, ad_vec, use = "complete.obs"))
+    
+    data.frame(
+      variable = var,
+      equal = equal,
+      length_rtmb = length(rt_vec),
+      length_admb = length(ad_vec),
+      max_abs_pct_diff = max_abs_pct_diff,
+      cor = cor_val
+    )
+  })
+  
+  do.call(rbind, comps)
+}
+
+# 2. gt table builder
+gt_compare_table <- function(rtmb, admb, tolerance = 1e-4, sort_by_diff = TRUE) {
+  requireNamespace("gt", quietly = TRUE)
+  requireNamespace("dplyr", quietly = TRUE)
+  requireNamespace("scales", quietly = TRUE)
+  
+  is_ok <- function(x) is.numeric(x) || is.matrix(x) || is.array(x)
+  rtmb_f <- rtmb[sapply(rtmb, is_ok)]
+  admb_f <- admb[sapply(admb, is_ok)]
+  
+  comp <- compare_outputs_max_pct(rtmb_f, admb_f, tolerance = tolerance)
+  
+  # Preserve original variable order if requested
+  if (!sort_by_diff) {
+    comp <- dplyr::mutate(comp,
+                          orig_order = match(variable, names(rtmb_f))
+    ) |>
+      dplyr::arrange(orig_order) |>
+      dplyr::select(-orig_order)
+  } else {
+    comp <- dplyr::arrange(comp, dplyr::desc(max_abs_pct_diff))
+  }
+  
+  dom <- range(comp$max_abs_pct_diff, na.rm = TRUE)
+  if (!all(is.finite(dom))) dom <- c(0, 1)
+  
+  gt::gt(comp) |>
+    gt::data_color(
+      columns = c(max_abs_pct_diff),
+      fn = scales::col_numeric(
+        palette = c("white", "yellow", "orangered"),
+        domain  = dom
+      )
+    ) |>
+    gt::data_color(
+      columns = c(cor),
+      fn = scales::col_numeric(
+        palette = c("red", "white", "darkgreen"),
+        domain  = c(-1, 1)
+      )
+    ) |>
+    gt::fmt_number(
+      columns = c(max_abs_pct_diff, cor),
+      decimals = 6
+    ) |>
+    gt::cols_label(
+      variable         = "Variable",
+      equal            = "Equal (≤ tol)",
+      length_rtmb      = "Len RTMB",
+      length_admb      = "Len ADMB",
+      max_abs_pct_diff = "Max |% diff| (RTMB vs ADMB)",
+      cor              = "Correlation"
+    ) |>
+    gt::tab_header(
+      title = "Comparison of RTMB and ADMB Outputs",
+      subtitle = paste("Tolerance =", format(tolerance, scientific = TRUE))
+    )
+}
+
+read_pars <- function(file) {
+  lines <- readLines(file)
+  result <- list()
+  current_name <- NULL
+  buffer <- character()
+
+  flush_buffer <- function() {
+    if (!is.null(current_name) && length(buffer) > 0) {
+      # Parse all lines into a single numeric vector
+      flat_vals <- scan(text = paste(buffer, collapse = "\n"), quiet = TRUE)
+
+      if (length(buffer) == 1) {
+        if (length(flat_vals) == 1) {
+          result[[current_name]] <<- flat_vals[1] # Scalar
+        } else {
+          result[[current_name]] <<- flat_vals # Vector (1 row)
+        }
+      } else {
+        # Try to parse as matrix (each line is a row)
+        row_list <- lapply(buffer, function(x) scan(text = x, quiet = TRUE))
+        row_lengths <- lengths(row_list)
+
+        if (length(unique(row_lengths)) == 1) {
+          result[[current_name]] <<- do.call(rbind, row_list) # Matrix
+        } else {
+          result[[current_name]] <<- unlist(row_list) # Fallback to flat vector
+        }
+      }
+    }
+  }
+
+  for (line in lines) {
+    line <- trimws(line)
+    if (line == "") next
+
+    if (grepl("^#\\s+.+:$", line)) {
+      flush_buffer()
+      current_name <- sub("^#\\s+", "", sub(":$", "", line))
+      buffer <- character()
+    } else {
+      buffer <- c(buffer, line)
+    }
+  }
+
+  flush_buffer()
+  return(result)
+}
+
+read_pars_simple <- function(file) {
+  lines <- readLines(file)
+  result <- list()
+  current_name <- NULL
+  buffer <- c()
+
+  flush_buffer <- function() {
+    if (!is.null(current_name)) {
+      values <- as.numeric(unlist(strsplit(buffer, "\\s+")))
+      result[[current_name]] <<- if (length(values) == 1) values else values
+    }
+  }
+  for (line in lines) {
+    line <- trimws(line)
+    if (line == "") next
+    if (grepl("^#\\s+.+:", line)) {
+      flush_buffer()
+      current_name <- sub("^#\\s+", "", sub(":", "", line))
+      buffer <- c()
+    } else {
+      buffer <- c(buffer, line)
+    }
+  }
+  flush_buffer()
+  return(result)
+}
 build_model_inputs <- function(filepath, fn = here::here("Rtmb", "rpm.dat")) {
   # Utilities to read .dat-style content
   read_matrix <- function(file, ...) {
@@ -114,36 +306,36 @@ read_model_inputs <- function(fn) {
     last_age_sel_bts = 8,
     last_age_sel_ats = 8,
     # Formerly ctrl_flag vector, now expanded:
-    catBio = 200, # 1  Catch Biomass Emphasis
-    btsEmph = 1, # 2  BTS Emphasis
-    recDevs = 1, # 3  Recruitment Deviations
-    fDevs = 1, # 4  F_devs
-    atsEmph = 1, # 5  ATS Emphasis
-    avoEmph = 1, # 6  AVO Emphasis
-    ageComp = 1, # 7  Age Comp General
-    ageFish = 1, # 8  Fishery AgeComp Emph
-    ageBTS = 1, # 9  BTS AgeComp Emph
-    selTFsh = 1, # 10 Fishery Selex Time Emph
-    selCFsh = 1, # 11 Fishery Curv Emph
-    cpueFsh = 1, # 12 Fishery CPUE Emph
-    domFish = 12.5, # 13 Fishery Dome Emph
-    domBTS = 1, # 14 BTS Dome Emph
-    selATS = 1, # 15 ATS Selex Emph
-    yrsFixF = 1, # 16 Fishery Sel Yrs Fixed
-    yrsFixB = 1, # 17 BTS Sel Yrs Fixed
-    resv18 = 1, # 18 Reserved
-    selCurv = 3.125, # 19 Survey Sel Curvature
-    btsVarT = 5, # 20 BTS Time Variability
-    selTBTS = 1, # 21 BTS Selex Time Emph
-    selTATS = 5, # 22 ATS Selex Time Emph
-    larvDev = 1, # 23 Larval Rec-Devs
-    rec78on = 1, # 24 Recruits 1978+
-    omit78 = 2, # 25 Ignore 1978 in SRR
-    resv26 = 0, # 26 Reserved
-    sel3dif = 0, # 27 Fishery Selex 3rd Diff
-    retroYr = 0, # 28 Retrospective Year
-    omitSR = 1, # 29 Omit Recent SRR Yrs
-    srrPrior = 1, # 30 SRR Prior Only
+		catBio	=	200	, #	1	Catch	Biomass	Emphasis	
+btsEmph	=	1	, #	2	BTS	Emphasis		
+recDevs	=	1	, #	3	Recruitment	Deviations		
+fDevs	=	1	, #	4	F_devs			
+atsEmph	=	1	, #	5	ATS	Emphasis		
+avoEmph	=	1	, #	6	AVO	Emphasis		
+ageComp	=	1	, #	7	Age	Comp	General	
+ageFish	=	1	, #	8	Fishery	AgeComp	Emph	
+ageBTS	=	1	, #	9	BTS	AgeComp	Emph	
+selTFsh	=	1	, #	10	Fishery	Selex	Time	Emph
+selCFsh	=	1	, #	11	Fishery	Curv	Emph	
+cpueFsh	=	1	, #	12	Fishery	CPUE	Emph	
+domFish	=	12.5	, #	13	Fishery	Dome	Emph	
+domBTS	=	1	, #	14	BTS	Dome	Emph	
+selATS	=	1	, #	15	ATS	Selex	Emph	
+yrsFixF	=	1	, #	16	Fishery	Sel	Yrs	Fixed
+yrsFixB	=	1	, #	17	BTS	Sel	Yrs	Fixed
+resv18	=	1	, #	18	Reserved			
+selCurv	=	1	, #	19	Survey	Sel	Curvature	
+btsVarT	=	3.125	, #	20	BTS	Time	Variability	
+selTBTS	=	5	, #	21	BTS	Selex	Time	Emph
+selTATS	=	1	, #	22	ATS	Selex	Time	Emph
+larvDev	=	5	, #	23	Larval	Rec-Devs		
+rec78on	=	1	, #	24	Recruits	1978+		
+omit78	=	1	, #	25	Ignore	1978	in	SRR
+selVarbts	=	2	, #	26	selVarbts			
+sel3dif	=	0	, #	27	Fishery	Selex	3rd	Diff
+retroYr	=	0	, #	28	Retrospective	Year		
+omitSR	=	2	, #	29	Omit	Recent	SRR	Yrs
+srrPrior	=	1	, #	30	SRR	Prior	Only	
     mcmcmode = 0,
     Mmatrix = 0,
     count_mcmc = 0,
@@ -274,6 +466,7 @@ preliminary_calcs <- function(data, parameters) {
   }
 
   data$olc_last <- Get_Age2length(data$age_len, data$oac_fsh[data$n_fsh, ])
+  data$MN_const <- MN_const
 
   # Return updated objects
   list(data = data, parameters = parameters)
@@ -357,14 +550,13 @@ compute_selectivity_fsh <- function(nsel, stsel, endyr_r, nages, coffs, sel_devs
 }
 
 compute_selectivity_ind <- function(stsel, slp, a50, se, ae, age_vector, endyr_r) {
-  # ages <- 1:15
-  # stsel <- 1995
-  # endyr_r <- 2022
-  # slp <- 1.2
-  # a50 <- 6
-  # se <- rnorm(endyr_r, sd = 0.1)   # deviations on slope
-  # ae <- rnorm(endyr_r, sd = 0.05)  # deviations on a50
-  #
+   # stsel = styr_bts;
+   # slp = sel_slp_bts;
+   # a50 = sel_a50_bts;
+   # se = sel_slp_bts_dev;
+   # ae = sel_a50_bts_dev;
+   # age_vector = 1:nages;
+   # endyr_r = endyr_r
   nages <- length(age_vector)
   nyrs <- endyr_r - stsel + 1
   log_sel <- matrix(0, nrow = nyrs, ncol = nages)
@@ -376,10 +568,12 @@ compute_selectivity_ind <- function(stsel, slp, a50, se, ae, age_vector, endyr_r
     a50_i <- a50 * exp(ae[i])
 
     log_sel[i, ] <- -log(1 + exp(-slp_i * (age_vector - a50_i)))
+    # log_sel(i)  =  -log( 1.0 + exp(-exp(se(i)) * slp * ( age_vector - a50*exp(ae(i)) )  ))  ;
+    
   }
   return(log_sel)
 }
-
+# exp(log_sel)
 # # stsel=1994
 # compute_selectivity_ats_devs <- function(nsel, stsel, endyr_r, coffs, sel_devs) {
 #   nyrs <- endyr_r - stsel + 1
@@ -463,6 +657,69 @@ compute_selectivity_ats_devs <- function(nsel, stsel, coffs, sel_devs,
   return(log_sel)
 }
 
+# Multinomial likelihood for age compositions by gear
+# Mirrors the ADMB snippet you provided.
+multinomial_likelihood_age <- function(
+    oac,  # named list of observed proportions matrices, e.g. list(fsh=..., bts=..., ats=...)
+    eac,  # named list of expected proportions matrices (same shapes as oac)
+    sam,  # named list of effective sample-size vectors, e.g. list(fsh=..., bts=..., ats=...)
+    MN_const = 0,            # small constant added inside log (ADMB uses MN_const)
+    age_like_offset = NULL,  # numeric vector of length ngears; default 0
+    mina_ats = NULL,         # first ATS column (age) to include (integer)
+    nages = NULL             # last ATS column (age) to include (integer)
+) {
+  gears <- c("fsh","bts","ats")
+  if (is.null(names(oac)) && length(oac) == 3) names(oac) <- gears
+  if (is.null(names(eac)) && length(eac) == 3) names(eac) <- gears
+  if (is.null(names(sam)) && length(sam) == 3) names(sam) <- gears
+  # Gears expected (1=fsh, 2=bts, 3=ats) to mirror the ADMB switch
+  gears <- c("fsh","bts","ats")
+  stopifnot(all(gears %in% names(oac)),
+            all(gears %in% names(eac)),
+            all(gears %in% names(sam)))
+  
+  # Basic checks
+  for (g in gears) {
+    if (!is.matrix(oac[[g]]) || !is.matrix(eac[[g]]))
+      stop(sprintf("oac[['%s']] and eac[['%s']] must be matrices.", g, g))
+    if (!is.numeric(sam[[g]]))
+      stop(sprintf("sam[['%s']] must be numeric.", g))
+    if (nrow(oac[[g]]) != nrow(eac[[g]]))
+      stop(sprintf("Row counts differ for gear '%s'.", g))
+    if (length(sam[[g]]) != nrow(oac[[g]]))
+      stop(sprintf("Length of sam[['%s']] must equal nrow of oac[['%s']].", g, g))
+    if (ncol(oac[[g]]) != ncol(eac[[g]]))
+      stop(sprintf("Column counts differ for gear '%s'.", g))
+  }
+  
+  # Default offsets to zero if not supplied
+  if (is.null(age_like_offset)) age_like_offset <- c(fsh=0, bts=0, ats=0)
+  if (is.null(names(age_like_offset))) names(age_like_offset) <- gears
+  age_like <- setNames(numeric(3), gears)
+  
+  # Gear 1: fsh
+  ll_fsh_i <- sam$fsh * rowSums(oac$fsh * log(eac$fsh + MN_const))
+  age_like["fsh"] <- -sum(ll_fsh_i) - age_like_offset["fsh"]
+  
+  # Gear 2: bts
+  ll_bts_i <- sam$bts * rowSums(oac$bts * log(eac$bts + MN_const))
+  age_like["bts"] <- -sum(ll_bts_i) - age_like_offset["bts"]
+  
+  # Gear 3: ats, restricted to columns mina_ats:nages
+  if (is.null(mina_ats) || is.null(nages))
+    stop("For 'ats', please provide both 'mina_ats' and 'nages' (column indices).")
+  col_idx <- mina_ats:nages
+  if (min(col_idx) < 1 || max(col_idx) > ncol(oac$ats))
+    stop("ATS column range (mina_ats:nages) is outside matrix bounds.")
+  
+  oac_ats <- oac$ats[, col_idx, drop = FALSE]
+  eac_ats <- eac$ats[, col_idx, drop = FALSE]
+  ll_ats_i <- sam$ats * rowSums(oac_ats * log(eac_ats + MN_const))
+  age_like["ats"] <- -sum(ll_ats_i) - age_like_offset["ats"]
+  
+  # Return per-gear and total (to mimic an ADMB vector and a sum)
+  structure(age_like, total = sum(age_like))
+}
 BTS_likelihood <- function() {
   q_bts <- mean(ob_bts) / mean(eb_bts)
   eb_bts_scaled <- eb_bts * q_bts
@@ -541,131 +798,247 @@ Surv_Likelihood <- function() {
   return(surv_like)
 }
 
-
-
-
-# Helper function for generalized gamma distribution (if not available)
-#--Utilities to read parameters from .dat files-----------
-
-#' Compare RTMB and ADMB model outputs
-#'
-#' @param rtmb list of model outputs from RTMB
-#' @param admb list of model outputs from ADMB
-#' @param tolerance numeric tolerance used in equality checks
-#' @return data.frame summarizing length, mean difference, SD of differences, and correlation
-compare_outputs <- function(rtmb, admb, tolerance = 1e-6) {
-  shared_vars <- intersect(names(rtmb), names(admb))
-  
-  comparisons <- lapply(shared_vars, function(var) {
-    rt <- rtmb[[var]]
-    ad <- admb[[var]]
-    
-    rt_vec <- as.vector(rt)
-    ad_vec <- as.vector(ad)
-    
-    same_length <- length(rt_vec) == length(ad_vec)
-    
-    if (!same_length) {
-      return(data.frame(
-        variable = var,
-        equal = FALSE,
-        length_rtmb = length(rt_vec),
-        length_admb = length(ad_vec),
-        mean_diff = NA,
-        sd_diff = NA,
-        cor = NA
-      ))
-    }
-    
-    equal <- isTRUE(all.equal(rt_vec, ad_vec, tolerance = tolerance))
-    diff <- rt_vec - ad_vec
-    cor_val <- suppressWarnings(cor(rt_vec, ad_vec, use = "complete.obs"))
-    
-    data.frame(
-      variable = var,
-      equal = equal,
-      length_rtmb = length(rt_vec),
-      length_admb = length(ad_vec),
-      mean_diff = mean(diff, na.rm = TRUE),
-      sd_diff = sd(diff, na.rm = TRUE),
-      cor = cor_val
-    )
-  })
-  
-  do.call(rbind, comparisons)
+catch_like <- function(obs_catch, pred_catch, eps = 1e-4) {
+  # obs_catch and pred_catch are numeric vectors for years styr:endyr_r
+  stopifnot(is.numeric(obs_catch), is.numeric(pred_catch),
+            length(obs_catch) == length(pred_catch))
+  diffs <- log(obs_catch + eps) - log(pred_catch + eps)
+  sum(diffs^2, na.rm = TRUE)  # norm2
 }
 
-read_pars <- function(file) {
-  lines <- readLines(file)
-  result <- list()
-  current_name <- NULL
-  buffer <- character()
-
-  flush_buffer <- function() {
-    if (!is.null(current_name) && length(buffer) > 0) {
-      # Parse all lines into a single numeric vector
-      flat_vals <- scan(text = paste(buffer, collapse = "\n"), quiet = TRUE)
-
-      if (length(buffer) == 1) {
-        if (length(flat_vals) == 1) {
-          result[[current_name]] <<- flat_vals[1] # Scalar
-        } else {
-          result[[current_name]] <<- flat_vals # Vector (1 row)
-        }
-      } else {
-        # Try to parse as matrix (each line is a row)
-        row_list <- lapply(buffer, function(x) scan(text = x, quiet = TRUE))
-        row_lengths <- lengths(row_list)
-
-        if (length(unique(row_lengths)) == 1) {
-          result[[current_name]] <<- do.call(rbind, row_list) # Matrix
-        } else {
-          result[[current_name]] <<- unlist(row_list) # Fallback to flat vector
-        }
+# log_sel_fsh: matrix [year, age] (rows are years, cols are ages), values are *log* selectivity
+# year_index: named integer vector mapping year -> row index in log_sel_* (e.g., setNames(seq_along(years), years))
+selectivity_like_fsh <- function(
+    log_sel_fsh,
+    styr, endyr_r,                      # year numbers
+    n_selages_fsh,                      # number of selectivity ages for fishery
+    yrs_ch_fsh, nch_fsh,                # change years and count
+    sel_devs_fsh,                       # vector
+    sel_ch_sig_fsh,
+    year_index # length = nch_fsh
+) {
+  shape_pen <- 0
+  # NOTE: ADMB loop shows j<=n_selages_fsh then uses j+1; the safe R version is 1:(n_selages_fsh-1)
+  for (i in 1:nyrs){
+    # i <- year_index[[as.character(yy)]]
+    for (j in 1:(n_selages_fsh - 1)) {
+      if (log_sel_fsh[i, j] > log_sel_fsh[i, j + 1]) {
+        d <- log_sel_fsh[i, j] - log_sel_fsh[i, j + 1]
+        shape_pen <- shape_pen + domFish * d * d
       }
     }
   }
+  p1<-p2<-p3<-dev_pen <- 0
+  # ctrl_flag(10)/group_num_fsh * norm2(sel_devs_fsh)
+  p1 <- selTFsh * norm2(sel_devs_fsh)
+  
+  # For each change year: curvature + random‑walk between year and previous
+  p2 <- selCFsh / nch_fsh * norm2(sdiff(log_sel_fsh[1, ]))
+  
+  k=55
+  for (k in seq_len(nch_fsh)) {
+    yy <- yrs_ch_fsh[k]
+    ik <- year_index[[as.character(yy)]]
+    p2 <- p2 + selCFsh / nch_fsh * norm2(sdiff(log_sel_fsh[ik, ]))
+    
+    ip <- year_index[[as.character(yy - 1)]]
+    sigma <- sel_ch_sig_fsh[k]
+    
+    p3 <- p3 + norm2(log_sel_fsh[ip, ] - log_sel_fsh[ik, ]) / (2 * sigma^2)
+    
+    # print(c(yy, p3,norm2(log_sel_fsh[ip, ] - log_sel_fsh[ik, ]) / (2 * sigma^2)))
+  }
+  
+  p1;p2;p3
+  list(shape = shape_pen, dev = p1+p2+p3, total = shape_pen + dev_pen)
+}
+# If you later re-enable the ctrl_flag(19)/transpose time-smoothness block,
+# we can tack it back on. For now this mirrors your pared-down code.
+selectivity_like_bts <- function(
+    q_amin=3, q_amax=nages,                 # age band for BTS time-smooth penalty when ctrl_flag[19] > 0
+    # timelines / indexing
+    styr, endyr_r,                  # overall model start/end (year numbers)
+    styr_bts,                       # survey starts (year numbers)
+    year_index,                    # named integer vector mapping year -> row index in matrices
+    # selectivity objects (log scale)
+    log_sel_bts,                   # matrix [year, age]
+    # “active()” flags corresponding to ADMB’s active()
+    active_sel_coffs_bts = FALSE,
+    active_sel_devs_bts  = FALSE,
+    active_sel_a501_fsh_dev = TRUE,
+    active_sel_a50_bts_dev  = TRUE,
+    active_sel_age_one_bts_dev = TRUE, 
+    # deviation vectors (only used if active=TRUE)
+    sel_devs_bts = numeric(0),
+    sel_a50_bts_dev  = numeric(0),
+    sel_slp_bts_dev  = numeric(0),
+    sel_age_one_bts_dev){
+  
+    shape_pen <- 0 # shape penalties (monotonicity etc.)
+    dev_pen   <-0 # smoothness / deviation penalties
+    log_sel_tmp <- rbind(rep(0,15),log_sel_bts)
+    rownames(log_sel_tmp) <- c(as.character(styr_bts-1), rownames(log_sel_bts)) 
+  
+   ## ---- BTS smoothness & deviations ---------------------------------------
+  if (isTRUE(active_sel_coffs_bts)) {
+    if (isTRUE(active_sel_devs_bts)) {
+      dev_pen <- dev_pen + btsVarT/ group_num_bts * norm2(sel_devs_bts)
 
-  for (line in lines) {
-    line <- trimws(line)
-    if (line == "") next
+      # curvature at start year (global styr as in ADMB code)
+      i0 <- year_index[[as.character(styr)]]
+      dev_pen <- dev_pen + 	selTBTS	/ ncol(log_sel_tmp) *
+        norm2(second_difference(log_sel_tmp[i0, ]))
 
-    if (grepl("^#\\s+.+:$", line)) {
-      flush_buffer()
-      current_name <- sub("^#\\s+", "", sub(":$", "", line))
-      buffer <- character()
+      # for i = styr .. endyr_r-1, if divisible by group_num_bts, penalize curvature at i+1
+      for (yy in seq(styr, endyr_r - 1)) {
+        if ((yy %% group_num_bts) == 0) {
+          inext <- year_index[[as.character(yy + 1)]]
+          if (!is.null(inext)) {
+            dev_pen <- dev_pen + selTBTS	/ ncol(log_sel_tmp) *
+              norm2(second_difference(log_sel_tmp[inext, ]))
+          }
+        }
+      }
     } else {
-      buffer <- c(buffer, line)
+      # no time devs: curvature at start year
+      i0 <- year_index[[as.character(styr)]]
+      dev_pen <- dev_pen + selTBTS	 *
+        norm2(second_difference(log_sel_tmp[i0, ]))
     }
   }
 
-  flush_buffer()
-  return(result)
+  # BTS alternative penalties depending on ctrl_flag(19)
+  if (isTRUE(active_sel_a50_bts_dev)) {
+    if (selCurv > 0) {
+      # transpose: operate across time for each age j in [q_amin, q_amax)
+      for (j in q_amin:(q_amax - 1)) {
+        # differences across years for a given age j
+        dev_pen <- dev_pen + (selVarbts * norm2(first_difference(log_sel_tmp[, j])))
+        # print(c(j, dev_pen))
+      }
+    } else {
+      dev_pen <- dev_pen + 50.0 * norm2(first_difference(sel_a50_bts_dev))
+      dev_pen <- dev_pen + 50.0 * norm2(first_difference(sel_slp_bts_dev))
+    }
+    if (isTRUE(active_sel_age_one_bts_dev)) {
+      dev_pen <- dev_pen + 8.0 * norm2(first_difference(sel_age_one_bts_dev))
+      # alt in comments: 3.125 -> 40% CV
+    }
+  }
+  list(shape = 0, dev = dev_pen, total = dev_pen)
+}
+# log_sel_ats: matrix [year, age] (log scale)
+selectivity_like_ats <- function(
+    log_sel_ats,
+    styr, styr_ats, endyr_r,          # year numbers (styr used for curvature term; styr_ats for shape loop)
+    mina_ats, n_selages_ats,          # age bounds used in ADMB loop
+    yrs_ch_ats, nch_ats,               # change years and count
+    sel_ch_sig_ats,                    # length = nch_ats
+    year_index
+) {
+  # Shape: penalize *increases* with age (j -> j+1)
+  shape_pen <- 0; yy=1995
+  for (yy in seq(styr_ats, endyr_r)) {
+    i <- year_index[[as.character(yy)]]
+    if (is.null(i)) next
+    for (j in mina_ats:(n_selages_ats - 1)) {
+      if (log_sel_ats[i, j] < log_sel_ats[i, j + 1]) {
+        d <- log_sel_ats[i, j] - log_sel_ats[i, j + 1]
+        shape_pen <- shape_pen + selATS * d * d
+      }
+    }
+  }
+  
+  # Dev: curvature at styr, plus curvature at change years, plus RW steps
+  like_tmp1 <- 0
+  like_tmp2 <- 0
+  
+  i0 <- year_index[[as.character(styr_ats)]]
+  #like_tmp1 <- like_tmp1 + selTATS * norm2(sdiff(log_sel_ats[i0, ]))
+  
+  for (k in seq_len(nch_ats)) {
+    yy <- yrs_ch_ats[k]
+    ik <- year_index[[as.character(yy)]]
+    like_tmp1 <- like_tmp1 + selTATS * norm2(sdiff(log_sel_ats[ik, ]))
+    ip <- year_index[[as.character(yy - 1)]]
+    sigma <- sel_ch_sig_ats[k]
+    like_tmp2 <- like_tmp2 + norm2(log_sel_ats[ip, ] - log_sel_ats[ik, ]) / (2 * sigma^2)
+  }
+  
+  dev_pen <- like_tmp1 + like_tmp2
+  list(shape = shape_pen, dev = dev_pen, total = shape_pen + dev_pen)
 }
 
-read_pars_simple <- function(file) {
-  lines <- readLines(file)
-  result <- list()
-  current_name <- NULL
-  buffer <- c()
-
-  flush_buffer <- function() {
-    if (!is.null(current_name)) {
-      values <- as.numeric(unlist(strsplit(buffer, "\\s+")))
-      result[[current_name]] <<- if (length(values) == 1) values else values
-    }
-  }
-  for (line in lines) {
-    line <- trimws(line)
-    if (line == "") next
-    if (grepl("^#\\s+.+:", line)) {
-      flush_buffer()
-      current_name <- sub("^#\\s+", "", sub(":", "", line))
-      buffer <- c()
-    } else {
-      buffer <- c(buffer, line)
-    }
-  }
-  flush_buffer()
-  return(result)
+# helper
+SRecruit <- function(Stmp, phizero, alpha, Bzero) {
+  RecTmp <- (Stmp / phizero) * exp(alpha * (1 - Stmp / Bzero))
+  return(RecTmp)
 }
+# ADMB -> R: simplified Recruitment_Likelihood
+# yrs_est<- 1979:2023 # example years for estimationbbbbbbbbbbbb
+# eps=1e-8 # small value to avoid log(0)
+# exclude_year=1979
+recruitment_likelihood <- function(
+    yrs_est,                 # integer vector: styr_est:endyr_est
+    exclude_year = 1979,     # special-case exclusion
+    eps = 1e-8               # to avoid log(0)
+) {
+  yrs_est <- as.integer(yrs_est)
+  yrs_lag <- yrs_est - 1L
+  
+  # helper: fetch by year names if available, otherwise assume aligned order
+  fetch_by_year <- function(x, yrs) {
+    if (!is.null(names(x))) {
+      out <- x[as.character(yrs)]
+      if (any(is.na(out))) stop("Missing values when matching by year names.")
+      unname(out)
+    } else {
+      if (length(x) < length(yrs)) stop("Vector too short and has no names for matching.")
+      as.numeric(x[seq_along(yrs)])
+    }
+  }
+  
+  B_lag    <- fetch_by_year(SSB, yrs_lag)
+  R_hat    <- fetch_by_year(pred_rec, yrs_est)
+  rec_devs <- fetch_by_year(log_rec_devs, yrs_est)
+  
+  sigmaRsq <- sigr * sigr
+  rec_like <- numeric(7)
+  
+  # (2) penalty on all rec devs
+  rec_like[2] <- 1.0 * norm2(log_rec_devs)
+  
+  # (4) penalty on initial age-comp devs
+  rec_like[4] <- 0.1 * norm2(log_initdevs)
+  
+  # variability of historical rec devs over the estimation window
+  sigmarsq_out <- norm2(rec_devs) / length(rec_devs)
+  
+  # model recruits: 1-year lag with SSB
+  srmod_rec <- SRecruit(B_lag, phizero, alpha, Bzero)
+  
+  # residuals on log-scale (RAM expected value form uses SR_resids + sigmaRsq/2)
+  SR_resids <- log(R_hat + eps) - log(srmod_rec + eps)
+  
+  # (1) main residual likelihood, with optional exclusion of 'exclude_year'
+  if (omit78 < 1) {
+    rec_like[1] <- 0.5 * norm2(SR_resids + sigmaRsq / 2) / sigmaRsq +
+      length(yrs_est) * log(sigr)
+  } else {
+    keep <- yrs_est != exclude_year
+    rec_like[1] <- sum(0.5 * (SR_resids[keep] + sigmaRsq / 2)^2 / sigmaRsq + log(sigr))
+  }
+  
+  # final scaling of (1)
+  rec_like[1] <- rec_like[1] * srrPrior
+  
+  list(
+    rec_like = rec_like,
+    rec_like_total = sum(rec_like)
+    # sigmarsq_out = sigmarsq_out,
+    # srmod_rec = setNames(srmod_rec, yrs_est),
+    # SR_resids = setNames(SR_resids, yrs_est)
+  )
+}
+
+
