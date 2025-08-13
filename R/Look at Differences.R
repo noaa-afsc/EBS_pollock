@@ -1,4 +1,70 @@
+# rm(list = ls())
+library(RTMB)
+# Read in last year's estimates for comparisons----------
+library(ebswp)
+pm<- read_rep(here::here("runs", "lastyr", "pm.rep")) # Read in the report file)
+
+source(here::here("R", "utilities.R"))
+#--Get the parameters (from ADMB converged model!)------------
+parms <- read_pars(here::here("Rtmb", "pm.par"))
+dat <- build_model_inputs(here::here("Rtmb", "input.dat"), 
+                          fn = here::here("Rtmb", "rpm.dat"))
+dat$spawnmo <- 4. # scalar, month of spawning
+dat$yrfrac <- (dat$spawnmo - 1.) / 12 # scalar, fraction of year for spawning
+dat$yrfrac <- (dat$spawnmo - 1.) / 12 # scalar, fraction of year for spawning
+dat$inv_bts_cov <- solve(dat$cov_matrix)  # inverse covariance matrix
+dat$obs_cpue_var <- dat$obs_cpue_std^2 # observation variance for CPUE
+prel_vars <- preliminary_calcs(data = dat, parameters = parms)
+dat$obs_avo_var <- dat$ob_avo_std^2 # observation variance for AVO
+prel_vars$data
+prel_vars$parameters
+obj <- MakeADFun(rpm, prel_vars$parameters, prel_vars$data) 
+
+
 source(here::here("R/rpm.R"))
+rtmb <- list(
+  N = natage,                               # from GetNumbersAtAge()
+  Z = Z,                                    # from Get_Mortality_Rates()
+  F = F,                                    # from Get_Mortality_Rates()
+  M = M,                                    # from Get_Mortality_Rates()
+  S = exp(-Z),                              # or from Get_Mortality_Rates()
+  C = C,  #F / Z * (1 - exp(-Z)) * natage,       # Baranov catch
+  pred_catch = pred_catch,
+  obs_catch = obs_catch,               # if available
+  SSB = SSB,                                # computed inside GetNumbersAtAge()
+  phizero = phizero,                  # from Get_Bzero()
+  Bzero = Bzero,                      # from Get_Bzero()
+  steepness = steepness,              # input parameter
+  pred_cpue=pred_cpue,
+  pred_avo=pred_avo,
+  eb_bts = eb_bts,                        # BTS biomass
+  eb_ats = eb_ats,                        # BTS biomass
+  sel_fsh = sel_fsh,                        # selectivity-at-age
+  sel_bts = exp(log_sel_bts),
+  sel_ats = exp(log_sel_ats),
+  phat_fsh = eac_fsh,
+  phat_bts = eac_bts,
+  phat_ats = eac_ats,
+  Priors   = Priors, 
+  rec_like = rec_like$rec_like,
+  age_like = age_like,
+  age_like_offset = age_like_offset,
+  sel_like = (sel_like),
+  sel_like_dev = (sel_like_dev),
+  bts_like = bts_like,
+  ats_like = ats_like,
+  ats_age1_like = ats_age1_like,
+  cpue_like = cpue_like, 
+  avo_like = avo_like, 
+  cat_like = cat_like,
+  tot_like = tot_like +pm$wt_like
+)
+
+# matplot(rtmb$phat_bts/pm$phat_bts, type="b")
+# rowSums(rtmb$phat_bts[,1:15])
+# rowSums(pm$phat_bts[,1:15])
+
+
 gt_compare_table(rtmb, pm, tolerance = 1e-2, sort_by_diff=FALSE)
 sel_like_dev/pm$sel_like_dev
 sel_like_dev;pm$sel_like_dev

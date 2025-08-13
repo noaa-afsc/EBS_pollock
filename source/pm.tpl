@@ -3557,37 +3557,32 @@ FUNCTION Evaluate_Objective_Function
     Priors(1) = 100.*lambda_spr_msy*square(log(MSY)-log(condmsy));
     // MSY      = get_yield(Fmsy,Stmp,Rtmp,Btmp);
   }
-  NLL(16) += sum(Priors);
 
+  NLL(18) += wt_like;
+    NLL(16) += sum(Priors);
   // Conditional bits
 	if (do_nodata)
 	{
-    // NLL(7) += ctrl_flag(3) * sum(rec_like); // regularizer
-    fff   = ctrl_flag(3) * sum(rec_like); // regularizer
-    // NLL(14)+= sum(sel_like); // regularizer
-    fff  += sum(sel_like); // regularizer
-    // NLL(15)+= sum(sel_like_dev); // regularizer
-    fff  += sum(sel_like_dev); // regularizer
-    // NLL(9) += ctrl_flag(4) * F_pen; // regularizer
-    fff  += ctrl_flag(4) * F_pen; // regularizer
-    // NLL(16) += sum(Priors);
-    fff  += sum(Priors);
+    NLL(7) += ctrl_flag(3) * sum(rec_like); // regularizer
+    // fff   = ctrl_flag(3) * sum(rec_like); // regularizer
+    NLL(14)+= sum(sel_like); // regularizer
+    // fff  += sum(sel_like); // regularizer
+    NLL(15)+= sum(sel_like_dev); // regularizer
+    // fff  += sum(sel_like_dev); // regularizer
+    NLL(9) += ctrl_flag(4) * F_pen; // regularizer
+    // fff  += ctrl_flag(4) * F_pen; // regularizer
+    NLL(16) += sum(Priors);
+    // fff  += sum(Priors);
+	  fff = sum(NLL);
 	}
 	else
+	{
+    NLL(17) += 10.*square(avgsel_fsh);
+    NLL(17) += 10.*square(avgsel_bts);
+    NLL(17) += 10.*square(avgsel_ats);
 	  fff += sum(NLL);
+	}
 
-  fff += 10.*square(avgsel_fsh);
-  fff += 10.*square(avgsel_bts);
-  fff += 10.*square(avgsel_ats);
-
- /*
-  if (active(wt_fut))
-    for (j=1;j<=nages;j++)
-    {
-      dvariable res = wt_mn(j)-wt_fut(j);
-      fff += res*res/ (2.*wt_sigma(j)*wt_sigma(j));
-    }
- */
 
  // things added by Paul
  dvariable tmp6;
@@ -6514,11 +6509,14 @@ FUNCTION Est_Fixed_Effects_wts
   K            = mfexp(log_K);
   alphawt      = mfexp(log_alpha);
   wt_like      = 0.;
+	dvar_vector wt_nll(1,3);
+	wt_nll.initialize();
   for (int j=age_st;j<=age_end;j++)
   {
     mnwt(j)    = alphawt * pow(L1 + (L2-L1)*(1.-pow(K,double(j-age_st))) / (1.-pow(K,double(nages-1))) ,3);
   }
   wt_inc       = --mnwt(age_st+1,age_end) - mnwt(age_st,age_end-1);
+	if (do_check) cout<<wt_inc<<endl;
 
   // Initialize first year
   wt_pre(styr_wt)    = mnwt;
@@ -6527,11 +6525,14 @@ FUNCTION Est_Fixed_Effects_wts
   for (int i=styr_wt+1;i<=endyr_wt;i++)
   {
     wt_pre(i,age_st) = mnwt(age_st)*mfexp(square(sigma_coh)/2.+sigma_coh*coh_eff(i));
+	// if (do_check) cout<<i<<" CohEff "<<coh_eff(i)<<" wt_pre1 "<<wt_pre(i,age_st)<<endl;
     if (last_phase())
       wt_pre(i)(age_st+1,age_end) = ++(wt_pre(i-1)(age_st,age_end-1) + wt_inc*mfexp(square(sigma_yr)/2. + sigma_yr*yr_eff(i)));
     else
       wt_pre(i)(age_st+1,age_end) = ++(wt_pre(i-1)(age_st,age_end-1) + wt_inc*mfexp(                      sigma_yr*yr_eff(i)));
   }
+	
+	// if (do_check) cout<<"wt_pre "<<endl<<wt_pre<<endl;
   int iyr;
   // Fit global mean to all years...
   for (int h = 1;h<=ndat_wt;h++)
@@ -6547,14 +6548,22 @@ FUNCTION Est_Fixed_Effects_wts
 
       for (int j=age_st;j<=age_end;j++)
       {
-        wt_like += square(wt_obs(h,i,j) - mnwt(j))      /(2.*square(sd_obs(h,i,j)));
-        wt_like += square(wt_obs(h,i,j) - wt_hat(h,i,j))/(2.*square(sd_obs(h,i,j)));
+        wt_nll(1) += square(wt_obs(h,i,j) - mnwt(j))      /(2.*square(sd_obs(h,i,j)));
+        wt_nll(2) += square(wt_obs(h,i,j) - wt_hat(h,i,j))/(2.*square(sd_obs(h,i,j)));
       }
+			if (do_check) cout<<iyr<<" "<<i<<" "<<sum(wt_nll)<<" pre: "<<wt_hat(h,i)(3,7)<<" Ob: "<<wt_obs(h,i)(3,7)<<endl;
     }
   }
-  wt_like += 0.5*norm2(coh_eff);
-  wt_like += 0.5*norm2( yr_eff);
-  fff += wt_like;
+  wt_nll(3) += 0.5*norm2(coh_eff);
+  wt_nll(4) += 0.5*norm2( yr_eff);
+	if (do_check) {
+					cout<<sum(wt_nll)<<endl;
+	for (int i=1;i<=4;i++)
+					cout<<i<<" "<<wt_nll(i)<<endl;
+	}
+	if (do_check) exit(1);
+	wt_like = sum(wt_nll);
+
   wt_last = wt_pre(endyr_wt-3); //*exp(sigma_coh*sigma_coh/2. + sigma_yr*sigma_yr/2.);;
   wt_cur  = wt_pre(endyr_wt-2); //*exp(sigma_coh*sigma_coh/2. + sigma_yr*sigma_yr/2.);;
   wt_next = wt_pre(endyr_wt-1); //*exp(sigma_coh*sigma_coh/2. + sigma_yr*sigma_yr/2.);;
@@ -6719,6 +6728,7 @@ FUNCTION double calc_Francis_weights(const dmatrix oac, const dvar_matrix eac, c
   }
 
 REPORT_SECTION
+   R_report(NLL);
   save_gradients(gradients);
    ad_exit=&do_not_exit;
   // if (last_phase()) Get_Replacement_Yield();
@@ -6749,6 +6759,8 @@ REPORT_SECTION
 	       << 10.*square(avgsel_fsh)+ 
       10.*square(avgsel_bts)+ 
       10.*square(avgsel_ats)<<endl;
+  report << "mnwt"<<endl;
+  report << mnwt<<endl;
   report << "age_like_offset"<<endl;
   report << age_like_offset<<endl;
   report << "N"<<endl;

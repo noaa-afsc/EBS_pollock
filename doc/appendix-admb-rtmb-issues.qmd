@@ -43,10 +43,16 @@ The initial steps to bridge ADMB to RTMB involve identifying key components and 
 #| error: false
 rm(list = ls())
 # source(here::here("R/Rpm_annotated.R"))
-source(here::here("R/Rpm.R"))
-# eb_bts/ pm$eb_bts
-
-gt_compare_table(rtmb, pm, tolerance = 1e-2, sort_by_diff=FALSE)
+source(here::here("R/config.R"))
+res <- rpm(prel_vars$parameters, prel_vars$data )
+# names(res$rtmb)
+gt_compare_table(res$rtmb, pm, tolerance = 1e-2, sort_by_diff=FALSE)
+res$nll
+# (res$rtmb$age_like)/pm$age_like
+#source(here::here("R/Rpm.R"))
+# 
+getAll(prel_vars$parameters, prel_vars$data )
+res$rtmb$Fpen_like
 ```
 
 ## Tuning
