@@ -1,4 +1,7 @@
-rpm <- function(parms, data) {
+rpm <- function(parms) {
+  "c" <- ADoverload("c")
+  "[<-" <- ADoverload("[<-")
+  
   getAll(parms, data, warn = TRUE)
   ## Initialize joint negative log likelihood
   nll <- 0
@@ -347,24 +350,23 @@ rpm <- function(parms, data) {
   # pen_ats[2]
   # pen_bts[2]
   # pen_fsh[2]
-  sel_like <- list(
-    fsh = pen_fsh[1],
-    bts = pen_bts[1],
-    ats = pen_ats[1]
-  )
-  sel_like_dev <- list(
-    fsh = pen_fsh$dev,
-    bts = pen_bts$dev,
-    ats = pen_ats$dev
-  )
-  # pen_ats
-  # Sum into your objective
-  total_penalty <- pen_fsh$total + pen_bts$total + pen_ats$total
+  # sel_like <- list(
+  #   fsh = pen_fsh[1],
+  #   bts = pen_bts[1],
+  #   ats = pen_ats[1]
+  # )
+  # sel_like_dev <- list(
+  #   fsh = pen_fsh$dev,
+  #   bts = pen_bts$dev,
+  #   ats = pen_ats$dev
+  # )
+  # # pen_ats
+  sel_like <-  pen_fsh$shape + pen_bts$shape + pen_ats$shape
+  sel_like_dev <-  pen_fsh$dev +  pen_bts$dev +  pen_ats$dev
+  
 
   styr_est <- 1978
   endyr_est <- endyr - omitSR
-
-
   # Define your SR function (e.g., Beverton–Holt with parameters a, b):
   rec_like <- recruitment_likelihood(
     yrs_est = styr_est:endyr_est,
@@ -416,9 +418,7 @@ rpm <- function(parms, data) {
   # sel_like/pm$sel_like
 
   #--Weight-age fixed effects-----------
-  Wtage_file <- here::here("runs", "data", "wtage2024.dat")
-  waa <- read_wtage_data(Wtage_file)
-  assign_wtage_data(waa) # Now all variables are in global environment
+  # assign_wtage_data(waa) # Now all variables are in global environment
   sigma_coh <- exp(log_sd_coh)
   sigma_yr <- exp(log_sd_yr)
   K <- exp(log_K)
@@ -428,8 +428,11 @@ rpm <- function(parms, data) {
 
   wt_like <- 0.0
   wt_nll <- numeric(4)
-  initialize_arrays()
-  initialize_arrays
+  mnwt <- numeric(age_end)
+  wt_inc <- numeric(age_end - 1)
+  wt_pre <- matrix(0, nrow = endyr_wt - styr_wt + 1, ncol = age_end)
+  wt_hat <- array(0, dim = c(ndat_wt, max(nyrs_data), age_end))
+  # ... other arrays as needed
   for (j in age_st:age_end) {
     # mnwt[j] <<- alphawt * (L1 + (L2 - L1) * (1 - K^(j - age_st)) / (1 - K^(nages - 1)))^3
     mnwt[j] <- alphawt * (L1 + (L2 - L1) * (1 - K^(j - age_st)) / (1 - K^(nages - 1)))^3
@@ -486,50 +489,56 @@ rpm <- function(parms, data) {
 
   nll <- sum(c(
     Priors, rec_like$rec_like, age_like, bts_like, ats_like, ats_age1_like,
-    cpue_like, avo_like, Fpen_like, cat_like, sel_like, sel_like_dev - pm$age_like_offset,
-    wt_like
+    cpue_like, avo_like, Fpen_like, 
+     cat_like, 
+    sel_like, 
+    sel_like_dev, 
+    wt_like-42105.12
   ))
-
-  # wt_like/pm$wt_like
+  REPORT(SSB)
+  if (return_nll_only)
+    return( nll)
+  else
+    return(
   list(
-    nll=nll,
+    nll=nll- pm$age_like_offset,
     rtmb=list(
-        N = natage,                               # from GetNumbersAtAge()
-        Z = Z,                                    # from Get_Mortality_Rates()
-        F = F,                                    # from Get_Mortality_Rates()
-        M = M,                                    # from Get_Mortality_Rates()
-        S = exp(-Z),                              # or from Get_Mortality_Rates()
-        C = C,  #F / Z * (1 - exp(-Z)) * natage,       # Baranov catch
-        pred_catch = pred_catch,
-        obs_catch = obs_catch,               # if available
-        SSB = SSB,                                # computed inside GetNumbersAtAge()
-        phizero = phizero,                  # from Get_Bzero()
-        Bzero = Bzero,                      # from Get_Bzero()
-        steepness = steepness,              # input parameter
-        pred_cpue=pred_cpue,
-        pred_avo=pred_avo,
-        eb_bts = eb_bts,                        # BTS biomass
-        eb_ats = eb_ats,                        # BTS biomass
-        sel_fsh = sel_fsh,                        # selectivity-at-age
-        sel_bts = exp(log_sel_bts),
-        sel_ats = exp(log_sel_ats),
-        phat_fsh = eac_fsh,
-        phat_bts = eac_bts,
-        phat_ats = eac_ats,
-        cat_like = cat_like,
-        bts_like = bts_like,
-        ats_like = ats_like,
-        ats_age1_like = ats_age1_like,
-        cpue_like = cpue_like, 
-        avo_like = avo_like, 
-        age_like = age_like - age_like_offset,
-        age_like_offset = age_like_offset,
-        rec_like = rec_like$rec_like,
-        Fpen_like = Fpen_like, # Fpenalty
-        sel_like = (sel_like),
-        sel_like_dev = (sel_like_dev),
-        Priors   = Priors, 
-        tot_like = nll
+      N = natage,                               # from GetNumbersAtAge()
+      Z = Z,                                    # from Get_Mortality_Rates()
+      F = F,                                    # from Get_Mortality_Rates()
+      M = M,                                    # from Get_Mortality_Rates()
+      S = exp(-Z),                              # or from Get_Mortality_Rates()
+      C = C,  #F / Z * (1 - exp(-Z)) * natage,       # Baranov catch
+      pred_catch = pred_catch,
+      obs_catch = obs_catch,               # if available
+      SSB = SSB,                                # computed inside GetNumbersAtAge()
+      phizero = phizero,                  # from Get_Bzero()
+      Bzero = Bzero,                      # from Get_Bzero()
+      steepness = steepness,              # input parameter
+      pred_cpue=pred_cpue,
+      pred_avo=pred_avo,
+      eb_bts = eb_bts,                        # BTS biomass
+      eb_ats = eb_ats,                        # BTS biomass
+      sel_fsh = sel_fsh,                        # selectivity-at-age
+      sel_bts = exp(log_sel_bts),
+      sel_ats = exp(log_sel_ats),
+      phat_fsh = eac_fsh,
+      phat_bts = eac_bts,
+      phat_ats = eac_ats,
+      cat_like = cat_like,
+      bts_like = bts_like,
+      ats_like = ats_like,
+      ats_age1_like = ats_age1_like,
+      cpue_like = cpue_like, 
+      avo_like = avo_like, 
+      age_like = age_like - age_like_offset,
+      age_like_offset = age_like_offset, rec_like = rec_like$rec_like,
+      Fpen_like = Fpen_like, # Fpenalty
+      sel_like = (sel_like),
+      sel_like_dev = (sel_like_dev),
+      Priors   = Priors, 
+      tot_like = nll - pm$age_like_offset
     )
+  )
   )
 }

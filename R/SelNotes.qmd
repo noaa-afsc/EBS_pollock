@@ -1,0 +1,118 @@
+---
+title: "Pollock model fishery selectivity notes"
+format: html
+---
+
+# Pollock model fishery selectivity notes
+## Initial Setup
+
+### Average Selectivity
+$$\overline{sel} = \log\left(\text{mean}(\exp(\mathbf{c}))\right)$$
+
+where $\mathbf{c}$ is the vector of base selectivity coefficients.
+
+### Base Year Selectivity (t = stsel)
+For ages 1 to nsel:
+$$\log(S_{t,a}) = c_a \quad \text{for } a = 1, 2, ..., nsel$$
+
+For older ages (plateau assumption):
+$$\log(S_{t,a}) = c_{nsel} \quad \text{for } a = nsel+1, ..., nages$$
+
+### Initial Normalization
+$$\log(S_{t,a}) = \log(S_{t,a}) - \log\left(\frac{1}{nages}\sum_{a=1}^{nages} \exp(\log(S_{t,a}))\right)$$
+
+This ensures: $\prod_{a=1}^{nages} S_{t,a}^{1/nages} = 1$
+
+## Time-Varying Component
+
+### Selectivity Evolution (t > stsel)
+For years without regime changes:
+$$\log(S_{t+1,a}) = \log(S_{t,a}) \quad \text{for all ages}$$
+
+For years with regime changes (when $t+1 \in \text{yrs\_ch\_fsh}$):
+
+**Ages 1 to nsel:**
+$$\log(S_{t+1,a}) = \log(S_{t,a}) + \delta_{ii,a} \quad \text{for } a = 1, 2, ..., nsel$$
+
+**Older ages (plateau maintained):**
+$$\log(S_{t+1,a}) = \log(S_{t+1,nsel}) \quad \text{for } a = nsel+1, ..., nages$$
+
+where:
+- $\delta_{ii,a}$ is the selectivity deviation for change event $ii$ and age $a$
+- $ii$ is the index of the current selectivity change event
+
+### Annual Normalization
+For each year $t$:
+$$\log(S_{t,a}) = \log(S_{t,a}) - \log\left(\frac{1}{nages}\sum_{a=1}^{nages} \exp(\log(S_{t,a}))\right)$$
+
+and the actual selectivity is:
+$$S_{t,a} = \exp(\log(S_{t,a}))$$
+
+## Constraints and Properties
+
+1. **Normalization Constraint**: 
+   $$\prod_{a=1}^{nages} S_{t,a}^{1/nages} = 1 \quad \forall t$$
+
+2. **Dome-shaped Constraint**: 
+   $$S_{t,a} = S_{t,nsel} \quad \text{for } a > nsel$$
+
+3. **Continuity**: Selectivity changes only occur in specified years (`yrs_ch_fsh`)
+
+4. **Deviation Structure**: 
+   $$\delta_{ii} \sim \text{estimated deviations with penalties}$$
+
+## Implementation Notes
+
+- Base coefficients $\mathbf{c}$ are estimated parameters
+- Deviations $\boldsymbol{\delta}$ are typically penalized to prevent overfitting
+- The plateau assumption prevents unrealistic selectivity patterns for older ages
+- Geometric mean normalization maintains interpretability relative to fishing mortality
+
+# Regularization and Penalty Terms
+
+The selectivity model includes several penalty terms to ensure realistic and stable estimates:
+Penalty Term 1: Deviation Magnitude Penalty
+$P_1 = \frac{\lambda_1}{N_{groups}} \sum_{i=1}^{N_{changes}} \sum_{a=1}^{nsel} \delta_{i,a}^2$
+where:
+
+$\lambda_1$ = ctrl_flag(10) (penalty weight parameter)
+$N_{groups}$ = group_num_fsh (number of fishery groups)
+This shrinks deviations toward zero when not informed by data
+
+Penalty Term 2: Base Selectivity Smoothness Penalty
+$P_2 = \frac{\lambda_2}{N_{changes}} \sum_{a=1}^{nsel-2} \left[\nabla^2 \log(S_{styr,a})\right]^2$
+where:
+
+$\lambda_2$ = ctrl_flag(11) (smoothness penalty weight)
+$\nabla^2 \log(S_{t,a}) = \log(S_{t,a+2}) - 2\log(S_{t,a+1}) + \log(S_{t,a})$ (second difference)
+This penalizes high curvature in the base selectivity pattern
+
+Penalty Term 3: Change Year Smoothness Penalty
+$P_3 = \frac{\lambda_2}{N_{changes}} \sum_{i=1}^{N_{changes}} \sum_{a=1}^{nsel-2} \left[\nabla^2 \log(S_{t_i,a})\right]^2$
+where $t_i$ represents each change year. This maintains smooth selectivity curves in all change years.
+Penalty Term 4: Temporal Stability Penalty (Random Walk)
+$P_4 = \sum_{i=1}^{N_{changes}} \frac{1}{2\sigma_i^2} \sum_{a=1}^{nages} \left[\log(S_{t_i-1,a}) - \log(S_{t_i,a})\right]^2$
+where:
+
+$\sigma_i$ = sel_ch_sig_fsh(i) (change magnitude parameter for change event $i$)
+This penalizes large year-to-year changes in selectivity
+Only applied when $t_i \neq styr$ (change year is not the start year)
+
+Total Penalty Function
+$P_{total} = P_1 + P_2 + P_3 + P_4$
+The total negative log-likelihood becomes:
+$-\log L = -\log L_{data} + P_{total}$
+Penalty Interpretation
+
+$P_1$: Prevents overfitting by shrinking deviations toward zero
+$P_2$ and $P_3$: Enforce smooth, realistic selectivity curves (penalize jagged patterns)
+$P_4$: Constrains temporal evolution (selectivity changes smoothly over time)
+
+The penalty weights ($\lambda_1$, $\lambda_2$) and variance parameters ($\sigma_i$) control the balance between fitting data and maintaining realistic selectivity patterns.
+Implementation Notes
+
+Base coefficients $\mathbf{c}$ are estimated parameters
+Deviations $\boldsymbol{\delta}$ are penalized to prevent overfitting
+The plateau assumption prevents unrealistic selectivity patterns for older ages
+Geometric mean normalization maintains interpretability relative to fishing mortality
+Second differences approximate curvature (second derivatives) for smoothness penalties

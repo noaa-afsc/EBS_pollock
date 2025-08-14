@@ -44,9 +44,18 @@ The initial steps to bridge ADMB to RTMB involve identifying key components and 
 rm(list = ls())
 # source(here::here("R/Rpm_annotated.R"))
 source(here::here("R/config.R"))
+prel_vars$data$return_nll_only <- FALSE # Flag to only return nll
 res <- rpm(prel_vars$parameters, prel_vars$data )
-# names(res$rtmb)
 gt_compare_table(res$rtmb, pm, tolerance = 1e-2, sort_by_diff=FALSE)
+prel_vars$data$return_nll_only <- 1 # Flag to only return nll
+obj <- MakeADFun(rpm, prel_vars$data, prel_vars$parameters)
+  # Pre-processing
+  "c" <- ADoverload("c")
+  "[<-" <- ADoverload("[<-")
+
+# names(res$rtmb)
+# wt_like/pm$wt_like
+  
 res$nll
 # (res$rtmb$age_like)/pm$age_like
 #source(here::here("R/Rpm.R"))
