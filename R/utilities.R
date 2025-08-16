@@ -57,65 +57,67 @@ compare_outputs_max_pct <- function(rtmb, admb, tolerance = 1e-6) {
   do.call(rbind, comps)
 }
 
+cmb <- function(f, d) function(p) f(p, d)
+
 # 2. gt table builder
 gt_compare_table <- function(rtmb, admb, tolerance = 1e-4, sort_by_diff = TRUE) {
-  requireNamespace("gt", quietly = TRUE)
-  requireNamespace("dplyr", quietly = TRUE)
-  requireNamespace("scales", quietly = TRUE)
-
-  is_ok <- function(x) is.numeric(x) || is.matrix(x) || is.array(x)
-  rtmb_f <- rtmb[sapply(rtmb, is_ok)]
-  admb_f <- admb[sapply(admb, is_ok)]
-
-  comp <- compare_outputs_max_pct(rtmb_f, admb_f, tolerance = tolerance)
-
-  # Preserve original variable order if requested
-  if (!sort_by_diff) {
-    comp <- dplyr::mutate(comp,
-      orig_order = match(variable, names(rtmb_f))
-    ) |>
-      dplyr::arrange(orig_order) |>
-      dplyr::select(-orig_order)
-  } else {
-    comp <- dplyr::arrange(comp, dplyr::desc(max_abs_pct_diff))
+    requireNamespace("gt", quietly = TRUE)
+    requireNamespace("dplyr", quietly = TRUE)
+    requireNamespace("scales", quietly = TRUE)
+    
+    is_ok <- function(x) is.numeric(x) || is.matrix(x) || is.array(x)
+    rtmb_f <- rtmb[sapply(rtmb, is_ok)]
+    admb_f <- admb[sapply(admb, is_ok)]
+    
+    comp <- compare_outputs_max_pct(rtmb_f, admb_f, tolerance = tolerance)
+    
+    # Preserve original variable order if requested
+    if (!sort_by_diff) {
+      comp <- dplyr::mutate(comp,
+                            orig_order = match(variable, names(rtmb_f))
+      ) |>
+        dplyr::arrange(orig_order) |>
+        dplyr::select(-orig_order)
+    } else {
+      comp <- dplyr::arrange(comp, dplyr::desc(max_abs_pct_diff))
+    }
+    
+    dom <- range(comp$max_abs_pct_diff, na.rm = TRUE)
+    if (!all(is.finite(dom))) dom <- c(0, 1)
+    
+    gt::gt(comp) |>
+      gt::data_color(
+        columns = c(max_abs_pct_diff),
+        fn = scales::col_numeric(
+          palette = c("white", "yellow", "orangered"),
+          domain  = dom
+        )
+      ) |>
+      gt::data_color(
+        columns = c(cor),
+        fn = scales::col_numeric(
+          palette = c("red", "white", "darkgreen"),
+          domain  = c(-1, 1)
+        )
+      ) |>
+      gt::fmt_number(
+        columns = c(max_abs_pct_diff, cor),
+        decimals = 6
+      ) |>
+      gt::cols_label(
+        variable         = "Variable",
+        equal            = "Equal (≤ tol)",
+        length_rtmb      = "Len RTMB",
+        length_admb      = "Len ADMB",
+        max_abs_pct_diff = "Max |% diff| (RTMB vs ADMB)",
+        cor              = "Correlation"
+      ) |>
+      gt::tab_header(
+        title = "Comparison of RTMB and ADMB Outputs",
+        subtitle = paste("Tolerance =", format(tolerance, scientific = TRUE))
+      )
   }
-
-  dom <- range(comp$max_abs_pct_diff, na.rm = TRUE)
-  if (!all(is.finite(dom))) dom <- c(0, 1)
-
-  gt::gt(comp) |>
-    gt::data_color(
-      columns = c(max_abs_pct_diff),
-      fn = scales::col_numeric(
-        palette = c("white", "yellow", "orangered"),
-        domain  = dom
-      )
-    ) |>
-    gt::data_color(
-      columns = c(cor),
-      fn = scales::col_numeric(
-        palette = c("red", "white", "darkgreen"),
-        domain  = c(-1, 1)
-      )
-    ) |>
-    gt::fmt_number(
-      columns = c(max_abs_pct_diff, cor),
-      decimals = 6
-    ) |>
-    gt::cols_label(
-      variable         = "Variable",
-      equal            = "Equal (≤ tol)",
-      length_rtmb      = "Len RTMB",
-      length_admb      = "Len ADMB",
-      max_abs_pct_diff = "Max |% diff| (RTMB vs ADMB)",
-      cor              = "Correlation"
-    ) |>
-    gt::tab_header(
-      title = "Comparison of RTMB and ADMB Outputs",
-      subtitle = paste("Tolerance =", format(tolerance, scientific = TRUE))
-    )
-}
-
+ 
 read_pars <- function(file) {
   lines <- readLines(file)
   result <- list()
@@ -380,18 +382,28 @@ read_model_inputs <- function(fn) {
   return(data)
 }
 
-preliminary_calcs <- function(data, parameters) {
+Get_Data <- function() {
+  #--Includes PRELIMINARY Calcs stuff too-------
+  data <- build_model_inputs(here::here("Rtmb", "input.dat"), 
+                            fn = here::here("Rtmb", "rpm.dat"))
+  data$spawnmo <- 4. # scalar, month of spawning
+  data$yrfrac <- (data$spawnmo - 1.) / 12 # scalar, fraction of year for spawning
+  data$inv_bts_cov <- solve(data$cov_matrix)  # inverse covariance matrix
+  data$obs_cpue_var <- data$obs_cpue_std^2 # observation variance for CPUE
+  data$obs_avo_var <- data$ob_avo_std^2 # observation variance for AVO
+  data$nyrs <- data$endyr_r-data$styr+1
+  data$return_nll_only <- 1 # Flag to only return nll
   # Eq. 21 – initialize wt_fut
   data$wt_fut <- data$wt_fsh[data$nyrs, ]
 
   # Natural mortality setup
-  parameters$base_natmort <- data$natmort_in
-  parameters$natmort <- parameters$base_natmort
+  data$base_natmort <- data$natmort_in
+  data$natmort <- data$base_natmort
 
   if (data$Mmatrix == 1 && !is.null(data$M_in)) {
     data$M <- data$M_in
-    parameters$base_natmort <- data$M[as.character(data$endyr), ]
-    parameters$natmort <- parameters$base_natmort
+    data$base_natmort <- data$M[as.character(data$endyr), ]
+    data$natmort <- data$base_natmort
   }
   Wtage_file <- here::here("runs", "data", "wtage2024.dat")
   waa <- read_wtage_data(Wtage_file)
@@ -405,8 +417,8 @@ preliminary_calcs <- function(data, parameters) {
   }
 
   # Age composition likelihood offsets
-  parameters$age_like_offset <- rep(0, data$ngears)
-  parameters$len_like_offset <- 0
+  data$age_like_offset <- rep(0, data$ngears)
+  data$len_like_offset <- 0
   MN_const <- 0.001
 
   for (igear in seq_len(data$ngears)) {
@@ -415,7 +427,7 @@ preliminary_calcs <- function(data, parameters) {
         # Fishery
         p <- data$oac_fsh_data[i, ] / sum(data$oac_fsh_data[i, ])
         data$oac_fsh[i, ] <- p
-        parameters$age_like_offset[igear] <- parameters$age_like_offset[igear] -
+        data$age_like_offset[igear] <- data$age_like_offset[igear] -
           data$sam_fsh[i] * sum(p * log(p + MN_const))
       } else if (igear == 2) {
         # BTS
@@ -424,7 +436,7 @@ preliminary_calcs <- function(data, parameters) {
         # data$ob_bts[i] <- data$obs_bts_data[i]
         p <- data$oac_bts[i, ] / sum(data$oac_bts[i, ])
         data$oac_bts[i, ] <- p
-        parameters$age_like_offset[igear] <- parameters$age_like_offset[igear] -
+        data$age_like_offset[igear] <- data$age_like_offset[igear] -
           data$sam_bts[i] * sum(p * log(p + MN_const))
       } else if (igear == 3) {
         # ATS
@@ -434,23 +446,23 @@ preliminary_calcs <- function(data, parameters) {
         p <- data$oac_ats[i, data$mina_ats:data$nages]
         p <- p / sum(p)
         data$oac_ats[i, data$mina_ats:data$nages] <- p
-        parameters$age_like_offset[igear] <- parameters$age_like_offset[igear] -
+        data$age_like_offset[igear] <- data$age_like_offset[igear] -
           data$sam_ats[i] * sum(p * log(p + MN_const))
       }
     }
   }
 
   # Length likelihood offset
-  parameters$len_like_offset <- parameters$len_like_offset -
+  data$len_like_offset <- data$len_like_offset -
     50 * sum(data$olc_fsh * log(data$olc_fsh + MN_const))
 
   # Ignore ATS age-1 if CV too high
-  data$ot_ats[data$n_ats] <- sum(data$oac_ats_data[data$n_ats, data$mina_ats:data$nages])
-  if (data$ot_ats_std[data$n_ats] / data$ot_ats[data$n_ats] > 0.4) {
-    data$ignore_last_ats_age1 <- 1
-  } else {
+  # data$ot_ats[data$n_ats] <- sum(data$oac_ats_data[data$n_ats, data$mina_ats:data$nages])
+  # if (data$ot_ats_std[data$n_ats] / data$ot_ats[data$n_ats] > 0.4) {
+    # data$ignore_last_ats_age1 <- 1
+  # } else {
     data$ignore_last_ats_age1 <- 0
-  }
+  # }
 
   # ATS log-scale observation CV
   lse_ats <- sqrt(log((data$std_ot_ats[1:data$n_ats] / data$ot_ats[1:data$n_ats])^2 + 1))
@@ -476,7 +488,7 @@ preliminary_calcs <- function(data, parameters) {
 
   # Return updated objects
   # list(data = c(data,wtage_data) , parameters = parameters)
-  list(data = data, parameters = parameters)
+  return(data)
 }
 read_data <- function(file) {
   lines <- readLines(file)
@@ -801,3 +813,100 @@ assign_wtage_data <- function(wtage_data) {
    }
  }
  
+
+ 
+ create_map_from_zeros <- function(params, tolerance = 1e-10) {
+   map_list <- list()
+   
+   for (name in names(params)) {
+     param_vals <- params[[name]]
+     
+     # Check if values are effectively zero
+     is_zero <- abs(param_vals) < tolerance
+     
+     if (any(is_zero)) {
+       if (is.array(param_vals) || is.matrix(param_vals)) {
+         # For arrays/matrices
+         map_factor <- array(seq_along(param_vals), dim = dim(param_vals))
+         map_factor[is_zero] <- NA
+         # IMPORTANT: Convert to factor!
+         map_list[[name]] <- factor(map_factor)
+       } else {
+         # For vectors
+         map_factor <- seq_along(param_vals)
+         map_factor[is_zero] <- NA
+         # IMPORTANT: Convert to factor!
+         map_list[[name]] <- factor(map_factor)
+       }
+     }
+   }
+   
+   return(map_list)
+ }
+ 
+ create_map_from_par <- function(par_vector, 
+                                 param_list,  # Original parameter list with structure
+                                 exact_names = NULL, 
+                                 patterns = NULL, 
+                                 exclude_patterns = NULL) {
+   map_list <- list()
+   all_names <- names(par_vector)
+   
+   # Start with all parameter names
+   selected_names <- character(0)
+   
+   # Add exact matches
+   if (!is.null(exact_names)) {
+     selected_names <- c(selected_names, exact_names[exact_names %in% all_names])
+   }
+   
+   # Add pattern matches
+   if (!is.null(patterns)) {
+     for (pattern in patterns) {
+       pattern_matches <- grep(pattern, all_names, value = TRUE)
+       selected_names <- c(selected_names, pattern_matches)
+     }
+   }
+   
+   # Remove excluded patterns
+   if (!is.null(exclude_patterns)) {
+     for (exclude_pattern in exclude_patterns) {
+       exclude_matches <- grep(exclude_pattern, selected_names, value = TRUE)
+       selected_names <- setdiff(selected_names, exclude_matches)
+     }
+   }
+   
+   # Remove duplicates
+   selected_names <- unique(selected_names)
+   
+   # Create map with proper structure
+   for (name in selected_names) {
+     if (name %in% names(param_list)) {
+       original_param <- param_list[[name]]
+       
+       # Create NA array/matrix/vector with same structure
+       if (is.array(original_param) || is.matrix(original_param)) {
+         na_structure <- array(NA, dim = dim(original_param))
+         map_list[[name]] <- factor(na_structure)
+       } else {
+         # For vectors
+         na_structure <- rep(NA, length(original_param))
+         map_list[[name]] <- factor(na_structure)
+       }
+     }
+   }
+   
+   return(map_list)
+ }
+ 
+ # Usage - you need both fit$par and your original parameter list
+ 
+ 
+ 
+ to_param_list <- function(par_vec) {
+   # Remove [..] for grouping
+   base_names <- sub("\\[.*\\]$", "", names(par_vec))
+   split_vals <- split(par_vec, base_names)
+   # Drop to scalar if length 1
+   lapply(split_vals, function(x) if (length(x) == 1) as.numeric(x) else as.numeric(x))
+ }

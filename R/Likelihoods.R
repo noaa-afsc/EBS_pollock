@@ -2,10 +2,12 @@ BTS_likelihood <- function(
     ob_bts, ot_bts, eb_bts, et_bts, # observed and expected values
     inv_bts_cov, # variance and inverse covariance
     var_ob_bts,
-    DoCovBTS = 1, do_bts_bio = TRUE # flags for likelihood type and biology) {
+    DoCovBTS = 1, 
+    do_bts_bio = TRUE # flags for likelihood type and biology) {
 ) {
   "c" <- ADoverload("c")
   "[<-" <- ADoverload("[<-")
+  val = 0
   q_bts <- mean(ob_bts) / mean(eb_bts)
   eb_bts_scaled <- eb_bts * q_bts
   
@@ -14,30 +16,36 @@ BTS_likelihood <- function(
   } else {
     srv_tmp <- ot_bts - et_bts
   }
-  val <- switch(as.character(DoCovBTS),
-                "0" = {
-                  if (do_bts_bio) {
-                    srv_tmp <- log(ob_bts) - log(eb_bts_scaled)
-                    sum(srv_tmp^2 / (2 * var_ob_bts))
-                  } else {
-                    0
-                  }
-                },
-                "1" = {
-                  0.5 * t(srv_tmp) %*% inv_bts_cov %*% srv_tmp
-                },
-                "2" = {
-                  sum(sapply(1:n_bts_r, function(i) {
-                    (log(ob_bts[i]) - log(eb_bts_scaled[i]))^2 / (2 * var_ob_bts[i])
-                  }))
-                },
-                "3" = {
-                  if (do_bts_bio) {
-                    srv_tmp <- log(ob_bts) - log(eb_bts_scaled)
-                  }
-                  0 # Placeholder: no likelihood implemented
-                }
-  )
+  if (DoCovBTS==1)
+  {
+    
+     val <- 0.5 * t(srv_tmp) %*% inv_bts_cov %*% srv_tmp
+  } else {
+    # Need to correct if goinig back to total abundance instead of biomass
+     val <- sum(srv_tmp^2 / (2 * var_ob_bts))
+  }
+                # "0" = {
+                #   if (do_bts_bio) {
+                #     srv_tmp <- log(ob_bts) - log(eb_bts_scaled)
+                #     sum(srv_tmp^2 / (2 * var_ob_bts))
+                #   } else {
+                #     0
+                #   }
+                # },
+                # "1" = {
+                #   0.5 * t(srv_tmp) %*% inv_bts_cov %*% srv_tmp
+                # },
+                # "2" = {
+                #   sum(sapply(1:n_bts_r, function(i) {
+                #     (log(ob_bts[i]) - log(eb_bts_scaled[i]))^2 / (2 * var_ob_bts[i])
+                #   }))
+                # },
+                # "3" = {
+                #   if (do_bts_bio) {
+                #     srv_tmp <- log(ob_bts) - log(eb_bts_scaled)
+                #   }
+                #   0 # Placeholder: no likelihood implemented
+                # }
   return(val)
 }
 
@@ -267,8 +275,7 @@ recruitment_likelihood <- function(
 
 # log_sel_fsh: matrix [year, age] (rows are years, cols are ages), values are *log* selectivity
 # year_index: named integer vector mapping year -> row index in log_sel_* (e.g., setNames(seq_along(years), years))
-selectivity_like_fsh <- function(
-    log_sel_fsh,
+selectivity_like_fsh <- function( log_sel_fsh,
     styr, endyr_r, # year numbers
     n_selages_fsh, # number of selectivity ages for fishery
     yrs_ch_fsh, nch_fsh, # change years and count
@@ -282,15 +289,15 @@ selectivity_like_fsh <- function(
   shape_pen <- 0
   dev <- 0
   # NOTE: ADMB loop shows j<=n_selages_fsh then uses j+1; the safe R version is 1:(n_selages_fsh-1)
-  # for (i in 1:nyrs) {
-  #   # i <- year_index[[as.character(yy)]]
-  #   for (j in 1:(n_selages_fsh - 1)) {
-  #     if (log_sel_fsh[i, j] > log_sel_fsh[i, j + 1]) {
-  #       d <- log_sel_fsh[i, j] - log_sel_fsh[i, j + 1]
-  #       shape_pen <- shape_pen + domFish * d * d
-  #     }
-  #   }
-  # }
+  for (i in 1:nyrs) {
+    # i <- year_index[[as.character(yy)]]
+    for (j in 6:(n_selages_fsh - 1)) {
+      # if (log_sel_fsh[i, j] > log_sel_fsh[i, j + 1]) {
+        d <- log_sel_fsh[i, j] - log_sel_fsh[i, j + 1]
+        shape_pen <- shape_pen + domFish * d * d
+      # }
+    }
+  }
   # p1 <- p2 <- p3 <- dev_pen <- 0
   # ctrl_flag(10)/group_num_fsh * norm2(sel_devs_fsh)
   dev <- selTFsh * norm2(sel_devs_fsh)
@@ -298,7 +305,6 @@ selectivity_like_fsh <- function(
   # For each change year: curvature + random‑walk between year and previous
   dev <- dev + selCFsh / nch_fsh * norm2(sdiff(log_sel_fsh[1, ]))
   
-  k <- 55
   for (k in seq_len(nch_fsh)) {
     yy <- yrs_ch_fsh[k]
     ik <- year_index[[as.character(yy)]]
@@ -308,13 +314,9 @@ selectivity_like_fsh <- function(
     sigma <- sel_ch_sig_fsh[k]
     
     dev <- dev + norm2(log_sel_fsh[ip, ] - log_sel_fsh[ik, ]) / (2 * sigma^2)
-    
-    # print(c(yy, p3,norm2(log_sel_fsh[ip, ] - log_sel_fsh[ik, ]) / (2 * sigma^2)))
   }
   list(shape = shape_pen, dev = dev, total = shape_pen + dev)
 }
-# If you later re-enable the ctrl_flag(19)/transpose time-smoothness block,
-# we can tack it back on. For now this mirrors your pared-down code.
 
 # log_sel_ats: matrix [year, age] (log scale)
 selectivity_like_ats <- function(
@@ -329,11 +331,11 @@ selectivity_like_ats <- function(
   "c" <- ADoverload("c")
   "[<-" <- ADoverload("[<-")
   shape_pen <- 0
-  yy <- 1995
   for (yy in seq(styr_ats, endyr_r)) {
     i <- year_index[[as.character(yy)]]
     if (is.null(i)) next
-    for (j in mina_ats:(n_selages_ats - 1)) {
+    #for (j in mina_ats:(n_selages_ats - 1)) {
+    for (j in 5:(n_selages_ats - 1)) {
       #if (log_sel_ats[i, j] < log_sel_ats[i, j + 1]) {
         d <- log_sel_ats[i, j] - log_sel_ats[i, j + 1]
         shape_pen <- shape_pen + selATS * d * d
@@ -376,7 +378,6 @@ selectivity_like_bts <- function(
     # “active()” flags corresponding to ADMB’s active()
     active_sel_coffs_bts = FALSE,
     active_sel_devs_bts = FALSE,
-    active_sel_a501_fsh_dev = TRUE,
     active_sel_a50_bts_dev = TRUE,
     active_sel_age_one_bts_dev = TRUE,
     # deviation vectors (only used if active=TRUE)
@@ -419,22 +420,23 @@ selectivity_like_bts <- function(
   
   # BTS alternative penalties depending on ctrl_flag(19)
   if (isTRUE(active_sel_a50_bts_dev)) {
-    #if (selCurv > 0) {
+    if (selCurv > 0) {
       # transpose: operate across time for each age j in [q_amin, q_amax)
       for (j in q_amin:(q_amax - 1)) {
         # differences across years for a given age j
         dev_pen <- dev_pen + (selVarbts * norm2(first_difference(log_sel_tmp[, j])))
         # print(c(j, dev_pen))
       }
-    #} else {
-      #dev_pen <- dev_pen + 50.0 * norm2(first_difference(sel_a50_bts_dev))
-      #dev_pen <- dev_pen + 50.0 * norm2(first_difference(sel_slp_bts_dev))
-    #}
-    #if (isTRUE(active_sel_age_one_bts_dev)) {
+    } else {
+      dev_pen <- dev_pen + 50.0 * norm2(first_difference(sel_a50_bts_dev))
+      dev_pen <- dev_pen + 50.0 * norm2(first_difference(sel_slp_bts_dev))
+    }
+    if (isTRUE(active_sel_age_one_bts_dev)) {
       dev_pen <- dev_pen + 8.0 * norm2(first_difference(sel_age_one_bts_dev))
       # alt in comments: 3.125 -> 40% CV
-    #}
+    }
   }
   list(shape = 0, dev = dev_pen, total = dev_pen)
 }
+
 # log_sel_ats: matrix [year, age] (log scale)

@@ -721,3 +721,35 @@ initialize_arrays <- function(age_end, styr_wt, endyr_wt, ndat_wt, nyrs_data) {
   )
 }
 
+
+# Assuming your parameter object is called 'parameters'
+create_map_from_zeros <- function(params) {
+  map_list <- list()
+  
+  for (name in names(params)) {
+    param_vals <- params[[name]]
+    
+    if (is.array(param_vals) || is.matrix(param_vals)) {
+      # For arrays/matrices, turn off elements that are 0
+      zero_indices <- which(param_vals == 0, arr.ind = TRUE)
+      if (nrow(zero_indices) > 0) {
+        # Create factor with NAs for zeros
+        map_factor <- array(1:length(param_vals), dim = dim(param_vals))
+        map_factor[param_vals == 0] <- NA
+        map_list[[name]] <- as.factor(map_factor)
+      }
+    } else {
+      # For vectors
+      if (any(param_vals == 0)) {
+        map_factor <- seq_along(param_vals)
+        map_factor[param_vals == 0] <- NA
+        map_list[[name]] <- as.factor(map_factor)
+      }
+    }
+  }
+  
+  return(map_list)
+}
+
+# Usage
+#map_obj <- create_map_from_zeros(parameters)

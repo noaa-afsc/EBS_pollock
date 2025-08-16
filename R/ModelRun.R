@@ -1,20 +1,75 @@
  rm(list = ls())
  source(here::here("R/config.R"))
- 
-# Now try your MakeADFun call
- # obj <- MakeADFun(rpm, data_final, parms)
- data <- flatten_numeric_lists(vars$data)
- parms <- flatten_numeric_lists(vars$parameters)
- parms <- force_numeric_conversion(vars$parameters)
- parms <- ensure_tmb_types(parms)
- str(parms)
-
 rpm(parms)
+obj <- MakeADFun(rpm, parms, map = map_obj)
+obj$fn()
+df <- data.frame(par = names(obj$par), gr = as.numeric(obj$gr()))
+head(df)
+max(df$gr)
+#obj$gr() sum(obj$par ==0) max(abs(obj$gr()))
+fit <- nlminb(obj$par, obj$fn, obj$gr)
+df2 <- data.frame(par = names(obj$par), gr = as.numeric(obj$gr()))
+max(df2$gr)
+df3<- left_join(df, df2, by = "par", suffix = c(".old", ".new")) |>
+  dplyr::mutate(gr_diff = abs(gr.old - gr.new)) |>
+  dplyr::arrange(desc(gr_diff)) |>
+  dplyr::filter(gr_diff > 1e-6) |>
+  dplyr::select(par, gr.old, gr.new, gr_diff)
+
+head(df3)
+for (i in 1:10) fit<- nlminb(fit$par, obj$fn, obj$gr )
+cest <- check_estimability(obj)
+(cest$BadParams) |> filter(Param_check=="Bad")
+max(obj$gr)
+obj$fn()
+obj$gr()
+(fit$par["log_avgrec"])
+
+df<-NULL
+
+fit <- nlminb(fit$par, obj$fn, obj$gr )
+names(map_obj)
+str(map_obj)
+r1 <- obj$report()
+fit1 <- nlminb(obj$par, obj$fn, obj$gr )
+fit1<- nlminb(fit1$par, obj$fn, obj$gr )
+obj$fn()
+r2 <- obj$report()
+r3 <- obj$report()
+plot(data.frame(r1=log(unlist(r1)), r2=log(unlist(r2))))
+(data.frame(r1=log(unlist(r1)), r2=log(unlist(r2))))
+lines(1:10,1:10)
+unlist(r1)/ unlist(r2)
+unlist(r1); unlist(r2)
+unlist(r2)/ unlist(r3)
+r2
+fit
+names(fit)
+unique(names(fit$par))
+unique(names(fit$par))
+
+data$return_nll_only <- TRUE # Flag to only return nll
+res <- rpm(parms)
+(res$nll)
+gt_compare_table(res$rtmb, pm, tolerance = 1e-2, sort_by_diff=FALSE)
+
+names(fit)
+fit$objective
+fit$message
+fit$convergence
+report(fit)
+fit$par
+
+
+ # parms <- force_numeric_conversion(vars$parameters)
+
+ #parms <- ensure_tmb_types(parms)
+ #str(parms)
+
 rpm(parms)
 data
 
 
-obj <- MakeADFun(rpm, parms)
 getAll(vars$parameters, vars$data )
 
 obj <- MakeADFun(cmb(rpm, data), parms )
