@@ -37,6 +37,7 @@ The initial steps to bridge ADMB to RTMB involve identifying key components and 
 
 ```{r}
 #| echo: false
+#| eval: false
 #| results: asis
 #| message: false
 #| warning: false
@@ -45,18 +46,20 @@ The initial steps to bridge ADMB to RTMB involve identifying key components and 
 #| table: true
 #| tbl-cap: "Comparison of model components before and after parameter estimation"
 #| 
-rm(list = ls())
+#--Open std file
+#std <- tibble(read_table(here::here("runs","rtmb","pm.std")))
+#unique(std$name)[1:26 ]
 source(here::here("R/config.R"))
-# getAll(parms,data)
-# rpm(parms)
-data$return_nll_only <- FALSE ; rtmb<-rpm(parms)# Flag to only return nll/
-gt_compare_table(rtmb, pm, tolerance = 1e-2, sort_by_diff=FALSE)
+data$return_nll_only <- FALSE ; 
+rtmb_out <- rpm(parms)
+gt_compare_table2(rpm(parms), pm, tolerance = 1e-5, sort_by_diff=FALSE) # compare_outputs_max_pct(rtmb_out,pm) # compare_max_pct(rtmb_out,pm)
+#gt_compare_table(rpm(parms), pm, tolerance = 1e-5, sort_by_diff=FALSE)
 data$return_nll_only <- TRUE # Flag to only return nll
 obj <- MakeADFun(rpm, parms, map = map_obj)
-
 fit <- nlminb(obj$par, obj$fn, obj$gr )
-par_list <- to_param_list(fit$par)
-update<- modifyList(parms, par_list)
+# obj$fn()
+# par_list <- to_param_list(fit$par)
+# update<- modifyList(parms, par_list)
 # How do I get the estimated parameters together with the fixed values?
 # data$return_nll_only <- FALSE ; rtmb<-rpm(update)
 # gt_compare_table(rtmb, pm, tolerance = 1e-2, sort_by_diff=FALSE)
@@ -69,63 +72,90 @@ update<- modifyList(parms, par_list)
 
 The following code chunk generates a plot comparing the log values of two series (`r1` and `r2`) from the `df` data frame. The data is reshaped to a long format for easier plotting with `ggplot2`.
 So in config.R file I can turn off parameter sets and tell which ones are poorly estimated or ones that should be turned off completely. I may want to turn off creating the map from zero value parameters and I still need to work on getting the deviation parameters to work correctly with the right penalty.
+
+### Reparameterizing dev-vectors
+
+The ADMB code has lots of cases where say $y_i$ is a function of a parameter $\theta$ and a deviation $\epsilon_i$ such that 
+$y_i = \theta + \epsilon_i$. In ADMB, the deviations are estimated as a vector of parameters
+with a constraint to have mean zero., 
+In RTMB, it seems best to reparameterize them as a simple vector of parameters (say as $\theta_i$) 
+and then do the likelihood parts as deviations from the mean. 
+
+So far we've done this for the following parameters:
+
+  * `log_avgrec` (average recruitment)
+  * `log_avg_F` (average fishing mortality)
+  * `log_slp_bts` (slope of the selectivity for the bottom trawl)
+  * `log_a50_bts` (age-50% selected for the bottom trawl)
 ```{r}
 #| label: tuning
 #| echo: false
+#| eval: false
 #| results: asis
 #| message: false
 #| warning: false
 #| error: false
-library(ggplot2)
-library(tidyr)
-
-# names(parms)
-source(here::here("R/config.R"))
-rpm(parms)
-obj <- MakeADFun(rpm, parms, map = map_obj)
 r1 <- obj$report()
-parms$log_avgrec<-parms$log_avgrec*.96
-parms$log_rec_devs<-parms$log_rec_devs*.6
-parms$log_avg_F<-parms$log_avg_F*1.06
-parms$sel_devs_fsh<-parms$sel_devs_fsh*0.6
+parms$log_rec_devs<-parms$log_rec_devs*.996
+parms$sel_devs_fsh<-parms$sel_devs_fsh*1.01
 obj <- MakeADFun(rpm, parms, map = map_obj)
-rpm(parms)
-r2 <- obj$report()
 fit1 <- nlminb(obj$par, obj$fn, obj$gr )
+for (i in 1:4) fit1<- nlminb(fit1$par, obj$fn, obj$gr )
+  fit1<- nlminb(fit1$par, obj$fn, obj$gr )
+r2 <- obj$report()
+ for (i in 1:5) 
+  fit1<- nlminb(fit1$par, obj$fn, obj$gr )
 r3 <- obj$report()
-for (i in 1:5)
+
+for (i in 1:5) fit1<- nlminb(fit1$par, obj$fn, obj$gr)
   fit1<- nlminb(fit1$par, obj$fn, obj$gr )
 r4 <- obj$report()
+for (i in 1:15) fit1<- nlminb(fit1$par, obj$fn, obj$gr )
+r5 <- obj$report()
 df <- (data.frame(
   `from ADMB`=(unlist(r1)), 
-  `jittered`=(unlist(r2)),
-  run1=(unlist(r3)),
-  rerun=(unlist(r4))
+  # run_5x=(unlist(r2)),
+  # run10x=(unlist(r3)),
+  run15x=(unlist(r4)),
+   run20x=(unlist(r5))
   ))
 df_long <- df %>%
   tibble::rownames_to_column("name") %>%
   mutate(across(-c(name, from.ADMB), ~ .x - from.ADMB)) %>%  # Subtract first column from others
   select(-from.ADMB) %>%  # Remove the reference column
   pivot_longer(cols = -name, names_to = "series", values_to = "difference") %>%
-  filter(abs(difference) >0, name != "wt_like")  # Filter if needed
+  filter(abs(difference) >0, name != "wt_like", name != "SSB", !grepl("SSB", name))  # Filter if needed
 # ?pivot_longer
 
-df <- df %>%
-  tibble::rownames_to_column("name") 
-
-df_long <- df |> 
-  pivot_longer(cols = 2:ncol(df), names_to = "series", values_to = "value") |> 
-  filter(value > 0, name != "wt_like")
+# df_long <- df |> 
+#   pivot_longer(cols = 2:ncol(df), names_to = "series", values_to = "value") |> 
+#   filter(value > 0, name != "wt_like")
 # Plot
 # plotly::ggplotly
-(ggplot(df_long, aes(x = name, y = difference, fill = series)) +
+(ggplot(df_long, aes(x = name, y = (difference), fill = series)) +
   geom_col(position = "dodge") +
   coord_flip() +  # Optional, if you want horizontal labels
-  scale_y_continuous(limits = c(-0.5, 0.5)) +
+  # scale_y_continuous(limits = c(-9.5, 9.5)) +
   scale_fill_viridis_d() +  # Viridis discrete colors
   theme_minimal() +
-  labs(x = "NLL Term", y = "difference from ADMB", fill = "Series"))
+  labs(x = "NLL Term", y = "difference from ADMB (absolute neg. log-likelihood units)", fill = "Series"))
+sdrep <- sdreport(obj)
+summary(sdrep)
+# obj$report()
+# : Function to call derived quantities defined with REPORT() in the model. Note the default is obj$report(last.par), depending on the scenario, the user may need to explicitly call 
+names(obj$env$parList())
+names(obj$env$last.par.best)
+class(obj$env)
+ 
+# : Parameter estimates (includes fixed and random effects). Note the default is 
+# , depending on the scenario, the user may need to explicitly call 
+obj$env$parList(last.par)
+obj$env$parList(last.par)
+obj$env$parList(last.par.best) 
 
+obj$report(last.par.best)
+
+obj$report(obj$env$last.par.best)
 ```
 
 ## Issues register for next steps

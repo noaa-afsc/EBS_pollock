@@ -2321,7 +2321,10 @@ window.Quarto = {
   <li><a href="#model-implementation" id="toc-model-implementation" class="nav-link" data-scroll-target="#model-implementation"><span class="header-section-number">2</span> Model implementation</a>
   <ul class="collapse">
   <li><a href="#comparison-of-admb-and-rtmb-by-components" id="toc-comparison-of-admb-and-rtmb-by-components" class="nav-link" data-scroll-target="#comparison-of-admb-and-rtmb-by-components"><span class="header-section-number">2.1</span> Comparison of ADMB and RTMB by components</a></li>
-  <li><a href="#tuning" id="toc-tuning" class="nav-link" data-scroll-target="#tuning"><span class="header-section-number">2.2</span> Tuning</a></li>
+  <li><a href="#tuning" id="toc-tuning" class="nav-link" data-scroll-target="#tuning"><span class="header-section-number">2.2</span> Tuning</a>
+  <ul class="collapse">
+  <li><a href="#reparameterizing-dev-vectors" id="toc-reparameterizing-dev-vectors" class="nav-link" data-scroll-target="#reparameterizing-dev-vectors"><span class="header-section-number">2.2.1</span> Reparameterizing dev-vectors</a></li>
+  </ul></li>
   <li><a href="#issues-register-for-next-steps" id="toc-issues-register-for-next-steps" class="nav-link" data-scroll-target="#issues-register-for-next-steps"><span class="header-section-number">2.3</span> Issues register for next steps</a>
   <ul class="collapse">
   <li><a href="#auto-generated-anchors" id="toc-auto-generated-anchors" class="nav-link" data-scroll-target="#auto-generated-anchors"><span class="header-section-number">2.3.1</span> Auto-generated anchors</a></li>
@@ -2369,705 +2372,40 @@ window.Quarto = {
 <section id="comparison-of-admb-and-rtmb-by-components" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="comparison-of-admb-and-rtmb-by-components"><span class="header-section-number">2.1</span> Comparison of ADMB and RTMB by components</h2>
 <p>The initial steps to bridge ADMB to RTMB involve identifying key components and their behaviors. The following table summarizes the components, their ADMB behavior, intended RTMB behavior, and current status.</p>
-<p>Opening /Users/jim/_mymods/noaa-afsc/EBS_pollock/runs/data/wtage2024.dat</p>
-<div id="eahsyatgjp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#eahsyatgjp table {
-font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
-#eahsyatgjp thead, #eahsyatgjp tbody, #eahsyatgjp tfoot, #eahsyatgjp tr, #eahsyatgjp td, #eahsyatgjp th {
-border-style: none;
-}
-#eahsyatgjp p {
-margin: 0;
-padding: 0;
-}
-#eahsyatgjp .gt_table {
-display: table;
-border-collapse: collapse;
-line-height: normal;
-margin-left: auto;
-margin-right: auto;
-color: #333333;
-font-size: 16px;
-font-weight: normal;
-font-style: normal;
-background-color: #FFFFFF;
-width: auto;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #A8A8A8;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #A8A8A8;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-}
-#eahsyatgjp .gt_caption {
-padding-top: 4px;
-padding-bottom: 4px;
-}
-#eahsyatgjp .gt_title {
-color: #333333;
-font-size: 125%;
-font-weight: initial;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-color: #FFFFFF;
-border-bottom-width: 0;
-}
-#eahsyatgjp .gt_subtitle {
-color: #333333;
-font-size: 85%;
-font-weight: initial;
-padding-top: 3px;
-padding-bottom: 5px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-color: #FFFFFF;
-border-top-width: 0;
-}
-#eahsyatgjp .gt_heading {
-background-color: #FFFFFF;
-text-align: center;
-border-bottom-color: #FFFFFF;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#eahsyatgjp .gt_bottom_border {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#eahsyatgjp .gt_col_headings {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#eahsyatgjp .gt_col_heading {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 6px;
-padding-left: 5px;
-padding-right: 5px;
-overflow-x: hidden;
-}
-#eahsyatgjp .gt_column_spanner_outer {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-padding-top: 0;
-padding-bottom: 0;
-padding-left: 4px;
-padding-right: 4px;
-}
-#eahsyatgjp .gt_column_spanner_outer:first-child {
-padding-left: 0;
-}
-#eahsyatgjp .gt_column_spanner_outer:last-child {
-padding-right: 0;
-}
-#eahsyatgjp .gt_column_spanner {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 5px;
-overflow-x: hidden;
-display: inline-block;
-width: 100%;
-}
-#eahsyatgjp .gt_spanner_row {
-border-bottom-style: hidden;
-}
-#eahsyatgjp .gt_group_heading {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-text-align: left;
-}
-#eahsyatgjp .gt_empty_group_heading {
-padding: 0.5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: middle;
-}
-#eahsyatgjp .gt_from_md > :first-child {
-margin-top: 0;
-}
-#eahsyatgjp .gt_from_md > :last-child {
-margin-bottom: 0;
-}
-#eahsyatgjp .gt_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-margin: 10px;
-border-top-style: solid;
-border-top-width: 1px;
-border-top-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-overflow-x: hidden;
-}
-#eahsyatgjp .gt_stub {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-}
-#eahsyatgjp .gt_stub_row_group {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-vertical-align: top;
-}
-#eahsyatgjp .gt_row_group_first td {
-border-top-width: 2px;
-}
-#eahsyatgjp .gt_row_group_first th {
-border-top-width: 2px;
-}
-#eahsyatgjp .gt_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#eahsyatgjp .gt_first_summary_row {
-border-top-style: solid;
-border-top-color: #D3D3D3;
-}
-#eahsyatgjp .gt_first_summary_row.thick {
-border-top-width: 2px;
-}
-#eahsyatgjp .gt_last_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#eahsyatgjp .gt_grand_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#eahsyatgjp .gt_first_grand_summary_row {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-style: double;
-border-top-width: 6px;
-border-top-color: #D3D3D3;
-}
-#eahsyatgjp .gt_last_grand_summary_row_top {
-padding-top: 8px;
-padding-bottom: 8px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: double;
-border-bottom-width: 6px;
-border-bottom-color: #D3D3D3;
-}
-#eahsyatgjp .gt_striped {
-background-color: rgba(128, 128, 128, 0.05);
-}
-#eahsyatgjp .gt_table_body {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#eahsyatgjp .gt_footnotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#eahsyatgjp .gt_footnote {
-margin: 0px;
-font-size: 90%;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#eahsyatgjp .gt_sourcenotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#eahsyatgjp .gt_sourcenote {
-font-size: 90%;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#eahsyatgjp .gt_left {
-text-align: left;
-}
-#eahsyatgjp .gt_center {
-text-align: center;
-}
-#eahsyatgjp .gt_right {
-text-align: right;
-font-variant-numeric: tabular-nums;
-}
-#eahsyatgjp .gt_font_normal {
-font-weight: normal;
-}
-#eahsyatgjp .gt_font_bold {
-font-weight: bold;
-}
-#eahsyatgjp .gt_font_italic {
-font-style: italic;
-}
-#eahsyatgjp .gt_super {
-font-size: 65%;
-}
-#eahsyatgjp .gt_footnote_marks {
-font-size: 75%;
-vertical-align: 0.4em;
-position: initial;
-}
-#eahsyatgjp .gt_asterisk {
-font-size: 100%;
-vertical-align: 0;
-}
-#eahsyatgjp .gt_indent_1 {
-text-indent: 5px;
-}
-#eahsyatgjp .gt_indent_2 {
-text-indent: 10px;
-}
-#eahsyatgjp .gt_indent_3 {
-text-indent: 15px;
-}
-#eahsyatgjp .gt_indent_4 {
-text-indent: 20px;
-}
-#eahsyatgjp .gt_indent_5 {
-text-indent: 25px;
-}
-#eahsyatgjp .katex-display {
-display: inline-flex !important;
-margin-bottom: 0.75em !important;
-}
-#eahsyatgjp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_heading header">
-<th colspan="6" class="gt_heading gt_title gt_font_normal">Comparison of RTMB and ADMB Outputs</th>
-</tr>
-<tr class="gt_heading even">
-<th colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Tolerance = 1e-02</th>
-</tr>
-<tr class="gt_col_headings header">
-<th id="variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Variable</th>
-<th id="equal" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Equal (≤ tol)</th>
-<th id="length_rtmb" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Len RTMB</th>
-<th id="length_admb" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Len ADMB</th>
-<th id="max_abs_pct_diff" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Max |% diff| (RTMB vs ADMB)</th>
-<th id="cor" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Correlation</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">N</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">915</td>
-<td class="gt_row gt_right" headers="length_admb">915</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFD; color: #000000">0.002071</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">Z</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">915</td>
-<td class="gt_row gt_right" headers="length_admb">915</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFE; color: #000000">0.000785</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">F</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">915</td>
-<td class="gt_row gt_right" headers="length_admb">915</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFE; color: #000000">0.001388</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">M</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">915</td>
-<td class="gt_row gt_right" headers="length_admb">915</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000000</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">S</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">915</td>
-<td class="gt_row gt_right" headers="length_admb">915</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFE; color: #000000">0.000587</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">pred_catch</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">61</td>
-<td class="gt_row gt_right" headers="length_admb">61</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000422</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">obs_catch</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">61</td>
-<td class="gt_row gt_right" headers="length_admb">61</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000458</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">SSB</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">61</td>
-<td class="gt_row gt_right" headers="length_admb">61</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000343</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">phizero</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">1</td>
-<td class="gt_row gt_right" headers="length_admb">1</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000189</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #808080; color: #FFFFFF">NA</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">Bzero</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">1</td>
-<td class="gt_row gt_right" headers="length_admb">1</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000084</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #808080; color: #FFFFFF">NA</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">steepness</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">1</td>
-<td class="gt_row gt_right" headers="length_admb">1</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000044</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #808080; color: #FFFFFF">NA</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">pred_cpue</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">12</td>
-<td class="gt_row gt_right" headers="length_admb">12</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000151</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">pred_avo</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">18</td>
-<td class="gt_row gt_right" headers="length_admb">18</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000397</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">eb_bts</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">42</td>
-<td class="gt_row gt_right" headers="length_admb">42</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000411</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">eb_ats</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">19</td>
-<td class="gt_row gt_right" headers="length_admb">19</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000284</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">sel_fsh</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">915</td>
-<td class="gt_row gt_right" headers="length_admb">915</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFE; color: #000000">0.001525</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">sel_bts</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">645</td>
-<td class="gt_row gt_right" headers="length_admb">645</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000507</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">sel_ats</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">465</td>
-<td class="gt_row gt_right" headers="length_admb">465</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000468</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">phat_fsh</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">900</td>
-<td class="gt_row gt_right" headers="length_admb">900</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFD; color: #000000">0.001906</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">phat_bts</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">630</td>
-<td class="gt_row gt_right" headers="length_admb">630</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFE; color: #000000">0.000654</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">phat_ats</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">285</td>
-<td class="gt_row gt_right" headers="length_admb">285</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000467</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">cat_like</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">1</td>
-<td class="gt_row gt_right" headers="length_admb">1</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000040</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #808080; color: #FFFFFF">NA</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">cpue_like</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">1</td>
-<td class="gt_row gt_right" headers="length_admb">1</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFE; color: #000000">0.000585</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #808080; color: #FFFFFF">NA</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">avo_like</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">1</td>
-<td class="gt_row gt_right" headers="length_admb">1</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000058</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #808080; color: #FFFFFF">NA</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">age_like</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">3</td>
-<td class="gt_row gt_right" headers="length_admb">3</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FF4500; color: #FFFFFF">0.411995</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">0.999992</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">age_like_offset</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">3</td>
-<td class="gt_row gt_right" headers="length_admb">3</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000000</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">rec_like</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">7</td>
-<td class="gt_row gt_right" headers="length_admb">7</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000155</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">Fpen_like</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">1</td>
-<td class="gt_row gt_right" headers="length_admb">1</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000038</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #808080; color: #FFFFFF">NA</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">sel_like</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">3</td>
-<td class="gt_row gt_right" headers="length_admb">3</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000225</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">sel_like_dev</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">3</td>
-<td class="gt_row gt_right" headers="length_admb">3</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000227</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="variable">Priors</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">4</td>
-<td class="gt_row gt_right" headers="length_admb">4</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFFF; color: #000000">0.000076</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #006400; color: #FFFFFF">1.000000</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="variable">tot_like</td>
-<td class="gt_row gt_center" headers="equal">TRUE</td>
-<td class="gt_row gt_right" headers="length_rtmb">1</td>
-<td class="gt_row gt_right" headers="length_admb">1</td>
-<td class="gt_row gt_right" headers="max_abs_pct_diff" style="background-color: #FFFFEB; color: #000000">0.021327</td>
-<td class="gt_row gt_right" headers="cor" style="background-color: #808080; color: #FFFFFF">NA</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-<p>[1] 7033.92 [1] 9.613116</p>
 </section>
 <section id="tuning" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="tuning"><span class="header-section-number">2.2</span> Tuning</h2>
+<p>The following code chunk generates a plot comparing the log values of two series (<code>r1</code> and <code>r2</code>) from the <code>df</code> data frame. The data is reshaped to a long format for easier plotting with <code>ggplot2</code>. So in config.R file I can turn off parameter sets and tell which ones are poorly estimated or ones that should be turned off completely. I may want to turn off creating the map from zero value parameters and I still need to work on getting the deviation parameters to work correctly with the right penalty.</p>
+<section id="reparameterizing-dev-vectors" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="reparameterizing-dev-vectors"><span class="header-section-number">2.2.1</span> Reparameterizing dev-vectors</h3>
+<p>The ADMB code has lots of cases where say <span class="math inline">\(y_i\)</span> is a function of a parameter <span class="math inline">\(\theta\)</span> and a deviation <span class="math inline">\(\epsilon_i\)</span> such that <span class="math inline">\(y_i = \theta + \epsilon_i\)</span>. In ADMB, the deviations are estimated as a vector of parameters with a constraint to have mean zero., In RTMB, it seems best to reparameterize them as a simple vector of parameters (say as <span class="math inline">\(\theta_i\)</span>) and then do the likelihood parts as deviations from the mean.</p>
+<p>So far we’ve done this for the following parameters:</p>
+<ul>
+<li><code>log_avgrec</code> (average recruitment)</li>
+<li><code>log_avg_F</code> (average fishing mortality)</li>
+<li><code>log_slp_bts</code> (slope of the selectivity for the bottom trawl)</li>
+<li><code>log_a50_bts</code> (age-50% selected for the bottom trawl)</li>
+</ul>
+</section>
 </section>
 <section id="issues-register-for-next-steps" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="issues-register-for-next-steps"><span class="header-section-number">2.3</span> Issues register for next steps</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="glohdfsypr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#glohdfsypr table {
+<div id="tuudnygcst" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tuudnygcst table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#glohdfsypr thead, #glohdfsypr tbody, #glohdfsypr tfoot, #glohdfsypr tr, #glohdfsypr td, #glohdfsypr th {
+#tuudnygcst thead, #tuudnygcst tbody, #tuudnygcst tfoot, #tuudnygcst tr, #tuudnygcst td, #tuudnygcst th {
 border-style: none;
 }
-#glohdfsypr p {
+#tuudnygcst p {
 margin: 0;
 padding: 0;
 }
-#glohdfsypr .gt_table {
+#tuudnygcst .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -3092,11 +2430,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#glohdfsypr .gt_caption {
+#tuudnygcst .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#glohdfsypr .gt_title {
+#tuudnygcst .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -3107,7 +2445,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#glohdfsypr .gt_subtitle {
+#tuudnygcst .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -3118,7 +2456,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#glohdfsypr .gt_heading {
+#tuudnygcst .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -3129,12 +2467,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#glohdfsypr .gt_bottom_border {
+#tuudnygcst .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#glohdfsypr .gt_col_headings {
+#tuudnygcst .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -3148,7 +2486,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#glohdfsypr .gt_col_heading {
+#tuudnygcst .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3167,7 +2505,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#glohdfsypr .gt_column_spanner_outer {
+#tuudnygcst .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3178,13 +2516,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#glohdfsypr .gt_column_spanner_outer:first-child {
+#tuudnygcst .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#glohdfsypr .gt_column_spanner_outer:last-child {
+#tuudnygcst .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#glohdfsypr .gt_column_spanner {
+#tuudnygcst .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -3195,10 +2533,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#glohdfsypr .gt_spanner_row {
+#tuudnygcst .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#glohdfsypr .gt_group_heading {
+#tuudnygcst .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3223,7 +2561,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#glohdfsypr .gt_empty_group_heading {
+#tuudnygcst .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -3237,13 +2575,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#glohdfsypr .gt_from_md > :first-child {
+#tuudnygcst .gt_from_md > :first-child {
 margin-top: 0;
 }
-#glohdfsypr .gt_from_md > :last-child {
+#tuudnygcst .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#glohdfsypr .gt_row {
+#tuudnygcst .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3261,7 +2599,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#glohdfsypr .gt_stub {
+#tuudnygcst .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3273,7 +2611,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#glohdfsypr .gt_stub_row_group {
+#tuudnygcst .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3286,13 +2624,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#glohdfsypr .gt_row_group_first td {
+#tuudnygcst .gt_row_group_first td {
 border-top-width: 2px;
 }
-#glohdfsypr .gt_row_group_first th {
+#tuudnygcst .gt_row_group_first th {
 border-top-width: 2px;
 }
-#glohdfsypr .gt_summary_row {
+#tuudnygcst .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -3301,14 +2639,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#glohdfsypr .gt_first_summary_row {
+#tuudnygcst .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#glohdfsypr .gt_first_summary_row.thick {
+#tuudnygcst .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#glohdfsypr .gt_last_summary_row {
+#tuudnygcst .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3317,7 +2655,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#glohdfsypr .gt_grand_summary_row {
+#tuudnygcst .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -3326,7 +2664,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#glohdfsypr .gt_first_grand_summary_row {
+#tuudnygcst .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3335,7 +2673,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#glohdfsypr .gt_last_grand_summary_row_top {
+#tuudnygcst .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3344,10 +2682,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#glohdfsypr .gt_striped {
+#tuudnygcst .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#glohdfsypr .gt_table_body {
+#tuudnygcst .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -3355,7 +2693,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#glohdfsypr .gt_footnotes {
+#tuudnygcst .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -3368,7 +2706,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#glohdfsypr .gt_footnote {
+#tuudnygcst .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -3376,7 +2714,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#glohdfsypr .gt_sourcenotes {
+#tuudnygcst .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -3389,64 +2727,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#glohdfsypr .gt_sourcenote {
+#tuudnygcst .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#glohdfsypr .gt_left {
+#tuudnygcst .gt_left {
 text-align: left;
 }
-#glohdfsypr .gt_center {
+#tuudnygcst .gt_center {
 text-align: center;
 }
-#glohdfsypr .gt_right {
+#tuudnygcst .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#glohdfsypr .gt_font_normal {
+#tuudnygcst .gt_font_normal {
 font-weight: normal;
 }
-#glohdfsypr .gt_font_bold {
+#tuudnygcst .gt_font_bold {
 font-weight: bold;
 }
-#glohdfsypr .gt_font_italic {
+#tuudnygcst .gt_font_italic {
 font-style: italic;
 }
-#glohdfsypr .gt_super {
+#tuudnygcst .gt_super {
 font-size: 65%;
 }
-#glohdfsypr .gt_footnote_marks {
+#tuudnygcst .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#glohdfsypr .gt_asterisk {
+#tuudnygcst .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#glohdfsypr .gt_indent_1 {
+#tuudnygcst .gt_indent_1 {
 text-indent: 5px;
 }
-#glohdfsypr .gt_indent_2 {
+#tuudnygcst .gt_indent_2 {
 text-indent: 10px;
 }
-#glohdfsypr .gt_indent_3 {
+#tuudnygcst .gt_indent_3 {
 text-indent: 15px;
 }
-#glohdfsypr .gt_indent_4 {
+#tuudnygcst .gt_indent_4 {
 text-indent: 20px;
 }
-#glohdfsypr .gt_indent_5 {
+#tuudnygcst .gt_indent_5 {
 text-indent: 25px;
 }
-#glohdfsypr .katex-display {
+#tuudnygcst .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#glohdfsypr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tuudnygcst div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -4149,250 +3487,359 @@ Edit the CSV at <code>inst/issues.csv</code>. Re‑render to update the register
 <span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: false</span></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="co"># source(here::here(&quot;R/Rpm_annotated.R&quot;))</span></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;R/config.R&quot;</span>))</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>return_nll_only <span class="ot">&lt;-</span> <span class="cn">FALSE</span> <span class="co"># Flag to only return nll</span></span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>prel_vars<span class="sc">$</span>data<span class="sc">$</span>return_nll_only <span class="ot">&lt;-</span> <span class="cn">FALSE</span> <span class="co"># Flag to only return nll</span></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">rpm</span>(prel_vars<span class="sc">$</span>parameters, prel_vars<span class="sc">$</span>data )</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="co"># names(res$rtmb)</span></span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="co"># wt_like/pm$wt_like</span></span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="fu">gt_compare_table</span>(res<span class="sc">$</span>rtmb, pm, <span class="at">tolerance =</span> <span class="fl">1e-2</span>, <span class="at">sort_by_diff=</span><span class="cn">FALSE</span>)</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>nll</span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="co"># (res$rtmb$age_like)/pm$age_like</span></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="co">#source(here::here(&quot;R/Rpm.R&quot;))</span></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="fu">getAll</span>(prel_vars<span class="sc">$</span>parameters, prel_vars<span class="sc">$</span>data )</span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>rtmb<span class="sc">$</span>Fpen_like</span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: false</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: compare-components</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="co">#| table: true</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: &quot;Comparison of model components before and after parameter estimation&quot;</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="co">#| </span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="co">#--Open std file</span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="co">#std &lt;- tibble(read_table(here::here(&quot;runs&quot;,&quot;rtmb&quot;,&quot;pm.std&quot;)))</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="co">#unique(std$name)[1:26 ]</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;R/config.R&quot;</span>))</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="co"># getAll(parms,data)</span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="co"># rpm(parms)</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>return_nll_only <span class="ot">&lt;-</span> <span class="cn">FALSE</span> ; </span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>rtmb<span class="ot">&lt;-</span><span class="fu">rpm</span>(parms)<span class="co"># Flag to only return nll/</span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="fu">gt_compare_table</span>(rtmb, pm, <span class="at">tolerance =</span> <span class="fl">1e-2</span>, <span class="at">sort_by_diff=</span><span class="cn">FALSE</span>)</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>return_nll_only <span class="ot">&lt;-</span> <span class="cn">TRUE</span> <span class="co"># Flag to only return nll</span></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>obj <span class="ot">&lt;-</span> <span class="fu">MakeADFun</span>(rpm, parms, <span class="at">map =</span> map_obj)</span>
 <span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tuning</span></span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Issues register for next steps</span></span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: issues-register</span></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Self-contained chunk (defines has_gt here to avoid scoping issues)</span></span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>has_gt <span class="ot">&lt;-</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;gt&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">nlminb</span>(obj<span class="sc">$</span>par, obj<span class="sc">$</span>fn, obj<span class="sc">$</span>gr )</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">nlminb</span>(fit<span class="sc">$</span>par, obj<span class="sc">$</span>fn, obj<span class="sc">$</span>gr )</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="co"># par_list &lt;- to_param_list(fit$par)</span></span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="co"># update&lt;- modifyList(parms, par_list)</span></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="co"># How do I get the estimated parameters together with the fixed values?</span></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="co"># data$return_nll_only &lt;- FALSE ; rtmb&lt;-rpm(update)</span></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a><span class="co"># gt_compare_table(rtmb, pm, tolerance = 1e-2, sort_by_diff=FALSE)</span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="co"># data$return_nll_only &lt;- TRUE # Flag to only return nll</span></span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="co"># names(res$rtmb)</span></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="co"># wt_like/pm$wt_like</span></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>needs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dplyr&quot;</span>,<span class="st">&quot;tibble&quot;</span>,<span class="st">&quot;stringr&quot;</span>,<span class="st">&quot;glue&quot;</span>)</span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>ok <span class="ot">&lt;-</span> <span class="fu">vapply</span>(needs, <span class="cf">function</span>(p) <span class="fu">requireNamespace</span>(p, <span class="at">quietly =</span> <span class="cn">TRUE</span>), <span class="fu">logical</span>(<span class="dv">1</span>))</span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">all</span>(ok)) <span class="fu">stop</span>(<span class="st">&quot;Please install packages: &quot;</span>, <span class="fu">paste</span>(needs[<span class="sc">!</span>ok], <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">&quot;dplyr&quot;</span>,<span class="st">&quot;tibble&quot;</span>), library, <span class="at">character.only =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tuning</span></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>The following code chunk generates a plot comparing the log values of two series (<span class="in">`r1`</span> and <span class="in">`r2`</span>) from the <span class="in">`df`</span> data frame. The data is reshaped to a long format for easier plotting with <span class="in">`ggplot2`</span>.</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>So in config.R file I can turn off parameter sets and tell which ones are poorly estimated or ones that should be turned off completely. I may want to turn off creating the map from zero value parameters and I still need to work on getting the deviation parameters to work correctly with the right penalty.</span>
 <span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>issues_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;inst&quot;</span>,<span class="st">&quot;issues.csv&quot;</span>)</span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(issues_path)) {</span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>  issues <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(issues_path, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>  issues <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>    <span class="at">id        =</span> <span class="fu">c</span>(<span class="st">&quot;ISS-001&quot;</span>,<span class="st">&quot;ISS-002&quot;</span>,<span class="st">&quot;ISS-003&quot;</span>),</span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>    <span class="at">component =</span> <span class="fu">c</span>(<span class="st">&quot;Selectivity (temporal devs)&quot;</span>,</span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Selectivity (age-smoothing)&quot;</span>,</span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Survey likelihood (lognormal scaling)&quot;</span>),</span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>    <span class="at">admb_behavior =</span> <span class="fu">c</span>(</span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;First-difference penalty in **time** with year 1 anchored to 0 (Δ log s_{y,a} = log s_{y,a} - log s_{y-1,a}, with log s_{0,a}≡0).&quot;</span>,</span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;First-difference penalty in **age** with minimum age anchored to 0 (Δ log s_{y,a} = log s_{y,a} - log s_{y,a-1}, with log s_{y,a_min-1}≡0).&quot;</span>,</span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;ADMB often uses −(n/2)log(2πσ^2) − Σ (log(O_i)−log(E_i))^2 / (2σ^2). Verify whether σ is on log or natural scale and whether bias-corrected ln residuals are used.&quot;</span></span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">rtmb_behavior =</span> <span class="fu">c</span>(</span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Replicate identical time FD penalty in R/RTMB; ensure first row uses 0 as the lag.&quot;</span>,</span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Replicate identical age FD penalty with explicit 0 anchor at a_min in each year.&quot;</span>,</span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Match exact scaling, including any constants and phase-dependent weights; confirm whether to include the normalizing constant in objective function.&quot;</span></span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>    <span class="at">status    =</span> <span class="fu">c</span>(<span class="st">&quot;Pending&quot;</span>,<span class="st">&quot;Pending&quot;</span>,<span class="st">&quot;Pending&quot;</span>),</span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>    <span class="at">priority  =</span> <span class="fu">c</span>(<span class="st">&quot;High&quot;</span>,<span class="st">&quot;Medium&quot;</span>,<span class="st">&quot;High&quot;</span>),</span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>    <span class="at">test_ref  =</span> <span class="fu">c</span>(<span class="st">&quot;test-fd-penalty-time&quot;</span>,<span class="st">&quot;test-fd-penalty-age&quot;</span>,<span class="st">&quot;test-survey-lognorm&quot;</span>)</span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (has_gt) {</span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>  dom_status <span class="ot">&lt;-</span> <span class="cf">function</span>(x) dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Pending&quot;</span>,<span class="st">&quot;Blocked&quot;</span>) <span class="sc">~</span> <span class="fl">0.9</span>,</span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;In progress&quot;</span>)       <span class="sc">~</span> <span class="fl">0.5</span>,</span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span>                          <span class="sc">~</span> <span class="fl">0.1</span></span>
-<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>  dom_pri <span class="ot">&lt;-</span> <span class="cf">function</span>(x) dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
-<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">==</span> <span class="st">&quot;High&quot;</span>   <span class="sc">~</span> <span class="fl">0.9</span>,</span>
-<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">==</span> <span class="st">&quot;Medium&quot;</span> <span class="sc">~</span> <span class="fl">0.5</span>,</span>
-<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span>          <span class="sc">~</span> <span class="fl">0.2</span></span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>  plt <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">gt</span>(issues)</span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>  plt <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">data_color</span>(</span>
-<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>    plt, <span class="at">columns =</span> <span class="fu">c</span>(status),</span>
-<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a>    <span class="at">fn =</span> <span class="cf">function</span>(vals) grDevices<span class="sc">::</span><span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;white&quot;</span>,<span class="st">&quot;gold&quot;</span>,<span class="st">&quot;orangered&quot;</span>))(<span class="dv">100</span>)[</span>
-<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ceiling</span>(<span class="fu">pmax</span>(<span class="fu">pmin</span>(<span class="fu">dom_status</span>(vals),<span class="dv">1</span>),<span class="dv">0</span>)<span class="sc">*</span><span class="dv">99</span>)<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>    ],</span>
-<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>    <span class="at">autocolor_text =</span> <span class="cn">TRUE</span></span>
-<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>  plt <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">data_color</span>(</span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a>    plt, <span class="at">columns =</span> <span class="fu">c</span>(priority),</span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a>    <span class="at">fn =</span> <span class="cf">function</span>(vals) grDevices<span class="sc">::</span><span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;white&quot;</span>,<span class="st">&quot;lightblue&quot;</span>,<span class="st">&quot;royalblue&quot;</span>))(<span class="dv">100</span>)[</span>
-<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ceiling</span>(<span class="fu">pmax</span>(<span class="fu">pmin</span>(<span class="fu">dom_pri</span>(vals),<span class="dv">1</span>),<span class="dv">0</span>)<span class="sc">*</span><span class="dv">99</span>)<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a>    ],</span>
-<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a>    <span class="at">autocolor_text =</span> <span class="cn">TRUE</span></span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_caption</span>(plt, <span class="st">&quot;ADMB → RTMB Issues Register&quot;</span>)</span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(issues, <span class="at">caption =</span> <span class="st">&quot;ADMB → RTMB Issues Register&quot;</span>)</span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a><span class="fu">### Auto-generated anchors</span></span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: issues-anchors</span></span>
-<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">requireNamespace</span>(<span class="st">&quot;glue&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>issues <span class="sc">|&gt;</span></span>
-<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">block =</span> {</span>
-<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a>    glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">&quot;</span></span>
-<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a><span class="st">#### {id}: {component}</span></span>
-<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a><span class="st">**ADMB behavior**: {admb_behavior}</span></span>
-<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a><span class="st">**RTMB target**: {rtmb_behavior}</span></span>
-<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a><span class="st">**Status**: {status} &amp;nbsp; | &amp;nbsp; **Priority**: {priority}</span></span>
-<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a><span class="st">See test/ref: `#{test_ref}`.</span></span>
-<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span>)</span>
-<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>  }) <span class="sc">|&gt;</span></span>
-<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(block) <span class="sc">|&gt;</span></span>
-<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
-<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a>**Usage**  </span>
-<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>Edit the CSV at <span class="in">`inst/issues.csv`</span>. Re‑render to update the register and anchors.</span>
-<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="fu">### Reparameterizing dev-vectors</span></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>The ADMB code has lots of cases where say $y_i$ is a function of a parameter $\theta$ and a deviation $\epsilon_i$ such that </span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>$y_i = \theta + \epsilon_i$. In ADMB, the deviations are estimated as a vector of parameters</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>with a constraint to have mean zero., </span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>In RTMB, it seems best to reparameterize them as a simple vector of parameters (say as $\theta_i$) </span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>and then do the likelihood parts as deviations from the mean. </span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>So far we&#39;ve done this for the following parameters:</span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`log_avgrec`</span> (average recruitment)</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`log_avg_F`</span> (average fishing mortality)</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`log_slp_bts`</span> (slope of the selectivity for the bottom trawl)</span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`log_a50_bts`</span> (age-50% selected for the bottom trawl)</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tuning</span></span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: false</span></span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a><span class="co"># names(parms)</span></span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;R/config.R&quot;</span>))</span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="fu">rpm</span>(parms)</span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>obj <span class="ot">&lt;-</span> <span class="fu">MakeADFun</span>(rpm, parms, <span class="at">map =</span> map_obj)</span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>obj<span class="sc">$</span><span class="fu">fn</span>()</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> obj<span class="sc">$</span><span class="fu">report</span>()</span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>parms<span class="sc">$</span>log_avgrec<span class="ot">&lt;-</span>parms<span class="sc">$</span>log_avgrec<span class="sc">*</span>.<span class="dv">96</span></span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>parms<span class="sc">$</span>log_rec_devs<span class="ot">&lt;-</span>parms<span class="sc">$</span>log_rec_devs<span class="sc">*</span>.<span class="dv">6</span></span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>parms<span class="sc">$</span>log_avg_F<span class="ot">&lt;-</span>parms<span class="sc">$</span>log_avg_F<span class="sc">*</span><span class="fl">1.26</span></span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>parms<span class="sc">$</span>sel_devs_fsh<span class="ot">&lt;-</span>parms<span class="sc">$</span>sel_devs_fsh<span class="sc">*</span><span class="fl">0.6</span></span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>obj <span class="ot">&lt;-</span> <span class="fu">MakeADFun</span>(rpm, parms, <span class="at">map =</span> map_obj)</span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a><span class="fu">rpm</span>(parms)</span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">nlminb</span>(obj<span class="sc">$</span>par, obj<span class="sc">$</span>fn, obj<span class="sc">$</span>gr )</span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>obj<span class="sc">$</span><span class="fu">fn</span>()</span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) fit1<span class="ot">&lt;-</span> <span class="fu">nlminb</span>(fit1<span class="sc">$</span>par, obj<span class="sc">$</span>fn, obj<span class="sc">$</span>gr )</span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> obj<span class="sc">$</span><span class="fu">report</span>()</span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) fit1<span class="ot">&lt;-</span> <span class="fu">nlminb</span>(fit1<span class="sc">$</span>par, obj<span class="sc">$</span>fn, obj<span class="sc">$</span>gr )</span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a>r3 <span class="ot">&lt;-</span> obj<span class="sc">$</span><span class="fu">report</span>()</span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) fit1<span class="ot">&lt;-</span> <span class="fu">nlminb</span>(fit1<span class="sc">$</span>par, obj<span class="sc">$</span>fn, obj<span class="sc">$</span>gr)</span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a>r4 <span class="ot">&lt;-</span> obj<span class="sc">$</span><span class="fu">report</span>()</span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) fit1<span class="ot">&lt;-</span> <span class="fu">nlminb</span>(fit1<span class="sc">$</span>par, obj<span class="sc">$</span>fn, obj<span class="sc">$</span>gr )</span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>r5 <span class="ot">&lt;-</span> obj<span class="sc">$</span><span class="fu">report</span>()</span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> (<span class="fu">data.frame</span>(</span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">from ADMB</span><span class="st">`</span><span class="ot">=</span>(<span class="fu">unlist</span>(r1)), </span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>  <span class="at">run_5x=</span>(<span class="fu">unlist</span>(r2)),</span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>  <span class="at">run10x=</span>(<span class="fu">unlist</span>(r3)),</span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>  <span class="at">run15x=</span>(<span class="fu">unlist</span>(r4)),</span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>   <span class="at">run20x=</span>(<span class="fu">unlist</span>(r5))</span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">&quot;name&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span><span class="fu">c</span>(name, from.ADMB), <span class="sc">~</span> .x <span class="sc">-</span> from.ADMB)) <span class="sc">%&gt;%</span>  <span class="co"># Subtract first column from others</span></span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>from.ADMB) <span class="sc">%&gt;%</span>  <span class="co"># Remove the reference column</span></span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>name, <span class="at">names_to =</span> <span class="st">&quot;series&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;difference&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(difference) <span class="sc">&gt;</span><span class="dv">0</span>, name <span class="sc">!=</span> <span class="st">&quot;wt_like&quot;</span>, name <span class="sc">!=</span> <span class="st">&quot;SSB&quot;</span>, <span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;SSB&quot;</span>, name))  <span class="co"># Filter if needed</span></span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a><span class="co"># ?pivot_longer</span></span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a><span class="co"># df_long &lt;- df |&gt; </span></span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a><span class="co">#   pivot_longer(cols = 2:ncol(df), names_to = &quot;series&quot;, values_to = &quot;value&quot;) |&gt; </span></span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a><span class="co">#   filter(value &gt; 0, name != &quot;wt_like&quot;)</span></span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a><span class="co"># plotly::ggplotly</span></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a>(<span class="fu">ggplot</span>(df_long, <span class="fu">aes</span>(<span class="at">x =</span> name, <span class="at">y =</span> (difference), <span class="at">fill =</span> series)) <span class="sc">+</span></span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span>  <span class="co"># Optional, if you want horizontal labels</span></span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>  <span class="co"># scale_y_continuous(limits = c(-9.5, 9.5)) +</span></span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span>  <span class="co"># Viridis discrete colors</span></span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;NLL Term&quot;</span>, <span class="at">y =</span> <span class="st">&quot;difference from ADMB (absolute neg. log-likelihood units)&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Series&quot;</span>))</span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>sdrep <span class="ot">&lt;-</span> <span class="fu">sdreport</span>(obj)</span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sdrep)</span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a><span class="co"># obj$report()</span></span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a><span class="co"># : Function to call derived quantities defined with REPORT() in the model. Note the default is obj$report(last.par), depending on the scenario, the user may need to explicitly call </span></span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(obj<span class="sc">$</span>env<span class="sc">$</span><span class="fu">parList</span>())</span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(obj<span class="sc">$</span>env<span class="sc">$</span>last.par.best)</span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(obj<span class="sc">$</span>env)</span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a><span class="co"># : Parameter estimates (includes fixed and random effects). Note the default is </span></span>
+<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a><span class="co"># , depending on the scenario, the user may need to explicitly call </span></span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a>obj<span class="sc">$</span>env<span class="sc">$</span><span class="fu">parList</span>(last.par)</span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a>obj<span class="sc">$</span>env<span class="sc">$</span><span class="fu">parList</span>(last.par)</span>
+<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>obj<span class="sc">$</span>env<span class="sc">$</span><span class="fu">parList</span>(last.par.best) </span>
 <span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a>needs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dplyr&quot;</span>,<span class="st">&quot;tibble&quot;</span>,<span class="st">&quot;stringr&quot;</span>,<span class="st">&quot;glue&quot;</span>)</span>
-<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a>ok <span class="ot">&lt;-</span> <span class="fu">vapply</span>(needs, <span class="cf">function</span>(p) <span class="fu">requireNamespace</span>(p, <span class="at">quietly =</span> <span class="cn">TRUE</span>), <span class="fu">logical</span>(<span class="dv">1</span>))</span>
-<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">all</span>(ok)) <span class="fu">stop</span>(<span class="st">&quot;Please install packages: &quot;</span>, <span class="fu">paste</span>(needs[<span class="sc">!</span>ok], <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span>
-<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">&quot;dplyr&quot;</span>,<span class="st">&quot;tibble&quot;</span>), library, <span class="at">character.only =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a>has_gt <span class="ot">&lt;-</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;gt&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model changes</span></span>
-<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a><span class="fu">### First‑difference selectivity penalty (temporal) {#test-fd-penalty-time}</span></span>
-<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a>We need the penalty used in ADMB where the **first year is compared to zero** (not to a previous estimated year). For a matrix of log‑selectivities <span class="sc">\(</span> \log s_{y,a} <span class="sc">\)</span> (years <span class="sc">\(</span>y=1,\ldots,T<span class="sc">\)</span>, ages <span class="sc">\(</span>a=1,\ldots,A<span class="sc">\)</span>), the penalty is:</span>
-<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a>\mathcal{P}_{\text{FD,time}} \,=\, w \sum_{a=1}^{A}</span>
-<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a>\Big[</span>
-<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a>\big(\log s_{1,a}-0\big)^2</span>
-<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>\sum_{y=2}^{T}\big(\log s_{y,a}-\log s_{y-1,a}\big)^2</span>
-<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a>\Big].</span>
-<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a><span class="fu">#### RTMB/R implementation</span></span>
-<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
-<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a><span class="co"># log_sel: matrix [T x A] of log-selectivities (year rows, age cols)</span></span>
-<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a><span class="co"># w: scalar or length-A vector of weights</span></span>
-<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a>fd_penalty_time <span class="ot">&lt;-</span> <span class="cf">function</span>(log_sel, <span class="at">w =</span> <span class="dv">1</span>) {</span>
-<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">is.matrix</span>(log_sel))</span>
-<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a>  T <span class="ot">&lt;-</span> <span class="fu">nrow</span>(log_sel); A <span class="ot">&lt;-</span> <span class="fu">ncol</span>(log_sel)</span>
-<span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(w) <span class="sc">==</span> <span class="dv">1</span>) w <span class="ot">&lt;-</span> <span class="fu">rep</span>(w, A)</span>
-<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">length</span>(w) <span class="sc">==</span> A)</span>
-<span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a>  diffs <span class="ot">&lt;-</span> <span class="fu">rbind</span>(log_sel[<span class="dv">1</span>, , <span class="at">drop =</span> <span class="cn">FALSE</span>] <span class="sc">-</span> <span class="dv">0</span>,   <span class="co"># year 1 vs 0</span></span>
-<span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">apply</span>(log_sel, <span class="dv">2</span>, diff))          <span class="co"># y&gt;=2 diffs</span></span>
-<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">colSums</span>((<span class="fu">sqrt</span>(w) <span class="sc">*</span> diffs)<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a>obj<span class="sc">$</span><span class="fu">report</span>(last.par.best)</span>
+<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a>obj<span class="sc">$</span><span class="fu">report</span>(obj<span class="sc">$</span>env<span class="sc">$</span>last.par.best)</span>
+<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a><span class="fu">## Issues register for next steps</span></span>
+<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: issues-register</span></span>
+<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a><span class="co"># Self-contained chunk (defines has_gt here to avoid scoping issues)</span></span>
+<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a>has_gt <span class="ot">&lt;-</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;gt&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>needs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dplyr&quot;</span>,<span class="st">&quot;tibble&quot;</span>,<span class="st">&quot;stringr&quot;</span>,<span class="st">&quot;glue&quot;</span>)</span>
+<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a>ok <span class="ot">&lt;-</span> <span class="fu">vapply</span>(needs, <span class="cf">function</span>(p) <span class="fu">requireNamespace</span>(p, <span class="at">quietly =</span> <span class="cn">TRUE</span>), <span class="fu">logical</span>(<span class="dv">1</span>))</span>
+<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">all</span>(ok)) <span class="fu">stop</span>(<span class="st">&quot;Please install packages: &quot;</span>, <span class="fu">paste</span>(needs[<span class="sc">!</span>ok], <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span>
+<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">&quot;dplyr&quot;</span>,<span class="st">&quot;tibble&quot;</span>), library, <span class="at">character.only =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a>issues_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;inst&quot;</span>,<span class="st">&quot;issues.csv&quot;</span>)</span>
+<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(issues_path)) {</span>
+<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a>  issues <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(issues_path, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a>  issues <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a>    <span class="at">id        =</span> <span class="fu">c</span>(<span class="st">&quot;ISS-001&quot;</span>,<span class="st">&quot;ISS-002&quot;</span>,<span class="st">&quot;ISS-003&quot;</span>),</span>
+<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a>    <span class="at">component =</span> <span class="fu">c</span>(<span class="st">&quot;Selectivity (temporal devs)&quot;</span>,</span>
+<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Selectivity (age-smoothing)&quot;</span>,</span>
+<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Survey likelihood (lognormal scaling)&quot;</span>),</span>
+<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a>    <span class="at">admb_behavior =</span> <span class="fu">c</span>(</span>
+<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;First-difference penalty in **time** with year 1 anchored to 0 (Δ log s_{y,a} = log s_{y,a} - log s_{y-1,a}, with log s_{0,a}≡0).&quot;</span>,</span>
+<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;First-difference penalty in **age** with minimum age anchored to 0 (Δ log s_{y,a} = log s_{y,a} - log s_{y,a-1}, with log s_{y,a_min-1}≡0).&quot;</span>,</span>
+<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;ADMB often uses −(n/2)log(2πσ^2) − Σ (log(O_i)−log(E_i))^2 / (2σ^2). Verify whether σ is on log or natural scale and whether bias-corrected ln residuals are used.&quot;</span></span>
+<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a>    <span class="at">rtmb_behavior =</span> <span class="fu">c</span>(</span>
+<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Replicate identical time FD penalty in R/RTMB; ensure first row uses 0 as the lag.&quot;</span>,</span>
+<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Replicate identical age FD penalty with explicit 0 anchor at a_min in each year.&quot;</span>,</span>
+<span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Match exact scaling, including any constants and phase-dependent weights; confirm whether to include the normalizing constant in objective function.&quot;</span></span>
+<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a>    <span class="at">status    =</span> <span class="fu">c</span>(<span class="st">&quot;Pending&quot;</span>,<span class="st">&quot;Pending&quot;</span>,<span class="st">&quot;Pending&quot;</span>),</span>
+<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a>    <span class="at">priority  =</span> <span class="fu">c</span>(<span class="st">&quot;High&quot;</span>,<span class="st">&quot;Medium&quot;</span>,<span class="st">&quot;High&quot;</span>),</span>
+<span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a>    <span class="at">test_ref  =</span> <span class="fu">c</span>(<span class="st">&quot;test-fd-penalty-time&quot;</span>,<span class="st">&quot;test-fd-penalty-age&quot;</span>,<span class="st">&quot;test-survey-lognorm&quot;</span>)</span>
+<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sanity check</span></span>
-<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
-<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">5</span>; A <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(T<span class="sc">*</span>A, <span class="at">sd=</span><span class="fl">0.2</span>), T, A); w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">0.5</span>)</span>
-<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a>fd_loop <span class="ot">&lt;-</span> <span class="cf">function</span>(L, w){</span>
-<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a>  acc <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (a <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">ncol</span>(L))) {</span>
-<span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a>    acc <span class="ot">&lt;-</span> acc <span class="sc">+</span> w[a]<span class="sc">*</span>(L[<span class="dv">1</span>,a]<span class="sc">-</span><span class="dv">0</span>)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (y <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">nrow</span>(L)) acc <span class="ot">&lt;-</span> acc <span class="sc">+</span> w[a]<span class="sc">*</span>(L[y,a]<span class="sc">-</span>L[y<span class="dv">-1</span>,a])<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb6-233"><a href="#cb6-233" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a>  acc</span>
-<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-237"><a href="#cb6-237" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fu">fd_penalty_time</span>(L, w), <span class="fu">fd_loop</span>(L, w))</span>
-<span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-240"><a href="#cb6-240" aria-hidden="true" tabindex="-1"></a><span class="fu">### First‑difference selectivity penalty (age) {#test-fd-penalty-age}</span></span>
-<span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a>For within-year smoothing over age with a **zero anchor at the minimum age**:</span>
-<span id="cb6-243"><a href="#cb6-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a>\mathcal{P}_{\text{FD,age}} \,=\, w \sum_{y=1}^{T}</span>
-<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a>\Big[</span>
-<span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a>\big(\log s_{y,a_{\min}}-0\big)^2</span>
-<span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>\sum_{a=a_{\min}+1}^{A}\big(\log s_{y,a}-\log s_{y,a-1}\big)^2</span>
-<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a>\Big].</span>
-<span id="cb6-250"><a href="#cb6-250" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-251"><a href="#cb6-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-252"><a href="#cb6-252" aria-hidden="true" tabindex="-1"></a><span class="fu">#### RTMB/R implementation</span></span>
-<span id="cb6-253"><a href="#cb6-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
-<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a><span class="co"># log_sel: matrix [T x A] of log-selectivities (year rows, age cols)</span></span>
-<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a><span class="co"># a_min: column index of minimum age within &#39;log_sel&#39; (default = 1)</span></span>
-<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a>fd_penalty_age <span class="ot">&lt;-</span> <span class="cf">function</span>(log_sel, <span class="at">w =</span> <span class="dv">1</span>, <span class="at">a_min =</span> <span class="dv">1</span>) {</span>
-<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">is.matrix</span>(log_sel))</span>
-<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a>  T <span class="ot">&lt;-</span> <span class="fu">nrow</span>(log_sel); A <span class="ot">&lt;-</span> <span class="fu">ncol</span>(log_sel)</span>
-<span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(a_min <span class="sc">&gt;=</span> <span class="dv">1</span>, a_min <span class="sc">&lt;=</span> A)</span>
-<span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(w) <span class="sc">==</span> <span class="dv">1</span>) w <span class="ot">&lt;-</span> <span class="fu">rep</span>(w, T)</span>
-<span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">length</span>(w) <span class="sc">==</span> T)</span>
+<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (has_gt) {</span>
+<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a>  dom_status <span class="ot">&lt;-</span> <span class="cf">function</span>(x) dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Pending&quot;</span>,<span class="st">&quot;Blocked&quot;</span>) <span class="sc">~</span> <span class="fl">0.9</span>,</span>
+<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;In progress&quot;</span>)       <span class="sc">~</span> <span class="fl">0.5</span>,</span>
+<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span>                          <span class="sc">~</span> <span class="fl">0.1</span></span>
+<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a>  dom_pri <span class="ot">&lt;-</span> <span class="cf">function</span>(x) dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">==</span> <span class="st">&quot;High&quot;</span>   <span class="sc">~</span> <span class="fl">0.9</span>,</span>
+<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">==</span> <span class="st">&quot;Medium&quot;</span> <span class="sc">~</span> <span class="fl">0.5</span>,</span>
+<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span>          <span class="sc">~</span> <span class="fl">0.2</span></span>
+<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a>  plt <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">gt</span>(issues)</span>
+<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a>  plt <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">data_color</span>(</span>
+<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a>    plt, <span class="at">columns =</span> <span class="fu">c</span>(status),</span>
+<span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a>    <span class="at">fn =</span> <span class="cf">function</span>(vals) grDevices<span class="sc">::</span><span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;white&quot;</span>,<span class="st">&quot;gold&quot;</span>,<span class="st">&quot;orangered&quot;</span>))(<span class="dv">100</span>)[</span>
+<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ceiling</span>(<span class="fu">pmax</span>(<span class="fu">pmin</span>(<span class="fu">dom_status</span>(vals),<span class="dv">1</span>),<span class="dv">0</span>)<span class="sc">*</span><span class="dv">99</span>)<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb6-233"><a href="#cb6-233" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a>    <span class="at">autocolor_text =</span> <span class="cn">TRUE</span></span>
+<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a>  plt <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">data_color</span>(</span>
+<span id="cb6-237"><a href="#cb6-237" aria-hidden="true" tabindex="-1"></a>    plt, <span class="at">columns =</span> <span class="fu">c</span>(priority),</span>
+<span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a>    <span class="at">fn =</span> <span class="cf">function</span>(vals) grDevices<span class="sc">::</span><span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;white&quot;</span>,<span class="st">&quot;lightblue&quot;</span>,<span class="st">&quot;royalblue&quot;</span>))(<span class="dv">100</span>)[</span>
+<span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ceiling</span>(<span class="fu">pmax</span>(<span class="fu">pmin</span>(<span class="fu">dom_pri</span>(vals),<span class="dv">1</span>),<span class="dv">0</span>)<span class="sc">*</span><span class="dv">99</span>)<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb6-240"><a href="#cb6-240" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a>    <span class="at">autocolor_text =</span> <span class="cn">TRUE</span></span>
+<span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-243"><a href="#cb6-243" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_caption</span>(plt, <span class="st">&quot;ADMB → RTMB Issues Register&quot;</span>)</span>
+<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(issues, <span class="at">caption =</span> <span class="st">&quot;ADMB → RTMB Issues Register&quot;</span>)</span>
+<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a><span class="fu">### Auto-generated anchors</span></span>
+<span id="cb6-250"><a href="#cb6-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-253"><a href="#cb6-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-254"><a href="#cb6-254" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: issues-anchors</span></span>
+<span id="cb6-255"><a href="#cb6-255" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">requireNamespace</span>(<span class="st">&quot;glue&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a>issues <span class="sc">|&gt;</span></span>
+<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
+<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">block =</span> {</span>
+<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a>    glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">&quot;</span></span>
+<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a><span class="st">#### {id}: {component}</span></span>
+<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a><span class="st">**ADMB behavior**: {admb_behavior}</span></span>
+<span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a><span class="st">**RTMB target**: {rtmb_behavior}</span></span>
 <span id="cb6-266"><a href="#cb6-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-267"><a href="#cb6-267" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Build diffs across age with anchor at a_min (assumes a_min=1; if not, set zeros below a_min)</span></span>
-<span id="cb6-268"><a href="#cb6-268" aria-hidden="true" tabindex="-1"></a>  diffs <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> T, <span class="at">ncol =</span> A)</span>
-<span id="cb6-269"><a href="#cb6-269" aria-hidden="true" tabindex="-1"></a>  diffs[, a_min] <span class="ot">&lt;-</span> log_sel[, a_min] <span class="sc">-</span> <span class="dv">0</span></span>
-<span id="cb6-270"><a href="#cb6-270" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (a_min <span class="sc">&lt;</span> A) {</span>
-<span id="cb6-271"><a href="#cb6-271" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (a <span class="cf">in</span> (a_min<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>A) {</span>
-<span id="cb6-272"><a href="#cb6-272" aria-hidden="true" tabindex="-1"></a>      diffs[, a] <span class="ot">&lt;-</span> log_sel[, a] <span class="sc">-</span> log_sel[, a<span class="dv">-1</span>]</span>
-<span id="cb6-273"><a href="#cb6-273" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-274"><a href="#cb6-274" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb6-275"><a href="#cb6-275" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">rowSums</span>((<span class="fu">sqrt</span>(w) <span class="sc">*</span> diffs)<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb6-276"><a href="#cb6-276" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-277"><a href="#cb6-277" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-278"><a href="#cb6-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-279"><a href="#cb6-279" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reference: survey lognormal scaling (consistency check) {#test-survey-lognorm}</span></span>
-<span id="cb6-280"><a href="#cb6-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-281"><a href="#cb6-281" aria-hidden="true" tabindex="-1"></a>When porting lognormal survey likelihoods, confirm whether ADMB’s objective includes the normalizing constant and whether <span class="sc">\(</span>\sigma<span class="sc">\)</span> is on the **log** scale:</span>
+<span id="cb6-267"><a href="#cb6-267" aria-hidden="true" tabindex="-1"></a><span class="st">**Status**: {status} &amp;nbsp; | &amp;nbsp; **Priority**: {priority}</span></span>
+<span id="cb6-268"><a href="#cb6-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-269"><a href="#cb6-269" aria-hidden="true" tabindex="-1"></a><span class="st">See test/ref: `#{test_ref}`.</span></span>
+<span id="cb6-270"><a href="#cb6-270" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span>)</span>
+<span id="cb6-271"><a href="#cb6-271" aria-hidden="true" tabindex="-1"></a>  }) <span class="sc">|&gt;</span></span>
+<span id="cb6-272"><a href="#cb6-272" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(block) <span class="sc">|&gt;</span></span>
+<span id="cb6-273"><a href="#cb6-273" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-274"><a href="#cb6-274" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-275"><a href="#cb6-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-276"><a href="#cb6-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-277"><a href="#cb6-277" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb6-278"><a href="#cb6-278" aria-hidden="true" tabindex="-1"></a>**Usage**  </span>
+<span id="cb6-279"><a href="#cb6-279" aria-hidden="true" tabindex="-1"></a>Edit the CSV at <span class="in">`inst/issues.csv`</span>. Re‑render to update the register and anchors.</span>
+<span id="cb6-280"><a href="#cb6-280" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-281"><a href="#cb6-281" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-282"><a href="#cb6-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-283"><a href="#cb6-283" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-284"><a href="#cb6-284" aria-hidden="true" tabindex="-1"></a>\ell(\sigma) = -\sum_i \frac{(\log O_i - \log E_i)^2}{2\sigma^2}</span>
-<span id="cb6-285"><a href="#cb6-285" aria-hidden="true" tabindex="-1"></a>\; -\; n\log\sigma \; -\; \frac{n}{2}\log(2\pi).</span>
-<span id="cb6-286"><a href="#cb6-286" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-287"><a href="#cb6-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-290"><a href="#cb6-290" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-291"><a href="#cb6-291" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
-<span id="cb6-292"><a href="#cb6-292" aria-hidden="true" tabindex="-1"></a>lognorm_nll <span class="ot">&lt;-</span> <span class="cf">function</span>(obs, exp, sigma_log, <span class="at">include_const =</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb6-293"><a href="#cb6-293" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">pmax</span>(obs, .Machine<span class="sc">$</span>double.eps)) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">pmax</span>(exp, .Machine<span class="sc">$</span>double.eps))</span>
-<span id="cb6-294"><a href="#cb6-294" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(r)</span>
-<span id="cb6-295"><a href="#cb6-295" aria-hidden="true" tabindex="-1"></a>  nll <span class="ot">&lt;-</span> <span class="fu">sum</span>(r<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> sigma_log<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb6-296"><a href="#cb6-296" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (include_const) nll <span class="ot">&lt;-</span> nll <span class="sc">+</span> n<span class="sc">*</span><span class="fu">log</span>(sigma_log) <span class="sc">+</span> n<span class="sc">*</span><span class="fl">0.5</span><span class="sc">*</span><span class="fu">log</span>(<span class="dv">2</span><span class="sc">*</span>pi)</span>
-<span id="cb6-297"><a href="#cb6-297" aria-hidden="true" tabindex="-1"></a>  nll</span>
-<span id="cb6-298"><a href="#cb6-298" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-299"><a href="#cb6-299" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-283"><a href="#cb6-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-286"><a href="#cb6-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-287"><a href="#cb6-287" aria-hidden="true" tabindex="-1"></a>needs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dplyr&quot;</span>,<span class="st">&quot;tibble&quot;</span>,<span class="st">&quot;stringr&quot;</span>,<span class="st">&quot;glue&quot;</span>)</span>
+<span id="cb6-288"><a href="#cb6-288" aria-hidden="true" tabindex="-1"></a>ok <span class="ot">&lt;-</span> <span class="fu">vapply</span>(needs, <span class="cf">function</span>(p) <span class="fu">requireNamespace</span>(p, <span class="at">quietly =</span> <span class="cn">TRUE</span>), <span class="fu">logical</span>(<span class="dv">1</span>))</span>
+<span id="cb6-289"><a href="#cb6-289" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">all</span>(ok)) <span class="fu">stop</span>(<span class="st">&quot;Please install packages: &quot;</span>, <span class="fu">paste</span>(needs[<span class="sc">!</span>ok], <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span>
+<span id="cb6-290"><a href="#cb6-290" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">&quot;dplyr&quot;</span>,<span class="st">&quot;tibble&quot;</span>), library, <span class="at">character.only =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb6-291"><a href="#cb6-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-292"><a href="#cb6-292" aria-hidden="true" tabindex="-1"></a>has_gt <span class="ot">&lt;-</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;gt&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-293"><a href="#cb6-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-294"><a href="#cb6-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-295"><a href="#cb6-295" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model changes</span></span>
+<span id="cb6-296"><a href="#cb6-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-297"><a href="#cb6-297" aria-hidden="true" tabindex="-1"></a><span class="fu">### First‑difference selectivity penalty (temporal) {#test-fd-penalty-time}</span></span>
+<span id="cb6-298"><a href="#cb6-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-299"><a href="#cb6-299" aria-hidden="true" tabindex="-1"></a>We need the penalty used in ADMB where the **first year is compared to zero** (not to a previous estimated year). For a matrix of log‑selectivities <span class="sc">\(</span> \log s_{y,a} <span class="sc">\)</span> (years <span class="sc">\(</span>y=1,\ldots,T<span class="sc">\)</span>, ages <span class="sc">\(</span>a=1,\ldots,A<span class="sc">\)</span>), the penalty is:</span>
+<span id="cb6-300"><a href="#cb6-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-301"><a href="#cb6-301" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-302"><a href="#cb6-302" aria-hidden="true" tabindex="-1"></a>\mathcal{P}_{\text{FD,time}} \,=\, w \sum_{a=1}^{A}</span>
+<span id="cb6-303"><a href="#cb6-303" aria-hidden="true" tabindex="-1"></a>\Big[</span>
+<span id="cb6-304"><a href="#cb6-304" aria-hidden="true" tabindex="-1"></a>\big(\log s_{1,a}-0\big)^2</span>
+<span id="cb6-305"><a href="#cb6-305" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>\sum_{y=2}^{T}\big(\log s_{y,a}-\log s_{y-1,a}\big)^2</span>
+<span id="cb6-306"><a href="#cb6-306" aria-hidden="true" tabindex="-1"></a>\Big].</span>
+<span id="cb6-307"><a href="#cb6-307" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-308"><a href="#cb6-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-309"><a href="#cb6-309" aria-hidden="true" tabindex="-1"></a><span class="fu">#### RTMB/R implementation</span></span>
+<span id="cb6-310"><a href="#cb6-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-313"><a href="#cb6-313" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-314"><a href="#cb6-314" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb6-315"><a href="#cb6-315" aria-hidden="true" tabindex="-1"></a><span class="co"># log_sel: matrix [T x A] of log-selectivities (year rows, age cols)</span></span>
+<span id="cb6-316"><a href="#cb6-316" aria-hidden="true" tabindex="-1"></a><span class="co"># w: scalar or length-A vector of weights</span></span>
+<span id="cb6-317"><a href="#cb6-317" aria-hidden="true" tabindex="-1"></a>fd_penalty_time <span class="ot">&lt;-</span> <span class="cf">function</span>(log_sel, <span class="at">w =</span> <span class="dv">1</span>) {</span>
+<span id="cb6-318"><a href="#cb6-318" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">is.matrix</span>(log_sel))</span>
+<span id="cb6-319"><a href="#cb6-319" aria-hidden="true" tabindex="-1"></a>  T <span class="ot">&lt;-</span> <span class="fu">nrow</span>(log_sel); A <span class="ot">&lt;-</span> <span class="fu">ncol</span>(log_sel)</span>
+<span id="cb6-320"><a href="#cb6-320" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(w) <span class="sc">==</span> <span class="dv">1</span>) w <span class="ot">&lt;-</span> <span class="fu">rep</span>(w, A)</span>
+<span id="cb6-321"><a href="#cb6-321" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">length</span>(w) <span class="sc">==</span> A)</span>
+<span id="cb6-322"><a href="#cb6-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-323"><a href="#cb6-323" aria-hidden="true" tabindex="-1"></a>  diffs <span class="ot">&lt;-</span> <span class="fu">rbind</span>(log_sel[<span class="dv">1</span>, , <span class="at">drop =</span> <span class="cn">FALSE</span>] <span class="sc">-</span> <span class="dv">0</span>,   <span class="co"># year 1 vs 0</span></span>
+<span id="cb6-324"><a href="#cb6-324" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">apply</span>(log_sel, <span class="dv">2</span>, diff))          <span class="co"># y&gt;=2 diffs</span></span>
+<span id="cb6-325"><a href="#cb6-325" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">colSums</span>((<span class="fu">sqrt</span>(w) <span class="sc">*</span> diffs)<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb6-326"><a href="#cb6-326" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-327"><a href="#cb6-327" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-328"><a href="#cb6-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-329"><a href="#cb6-329" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sanity check</span></span>
+<span id="cb6-330"><a href="#cb6-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-333"><a href="#cb6-333" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-334"><a href="#cb6-334" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb6-335"><a href="#cb6-335" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">5</span>; A <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(T<span class="sc">*</span>A, <span class="at">sd=</span><span class="fl">0.2</span>), T, A); w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">0.5</span>)</span>
+<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a>fd_loop <span class="ot">&lt;-</span> <span class="cf">function</span>(L, w){</span>
+<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a>  acc <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (a <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">ncol</span>(L))) {</span>
+<span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a>    acc <span class="ot">&lt;-</span> acc <span class="sc">+</span> w[a]<span class="sc">*</span>(L[<span class="dv">1</span>,a]<span class="sc">-</span><span class="dv">0</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb6-343"><a href="#cb6-343" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (y <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">nrow</span>(L)) acc <span class="ot">&lt;-</span> acc <span class="sc">+</span> w[a]<span class="sc">*</span>(L[y,a]<span class="sc">-</span>L[y<span class="dv">-1</span>,a])<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-345"><a href="#cb6-345" aria-hidden="true" tabindex="-1"></a>  acc</span>
+<span id="cb6-346"><a href="#cb6-346" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-347"><a href="#cb6-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-348"><a href="#cb6-348" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fu">fd_penalty_time</span>(L, w), <span class="fu">fd_loop</span>(L, w))</span>
+<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-350"><a href="#cb6-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a><span class="fu">### First‑difference selectivity penalty (age) {#test-fd-penalty-age}</span></span>
+<span id="cb6-352"><a href="#cb6-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a>For within-year smoothing over age with a **zero anchor at the minimum age**:</span>
+<span id="cb6-354"><a href="#cb6-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-356"><a href="#cb6-356" aria-hidden="true" tabindex="-1"></a>\mathcal{P}_{\text{FD,age}} \,=\, w \sum_{y=1}^{T}</span>
+<span id="cb6-357"><a href="#cb6-357" aria-hidden="true" tabindex="-1"></a>\Big[</span>
+<span id="cb6-358"><a href="#cb6-358" aria-hidden="true" tabindex="-1"></a>\big(\log s_{y,a_{\min}}-0\big)^2</span>
+<span id="cb6-359"><a href="#cb6-359" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>\sum_{a=a_{\min}+1}^{A}\big(\log s_{y,a}-\log s_{y,a-1}\big)^2</span>
+<span id="cb6-360"><a href="#cb6-360" aria-hidden="true" tabindex="-1"></a>\Big].</span>
+<span id="cb6-361"><a href="#cb6-361" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-362"><a href="#cb6-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-363"><a href="#cb6-363" aria-hidden="true" tabindex="-1"></a><span class="fu">#### RTMB/R implementation</span></span>
+<span id="cb6-364"><a href="#cb6-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-367"><a href="#cb6-367" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-368"><a href="#cb6-368" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb6-369"><a href="#cb6-369" aria-hidden="true" tabindex="-1"></a><span class="co"># log_sel: matrix [T x A] of log-selectivities (year rows, age cols)</span></span>
+<span id="cb6-370"><a href="#cb6-370" aria-hidden="true" tabindex="-1"></a><span class="co"># a_min: column index of minimum age within &#39;log_sel&#39; (default = 1)</span></span>
+<span id="cb6-371"><a href="#cb6-371" aria-hidden="true" tabindex="-1"></a>fd_penalty_age <span class="ot">&lt;-</span> <span class="cf">function</span>(log_sel, <span class="at">w =</span> <span class="dv">1</span>, <span class="at">a_min =</span> <span class="dv">1</span>) {</span>
+<span id="cb6-372"><a href="#cb6-372" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">is.matrix</span>(log_sel))</span>
+<span id="cb6-373"><a href="#cb6-373" aria-hidden="true" tabindex="-1"></a>  T <span class="ot">&lt;-</span> <span class="fu">nrow</span>(log_sel); A <span class="ot">&lt;-</span> <span class="fu">ncol</span>(log_sel)</span>
+<span id="cb6-374"><a href="#cb6-374" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(a_min <span class="sc">&gt;=</span> <span class="dv">1</span>, a_min <span class="sc">&lt;=</span> A)</span>
+<span id="cb6-375"><a href="#cb6-375" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(w) <span class="sc">==</span> <span class="dv">1</span>) w <span class="ot">&lt;-</span> <span class="fu">rep</span>(w, T)</span>
+<span id="cb6-376"><a href="#cb6-376" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">length</span>(w) <span class="sc">==</span> T)</span>
+<span id="cb6-377"><a href="#cb6-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-378"><a href="#cb6-378" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Build diffs across age with anchor at a_min (assumes a_min=1; if not, set zeros below a_min)</span></span>
+<span id="cb6-379"><a href="#cb6-379" aria-hidden="true" tabindex="-1"></a>  diffs <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> T, <span class="at">ncol =</span> A)</span>
+<span id="cb6-380"><a href="#cb6-380" aria-hidden="true" tabindex="-1"></a>  diffs[, a_min] <span class="ot">&lt;-</span> log_sel[, a_min] <span class="sc">-</span> <span class="dv">0</span></span>
+<span id="cb6-381"><a href="#cb6-381" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (a_min <span class="sc">&lt;</span> A) {</span>
+<span id="cb6-382"><a href="#cb6-382" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (a <span class="cf">in</span> (a_min<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>A) {</span>
+<span id="cb6-383"><a href="#cb6-383" aria-hidden="true" tabindex="-1"></a>      diffs[, a] <span class="ot">&lt;-</span> log_sel[, a] <span class="sc">-</span> log_sel[, a<span class="dv">-1</span>]</span>
+<span id="cb6-384"><a href="#cb6-384" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-385"><a href="#cb6-385" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">rowSums</span>((<span class="fu">sqrt</span>(w) <span class="sc">*</span> diffs)<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb6-387"><a href="#cb6-387" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-388"><a href="#cb6-388" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-390"><a href="#cb6-390" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reference: survey lognormal scaling (consistency check) {#test-survey-lognorm}</span></span>
+<span id="cb6-391"><a href="#cb6-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-392"><a href="#cb6-392" aria-hidden="true" tabindex="-1"></a>When porting lognormal survey likelihoods, confirm whether ADMB’s objective includes the normalizing constant and whether <span class="sc">\(</span>\sigma<span class="sc">\)</span> is on the **log** scale:</span>
+<span id="cb6-393"><a href="#cb6-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-394"><a href="#cb6-394" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-395"><a href="#cb6-395" aria-hidden="true" tabindex="-1"></a>\ell(\sigma) = -\sum_i \frac{(\log O_i - \log E_i)^2}{2\sigma^2}</span>
+<span id="cb6-396"><a href="#cb6-396" aria-hidden="true" tabindex="-1"></a>\; -\; n\log\sigma \; -\; \frac{n}{2}\log(2\pi).</span>
+<span id="cb6-397"><a href="#cb6-397" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-398"><a href="#cb6-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-401"><a href="#cb6-401" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-402"><a href="#cb6-402" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb6-403"><a href="#cb6-403" aria-hidden="true" tabindex="-1"></a>lognorm_nll <span class="ot">&lt;-</span> <span class="cf">function</span>(obs, exp, sigma_log, <span class="at">include_const =</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb6-404"><a href="#cb6-404" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">pmax</span>(obs, .Machine<span class="sc">$</span>double.eps)) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">pmax</span>(exp, .Machine<span class="sc">$</span>double.eps))</span>
+<span id="cb6-405"><a href="#cb6-405" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(r)</span>
+<span id="cb6-406"><a href="#cb6-406" aria-hidden="true" tabindex="-1"></a>  nll <span class="ot">&lt;-</span> <span class="fu">sum</span>(r<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> sigma_log<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb6-407"><a href="#cb6-407" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (include_const) nll <span class="ot">&lt;-</span> nll <span class="sc">+</span> n<span class="sc">*</span><span class="fu">log</span>(sigma_log) <span class="sc">+</span> n<span class="sc">*</span><span class="fl">0.5</span><span class="sc">*</span><span class="fu">log</span>(<span class="dv">2</span><span class="sc">*</span>pi)</span>
+<span id="cb6-408"><a href="#cb6-408" aria-hidden="true" tabindex="-1"></a>  nll</span>
+<span id="cb6-409"><a href="#cb6-409" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-410"><a href="#cb6-410" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

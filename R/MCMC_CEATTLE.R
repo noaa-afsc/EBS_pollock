@@ -1,6 +1,7 @@
 remove.packages(adnuts)
 library(TMB)
 install.packages('StanEstimators', repos = c('https://andrjohns.r-universe.dev', 'https://cloud.r-project.org'))
+install.packages('StanEstimators', repos = c('https://andrjohns.r-universe.dev', 'https://cloud.r-project.org'))
 devtools::install_github("Cole-Monnahan-NOAA/adnuts", ref='sparse_M',force=TRUE)
 library(adnuts)
 

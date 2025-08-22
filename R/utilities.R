@@ -1,11 +1,21 @@
 # Helper function for generalized gamma distribution (if not available)
 #--Utilities to read parameters from .dat files-----------
 
-norm2 <- function(x) sum(x^2, na.rm = TRUE)
-first_difference <- fdiff <- function(x) diff(x) # first_difference
-second_difference <- sdiff <- function(x) diff(diff(x)) # second_difference
-cf <- function(ctrl_flag, i) if (i <= length(ctrl_flag)) ctrl_flag[i] else 0
-sq <- function(x) x * x
+norm2 <- function(x) {
+  "c" <- ADoverload("c")
+  "[<-" <- ADoverload("[<-")
+  sum(x^2, na.rm = TRUE)
+}
+first_difference <- fdiff <- function(x) {
+  "c" <- ADoverload("c")
+  "[<-" <- ADoverload("[<-")
+  diff(x) # first_difference
+}
+second_difference <- sdiff <- function(x) {
+  "c" <- ADoverload("c")
+  "[<-" <- ADoverload("[<-")
+  diff(diff(x)) # second_difference
+}
 
 
 # 1. Comparison function with max |% diff|
@@ -56,7 +66,50 @@ compare_outputs_max_pct <- function(rtmb, admb, tolerance = 1e-6) {
 
   do.call(rbind, comps)
 }
-
+compare_max_pct <- function(rtmb, admb, tolerance = 1e-6) {
+  is_ok <- function(x) is.numeric(x) || is.matrix(x) || is.array(x)
+  shared_vars <- intersect(names(rtmb), names(admb))
+  comps <- lapply(shared_vars, function(var) {
+    rt <- rtmb[[var]]
+    ad <- admb[[var]]
+    if (!(is_ok(rt) && is_ok(ad))) {
+      return(data.frame(
+        variable = var, equal = NA, length = NA_integer_,
+        max_abs_diff = NA_real_, max_abs_pct_diff = NA_real_, cor = NA_real_
+      ))
+    }
+    rt_vec <- as.vector(rt)
+    ad_vec <- as.vector(ad)
+    if (length(rt_vec) != length(ad_vec)) {
+      return(data.frame(
+        variable = var, equal = FALSE,
+        length = length(rt_vec),
+        max_abs_diff = NA_real_, max_abs_pct_diff = NA_real_, cor = NA_real_
+      ))
+    }
+    # Absolute differences
+    abs_diff <- abs(rt_vec - ad_vec)
+    max_abs_diff <- suppressWarnings(max(abs_diff, na.rm = TRUE))
+    if (!is.finite(max_abs_diff)) max_abs_diff <- NA_real_
+    
+    # % diff relative to ADMB
+    eps <- .Machine$double.eps
+    pct_diff <- abs_diff / pmax(abs(ad_vec), eps) * 100
+    max_abs_pct_diff <- suppressWarnings(max(pct_diff, na.rm = TRUE))
+    if (!is.finite(max_abs_pct_diff)) max_abs_pct_diff <- NA_real_
+    equal <- isTRUE(all.equal(rt_vec, ad_vec, tolerance = tolerance))
+    cor_val <- suppressWarnings(cor(rt_vec, ad_vec, use = "complete.obs"))
+    data.frame(
+      variable = var,
+      equal = equal,
+      length = length(rt_vec),
+      max_abs_diff = max_abs_diff,
+      max_abs_pct_diff = max_abs_pct_diff,
+      cor = cor_val
+    )
+  })
+  do.call(rbind, comps)
+}
 cmb <- function(f, d) function(p) f(p, d)
 
 # 2. gt table builder
@@ -106,7 +159,7 @@ gt_compare_table <- function(rtmb, admb, tolerance = 1e-4, sort_by_diff = TRUE) 
       ) |>
       gt::cols_label(
         variable         = "Variable",
-        equal            = "Equal (≤ tol)",
+        equal            = "Equal (≤ tol%)",
         length_rtmb      = "Len RTMB",
         length_admb      = "Len ADMB",
         max_abs_pct_diff = "Max |% diff| (RTMB vs ADMB)",
@@ -117,7 +170,112 @@ gt_compare_table <- function(rtmb, admb, tolerance = 1e-4, sort_by_diff = TRUE) 
         subtitle = paste("Tolerance =", format(tolerance, scientific = TRUE))
       )
   }
- 
+gt_compare_table2 <- function(rtmb, admb, tolerance = 1e-4, sort_by_diff = TRUE, font_size = "small") {
+    requireNamespace("gt", quietly = TRUE)
+    requireNamespace("dplyr", quietly = TRUE)
+    requireNamespace("scales", quietly = TRUE)
+    
+    is_ok <- function(x) is.numeric(x) || is.matrix(x) || is.array(x)
+    rtmb_f <- rtmb[sapply(rtmb, is_ok)]
+    admb_f <- admb[sapply(admb, is_ok)]
+    
+    comp <- compare_max_pct(rtmb_f, admb_f, tolerance = tolerance)
+    
+    # Preserve original variable order if requested
+    if (!sort_by_diff) {
+      comp <- dplyr::mutate(comp,
+                            orig_order = match(variable, names(rtmb_f))
+      ) |>
+        dplyr::arrange(orig_order) |>
+        dplyr::select(-orig_order)
+    } else {
+      comp <- dplyr::arrange(comp, dplyr::desc(max_abs_pct_diff))
+    }
+    
+    # Set color domain for percentage differences
+    dom_pct <- range(comp$max_abs_pct_diff, na.rm = TRUE)
+    if (!all(is.finite(dom_pct))) dom_pct <- c(0, 1)
+    
+    # Set color domain for absolute differences  
+    dom_abs <- range(comp$max_abs_diff, na.rm = TRUE)
+    if (!all(is.finite(dom_abs))) dom_abs <- c(0, 1)
+    
+    gt::gt(comp) |>
+      gt::data_color(
+        columns = c(max_abs_pct_diff),
+        fn = scales::col_numeric(
+          palette = c("white", "yellow", "orangered"),
+          domain  = dom_pct
+        )
+      ) |>
+      gt::data_color(
+        columns = c(max_abs_diff),
+        fn = scales::col_numeric(
+          palette = c("white", "lightblue", "darkblue"),
+          domain  = dom_abs
+        )
+      ) |>
+      gt::data_color(
+        columns = c(cor),
+        fn = scales::col_numeric(
+          palette = c("red", "white", "darkgreen"),
+          domain  = c(-1, 1)
+        )
+      ) |>
+      gt::fmt_number(
+        columns = c(max_abs_diff, max_abs_pct_diff, cor),
+        decimals = 6
+      ) |>
+      gt::fmt_integer(
+        columns = c(length)
+      ) |>
+      gt::cols_label(
+        variable         = "Variable",
+        equal            = "Equal (≤ tol)",
+        length           = "Length",
+        max_abs_diff     = "Max |Abs diff|",
+        max_abs_pct_diff = "Max |% diff|",
+        cor              = "Correlation"
+      ) |>
+      gt::tab_header(
+        title = "Comparison of RTMB and ADMB Outputs",
+        subtitle = paste("Tolerance =", format(tolerance, scientific = TRUE))
+      ) |>
+      # Add font size styling
+      gt::tab_style(
+        style = gt::cell_text(size = font_size),
+        locations = gt::cells_body()
+      ) |>
+      gt::tab_style(
+        style = gt::cell_text(size = font_size),
+        locations = gt::cells_column_labels()
+      ) |>
+      gt::tab_style(
+        style = gt::cell_text(size = font_size),
+        locations = gt::cells_title()
+      )
+  }
+  
+  # Option 2: Save to PNG (requires webshot2 package)
+  save_gt_table_png <- function(gt_table, filename, width = 800, height = 600) {
+    requireNamespace("webshot2", quietly = TRUE)
+    gt::gtsave(gt_table, filename, vwidth = width, vheight = height)
+  }
+  
+  # Example usage:
+  # 
+  # # Create table with smaller font
+  # my_table<- gt_compare_table2(rtmb_out, pm, sort_by_diff = ) #, font_size = "xx-small")  # or "xx-small", "small", "medium", "large", etc.
+  # my_table# 
+  # # Display the table
+  # my_table
+  # 
+  # # Save to PNG
+  # save_gt_table_png(my_table, "comparison_table.png", width = 1000, height = 800)
+  #
+  # # Or save directly with gtsave
+   # gt::gtsave(my_table, "comparison_table.png", vwidth = 1000, vheight = 800)
+   
 read_pars <- function(file) {
   lines <- readLines(file)
   result <- list()
@@ -356,8 +514,8 @@ read_model_inputs <- function(fn) {
     # Assume these are values already defined in full model
   )
   obs_catch <- function(year) 1200 # mockup function for illustration
-  endyr_r <- data_tmp$endyr - const$retroYr
-  endyr_est <- endyr_r - const$omitSR
+  endyr <- data_tmp$endyr - const$retroYr
+  endyr_est <- endyr - const$omitSR
   n_selages_fsh <- data_tmp$nages - const$last_age_sel_fsh + 1
   n_selages_bts <- data_tmp$nages - const$last_age_sel_bts + 1
   n_selages_ats <- data_tmp$nages - const$last_age_sel_ats + 1
@@ -374,9 +532,9 @@ read_model_inputs <- function(fn) {
       n_selages_fsh = n_selages_fsh,
       n_selages_bts = n_selages_bts,
       n_selages_ats = n_selages_ats,
-      endyr_r = endyr_r,
+      endyr = endyr,
       endyr_est = endyr_est,
-      dec_tab_catch = c(10, 0.25 * obs_catch(endyr_r), 0.50 * obs_catch(endyr_r), 0.75 * obs_catch(endyr_r), 1.00 * obs_catch(endyr_r), 1.25 * obs_catch(endyr_r), 1.50 * obs_catch(endyr_r), 2.00 * obs_catch(endyr_r))
+      dec_tab_catch = c(10, 0.25 * obs_catch(endyr), 0.50 * obs_catch(endyr), 0.75 * obs_catch(endyr), 1.00 * obs_catch(endyr), 1.25 * obs_catch(endyr), 1.50 * obs_catch(endyr), 2.00 * obs_catch(endyr))
     )
   )
   return(data)
@@ -391,7 +549,7 @@ Get_Data <- function() {
   data$inv_bts_cov <- solve(data$cov_matrix)  # inverse covariance matrix
   data$obs_cpue_var <- data$obs_cpue_std^2 # observation variance for CPUE
   data$obs_avo_var <- data$ob_avo_std^2 # observation variance for AVO
-  data$nyrs <- data$endyr_r-data$styr+1
+  data$nyrs <- data$endyr-data$styr+1
   data$return_nll_only <- 1 # Flag to only return nll
   # Eq. 21 – initialize wt_fut
   data$wt_fut <- data$wt_fsh[data$nyrs, ]
@@ -434,10 +592,10 @@ Get_Data <- function() {
         data$std_ob_bts[i] <- data$ob_bts_std[i]
         data$ot_bts[i] <- sum(data$oac_bts[i, data$mina_bts:data$nages])
         # data$ob_bts[i] <- data$obs_bts_data[i]
-        p <- data$oac_bts[i, ] / sum(data$oac_bts[i, ])
+        p <- data$oac_bts[i, ] / data$ot_bts[i]
         data$oac_bts[i, ] <- p
         data$age_like_offset[igear] <- data$age_like_offset[igear] -
-          data$sam_bts[i] * sum(p * log(p + MN_const))
+          floor(data$sam_bts[i]) * sum(p * log(p + MN_const))
       } else if (igear == 3) {
         # ATS
         # data$std_ob_ats[i] <- data$std_ob_ats_data[i]
@@ -521,7 +679,7 @@ read_data <- function(file) {
 # file_path <- "path/to/your/file.dat"
 # data <- read_data(file_path)
 
-# compute_fsh_selectivity <- function(nsel, stsel, endyr_r, nages, avgsel, coffs, sel_devs, nch_fsh, yrs_ch_fsh) {
+# compute_fsh_selectivity <- function(nsel, stsel, endyr, nages, avgsel, coffs, sel_devs, nch_fsh, yrs_ch_fsh) {
 
 
 # helper
@@ -569,13 +727,13 @@ read_wtage_data <- function(Wtage_file) {
     }
   }
 
-  # LOCAL_CALCS equivalent - adjust nyrs_data if endyr_r < endyr
-  # (This assumes endyr_r and endyr are available in the global environment)
-  if (exists("endyr_r") && exists("endyr") && exists("styr")) {
-    if (endyr_r < endyr) {
+  # LOCAL_CALCS equivalent - adjust nyrs_data if endyr < endyr
+  # (This assumes endyr and endyr are available in the global environment)
+  if (exists("endyr") && exists("endyr") && exists("styr")) {
+    if (endyr < endyr) {
       for (h in 1:ndat_wt) {
         itmp <- 1
-        for (i in styr:endyr_r) {
+        for (i in styr:endyr) {
           if (!is.na(yrs_data[h, itmp]) && i == yrs_data[h, itmp]) {
             itmp <- itmp + 1
           }

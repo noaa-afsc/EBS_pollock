@@ -1,9 +1,271 @@
- rm(list = ls())
- source(here::here("R/config.R"))
+#Top######################################
+source(here::here("R/config.R"))
+data.frame(par = names(obj$par), gr = abs(as.numeric(obj$gr())), gr_orig = as.numeric(obj$gr())) |> 
+arrange(desc(gr))  |> head(10)
+
+fit <- nlminb(obj$par, obj$fn, obj$gr); 
+cest <- check_estimability(obj);cest$BadParams[cest$BadParams$Param_check=="Bad",]
+unique(names(parms))
+for (i in 1:2) fit<- nlminb(fit$par, obj$fn, obj$gr )
+sdr <- sdreport(obj)
+rtmb_df <- tibble( name = names(sdr$value), sd   = sdr$sd )
+rtmb_df |> filter(sd==0) |> print(n=Inf)
+
+names(sdr)
+str(sdr)
+vals <- sdr$value
+sds  <- sdr$sd
+
+df <- rbind(data.frame(
+  name  = names(vals),
+  value = as.numeric(vals),
+  std.dev = as.numeric(sds),
+  model = "RTMB"
+) , #|> filter(name=="SSB"), 
+data.frame(
+  read_table(here::here("runs/rtmb", "pm.std")) |> 
+    filter(name == "SSB" | name == "pred_rec") |>  
+    transmute( name = ifelse(name == "SSB", "SSB", "Recruits"), 
+      value,  std.dev,  model = "ADMB" )
+)) |> 
+  mutate( name = ifelse(name == "recruitment", "Recruits", name) )
+
+head(df)
+unique(df$name)
+str(df)
+df1 <- df |> filter(name %in% c("SSB", "Recruits"))
+df1$year <- rep(1964:2024,4) 
+p1<- df1 |> filter(name=="SSB") |>   ggplot(aes(x=year,y=value,color=model)) +
+  geom_line(linetype=2) +
+  geom_line(aes(x=year,y=std.dev*10)) +
+  labs(title = "RTMB vs ADMB SSB Standard Deviations", x = "Year ", y = "SSB, Standard Deviation x 10") +
+theme_minimal() 
+p2<- df1 |> filter(name!="SSB") |>   ggplot(aes(x=year,y=value,color=model)) +
+  geom_line(linetype=2) +
+  geom_line(aes(x=year,y=std.dev*10)) +
+  labs(title = "RTMB vs ADMB recruitment Standard Deviations", x = "Year ", y = "recruits, Standard Deviation x 10") +
+  theme_minimal()
+p1/ p2 
+# numDeriv::grad(obj$fn, obj$par)
+# numDeriv::hessian(obj$fn, obj$par)
+# saveRDS(obj,"rtmb2.RDS")
+#obj<- readRDS("cea_obj.RDS")
+#Ratio plots######################################
+# Function to create ratio plot for values (with error bars)
+create_value_ratio_plot <- function(df, variable_name = "SSB", numerator_model = "RTMB", denominator_model = "ADMB") {
+  # Filter data for the specific variable
+  filtered_data <- df %>%
+    filter(name == variable_name)
+  
+  # Check if both models exist in the data
+  models_present <- unique(filtered_data$model)
+  if (!numerator_model %in% models_present) {
+    stop(paste("Model", numerator_model, "not found in the data"))
+  }
+  if (!denominator_model %in% models_present) {
+    stop(paste("Model", denominator_model, "not found in the data"))
+  }
+  
+  # Separate data by model
+  num_data <- filtered_data %>% filter(model == numerator_model)
+  den_data <- filtered_data %>% filter(model == denominator_model)
+  
+  # Merge data by year to calculate ratios
+  ratio_data <- merge(num_data, den_data, by = "year", suffixes = c("_num", "_den"))
+  
+  # Calculate ratio and propagated standard deviation
+  ratio_data <- ratio_data %>%
+    mutate(
+      value_ratio = value_num / value_den
+      # Error propagation for ratio: sqrt((sd_a/a)^2 + (sd_b/b)^2) * ratio
+      #value_ratio_std = sqrt((std.dev_num/value_num)^2 + (std.dev_den/value_den)^2) * value_ratio
+    )
+  
+  # Create the plot
+  p <- ggplot(ratio_data, aes(x = year, y = value_ratio)) +
+    geom_point(size = 2, color = "blue") +
+    # geom_errorbar(aes(ymin = value_ratio - 2*value_ratio_std, ymax = value_ratio + 2*value_ratio_std), 
+                  # width = 0.5, color = "red", alpha = 0.7) +
+    geom_hline(yintercept = 1, linetype = "dashed", color = "black", alpha = 0.5) +
+    labs(
+      title = paste0("Value Ratio: ", numerator_model, " / ", denominator_model, " for ", variable_name),
+      # subtitle = "Error bars show ±2 standard deviations",
+      x = "Year",
+      y = paste0("Value Ratio") ) +
+    theme_minimal() +
+    theme(
+      plot.title = element_text(hjust = 0.5, size = 14),
+      plot.subtitle = element_text(hjust = 0.5, size = 12, color = "gray50"),
+      axis.title = element_text(size = 12),
+      axis.text = element_text(size = 10)
+    )
+  return(p)
+}
+
+# Function to create ratio plot for standard deviations (no error bars needed)
+create_stddev_ratio_plot <- function(df, variable_name = "SSB", numerator_model = "RTMB", denominator_model = "ADMB") {
+  # Filter data for the specific variable
+  filtered_data <- df %>%
+    filter(name == variable_name)
+  
+  # Check if both models exist in the data
+  models_present <- unique(filtered_data$model)
+  if (!numerator_model %in% models_present) {
+    stop(paste("Model", numerator_model, "not found in the data"))
+  }
+  if (!denominator_model %in% models_present) {
+    stop(paste("Model", denominator_model, "not found in the data"))
+  }
+  
+  # Separate data by model
+  num_data <- filtered_data %>% filter(model == numerator_model)
+  den_data <- filtered_data %>% filter(model == denominator_model)
+  
+  # Merge data by year to calculate ratios
+  ratio_data <- merge(num_data, den_data, by = "year", suffixes = c("_num", "_den"))
+  
+  # Calculate standard deviation ratio
+  ratio_data <- ratio_data %>%
+    mutate(
+      stddev_ratio = std.dev_num / std.dev_den
+    )
+  
+  # Create the plot
+  p <- ggplot(ratio_data, aes(x = year, y = stddev_ratio)) +
+    geom_point(size = 2, color = "darkgreen") +
+    geom_line(color = "darkgreen", alpha = 0.6) +
+    geom_hline(yintercept = 1, linetype = "dashed", color = "black", alpha = 0.5) +
+    labs(
+      title = paste0("Standard Deviation Ratio: ", numerator_model, " / ", denominator_model, " for ", variable_name),
+      subtitle = "Ratio of standard deviations between models",
+      x = "Year",
+      y = paste0("Std.Dev Ratio"  )
+    ) +
+    theme_minimal() +
+    theme(
+      plot.title = element_text(hjust = 0.5, size = 14),
+      plot.subtitle = element_text(hjust = 0.5, size = 12, color = "gray50"),
+      axis.title = element_text(size = 12),
+      axis.text = element_text(size = 10)
+    )
+  
+  return(p)
+}
+
+# Example usage:
+# Create separate plots for values and standard deviations
+plot_ssb_value_ratio <- create_value_ratio_plot(df1, variable_name = "SSB", 
+                                                numerator_model = "RTMB", 
+                                                denominator_model = "ADMB")
+
+plot_ssb_stddev_ratio <- create_stddev_ratio_plot(df1, variable_name = "SSB", 
+                                                  numerator_model = "RTMB", 
+                                                  denominator_model = "ADMB")
+rec_ratio <- create_value_ratio_plot(df1, variable_name = "Recruits", 
+                                                numerator_model = "RTMB", 
+                                                denominator_model = "ADMB")
+
+rec_sd_ratio <- create_stddev_ratio_plot(df1, variable_name = "Recruits", 
+                                                  numerator_model = "RTMB", 
+                                                  denominator_model = "ADMB")
+
+
+(plot_ssb_value_ratio)/ (plot_ssb_stddev_ratio)/
+(rec_ratio)/ (rec_sd_ratio)
+
+#--MCMC stuff--------
+library(adnuts)
+obj$env$data 
+names(obj$env$parList() )
+?sample_snuts
+mcmc <- sample_snuts(obj, chains=1, cores=1, iter=2000, control = list(adapt_delta=.95))
+#mcmc <- adnuts::sample_sparse_tmb(obj,skip_optimization=TRUE,iter=3000, chains = 8)
+#mcpilot <- adnuts::sample_sparse_tmb(obj,skip_optimizatioon=TRUE,iter=2000, chains = 5)
+plot_uncertainties(mcmc)
+pairs_admb(mcmc, pars=1:8, order='slow')
+pairs_admb(mcmc, pars=1:8, order='mismatch')
+pairs_admb(mcmc, pars=1200:1208)
+sum(grepl("log_F_devs", mcmc$par_names))
+
+#Merge RTMB and ADMB sds ######################################
+# RTMB standard deviations
+sdr = sdrep #sdreport(obj) # obj is your optimized model object
+names(sdr$value)
+str(as.list(sdr, "Std", report=TRUE)) # Standard errors for parameters
+as.data.frame(as.list(sdr, "Std", report = TRUE) )# Standar
+is.list(sdr)
+head(sdr)
+names(sdr)
+names(sdr$sd)
+(sdr$sd)
+rtmb_df <- tibble(
+  name = names(sdr$value),
+  sd   = sdr$sd
+)
+rtmb_df |> filter(sd==0) |> print(n=Inf)
+rtmb_df |> filter(name=="sel_slp_bts_dev")
+rtmb_df |> filter(name=="sel_a50_bts_dev")
+
+admb_df  <- read_table(here::here("runs/rtmb", "pm.std"))[1:1209, ] |> transmute(name,sd=std.dev)
+dim(admb_df)
+dim(rtmb_df)
+tail(rtmb_df[1:1109,],20)
+# join by name
+comp <- merge(rtmb_df, admb_df, by = "name", suffixes = c(".rtmb", ".admb"))
+comp <- left_join(rtmb_df, admb_df, by = "name") #, suffixes = c(".rtmb", ".admb"))
+
+# compute absolute and relative differences
+comp$abs_diff <- abs(comp$sd.rtmb - comp$sd.admb)
+comp$rel_diff <- comp$abs_diff / comp$sd.admb
+
+# sort by largest difference
+comp_sorted <- comp[order(-comp$abs_diff), ]
+
+# top differences
+head(comp_sorted, 20)
+tail(comp_sorted, 200)
+#######################################
+# Plot the parameter estimates with error bars
+p_grouped <- df %>%
+  group_by(name) %>%
+  mutate(param_id = paste0(name, "_", row_number())) %>%
+  ggplot(aes(x = reorder(param_id, index), y = value)) +
+  geom_point(size = 3, color = "blue") +
+  geom_errorbar(aes(ymin = value - 2*std.dev, ymax = value + 2*std.dev), 
+                width = 0.2, color = "red") +
+  labs(title = "Parameter Estimates with Error Bars (±2 SD)",
+       x = "Parameter",
+       y = "Value") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+        plot.title = element_text(hjust = 0.5))
+
+# Display the grouped version
+print(p_grouped)
+
+df <- read_table(here::here("runs/rtmb","pm.std"))[1:1209, ] 
+#--Compare all parameter values---------------
+p <- ggplot(df, aes(x = factor(index), y = value)) +
+  geom_point(size = 3, color = "blue") +
+  geom_errorbar(aes(ymin = value - 2*std.dev, ymax = value + 2*std.dev), 
+                width = 0.2, color = "red") +
+  scale_x_discrete(labels = df$name) +
+  labs(title = "Parameter Estimates with Error Bars (±2 SD)",
+       x = "Parameter",
+       y = "Value") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+        plot.title = element_text(hjust = 0.5))
+
+# Display the plot
+print(p)
+
 rpm(parms)
-obj <- MakeADFun(rpm, parms, map = map_obj)
 obj$fn()
-df <- data.frame(par = names(obj$par), gr = as.numeric(obj$gr()))
+fit$par
+
+
+write_csv(df, here::here("Rtmb","gr.csv"))
 head(df)
 max(df$gr)
 #obj$gr() sum(obj$par ==0) max(abs(obj$gr()))
@@ -17,9 +279,10 @@ df3<- left_join(df, df2, by = "par", suffix = c(".old", ".new")) |>
   dplyr::select(par, gr.old, gr.new, gr_diff)
 
 head(df3)
-for (i in 1:10) fit<- nlminb(fit$par, obj$fn, obj$gr )
-cest <- check_estimability(obj)
-(cest$BadParams) |> filter(Param_check=="Bad")
+for (i in 1:3) fit<- nlminb(fit$par, obj$fn, obj$gr )
+cest <- (check_estimability(obj)) #|>  filter(Param_check=="Bad") 
+cest$BadParams[cest$BadParams$Param_check=="Bad",]
+names(cest$BadParams)
 max(obj$gr)
 obj$fn()
 obj$gr()
@@ -151,7 +414,6 @@ rowSums((eac_ats[,2:15]))
 rowSums((pm$phat_ats[,2:15]))
 matplot((eac_ats[,2:10]/pm$phat_ats[,2:10]),type='b')
 
-
 plot(pm$eb_ats)
 dim(pm$sel_ats)
 dim(log_sel_ats)
@@ -170,7 +432,6 @@ pm$ats_like
 rtmb$ats_like
 rtmb$bts_like
 names(pm)
-ATS_likelihood()
 matplot(rtmb$N/pm$N, type="b")
 matplot(rtmb$F/pm$F, type="b")
 matplot(rtmb$Z/pm$Z, type="b")
