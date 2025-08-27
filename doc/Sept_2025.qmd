@@ -1,0 +1,1668 @@
+---
+output: html
+title: "Research and developments on the eastern Bering Sea walleye pollock stock assessment"
+subtitle: "September 2025,  Plan Team Draft"
+author: "Jim Ianelli, Carey McGilliard, Sophia Wassermann"
+lightbox: true
+engine: knitr
+date: now
+date-format: "YYYY-MM-DD HH:mm"
+css: mystyle.css
+format:
+  html:
+    html-math-method:
+      method: mathjax
+      url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['\\(', '\\)'], ['$', '$']],
+            displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            processEscapes: true
+          }
+        };
+        </script>
+    theme:
+      light: [cosmo] 
+      dark: [darkly]
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    toc-title: 'Contents'
+    toc-location: left
+    fig-cap-location: margin
+    tbl-cap-location: margin
+    embed-resources: true
+    #numbering: false
+    #number-sections: false
+    code-summary: "Show the code"
+    code-fold: true
+  pdf:
+    documentclass: scrreprt
+    papersize: letter
+    #numbering: false
+    #number-sections: false
+    header-includes:
+      - \counterwithout{figure}{chapter}
+      - \usepackage{fancyhdr}
+      - \pagestyle{fancy}
+      - \fancyhf{}
+      - \lhead{May}
+      - \rhead{2025}
+      - \chead{--Draft--}
+      - \rfoot{\thepage}
+      - \lfoot{EBS pollock assessment discussion paper }
+      
+editor_options: 
+  chunk_output_type: console
+bibliography: references.bib
+editor: 
+  markdown: 
+    wrap: 90
+---
+
+```{r startup, echo=FALSE, warnings=FALSE, message=FALSE, eval=TRUE}
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+library(plotly)
+library(r4ss)
+library(ggridges)
+library(ebswp)
+library(tidyverse)
+library(patchwork)
+library(gganimate)
+library(ggridges)
+library(viridis)
+library(gt)
+# Set ggplot theme
+# devtools::install_github("seananderson/ggsidekick")
+thisyr=2024
+library(ggsidekick)
+theme_set(theme_sleek())
+.THEME <- theme_sleek()
+.OVERLAY <- TRUE
+options(warn = -1)
+do_sigmaR_profile <- 0
+do_edf <- 0
+do_ft <<- FALSE
+do_abc_sel <- 0
+do_yearloop <- 0
+do_srrlst <- 0
+do_selsens <- 0
+do_loo <- 0 #this also turns on/off making the mmat rds
+# F_t <- read_table(here::here("runs/lastyr/F40_t.rep"))
+# names(F_t)
+# F_t |> select(Year, F35, Fmsy) |> pivot_longer(  cols = c(F35, Fmsy), names_to = "Type", values_to = "F" ) |>
+# ggplot(aes(x=Year, y=F, color=Type )) + geom_point() + geom_line() + ggthemes::theme_few() + ylim(c(0,NA))
+
+Plot_Sel <- function(sel, fage = 1, lage = 13, nages = 15, styr = 1964, endyr = 2024) {
+  sdf <- pivot_longer(sel, names_to = "age", values_to = "sel", cols = 2:(nages + 1)) |>
+    filter(Year >= styr, Year <= endyr) |>
+    mutate(age = as.numeric(age))
+  p1 <- sdf |> ggplot(
+    aes(x = age, y = as.factor(Year), height = sel)
+  ) +
+    geom_density_ridges(
+      stat = "identity", scale = 2.8,
+      alpha = .3, fill = "goldenrod", color = "tan"
+    ) +
+    ggthemes::theme_few() +
+    ylab("Year") +
+    xlab("Age (years)") +
+    scale_x_continuous(limits = c(fage, lage), breaks = fage:lage) +
+    scale_y_discrete(limits = rev(levels(as.factor(sdf$Year)))) +
+    facet_grid(. ~ source)
+  return(p1)
+}
+
+loadup <- FALSE
+# loadup<-TRUE
+if (loadup) {
+  source(here::here("R", "GetResults.R"))
+  source(here::here("runs/spock", "FitSpock.R"))
+  # source(here::here("runs","spock", "FitSpock.R"))
+  spock <- spock_obj(src = "RTMB")
+  
+  #spock <- list(sel = sel, ts = ts, obj = m1)
+  # names(spock)
+  r1 <- SS_obj(SS_output(dir = here::here("runs", "ss", "base"), verbose = FALSE), src = "SS3 base")
+  r2 <- SS_obj(SS_output(dir = here::here("runs", "ss", "tight"), verbose = FALSE), src = "SS3 Constrained")
+  r3 <- SS_obj(SS_output(dir = here::here("runs", "ss", "flex"), verbose = FALSE), src = "SS3 Flexible")
+  c1 <- cea_obj(cea_run = pollock_base, src = "CEA, FE ")
+  #c2 <- cea_obj(cea_run = fm0_re1, src = "CEA, R_RE")
+  c2 <- cea_obj(cea_run = pollock_RE, src = "CEA, RE")
+  # gp_run<-gp_obj()
+  pm_run <- pm_obj()
+  # pm_run2<-pm_obj(pm2, src="Pollock_model VPA-like")
+  # load(here("SAM","poll23","run","model2.RData"))
+  sam_run <- SAM_obj()
+  # am_run<-AMAK_obj(run_dir=here("amak2","runs", "base"))
+  # am_run2<-AMAK_obj(run_dir=here("amak2","runs", "3par"),src="AMAK-3par-logistic")
+  # am_run3<-AMAK_obj(run_dir=here("amak2","runs", "cpue"),src="AMAK w CPUE", nind=6)
+  # all_sel <- rbind(sam_run$sel,pm_run$sel,am_run$sel,ss_run$sel,gp_run$sel)
+  # all_sel <- rbind(pm_run$sel,r1$sel,r2$sel,r3$sel)#,gp_run$sel)
+
+  # all_ts <- rbind( sam_run$ts,pm_run$ts,am_run$ts,ss_run$ts,gp_run$ts)
+  save.image(file = here::here("compares.Rdata"))
+} else {
+  load(here::here("compares.Rdata"))
+  spock$sel <- spock$sel %>%
+    rowwise() %>%
+    mutate(across(`1`:`15`, ~ . / max(c_across(`1`:`15`)))) %>%
+    ungroup()
+#  spock$sel 
+}
+# Plot_Sel() + ggthemes::theme_few(base_size = 9)
+```
+
+# Executive Summary
+
+The work presented below was based on the same data sets used in the 2024 assessment. The
+first task was to update the model runs to include the 2023 data. The model runs were
+updated and the results are presented below. The model runs were then used to compare the
+FT-NIR data with the traditional data sources (BTS and ATS). The results of these
+comparisons are presented below. The model fits to the data are presented in the tables at
+the end of the document. The first section steers towards the R library used for
+processing model results for EBS pollock. The second section presents the comparisons of
+the FT-NIR data with the traditional data sources. The third section compares results of
+different software platforms (e.g., SS3, CEA, and AMAK) for the assessment. The fourth
+section shows results comparing newer model-based estimates from survey data.
+
+
+#  Response to 2025 CIE Review of EBS Walleye Pollock Assessment
+
+This section outlines the response  to the findings and recommendations of 
+the 2025 Center for Independent Experts 
+(CIE) review of the Eastern Bering Sea (EBS) walleye pollock stock assessment.
+The final peer-reviewed reports from the three reviewers are provided at this link
+https://www.st.nmfs.noaa.gov/science-quality-assurance/cie-peer-reviews/cie-review-2025 . These documents summarize their findings and recommendations in detail.
+
+
+Since the review: 
+
+- ✅ The operational ADMB-based model has been fully ported to **RTMB**, with verification that outputs match the prior version. 
+
+- 🔄 Initial steps are underway to address **Russian catch** uncertainty through scenario modeling based on
+available data.
+
+
+
+
+------------------------------------------------------------------------
+
+## 1. Model Platform and Estimation Framework
+
+The full ADMB model has been implemented in RTMB, enabling: - Random walk selectivity and recruitment deviations - Improved error propagation via marginal likelihood - Mohn’s rho, retrospective peels, and full simulation integration
+
+🟢 **Status**: Complete\
+📝 See attached illustration chunk for output comparison (add figures/tables here).
+
+------------------------------------------------------------------------
+
+## 2. Russian Removals and Stock Exchange
+
+Russian catch has not historically been included in the assessment. All three reviewers noted this omission and recommended: - Conducting **sensitivity runs** - Quantifying the **scale and direction of transboundary movement** - Developing **collaborative or joint modeling strategies**
+
+🟡 **Status**: In progress\
+📌 Ongoing work involves sensitivity runs with assumed Russian removals of 20–45% of the EBS US catch, guided by UCSL (2024) and reviewer recommendations.
+
+------------------------------------------------------------------------
+
+## 3. Process Uncertainty, Selectivity, and Growth
+
+Key issues raised: - Random walk selectivity penalties are currently fixed. Reviewers suggested estimating process variances via marginal likelihood (Anders). - Weight-at-age models could be expanded to include cohort and temperature effects (Yan). - Estimation of time-varying natural mortality should be explored cautiously (Yan).
+
+⚪ **Status**: Partially addressed — EDF and penalty variance exploration will proceed after Russian catch integration.
+
+------------------------------------------------------------------------
+
+## 4. Data Weighting and Compositional Likelihoods
+
+Matt Cieri strongly recommended testing a **Dirichlet-multinomial (DM)** approach via Laplace approximation to better reflect age composition variance.
+
+⚪ **Status**: Under review — current bootstrap-based effective N retained; DM implementation deferred until after RTMB stabilization.
+
+------------------------------------------------------------------------
+
+## 5. Retrospective Performance
+
+Mohn’s rho was computed and incorporated into RTMB outputs. Diagnostic plots are available for: - Spawning biomass (SSB) - Recruitment (R) - Fishing mortality (F)
+
+✅ **Status**: Complete
+
+------------------------------------------------------------------------
+
+## 6. Summary of Reviewer Recommendations and Status
+
+```{r}
+#| label: tab-cie-final-responses
+#| tbl-cap: "CIE 2025 Recommendations and Response Summary"
+library(tibble)
+library(knitr)
+tribble(
+  ~Theme, ~`Lead Reviewer`, ~Recommendation, ~Status,
+  "RTMB transition", "All", "Port model from ADMB to RTMB", "✅ Completed",
+  "Russian catch", "All", "Incorporate or test Russian removals", "🟡 In progress",
+  "Selectivity complexity", "Nielsen", "Estimate process variances via marginal likelihood", "⚪ Planned",
+  "Natural mortality", "Jiao", "Explore M variation and CEATTLE integration", "⚪ Conceptual",
+  "Growth & WAA", "Jiao", "Model cohort and temperature effects on WAA", "⚪ Deferred",
+  "Data weighting", "Cieri", "Test Dirichlet-multinomial likelihoods", "⚪ Deferred",
+  "Retrospective diagnostics", "Nielsen", "Use Mohn's rho and integrate peels", "✅ Completed"
+) %>% 
+  gt::gt()
+```
+
+------------------------------------------------------------------------
+
+
+
+# ADMB → RTMB Code 
+
+subtitle: "Tracking translation details while bridging ADMB to RTMB"
+
+This standalone appendix tracks items to verify or refactor as the model is bridged from **ADMB** to **RTMB**. Each entry records the ADMB behavior, intended RTMB behavior, priority, and links/tests.
+
+## Model implementation
+
+The RTMB model code is implemented in the `R/` directory, with the main entry point 
+in `R/Rpm.R`. 
+
+
+## Comparison of ADMB and RTMB by components
+
+The initial steps to bridge ADMB to RTMB involve identifying key components and their behaviors. The following table summarizes the components, their ADMB behavior, intended RTMB behavior, and current status (@tbl-comparison).
+
+```{r}
+#| label: tbl-comparison
+#| tbl-cap: "Comparison of the rtmb code (`RPM`) and the ADMB code results."
+#| echo: false
+#| results: asis
+#| message: false
+#| warning: false
+#| error: false
+source(here::here("R/config.R"))
+data$return_nll_only <- FALSE ; 
+gt_compare_table2(rpm(parms), pm, tolerance = 1e-5, sort_by_diff=FALSE) 
+data$return_nll_only <- TRUE
+```
+
+After some initial testing we were able to take the parameter estimates from the ADMB model and
+show that the gradients were very close to zero and the negative log-likelihood values matched.
+
+```{r}
+#| results: asis
+data.frame(par = names(obj$par), gr = abs(as.numeric(obj$gr())), gr_orig = as.numeric(obj$gr())) |> 
+   arrange(desc(gr))  |> select(Parameter=par,gradient=gr_orig) |> head(10)
+```
+
+
+## Tuning
+
+
+The following code chunk generates a plot comparing the log values of two series (`r1` and `r2`) from the `df` data frame. The data is reshaped to a long format for easier plotting with `ggplot2`.
+So in config.R file I can turn off parameter sets and tell which ones are poorly estimated or ones that should be turned off completely. I may want to turn off creating the map from zero value parameters and I still need to work on getting the deviation parameters to work correctly with the right penalty.
+
+### Reparameterizing dev-vectors
+
+The ADMB code has lots of cases where say $y_i$ is a function of a parameter $\theta$ and a deviation $\epsilon_i$ such that 
+$y_i = \theta + \epsilon_i$. In ADMB, the deviations are estimated as a vector of parameters
+with a constraint to have mean zero., 
+In RTMB, it seems best to reparameterize them as a simple vector of parameters (say as $\theta_i$) 
+and then do the likelihood parts as deviations from the mean. 
+
+So far we've done this for the following parameters:
+
+  * `log_avgrec` (average recruitment)
+  * `log_avg_F` (average fishing mortality)
+  * `log_slp_bts` (slope of the selectivity for the bottom trawl)
+  * `log_a50_bts` (age-50% selected for the bottom trawl)
+ 
+The results from feeding the MLE parameter estimates from ADMB
+into the RTMB code gave exactly the same estimates of spawning stock biomass (SSB) and
+age 1 recruits (@fig-SSB_recruits; @fig-diffs).
+  
+```{r}
+#| fig-cap: "SSB and age-1 recruits from RTMB and ADMB, dashed lines are standard deviations (x10). Both ADMB and RTMB results are overlain."
+#| echo: false
+#| label: fig-SSB_recruits
+#| message: false
+#| results: hide
+#| warning: false
+#| fig-width: 6
+#| fig-height: 8
+
+
+#Top######################################
+source(here::here("R/config.R"))
+df_grad <- data.frame(par = names(obj$par), gr = abs(as.numeric(obj$gr())), gr_orig = as.numeric(obj$gr())) |> 
+arrange(desc(gr))  |> select(Parameter=par,gradient=gr_orig) |> head(10)
+
+fit <- nlminb(obj$par, obj$fn, obj$gr); 
+# cest <- check_estimability(obj);cest$BadParams[cest$BadParams$Param_check=="Bad",]
+sdr <- sdreport(obj)
+rtmb_df <- tibble( name = names(sdr$value), sd   = sdr$sd )
+rtmb_df |> filter(sd==0) |> print(n=Inf)
+vals <- sdr$value
+sds  <- sdr$sd
+
+df <- rbind(data.frame(
+  name  = names(vals),
+  value = as.numeric(vals),
+  std.dev = as.numeric(sds),
+  model = "RTMB"
+) , #|> filter(name=="SSB"), 
+data.frame(
+  read_table(here::here("runs/rtmb", "pm.std")) |> 
+    filter(name == "SSB" | name == "pred_rec") |>  
+    transmute( name = ifelse(name == "SSB", "SSB", "Recruits"), 
+      value,  std.dev,  model = "ADMB" )
+)) |> 
+  mutate( name = ifelse(name == "recruitment", "Recruits", name) )
+df1 <- df |> filter(name %in% c("SSB", "Recruits"))
+df1$year <- rep(1964:2024,4) 
+p1<- df1 |> filter(name=="SSB") |>   ggplot(aes(x=year,y=value,color=model)) +
+  geom_line(linetype=2) +
+  geom_line(aes(x=year,y=std.dev*10)) +
+  labs(title = "RTMB vs ADMB SSB Standard Deviations", x = "Year ", y = "SSB, Standard Deviation x 10") +
+theme_minimal() 
+p2<- df1 |> filter(name!="SSB") |>   ggplot(aes(x=year,y=value,color=model)) +
+  geom_line(linetype=2) +
+  geom_line(aes(x=year,y=std.dev*10)) +
+  labs(title = "RTMB vs ADMB recruitment Standard Deviations", x = "Year ", y = "recruits, Standard Deviation x 10") +
+  theme_minimal()
+p1/p2
+
+```
+
+```{r}
+#| fig-cap: "Relative differences between ADMB and RTMB estimates of SSB and age-1 recruits and asymptotic standard deviation approximations." 
+#| echo: false
+#| label: fig-diffs
+#| message: false
+#| warning: false
+#| fig-width: 6
+#| fig-height: 9
+plot_ssb_value_ratio <- create_value_ratio_plot(df1, variable_name = "SSB", 
+                                                numerator_model = "RTMB", 
+                                                denominator_model = "ADMB")
+plot_ssb_stddev_ratio <- create_stddev_ratio_plot(df1, variable_name = "SSB", 
+                                                  numerator_model = "RTMB", 
+                                                  denominator_model = "ADMB")
+rec_ratio <- create_value_ratio_plot(df1, variable_name = "Recruits", 
+                                                numerator_model = "RTMB", 
+                                                denominator_model = "ADMB")
+rec_sd_ratio <- create_stddev_ratio_plot(df1, variable_name = "Recruits", 
+                                                  numerator_model = "RTMB", 
+                                                  denominator_model = "ADMB")
+(plot_ssb_value_ratio)/ (plot_ssb_stddev_ratio)/
+(rec_ratio)/ (rec_sd_ratio)
+```
+
+
+
+
+```{r}
+#| label: tuning
+#| echo: false
+#| eval: false
+#| results: asis
+#| message: false
+#| warning: false
+#| error: false
+
+# names(parms)
+source(here::here("R/config.R"))
+obj$fn()
+r1 <- obj$report()
+parms$log_avgrec<-parms$log_avgrec*.96
+parms$log_rec_devs<-parms$log_rec_devs*.6
+parms$log_avg_F<-parms$log_avg_F*1.26
+parms$sel_devs_fsh<-parms$sel_devs_fsh*0.6
+obj <- MakeADFun(rpm, parms, map = map_obj)
+rpm(parms)
+fit1 <- nlminb(obj$par, obj$fn, obj$gr )
+obj$fn()
+for (i in 1:4) fit1<- nlminb(fit1$par, obj$fn, obj$gr )
+  fit1<- nlminb(fit1$par, obj$fn, obj$gr )
+r2 <- obj$report()
+ for (i in 1:5) 
+  fit1<- nlminb(fit1$par, obj$fn, obj$gr )
+r3 <- obj$report()
+
+for (i in 1:5) fit1<- nlminb(fit1$par, obj$fn, obj$gr)
+  fit1<- nlminb(fit1$par, obj$fn, obj$gr )
+r4 <- obj$report()
+for (i in 1:5) fit1<- nlminb(fit1$par, obj$fn, obj$gr )
+r5 <- obj$report()
+df <- (data.frame(
+  `from ADMB`=(unlist(r1)), 
+  run_5x=(unlist(r2)),
+  run10x=(unlist(r3)),
+  run15x=(unlist(r4)),
+   run20x=(unlist(r5))
+  ))
+df_long <- df %>%
+  tibble::rownames_to_column("name") %>%
+  mutate(across(-c(name, from.ADMB), ~ .x - from.ADMB)) %>%  # Subtract first column from others
+  select(-from.ADMB) %>%  # Remove the reference column
+  pivot_longer(cols = -name, names_to = "series", values_to = "difference") %>%
+  filter(abs(difference) >0, name != "wt_like", name != "SSB", !grepl("SSB", name))  # Filter if needed
+# ?pivot_longer
+
+# df_long <- df |> 
+#   pivot_longer(cols = 2:ncol(df), names_to = "series", values_to = "value") |> 
+#   filter(value > 0, name != "wt_like")
+# Plot
+# plotly::ggplotly
+(ggplot(df_long, aes(x = name, y = (difference), fill = series)) +
+  geom_col(position = "dodge") +
+  coord_flip() +  # Optional, if you want horizontal labels
+  # scale_y_continuous(limits = c(-9.5, 9.5)) +
+  scale_fill_viridis_d() +  # Viridis discrete colors
+  theme_minimal() +
+  labs(x = "NLL Term", y = "difference from ADMB (absolute neg. log-likelihood units)", fill = "Series"))
+sdrep <- sdreport(obj)
+summary(sdrep)
+# obj$report()
+# : Function to call derived quantities defined with REPORT() in the model. Note the default is obj$report(last.par), depending on the scenario, the user may need to explicitly call 
+names(obj$env$parList())
+names(obj$env$last.par.best)
+class(obj$env)
+ 
+# : Parameter estimates (includes fixed and random effects). Note the default is 
+# , depending on the scenario, the user may need to explicitly call 
+obj$env$parList(last.par)
+obj$env$parList(last.par)
+obj$env$parList(last.par.best) 
+
+obj$report(last.par.best)
+
+obj$report(obj$env$last.par.best)
+```
+
+# Considerations for future assessments regarding neighboring Russian federation fisheries
+
+As this year’s assessment moves forward, particular attention is warranted on how Russian
+fisheries and assessments are considered alongside our own results. Pollock in the eastern and
+western Bering Sea are generally recognized as a single biological stock, with seasonal exchange
+across the U.S.–Russia boundary documented by acoustic studies. As noted in the CIE reviews, 
+Russian removals are substantial with recent estimates representing on the order of 20–45% of the U.S. catch in
+some years.  
+<!-- [oai_citation:0‡2025_08 Cieri EBS pollock assessment review report.pdf](file-service://file-DtNxGFHwQffPxqjpkEBdub) -->
+While examined in past assessments, the Russian catch magnitude should be re-evaluated
+to examine how they might alter management advice. 
+<!-- [oai_citation:1‡2025_08 Cieri EBS pollock assessment review report.pdf](file-service://file-DtNxGFHwQffPxqjpkEBdub) [oai_citation:2‡2025_08 Nielsen EBS pollock assessment review report.pdf](file-service://file-9nnvtLxwuaXaY5D5r5qhm4).  -->
+As a step in beginning to make a more detailed evaluation, we compared the Russian stock assessment
+results presented as part of their 
+Marine Stewardship Council (MSC) review panel with our model results (through 2024).
+The following sections compare outcomes from the assessments presented to 
+
+
+## Comparison of Russian and USA age‑structured assessment results 
+Pollock ≈99% of catch; seabird & marine mammal mortality very low [@Artyukhin2023; @Burdin2021].
+
+[@SharovJapp2023; @SharovJapp2024; @BulatovVasilev2023].
+
+```{r}
+#| eval: false
+library(tidyverse)
+library(patchwork)
+library(scales)
+library(corrplot)
+df <- read_csv(here::here("doc","data","nage.csv"))
+russian_data <- df %>% filter(Source == "WBS") %>% select(Year, starts_with("Age"))
+usa_data <- df %>% filter(Source == "EBS") %>% select(Year, starts_with("Age"))
+# dim(usa_data);dim(russian_data)
+# Create tidy data format
+russian_long <- df |> filter(Source=="WBS") |> 
+  pivot_longer(cols = starts_with("Age"), names_to = "Age", values_to = "Numbers") %>%
+  mutate(Country = "Russia",
+         Age = str_extract(Age, "\\d+") %>% as.numeric())
+
+usa_long <- df |> filter(Source=="EBS") |> 
+  pivot_longer(cols = starts_with("Age"), names_to = "Age", values_to = "Numbers") %>%
+  mutate(Country = "USA",
+         Age = str_extract(Age, "\\d+") %>% as.numeric())
+
+# Combine datasets
+combined_data <- bind_rows(russian_long, usa_long)
+
+# 1. CORRELATION ANALYSIS
+cat("=== CORRELATION ANALYSIS ===\n")
+
+# Calculate correlations using wide format for easier computation
+russian_wide <- combined_data %>% 
+  filter(Country == "Russia") %>% 
+  select(-Country) %>% 
+  pivot_wider(names_from = Age, values_from = Numbers, names_prefix = "Age")
+
+usa_wide <- combined_data %>% 
+  filter(Country == "USA") %>% 
+  select(-Country) %>% 
+  pivot_wider(names_from = Age, values_from = Numbers, names_prefix = "Age")
+
+# Age-specific correlations
+age_correlations <- map_dbl(3:12, ~cor(russian_wide[[.x]], usa_wide[[.x]]))
+names(age_correlations) <- paste0("Age", 1:10)
+
+cat("Correlations by Age Class:\n")
+print(round(age_correlations, 3))
+
+# Overall correlation
+all_russian <- russian_wide %>% select(-Year) %>% as.matrix() %>% as.vector() |> as.numeric()
+all_usa <- usa_wide %>% select(-Year) %>% as.matrix() %>% as.vector() |> as.numeric()
+overall_correlation <- cor(all_russian, all_usa, use = "complete.obs")
+cat("\nOverall correlation across all ages:", round(overall_correlation, 3), "\n")
+
+# Create correlation dataframe for plotting
+correlation_df <- tibble(
+  Age = 1:10,
+  Correlation = age_correlations
+)
+
+# 2. MAGNITUDE COMPARISON
+print("\n=== MAGNITUDE COMPARISON ===")
+
+# Total numbers by country and year
+russian_totals <- rowSums(russian_data[,-1])
+usa_totals <- rowSums(usa_data[,-1])
+
+magnitude_comparison <- data.frame(
+  Year = russian_data$Year,
+  Russian_Total = russian_totals,
+  USA_Total = usa_totals,
+  Ratio_USA_to_Russian = usa_totals / russian_totals
+)
+
+print("Summary of magnitude differences:")
+print(paste("Mean Russian total:", round(mean(russian_totals), 0)))
+print(paste("Mean USA total:", round(mean(usa_totals), 0)))
+print(paste("Mean ratio (USA/Russian):", round(mean(magnitude_comparison$Ratio_USA_to_Russian), 2)))
+print(paste("Median ratio (USA/Russian):", round(median(magnitude_comparison$Ratio_USA_to_Russian), 2)))
+
+# Age-specific magnitude ratios
+age_ratios <- sapply(2:11, function(i) {
+  mean(usa_data[,i] / russian_data[,i], na.rm = TRUE)
+})
+names(age_ratios) <- paste0("Age", 1:10)
+# 3. GGPLOT VISUALIZATIONS
+totals_data <- combined_data %>%
+  group_by(Year, Country) %>%
+  summarise(Total = sum(Numbers, na.rm = TRUE), .groups = "drop") %>%
+  pivot_wider(names_from = Country, values_from = Total) %>%
+  mutate(Ratio_USA_to_Russian = USA / Russia)
+# Plot 1: Total numbers over time
+p1 <- totals_data %>%
+  select(Year, Russia, USA) %>%
+  pivot_longer(cols = c(Russia, USA), names_to = "Country", values_to = "Total") %>%
+  ggplot(aes(x = Year, y = Total, color = Country)) +
+  geom_line(size = 1.2) +
+  geom_point(alpha = 0.7) +
+  scale_y_continuous(labels = comma_format(), limits = c(0,NA)) +
+  scale_color_manual(values = c("Russia" = "#E31A1C", "USA" = "#1F78B4")) +
+  labs(title = "Total Numbers at Age Over Time",
+       subtitle = "Comparison between Russian and USA surveys",
+       x = "Year", y = "Total Numbers (thousands)",
+       color = "Country") +
+  theme_minimal() + ylim(c(0,NA)) +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        legend.position = "top")
+
+# Plot 2: Age 1 comparison over time
+p2 <- combined_data %>%
+  filter(Age == 1) %>%
+  ggplot(aes(x = Year, y = Numbers, color = Country)) +
+  geom_line(size = 1.2) +
+  geom_point(alpha = 0.7) +
+  scale_y_continuous(labels = comma_format(), limits=c(0,NA)) +
+  scale_color_manual(values = c("Russia" = "#E31A1C", "USA" = "#1F78B4")) +
+  labs(title = "Age 1 Numbers Over Time",
+       x = "Year", y = "Numbers (thousands)",
+       color = "Country") +
+  theme_minimal() +
+  theme(legend.position = "top")
+
+# Plot 3: USA/Russian ratio over time
+p3 <- totals_data %>%
+  ggplot(aes(x = Year, y = Ratio_USA_to_Russian)) +
+  geom_line(size = 1.2, color = "#FF7F00") +
+  geom_point(alpha = 0.7, color = "#FF7F00") +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50", alpha = 0.7) +
+  labs(title = "USA/Russian Total Ratio Over Time",
+       x = "Year", y = "Ratio (USA/Russian)") +ylim(c(0,NA)) +
+  theme_minimal()
+
+# Plot 4: Correlations by age class
+p4 <- correlation_df %>%
+  ggplot(aes(x = factor(Age), y = Correlation)) +
+  geom_col(fill = "#33A02C", alpha = 0.8, width = 0.7) +
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
+  geom_hline(yintercept = c(0.5, -0.5), linetype = "dotted", alpha = 0.5, color = "red") +
+  labs(title = "Correlations by Age Class",
+       x = "Age Class", y = "Correlation Coefficient") +
+  ylim(-1, 1) +
+  theme_minimal()
+
+# Plot 5: Age composition comparison (heatmap style)
+p5 <- combined_data %>%
+  group_by(Country, Age) %>%
+  summarise(Mean_Numbers = mean(Numbers), .groups = "drop") %>%
+  ggplot(aes(x = factor(Age), y = Country, fill = Mean_Numbers)) +
+  geom_tile() +
+  scale_fill_gradient2(low = "white", high = "#2166AC", 
+                      trans = "log10", labels = comma_format()) +
+  labs(title = "Mean Numbers by Age Class",
+       subtitle = "Log-scale heatmap of average numbers across all years",
+       x = "Age Class", y = "Country", fill = "Mean\nNumbers") +
+  theme_minimal()
+
+# Plot 6: Time series by age class (faceted)
+p6 <- combined_data %>%
+  filter(Age <= 6) %>%  # Focus on younger ages for clarity
+  ggplot(aes(x = Year, y = Numbers, color = Country)) +
+  geom_line(size = 1) +
+  facet_wrap(~paste("Age", Age), scales = "free_y") +
+  scale_y_continuous(labels = comma_format()) +
+  scale_color_manual(values = c("Russia" = "#E31A1C", "USA" = "#1F78B4")) +
+  labs(title = "Numbers at Age Over Time (Ages 1-6)",
+       x = "Year", y = "Numbers (thousands)",
+       color = "Country") +
+  theme_minimal() +
+  theme(legend.position = "top",
+        strip.text = element_text(size = 10, face = "bold"))
+
+# Combine plots using patchwork
+combined_plot1 <- (p1 | p2) / (p3 | p4)
+combined_plot2 <- p5 / p6
+# Display plots
+combined_plot1
+combined_plot2
+
+# 4. DETAILED STATISTICAL SUMMARY
+cat("\n=== DETAILED STATISTICS ===\n")
+
+# Summary statistics by country and age
+stats_summary <- combined_data %>%
+  group_by(Country, Age) %>%
+  summarise(
+    Mean = mean(Numbers),
+    Median = median(Numbers),
+    SD = sd(Numbers),
+    CV = sd(Numbers) / mean(Numbers),
+    Min = min(Numbers),
+    Max = max(Numbers),
+    .groups = "drop"
+  ) %>%
+  mutate(across(c(Mean, Median, SD, Min, Max), ~round(.x, 1)),
+         CV = round(CV, 3))
+
+cat("Summary statistics by country and age:\n")
+stats_summary %>%
+  arrange(Country, Age) %>%
+  print(n = 20)
+
+# Coefficient of variation comparison
+cv_comparison <- stats_summary %>%
+  select(Country, Age, CV) %>%
+  pivot_wider(
+    names_from = Country,
+    values_from = CV,
+    names_glue = "{Country}_CV"
+  ) %>% arrange(Age)
+
+cat("\nCoefficient of Variation by age:\n")
+print(cv_comparison)
+
+# Correlation analysis results
+high_corr_ages <- correlation_df %>% filter(Correlation > 0.5) %>% pull(Age)
+low_corr_ages <- correlation_df %>% filter(Correlation < 0.2) %>% pull(Age)
+
+cat("\nAge classes with correlation > 0.5:", paste(paste0("Age", high_corr_ages), collapse = ", "), "\n")
+cat("Age classes with correlation < 0.2:", paste(paste0("Age", low_corr_ages), collapse = ", "), "\n")
+
+combined_data <- bind_rows(russian_long, usa_long)
+
+# 1. CORRELATION ANALYSIS
+cat("=== CORRELATION ANALYSIS ===\n")
+
+# Calculate correlations using wide format for easier computation
+russian_wide <- combined_data %>% 
+  filter(Country == "Russia") %>% 
+  select(-Country) %>% 
+  pivot_wider(names_from = Age, values_from = Numbers, names_prefix = "Age")
+
+usa_wide <- combined_data %>% 
+  filter(Country == "USA") %>% 
+  select(-Country) %>% 
+  pivot_wider(names_from = Age, values_from = Numbers, names_prefix = "Age")
+
+# Age-specific correlations
+age_correlations <- map_dbl(2:11, ~cor(russian_wide[[.x]], usa_wide[[.x]]))
+names(age_correlations) <- paste0("Age", 1:10)
+
+cat("Correlations by Age Class:\n")
+print(round(age_correlations, 3))
+
+# Overall correlation
+all_russian <- russian_wide %>% select(-Year) %>% as.matrix() %>% as.vector() |> a
+all_usa <- usa_wide %>% select(-Year) %>% as.matrix() %>% as.vector()
+overall_correlation <- cor(all_russian, all_usa)
+cat("\nOverall correlation across all ages:", round(overall_correlation, 3), "\n")
+
+
+
+# Create correlation matrix for ggplot correlation plot
+correlation_matrix_data <- combined_data %>%
+  pivot_wider(names_from = Country, values_from = Numbers) %>%
+  select(-Year) %>%
+  group_by(Age) %>%
+  summarise(
+    Correlation = cor(Russia, USA, use = "complete.obs"),
+    .groups = "drop"
+  )
+
+
+```
+
+## Other items
+
+The CIE noted in particular that some documentation of aspects of the ADMB code 
+was incomplete. During the meetings, we began to more properly specify how the
+selectivity penalties were being calculated and implementated.
+
+
+### First‑difference selectivity penalty (temporal) {#test-fd-penalty-time}
+
+We need the penalty used in ADMB where the **first year is compared to zero** (not to a previous estimated year). For a matrix of log‑selectivities ($\log s_{y,a}$) (years$(y=1,\ldots,T)$, ages $(a=1,\ldots,A)$, the penalty is:
+
+$$
+\mathcal{P}_{\text{FD,time}} \,=\, w \sum_{a=1}^{A}
+\Big[
+\big(\log s_{1,a}-0\big)^2
++ \sum_{y=2}^{T}\big(\log s_{y,a}-\log s_{y-1,a}\big)^2
+\Big].
+$$
+
+#### RTMB/R implementation
+
+```{r}
+#| echo: true
+# log_sel: matrix [T x A] of log-selectivities (year rows, age cols)
+# w: scalar or length-A vector of weights
+fd_penalty_time <- function(log_sel, w = 1) {
+  stopifnot(is.matrix(log_sel))
+  T <- nrow(log_sel); A <- ncol(log_sel)
+  if (length(w) == 1) w <- rep(w, A)
+  stopifnot(length(w) == A)
+
+  diffs <- rbind(log_sel[1, , drop = FALSE] - 0,   # year 1 vs 0
+                 apply(log_sel, 2, diff))          # y>=2 diffs
+  sum(colSums((sqrt(w) * diffs)^2))
+}
+```
+
+### Sanity check
+
+```{r}
+#| echo: true
+set.seed(42)
+T <- 5; A <- 3
+L <- matrix(rnorm(T*A, sd=0.2), T, A); w <- c(1, 2, 0.5)
+
+fd_loop <- function(L, w){
+  acc <- 0
+  for (a in seq_len(ncol(L))) {
+    acc <- acc + w[a]*(L[1,a]-0)^2
+    for (y in 2:nrow(L)) acc <- acc + w[a]*(L[y,a]-L[y-1,a])^2
+  }
+  acc
+}
+
+all.equal(fd_penalty_time(L, w), fd_loop(L, w))
+```
+
+### First‑difference selectivity penalty (age) {#test-fd-penalty-age}
+
+For within-year smoothing over age with a **zero anchor at the minimum age**:
+
+$$
+\mathcal{P}_{\text{FD,age}} \,=\, w \sum_{y=1}^{T}
+\Big[
+\big(\log s_{y,a_{\min}}-0\big)^2
++ \sum_{a=a_{\min}+1}^{A}\big(\log s_{y,a}-\log s_{y,a-1}\big)^2
+\Big].
+$$
+
+#### RTMB/R implementation
+
+```{r}
+#| echo: true
+# log_sel: matrix [T x A] of log-selectivities (year rows, age cols)
+# a_min: column index of minimum age within 'log_sel' (default = 1)
+fd_penalty_age <- function(log_sel, w = 1, a_min = 1) {
+  stopifnot(is.matrix(log_sel))
+  T <- nrow(log_sel); A <- ncol(log_sel)
+  stopifnot(a_min >= 1, a_min <= A)
+  if (length(w) == 1) w <- rep(w, T)
+  stopifnot(length(w) == T)
+
+  # Build diffs across age with anchor at a_min (assumes a_min=1; if not, set zeros below a_min)
+  diffs <- matrix(0, nrow = T, ncol = A)
+  diffs[, a_min] <- log_sel[, a_min] - 0
+  if (a_min < A) {
+    for (a in (a_min+1):A) {
+      diffs[, a] <- log_sel[, a] - log_sel[, a-1]
+    }
+  }
+  sum(rowSums((sqrt(w) * diffs)^2))
+}
+```
+
+## Reference: survey lognormal scaling (consistency check) {#test-survey-lognorm}
+
+When porting lognormal survey likelihoods, confirm whether ADMB’s objective includes the normalizing constant and whether \(\sigma\) is on the **log** scale:
+
+$\ell(\sigma) = -\sum_i \frac{(\log O_i - \log E_i)^2}{2\sigma^2} \; -\; n\log\sigma \; -\; \frac{n}{2}\log(2\pi).$
+
+```{r}
+#| echo: true
+lognorm_nll <- function(obs, exp, sigma_log, include_const = TRUE) {
+  r <- log(pmax(obs, .Machine$double.eps)) - log(pmax(exp, .Machine$double.eps))
+  n <- length(r)
+  nll <- sum(r^2) / (2 * sigma_log^2)
+  if (include_const) nll <- nll + n*log(sigma_log) + n*0.5*log(2*pi)
+  nll
+}
+```
+
+
+
+# R Library for assessment compilations (ebswp)
+
+The `ebswp` library is a collection of functions for compiling and analyzing results from
+the stock assessment models for the eastern Bering Sea walleye pollock (@ianelli2025). The
+library is designed to work with the ADMB code and depends on a consistent format for the
+report files generated. The link in the reference provides access to some notes on
+applications as vignettes to the package (e.g., .
+[here](https://afsc-assessments.github.io/ebswp/index.html "EBSWP Library")).
+
+# Comparing FT-NIR compositions with traditional microscope age estimations
+
+The fish age and growth lab at the AFSC have endeavored to expand on new technologies
+(@helser2019).
+
+## FT-NIRS data consistency comparisons
+
+Examining the abundance-at-age (for design-based estimates of the bottom-trawl age
+compositions) we show that in general, the TMA estimates show a high level of consistency
+by cohort (@fig-consisTMA). For these same data, when applied to the FTNIRs age-estimation
+method, the consistency was lower (@fig-consisFTN). The extent that this is a concern is
+unknown.
+
+```{r consisTMA}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-consisTMA
+#| fig.cap: "Cohort consistency over different ages based on log-abundance from the bottom-trawl survey data for pollock in recent years for traditional microscope age estimates. The cohorts are shown in the labels."
+knitr::include_graphics("figs/consisTMA.png")
+```
+
+```{r consisFTN}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-consisFTN
+#| fig.cap: "Cohort consistency over different ages based on log-abundance from the bottom-trawl survey data for pollock in recent years for FTNIRs  age estimates. The cohorts are shown in the labels."
+knitr::include_graphics("figs/consisFTN.png")
+```
+
+When preparing the data for the assessment, we plotted out the proportions-at-age for the
+TMA data and noted the differences in the estimates using the FTNIRs age estimates
+(@fig-proportionsFSH, @fig-proportionsBTS, and @fig-proportionsATS). Other preparations
+involved estimating the age-determination errors for each method following that of
+@punt2008. For the FTNIRs data, we optionally estimated separate age-estimation error
+matrices by gear type. The appearance of the fleet-aggregated and fleet-specific input
+data files is shown in @fig-dataFile.
+
+```{r proportionsFSH}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-proportionsFSH
+#| fig.cap: "Proportions at age for recent years for the fishery data where the columns represent the traditional microscope age estimates (TMA)  compared to the FTNIRs   age estimates (lines for the red-outlined panels)."
+knitr::include_graphics("figs/proportionsFSH.png")
+```
+
+```{r proportionsBTS}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-proportionsBTS
+#| fig.cap: "Proportions at age for recent years for the bottom-trawl survey data where the columns represent the traditional microscope age estimates (TMA)  compared to the FTNIRs   age estimates (lines for the red-outlined panels)."
+knitr::include_graphics("figs/proportionsBTS.png")
+```
+
+```{r proportionsATS}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-proportionsATS
+#| fig.cap: "Proportions at age for recent years for the acoustic-trawl survey data where the columns represent the traditional microscope age estimates (TMA)  compared to the FTNIRs   age estimates (lines for the red-outlined panels)."
+knitr::include_graphics("figs/proportionsATS.png")
+```
+
+```{r dataFile}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-dataFile
+#| fig.cap: "Schematic of input datafile showing the breakout of the fleet-specific FTNIRs age-error matrices (right panel) compared to that where the global FTNIRs age-error matrices are used (left panel). "
+knitr::include_graphics("figs/dataFile.png")
+```
+
+For the assessment model, the alternatives are shown based on the coverage of data and
+availability among types of ageing is shown in @fig-dataExtent. These figures are intended
+to show what data are available for the model testing and the different ways of treating
+age determination error matrices.
+
+```{r data}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-dataExtent
+#| fig.cap: "Data extent by age composition for the models with FTNIRs age estimates. The data types are for the Fishery, bottom trawl survey (BTS), and acoustic trawl survey (ATS) and the years of coverage are shown in the x-axis."
+# Sample data
+do_ft<-FALSE
+if (do_ft) {
+  df <- data.frame(
+    type = factor(c("Fishery-TMA", "Fishery-FTN", "BTS-TMA", "BTS-FTN", "ATS-TMA", "ATS-FTN"),
+      levels = c("Fishery-TMA", "Fishery-FTN", "BTS-TMA", "BTS-FTN", "ATS-TMA", "ATS-FTN")
+    ),
+    start_year = c(1964, 2016, 1982, 2014, 1994, 2014),
+    end_year = c(2015, 2023, 2013, 2023, 2013, 2023)
+  )
+  # Plot
+  ggplot(df, aes(y = type, color = type)) +
+    geom_segment(aes(x = start_year, xend = end_year, y = type, yend = type),
+      linewidth = 5
+    ) +
+    scale_x_continuous(breaks = seq(1960, 2025, 5)) +
+    theme_minimal() +
+    theme(legend.position = "none") +
+    labs(title = "Coverage of years by type, EBS pollock", x = "Years", y = "Type")
+  thisyr <- 2024
+  nextyr <- thisyr + 1
+  dec_tab_ord <<- 1:8
+  mod_names <- c("2024 TMA", "Base", "FT-NIR fleets aggregated", "FT-NIR fleet-specific")
+  mod_dir <- c("lastyrdb", "lastyrdbae", "ftnir1", "ftnir2")
+  ftn_lst <- get_results(rundir = here::here("runs"))
+  # source(here::here("R","pm_CIE.R"))
+  saveRDS(ftn_lst, here::here("runs", "ftnir.rds"))
+} else {
+  ftn_lst <- readRDS(here::here("runs", "ftnir.rds"))
+  knitr::include_graphics("figs/DataExtent.png")
+}
+```
+
+## Comparisons of fit to FT-NIRS models
+
+The layout of model runs comparing the traditional microscope ages (TMA) with the FT-NIRS
+ages is shown in @tbl-ftn_runs. The models are run with the FT-NIRS data with different
+age-error matrix specficiations. The model fits to the data are shown in @tbl-modfits. The
+table shows the goodness-of-fit
+
+```{r ftn_runs}
+#| echo: false
+#| warnings: FALSE
+#| label: tbl-ftn_runs
+#| tbl-cap: "Configuration of different model options testing the impact of different treatment of the age composition data and ageing error."
+
+df <- read_csv(here::here("doc", "data", "ftn_runs.csv"))
+gt(df) %>%
+  # Replace NA values with blank
+  gt::fmt_missing(
+    columns = everything(),
+    missing_text = ""
+  ) %>%
+  # Center align all columns' content
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  tab_spanner(
+    label = "Model description",
+    columns = -1 # All columns except the first
+  ) %>%
+  # Optional: Add other styling as needed
+  tab_options(
+    table.font.size = px(12),
+    column_labels.font.weight = "bold"
+  )
+
+```
+
+```{r modfits}
+#| echo: false
+#| results: asis
+#| warnings: FALSE
+#| messages: FALSE
+#| label: tbl-modfits
+#| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
+
+gt_table <- gt::gt(tab_fit(ftn_lst[c(2:4)])) #|>
+numeric_cols <- 2:4 # Specify the numeric columns to format
+target_rows <- c(8:21)
+for (col in numeric_cols) {
+  gt_table <- gt_table %>%
+    fmt_number(
+      columns = col,
+      rows = target_rows,
+      decimals = 0,
+      use_seps = TRUE
+    )
+}
+gt_table %>%
+  tab_style(
+    style = cell_borders(sides = "top", weight = px(2), color = "black"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = cell_borders(sides = "bottom", weight = px(2), color = "black"),
+    locations = cells_body(rows = c(4, 7, 10, 18, 21))
+  )
+```
+
+```{r ftn_ref}
+#| results: asis
+#| output: asis
+#| echo: false
+#| messages: FALSE
+#| label: tbl-ftn_ref
+#| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
+library(xtable)
+thisyr<-2024
+nextyr<-2025
+# Mgt quants by final
+df <- NULL
+mod_scen <- c(2:4)
+for (ii in mod_scen) {
+  x <- ftn_lst[[ii]]
+  ssb <- x$nextyrssbs
+  names(ssb) <- paste0("${B}_{", nextyr, "}$")
+  ssbcv <- round(x$nextyrssb.cv, 2)
+  names(ssbcv) <- paste0("$CV_{B_{", nextyr, "}}$")
+  Bmsy <- x$bmsys
+  names(Bmsy) <- "$B_{MSY}$"
+  Bmsycv <- round(x$bmsy.cv, 2)
+  names(Bmsycv) <- "$CV_{B_{MSY}}$"
+  spr <- paste0(round(x$sprmsy * 100, 0), "\\%")
+  names(spr) <- "SPR rate at $F_{MSY}$"
+  b35 <- x$b35s
+  names(b35) <- paste0("$B_{35\\%}$")
+  pbmsy <- paste0(round(100 * x$ssb1 / x$bmsy, 0), "\\%")
+  names(pbmsy) <- paste0("${B}_{", nextyr, "}/B_{MSY}$")
+  bzero <- x$b0s
+  names(bzero) <- paste0("$B_0$")
+  dynb0 <- x$dynb0s
+  names(dynb0) <- paste0("Est. $B_{", thisyr, "} / B_{", thisyr, ",no fishing}$")
+  b_bmsy <- paste0(round(x$curssb / x$bmsy * 100, 0), "\\%")
+  names(b_bmsy) <- paste0("$B_{", thisyr, "} / B_{MSY}$")
+  steep <- round(x$steep, 2)
+  names(steep) <- "Steepness"
+  v <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero, b35, spr, steep, dynb0, b_bmsy)
+  df <- cbind(df, v)
+}
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Component", names(ftn_lst[mod_scen]))
+gt(df) |> fmt_markdown()
+
+#tab <- xtable(df, caption = "\\label{tbl:ressumm}Summary of model results and the stock condition for EBS pollock. Biomass units are thousands of t.", label = "tbl:ressumm", digits = 3, align = paste0("ll", strrep("r", length(mod_scen))))
+# tab <- xtable(df, caption = tabcap[28], digits = 3,align=paste0("ll",strrep("r",length(mod_scen))) )
+#print(tab, caption.placement = "top", include.rownames = FALSE, sanitize.text.function = function(x) { x }, comment = FALSE)
+
+```
+
+```{r mod_fit_agg_comp}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-mod_fit_agg_comp
+#| fig.cap: "One-step ahead residuals for different model specifications for the fishery composition data"
+# Set working directory & plot save directory
+knitr::include_graphics("figs/mod_fit_agg_comp.png")
+```
+
+```{r fish_osa}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-bts_fish
+#| fig.cap: "One-step ahead residuals for different model specifications for the fishery composition data"
+# Set working directory & plot save directory
+knitr::include_graphics("figs/fish_osa.png")
+```
+
+```{r bts_osa}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-bts_osa
+#| fig.cap: "One-step ahead residuals for different model specifications for the bottom-trawl survey composition data"
+# Read in proportions & shape for plotting
+knitr::include_graphics("figs/bts_osa.png")
+```
+
+```{r ats_osa}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-ats_osa
+#| fig.cap: "One-step ahead residuals for different model specifications for the acoustic-trawl survey composition data"
+# Set working directory & plot save directory
+knitr::include_graphics("figs/ats_osa.png")
+```
+
+```{r comp_bts}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-comp_bts
+#| fig.cap: "Model results comparing last year's selected model -2021)"
+# Set working directory & plot save directory
+```
+
+```{r comp_fsh}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-comp_fsh
+#| fig.cap: "Model results comparing last year's selected model -2021)"
+# Read in proportions & shape for plotting
+```
+
+```{r comp_ats}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-comp_ats
+#| fig.cap: "Model results comparing last year's selected model -2021)"
+# Set working directory & plot save directory
+```
+
+# Leave-one-out survey sensitivity analysis
+
+Here we present model runs that downweight one or more sources of survey data at a time.
+@tbl-loo_runs shows the combinations of data types included for this analysis, which
+includes six model runs: (1) downweight all Acoustic Trawl Survey (ATS) data (age 1 survey
+index, age 2+ survey biomass index, and age composition data), (2) downweight the ATS age
+composition data, (3) downweight the Acoustic Vessels of Opportunity (AVO) data (survey
+biomass index), (4) downweight all Eastern Bering Sea Trawl Survey (BTS) data (age 1+
+survey biomass index and age composition data), (5) downweight the BTS age composition
+data, and (6) downweight all survey biomass indices (BTS, ATS, and AVO survey biomass
+indices). The ATS age 1 data are included as a separate survey index in the assessment
+model, while BTS age 1 data are included with the age composition data in the multinomial
+objective function component.
+
+```{r}
+#| echo: false
+#| eval: false
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+# Create data frames for each index
+df_bts <- data.frame(year = M$yr_bts, value = M$ob_bts, index = "bts")
+df_ats <- data.frame(year = M$yr_ats, value = M$ob_ats, index = "ats")
+df_avo <- data.frame(year = M$yrs_avo, value = M$obs_avo, index = "avo")
+
+# Combine the data frames
+df_combined <- rbind(df_bts, df_ats, df_avo)
+
+# Standardize each index separately
+df_standardized <- df_combined %>%
+  group_by(index) %>%
+  mutate(standardized_value = (value - mean(value)) / sd(value)) %>%
+  ungroup()
+
+# Create the plot
+ggplot(df_standardized, aes(x = year, y = standardized_value, color = index)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2) +
+  scale_color_manual(values = c("bts" = "blue", "ats" = "red", "avo" = "green"),
+                     labels = c("Bottom Trawl Survey", "Acoustic Trawl Survey", "Acoustic Vessels of Oportunity")) +
+  labs(title = "Standardized Survey Indices",
+       x = "Year",
+       y = "Standardized Value",
+       color = "Index Type") +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    panel.grid.minor = element_blank(),
+    text = element_text(size = 12),
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  ) +
+  scale_x_continuous(breaks = seq(min(df_standardized$year), max(df_standardized$year), by = 2))
+
+
+
+```
+
+```{r loo_runs}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: tbl-loo_runs
+#| tbl-cap: "Configuration of different model options testing the impact of different data components"
+do_loo<-FALSE
+if (do_loo) {
+  thisyr <- 2024
+  nextyr <- thisyr + 1
+  dec_tab_ord <<- 1:8
+  mod_names <- c(
+    "2024 accepted",
+    "Drop BTS", 
+    "Drop ATS ", 
+    "Drop AVO ", 
+    "Drop indices",
+    "Drop BTS age ", 
+    "Drop ATS age " 
+  )
+  mod_dir <- c(
+    "lastyr",
+    "loo_bts_all",
+    "loo_ats_all",
+    "loo_avo",
+    "loo_srv_indices",
+    "loo_bts_comp",
+    "loo_ats_comp"
+  )
+  loo_lst <- get_results(rundir = here::here("runs"))
+  # source(here::here("R","pm_CIE.R"))
+  saveRDS(loo_lst, here::here("runs", "loo.rds"))
+
+} else {
+  loo_lst <- readRDS(here::here("runs", "loo.rds"))
+}
+
+  #do some plots
+  p1 <- plot_ssb(loo_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4))
+  ggsave(filename = here::here("doc", "figs", "loo_ssb.png"), plot = p1, width = 8, height = 4, units = "in", device = "png")
+  
+  p1b<-plot_ssb_rel(loo_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4))
+  ggsave(filename = here::here("doc", "figs", "loo_rel_ssb.png"), plot = p1b, width = 8, height = 4, units = "in", device = "png")
+  
+  #this one is pretty ugly:
+  p2<-plot_recruitment(loo_lst, xlim = c(1964, 2024))
+  ggsave(filename = here::here("doc", "figs", "loo_recruits.png"), plot = p2, width = 15, height = 5, units = "in", device = "png")
+
+#plot the indices:  
+  p3<-plot_bts(loo_lst,error_bars = FALSE)
+    ggsave(filename = here::here("doc", "figs", "loo_bts_index.png"), plot = p3, width = 8, height = 4, units = "in", device = "png")
+  
+  p4<-plot_ats(loo_lst,error_bars = FALSE)
+  ggsave(filename = here::here("doc", "figs", "loo_ats_index.png"), plot = p4, width = 8, height = 4, units = "in", device = "png")
+  
+  p5<-plot_avo(loo_lst,error_bars = FALSE)
+  ggsave(filename = here::here("doc", "figs", "loo_avo_index.png"), plot = p5, width = 8, height = 4, units = "in", device = "png")
+  
+#do some tables  
+df <- read_csv(here::here("doc", "data", "loo_runs.csv"))
+gt::gt(df) %>%
+  # Replace NA values with blank
+  fmt_missing(
+    columns = everything(),
+    missing_text = ""
+  ) %>%
+  # Center align all columns' content
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  tab_spanner(
+    label = "Model description",
+    columns = -1 # All columns except the first
+  ) %>%
+  # Optional: Add other styling as needed
+  tab_options(
+    table.font.size = px(12),
+    column_labels.font.weight = "bold"
+  )
+```
+
+Among these models, downweighting the BTS data (both solely downweighting the BTS age
+composition data and downweighting all BTS data) led to changes in trends over time in
+estimated spawning biomass @fig-loo-ssb . The model estimates of recruitment were variable
+across sensitivity runs, but estimates differed the most from the 2024 accepted model when
+all BTS data were downweighted @fig-loo-recruitment. Estimates of BTS survey biomass fit
+the BTS data very poorly in most years when the BTS data were downweighted
+(@fig-loo-bts-index). Additionally, the fits to the BTS survey biomass were affected by
+downweighting the BTS age composition data (without downweighting the BTS survey index).
+The model was relatively insensitive to other data being excluded, and fits to the ATS and
+AVO indices were relatively insensitive to downweighting the BTS data (see
+@fig-loo-bts-index, @fig-loo-ats-index, and @fig-loo-avo-index). The root mean square
+error (RMSE) in @tbl-loo_fits for the model run that downweighted all BTS data was large
+and the and effective sample size (Eff. N) was low as compared to the 2024 accepted model.
+Additionally, downweighting solely the BTS age composition data led to low effective
+sample size for the BTS.
+
+The importance of the survey data can be seen in some of the reference calculations where
+the uncertainty increases dramatically and the stock-status perception was quite different
+across sensitivity runs @tbl-loo_ref. Most dramatically, dropping all survey indices led
+to a CV in "$B_{MSY}$" estimates of 1.26 as compared to 0.13 in the 2024 accepted model.
+
+```{r loo relative ssb}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-ssb
+#| fig.cap: "Comparison of spawning biomass (SSB) relative to the 2024 accepted model for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_rel_ssb.png"))
+```
+
+```{r loo recruitment}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-recruitment
+#| fig.cap: "Comparison of recruitment estimates for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_recruits.png"))
+```
+
+```{r loo bts index}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-bts-index
+#| fig.cap: "Comparison of fits to the Eastern Bering Sea Bottom Trawl Survey (BTS) biomass index for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_bts_index.png"))
+```
+
+```{r loo ats index}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-ats-index
+#| fig.cap: "Comparison of fits to the Acoustic Trawl Survey (ATS) biomass index for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_ats_index.png"))
+```
+
+```{r loo avo index}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-loo-avo-index
+#| fig.cap: "Comparison of fits to the Acoustic Vessels of Opportunity (AVO) biomass index for models that downweight one data source at a time"
+knitr::include_graphics(here::here("doc", "figs", "loo_avo_index.png"))
+```
+
+```{r loo_fits}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: tbl-loo_fits
+#| tbl-cap: "Goodness-of-fit measures to primary data for leave-one-out model sensitivity runs. RMSE=root-mean square log errors, Eff. N=effective sample size for composition data)." 
+#(tab_fit(loo_lst[c(1:7)])) #|>
+gt_table <- gt::gt(tab_fit(loo_lst[c(1:7)])[c(1:4,8:10),]) #|>
+numeric_cols <- 2:8 # Specify the numeric columns to format
+target_rows <- c(5:7)
+for (col in numeric_cols) {
+  gt_table <- gt_table %>%
+    fmt_number(
+      columns = col,
+      rows = target_rows,
+      decimals = 0,
+      use_seps = TRUE
+    )
+}
+#names(gt_table)
+gt_table %>% 
+  tab_style(
+    style = cell_borders(sides = "top", weight = px(2), color = "black"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = cell_borders(sides = "bottom", weight = px(2), color = "black"),
+    locations = cells_body(rows = c(4, 7))
+    #locations = cells_body(rows = c(4, 7, 10, 18, 21))
+  )
+```
+
+```{R}
+#| echo: false
+#| results: asis
+#| output: asis
+#| messages: FALSE
+#| label: tbl-loo_ref
+#| tbl-cap: "Estimated derived quantities and selected corresponding CVs for leave-one-out sensitivity analysis runs. See text for incremental model descriptions."
+df <- NULL
+mod_scen <- c(1:7)
+for (ii in mod_scen) {
+  x <- loo_lst[[ii]]
+  ssb <- x$nextyrssbs
+  names(ssb) <- paste0("${B}_{", nextyr, "}$")
+  ssbcv <- round(x$nextyrssb.cv, 2)
+  names(ssbcv) <- paste0("$CV_{B_{", nextyr, "}}$")
+  Bmsy <- x$bmsys
+  names(Bmsy) <- "$B_{MSY}$"
+  Bmsycv <- round(x$bmsy.cv, 2)
+  names(Bmsycv) <- "$CV_{B_{MSY}}$"
+  spr <- paste0(round(x$sprmsy * 100, 0), "\\%")
+  names(spr) <- "SPR rate at $F_{MSY}$"
+  b35 <- x$b35s
+  names(b35) <- paste0("$B_{35\\%}$")
+  pbmsy <- paste0(round(100 * x$ssb1 / x$bmsy, 0), "\\%")
+  names(pbmsy) <- paste0("${B}_{", nextyr, "}/B_{MSY}$")
+  bzero <- x$b0s
+  names(bzero) <- paste0("$B_0$")
+  dynb0 <- x$dynb0s
+  names(dynb0) <- paste0("Est. $B_{", thisyr, "} / B_{", thisyr, ",no fishing}$")
+  b_bmsy <- paste0(round(x$curssb / x$bmsy * 100, 0), "\\%")
+  names(b_bmsy) <- paste0("$B_{", thisyr, "} / B_{MSY}$")
+  steep <- round(x$steep, 2)
+  names(steep) <- "Steepness"
+  v <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero, b35, spr, steep, dynb0, b_bmsy)
+  df <- cbind(df, v)
+}
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Estimated Quantity", names(loo_lst[mod_scen]))
+gt(df) |> fmt_markdown()
+```
+
+# Incorporating multi-species M-at-age and year estimates, also total uncertainty in acoustics...
+
+```{r Mmat_runs}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+if (do_loo) {
+  thisyr <- 2024
+  nextyr <- thisyr + 1
+  dec_tab_ord <<- 1:8
+  mod_names <- c(
+    "2024 accepted",
+    "Use CEATTLE M" ,
+    "Urmy est."
+  )
+  mod_dir <- c(
+    "lastyr",
+    "Mmatrix",
+    "Urmy"
+  )
+  Mmat_lst <- get_results(rundir = here::here("runs"))
+  # source(here::here("R","pm_CIE.R"))
+  saveRDS(Mmat_lst, here::here("runs", "Mmat.rds"))
+  
+} else {
+  Mmat_lst <- readRDS(here::here("runs", "Mmat.rds"))
+}
+  #do some plots
+```
+
+A commonly adopted approach is to use estimated natural mortality-at-age and year from
+multispecies trophic interaction models (e.g., @trijoulet2020). The current assessment has
+an option to include the 2024 CEATTLE estimates of natural mortality (@tbl-Mmatrix;
+@fig-Mmatrix_matrix). This resulted in slightly higher recruitment (@fig-Mmat-recruitment)
+lower spawning biomass in the near term (@fig-Mmat-ssb). This is due to the higher natural
+mortality for most ages and years compared to the base 2024 model.
+
+```{r Mmat_matrix}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-Mmatrix_matrix
+#| fig.cap: "Depiction of the natural mortality (variability from mean value at age)  as estimated from CEATTLE."
+m_matrix <- as.matrix(Mmat_lst[[2]]$M)
+#dim(m_matrix)
+#m_matrix <- scale(m_matrix, center = TRUE, scale = FALSE)
+column_means <- colMeans(m_matrix)
+m_matrix <- sweep(m_matrix, 2, column_means, "/")
+# Convert the matrix into a data frame for ggplot
+Mdf <- reshape2::melt(m_matrix) |> mutate(Var2 = as.numeric(Var2))
+names(Mdf) = c("Year","Age","M")
+# Plot the heatmap using ggplot
+p1<- ggplot(data = Mdf |> filter(Age>2) |> mutate(Year=Year+1963), aes(x = Age, y = Year, fill = M)) +
+  geom_tile() + scale_fill_gradient2(low = "steelblue", mid = "white", high = "coral", midpoint = 1) +
+  theme_minimal() +  labs(x = "Age", y = "Year", fill = "Value") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+p2<- ggplot(data = Mdf |> filter(Age<3) |> mutate(Year=Year+1963), aes(x = Age, y = Year, fill = M)) +
+  geom_tile() + scale_fill_gradient2(low = "blue", mid = "white", high = "red", midpoint = 1) +
+  theme_minimal() + labs(x = "Age", y = "Year", fill = "Value") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+p2+p1 + plot_layout(widths=c(2,12), guides='collect')
+
+```
+
+```{r Mmatrix_table}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: tbl-Mmatrix
+#| tbl-cap: "Natural mortality-at-age used over ages and time based on the CEATTLE 2024 model."
+m_matrix <- as_tibble(Mmat_lst[[2]]$M)[,1:10]
+#dim(m_matrix)
+names(m_matrix) <- 1:10
+rownames(m_matrix) <- 1964:2024
+gt::gt(m_matrix, rownames_to_stub = T) |> gt::fmt_number( columns = 1:10, decimals = 3)
+```
+
+```{r Mmat recruitment}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-Mmat-recruitment
+#| fig.cap: "Comparison of recruitment estimates comparing 2024 assessment results with one where M-at-age and year is specified from CEATTLE."
+  p2<-plot_recruitment(Mmat_lst, xlim = c(1990, 2024)); p2
+```
+
+```{r Mmat relative ssb}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-Mmat-ssb
+#| fig.cap: "Comparison of spawning biomass (SSB) and SSB relative to the 2024 accepted model for model that uses the M-at-age matrix from CEATTLE."
+  p1 <- plot_ssb(Mmat_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4))
+  #ggsave(filename = here::here("doc", "figs", "Mmat_ssb.png"), plot = p1, width = 8, height = 4, units = "in", device = "png")
+  
+  p1b<-plot_ssb_rel(Mmat_lst, xlim = c(1964, 2024), breaks = seq(1964, 2024, 4), ylim = c(.75, 1.25))
+  #ggsave(filename = here::here("doc", "figs", "Mmat_rel_ssb.png"), plot = p1b, width = 8, height = 4, units = "in", device = "png")
+  p1/p1b + plot_layout(guides='collect')
+#plot the indices:  
+```
+
+We also include a comparison of revised acoustic-trawl estimates (@urmy2025;
+@fig-urmy_ats). The natural mortaliity alternative run resulted in generally better fits
+to most data components whereas the "untuned" run with the @urmy2025 estimates were
+generally poorer (@tbl-Mmat_fits). Results from the @urmy2025 had minor impact on
+management-related quantities whereas those with the alternative natural mortality
+specification differed in a number of ways (@tbl-Mmat_ref). The most notable difference
+was the estimated $B_{MSY}$ and $B_{35\%}$ values.
+
+```{r urmy_ats}
+#| echo: false
+#| eval: TRUE
+#| warnings: FALSE
+#| messages: FALSE
+#| label: fig-urmy_ats
+#| fig.cap: "Comparison of fits to the Eastern Bering Sea acoustic-Trawl Survey (ATS) biomass index for the accepted 2024 model and one with revised estimates of index values and uncertainty from Urmy et al., (in prep). "
+plot_ats(Mmat_lst[c(1,3)], error_bars = TRUE)
+  #ggsave(filename = here::here("doc", "figs", "loo_ats_index.png"), plot = p4, width = 8, height = 4, units = "in", device = "png")
+```
+
+```{r Mmat_fits}
+#| echo: false
+#| warnings: FALSE
+#| messages: FALSE
+#| label: tbl-Mmat_fits
+#| tbl-cap: "Goodness-of-fit measures to primary data for model sensitivity to applying the matrix of M-at-age and year and acoustic uncertainty estimates. RMSE=root-mean square log errors, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data)." 
+#(tab_fit(loo_lst[c(1:7)])) #|>
+gt_table <- gt::gt(tab_fit(Mmat_lst[c(1:3)]))
+numeric_cols <- 2:4 # Specify the numeric columns to format
+target_rows <- c(8:22)
+for (col in numeric_cols) {
+  gt_table <- gt_table %>%
+    fmt_number(
+      columns = col,
+      rows = target_rows,
+      decimals = 0,
+      use_seps = TRUE
+    )
+}
+#names(gt_table)
+gt_table %>% 
+  tab_style(
+    style = cell_borders(sides = "top", weight = px(2), color = "black"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = cell_borders(sides = "bottom", weight = px(2), color = "black"),
+    locations = cells_body(rows = c(4, 7))
+    #locations = cells_body(rows = c(4, 7, 10, 18, 21))
+  )
+```
+
+```{R}
+#| echo: false
+#| results: asis
+#| output: asis
+#| messages: FALSE
+#| label: tbl-Mmat_ref
+#| tbl-cap: "Estimated derived quantities and selected corresponding CVs for  sensitivity to natural mortality specification and acoustic uncertainty estimates."
+df <- NULL
+mod_scen <- c(1:3)
+for (ii in mod_scen) {
+  x <- Mmat_lst[[ii]]
+  ssb <- x$nextyrssbs
+  names(ssb) <- paste0("${B}_{", nextyr, "}$")
+  ssbcv <- round(x$nextyrssb.cv, 2)
+  names(ssbcv) <- paste0("$CV_{B_{", nextyr, "}}$")
+  Bmsy <- x$bmsys
+  names(Bmsy) <- "$B_{MSY}$"
+  Bmsycv <- round(x$bmsy.cv, 2)
+  names(Bmsycv) <- "$CV_{B_{MSY}}$"
+  spr <- paste0(round(x$sprmsy * 100, 0), "\\%")
+  names(spr) <- "SPR rate at $F_{MSY}$"
+  b35 <- x$b35s
+  names(b35) <- paste0("$B_{35\\%}$")
+  pbmsy <- paste0(round(100 * x$ssb1 / x$bmsy, 0), "\\%")
+  names(pbmsy) <- paste0("${B}_{", nextyr, "}/B_{MSY}$")
+  bzero <- x$b0s
+  names(bzero) <- paste0("$B_0$")
+  dynb0 <- x$dynb0s
+  names(dynb0) <- paste0("Est. $B_{", thisyr, "} / B_{", thisyr, ",no fishing}$")
+  b_bmsy <- paste0(round(x$curssb / x$bmsy * 100, 0), "\\%")
+  names(b_bmsy) <- paste0("$B_{", thisyr, "} / B_{MSY}$")
+  steep <- round(x$steep, 2)
+  names(steep) <- "Steepness"
+  v <- c(ssb, ssbcv, Bmsy, Bmsycv, pbmsy, bzero, b35, spr, steep, dynb0, b_bmsy)
+  df <- cbind(df, v)
+}
+df <- data.frame(rownames(df), df, row.names = NULL)
+names(df) <- c("Estimated Quantity", names(Mmat_lst[mod_scen]))
+gt(df) |> fmt_markdown()
+```
+
+
+# References

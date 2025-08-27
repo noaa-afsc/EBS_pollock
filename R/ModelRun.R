@@ -1,18 +1,14 @@
 #Top######################################
 source(here::here("R/config.R"))
 data.frame(par = names(obj$par), gr = abs(as.numeric(obj$gr())), gr_orig = as.numeric(obj$gr())) |> 
-arrange(desc(gr))  |> head(10)
+arrange(desc(gr))  |> select(Parameter=par,gradient=gr_orig) |> head(10)
 
 fit <- nlminb(obj$par, obj$fn, obj$gr); 
 cest <- check_estimability(obj);cest$BadParams[cest$BadParams$Param_check=="Bad",]
 unique(names(parms))
-for (i in 1:2) fit<- nlminb(fit$par, obj$fn, obj$gr )
 sdr <- sdreport(obj)
 rtmb_df <- tibble( name = names(sdr$value), sd   = sdr$sd )
 rtmb_df |> filter(sd==0) |> print(n=Inf)
-
-names(sdr)
-str(sdr)
 vals <- sdr$value
 sds  <- sdr$sd
 
@@ -29,10 +25,6 @@ data.frame(
       value,  std.dev,  model = "ADMB" )
 )) |> 
   mutate( name = ifelse(name == "recruitment", "Recruits", name) )
-
-head(df)
-unique(df$name)
-str(df)
 df1 <- df |> filter(name %in% c("SSB", "Recruits"))
 df1$year <- rep(1964:2024,4) 
 p1<- df1 |> filter(name=="SSB") |>   ggplot(aes(x=year,y=value,color=model)) +
@@ -52,105 +44,7 @@ p1/ p2
 #obj<- readRDS("cea_obj.RDS")
 #Ratio plots######################################
 # Function to create ratio plot for values (with error bars)
-create_value_ratio_plot <- function(df, variable_name = "SSB", numerator_model = "RTMB", denominator_model = "ADMB") {
-  # Filter data for the specific variable
-  filtered_data <- df %>%
-    filter(name == variable_name)
-  
-  # Check if both models exist in the data
-  models_present <- unique(filtered_data$model)
-  if (!numerator_model %in% models_present) {
-    stop(paste("Model", numerator_model, "not found in the data"))
-  }
-  if (!denominator_model %in% models_present) {
-    stop(paste("Model", denominator_model, "not found in the data"))
-  }
-  
-  # Separate data by model
-  num_data <- filtered_data %>% filter(model == numerator_model)
-  den_data <- filtered_data %>% filter(model == denominator_model)
-  
-  # Merge data by year to calculate ratios
-  ratio_data <- merge(num_data, den_data, by = "year", suffixes = c("_num", "_den"))
-  
-  # Calculate ratio and propagated standard deviation
-  ratio_data <- ratio_data %>%
-    mutate(
-      value_ratio = value_num / value_den
-      # Error propagation for ratio: sqrt((sd_a/a)^2 + (sd_b/b)^2) * ratio
-      #value_ratio_std = sqrt((std.dev_num/value_num)^2 + (std.dev_den/value_den)^2) * value_ratio
-    )
-  
-  # Create the plot
-  p <- ggplot(ratio_data, aes(x = year, y = value_ratio)) +
-    geom_point(size = 2, color = "blue") +
-    # geom_errorbar(aes(ymin = value_ratio - 2*value_ratio_std, ymax = value_ratio + 2*value_ratio_std), 
-                  # width = 0.5, color = "red", alpha = 0.7) +
-    geom_hline(yintercept = 1, linetype = "dashed", color = "black", alpha = 0.5) +
-    labs(
-      title = paste0("Value Ratio: ", numerator_model, " / ", denominator_model, " for ", variable_name),
-      # subtitle = "Error bars show ±2 standard deviations",
-      x = "Year",
-      y = paste0("Value Ratio") ) +
-    theme_minimal() +
-    theme(
-      plot.title = element_text(hjust = 0.5, size = 14),
-      plot.subtitle = element_text(hjust = 0.5, size = 12, color = "gray50"),
-      axis.title = element_text(size = 12),
-      axis.text = element_text(size = 10)
-    )
-  return(p)
-}
 
-# Function to create ratio plot for standard deviations (no error bars needed)
-create_stddev_ratio_plot <- function(df, variable_name = "SSB", numerator_model = "RTMB", denominator_model = "ADMB") {
-  # Filter data for the specific variable
-  filtered_data <- df %>%
-    filter(name == variable_name)
-  
-  # Check if both models exist in the data
-  models_present <- unique(filtered_data$model)
-  if (!numerator_model %in% models_present) {
-    stop(paste("Model", numerator_model, "not found in the data"))
-  }
-  if (!denominator_model %in% models_present) {
-    stop(paste("Model", denominator_model, "not found in the data"))
-  }
-  
-  # Separate data by model
-  num_data <- filtered_data %>% filter(model == numerator_model)
-  den_data <- filtered_data %>% filter(model == denominator_model)
-  
-  # Merge data by year to calculate ratios
-  ratio_data <- merge(num_data, den_data, by = "year", suffixes = c("_num", "_den"))
-  
-  # Calculate standard deviation ratio
-  ratio_data <- ratio_data %>%
-    mutate(
-      stddev_ratio = std.dev_num / std.dev_den
-    )
-  
-  # Create the plot
-  p <- ggplot(ratio_data, aes(x = year, y = stddev_ratio)) +
-    geom_point(size = 2, color = "darkgreen") +
-    geom_line(color = "darkgreen", alpha = 0.6) +
-    geom_hline(yintercept = 1, linetype = "dashed", color = "black", alpha = 0.5) +
-    labs(
-      title = paste0("Standard Deviation Ratio: ", numerator_model, " / ", denominator_model, " for ", variable_name),
-      subtitle = "Ratio of standard deviations between models",
-      x = "Year",
-      y = paste0("Std.Dev Ratio"  )
-    ) +
-    theme_minimal() +
-    theme(
-      plot.title = element_text(hjust = 0.5, size = 14),
-      plot.subtitle = element_text(hjust = 0.5, size = 12, color = "gray50"),
-      axis.title = element_text(size = 12),
-      axis.text = element_text(size = 10)
-    )
-  
-  return(p)
-}
 
 # Example usage:
 # Create separate plots for values and standard deviations
@@ -178,7 +72,7 @@ library(adnuts)
 obj$env$data 
 names(obj$env$parList() )
 ?sample_snuts
-mcmc <- sample_snuts(obj, chains=1, cores=1, iter=2000, control = list(adapt_delta=.95))
+mcmc <- sample_snuts(obj, chains=1, cores=1, iter=5000, control = list(adapt_delta=.98))
 #mcmc <- adnuts::sample_sparse_tmb(obj,skip_optimization=TRUE,iter=3000, chains = 8)
 #mcpilot <- adnuts::sample_sparse_tmb(obj,skip_optimizatioon=TRUE,iter=2000, chains = 5)
 plot_uncertainties(mcmc)

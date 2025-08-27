@@ -1068,3 +1068,103 @@ assign_wtage_data <- function(wtage_data) {
    # Drop to scalar if length 1
    lapply(split_vals, function(x) if (length(x) == 1) as.numeric(x) else as.numeric(x))
  }
+ 
+ create_value_ratio_plot <- function(df, variable_name = "SSB", numerator_model = "RTMB", denominator_model = "ADMB") {
+   # Filter data for the specific variable
+   filtered_data <- df %>%
+     filter(name == variable_name)
+   
+   # Check if both models exist in the data
+   models_present <- unique(filtered_data$model)
+   if (!numerator_model %in% models_present) {
+     stop(paste("Model", numerator_model, "not found in the data"))
+   }
+   if (!denominator_model %in% models_present) {
+     stop(paste("Model", denominator_model, "not found in the data"))
+   }
+   
+   # Separate data by model
+   num_data <- filtered_data %>% filter(model == numerator_model)
+   den_data <- filtered_data %>% filter(model == denominator_model)
+   
+   # Merge data by year to calculate ratios
+   ratio_data <- merge(num_data, den_data, by = "year", suffixes = c("_num", "_den"))
+   
+   # Calculate ratio and propagated standard deviation
+   ratio_data <- ratio_data %>%
+     mutate(
+       value_ratio = value_num / value_den
+       # Error propagation for ratio: sqrt((sd_a/a)^2 + (sd_b/b)^2) * ratio
+       #value_ratio_std = sqrt((std.dev_num/value_num)^2 + (std.dev_den/value_den)^2) * value_ratio
+     )
+   
+   # Create the plot
+   p <- ggplot(ratio_data, aes(x = year, y = value_ratio)) +
+     geom_point(size = 2, color = "blue") +
+     # geom_errorbar(aes(ymin = value_ratio - 2*value_ratio_std, ymax = value_ratio + 2*value_ratio_std), 
+     # width = 0.5, color = "red", alpha = 0.7) +
+     geom_hline(yintercept = 1, linetype = "dashed", color = "black", alpha = 0.5) +
+     labs(
+       title = paste0("Value Ratio: ", numerator_model, " / ", denominator_model, " for ", variable_name),
+       # subtitle = "Error bars show ±2 standard deviations",
+       x = "Year",
+       y = paste0("Value Ratio") ) +
+     theme_minimal() +
+     theme(
+       plot.title = element_text(hjust = 0.5, size = 14),
+       plot.subtitle = element_text(hjust = 0.5, size = 12, color = "gray50"),
+       axis.title = element_text(size = 12),
+       axis.text = element_text(size = 10)
+     )
+   return(p)
+ }
+ 
+ # Function to create ratio plot for standard deviations (no error bars needed)
+ create_stddev_ratio_plot <- function(df, variable_name = "SSB", numerator_model = "RTMB", denominator_model = "ADMB") {
+   # Filter data for the specific variable
+   filtered_data <- df %>%
+     filter(name == variable_name)
+   
+   # Check if both models exist in the data
+   models_present <- unique(filtered_data$model)
+   if (!numerator_model %in% models_present) {
+     stop(paste("Model", numerator_model, "not found in the data"))
+   }
+   if (!denominator_model %in% models_present) {
+     stop(paste("Model", denominator_model, "not found in the data"))
+   }
+   
+   # Separate data by model
+   num_data <- filtered_data %>% filter(model == numerator_model)
+   den_data <- filtered_data %>% filter(model == denominator_model)
+   
+   # Merge data by year to calculate ratios
+   ratio_data <- merge(num_data, den_data, by = "year", suffixes = c("_num", "_den"))
+   
+   # Calculate standard deviation ratio
+   ratio_data <- ratio_data %>%
+     mutate(
+       stddev_ratio = std.dev_num / std.dev_den
+     )
+   
+   # Create the plot
+   p <- ggplot(ratio_data, aes(x = year, y = stddev_ratio)) +
+     geom_point(size = 2, color = "darkgreen") +
+     geom_line(color = "darkgreen", alpha = 0.6) +
+     geom_hline(yintercept = 1, linetype = "dashed", color = "black", alpha = 0.5) +
+     labs(
+       title = paste0("Standard Deviation Ratio: ", numerator_model, " / ", denominator_model, " for ", variable_name),
+       subtitle = "Ratio of standard deviations between models",
+       x = "Year",
+       y = paste0("Std.Dev Ratio"  )
+     ) +
+     theme_minimal() +
+     theme(
+       plot.title = element_text(hjust = 0.5, size = 14),
+       plot.subtitle = element_text(hjust = 0.5, size = 12, color = "gray50"),
+       axis.title = element_text(size = 12),
+       axis.text = element_text(size = 10)
+     )
+   
+   return(p)
+ }

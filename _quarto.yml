@@ -4,7 +4,8 @@ project:
   title: "Eastern Bering Sea walleye pollock stock assessment"
   
   render: 
-    - "doc/CIE.qmd"
+    # - "doc/CIE.qmd"
+    - "doc/Sept_2025.qmd"
 
 website: 
   page-navigation: true
@@ -38,6 +39,8 @@ website:
     contents:
       - href: doc/CIE.qmd
         text: Discussion-paper for CIE review
+      - href: doc/Sept_2025.qmd
+        text: Research on assessment for NPFMC Review
       #- href: doc/SSC_Minutes.qmd
         #text: SSC minutes
       #- href: ebswp.qmd

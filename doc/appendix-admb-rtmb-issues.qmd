@@ -51,8 +51,8 @@ The initial steps to bridge ADMB to RTMB involve identifying key components and 
 #unique(std$name)[1:26 ]
 source(here::here("R/config.R"))
 data$return_nll_only <- FALSE ; 
-rtmb_out <- rpm(parms)
 gt_compare_table2(rpm(parms), pm, tolerance = 1e-5, sort_by_diff=FALSE) # compare_outputs_max_pct(rtmb_out,pm) # compare_max_pct(rtmb_out,pm)
+gt_compare_table2
 #gt_compare_table(rpm(parms), pm, tolerance = 1e-5, sort_by_diff=FALSE)
 data$return_nll_only <- TRUE # Flag to only return nll
 obj <- MakeADFun(rpm, parms, map = map_obj)
@@ -143,9 +143,9 @@ sdrep <- sdreport(obj)
 summary(sdrep)
 # obj$report()
 # : Function to call derived quantities defined with REPORT() in the model. Note the default is obj$report(last.par), depending on the scenario, the user may need to explicitly call 
-names(obj$env$parList())
-names(obj$env$last.par.best)
-class(obj$env)
+# names(obj$env$parList())
+# names(obj$env$last.par.best)
+# class(obj$env)
  
 # : Parameter estimates (includes fixed and random effects). Note the default is 
 # , depending on the scenario, the user may need to explicitly call 
