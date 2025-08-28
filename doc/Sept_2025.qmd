@@ -67,6 +67,7 @@ editor:
 knitr::opts_chunk$set(message = FALSE)
 knitr::opts_chunk$set(warning = FALSE)
 library(plotly)
+library(corrplot)
 library(r4ss)
 library(ggridges)
 library(ebswp)
@@ -76,10 +77,12 @@ library(gganimate)
 library(ggridges)
 library(viridis)
 library(gt)
+library(knitr)
+library(ggsidekick)
+library(scales)
 # Set ggplot theme
 # devtools::install_github("seananderson/ggsidekick")
 thisyr=2024
-library(ggsidekick)
 theme_set(theme_sleek())
 .THEME <- theme_sleek()
 .OVERLAY <- TRUE
@@ -239,8 +242,6 @@ Mohn’s rho was computed and incorporated into RTMB outputs. Diagnostic plots a
 ```{r}
 #| label: tab-cie-final-responses
 #| tbl-cap: "CIE 2025 Recommendations and Response Summary"
-library(tibble)
-library(knitr)
 tribble(
   ~Theme, ~`Lead Reviewer`, ~Recommendation, ~Status,
   "RTMB transition", "All", "Port model from ADMB to RTMB", "✅ Completed",
@@ -293,16 +294,23 @@ show that the gradients were very close to zero and the negative log-likelihood 
 
 ```{r}
 #| results: asis
+#| message: false
+#| warning: false
+#| error: false
+#| label: tpl-gradient
+#| tbl-cap: "Top 20 parameters with largest gradients (absolute value) from RTMB using ADMB parameter estimates."
+#| echo: false
+#| 
 data.frame(par = names(obj$par), gr = abs(as.numeric(obj$gr())), gr_orig = as.numeric(obj$gr())) |> 
-   arrange(desc(gr))  |> select(Parameter=par,gradient=gr_orig) |> head(10)
+   arrange(desc(gr))  |> select(Parameter=par,gradient=gr_orig) |> head(20) |> gt::gt()
 ```
 
 
-## Tuning
+<!-- ## Tuning -->
 
 
-The following code chunk generates a plot comparing the log values of two series (`r1` and `r2`) from the `df` data frame. The data is reshaped to a long format for easier plotting with `ggplot2`.
-So in config.R file I can turn off parameter sets and tell which ones are poorly estimated or ones that should be turned off completely. I may want to turn off creating the map from zero value parameters and I still need to work on getting the deviation parameters to work correctly with the right penalty.
+<!-- The following code chunk generates a plot comparing the log values of two series (`r1` and `r2`) from the `df` data frame. The data is reshaped to a long format for easier plotting with `ggplot2`. -->
+<!-- So in config.R file I can turn off parameter sets and tell which ones are poorly estimated or ones that should be turned off completely. I may want to turn off creating the map from zero value parameters and I still need to work on getting the deviation parameters to work correctly with the right penalty. -->
 
 ### Reparameterizing dev-vectors
 
@@ -449,13 +457,6 @@ df_long <- df %>%
   select(-from.ADMB) %>%  # Remove the reference column
   pivot_longer(cols = -name, names_to = "series", values_to = "difference") %>%
   filter(abs(difference) >0, name != "wt_like", name != "SSB", !grepl("SSB", name))  # Filter if needed
-# ?pivot_longer
-
-# df_long <- df |> 
-#   pivot_longer(cols = 2:ncol(df), names_to = "series", values_to = "value") |> 
-#   filter(value > 0, name != "wt_like")
-# Plot
-# plotly::ggplotly
 (ggplot(df_long, aes(x = name, y = (difference), fill = series)) +
   geom_col(position = "dodge") +
   coord_flip() +  # Optional, if you want horizontal labels
@@ -463,23 +464,6 @@ df_long <- df %>%
   scale_fill_viridis_d() +  # Viridis discrete colors
   theme_minimal() +
   labs(x = "NLL Term", y = "difference from ADMB (absolute neg. log-likelihood units)", fill = "Series"))
-sdrep <- sdreport(obj)
-summary(sdrep)
-# obj$report()
-# : Function to call derived quantities defined with REPORT() in the model. Note the default is obj$report(last.par), depending on the scenario, the user may need to explicitly call 
-names(obj$env$parList())
-names(obj$env$last.par.best)
-class(obj$env)
- 
-# : Parameter estimates (includes fixed and random effects). Note the default is 
-# , depending on the scenario, the user may need to explicitly call 
-obj$env$parList(last.par)
-obj$env$parList(last.par)
-obj$env$parList(last.par.best) 
-
-obj$report(last.par.best)
-
-obj$report(obj$env$last.par.best)
 ```
 
 # Considerations for future assessments regarding neighboring Russian federation fisheries
@@ -501,16 +485,15 @@ The following sections compare outcomes from the assessments presented to
 
 
 ## Comparison of Russian and USA age‑structured assessment results 
-Pollock ≈99% of catch; seabird & marine mammal mortality very low [@Artyukhin2023; @Burdin2021].
-
-[@SharovJapp2023; @SharovJapp2024; @BulatovVasilev2023].
 
 ```{r}
-#| eval: false
-library(tidyverse)
-library(patchwork)
-library(scales)
-library(corrplot)
+#| label: tbl-age_corr
+#| tbl-cap: "Correlations between Russian and USA age classes, 1995-2024."
+#| echo: false
+#| message: false
+#| warning: false
+#| error: false 
+# Load data
 df <- read_csv(here::here("doc","data","nage.csv"))
 russian_data <- df %>% filter(Source == "WBS") %>% select(Year, starts_with("Age"))
 usa_data <- df %>% filter(Source == "EBS") %>% select(Year, starts_with("Age"))
@@ -547,23 +530,44 @@ usa_wide <- combined_data %>%
 age_correlations <- map_dbl(3:12, ~cor(russian_wide[[.x]], usa_wide[[.x]]))
 names(age_correlations) <- paste0("Age", 1:10)
 
-cat("Correlations by Age Class:\n")
-print(round(age_correlations, 3))
-
+#cat("Correlations by Age Class:\n")
+#print(round(age_correlations, 3)) 
 # Overall correlation
 all_russian <- russian_wide %>% select(-Year) %>% as.matrix() %>% as.vector() |> as.numeric()
 all_usa <- usa_wide %>% select(-Year) %>% as.matrix() %>% as.vector() |> as.numeric()
 overall_correlation <- cor(all_russian, all_usa, use = "complete.obs")
-cat("\nOverall correlation across all ages:", round(overall_correlation, 3), "\n")
+#cat("\nOverall correlation across all ages:", round(overall_correlation, 3), "\n")
 
 # Create correlation dataframe for plotting
 correlation_df <- tibble(
   Age = 1:10,
   Correlation = age_correlations
 )
+gt(correlation_df) %>%
+  tab_header(
+    title = "Correlations between Russian and USA Age Classes"
+  ) %>%
+  fmt_number(
+    columns = vars(Correlation),
+    decimals = 3
+  )
+```
 
+Pollock ≈99% of catch; seabird & marine mammal mortality very low [@Artyukhin2023; @Burdin2021].
+[@SharovJapp2023; @SharovJapp2024; @BulatovVasilev2023].
+
+```{r}
+#| eval: true
+#| label: magnitude_comparison
+#| tbl-cap: "Summary statistics of magnitude differences between Russian and USA age classes, 1995-2024."
+#| echo: false
+#| message: false
+#| warning: false
+#| error: false
+#| results: asis
+#| 
 # 2. MAGNITUDE COMPARISON
-print("\n=== MAGNITUDE COMPARISON ===")
+# print("\n=== MAGNITUDE COMPARISON ===")
 
 # Total numbers by country and year
 russian_totals <- rowSums(russian_data[,-1])
@@ -576,18 +580,30 @@ magnitude_comparison <- data.frame(
   Ratio_USA_to_Russian = usa_totals / russian_totals
 )
 
-print("Summary of magnitude differences:")
-print(paste("Mean Russian total:", round(mean(russian_totals), 0)))
-print(paste("Mean USA total:", round(mean(usa_totals), 0)))
-print(paste("Mean ratio (USA/Russian):", round(mean(magnitude_comparison$Ratio_USA_to_Russian), 2)))
-print(paste("Median ratio (USA/Russian):", round(median(magnitude_comparison$Ratio_USA_to_Russian), 2)))
+#print("Summary of magnitude differences:")
+mn_russ_tot <- (paste("mean Russian total:", round(mean(russian_totals), 0)))
+mn_usa_tot  <- (paste("mean USA total:", round(mean(usa_totals), 0)))
+mn_ratio <- print(paste("mean ratio (USA/Russian):", round(mean(magnitude_comparison$Ratio_USA_to_Russian), 2)))
+md_ratio <- print(paste("median ratio (USA/Russian):", round(median(magnitude_comparison$Ratio_USA_to_Russian), 2)))
 
 # Age-specific magnitude ratios
-age_ratios <- sapply(2:11, function(i) {
-  mean(usa_data[,i] / russian_data[,i], na.rm = TRUE)
-})
-names(age_ratios) <- paste0("Age", 1:10)
+# age_ratios <- sapply(2:11, function(i) {
+#   mean(usa_data[,i] / russian_data[,i], na.rm = TRUE)
+# })
+# names(age_ratios) <- paste0("Age", 1:10)
 # 3. GGPLOT VISUALIZATIONS
+```
+
+```{r}
+#| eval: true
+#| label: fig-plots_comparison
+#| fig-cap: "Various comparisons between Russian and USA age-structured survey results."
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-height: 10
+#| fig-width: 8
+
 totals_data <- combined_data %>%
   group_by(Year, Country) %>%
   summarise(Total = sum(Numbers, na.rm = TRUE), .groups = "drop") %>%
@@ -676,10 +692,31 @@ p6 <- combined_data %>%
 # Combine plots using patchwork
 combined_plot1 <- (p1 | p2) / (p3 | p4)
 combined_plot2 <- p5 / p6
-# Display plots
 combined_plot1
-combined_plot2
+```
 
+```{r}
+#| eval: true
+#| label: fig-plots_comparison2
+#| fig-cap: "Various comparisons between Russian and USA age-structured survey results."
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-height: 10
+#| fig-width: 8
+# Display plots
+combined_plot2
+```
+
+```{r}
+#| eval: true
+#| label: fig-plots_comparison3
+#| fig-cap: "Various comparisons between Russian and USA age-structured survey results."
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-height: 10
+#| fig-width: 8
 # 4. DETAILED STATISTICAL SUMMARY
 cat("\n=== DETAILED STATISTICS ===\n")
 
@@ -724,9 +761,6 @@ cat("Age classes with correlation < 0.2:", paste(paste0("Age", low_corr_ages), c
 
 combined_data <- bind_rows(russian_long, usa_long)
 
-# 1. CORRELATION ANALYSIS
-cat("=== CORRELATION ANALYSIS ===\n")
-
 # Calculate correlations using wide format for easier computation
 russian_wide <- combined_data %>% 
   filter(Country == "Russia") %>% 
@@ -739,22 +773,19 @@ usa_wide <- combined_data %>%
   pivot_wider(names_from = Age, values_from = Numbers, names_prefix = "Age")
 
 # Age-specific correlations
-age_correlations <- map_dbl(2:11, ~cor(russian_wide[[.x]], usa_wide[[.x]]))
+age_correlations <- map_dbl(3:12, ~cor(russian_wide[[.x]], usa_wide[[.x]]))
 names(age_correlations) <- paste0("Age", 1:10)
 
-cat("Correlations by Age Class:\n")
-print(round(age_correlations, 3))
+# cat("Correlations by Age Class:\n")
+# print(round(age_correlations, 3))
 
 # Overall correlation
-all_russian <- russian_wide %>% select(-Year) %>% as.matrix() %>% as.vector() |> a
-all_usa <- usa_wide %>% select(-Year) %>% as.matrix() %>% as.vector()
+all_russian <- russian_wide %>% select(-Source,-Year) %>% as.matrix() %>% as.vector() |> as.numeric()
+all_usa <- usa_wide %>% select(-Source,-Year) %>% as.matrix() %>% as.vector() |> as.numeric()
 overall_correlation <- cor(all_russian, all_usa)
-cat("\nOverall correlation across all ages:", round(overall_correlation, 3), "\n")
-
-
-
+overall_corr <- paste0("Overall correlation across all ages:", round(overall_correlation, 3), "")
 # Create correlation matrix for ggplot correlation plot
-correlation_matrix_data <- combined_data %>%
+correlation_matrix_data <- combined_data %>% select(Year, Age, Numbers, Country) |> 
   pivot_wider(names_from = Country, values_from = Numbers) %>%
   select(-Year) %>%
   group_by(Age) %>%
@@ -763,8 +794,11 @@ correlation_matrix_data <- combined_data %>%
     .groups = "drop"
   )
 
-
 ```
+
+Results comparing Russian and USA age-structured assessments 
+`r print(overall_corr)`.
+
 
 ## Other items
 
@@ -1209,9 +1243,6 @@ objective function component.
 ```{r}
 #| echo: false
 #| eval: false
-library(ggplot2)
-library(dplyr)
-library(tidyr)
 
 # Create data frames for each index
 df_bts <- data.frame(year = M$yr_bts, value = M$ob_bts, index = "bts")
