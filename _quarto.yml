@@ -3,9 +3,8 @@ project:
   output-dir: docs
   title: "Eastern Bering Sea walleye pollock stock assessment"
   
-  render: 
-    # - "doc/CIE.qmd"
-    - "doc/Sept_2025.qmd"
+execute:
+  freeze: auto  
 
 website: 
   page-navigation: true

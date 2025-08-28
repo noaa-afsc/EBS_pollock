@@ -542,8 +542,8 @@ read_model_inputs <- function(fn) {
 
 Get_Data <- function() {
   #--Includes PRELIMINARY Calcs stuff too-------
-  data <- build_model_inputs(here::here("Rtmb", "input.dat"), 
-                            fn = here::here("Rtmb", "rpm.dat"))
+  data <- build_model_inputs(here::here("runs","rtmb", "pm.dat"), 
+                            fn = here::here("runs","data", "pm_24.dat"))
   data$spawnmo <- 4. # scalar, month of spawning
   data$yrfrac <- (data$spawnmo - 1.) / 12 # scalar, fraction of year for spawning
   data$inv_bts_cov <- solve(data$cov_matrix)  # inverse covariance matrix
