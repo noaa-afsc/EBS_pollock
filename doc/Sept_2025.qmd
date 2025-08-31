@@ -787,8 +787,16 @@ correlation_matrix_data <- combined_data %>% select(Year, Age, Numbers, Country)
 
 ```
 
-Results comparing Russian and USA age-structured assessments 
+## Results comparing Russian and USA age-structured assessments 
+
 `r print(overall_corr)`.
+
+
+## Comparison with the Gulf of Alaska (GOA) pollock estimates
+
+Since the Russian context suggest some connectivity, for perspective, we thought
+it might be useful to conduct a similar comparison with results from the GOA pollock stock.
+
 
 
 ## Other items
