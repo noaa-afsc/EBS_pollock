@@ -8,6 +8,10 @@ editor_options:
   chunk_output_type: console
 bibliography: references.bib
 number-sections: true
+number-depth: 2
+format:
+  html:
+    embed-resources: true
 editor: 
   markdown: 
     wrap: 90
@@ -1332,7 +1336,7 @@ $$\log(S_{t,a}) = \log(S_{t,a}) - \log\left(\frac{1}{nages}\sum_{a=1}^{nages} \e
 and the actual selectivity is:
 $$S_{t,a} = \exp(\log(S_{t,a}))$$
 
-## Constraints and Properties
+### Constraints and Properties
 
 1. **Normalization Constraint**: 
    $$\prod_{a=1}^{nages} S_{t,a}^{1/nages} = 1 \quad \forall t$$
@@ -1345,14 +1349,14 @@ $$S_{t,a} = \exp(\log(S_{t,a}))$$
 4. **Deviation Structure**: 
    $$\delta_{ii} \sim \text{estimated deviations with penalties}$$
 
-## Implementation Notes
+### Implementation Notes
 
 - Base coefficients $\mathbf{c}$ are estimated parameters
 - Deviations $\boldsymbol{\delta}$ are typically penalized to prevent overfitting
 - The plateau assumption prevents unrealistic selectivity patterns for older ages
 - Geometric mean normalization maintains interpretability relative to fishing mortality
 
-# Regularization and Penalty Terms {#sec-penalty}
+### Regularization and Penalty Terms {#sec-penalty}
 
 The selectivity model includes several penalty terms to ensure realistic and stable estimates:
 Penalty Term 1: Deviation Magnitude Penalty

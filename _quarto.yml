@@ -37,17 +37,9 @@ website:
     
     contents:
       - href: doc/CIE.qmd
-        text: Discussion-paper for CIE review
+        text: Part 1, Discussion-paper presented to  CIE review
       - href: doc/Sept_2025.qmd
-        text: Research on assessment for NPFMC Review
-      #- href: doc/SSC_Minutes.qmd
-        #text: SSC minutes
-      #- href: ebswp.qmd
-        #text: 2024 main assessment document
-      #- href: doc/platforms.Rmd
-        #text: Alternative software platforms
-      #- href: doc/sept.qmd
-        #text: September 2024 EBS pollock assessment
+        text: Part 2, Assessment research developments for NPFMC Review
 
 lightbox: true
 engine: knitr
