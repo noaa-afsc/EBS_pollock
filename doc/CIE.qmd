@@ -135,43 +135,38 @@ if (loadup) {
 
 This report builds on the 2024 pollock stock assessment, using the same datasets but extending the evaluation through new tools, data comparisons, and sensitivity analyses. The primary goal is to evaluate how alternative data sources, modeling approaches, and assumptions affect the perception of stock status and management advice.
 
-The first section introduces the **R library `ebswp`** [see @sec-ebswp], which streamlines compilation and visualization of assessment results. This provides a foundation for reproducible workflows across different model scenarios.
+The first section introduces the **R library `ebswp`** ([see @sec-ebswp]), which streamlines compilation and visualization of assessment results. This provides a foundation for reproducible workflows across different model scenarios.
 
-The second section presents **comparisons of FT-NIR and traditional microscope age estimates** [see @sec-ftnir]. FT-NIR offers efficiencies but showed lower cohort consistency in bottom-trawl data compared to traditional ageing. Model runs incorporating FT-NIRs demonstrated that treatment of ageing error (fleet-aggregated vs. fleet-specific) influences perception of spawning biomass and reference points, though management quantities remained broadly comparable.
+The second section presents **comparisons of FT-NIR and traditional microscope age estimates** ([see @sec-ftnir]). FT-NIR offers efficiencies but showed lower cohort consistency in bottom-trawl data compared to traditional ageing. Model runs incorporating FT-NIRs demonstrated that treatment of ageing error (fleet-aggregated vs. fleet-specific) influences perception of spawning biomass and reference points, though management quantities remained broadly comparable.
 
-In the next section we explore **leave-one-out survey sensitivity analyses** [see @sec-loo]. Results indicated  that the influence of the bottom-trawl survey (BTS) was largest.  Spawning biomass and recruitment estimates changed considerably when BTS data were downweighted. Other data sources, such as ATS and AVO indices, contributed less to overall stock trends.
+In the next section we explore **leave-one-out survey sensitivity analyses** ([see @sec-loo]). Results indicated  that the influence of the bottom-trawl survey (BTS) was largest.  Spawning biomass and recruitment estimates changed considerably when BTS data were downweighted. Other data sources, such as ATS and AVO indices, contributed less to overall stock trends.
 
 The next sections examine incorporation of **multi-species natural mortality (M-at-age and year) estimates and revised acoustic-trawl survey
-uncertainty** [see @sec-multispp]. CEATTLE-based M estimates led to higher mortality at many ages, resulting in higher recruitment but
+uncertainty** ([see @sec-multispp]). CEATTLE-based M estimates led to higher mortality at many ages, resulting in higher recruitment but
 lower near-term spawning biomass relative to the 2024 base model. Alternative acoustic estimates (@urmy2025) had smaller effects on
  management benchmarks, but highlight areas for further refinement.
 
-In the sixth section we evaluated some **alternative assessment platforms** [see @sec-altsoft], including SS3, SAM, Rceattle, 
+In the fifth section we evaluated some **alternative assessment platforms** ([see @sec-altsoft]), including SS3, SAM, Rceattle, 
 and a spatial RTMB model. Results demonstrated broad consistency in stock trends but revealed platform-specific differences 
 in selectivity, recruitment, and uncertainty.  Early applications of Rceattle and spatial models suggest promising 
 avenues for bridging across platforms and explicitly modeling spatial or sex-specific processes.
 
-The next section we presented **bottom-trawl survey spatial distribution modeling** [see @sec-btsmodel], using sdmTMB and tinyVAST. 
+The next section we presented **bottom-trawl survey spatial distribution modeling** ([see @sec-btsmodel]), using sdmTMB and tinyVAST. 
 Model-based indices and age compositions incorporated environmental covariates such as cold-pool extent and bottom temperature, 
 improving robustness in years with sparse coverage. The resulting indices were consistent with design-based estimates, 
 but offered improved diagnostics and continuity across survey years.
 
-The eighth section details **fishery selectivity parameterization** [see @sec-selnotes]. 
+The seventh section details **fishery selectivity parameterization** ([see @sec-selnotes]). 
 A formal derivation and implementation of time-varying selectivity highlights how plateau 
 assumptions, normalization constraints, and penalized deviations are used to ensure 
 interpretable and stable selectivity estimates. This clarifies the role of selectivity 
 in driving historical and current exploitation patterns.
 
-We concluded with some notes  that intended to address some **regularization and penalty terms** 
-[see @sec-penalty]. These include penalties on deviation magnitude, smoothness, and temporal 
-stability. Collectively they help prevent overfitting, enforce smooth selectivity patterns, 
-and constrain abrupt year-to-year changes. Their influence on stability of model fits and 
-interpretability of selectivity is emphasized.
 
 Overall, the analyses underscore three key points:
 
-1. *Data dependence:* The BTS survey remains the critical data source, with model outcomes highly sensitive to its inclusion.  
 2. *Emerging methods:* FT-NIR ageing, multi-species mortality, and model-based survey products hold promise but require careful validation.  
+1. *Data dependence:* The BTS survey remains the critical data source, with model outcomes highly sensitive to its inclusion.  
 3. *Platform diversification:* Alternative modeling frameworks provide useful cross-checks
 and avenues for future development, enhancing confidence in assessment results.
 
