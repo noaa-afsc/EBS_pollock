@@ -165,9 +165,9 @@ in driving historical and current exploitation patterns.
 
 Overall, the analyses underscore three key points:
 
-2. *Emerging methods:* FT-NIR ageing, multi-species mortality, and model-based survey products hold promise but require careful validation.  
-1. *Data dependence:* The BTS survey remains the critical data source, with model outcomes highly sensitive to its inclusion.  
-3. *Platform diversification:* Alternative modeling frameworks provide useful cross-checks
+  1. *Emerging methods:* FT-NIR ageing, multi-species mortality, and model-based survey products hold promise but require careful validation.  
+  2. *Data dependence:* The BTS survey remains the critical data source, with model outcomes highly sensitive to its inclusion.  
+  3. *Platform diversification:* Alternative modeling frameworks provide useful cross-checks
 and avenues for future development, enhancing confidence in assessment results.
 
 

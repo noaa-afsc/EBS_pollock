@@ -492,19 +492,17 @@ usa_data <- df %>% filter(Source == "EBS") %>% select(Year, starts_with("Age"))
 # Create tidy data format
 russian_long <- df |> filter(Source=="WBS") |> 
   pivot_longer(cols = starts_with("Age"), names_to = "Age", values_to = "Numbers") %>%
-  mutate(Country = "Russia",
-         Age = str_extract(Age, "\\d+") %>% as.numeric())
+  mutate(Country = "Russia", Age = str_extract(Age, "\\d+") %>% as.numeric())
 
 usa_long <- df |> filter(Source=="EBS") |> 
   pivot_longer(cols = starts_with("Age"), names_to = "Age", values_to = "Numbers") %>%
-  mutate(Country = "USA",
-         Age = str_extract(Age, "\\d+") %>% as.numeric())
+  mutate(Country = "USA", Age = str_extract(Age, "\\d+") %>% as.numeric())
 
 # Combine datasets
 combined_data <- bind_rows(russian_long, usa_long)
 
 # 1. CORRELATION ANALYSIS
-cat("=== CORRELATION ANALYSIS ===\n")
+# cat("=== CORRELATION ANALYSIS ===\n")
 
 # Calculate correlations using wide format for easier computation
 russian_wide <- combined_data %>% 
@@ -530,18 +528,9 @@ overall_correlation <- cor(all_russian, all_usa, use = "complete.obs")
 #cat("\nOverall correlation across all ages:", round(overall_correlation, 3), "\n")
 
 # Create correlation dataframe for plotting
-correlation_df <- tibble(
-  Age = 1:10,
-  Correlation = age_correlations
-)
-gt(correlation_df) %>%
-  tab_header(
-    title = "Correlations between Russian and USA Age Classes"
-  ) %>%
-  fmt_number(
-    columns = vars(Correlation),
-    decimals = 3
-  )
+correlation_df <- tibble( Age = 1:10, Correlation = age_correlations )
+gt(correlation_df) %>% tab_header( title = "Correlations between Russian and USA Age Classes" ) %>%
+  fmt_number( columns = vars(Correlation), decimals = 3 )
 ```
 
 Pollock ≈99% of catch; seabird & marine mammal mortality very low [@Artyukhin2023; @Burdin2021].
@@ -549,7 +538,7 @@ Pollock ≈99% of catch; seabird & marine mammal mortality very low [@Artyukhin2
 
 ```{r}
 #| eval: true
-#| label: magnitude_comparison
+#| label: tbl-magnitude_comparison
 #| tbl-cap: "Summary statistics of magnitude differences between Russian and USA age classes, 1995-2024."
 #| echo: false
 #| message: false
@@ -568,8 +557,7 @@ magnitude_comparison <- data.frame(
   Year = russian_data$Year,
   Russian_Total = russian_totals,
   USA_Total = usa_totals,
-  Ratio_USA_to_Russian = usa_totals / russian_totals
-)
+  Ratio_USA_to_Russian = usa_totals / russian_totals )
 
 #print("Summary of magnitude differences:")
 mn_russ_tot <- (paste("mean Russian total:", round(mean(russian_totals), 0)))
@@ -585,6 +573,21 @@ md_ratio <- print(paste("median ratio (USA/Russian):", round(median(magnitude_co
 # 3. GGPLOT VISUALIZATIONS
 ```
 
+The comparison of U.S. and Russian pollock assessments shows that U.S. estimates
+of total numbers-at-age are consistently higher than those from Russia,
+typically by a factor of 2–4, with the ratio peaking above 5 in the early 2010s
+(@fig-plots_comparison, bottom-left). Both assessments show similar interannual patterns, particularly
+for age-1 recruits (top-right), suggesting some shared signals of strong year
+classes. Correlation analysis by age class (bottom-right; @tbl-age_corr) confirms this
+alignment, with moderate to strong positive correlations across ages 1–6. At
+older ages, correlations weaken and even turn negative (age 10), reflecting
+differences in how the two assessments treat age structure and fishery/survey
+data inputs. Overall, while the magnitude of estimates differs substantially
+between the two countries, the consistent synchrony in recruitment trends
+indicates that both assessments are capturing the same broad population
+dynamics, albeit with systematic differences in scale.
+
+
 ```{r}
 #| eval: true
 #| label: fig-plots_comparison
@@ -595,95 +598,60 @@ md_ratio <- print(paste("median ratio (USA/Russian):", round(median(magnitude_co
 #| fig-height: 10
 #| fig-width: 8
 
-totals_data <- combined_data %>%
-  group_by(Year, Country) %>%
+totals_data <- combined_data %>% group_by(Year, Country) %>%
   summarise(Total = sum(Numbers, na.rm = TRUE), .groups = "drop") %>%
-  pivot_wider(names_from = Country, values_from = Total) %>%
-  mutate(Ratio_USA_to_Russian = USA / Russia)
+  pivot_wider(names_from = Country, values_from = Total) %>% mutate(Ratio_USA_to_Russian = USA / Russia)
 # Plot 1: Total numbers over time
-p1 <- totals_data %>%
-  select(Year, Russia, USA) %>%
+p1 <- totals_data %>% select(Year, Russia, USA) %>%
   pivot_longer(cols = c(Russia, USA), names_to = "Country", values_to = "Total") %>%
-  ggplot(aes(x = Year, y = Total, color = Country)) +
-  geom_line(size = 1.2) +
-  geom_point(alpha = 0.7) +
-  scale_y_continuous(labels = comma_format(), limits = c(0,NA)) +
+  ggplot(aes(x = Year, y = Total, color = Country)) + geom_line(size = 1.2) +
+  geom_point(alpha = 0.7) + scale_y_continuous(labels = comma_format(), limits = c(0,NA)) +
   scale_color_manual(values = c("Russia" = "#E31A1C", "USA" = "#1F78B4")) +
   labs(title = "Total Numbers at Age Over Time",
-       subtitle = "Comparison between Russian and USA surveys",
-       x = "Year", y = "Total Numbers (thousands)",
-       color = "Country") +
-  theme_minimal() + ylim(c(0,NA)) +
-  theme(plot.title = element_text(size = 14, face = "bold"),
-        legend.position = "top")
+       subtitle = "Comparison between Russian and USA assessments",
+       x = "Year", y = "Total Numbers (thousands)", color = "Country") +
+  theme_minimal() + ylim(c(0,NA)) + theme(plot.title = element_text(size = 14, face = "bold"), legend.position = "top")
 
 # Plot 2: Age 1 comparison over time
-p2 <- combined_data %>%
-  filter(Age == 1) %>%
-  ggplot(aes(x = Year, y = Numbers, color = Country)) +
-  geom_line(size = 1.2) +
-  geom_point(alpha = 0.7) +
-  scale_y_continuous(labels = comma_format(), limits=c(0,NA)) +
+p2 <- combined_data %>% filter(Age == 1) %>% ggplot(aes(x = Year, y = Numbers, color = Country)) +
+  geom_line(size = 1.2) + geom_point(alpha = 0.7) + scale_y_continuous(labels = comma_format(), limits=c(0,NA)) +
   scale_color_manual(values = c("Russia" = "#E31A1C", "USA" = "#1F78B4")) +
-  labs(title = "Age 1 Numbers Over Time",
-       x = "Year", y = "Numbers (thousands)",
-       color = "Country") +
-  theme_minimal() +
-  theme(legend.position = "top")
+  labs(title = "Age 1 Numbers Over Time", x = "Year", y = "Numbers (thousands)", color = "Country") +
+  theme_minimal() + theme(legend.position = "top")
 
 # Plot 3: USA/Russian ratio over time
 p3 <- totals_data %>%
-  ggplot(aes(x = Year, y = Ratio_USA_to_Russian)) +
-  geom_line(size = 1.2, color = "#FF7F00") +
-  geom_point(alpha = 0.7, color = "#FF7F00") +
+  ggplot(aes(x = Year, y = Ratio_USA_to_Russian)) + geom_line(size = 1.2, color = "#FF7F00") +
+  geom_point(alpha = 0.7, color = "#FF7F00") +theme_minimal() + 
   geom_hline(yintercept = 1, linetype = "dashed", color = "gray50", alpha = 0.7) +
-  labs(title = "USA/Russian Total Ratio Over Time",
-       x = "Year", y = "Ratio (USA/Russian)") +ylim(c(0,NA)) +
-  theme_minimal()
+  labs(title = "USA/Russian Total Ratio Over Time", x = "Year", y = "Ratio (USA/Russian)") +ylim(c(0,NA)) 
 
 # Plot 4: Correlations by age class
 p4 <- correlation_df %>%
-  ggplot(aes(x = factor(Age), y = Correlation)) +
-  geom_col(fill = "#33A02C", alpha = 0.8, width = 0.7) +
+  ggplot(aes(x = factor(Age), y = Correlation)) + geom_col(fill = "#33A02C", alpha = 0.8, width = 0.7) +
   geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
   geom_hline(yintercept = c(0.5, -0.5), linetype = "dotted", alpha = 0.5, color = "red") +
-  labs(title = "Correlations by Age Class",
-       x = "Age Class", y = "Correlation Coefficient") +
-  ylim(-1, 1) +
-  theme_minimal()
+  labs(title = "Correlations by Age Class", x = "Age Class", y = "Correlation Coefficient") +
+  ylim(-1, 1) + theme_minimal()
 
 # Plot 5: Age composition comparison (heatmap style)
-p5 <- combined_data %>%
-  group_by(Country, Age) %>%
+p5 <- combined_data %>% group_by(Country, Age) %>%
   summarise(Mean_Numbers = mean(Numbers), .groups = "drop") %>%
   ggplot(aes(x = factor(Age), y = Country, fill = Mean_Numbers)) +
-  geom_tile() +
-  scale_fill_gradient2(low = "white", high = "#2166AC", 
-                      trans = "log10", labels = comma_format()) +
-  labs(title = "Mean Numbers by Age Class",
-       subtitle = "Log-scale heatmap of average numbers across all years",
-       x = "Age Class", y = "Country", fill = "Mean\nNumbers") +
-  theme_minimal()
+  geom_tile() + scale_fill_gradient2(low = "white", high = "#2166AC",  trans = "log10", labels = comma_format()) +
+  labs(title = "Mean Numbers by Age Class", subtitle = "Log-scale heatmap of average numbers across all years",
+       x = "Age Class", y = "Country", fill = "Mean\nNumbers") + theme_minimal()
 
 # Plot 6: Time series by age class (faceted)
-p6 <- combined_data %>%
-  filter(Age <= 6) %>%  # Focus on younger ages for clarity
-  ggplot(aes(x = Year, y = Numbers, color = Country)) +
-  geom_line(size = 1) +
-  facet_wrap(~paste("Age", Age), scales = "free_y") +
-  scale_y_continuous(labels = comma_format()) +
+p6 <- combined_data %>% filter(Age <= 6) %>%  # Focus on younger ages for clarity
+  ggplot(aes(x = Year, y = Numbers, color = Country)) + geom_line(size = 1) +
+  facet_wrap(~paste("Age", Age), scales = "free_y") + scale_y_continuous(labels = comma_format()) +
   scale_color_manual(values = c("Russia" = "#E31A1C", "USA" = "#1F78B4")) +
-  labs(title = "Numbers at Age Over Time (Ages 1-6)",
-       x = "Year", y = "Numbers (thousands)",
-       color = "Country") +
-  theme_minimal() +
-  theme(legend.position = "top",
-        strip.text = element_text(size = 10, face = "bold"))
+  labs(title = "Numbers at Age Over Time (Ages 1-6)", x = "Year", y = "Numbers (thousands)", color = "Country") +
+  theme_minimal() + theme(legend.position = "top", strip.text = element_text(size = 10, face = "bold"))
 
 # Combine plots using patchwork
-combined_plot1 <- (p1 | p2) / (p3 | p4)
-combined_plot2 <- p5 / p6
-combined_plot1
+(p1 | p2) / (p3 | p4)
 ```
 
 ```{r}
@@ -696,7 +664,7 @@ combined_plot1
 #| fig-height: 10
 #| fig-width: 8
 # Display plots
-combined_plot2
+p5 / p6
 ```
 
 ```{r}
@@ -768,7 +736,7 @@ age_correlations <- map_dbl(3:12, ~cor(russian_wide[[.x]], usa_wide[[.x]]))
 names(age_correlations) <- paste0("Age", 1:10)
 
 # cat("Correlations by Age Class:\n")
-# print(round(age_correlations, 3))
+ print(round(age_correlations, 3))
 
 # Overall correlation
 all_russian <- russian_wide %>% select(-Source,-Year) %>% as.matrix() %>% as.vector() |> as.numeric()
@@ -792,12 +760,167 @@ correlation_matrix_data <- combined_data %>% select(Year, Age, Numbers, Country)
 `r print(overall_corr)`.
 
 
-## Comparison with the Gulf of Alaska (GOA) pollock estimates
+## Comparison with the Gulf of Alaska (GOA) pollock estimates {#sec-ebsgoa}
 
 Since the Russian context suggest some connectivity, for perspective, we thought
 it might be useful to conduct a similar comparison with results from the GOA pollock stock.
+Pollock assessments from the eastern Bering Sea (EBS) and Gulf of Alaska (GOA)
+show strong contrasts in both magnitude and dynamics of numbers-at-age. The EBS
+consistently supports far higher abundances across all ages and years (typically
+5–15 times greater than the GOA; @fig-plots_comparison_goa). Recruitment pulses are
+evident in both regions, particularly at age 1, but the correlations by age class reveal only
+modest positive associations at younger ages, while older ages show little to no
+correspondence (@tbl-goa_corr). This indicates that early life stages may share some
+environmental drivers across basins, but overall population dynamics remain
+largely decoupled.
+
+A more detailed breakdown by age class underscores these findings
+(@fig-plots_comparison_goa2). Cohort strength in the EBS exhibits large variability with
+recurring strong year classes, while the GOA maintains lower overall abundance
+with weaker pulses. Time-series plots for ages 1–6 highlight this contrast, with
+the EBS showing sharp recruitment spikes and the GOA remaining more muted.
 
 
+```{r}
+#| eval: true
+#| label: tbl-goa_corr
+#| tbl-cap: "Summary of age-specific correlations between GOA and EBS age classes, 1995-2024."
+#| echo: false
+#| message: false
+#| warning: false
+
+df_goa <- read_csv(here::here("doc","data","goapoll.csv")) |> filter(Year>=1995)
+
+goa_data <- df_goa %>% mutate(Source = "GOA") %>% select(Year, starts_with("Age"))
+# Create tidy data format
+goa_long <- df_goa |> 
+  pivot_longer(cols = starts_with("Age"), names_to = "Age", values_to = "Numbers") %>%
+  mutate(Region = "GOA",
+         Age = str_extract(Age, "\\d+") %>% as.numeric())
+
+combined_data <- bind_rows(goa_long |> mutate(Region="GOA"), usa_long |> mutate(Region="EBS"))
+correlation_matrix_data <- combined_data %>% select(Year, Age, Numbers, Region) |> 
+  pivot_wider(names_from = Region, values_from = Numbers) %>%
+  select(-Year) %>%
+  group_by(Age) %>%
+  summarise(
+    Correlation = cor(GOA, EBS, use = "complete.obs"),
+    .groups = "drop"
+  )
+totals_data <- combined_data %>% group_by(Year, Region) %>% summarise(Total = sum(Numbers, na.rm = TRUE), .groups = "drop") %>%
+  pivot_wider(names_from = Region, values_from = Total) %>% mutate(Ratio_EBS_to_GOA = EBS / GOA)
+
+goa_wide <- combined_data %>%  filter(Region == "GOA") %>%  select(-Region,-Source, -Country) %>% 
+  pivot_wider(names_from = Age, values_from = Numbers, names_prefix = "Age")
+
+ebs_wide <- combined_data %>%  filter(Region == "EBS") %>%  select(-Country, -Source,-Region) %>% 
+  pivot_wider(names_from = Age, values_from = Numbers, names_prefix = "Age")
+
+# Age-specific correlations
+age_correlations <- map_dbl(2:11, ~cor(goa_wide[[.x]], ebs_wide[[.x]]))
+names(age_correlations) <- paste0("Age", 1:10)
+
+#cat("Correlations by Age Class:\n")
+#print(round(age_correlations, 3)) 
+# Overall correlation
+all_goa <- goa_wide %>% select(-Year) %>% as.matrix() %>% as.vector() |> as.numeric()
+all_ebs <- ebs_wide %>% select(-Year) %>% as.matrix() %>% as.vector() |> as.numeric()
+overall_correlation <- cor(all_goa, all_ebs, use = "complete.obs")
+#cat("\nOverall correlation across all ages:", round(overall_correlation, 3), "\n")
+
+# Create correlation dataframe for plotting
+correlation_df <- tibble( Age = 1:10, Correlation = age_correlations )
+
+gt(correlation_df) %>% tab_header( title = "Correlations between GOA and EBS Age Classes" ) %>%
+  fmt_number( columns = vars(Correlation), decimals = 3 )
+
+
+```
+
+```{r}
+#| eval: true
+#| label: fig-plots_comparison_goa
+#| fig-cap: "Various comparisons between GOA and EBS age-structured assessment results."
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-height: 10
+#| fig-width: 8
+
+# Plot 1: Total numbers over time
+p1 <- totals_data %>%
+  select(Year, GOA, EBS) %>%
+  pivot_longer(cols = c(GOA, EBS), names_to = "Region", values_to = "Total") %>%
+  ggplot(aes(x = Year, y = Total, color = Region)) +
+  geom_line(size = 1.2) + geom_point(alpha = 0.7) +
+  scale_y_continuous(labels = comma_format(), limits = c(0,NA)) +
+  scale_color_manual(values = c("GOA" = "#E31A1C", "EBS" = "#1F78B4")) +
+  labs(title = "Total Numbers at Age Over Time", subtitle = "Comparison between GOA and EBS assessments",
+       x = "Year", y = "Total Numbers (thousands)", color = "Region") +
+  theme_minimal() + ylim(c(0,NA)) + theme(plot.title = element_text(size = 14, face = "bold"), legend.position = "top")
+
+# Plot 2: Age 1 comparison over time
+p2 <- combined_data %>% filter(Age == 1) %>%
+  ggplot(aes(x = Year, y = Numbers, color = Region)) +
+  geom_line(size = 1.2) + geom_point(alpha = 0.7) +
+  scale_y_continuous(labels = comma_format(), limits=c(0,NA)) +
+  scale_color_manual(values = c("GOA" = "#E31A1C", "EBS" = "#1F78B4")) +
+  labs(title = "Age 1 Numbers Over Time", x = "Year", y = "Numbers (thousands)",
+       color = "Region") + theme_minimal() + theme(legend.position = "top")
+
+# Plot 3: EBS/GOA ratio over time
+p3 <- totals_data %>%
+  ggplot(aes(x = Year, y = Ratio_EBS_to_GOA)) +
+  geom_line(size = 1.2, color = "#FF7F00") +
+  geom_point(alpha = 0.7, color = "#FF7F00") +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50", alpha = 0.7) +
+  labs(title = "EBS/GOA Total Ratio Over Time",
+       x = "Year", y = "Ratio (EBS/GOA)") +ylim(c(0,NA)) +
+  theme_minimal()
+
+# Plot 4: Correlations by age class
+p4 <- correlation_df %>%
+  ggplot(aes(x = factor(Age), y = Correlation)) + geom_col(fill = "#33A02C", alpha = 0.8, width = 0.7) +
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
+  geom_hline(yintercept = c(0.5, -0.5), linetype = "dotted", alpha = 0.5, color = "red") +
+  labs(title = "Correlations by Age Class",
+       x = "Age Class", y = "Correlation Coefficient") +
+  ylim(-1, 1) +
+  theme_minimal()
+
+# Combine plots using patchwork
+(p1 | p2) / (p3 | p4)
+
+```
+
+```{r}
+#| eval: true
+#| label: fig-plots_comparison_goa2
+#| fig-cap: "Various comparisons between GOA and EBS age-structured assessment results."
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-height: 10
+#| fig-width: 8
+
+# Plot 5: Age composition comparison (heatmap style)
+p5 <- combined_data |>  group_by(Region, Age) |>  summarise(Mean_Numbers = mean(Numbers), .groups = "drop") %>%
+  ggplot(aes(x = factor(Age), y = Region, fill = Mean_Numbers)) + geom_tile() +
+  scale_fill_gradient2(low = "white", high = "#2166AC",  trans = "log10", labels = comma_format()) +
+  labs(title = "Mean Numbers by Age Class", subtitle = "Log-scale heatmap of average numbers across all years", x = "Age Class", y = "Region", fill = "Mean\nNumbers") +
+  theme_minimal()
+
+# Plot 6: Time series by age class (faceted)
+p6 <- combined_data %>% filter(Age <= 6) %>%  
+  ggplot(aes(x = Year, y = Numbers, color = Region)) +
+  geom_line(size = 1) + facet_wrap(~paste("Age", Age), scales = "free_y") +
+  scale_y_continuous(labels = comma_format()) + scale_color_manual(values = c("GOA" = "#E31A1C", "EBS" = "#1F78B4")) +
+  labs(title = "Numbers at Age Over Time (Ages 1-6)", x = "Year", y = "Numbers (thousands)", color = "Region") +
+  theme_minimal() + theme(legend.position = "top", strip.text = element_text(size = 10, face = "bold"))
+
+p5 / p6
+
+```
 
 # Other items
 
