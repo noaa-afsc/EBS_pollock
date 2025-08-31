@@ -7,11 +7,31 @@ date: May 2025
 editor_options: 
   chunk_output_type: console
 bibliography: references.bib
-number-sections: true
-number-depth: 2
 format:
   html:
     embed-resources: true
+    number-sections: true
+    number-depth: 2
+  pdf:
+    documentclass: scrreprt
+    papersize: letter
+    #numbering: false
+    #number-sections: false
+    header-includes:
+      - \counterwithout{figure}{chapter}
+      - \usepackage{fancyhdr}
+      - \pagestyle{fancy}
+      - \fancyhf{}
+      - \lhead{May}
+      - \rhead{2025}
+      - \chead{--Draft--}
+      - \rfoot{\thepage}
+      - \lfoot{EBS pollock assessment discussion paper }    
+  epub:
+    metadata:
+      title: "Eastern Bering Sea walleye pollock stock assessment"
+  docx:
+    reference-docx: "template.docx"
 editor: 
   markdown: 
     wrap: 90
@@ -1291,6 +1311,7 @@ knitr::include_graphics("figs/VAST_Age_Compare.png")
 # Pollock model fishery selectivity notes {#sec-selnotes}
 
 The following provides more detail based on the actual code as adopted from @butterworth2003statistical.
+During the CIE review this came up as a point of clarification and we provide the details here for reference.
 
 ## Initial Setup
 
@@ -1336,7 +1357,7 @@ $$\log(S_{t,a}) = \log(S_{t,a}) - \log\left(\frac{1}{nages}\sum_{a=1}^{nages} \e
 and the actual selectivity is:
 $$S_{t,a} = \exp(\log(S_{t,a}))$$
 
-### Constraints and Properties
+## Constraints and Properties
 
 1. **Normalization Constraint**: 
    $$\prod_{a=1}^{nages} S_{t,a}^{1/nages} = 1 \quad \forall t$$
@@ -1356,7 +1377,7 @@ $$S_{t,a} = \exp(\log(S_{t,a}))$$
 - The plateau assumption prevents unrealistic selectivity patterns for older ages
 - Geometric mean normalization maintains interpretability relative to fishing mortality
 
-### Regularization and Penalty Terms {#sec-penalty}
+## Regularization and Penalty Terms {#sec-penalty}
 
 The selectivity model includes several penalty terms to ensure realistic and stable estimates:
 Penalty Term 1: Deviation Magnitude Penalty

@@ -3,9 +3,6 @@ project:
   output-dir: docs
   title: "Eastern Bering Sea walleye pollock stock assessment"
   
-execute:
-  freeze: auto  
-
 website: 
   page-navigation: true
   title: "Assessment of walleye pollock in the eastern Bering Sea" 
@@ -94,7 +91,7 @@ format:
       - \lfoot{EBS pollock assessment discussion paper }
   epub:
     metadata:
-      title: "Eastern Bering Sea walleye pollock stock assessment CIE discussion paper"
+      title: "Eastern Bering Sea walleye pollock stock assessment"
   docx:
     reference-docx: "template.docx"
 
