@@ -741,7 +741,7 @@ names(df) <- c("Estimated Quantity", names(loo_lst[mod_scen]))
 gt(df) |> fmt_markdown()
 ```
 
-# Incorporating some simple model alternatives multi-species M-at-age and year estimates {#sec-multispp}
+# Other model evaluations for base model {#sec-multispp}
 
 ## Multi-species M-at-age and year estimates 
 
