@@ -7,6 +7,7 @@ date: May 2025
 editor_options: 
   chunk_output_type: console
 bibliography: references.bib
+number-sections: true
 editor: 
   markdown: 
     wrap: 90
@@ -105,20 +106,53 @@ if (loadup) {
 # Plot_Sel() + ggthemes::theme_few(base_size = 9)
 ```
 
-# Executive Summary
+# Executive Summary {.unnumbered}
 
-The work presented below was based on the same data sets used in the 2024 assessment. The
-first task was to update the model runs to include the 2023 data. The model runs were
-updated and the results are presented below. The model runs were then used to compare the
-FT-NIR data with the traditional data sources (BTS and ATS). The results of these
-comparisons are presented below. The model fits to the data are presented in the tables at
-the end of the document. The first section steers towards the R library used for
-processing model results for EBS pollock. The second section presents the comparisons of
-the FT-NIR data with the traditional data sources. The third section compares results of
-different software platforms (e.g., SS3, CEA, and AMAK) for the assessment. The fourth
-section shows results comparing newer model-based estimates from survey data.
 
-# R Library for assessment compilations (ebswp)
+This report builds on the 2024 pollock stock assessment, using the same datasets but extending the evaluation through new tools, data comparisons, and sensitivity analyses. The primary goal is to evaluate how alternative data sources, modeling approaches, and assumptions affect the perception of stock status and management advice.
+
+The first section introduces the **R library `ebswp`** [see @sec-ebswp], which streamlines compilation and visualization of assessment results. This provides a foundation for reproducible workflows across different model scenarios.
+
+The second section presents **comparisons of FT-NIR and traditional microscope age estimates** [see @sec-ftnir]. FT-NIR offers efficiencies but showed lower cohort consistency in bottom-trawl data compared to traditional ageing. Model runs incorporating FT-NIRs demonstrated that treatment of ageing error (fleet-aggregated vs. fleet-specific) influences perception of spawning biomass and reference points, though management quantities remained broadly comparable.
+
+In the next section we explore **leave-one-out survey sensitivity analyses** [see @sec-loo]. Results indicated  that the influence of the bottom-trawl survey (BTS) was largest.  Spawning biomass and recruitment estimates changed considerably when BTS data were downweighted. Other data sources, such as ATS and AVO indices, contributed less to overall stock trends.
+
+The next sections examine incorporation of **multi-species natural mortality (M-at-age and year) estimates and revised acoustic-trawl survey
+uncertainty** [see @sec-multispp]. CEATTLE-based M estimates led to higher mortality at many ages, resulting in higher recruitment but
+lower near-term spawning biomass relative to the 2024 base model. Alternative acoustic estimates (@urmy2025) had smaller effects on
+ management benchmarks, but highlight areas for further refinement.
+
+In the sixth section we evaluated some **alternative assessment platforms** [see @sec-altsoft], including SS3, SAM, Rceattle, 
+and a spatial RTMB model. Results demonstrated broad consistency in stock trends but revealed platform-specific differences 
+in selectivity, recruitment, and uncertainty.  Early applications of Rceattle and spatial models suggest promising 
+avenues for bridging across platforms and explicitly modeling spatial or sex-specific processes.
+
+The next section we presented **bottom-trawl survey spatial distribution modeling** [see @sec-btsmodel], using sdmTMB and tinyVAST. 
+Model-based indices and age compositions incorporated environmental covariates such as cold-pool extent and bottom temperature, 
+improving robustness in years with sparse coverage. The resulting indices were consistent with design-based estimates, 
+but offered improved diagnostics and continuity across survey years.
+
+The eighth section details **fishery selectivity parameterization** [see @sec-selnotes]. 
+A formal derivation and implementation of time-varying selectivity highlights how plateau 
+assumptions, normalization constraints, and penalized deviations are used to ensure 
+interpretable and stable selectivity estimates. This clarifies the role of selectivity 
+in driving historical and current exploitation patterns.
+
+We concluded with some notes  that intended to address some **regularization and penalty terms** 
+[see @sec-penalty]. These include penalties on deviation magnitude, smoothness, and temporal 
+stability. Collectively they help prevent overfitting, enforce smooth selectivity patterns, 
+and constrain abrupt year-to-year changes. Their influence on stability of model fits and 
+interpretability of selectivity is emphasized.
+
+Overall, the analyses underscore three key points:
+
+1. *Data dependence:* The BTS survey remains the critical data source, with model outcomes highly sensitive to its inclusion.  
+2. *Emerging methods:* FT-NIR ageing, multi-species mortality, and model-based survey products hold promise but require careful validation.  
+3. *Platform diversification:* Alternative modeling frameworks provide useful cross-checks
+and avenues for future development, enhancing confidence in assessment results.
+
+
+# R Library for assessment compilations (ebswp){#sec-ebswp}
 
 The `ebswp` library is a collection of functions for compiling and analyzing results from
 the stock assessment models for the eastern Bering Sea walleye pollock (@ianelli2025). The
@@ -127,12 +161,12 @@ report files generated. The link in the reference provides access to some notes 
 applications as vignettes to the package (e.g., .
 [here](https://afsc-assessments.github.io/ebswp/index.html "EBSWP Library")).
 
-# Comparing FT-NIR compositions with traditional microscope age estimations
+# Comparing FT-NIR compositions with traditional microscope age estimations {#sec-ftnir}
 
 The fish age and growth lab at the AFSC have endeavored to expand on new technologies
 (@helser2019).
 
-## FT-NIRS data consistency comparisons
+## FT-NIRS data consistency comparisons 
 
 Examining the abundance-at-age (for design-based estimates of the bottom-trawl age
 compositions) we show that in general, the TMA estimates show a high level of consistency
@@ -429,7 +463,7 @@ knitr::include_graphics("figs/ats_osa.png")
 # Set working directory & plot save directory
 ```
 
-# Leave-one-out survey sensitivity analysis
+# Leave-one-out survey sensitivity analysis {#sec-loo}
 
 Here we present model runs that downweight one or more sources of survey data at a time.
 @tbl-loo_runs shows the combinations of data types included for this analysis, which
@@ -707,7 +741,9 @@ names(df) <- c("Estimated Quantity", names(loo_lst[mod_scen]))
 gt(df) |> fmt_markdown()
 ```
 
-# Incorporating multi-species M-at-age and year estimates, also total uncertainty in acoustics...
+# Incorporating some simple model alternatives multi-species M-at-age and year estimates {#sec-multispp}
+
+## Multi-species M-at-age and year estimates 
 
 ```{r Mmat_runs}
 #| echo: false
@@ -808,6 +844,7 @@ gt::gt(m_matrix, rownames_to_stub = T) |> gt::fmt_number( columns = 1:10, decima
 #plot the indices:  
 ```
 
+## Total uncertainty in acoustics
 We also include a comparison of revised acoustic-trawl estimates (@urmy2025;
 @fig-urmy_ats). The natural mortaliity alternative run resulted in generally better fits
 to most data components whereas the "untuned" run with the @urmy2025 estimates were
@@ -900,7 +937,7 @@ names(df) <- c("Estimated Quantity", names(Mmat_lst[mod_scen]))
 gt(df) |> fmt_markdown()
 ```
 
-# Alternative assessment software
+# Alternative assessment software {#sec-altsoft}
 
 ## Stock-synthesis 3
 
@@ -1015,7 +1052,8 @@ Plot_Rec( all_ts) + ggthemes::theme_few(base_size = 12)
 
 The "Woods Hole Assessment model" (WHAM) is written in TMB and is a fully state-space
 model (@stock2021). Initial trials are available on the [github
-repository](https://github.com/noaa-afsc/EBS_pollock/tree/main/runs/wham).
+repository](https://github.com/noaa-afsc/EBS_pollock/tree/main/runs/wham). We abandoned 
+this effort given difficulties in some aspects of specifications and time constraints. 
 
 The Rceattle model is developed by the AFSC and is written in TMB (@adams2022). The model
 is an extension of the ADMB version used for multi-species model in the Eastern Bering Sea
@@ -1087,29 +1125,29 @@ for a more flexible model that can be used for more explicit considerations of s
 linked to different regions (e.g., the US and Russian portions of the EBS). Also, this
 model to add sex-specificity and random effects (@cheng2025).
 
-@fig-spock_sel shows the model results comparing time-varying selectivity whereas
+@fig-selspock shows the model results comparing time-varying selectivity whereas
 @fig-spock_ts-1 shows the model results time series. The difference in the age-1 recruits
 (@fig-spock_ts-2) is likely due to the fact that the spatial model currently has constant
 M-at-age compared to the base model.
 
 ```{r}
 #| echo: false
-#| warnings: FALSE
-#| messages: FALSE
-#| label: fig-spock_sel
-#| fig.cap: "Model results comparing last year's model with the SPock model."
+#| warning: false
+#| message: false
+#| label: fig-selspock
+#| fig-cap: "Model results comparing last year's model with the SPock model."
 #|
 #names(spock$sel)
 #names(pm_run$sel)
 all_sel <- rbind(pm_run$sel, spock$sel) # , c2$sel)#,gp_run$sel)
 Plot_Sel_age(all_sel)
-Plot_Sel(all_sel)
+#Plot_Sel(all_sel)
 ```
 
 ```{r}
 #| echo: false
-#| warnings: FALSE
-#| messages: FALSE
+#| warnings: false
+#| messages: false
 #| label: fig-spock_ts
 #| fig.width: 8
 #| fig.height: 4
@@ -1129,7 +1167,7 @@ Plot_Rec(all_ts,
 ) + ggthemes::theme_few(base_size = 19)
 ```
 
-# Bottom-trawl survey spatial distribution modeling
+# Bottom-trawl survey spatial distribution modeling {#sec-btsmodel}
 
 ## Abundance Index Methods
 
@@ -1246,7 +1284,7 @@ knitr::include_graphics("figs/VAST_Age_Compare.png")
 ```
 
 
-# Pollock model fishery selectivity notes
+# Pollock model fishery selectivity notes {#sec-selnotes}
 
 The following provides more detail based on the actual code as adopted from @butterworth2003statistical.
 
@@ -1314,7 +1352,7 @@ $$S_{t,a} = \exp(\log(S_{t,a}))$$
 - The plateau assumption prevents unrealistic selectivity patterns for older ages
 - Geometric mean normalization maintains interpretability relative to fishing mortality
 
-# Regularization and Penalty Terms
+# Regularization and Penalty Terms {#sec-penalty}
 
 The selectivity model includes several penalty terms to ensure realistic and stable estimates:
 Penalty Term 1: Deviation Magnitude Penalty
