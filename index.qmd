@@ -1,0 +1,29 @@
+---
+title: "Eastern Bering Sea walleye pollock stock assessment"
+subtitle: "Preface"
+format: html
+---
+
+# Preface
+
+This document is organized into two complementary parts.  
+
+**Part 1** is a *discussion paper* that was prepared for and presented to the  
+Center for Independent Experts (CIE) review panel in **May 2025**.  
+It summarizes the assessment methods, data sources, and key uncertainties  
+considered at that time.  
+
+**Part 2** provides *subsequent updates* and reports on **developments since May 2025**,  
+including research and model refinements in support of the North Pacific Fishery  
+Management Council (NPFMC) review process in September 2025.  
+
+Together, these two parts provide a transparent record of the assessment’s  
+evolution over the course of 2025. Readers may wish to begin with Part 1 for  
+context and then move to Part 2 for the most current results.
+
+---
+
+## Contents
+
+- [Part 1: Discussion paper presented to CIE review](doc/CIE.qmd)  
+- [Part 2: Assessment research developments for NPFMC Review](doc/Sept_2025.qmd)

@@ -17,6 +17,8 @@ format:
     papersize: letter
     #numbering: false
     #number-sections: false
+    number-sections: true
+    number-depth: 2
     header-includes:
       - \counterwithout{figure}{chapter}
       - \usepackage{fancyhdr}
@@ -24,7 +26,7 @@ format:
       - \fancyhf{}
       - \lhead{May}
       - \rhead{2025}
-      - \chead{--Draft--}
+      - \chead{--CIE--}
       - \rfoot{\thepage}
       - \lfoot{EBS pollock assessment discussion paper }    
   epub:
