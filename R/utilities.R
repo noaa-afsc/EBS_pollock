@@ -476,7 +476,7 @@ read_model_inputs <- function(fn) {
     selTFsh = 1, # 	10	Fishery	Selex	Time	Emph
     selCFsh = 1, # 	11	Fishery	Curv	Emph
     cpueFsh = 1, # 	12	Fishery	CPUE	Emph
-    domFish = 12.5, # 	13	Fishery	Dome	Emph
+    domFish = 3., #12.5, # 	13	Fishery	Dome	Emph
     domBTS = 1, # 	14	BTS	Dome	Emph
     selATS = 1, # 	15	ATS	Selex	Emph
     yrsFixF = 1, # 	16	Fishery	Sel	Yrs	Fixed
