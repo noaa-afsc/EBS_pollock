@@ -174,50 +174,62 @@ Part 2 in which we show actions taken since the review and is intended
 inform the September 2025 NPFMC review. It focuses on migrating the operational 
 model from ADMB to RTMB and begin to examine ways to evaluate the influence of Russian fishery.
 
-Key outcomes since the CIE review
-	•	RTMB transition (Completed). The ADMB assessment was ported to RTMB and verified:
-	•	RTMB reproduces ADMB outputs for SSB and age-1 recruitment with negligible differences.
-	•	Enables random-walk selectivity/recruitment, marginal-likelihood error propagation, and RTMB flexibility to explore random effects.
-	•	Russian removals (In progress). Scenario modeling underway using Russian catch assumptions of ~20–45% of U.S. catch (per reviewer guidance and Sharov et al.). The goal is to bound potential impacts before exploring joint or explicitly transboundary models.
-	•	Process uncertainty and selectivity (Planned/Partially addressed).
-	•	Estimation of selectivity random-walk variances via marginal likelihood is now feasible in the RTMB “rpm” implementation (and in RCEATTLE/SPOCK), to be explored after the Russian scenarios.
-	•	Time-varying M remains a cautious exploration topic (informed by CEATTLE multi-species work).
-	•	Growth & weight-at-age (Deferred). Cohort and temperature effects on WAA acknowledged; staged for later development.
-	•	Data weighting / likelihoods (Deferred but available). Dirichlet–multinomial (DM) for composition fits (Laplace) is available (RCEATTLE, SPOCK, RTMB “rpm”); bootstrap-tuned effective sample sizes retained for now.
+Since the May 2025 CIE review, several key developments have been made in the
+EBS pollock assessment. The most significant is the completed transition from
+ADMB to RTMB. The ported model successfully reproduces ADMB results for spawning
+biomass and recruitment with negligible differences, while enabling greater
+flexibility in estimating random-walk selectivity and recruitment deviations,
+propagating error through marginal likelihood, and integrating random effects.
+This provides a more modern and transparent framework for assessment. Work is
+also underway to address one of the reviewers’ main concerns—the absence of
+Russian removals. Scenario modeling is being conducted using Russian catch
+levels equivalent to 20–45% of U.S. catch, following reviewer guidance and
+recent publications. These runs will help bound the potential influence of
+transboundary removals before more collaborative modeling efforts are
+considered. Other areas highlighted by the review, such as process uncertainty,
+growth, weight-at-age, and alternative data-weighting approaches, remain planned
+or deferred. The tools for addressing them, including marginal-likelihood
+estimation of selectivity variance and Dirichlet–multinomial likelihoods, are
+now available in RTMB and other platforms, but implementation will follow the
+Russian catch work to avoid overlapping sources of change.
 
-Bridging ADMB → RTMB (what changed, what matched)
-	•	Minimal code changes to ADMB logic to make it RTMB-compatible:
-	•	Fishery dome-shaped penalties applied to log-selectivities for ages >6.
-	•	“Deviation-about-a-mean” parameterizations re-expressed as level-parameters with mean-centered likelihoods (e.g., log_avgrec, log_avg_F, BTS selectivity slope).
-	•	Verification. Using ADMB MLEs in RTMB yields matching NLL components,
-	near-zero gradients, and overlapping SSB/recruit series and asymptotic SDs.
-	Differences are small and explained by the reparameterizations.
-	•	Demonstration of efficient MCMC application of ADNUTS package to the RTMB model.
+Bridging ADMB to RTMB required some adjustments in the ADMB code. These included shifting
+fishery dome-shaped selectivity penalties to apply at older ages and
+re-expressing “deviation-about-a-mean” parameterizations as direct level
+parameters with centered likelihoods. Verification exercises show that RTMB
+matches ADMB closely when fed identical parameter estimates, with gradients near
+zero and likelihood components in agreement.  Importantly, RTMB’s integration
+with modern R tools also allows efficient Bayesian sampling, demonstrated with
+the ADNUTS package.
 
-Russian vs. U.S. assessments (EBS–WBS)
-	•	Signals match; magnitudes differ. Interannual patterns (especially age-1 recruits) are broadly synchronous; U.S. numbers-at-age are typically ~2–4× Russian values (peaking >5× in early 2010s).
-	•	Method/management contrasts.
-	•	Russia: modern MSY rule with F_{\text{target}}=F_{\text{MSY}} and low
-	B_{\text{trigger}} (5th percentile of SSB_{MSY}); recruitment treated as weakly
-	stock-dependent → higher TACs when conditions are good, higher risk if
-	recruitment dips.
-	•	U.S.: precautionary F_{ABC}<F_{MSY}, B_{35\%} proxy, explicit SRR and uncertainty → lower volatility and risk.
-	•	Implication. Harmonized interpretation needs to account for different HCRs, survey systems, and model structures; scenario inclusion of Russian removals is the immediate step.
+Beyond model platform changes, comparative analyses were extended. Russian and
+U.S. assessments of pollock show broadly synchronous signals, particularly for
+recruitment, but differ markedly in scale: U.S. abundance estimates are
+typically two to four times greater than Russian estimates, with peaks exceeding
+fivefold differences in the early 2010s. These differences reflect not only
+survey coverage and model structure, but also contrasting harvest control rules.
+Russia has adopted a “modern MSY” approach, with higher target exploitation
+rates and lower biomass triggers, resulting in higher TACs when recruitment is
+favorable but greater risk if it falters. The U.S. maintains a more
+precautionary framework, constraining harvest below F_{MSY} and maintaining
+conservative biomass thresholds, which reduces volatility and risk. The
+immediate step to harmonize perspectives is inclusion of Russian removals in
+U.S. sensitivity analyses. A parallel comparison with the Gulf of Alaska pollock
+stock shows even starker contrasts, with EBS abundances five to fifteen times
+higher. Some weak coupling is evident at early ages, but overall the two
+populations are largely decoupled.
 
-EBS vs. GOA comparison (context)
-	•	Scale and coupling. EBS abundances exceed GOA by roughly 5–15× across ages. Some weak–moderate coupling at early ages (shared environmental drivers), little coherence at older ages; populations are largely decoupled.
-
-Technical notes added for transparency
-	•	Selectivity penalties. First-difference penalties over time and age are documented with zero-anchor conventions and RTMB R implementations.
-	•	Survey likelihood check. Lognormal objective (including constants, \sigma on log-scale) provided for parity with ADMB formulations.
-
-Near-term priorities
-	1.	Complete Russian-catch scenarios and quantify sensitivity of status and advice.
-	2.	Switch on/compare marginal-likelihood estimation of selectivity process variances (RW penalties).
-	3.	Pilot DM composition fits and contrast with bootstrap-tuned effective N.
-	4.	Stage cohort/temperature WAA models and scoped exploration of time-varying M (informed by CEATTLE).
-
-Bottom line. The platform migration is done and validated; the biggest outstanding uncertainty for 2025 advice is external removals (Russia). Process-error and likelihood improvements are queued behind that analysis to avoid confounding sources of change.
+Additional technical notes were added for transparency, better documenting the 
+form of first-difference selectivity penalties in both time and age and
+confirming lognormal survey likelihood formulations against ADMB. Looking
+forward, near-term priorities are clear: completing the Russian-catch
+sensitivity runs, testing marginal-likelihood estimation of selectivity
+variances, piloting Dirichlet–multinomial likelihoods, and preparing staged
+analyses of weight-at-age and potential time-varying natural mortality. The
+platform migration is complete and validated, and the largest remaining source
+of uncertainty for 2025 advice is the treatment of Russian removals, with
+process-error and likelihood improvements sequenced to follow that critical
+step.
 
 
 # Response to 2025 CIE Review of EBS Walleye Pollock Assessment
