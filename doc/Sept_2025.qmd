@@ -166,7 +166,7 @@ if (loadup) {
 # Summary
 
 This document is a follow-up to the  discussion paper presented to the Center
-for Independent Experts (CIE) review panel prepared in May 2025 ([link here](doc/CIE.qmd).  
+for Independent Experts (CIE) review panel prepared in May 2025 ([link here](CIE.html)).  
 The review panel provided a set of
 recommendations to enhance the model structure, address key uncertainties, and
 improve transparency. This is
@@ -733,23 +733,11 @@ assessment results presented as part of their Marine Stewardship Council (MSC) r
 panel with our model results (through 2024). The following sections compare outcomes from
 the assessments presented to
 
-## Comparison of Russian and USA age‑structured assessment results
 
-### Comparison of Russian WBS and U.S. EBS Pollock Assessments
+### Russian literature context: MSY vs. Precaution in WBS pollock
 
-| Feature | Russian WBS Assessment | U.S. EBS Assessment |
-|---------------------|------------------------------------|----------------------------------|
-| **Primary model** | TISVPA catch-at-age model (@vasilyev2005) | ADMB statistical catch-at-age model (pollock model), routinely updated |
-| **Assessment frequency** | Annual assessment; fishery-independent surveys \~ every 2 years | Annual assessment; multiple fishery-independent surveys each year (BTS, ATS, AVO) |
-| **Reference points (HCR)** | Since 2022: **Ftarget = Fmsy (or proxy)**; **Btrigger = 5th percentile of SSBmsy distribution** | Precautionary: **FABC \< Fmsy**, **B35%** proxy for SSBmsy; reference points set conservatively |
-| **Management** | “Modern MSY” approach, aiming for maximum sustainable harvest without exceeding safe stock status; allows \~15–30% higher TACs vs. precautionary approach | Precautionary approach emphasizes risk reduction; TAC constrained by Council harvest rules |
-| **Recruitment assumption** | Recruitment assumed independent of stock size, fluctuating randomly within historical distribution | Stock–recruit relationship estimated (minor impact on recruitment estimates), with uncertainty reflected in projections |
-| **Recent stock status** | 2023: SSB well above SSBtarget and SSBmsy proxy; F \< Ftarget and Flimit; stock increasing | 2024: SSB above B35% and Bmsy proxy; F well below reference points; stock stable to increasing |
-| **Uncertainty notes** | Higher terminal year uncertainty in TISVPA ; risk of overexploitation if stock declines under new HCR | Uncertainty routinely quantified (likelihood profiles, MCMC); precautionary buffers applied in catch advice |
-| **Governance & compliance** | Managed by Federal Fisheries Agency (FFA) and CFMC; MSC certified since 2021; electronic logbook system in place | Managed under NPFMC/AFSC framework; extensive observer coverage; SAFE reports reviewed annually; MSC certified since 2005 |
-  
 The contrasts between the Russian WBS and U.S. EBS pollock assessments highlight both
-complementary perspectives and important methodological differences. Both systems conclude
+complementary perspectives and important methodological differences (@tbl-rususa-assessments). Both systems conclude
 that pollock biomass is currently above target reference levels and that fishing mortality
 is below limits, reinforcing the perception of a healthy stock across the Bering Sea.
 However, the Russian shift to a “modern MSY” framework, with $F_{target}$ set at $F_{msy}$
@@ -760,8 +748,6 @@ prioritizing long-term risk reduction. These differences underscore the need for
 interpretation when comparing results across assessments: while the overall trends align,
 differences in model structure, reference points, and treatment of uncertainty can produce
 divergent management advice even under similar stock conditions.
-
-### Russian literature context: MSY vs. Precaution in WBS pollock
 
 @BulatovVasilev2023 argue for moving from a precautionary HCR to a modern *MSY-based
 rule* for WBS/Navarin and N. Okhotsk pollock. Their stochastic projections (using
@@ -808,6 +794,24 @@ catches, with bycatch impacts on seabirds and marine mammals reported as very
 low (@Artyukhin2023; @Burdin2021). Recent analyses and
 reviews (@SharovJapp2023, @SharovJapp2024; @BulatovVasilev2023; @Datsky2022) 
 emphasize the ecological and management context of these fisheries.
+
+::: {#tbl-rususa-assessments}
+Table: Comparison of Russian western Bering Sea (WBS) and U.S. eastern Bering Sea (EBS) pollock assessments.
+
+| Feature | Russian WBS Assessment | U.S. EBS Assessment |
+|---------------------|------------------------------------|----------------------------------|
+| **Primary model** | TISVPA catch-at-age model (@vasilyev2005) | ADMB statistical catch-at-age model (pollock model), routinely updated |
+| **Assessment frequency** | Annual assessment; fishery-independent surveys ~ every 2 years | Annual assessment; multiple fishery-independent surveys each year (BTS, ATS, AVO) |
+| **Reference points (HCR)** | Since 2022: **Ftarget = Fmsy (or proxy)**; **Btrigger = 5th percentile of SSBmsy distribution** | Precautionary: **FABC < Fmsy**, **B35%** proxy for SSBmsy; reference points set conservatively |
+| **Management** | “Modern MSY” approach, aiming for maximum sustainable harvest without exceeding safe stock status; allows ~15–30% higher TACs vs. precautionary approach | Precautionary approach emphasizes risk reduction; TAC constrained by Council harvest rules |
+| **Recruitment assumption** | Recruitment assumed independent of stock size, fluctuating randomly within historical distribution | Stock–recruit relationship estimated (minor impact on recruitment estimates), with uncertainty reflected in projections |
+| **Recent stock status** | 2023: SSB well above SSBtarget and SSBmsy proxy; F < Ftarget and Flimit; stock increasing | 2024: SSB above B35% and Bmsy proxy; F well below reference points; stock stable to increasing |
+| **Uncertainty notes** | Higher terminal year uncertainty in TISVPA; risk of overexploitation if stock declines under new HCR | Uncertainty routinely quantified (likelihood profiles, MCMC); precautionary buffers applied in catch advice |
+| **Governance & compliance** | Managed by Federal Fisheries Agency (FFA) and CFMC; MSC certified since 2021; electronic logbook system in place | Managed under NPFMC/AFSC framework; extensive observer coverage; SAFE reports reviewed annually; MSC certified since 2005 |
+
+:::
+
+## Comparison of Russian WBS and U.S. EBS Pollock Assessments
 
 Comparisons between Russian and U.S. assessments indicate that U.S.
 numbers-at-age are consistently higher, with total abundance estimates averaging
@@ -1092,9 +1096,6 @@ correlation_matrix_data <- combined_data %>% select(Year, Age, Numbers, Country)
 
 ```
 
-## Results comparing Russian and USA age-structured assessments
-
-`r print(overall_corr)`.
 
 ## Comparison with the Gulf of Alaska (GOA) pollock estimates {#sec-ebsgoa}
 

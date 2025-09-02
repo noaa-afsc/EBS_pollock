@@ -3,6 +3,9 @@ project:
   output-dir: docs
   title: "Eastern Bering Sea walleye pollock stock assessment"
   
+execute:
+  freeze: auto  # or "auto"
+  
 website: 
   page-navigation: true
   title: "Assessment of walleye pollock in the eastern Bering Sea" 

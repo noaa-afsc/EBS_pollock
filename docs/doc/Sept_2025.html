@@ -4288,13 +4288,9 @@ white-space: inherit;
   </ul></li>
   <li><a href="#considerations-for-future-assessments-regarding-neighboring-russian-federation-fisheries" id="toc-considerations-for-future-assessments-regarding-neighboring-russian-federation-fisheries" class="nav-link" data-scroll-target="#considerations-for-future-assessments-regarding-neighboring-russian-federation-fisheries"><span class="header-section-number">4</span> Considerations for future assessments regarding neighboring Russian federation fisheries</a>
   <ul class="collapse">
-  <li><a href="#comparison-of-russian-and-usa-agestructured-assessment-results" id="toc-comparison-of-russian-and-usa-agestructured-assessment-results" class="nav-link" data-scroll-target="#comparison-of-russian-and-usa-agestructured-assessment-results"><span class="header-section-number">4.1</span> Comparison of Russian and USA age‑structured assessment results</a>
-  <ul class="collapse">
-  <li><a href="#comparison-of-russian-wbs-and-u.s.-ebs-pollock-assessments" id="toc-comparison-of-russian-wbs-and-u.s.-ebs-pollock-assessments" class="nav-link" data-scroll-target="#comparison-of-russian-wbs-and-u.s.-ebs-pollock-assessments">Comparison of Russian WBS and U.S. EBS Pollock Assessments</a></li>
   <li><a href="#russian-literature-context-msy-vs.-precaution-in-wbs-pollock" id="toc-russian-literature-context-msy-vs.-precaution-in-wbs-pollock" class="nav-link" data-scroll-target="#russian-literature-context-msy-vs.-precaution-in-wbs-pollock">Russian literature context: MSY vs. Precaution in WBS pollock</a></li>
-  </ul></li>
-  <li><a href="#results-comparing-russian-and-usa-age-structured-assessments" id="toc-results-comparing-russian-and-usa-age-structured-assessments" class="nav-link" data-scroll-target="#results-comparing-russian-and-usa-age-structured-assessments"><span class="header-section-number">4.2</span> Results comparing Russian and USA age-structured assessments</a></li>
-  <li><a href="#sec-ebsgoa" id="toc-sec-ebsgoa" class="nav-link" data-scroll-target="#sec-ebsgoa"><span class="header-section-number">4.3</span> Comparison with the Gulf of Alaska (GOA) pollock estimates</a></li>
+  <li><a href="#comparison-of-russian-wbs-and-u.s.-ebs-pollock-assessments" id="toc-comparison-of-russian-wbs-and-u.s.-ebs-pollock-assessments" class="nav-link" data-scroll-target="#comparison-of-russian-wbs-and-u.s.-ebs-pollock-assessments"><span class="header-section-number">4.1</span> Comparison of Russian WBS and U.S. EBS Pollock Assessments</a></li>
+  <li><a href="#sec-ebsgoa" id="toc-sec-ebsgoa" class="nav-link" data-scroll-target="#sec-ebsgoa"><span class="header-section-number">4.2</span> Comparison with the Gulf of Alaska (GOA) pollock estimates</a></li>
   </ul></li>
   <li><a href="#other-items" id="toc-other-items" class="nav-link" data-scroll-target="#other-items"><span class="header-section-number">5</span> Other items</a>
   <ul class="collapse">
@@ -4335,7 +4331,7 @@ white-space: inherit;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-09-01 23:18</p>
+      <p class="date">2025-09-02 06:59</p>
     </div>
   </div>
   
@@ -4349,7 +4345,7 @@ white-space: inherit;
 
 <section id="summary" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Summary</h1>
-<p>This document is a follow-up to the discussion paper presented to the Center for Independent Experts (CIE) review panel prepared in May 2025 (<a href="doc/CIE.qmd">link here</a>.<br>
+<p>This document is a follow-up to the discussion paper presented to the Center for Independent Experts (CIE) review panel prepared in May 2025 (<a href="CIE.html">link here</a>).<br>
 The review panel provided a set of recommendations to enhance the model structure, address key uncertainties, and improve transparency. This is Part 2 in which we show actions taken since the review and is intended inform the September 2025 NPFMC review. It focuses on migrating the operational model from ADMB to RTMB and begin to examine ways to evaluate the influence of Russian fishery.</p>
 <p>Since the May 2025 CIE review, several key developments have been made in the EBS pollock assessment. The most significant is the completed transition from ADMB to RTMB. The ported model successfully reproduces ADMB results for spawning biomass and recruitment with negligible differences, while enabling greater flexibility in estimating random-walk selectivity and recruitment deviations, propagating error through marginal likelihood, and integrating random effects. This provides a more modern and transparent framework for assessment. Work is also underway to address one of the reviewers’ main concerns—the absence of Russian removals. Scenario modeling is being conducted using Russian catch levels equivalent to 20–45% of U.S. catch, following reviewer guidance and recent publications. These runs will help bound the potential influence of transboundary removals before more collaborative modeling efforts are considered. Other areas highlighted by the review, such as process uncertainty, growth, weight-at-age, and alternative data-weighting approaches, remain planned or deferred. The tools for addressing them, including marginal-likelihood estimation of selectivity variance and Dirichlet–multinomial likelihoods, are now available in RTMB and other platforms, but implementation will follow the Russian catch work to avoid overlapping sources of change.</p>
 <p>Bridging ADMB to RTMB required some adjustments in the ADMB code. These included shifting fishery dome-shaped selectivity penalties to apply at older ages and re-expressing “deviation-about-a-mean” parameterizations as direct level parameters with centered likelihoods. Verification exercises show that RTMB matches ADMB closely when fed identical parameter estimates, with gradients near zero and likelihood components in agreement. Importantly, RTMB’s integration with modern R tools also allows efficient Bayesian sampling, demonstrated with the ADNUTS package.</p>
@@ -6269,11 +6265,27 @@ Figure 5: MCMC diagnostics from RTMB implementation of the EBS pollock model.
 <h1 data-number="4"><span class="header-section-number">4</span> Considerations for future assessments regarding neighboring Russian federation fisheries</h1>
 <p>As this year’s assessment moves forward, particular attention is warranted on how Russian fisheries and assessments are considered alongside our own results. Pollock in the eastern and western Bering Sea are generally recognized as a single biological stock, with seasonal exchange across the U.S.–Russia boundary documented by acoustic studies. As noted in the CIE reviews, Russian removals are substantial with recent estimates representing on the order of 20–45% of the U.S. catch in some years.<br>
 <!-- [oai_citation:0‡2025_08 Cieri EBS pollock assessment review report.pdf](file-service://file-DtNxGFHwQffPxqjpkEBdub) --> While examined in past assessments, the Russian catch magnitude should be re-evaluated to examine how they might alter management advice. <!-- [oai_citation:1‡2025_08 Cieri EBS pollock assessment review report.pdf](file-service://file-DtNxGFHwQffPxqjpkEBdub) [oai_citation:2‡2025_08 Nielsen EBS pollock assessment review report.pdf](file-service://file-9nnvtLxwuaXaY5D5r5qhm4).  --> As a step in beginning to make a more detailed evaluation, we compared the Russian stock assessment results presented as part of their Marine Stewardship Council (MSC) review panel with our model results (through 2024). The following sections compare outcomes from the assessments presented to</p>
-<section id="comparison-of-russian-and-usa-agestructured-assessment-results" class="level2 page-columns page-full" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="comparison-of-russian-and-usa-agestructured-assessment-results"><span class="header-section-number">4.1</span> Comparison of Russian and USA age‑structured assessment results</h2>
-<section id="comparison-of-russian-wbs-and-u.s.-ebs-pollock-assessments" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-of-russian-wbs-and-u.s.-ebs-pollock-assessments">Comparison of Russian WBS and U.S. EBS Pollock Assessments</h3>
+<section id="russian-literature-context-msy-vs.-precaution-in-wbs-pollock" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="russian-literature-context-msy-vs.-precaution-in-wbs-pollock">Russian literature context: MSY vs. Precaution in WBS pollock</h3>
+<p>The contrasts between the Russian WBS and U.S. EBS pollock assessments highlight both complementary perspectives and important methodological differences (<a href="#tbl-rususa-assessments" class="quarto-xref">Table 4</a>). Both systems conclude that pollock biomass is currently above target reference levels and that fishing mortality is below limits, reinforcing the perception of a healthy stock across the Bering Sea. However, the Russian shift to a “modern MSY” framework, with <span class="math inline">\(F_{target}\)</span> set at <span class="math inline">\(F_{msy}\)</span> and <span class="math inline">\(B_{trigger}\)</span> at the lower 5th percentile of SSBmsy, allows higher catch levels but introduces greater risk if recruitment declines. By contrast, the U.S. precautionary approach constrains harvest below Fmsy and maintains conservative biomass thresholds, prioritizing long-term risk reduction. These differences underscore the need for careful interpretation when comparing results across assessments: while the overall trends align, differences in model structure, reference points, and treatment of uncertainty can produce divergent management advice even under similar stock conditions.</p>
+<p><span class="citation" data-cites="BulatovVasilev2023">Bulatov and Vasilev (<a href="#ref-BulatovVasilev2023" role="doc-biblioref">2023</a>)</span> argue for moving from a precautionary HCR to a modern <em>MSY-based rule</em> for WBS/Navarin and N. Okhotsk pollock. Their stochastic projections (using <em>TISVPA</em>) resample historical recruitment (assumed independent of SSB) and set <span class="math inline">\(F_{target} \ge F_{MSY}\)</span>, with <em>MSY</em> <span class="math inline">\(B_{trigger}\)</span> taken as the 5th percentile of the SSB distribution under <span class="math inline">\(F_{MSY}\)</span>. Reported values include:</p>
+<ul>
+<li><span class="math inline">\(F_{MSY}\)</span> ≈ 0.75 yr⁻¹ (Navarin, WBS) and 0.60 yr⁻¹ (N. Okhotsk).<br>
+</li>
+<li><span class="math inline">\(B_{trigger}\)</span> ≈ 470 kt (Navarin) and 1.77 Mt (N. Okhotsk).<br>
+</li>
+<li>Expected catches 15–30% higher than under the precautionary rule (2002–2022 reconstructions), with large short-term gains in 2022 (e.g., Navarin TAC +~60%).</li>
+</ul>
+<p>The implications for our EBS–WBS comparison are that the Russian MSY framing aligns with the recent WBS HCR updates (F<sub>target</sub>=F<sub>MSY</sub>, low B-trigger), helping explain higher Russian TAC recommendations when recruitment is strong.</p>
+<p><span class="citation" data-cites="Datsky2022">Datsky, Sheybak, and Antonov (<a href="#ref-Datsky2022" role="doc-biblioref">2022</a>)</span> provide a comprehensive synthesis of pollock distribution, biology, stock status, and fishery dynamics across the Bering Sea. Drawing on &gt;25 years of Russian survey and fishery data, they describe the <strong>ecological plasticity</strong> of pollock, its broad bathymetric range (20–600 m), and the role of <strong>seasonal migrations</strong> linking eastern and western Bering Sea populations.</p>
+<p>Pollock in the Bering Sea are organized into three main regional groupings—eastern Bering Sea, Anadyr–Navarin, and western Bering Sea—that each maintain distinct spawning centers but intermingle during feeding migrations, especially in the northwest. The western stock experienced a marked decline in the late 1990s to early 2000s, but has gradually recovered since 2010, while biomass levels in the eastern and northwestern regions are now close to long-term averages. These dynamics are strongly shaped by environmental variability, including climate conditions, sea ice, and prey availability.</p>
+<p>In Russian waters, pollock dominate the fishery, making up about 70% of total catches, almost entirely from midwater trawls. Recent landings range between 350,000 and 630,000 metric tons annually, with roughly 90% of harvests occurring between June and December. Importantly, the western and northwestern pollock populations are not isolated; they are continually reinforced by migrations from the eastern Bering Sea. This connectivity helps explain why U.S. and Russian assessments often capture similar recruitment and biomass patterns, even if absolute magnitudes differ, reflecting both shared basin-wide dynamics and methodological differences in survey coverage and assessment models.</p>
+<p>Pollock dominate Russian Bering Sea fisheries, making up nearly 99% of total catches, with bycatch impacts on seabirds and marine mammals reported as very low (<span class="citation" data-cites="Artyukhin2023">Artyukhin, Korobov, and Gluschenko (<a href="#ref-Artyukhin2023" role="doc-biblioref">2023</a>)</span>; <span class="citation" data-cites="Burdin2021">Burdin (<a href="#ref-Burdin2021" role="doc-biblioref">2021</a>)</span>). Recent analyses and reviews (<span class="citation" data-cites="SharovJapp2023">Japp and Sharov (<a href="#ref-SharovJapp2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="SharovJapp2024">Japp and Sharov (<a href="#ref-SharovJapp2024" role="doc-biblioref">2024</a>)</span>; <span class="citation" data-cites="BulatovVasilev2023">Bulatov and Vasilev (<a href="#ref-BulatovVasilev2023" role="doc-biblioref">2023</a>)</span>; <span class="citation" data-cites="Datsky2022">Datsky, Sheybak, and Antonov (<a href="#ref-Datsky2022" role="doc-biblioref">2022</a>)</span>) emphasize the ecological and management context of these fisheries.</p>
+<div id="tbl-rususa-assessments" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-rususa-assessments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
+<caption>Comparison of Russian western Bering Sea (WBS) and U.S. eastern Bering Sea (EBS) pollock assessments.</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 39%">
@@ -6319,7 +6331,7 @@ Figure 5: MCMC diagnostics from RTMB implementation of the EBS pollock model.
 </tr>
 <tr class="odd">
 <td><strong>Uncertainty notes</strong></td>
-<td>Higher terminal year uncertainty in TISVPA ; risk of overexploitation if stock declines under new HCR</td>
+<td>Higher terminal year uncertainty in TISVPA; risk of overexploitation if stock declines under new HCR</td>
 <td>Uncertainty routinely quantified (likelihood profiles, MCMC); precautionary buffers applied in catch advice</td>
 </tr>
 <tr class="even">
@@ -6329,25 +6341,17 @@ Figure 5: MCMC diagnostics from RTMB implementation of the EBS pollock model.
 </tr>
 </tbody>
 </table>
-<p>The contrasts between the Russian WBS and U.S. EBS pollock assessments highlight both complementary perspectives and important methodological differences. Both systems conclude that pollock biomass is currently above target reference levels and that fishing mortality is below limits, reinforcing the perception of a healthy stock across the Bering Sea. However, the Russian shift to a “modern MSY” framework, with <span class="math inline">\(F_{target}\)</span> set at <span class="math inline">\(F_{msy}\)</span> and <span class="math inline">\(B_{trigger}\)</span> at the lower 5th percentile of SSBmsy, allows higher catch levels but introduces greater risk if recruitment declines. By contrast, the U.S. precautionary approach constrains harvest below Fmsy and maintains conservative biomass thresholds, prioritizing long-term risk reduction. These differences underscore the need for careful interpretation when comparing results across assessments: while the overall trends align, differences in model structure, reference points, and treatment of uncertainty can produce divergent management advice even under similar stock conditions.</p>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-rususa-assessments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 4: Comparison of Russian western Bering Sea (WBS) and U.S. eastern Bering Sea (EBS) pollock assessments.
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="russian-literature-context-msy-vs.-precaution-in-wbs-pollock" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="russian-literature-context-msy-vs.-precaution-in-wbs-pollock">Russian literature context: MSY vs. Precaution in WBS pollock</h3>
-<p><span class="citation" data-cites="BulatovVasilev2023">Bulatov and Vasilev (<a href="#ref-BulatovVasilev2023" role="doc-biblioref">2023</a>)</span> argue for moving from a precautionary HCR to a modern <em>MSY-based rule</em> for WBS/Navarin and N. Okhotsk pollock. Their stochastic projections (using <em>TISVPA</em>) resample historical recruitment (assumed independent of SSB) and set <span class="math inline">\(F_{target} \ge F_{MSY}\)</span>, with <em>MSY</em> <span class="math inline">\(B_{trigger}\)</span> taken as the 5th percentile of the SSB distribution under <span class="math inline">\(F_{MSY}\)</span>. Reported values include:</p>
-<ul>
-<li><span class="math inline">\(F_{MSY}\)</span> ≈ 0.75 yr⁻¹ (Navarin, WBS) and 0.60 yr⁻¹ (N. Okhotsk).<br>
-</li>
-<li><span class="math inline">\(B_{trigger}\)</span> ≈ 470 kt (Navarin) and 1.77 Mt (N. Okhotsk).<br>
-</li>
-<li>Expected catches 15–30% higher than under the precautionary rule (2002–2022 reconstructions), with large short-term gains in 2022 (e.g., Navarin TAC +~60%).</li>
-</ul>
-<p>The implications for our EBS–WBS comparison are that the Russian MSY framing aligns with the recent WBS HCR updates (F<sub>target</sub>=F<sub>MSY</sub>, low B-trigger), helping explain higher Russian TAC recommendations when recruitment is strong.</p>
-<p><span class="citation" data-cites="Datsky2022">Datsky, Sheybak, and Antonov (<a href="#ref-Datsky2022" role="doc-biblioref">2022</a>)</span> provide a comprehensive synthesis of pollock distribution, biology, stock status, and fishery dynamics across the Bering Sea. Drawing on &gt;25 years of Russian survey and fishery data, they describe the <strong>ecological plasticity</strong> of pollock, its broad bathymetric range (20–600 m), and the role of <strong>seasonal migrations</strong> linking eastern and western Bering Sea populations.</p>
-<p>Pollock in the Bering Sea are organized into three main regional groupings—eastern Bering Sea, Anadyr–Navarin, and western Bering Sea—that each maintain distinct spawning centers but intermingle during feeding migrations, especially in the northwest. The western stock experienced a marked decline in the late 1990s to early 2000s, but has gradually recovered since 2010, while biomass levels in the eastern and northwestern regions are now close to long-term averages. These dynamics are strongly shaped by environmental variability, including climate conditions, sea ice, and prey availability.</p>
-<p>In Russian waters, pollock dominate the fishery, making up about 70% of total catches, almost entirely from midwater trawls. Recent landings range between 350,000 and 630,000 metric tons annually, with roughly 90% of harvests occurring between June and December. Importantly, the western and northwestern pollock populations are not isolated; they are continually reinforced by migrations from the eastern Bering Sea. This connectivity helps explain why U.S. and Russian assessments often capture similar recruitment and biomass patterns, even if absolute magnitudes differ, reflecting both shared basin-wide dynamics and methodological differences in survey coverage and assessment models.</p>
-<p>Pollock dominate Russian Bering Sea fisheries, making up nearly 99% of total catches, with bycatch impacts on seabirds and marine mammals reported as very low (<span class="citation" data-cites="Artyukhin2023">Artyukhin, Korobov, and Gluschenko (<a href="#ref-Artyukhin2023" role="doc-biblioref">2023</a>)</span>; <span class="citation" data-cites="Burdin2021">Burdin (<a href="#ref-Burdin2021" role="doc-biblioref">2021</a>)</span>). Recent analyses and reviews (<span class="citation" data-cites="SharovJapp2023">Japp and Sharov (<a href="#ref-SharovJapp2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="SharovJapp2024">Japp and Sharov (<a href="#ref-SharovJapp2024" role="doc-biblioref">2024</a>)</span>; <span class="citation" data-cites="BulatovVasilev2023">Bulatov and Vasilev (<a href="#ref-BulatovVasilev2023" role="doc-biblioref">2023</a>)</span>; <span class="citation" data-cites="Datsky2022">Datsky, Sheybak, and Antonov (<a href="#ref-Datsky2022" role="doc-biblioref">2022</a>)</span>) emphasize the ecological and management context of these fisheries.</p>
+<section id="comparison-of-russian-wbs-and-u.s.-ebs-pollock-assessments" class="level2 page-columns page-full" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="comparison-of-russian-wbs-and-u.s.-ebs-pollock-assessments"><span class="header-section-number">4.1</span> Comparison of Russian WBS and U.S. EBS Pollock Assessments</h2>
 <p>Comparisons between Russian and U.S. assessments indicate that U.S. numbers-at-age are consistently higher, with total abundance estimates averaging about 2.9 times greater than Russian estimates (median ratio ≈ 2.7). Despite this scale difference, recruitment and biomass trends display synchrony, suggesting that both assessments capture shared population dynamics across the basin while differing in magnitude due to survey intensity, model structure, and management frameworks.</p>
-<p>The comparison of U.S. and Russian pollock assessments shows that U.S. estimates of total numbers-at-age are consistently higher than those from Russia, typically by a factor of 2–4, with the ratio peaking above 5 in the early 2010s (<a href="#fig-plots_comparison" class="quarto-xref">Figure 6</a>, bottom-left). Both assessments show similar interannual patterns, particularly for age-1 recruits (top-right), suggesting some shared signals of strong year classes. Correlation analysis by age class (bottom-right; <a href="#tbl-age_corr" class="quarto-xref">Table 4</a>) confirms this alignment, with moderate to strong positive correlations across ages 1–6. At older ages, correlations weaken and even turn negative (age 10), reflecting differences in how the two assessments treat age structure and fishery/survey data inputs. Overall, while the magnitude of estimates differs substantially between the two countries, the consistent synchrony in recruitment trends indicates that both assessments are capturing the same broad population dynamics, albeit with systematic differences in scale.</p>
+<p>The comparison of U.S. and Russian pollock assessments shows that U.S. estimates of total numbers-at-age are consistently higher than those from Russia, typically by a factor of 2–4, with the ratio peaking above 5 in the early 2010s (<a href="#fig-plots_comparison" class="quarto-xref">Figure 6</a>, bottom-left). Both assessments show similar interannual patterns, particularly for age-1 recruits (top-right), suggesting some shared signals of strong year classes. Correlation analysis by age class (bottom-right; <a href="#tbl-age_corr" class="quarto-xref">Table 5</a>) confirms this alignment, with moderate to strong positive correlations across ages 1–6. At older ages, correlations weaken and even turn negative (age 10), reflecting differences in how the two assessments treat age structure and fishery/survey data inputs. Overall, while the magnitude of estimates differs substantially between the two countries, the consistent synchrony in recruitment trends indicates that both assessments are capturing the same broad population dynamics, albeit with systematic differences in scale.</p>
 <div class="cell page-columns page-full">
 <div id="tbl-age_corr" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
@@ -6808,7 +6812,7 @@ height: 0px !important;
 </div>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-age_corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 4: Correlations between Russian and USA age classes, 1995-2024.
+Table 5: Correlations between Russian and USA age classes, 1995-2024.
 </figcaption>
 </figure>
 </div>
@@ -6821,7 +6825,7 @@ Table 4: Correlations between Russian and USA age classes, 1995-2024.
 </div>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-magnitude_comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 5: Summary statistics of magnitude differences between Russian and USA age classes, 1995-2024.
+Table 6: Summary statistics of magnitude differences between Russian and USA age classes, 1995-2024.
 </figcaption>
 </figure>
 </div>
@@ -6918,14 +6922,9 @@ Age classes with correlation &gt; 0.5: Age1, Age2, Age3, Age4, Age5, Age6 </code
 </div>
 </div>
 </section>
-</section>
-<section id="results-comparing-russian-and-usa-age-structured-assessments" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="results-comparing-russian-and-usa-age-structured-assessments"><span class="header-section-number">4.2</span> Results comparing Russian and USA age-structured assessments</h2>
-<p>.</p>
-</section>
-<section id="sec-ebsgoa" class="level2 page-columns page-full" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="sec-ebsgoa"><span class="header-section-number">4.3</span> Comparison with the Gulf of Alaska (GOA) pollock estimates</h2>
-<p>Since the Russian context suggest some connectivity, for perspective, we thought it might be useful to conduct a similar comparison with results from the GOA pollock stock. Pollock assessments from the eastern Bering Sea (EBS) and Gulf of Alaska (GOA) show strong contrasts in both magnitude and dynamics of numbers-at-age. The EBS consistently supports far higher abundances across all ages and years (typically 5–15 times greater than the GOA; <a href="#fig-plots_comparison_goa" class="quarto-xref">Figure 8</a>). Recruitment pulses are evident in both regions, particularly at age 1, but the correlations by age class reveal only modest positive associations at younger ages, while older ages show little to no correspondence (<a href="#tbl-goa_corr" class="quarto-xref">Table 6</a>). This indicates that early life stages may share some environmental drivers across basins, but overall population dynamics remain largely decoupled.</p>
+<section id="sec-ebsgoa" class="level2 page-columns page-full" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-ebsgoa"><span class="header-section-number">4.2</span> Comparison with the Gulf of Alaska (GOA) pollock estimates</h2>
+<p>Since the Russian context suggest some connectivity, for perspective, we thought it might be useful to conduct a similar comparison with results from the GOA pollock stock. Pollock assessments from the eastern Bering Sea (EBS) and Gulf of Alaska (GOA) show strong contrasts in both magnitude and dynamics of numbers-at-age. The EBS consistently supports far higher abundances across all ages and years (typically 5–15 times greater than the GOA; <a href="#fig-plots_comparison_goa" class="quarto-xref">Figure 8</a>). Recruitment pulses are evident in both regions, particularly at age 1, but the correlations by age class reveal only modest positive associations at younger ages, while older ages show little to no correspondence (<a href="#tbl-goa_corr" class="quarto-xref">Table 7</a>). This indicates that early life stages may share some environmental drivers across basins, but overall population dynamics remain largely decoupled.</p>
 <p>A more detailed breakdown by age class underscores these findings (<a href="#fig-plots_comparison_goa2" class="quarto-xref">Figure 9</a>). Cohort strength in the EBS exhibits large variability with recurring strong year classes, while the GOA maintains lower overall abundance with weaker pulses. Time-series plots for ages 1–6 highlight this contrast, with the EBS showing sharp recruitment spikes and the GOA remaining more muted.</p>
 <div class="cell page-columns page-full">
 <div id="tbl-goa_corr" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
@@ -7387,7 +7386,7 @@ height: 0px !important;
 </div>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-goa_corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 6: Summary of age-specific correlations between GOA and EBS age classes, 1995-2024.
+Table 7: Summary of age-specific correlations between GOA and EBS age classes, 1995-2024.
 </figcaption>
 </figure>
 </div>
