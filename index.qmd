@@ -1,7 +1,9 @@
 ---
 title: "Eastern Bering Sea walleye pollock stock assessment"
 subtitle: "Preface"
-format: html
+format: 
+  html:
+    toc: false
 ---
 
 # Preface

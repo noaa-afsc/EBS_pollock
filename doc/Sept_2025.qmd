@@ -79,6 +79,7 @@ library(gganimate)
 library(ggridges)
 library(viridis)
 library(gt)
+library(qs)
 library(knitr)
 library(ggsidekick)
 library(scales)
@@ -164,30 +165,14 @@ if (loadup) {
 
 # Summary
 
-The work presented below was based on the same data sets used in the 2024 assessment. We
-broke the work into two parts, first is the discussion paper presented to the Center for
-Independent Experts (CIE) review panel prepared in May 2025 ([link here](doc/CIE.qmd).  
-
-Here’s a clean summary you can drop near the top of Part 2 (or use as an executive summary box). I kept it tight but complete, mirroring the structure of your qmd.
-
-⸻
-
-Summary
-This document is a follow-up to the May 2025 CIE review of the Eastern Bering
-Sea (EBS) walleye pollock stock assessment. The review panel provided a set of
+This document is a follow-up to the  discussion paper presented to the Center
+for Independent Experts (CIE) review panel prepared in May 2025 ([link here](doc/CIE.qmd).  
+The review panel provided a set of
 recommendations to enhance the model structure, address key uncertainties, and
-improve transparency. This two-part response addresses those recommendations in
-sequence. Part 1 (May 2025) is an updated version of a discussion paper presented to
-the review panel. 
-findings and outlined a
-roadmap for addressing them within the existing ADMB framework, focusing on
-Russian removals, process error, selectivity, and growth. This document, Part
-
-Part 2 documents actions taken since the May 2025 CIE review and provides
-analyses that inform the September 2025 NPFMC review. It focuses on (i)
-migrating the operational model from ADMB to RTMB, (ii) bounding the influence
-of Russian removals, (iii) process-error and likelihood refinements, and (iv)
-cross-basin comparisons.
+improve transparency. This is
+Part 2 in which we show actions taken since the review and is intended 
+inform the September 2025 NPFMC review. It focuses on migrating the operational 
+model from ADMB to RTMB and begin to examine ways to evaluate the influence of Russian fishery.
 
 Key outcomes since the CIE review
 	•	RTMB transition (Completed). The ADMB assessment was ported to RTMB and verified:
@@ -248,8 +233,8 @@ assessment. The final peer-reviewed reports from the three reviewers are from
 
 One of the reviewers’ primary concerns was the continued reliance on ADMB. This has now
 been resolved with the transition to RTMB, which enables use of random-walk selectivity
-and recruitment deviations, improved error propagation through marginal likelihood, and
-direct integration of retrospective diagnostics such as Mohn’s rho. This task is complete.
+and recruitment deviations, improved error propagation through marginal likelihoods and MCMC
+evaluations. 
 
 Another prominent theme was the absence of Russian removals from the assessment model. All
 three reviewers emphasized the need to explore the magnitude of this omission, both in
@@ -278,7 +263,7 @@ available in three different platforms (RCEATTLE, SPOCK, and the converted RTMB 
 model. We anticipate examining this as an option in the coming year.
 
 A consolidated summary of reviewer recommendations and their current status is provided in
-Table @tbl-cie-final-responses.
+@tbl-cie-final-responses.
 
 ```{r}
 #| results: asis
@@ -308,14 +293,14 @@ catch uncertainty by comparing of assessments between regions.
 
 # Bridging ADMB to RTMB
 
-The ADMB code used for the 2024 EBS pollock assessment has been fully ported to RTMB, with
-verification that outputs match the prior version. This transition enables several
+The original ADMB code (first developed for application in 1996--@ianelli1998) 
+has evolved over time and has a number of unique features. However, ADMB has less
+flexibility to incorporate random effects and marginal likelihood estimation. As such, we
+adopted the set of features used for the 2024 EBS pollock assessment and fully ported those to RTMB. 
+This transition enables several
 important enhancements, including the ability to estimate random-walk selectivity and
 recruitment deviations, improved error propagation through marginal likelihood, and
-greater transparency for code review and modifications. The original ADMB code has
-several options for model configurations, including different selectivity models, data
-inclusion, and process error structures. Only the base-case 2024 configuration was fully 
-ported over to RTMB with some minor modifications as described below.
+greater transparency for code review and modifications. 
 
 We changed the ADMB code as little as possible to 
 enable it to be compatible and work within the RTMB framework. One change  was the use of
@@ -332,7 +317,7 @@ then do the likelihood parts as deviations from the mean.
 To this end, we modified the following parameters which were parameterized as deviations from the mean
 (e.g., `log_avgrec` (average recruitment), `log_avg_F` (average fishing
 mortality), `log_slp_bts` (slope of the selectivity for the bottom trawl))
-to be simply the vector of values.  These changes resulted in a slight change in the
+to be simply the vector of values.  These changes resulted in changes in the
 pattern of spawning biomass and recruitment estimates among the 2024 ADMB model and the 2024
 modified version of the ADMB model used for comparisons with the RTMB results (@fig-admbdiffs).
 
@@ -574,6 +559,151 @@ plotly::ggplotly(ggplot(df_long, aes(x = name, y = (difference), fill = series))
   labs(x = "NLL Term", y = "difference from ADMB (absolute neg. log-likelihood units)", fill = "Series"))
 ```
 
+## RTMB implementation of MCMC integrations
+
+
+A single run for a chain of 5,000 resulted in excellent mixing quality with the 
+"poorest mixing" parameters demonstrating very good MCMC performance (@fig-mcmc).
+The trace plots show the typical "fuzzy caterpillar" pattern indicating good mixing
+and the pairwise plots reveal appropriate exploration of parameter space. 
+The chains appear to be sampling efficiently from the posterior distributions without any
+divergent transitions or other issues.
+The high effective sample size (ESS) values (ranging from ~900-1793)
+suggest that the chains are providing plenty of independent samples from the 
+posterior distribution. 
+
+Using some of the additional features of teh `ADNUTS` R package
+shows that in relatively few commands, a useful suite of diagnostics can be
+created (@fig-mcmc-diagnostics). 
+
+This figure provides comprehensive validation of the Bayesian MCMC results
+against frequentist asymptotic approximations for the EBS pollock stock
+assessment model, showing excellent overall performance across all diagnostics.
+Panel (a) demonstrates tight agreement between posterior standard deviations and
+asymptotic standard errors along the 1:1 line, validating that both approaches
+yield similar uncertainty estimates. Panel (b) shows well-behaved, approximately
+normal marginal posterior distributions for various log-scale parameters with
+good coverage by density curves, indicating proper sampling. Panel (c) presents
+the spawning stock biomass time series from 1978-2020, showing higher biomass in
+early years, decline through the 1980s-1990s, and lower variability in recent
+decades with appropriate uncertainty quantification throughout. Panel (d)
+displays pairwise plots for the 5 parameters with the greatest
+Bayesian-frequentist variance discrepancies, yet even these show reasonable
+correlations and good mixing in trace plots. Overall, this validation
+demonstrates that the RTMB Bayesian implementation performs excellently with
+close agreement to established frequentist methods while providing the
+additional benefits of full posterior distributions and proper uncertainty
+propagation.
+
+The point of using MCMC's is that in the future previously assumed variances can be estimated more objectively.
+
+```{r}
+#| echo: false
+#| eval: false
+#| results: asis
+#| message: false
+#| warning: false
+#| error: false
+
+#devtools::install_github('Cole-Monnahan-NOAA/adnuts')
+
+# MCMC stuff--------
+library(adnuts)
+obj$env$data 
+names(obj$env$parList() )
+mcmc <- sample_snuts(obj, chains=1, cores=1, iter=5000, control = list(adapt_delta=.98))
+#mcmc <- adnuts::sample_sparse_tmb(obj,skip_optimization=TRUE,iter=3000, chains = 8)
+#mcpilot <- adnuts::sample_sparse_tmb(obj,skip_optimizatioon=TRUE,iter=2000, chains = 5)
+qsave(mcmc, here::here("doc","data","mcmc.qs"), preset = "high") # "high" preset uses zstd with a higher compression level
+
+post <- as.data.frame(mcmc)
+post |> str()
+SSB <- apply(post,1, \(x) obj$report(x)$SSB) |> t()
+SSB |> str()
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+
+# Convert matrix to long format for ggplot
+SSB_long <- SSB |>
+  as.data.frame() |>
+  mutate(simulation = row_number()) |>  # Add simulation ID
+  pivot_longer(
+    cols = -simulation,
+    names_to = "year",
+    values_to = "value"
+  ) |> mutate(year = as.numeric(year))  |> filter(year>1977) # Convert year to numeric for proper ordering
+
+# Create violin plot
+ggplot(SSB_long, aes(x = factor(year), y = value)) +
+  geom_violin(fill = "lightblue", alpha = 0.7) +
+  stat_summary(fun = median, geom = "point", size = 0.5, color = "red") +
+  labs(
+    title = "SSB Distribution by Year",
+    x = "Year",
+    y = "SSB Value"
+  ) + theme_minimal() + ylim(c(0,NA))+
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 8),
+    plot.title = element_text(hjust = 0.5)
+  ) + scale_x_discrete(breaks = function(x) x[seq(1, length(x), by = 5)])  # Show every 5th year
+ggsave(here::here("doc","figs","SSB_mcmc.png"), width=8, height=6)
+
+?plot_marginals(mcmc)
+# Attempt to get the 2018 yc
+names(mcmc)
+dim(mcmc$samples)
+mcmc$sampler$sample[]
+mcmc$samples[,,mcmc$par_names=="log_rec_dev[56]"]
+sum(mcmc$par_names=="log_rec_dev")
+pairs_admb(mcmc, pars=1:5, order='slow')
+pairs(mcmc, pars=1:5, order='slow')
+ggsave(here::here("doc","figs","mcmc_slow.png"), width=8, height=8)
+pairs_admb(mcmc, pars=1200:1208)
+sum(grepl("log_F_devs", mcmc$par_names))
+
+```
+
+```{r}
+#| label: fig-mcmc
+#| fig-cap: "MCMC results from RTMB implementation of the EBS pollock model showing the slowest mixing parameters."
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 8
+library(adnuts)
+
+mcmc <- qs::qread(here::here("doc","data","mcmc.qs"))
+pairs(mcmc, pars=1:5, order='slow')
+#knitr::include_graphics(here::here("doc","figs","mcmc_slow.png"))
+
+```
+
+```{r}
+#| label: fig-mcmc-diagnostics
+#| fig-cap: "MCMC diagnostics from RTMB implementation of the EBS pollock model."
+#| fig-subcap:
+#|   - "Comparison of posterior marginal standard deviation with the asymptotic approximation."
+#|   - "Posterior density distributions"
+#|   - "Distribution of spawning biomass."
+#|   - "Pairs plot of the 5 parameters in the model that differ the most between posterior marginal variances and the asymptotic estimates."
+#| echo: false
+#| message: false
+#| warning: false
+#| layout-ncol: 2
+#| fig-width: 10
+#| fig-height: 9
+# Your MCMC plots here
+adnuts::plot_uncertainties(mcmc)
+adnuts::plot_marginals(mcmc, pars=1:12)
+knitr::include_graphics(here::here("doc","figs","SSB_mcmc.png"))
+pairs(mcmc, pars=1:5, order='mismatch')
+#trace_plot
+#density_plot  
+#acf_plot
+
+```
 # Considerations for future assessments regarding neighboring Russian federation fisheries
 
 As this year’s assessment moves forward, particular attention is warranted on how Russian
@@ -597,15 +727,15 @@ the assessments presented to
 
 | Feature | Russian WBS Assessment | U.S. EBS Assessment |
 |---------------------|------------------------------------|----------------------------------|
-| **Primary model** | TISVPA catch-at-age model (Vasilyev 2005); Synthesis model retained as supporting tool | ADMB statistical catch-at-age model (pollock model), routinely updated |
+| **Primary model** | TISVPA catch-at-age model (@vasilyev2005) | ADMB statistical catch-at-age model (pollock model), routinely updated |
 | **Assessment frequency** | Annual assessment; fishery-independent surveys \~ every 2 years | Annual assessment; multiple fishery-independent surveys each year (BTS, ATS, AVO) |
 | **Reference points (HCR)** | Since 2022: **Ftarget = Fmsy (or proxy)**; **Btrigger = 5th percentile of SSBmsy distribution** | Precautionary: **FABC \< Fmsy**, **B35%** proxy for SSBmsy; reference points set conservatively |
-| **Management philosophy** | “Modern MSY” approach, aiming for maximum sustainable harvest without exceeding safe stock status; allows \~15–30% higher TACs vs. precautionary approach | Precautionary approach emphasizes risk reduction; TAC constrained by Council harvest rules |
-| **Recruitment assumption** | Recruitment assumed independent of stock size, fluctuating randomly within historical distribution | Stock–recruit relationship incorporated (steepness parameter), with uncertainty reflected in projections |
+| **Management** | “Modern MSY” approach, aiming for maximum sustainable harvest without exceeding safe stock status; allows \~15–30% higher TACs vs. precautionary approach | Precautionary approach emphasizes risk reduction; TAC constrained by Council harvest rules |
+| **Recruitment assumption** | Recruitment assumed independent of stock size, fluctuating randomly within historical distribution | Stock–recruit relationship estimated (minor impact on recruitment estimates), with uncertainty reflected in projections |
 | **Recent stock status** | 2023: SSB well above SSBtarget and SSBmsy proxy; F \< Ftarget and Flimit; stock increasing | 2024: SSB above B35% and Bmsy proxy; F well below reference points; stock stable to increasing |
-| **Uncertainty notes** | Higher terminal year uncertainty in TISVPA compared to Synthesis; risk of overexploitation if stock declines under new HCR | Uncertainty routinely quantified (likelihood profiles, MCMC); precautionary buffers applied in catch advice |
-| **Governance & compliance** | Managed by Federal Fisheries Agency (FFA) and CFMC; MSC certified since 2021; electronic logbook system in place | Managed under NPFMC/AFSC framework; extensive observer coverage; SAFE reports reviewed annually |
-
+| **Uncertainty notes** | Higher terminal year uncertainty in TISVPA ; risk of overexploitation if stock declines under new HCR | Uncertainty routinely quantified (likelihood profiles, MCMC); precautionary buffers applied in catch advice |
+| **Governance & compliance** | Managed by Federal Fisheries Agency (FFA) and CFMC; MSC certified since 2021; electronic logbook system in place | Managed under NPFMC/AFSC framework; extensive observer coverage; SAFE reports reviewed annually; MSC certified since 2005 |
+  
 The contrasts between the Russian WBS and U.S. EBS pollock assessments highlight both
 complementary perspectives and important methodological differences. Both systems conclude
 that pollock biomass is currently above target reference levels and that fishing mortality
@@ -621,49 +751,73 @@ divergent management advice even under similar stock conditions.
 
 ### Russian literature context: MSY vs. Precaution in WBS pollock
 
-Bulatov & Vasilyev (2023) argue for moving from a precautionary HCR to a modern *MSY-based
+@BulatovVasilev2023 argue for moving from a precautionary HCR to a modern *MSY-based
 rule* for WBS/Navarin and N. Okhotsk pollock. Their stochastic projections (using
 *TISVPA*) resample historical recruitment (assumed independent of SSB) and set
 $F_{target} \ge F_{MSY}$, with *MSY* $B_{trigger}$ taken as the 5th percentile of the SSB
 distribution under $F_{MSY}$. Reported values include:
 
--   $F_{MSY}$ ≈ 0.75 yr⁻¹ (Navarin, WBS) and **0.60 yr⁻¹** (N. Okhotsk).\
--   $B_{trigger}$ ≈ 470 kt (Navarin) and **1.77 Mt** (N. Okhotsk).\
--   Expected catches **15–30% higher** than under the precautionary rule (2002–2022
+-   $F_{MSY}$ ≈ 0.75 yr⁻¹ (Navarin, WBS) and 0.60 yr⁻¹ (N. Okhotsk).\
+-   $B_{trigger}$ ≈ 470 kt (Navarin) and 1.77 Mt (N. Okhotsk).\
+-   Expected catches 15–30% higher than under the precautionary rule (2002–2022
     reconstructions), with large short-term gains in 2022 (e.g., Navarin TAC +\~60%).
 
-**Implications for our EBS–WBS comparison:** the Russian MSY framing aligns with the
+The implications for our EBS–WBS comparison  are that the Russian MSY framing aligns with the
 recent WBS HCR updates (F<sub>target</sub>=F<sub>MSY</sub>, low B-trigger), helping
-explain higher Russian TAC recommendations when recruitment is strong. The approach is
-intentionally less conservative and hinges on **weak SRR signal** assumptions; if
-recruitment dips, risk tolerance differs from the EBS precautionary setup. We’ll reference
-this when interpreting USA–Russia abundance ratios and management advice.
+explain higher Russian TAC recommendations when recruitment is strong. 
 
-Datsky, Sheybak & Antonov (2022)\*\* provide a comprehensive synthesis of pollock
+@Datsky2022 provide a comprehensive synthesis of pollock
 distribution, biology, stock status, and fishery dynamics across the Bering Sea. Drawing
 on \>25 years of Russian survey and fishery data, they describe the **ecological
 plasticity** of pollock, its broad bathymetric range (20–600 m), and the role of
 **seasonal migrations** linking eastern and western Bering Sea populations.
 
-Key points include:\
-- **Population structure:** major groupings (eastern Bering Sea, Anadyr–Navarin, western
-Bering Sea) have distinct spawning centers but mix during feeding migrations, particularly
-in the northwestern Bering Sea.
+Pollock in the Bering Sea are organized into three main regional
+groupings—eastern Bering Sea, Anadyr–Navarin, and western Bering Sea—that each
+maintain distinct spawning centers but intermingle during feeding migrations,
+especially in the northwest. The western stock experienced a marked decline in
+the late 1990s to early 2000s, but has gradually recovered since 2010, while
+biomass levels in the eastern and northwestern regions are now close to
+long-term averages. These dynamics are strongly shaped by environmental
+variability, including climate conditions, sea ice, and prey availability.
 
--   **Stock trends:** the western Bering Sea stock declined to lows in the late
-    1990s–early 2000s, but has shown **gradual recovery** since 2010. East Bering Sea and
-    NW Bering Sea biomasses are currently at average long-term levels, with fluctuations
-    strongly influenced by climate, ice, and prey availability.
+In Russian waters, pollock dominate the fishery, making up about 70% of total
+catches, almost entirely from midwater trawls. Recent landings range between
+350,000 and 630,000 metric tons annually, with roughly 90% of harvests occurring
+between June and December. Importantly, the western and northwestern pollock
+populations are not isolated; they are continually reinforced by migrations from
+the eastern Bering Sea. This connectivity helps explain why U.S. and Russian
+assessments often capture similar recruitment and biomass patterns, even if
+absolute magnitudes differ, reflecting both shared basin-wide dynamics and
+methodological differences in survey coverage and assessment models.
 
--   **Fishery importance:** pollock accounts for \~70% of catches in Russian Bering Sea
-    waters, dominated by midwater trawls, with recent landings of \~350–630 kt/yr.
-    Seasonal patterns show \~90% of catches taken June–December.
+Pollock dominate Russian Bering Sea fisheries, making up nearly 99% of total
+catches, with bycatch impacts on seabirds and marine mammals reported as very
+low (@Artyukhin2023; @Burdin2021). Recent analyses and
+reviews (@SharovJapp2023, @SharovJapp2024; @BulatovVasilev2023; @Datsky2022) 
+emphasize the ecological and management context of these fisheries.
 
-**Implications for U.S.–Russia comparisons:** This work emphasizes that western and
-northwestern pollock are not isolated; they are reinforced by migrations from the eastern
-Bering Sea, meaning observed differences in assessment outputs (biomass, recruitment)
-partly reflect shared dynamics across the basin as well as differences in survey intensity
-and assessment methods.
+Comparisons between Russian and U.S. assessments indicate that U.S.
+numbers-at-age are consistently higher, with total abundance estimates averaging
+about 2.9 times greater than Russian estimates (median ratio ≈ 2.7). Despite
+this scale difference, recruitment and biomass trends display synchrony,
+suggesting that both assessments capture shared population dynamics across the
+basin while differing in magnitude due to survey intensity, model structure, and
+management frameworks.
+
+The comparison of U.S. and Russian pollock assessments shows that U.S. estimates of total
+numbers-at-age are consistently higher than those from Russia, typically by a factor of
+2–4, with the ratio peaking above 5 in the early 2010s (@fig-plots_comparison,
+bottom-left). Both assessments show similar interannual patterns, particularly for age-1
+recruits (top-right), suggesting some shared signals of strong year classes. Correlation
+analysis by age class (bottom-right; @tbl-age_corr) confirms this alignment, with moderate
+to strong positive correlations across ages 1–6. At older ages, correlations weaken and
+even turn negative (age 10), reflecting differences in how the two assessments treat age
+structure and fishery/survey data inputs. Overall, while the magnitude of estimates
+differs substantially between the two countries, the consistent synchrony in recruitment
+trends indicates that both assessments are capturing the same broad population dynamics,
+albeit with systematic differences in scale.
+
 
 ```{r}
 #| label: tbl-age_corr
@@ -721,11 +875,9 @@ gt(correlation_df) %>% tab_header( title = "Correlations between Russian and USA
   fmt_number( columns = vars(Correlation), decimals = 3 )
 ```
 
-Pollock ≈99% of catch; seabird & marine mammal mortality very low @Artyukhin2023;
-@Burdin2021\]. [@SharovJapp2023; @SharovJapp2024; @BulatovVasilev2023]. @Datsky2022,
 
 ```{r}
-#| eval: true
+#| eval: false
 #| label: tbl-magnitude_comparison
 #| tbl-cap: "Summary statistics of magnitude differences between Russian and USA age classes, 1995-2024."
 #| echo: false
@@ -760,19 +912,6 @@ md_ratio <- print(paste("median ratio (USA/Russian):", round(median(magnitude_co
 # names(age_ratios) <- paste0("Age", 1:10)
 # 3. GGPLOT VISUALIZATIONS
 ```
-
-The comparison of U.S. and Russian pollock assessments shows that U.S. estimates of total
-numbers-at-age are consistently higher than those from Russia, typically by a factor of
-2–4, with the ratio peaking above 5 in the early 2010s (@fig-plots_comparison,
-bottom-left). Both assessments show similar interannual patterns, particularly for age-1
-recruits (top-right), suggesting some shared signals of strong year classes. Correlation
-analysis by age class (bottom-right; @tbl-age_corr) confirms this alignment, with moderate
-to strong positive correlations across ages 1–6. At older ages, correlations weaken and
-even turn negative (age 10), reflecting differences in how the two assessments treat age
-structure and fishery/survey data inputs. Overall, while the magnitude of estimates
-differs substantially between the two countries, the consistent synchrony in recruitment
-trends indicates that both assessments are capturing the same broad population dynamics,
-albeit with systematic differences in scale.
 
 ```{r}
 #| eval: true
