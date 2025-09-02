@@ -96,9 +96,9 @@ loadup <- FALSE
 # loadup<-TRUE
 if (loadup) {
   source(here::here("R", "GetResults.R"))
-  source(here::here("runs/spock", "FitSpock.R"))
+  source(here::here("runs/sporc", "FitSpock.R"))
   # source(here::here("runs","spock", "FitSpock.R"))
-  spock <- spock_obj(src = "RTMB")
+  spock <- spock_obj(src = "SPORC")
   
   #spock <- list(sel = sel, ts = ts, obj = m1)
   # names(spock)
@@ -121,6 +121,7 @@ if (loadup) {
 
   # all_ts <- rbind( sam_run$ts,pm_run$ts,am_run$ts,ss_run$ts,gp_run$ts)
   save.image(file = here::here("compares.Rdata"))
+  qs::qsavem(spock, r1, r2, r3, c1, c2, pm_run, sam_run, file = here::here("compares.qs"))
 } else {
   load(here::here("compares.Rdata"))
   spock$sel <- spock$sel %>%
@@ -201,7 +202,7 @@ unknown.
 #| messages: FALSE
 #| label: fig-consisTMA
 #| fig.cap: "Cohort consistency over different ages based on log-abundance from the bottom-trawl survey data for pollock in recent years for traditional microscope age estimates. The cohorts are shown in the labels."
-knitr::include_graphics("figs/consisTMA.png")
+knitr::include_graphics(here::here("doc","figs","consisTMA.png"))
 ```
 
 ```{r consisFTN}
@@ -210,7 +211,7 @@ knitr::include_graphics("figs/consisTMA.png")
 #| messages: FALSE
 #| label: fig-consisFTN
 #| fig.cap: "Cohort consistency over different ages based on log-abundance from the bottom-trawl survey data for pollock in recent years for FTNIRs  age estimates. The cohorts are shown in the labels."
-knitr::include_graphics("figs/consisFTN.png")
+knitr::include_graphics(here::here("doc","figs","consisFTN.png"))
 ```
 
 When preparing the data for the assessment, we plotted out the proportions-at-age for the
@@ -227,7 +228,7 @@ data files is shown in @fig-dataFile.
 #| messages: FALSE
 #| label: fig-proportionsFSH
 #| fig.cap: "Proportions at age for recent years for the fishery data where the columns represent the traditional microscope age estimates (TMA)  compared to the FTNIRs   age estimates (lines for the red-outlined panels)."
-knitr::include_graphics("figs/proportionsFSH.png")
+knitr::include_graphics(here::here("doc","figs","proportionsFSH.png"))
 ```
 
 ```{r proportionsBTS}
@@ -236,7 +237,7 @@ knitr::include_graphics("figs/proportionsFSH.png")
 #| messages: FALSE
 #| label: fig-proportionsBTS
 #| fig.cap: "Proportions at age for recent years for the bottom-trawl survey data where the columns represent the traditional microscope age estimates (TMA)  compared to the FTNIRs   age estimates (lines for the red-outlined panels)."
-knitr::include_graphics("figs/proportionsBTS.png")
+knitr::include_graphics(here::here("doc","figs","proportionsBTS.png"))
 ```
 
 ```{r proportionsATS}
@@ -245,7 +246,7 @@ knitr::include_graphics("figs/proportionsBTS.png")
 #| messages: FALSE
 #| label: fig-proportionsATS
 #| fig.cap: "Proportions at age for recent years for the acoustic-trawl survey data where the columns represent the traditional microscope age estimates (TMA)  compared to the FTNIRs   age estimates (lines for the red-outlined panels)."
-knitr::include_graphics("figs/proportionsATS.png")
+knitr::include_graphics(here::here("doc","figs","proportionsATS.png"))
 ```
 
 ```{r dataFile}
@@ -254,7 +255,7 @@ knitr::include_graphics("figs/proportionsATS.png")
 #| messages: FALSE
 #| label: fig-dataFile
 #| fig.cap: "Schematic of input datafile showing the breakout of the fleet-specific FTNIRs age-error matrices (right panel) compared to that where the global FTNIRs age-error matrices are used (left panel). "
-knitr::include_graphics("figs/dataFile.png")
+knitr::include_graphics(here::here("doc","figs","dataFile.png"))
 ```
 
 For the assessment model, the alternatives are shown based on the coverage of data and
@@ -296,7 +297,7 @@ if (do_ft) {
   saveRDS(ftn_lst, here::here("runs", "ftnir.rds"))
 } else {
   ftn_lst <- readRDS(here::here("runs", "ftnir.rds"))
-  knitr::include_graphics("figs/DataExtent.png")
+  knitr::include_graphics(here::here("doc","figs","DataExtent.png"))
 }
 ```
 
@@ -374,7 +375,7 @@ gt_table %>%
 #| echo: false
 #| messages: FALSE
 #| label: tbl-ftn_ref
-#| tbl-cap: "Goodness-of-fit measures to primary data for different data and age-error applications. RMSE=root-mean square log errors, NLL=negative log-likelihood, SDNR=standard deviation of normalized residuals, Eff. N=effective sample size for composition data). See text for incremental model descriptions."
+#| tbl-cap: "Estimated derived quantities and selected corresponding CVs for stock status and reference point estimates to primary data (base) and for different FT-NIR data treatments for age-error estimates.  See text for incremental model descriptions."
 library(xtable)
 
 # Mgt quants by final
@@ -1033,6 +1034,8 @@ results can be found
 [here](https://github.com/noaa-afsc/EBS_pollock/tree/main/runs/SAM/poll24 "SAM model runs")).
 Comparing "selectivity" in the SAM model to the reference model, we see broad similarities
 but slightly lower inter-annual variability in the SAM run (@fig-sam).
+The spawning biomass trend largely overlaps in the uncertainty between the SAM and pollock
+model (@fig-samts-1). The recruitment estimates are similar as well (@fig-samts-2).
 
 ```{r}
 #| echo: false
@@ -1047,24 +1050,25 @@ Plot_Sel(sam_sel) + ggthemes::theme_few(base_size = 9)
 # ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
 
-The spawning biomass trend largely overlaps in the uncertainty between the SAM and pollock
-model (@fig-samts-1). The recruitment estimates are similar as well (@fig-samts-2).
-
 ```{r samts}
 #| label: fig-samts
-#| fig.cap: "Model results comparing last year's model with the SAM model for spawning biomass (top) and recruitment at age 1 (bottom)."
+#| fig-cap: "Model results comparing last year's model with the SAM model."
+#| fig-subcap:
+#|   - "Spawning biomass comparison of the 2024 assessment and SAM estimates."
+#|   - "Age-1 recruitment comparison of the 2024 assessment and SAM estimates."
+#| fig-height: 6
+#| fig-width: 8
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
-#|
-#c1$ts
+
 all_ts <- rbind(pm_run$ts, r1$ts, c1$ts, sam_run$ts) # ,gp_run$sel)
 (Plot_SSB(rbind(sam_run$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
-(Plot_SSB(rbind(c2$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
-(Plot_SSB(rbind(c2$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
+# (Plot_SSB(rbind(c2$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
+# (Plot_SSB(rbind(c2$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
 (Plot_Rec(rbind(sam_run$ts, pm_run$ts)) + ggthemes::theme_few(base_size = 12))
-all_ts <- rbind(pm_run$ts, c2$ts, c1$ts ) |> filter(Year > 2000, Year<2024)
-Plot_Rec( all_ts) + ggthemes::theme_few(base_size = 12)
+# all_ts <- rbind(pm_run$ts, c2$ts, c1$ts ) |> filter(Year > 2000, Year<2024)
+# Plot_Rec( all_ts) + ggthemes::theme_few(base_size = 12)
 # all_sel <- rbind(pm_run$sel,r1$sel,c2$sel)#,gp_run$sel)
 # ss_sel  <- rbind(r1$sel,r2$sel,r3$sel)#,r4$sel)#,r5$sel)
 ```
@@ -1078,24 +1082,29 @@ this effort given difficulties in some aspects of specifications and time constr
 
 The Rceattle model is developed by the AFSC and is written in TMB (@adams2022). The model
 is an extension of the ADMB version used for multi-species model in the Eastern Bering Sea
-(@jurado2005, @holsman2024) and has a number of newer features. It is generalizable to
+(@jurado2005, @holsman2024) and has a number of newer features. It is flexible enough to
 include a variety of data types using lengths and can be set up for species tracked for
-sexual dimorphic growth and other processes. Since it has been recast into TMB, it allows
+sexually dimorphic growth and other processes. Since it has been recast into TMB, it allows
 for the ability to specify random effects in a number of processes. One development of the
 model is to have the flexibility to bridge among extant single-species modeling platforms
 by using it in "single-species" mode. To illustrate that, we introduce an application of
-Rceattle to the EBS pollock data set. The model is not yet fully developed, but we present
-preliminary results for consideration. Initial runs are favorable but further work is
-needed to bridge the selectivity options. <!-- (@fig-rceattle). -->
+Rceattle to the EBS pollock data set. The model is still under development, but we present
+preliminary results for consideration. Initial runs are favorable and we were able to have
+time-varying selectivity treated as fixed-effects (meaning penalty weights pre-specified) but 
+also with them specified as random effects (with the penalty "variances" estimated 
+(@fig-rceattle_sel). The model estimates of SSB are similar to the 2024 model
+but more work is needed to understand where differences remain in the model specification
+(@fig-rceattle_ts).
 
 ```{r}
-#| label: fig-rceattle
-#| fig.cap: "Model results comparing last year's model with the Rceattle model."
+#| label: fig-rceattle_sel
+#| fig.cap: "Model selectivity estimates comparing last year's model with the Rceattle model with fixed-effect time varying fishery selectivity (CEA, FE) and random effects (CEA, RE)."
 #| echo: false
-#| eval: false
-#| warnings: FALSE
+#| eval: true
+#| warnings: false
 #| messages: FALSE
-
+#| fig-height: 9
+#| fig-width: 5
 
 cea_sel <- rbind(c1$sel, c2$sel, pm_run$sel) # ,r4$sel)#,r5$sel)
 Plot_Sel(cea_sel) + ggthemes::theme_few(base_size = 9)
@@ -1103,18 +1112,20 @@ Plot_Sel(cea_sel) + ggthemes::theme_few(base_size = 9)
 
 ```{r}
 #| label: fig-rceattle_ts
-#| eval: false
+#| eval: true
 #| echo: false
 #| warnings: FALSE
 #| messages: FALSE
-#| fig.cap: "Model results comparing last year's model with the Rceattle model."
-
+#| fig.cap: "Model estimates of spawning biomass (SSB) comparing last year's model with the Rceattle model with fixed-effect time varying fishery selectivity (CEA, FE) and random effects (CEA, RE)."
+#| fig-height: 6
+#| fig-width: 9
 all_ts <- rbind(pm_run$ts, c1$ts, c2$ts)
 Plot_SSB(all_ts) + ggthemes::theme_few(base_size = 19)
 ```
 
 ```{r}
 #| echo: false
+#| eval: false
 #| warnings: FALSE
 #| messages: FALSE
 #| label: fig-all
@@ -1126,6 +1137,7 @@ Plot_Sel(all_sel) + ggthemes::theme_few(base_size = 9)
 
 ```{r}
 #| echo: false
+#| eval: false
 #| warnings: FALSE
 #| messages: FALSE
 #| label: fig-all_ts
@@ -1156,13 +1168,14 @@ M-at-age compared to the base model.
 #| warning: false
 #| message: false
 #| label: fig-selspock
-#| fig-cap: "Model results comparing last year's model with the SPock model."
+#| fig-cap: "Model estimates of selectivity comparing last year's model with the SPock model."
+#|   - fig-subcap: "Model estimates of selectivity comparing last year's model with the SPock model."
 #|
 #names(spock$sel)
 #names(pm_run$sel)
 all_sel <- rbind(pm_run$sel, spock$sel) # , c2$sel)#,gp_run$sel)
 Plot_Sel_age(all_sel)
-#Plot_Sel(all_sel)
+Plot_Sel(all_sel)
 ```
 
 ```{r}

@@ -6761,6 +6761,7 @@ FUNCTION double calc_Francis_weights(const dmatrix oac, const dvar_matrix eac, c
   }
 
 REPORT_SECTION
+  save_gradients(gradients);
    R_report(NLL);
    R_report(wt_nll);
    ad_exit=&do_not_exit;

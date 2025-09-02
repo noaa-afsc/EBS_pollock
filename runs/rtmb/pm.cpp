@@ -7444,6 +7444,7 @@ void model_parameters::report(const dvector& gradients)
     cerr << "error trying to open report file"  << adprogram_name << ".rep";
     return;
   }
+  save_gradients(gradients);
    R_report(NLL);
    R_report(wt_nll);
    ad_exit=&do_not_exit;
