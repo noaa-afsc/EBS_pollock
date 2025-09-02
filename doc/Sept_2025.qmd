@@ -165,88 +165,77 @@ if (loadup) {
 
 # Summary
 
-This document is a follow-up to the  discussion paper presented to the Center
-for Independent Experts (CIE) review panel prepared in May 2025 ([link here](CIE.html)).  
-The review panel provided a set of
-recommendations to enhance the model structure, address key uncertainties, and
-improve transparency. This is
-Part 2 in which we show actions taken since the review and is intended 
-inform the September 2025 NPFMC review. It focuses on migrating the operational 
-model from ADMB to RTMB and begin to examine ways to evaluate the influence of Russian fishery.
+This document is a follow-up to the discussion paper presented to the Center for
+Independent Experts (CIE) review panel prepared in May 2025 ([link here](doc/CIE.qmd).\
+The review panel provided a set of recommendations to enhance the model structure, address
+key uncertainties, and improve transparency. This is Part 2 in which we show actions taken
+since the review and is intended inform the September 2025 NPFMC review. It focuses on
+migrating the operational model from ADMB to RTMB and begin to examine ways to evaluate
+the influence of Russian fishery.
 
-Since the May 2025 CIE review, several key developments have been made in the
-EBS pollock assessment. The most significant is the completed transition from
-ADMB to RTMB. The ported model successfully reproduces ADMB results for spawning
-biomass and recruitment with negligible differences, while enabling greater
-flexibility in estimating random-walk selectivity and recruitment deviations,
-propagating error through marginal likelihood, and integrating random effects.
-This provides a more modern and transparent framework for assessment. Work is
-also underway to address one of the reviewers’ main concerns—the absence of
-Russian removals. Scenario modeling is being conducted using Russian catch
-levels equivalent to 20–45% of U.S. catch, following reviewer guidance and
-recent publications. These runs will help bound the potential influence of
-transboundary removals before more collaborative modeling efforts are
-considered. Other areas highlighted by the review, such as process uncertainty,
-growth, weight-at-age, and alternative data-weighting approaches, remain planned
-or deferred. The tools for addressing them, including marginal-likelihood
-estimation of selectivity variance and Dirichlet–multinomial likelihoods, are
-now available in RTMB and other platforms, but implementation will follow the
-Russian catch work to avoid overlapping sources of change.
+Since the May 2025 CIE review, several key developments have been made in the EBS pollock
+assessment. The most significant is the completed transition from ADMB to RTMB. The ported
+model successfully reproduces ADMB results for spawning biomass and recruitment with
+negligible differences, while enabling greater flexibility in estimating random-walk
+selectivity and recruitment deviations, propagating error through marginal likelihood, and
+integrating random effects. This provides a more modern and transparent framework for
+assessment. Work is also underway to address one of the reviewers’ main concerns—the
+absence of Russian removals. Scenario modeling is being conducted using Russian catch
+levels equivalent to 20–45% of U.S. catch, following reviewer guidance and recent
+publications. These runs will help bound the potential influence of transboundary removals
+before more collaborative modeling efforts are considered. Other areas highlighted by the
+review, such as process uncertainty, growth, weight-at-age, and alternative data-weighting
+approaches, remain planned or deferred. The tools for addressing them, including
+marginal-likelihood estimation of selectivity variance and Dirichlet–multinomial
+likelihoods, are now available in RTMB and other platforms, but implementation will follow
+the Russian catch work to avoid overlapping sources of change.
 
 Bridging ADMB to RTMB required some adjustments in the ADMB code. These included shifting
-fishery dome-shaped selectivity penalties to apply at older ages and
-re-expressing “deviation-about-a-mean” parameterizations as direct level
-parameters with centered likelihoods. Verification exercises show that RTMB
-matches ADMB closely when fed identical parameter estimates, with gradients near
-zero and likelihood components in agreement.  Importantly, RTMB’s integration
-with modern R tools also allows efficient Bayesian sampling, demonstrated with
-the ADNUTS package.
+fishery dome-shaped selectivity penalties to apply at older ages and re-expressing
+“deviation-about-a-mean” parameterizations as direct level parameters with centered
+likelihoods. Verification exercises show that RTMB matches ADMB closely when fed identical
+parameter estimates, with gradients near zero and likelihood components in agreement.
+Importantly, RTMB’s integration with modern R tools also allows efficient Bayesian
+sampling, demonstrated with the ADNUTS package.
 
-Beyond model platform changes, comparative analyses were extended. Russian and
-U.S. assessments of pollock show broadly synchronous signals, particularly for
-recruitment, but differ markedly in scale: U.S. abundance estimates are
-typically two to four times greater than Russian estimates, with peaks exceeding
-fivefold differences in the early 2010s. These differences reflect not only
-survey coverage and model structure, but also contrasting harvest control rules.
-Russia has adopted a “modern MSY” approach, with higher target exploitation
-rates and lower biomass triggers, resulting in higher TACs when recruitment is
-favorable but greater risk if it falters. The U.S. maintains a more
-precautionary framework, constraining harvest below F_{MSY} and maintaining
-conservative biomass thresholds, which reduces volatility and risk. The
-immediate step to harmonize perspectives is inclusion of Russian removals in
-U.S. sensitivity analyses. A parallel comparison with the Gulf of Alaska pollock
-stock shows even starker contrasts, with EBS abundances five to fifteen times
-higher. Some weak coupling is evident at early ages, but overall the two
-populations are largely decoupled.
+Beyond model platform changes, comparative analyses were extended. Russian and U.S.
+assessments of pollock show broadly synchronous signals, particularly for recruitment, but
+differ markedly in scale: U.S. abundance estimates are typically two to four times greater
+than Russian estimates, with peaks exceeding fivefold differences in the early 2010s.
+These differences reflect not only survey coverage and model structure, but also
+contrasting harvest control rules. Russia has adopted a “modern MSY” approach, with higher
+target exploitation rates and lower biomass triggers, resulting in higher TACs when
+recruitment is favorable but greater risk if it falters. The U.S. maintains a more
+precautionary framework, constraining harvest below $F_{MSY}$ and maintaining conservative
+biomass thresholds, which reduces volatility and risk. The immediate step to harmonize
+perspectives is inclusion of Russian removals in U.S. sensitivity analyses. A parallel
+comparison with the Gulf of Alaska pollock stock shows even starker contrasts, with EBS
+abundances five to fifteen times higher. Some weak coupling is evident at early ages, but
+overall the two populations are largely decoupled.
 
-Additional technical notes were added for transparency, better documenting the 
-form of first-difference selectivity penalties in both time and age and
-confirming lognormal survey likelihood formulations against ADMB. Looking
-forward, near-term priorities are clear: completing the Russian-catch
-sensitivity runs, testing marginal-likelihood estimation of selectivity
-variances, piloting Dirichlet–multinomial likelihoods, and preparing staged
-analyses of weight-at-age and potential time-varying natural mortality. The
-platform migration is complete and validated, and the largest remaining source
-of uncertainty for 2025 advice is the treatment of Russian removals, with
-process-error and likelihood improvements sequenced to follow that critical
-step.
-
+Additional technical notes were added for transparency, better documenting the form of
+first-difference selectivity penalties in both time and age and confirming lognormal
+survey likelihood formulations against ADMB. Looking forward, near-term priorities are
+clear: completing the Russian-catch sensitivity runs, testing marginal-likelihood
+estimation of selectivity variances, piloting Dirichlet–multinomial likelihoods, and
+preparing staged analyses of weight-at-age and potential time-varying natural mortality.
+The platform migration is complete and validated, and the largest remaining source of
+uncertainty for 2025 advice is the treatment of Russian removals, with process-error and
+likelihood improvements sequenced to follow that critical step.
 
 # Response to 2025 CIE Review of EBS Walleye Pollock Assessment
 
 This section outlines the response to the findings and recommendations of the 2025 Center
 for Independent Experts (CIE) review of the Eastern Bering Sea (EBS) walleye pollock stock
-assessment. The final peer-reviewed reports from the three reviewers are from
-[Matt Cieri](https://www.st.nmfs.noaa.gov/Assets/Quality-Assurance/documents/peer-review-reports/2025/2025_08%20Cieri%20EBS%20Pollock%20Assessment%20Review.pdf), 
-[Yan Jiao](https://www.st.nmfs.noaa.gov/Assets/Quality-Assurance/documents/peer-review-reports/2025/2025_08%20Jiao%20EBS%20Pollock%20Assessment%20Review.pdf), and 
-[Anders Nielsen](https://www.st.nmfs.noaa.gov/Assets/Quality-Assurance/documents/peer-review-reports/2025/2025_08%20Nielsen%20EBS%20Pollock%20Assessment%20Review.pdf)
-
-<!-- [link](https://www.st.nmfs.noaa.gov/science-quality-assurance/cie-peer-reviews/cie-review-2025). -->
+assessment. Links to the reviews can be found from 
+[Matt Cieri](https://www.st.nmfs.noaa.gov/Assets/Quality-Assurance/documents/peer-review-reports/2025/2025_08%20Cieri%20EBS%20Pollock%20Assessment%20Review.pdf),
+[Yan Jiao](https://www.st.nmfs.noaa.gov/Assets/Quality-Assurance/documents/peer-review-reports/2025/2025_08%20Jiao%20EBS%20Pollock%20Assessment%20Review.pdf),
+and [Anders Nielsen](https://www.st.nmfs.noaa.gov/Assets/Quality-Assurance/documents/peer-review-reports/2025/2025_08%20Nielsen%20EBS%20Pollock%20Assessment%20Review.pdf)
 
 One of the reviewers’ primary concerns was the continued reliance on ADMB. This has now
 been resolved with the transition to RTMB, which enables use of random-walk selectivity
-and recruitment deviations, improved error propagation through marginal likelihoods and MCMC
-evaluations. 
+and recruitment deviations, improved error propagation through marginal likelihoods and
+MCMC evaluations.
 
 Another prominent theme was the absence of Russian removals from the assessment model. All
 three reviewers emphasized the need to explore the magnitude of this omission, both in
@@ -268,11 +257,11 @@ exploration of process error variances will follow after the Russian catch work 
 integrated.
 
 On data weighting and likelihood specification, Matt Cieri highlighted the potential
-advantages of a Dirichlet–multinomial (DM) framework estimated via Laplace
-approximation, as a more realistic representation of composition variance. For now, the
-bootstrap-based effective sample size approach has been retained, with DM implementation
-available in three different platforms (RCEATTLE, SPOCK, and the converted RTMB pollock
-model. We anticipate examining this as an option in the coming year.
+advantages of a Dirichlet–multinomial (DM) framework estimated via Laplace approximation,
+as a more realistic representation of composition variance. For now, the bootstrap-based
+effective sample size approach has been retained, with DM implementation available in
+three different platforms (RCEATTLE, SPOCK, and the converted RTMB pollock model. We
+anticipate examining this as an option in the coming year.
 
 A consolidated summary of reviewer recommendations and their current status is provided in
 @tbl-cie-final-responses.
@@ -289,54 +278,48 @@ tribble(
   ~Theme, ~`Lead Reviewer`, ~Recommendation, ~Status,
   "RTMB transition", "All", "Port model from ADMB to RTMB", "✅ Completed",
   "Russian catch", "All", "Incorporate or test Russian removals", "🟡 In progress",
-  "Selectivity complexity", "Nielsen", "Estimate process variances via marginal likelihood", "⚪ Planned",
-  "Natural mortality", "Jiao", "Explore M variation and CEATTLE integration", "⚪ Conceptual",
+  "Selectivity complexity", "Nielsen", "Estimate process variances via marginal likelihood", "🟡 In progress",
+  "Natural mortality", "Jiao", "Explore M variation and CEATTLE integration", "🟡 In progress",
   "Growth & WAA", "Jiao", "Model cohort and temperature effects on WAA", "⚪ Deferred",
   "Data weighting", "Cieri", "Test Dirichlet-multinomial likelihoods", "⚪  Available but deferred",
-  "Retrospective ", "Nielsen", "Use Mohn's rho over shorter periods", "✅ Completed"
+  "Retrospective ", "Nielsen", "Use Mohn's rho over shorter periods", "✅  Available"
 ) %>% 
   gt::gt()
 ```
 
-Since the review, we adopted the ADMB operational model used in 2024 and 
-ported it to RTMB. We verified that outputs match
-the between versions. Secondly, we have taken initial steps to address Russian 
-catch uncertainty by comparing of assessments between regions.
+Since the review, we adopted the ADMB operational model used in 2024 and ported it to
+RTMB. We verified that outputs match the between versions. Secondly, we have taken initial
+steps to address Russian catch uncertainty by comparing of assessments between regions.
 
 # Bridging ADMB to RTMB
 
-The original ADMB code (first developed for application in 1996--@ianelli1998) 
-has evolved over time and has a number of unique features. However, ADMB has less
-flexibility to incorporate random effects and marginal likelihood estimation. As such, we
-adopted the set of features used for the 2024 EBS pollock assessment and fully ported those to RTMB. 
-This transition enables several
-important enhancements, including the ability to estimate random-walk selectivity and
-recruitment deviations, improved error propagation through marginal likelihood, and
-greater transparency for code review and modifications. 
+The original ADMB code (first developed for application in 1996-[-@ianelli1998]) has
+evolved over time and has a number of unique features. However, ADMB has less flexibility
+to incorporate random effects and marginal likelihood estimation. As such, we adopted the
+set of features used for the 2024 EBS pollock assessment and fully ported those to RTMB.
+This transition enables several important enhancements, including the ability to estimate
+random-walk selectivity and recruitment deviations, improved error propagation through
+marginal likelihood, and greater transparency for code review and modifications.
 
-We changed the ADMB code as little as possible to 
-enable it to be compatible and work within the RTMB framework. One change  was the use of
-an `if` statement in the penalty for dome-shaped selectivity in the fishery. In the original ADMB code,
-the penalty was invoked *if* the selectivity at one age was less than the selectivity at the
-previous adjacent younger age. The modification to this was simply to penalize log-selectivities
-of adjacent age groups older than age 6. 
+We changed the ADMB code as little as possible to enable it to be compatible and work
+within the RTMB framework. One change was the use of an `if` statement in the penalty for
+dome-shaped selectivity in the fishery. In the original ADMB code, the penalty was invoked
+*if* the selectivity at one age was less than the selectivity at the previous adjacent
+younger age. The modification to this was simply to penalize log-selectivities of adjacent
+age groups older than age 6.
 
-The ADMB code also has several cases where say $y_i$ is a function of a parameter $\theta$ and
-a deviation $\epsilon_i$ such that $y_i = \theta + \epsilon_i$. In ADMB, the deviations
-are estimated as a vector of parameters with a constraint to have mean zero., In RTMB, it
-seems best to reparameterize them as a simple vector of parameters (say as $\theta_i$) and
-then do the likelihood parts as deviations from the mean.
-To this end, we modified the following parameters which were parameterized as deviations from the mean
-(e.g., `log_avgrec` (average recruitment), `log_avg_F` (average fishing
-mortality), `log_slp_bts` (slope of the selectivity for the bottom trawl))
-to be simply the vector of values.  These changes resulted in changes in the
-pattern of spawning biomass and recruitment estimates among the 2024 ADMB model and the 2024
-modified version of the ADMB model used for comparisons with the RTMB results (@fig-admbdiffs).
+The ADMB code also has several cases where say $y_i$ is a function of a parameter $\theta$
+and a deviation $\epsilon_i$ such that $y_i = \theta + \epsilon_i$. In ADMB, the
+deviations are estimated as a vector of parameters with a constraint to have mean zero.,
+In RTMB, it seems best to reparameterize them as a simple vector of parameters (say as
+$\theta_i$) and then do the likelihood parts as deviations from the mean. To this end, we
+modified the following parameters which were parameterized as deviations from the mean
+(e.g., `log_avgrec` (average recruitment), `log_avg_F` (average fishing mortality),
+`log_slp_bts` (slope of the selectivity for the bottom trawl)) to be simply the vector of
+values. These changes resulted in changes in the pattern of spawning biomass and
+recruitment estimates among the 2024 ADMB model and the 2024 modified version of the ADMB
+model used for comparisons with the RTMB results (@fig-admbdiffs).
 
-Once these minor modifications were made, the RTMB code was able to replicate the
-results from feeding the MLE parameter estimates from ADMB into the RTMB code. This 
-gave virtually the same estimates of spawning stock biomass (SSB) and age 1 recruits
-(@fig-SSB_recruits; @fig-diffs).
 
 
 ```{r}
@@ -396,13 +379,26 @@ p1/p2
 ## RTMB Model implementation
 
 The RTMB model code is implemented in the `R/` directory, with the main entry point in
-`R/Rpm.R`. The initial steps to bridge ADMB to RTMB involve identifying key components and their
-behaviors. We created a table function that was helpful to evaluate which components of the model
-in RTMB tracked with the ADMB version. When the bridging aspect was acheieved there were
-de minimus differences between the two model versions (@tbl-comparison).
-Additionally, after some initial testing we were able to take the parameter estimates from the ADMB
-model and show that the gradients were very close to zero and the negative log-likelihood
-values matched (tbl-gradient).
+`R/Rpm.R` within the main [repository](https://github.com/noaa-afsc/EBS_pollock). 
+The initial steps to bridge ADMB to RTMB involve identifying key components and
+their behaviors. We created a table function that was helpful to evaluate which components
+of the model in RTMB tracked with the ADMB version. When the bridging aspect was acheieved
+there were de minimus differences between the two model versions (@tbl-comparison).
+Additionally, after some initial testing we were able to take the parameter estimates from
+the ADMB model and show that the gradients were very close to zero and the negative
+log-likelihood values matched (@tbl-gradient).
+The RTMB code was able to replicate the results from feeding the MLE parameter 
+estimates from ADMB into the RTMB code (@fig-SSB_recruits). This gave virtually
+the same estimates of spawning stock biomass (SSB) and age 1 recruits  (@fig-diffs).
+
+Details of the RTMB implementation include initialization and parameter mapping
+contained in the `R/config.R` file which sources the model file `R/Rpm.R` along
+with `/R/utilities.R` and `R/model_funs.R`. Initial estimation exercises (with 
+"jittered" initial parameter values) suggested that the RTMB code required several
+re-starts to converge to the same solution as ADMB. We think this could be resolved
+by better phasing in of active parameter via the mapping procedure (similar to
+what is used in the ADMB code).
+
 
 ```{r}
 #| label: tbl-comparison
@@ -418,8 +414,6 @@ gt_compare_table2(rpm(parms), pm, tolerance = 1e-5, sort_by_diff=FALSE)
 data$return_nll_only <- TRUE
 ```
 
-
-
 ```{r}
 #| results: asis
 #| message: false
@@ -432,10 +426,6 @@ data$return_nll_only <- TRUE
 data.frame(par = names(obj$par), gr = abs(as.numeric(obj$gr())), gr_orig = as.numeric(obj$gr())) |> 
    arrange(desc(gr))  |> select(Parameter=par,gradient=gr_orig) |> head(20) |> gt::gt()
 ```
-
-<!-- ## Tuning -->
-
-<!-- The following code chunk generates a plot comparing the log values of two series (`r1` and `r2`) from the `df` data frame. The data is reshaped to a long format for easier plotting with `ggplot2`. -->
 
 <!-- So in config.R file I can turn off parameter sets and tell which ones are poorly estimated or ones that should be turned off completely. I may want to turn off creating the map from zero value parameters and I still need to work on getting the deviation parameters to work correctly with the right penalty. -->
 
@@ -500,18 +490,10 @@ p1/p2
 #| warning: false
 #| fig-width: 6
 #| fig-height: 9
-plot_ssb_value_ratio <- create_value_ratio_plot(df1, variable_name = "SSB", 
-                                                numerator_model = "RTMB", 
-                                                denominator_model = "ADMB")
-plot_ssb_stddev_ratio <- create_stddev_ratio_plot(df1, variable_name = "SSB", 
-                                                  numerator_model = "RTMB", 
-                                                  denominator_model = "ADMB")
-rec_ratio <- create_value_ratio_plot(df1, variable_name = "Recruits", 
-                                                numerator_model = "RTMB", 
-                                                denominator_model = "ADMB")
-rec_sd_ratio <- create_stddev_ratio_plot(df1, variable_name = "Recruits", 
-                                                  numerator_model = "RTMB", 
-                                                  denominator_model = "ADMB")
+plot_ssb_value_ratio <- create_value_ratio_plot(df1, variable_name = "SSB",  numerator_model = "RTMB",  denominator_model = "ADMB")
+plot_ssb_stddev_ratio <- create_stddev_ratio_plot(df1, variable_name = "SSB",  numerator_model = "RTMB",  denominator_model = "ADMB")
+rec_ratio <- create_value_ratio_plot(df1, variable_name = "Recruits",  numerator_model = "RTMB",  denominator_model = "ADMB")
+rec_sd_ratio <- create_stddev_ratio_plot(df1, variable_name = "Recruits",  numerator_model = "RTMB",  denominator_model = "ADMB")
 (plot_ssb_value_ratio)/ (plot_ssb_stddev_ratio)/
 (rec_ratio)/ (rec_sd_ratio)
 ```
@@ -573,41 +555,35 @@ plotly::ggplotly(ggplot(df_long, aes(x = name, y = (difference), fill = series))
 
 ## RTMB implementation of MCMC integrations
 
+A single run for a chain of 5,000 resulted in excellent mixing quality with the "poorest
+mixing" parameters demonstrating very good MCMC performance (@fig-mcmc). The trace plots
+show the typical "fuzzy caterpillar" pattern indicating good mixing and the pairwise plots
+reveal appropriate exploration of parameter space. The chains appear to be sampling
+efficiently from the posterior distributions without any divergent transitions or other
+issues. The high effective sample size (ESS) values (ranging from \~900-1793) suggest that
+the chains are providing plenty of independent samples from the posterior distribution.
 
-A single run for a chain of 5,000 resulted in excellent mixing quality with the 
-"poorest mixing" parameters demonstrating very good MCMC performance (@fig-mcmc).
-The trace plots show the typical "fuzzy caterpillar" pattern indicating good mixing
-and the pairwise plots reveal appropriate exploration of parameter space. 
-The chains appear to be sampling efficiently from the posterior distributions without any
-divergent transitions or other issues.
-The high effective sample size (ESS) values (ranging from ~900-1793)
-suggest that the chains are providing plenty of independent samples from the 
-posterior distribution. 
+Using some of the additional features of the `ADNUTS` R package shows that in relatively
+few commands, a useful suite of diagnostics can be created (@fig-mcmc-diagnostics).
 
-Using some of the additional features of teh `ADNUTS` R package
-shows that in relatively few commands, a useful suite of diagnostics can be
-created (@fig-mcmc-diagnostics). 
+This figure provides comprehensive validation of the Bayesian MCMC results against
+frequentist asymptotic approximations for the EBS pollock stock assessment model, showing
+excellent overall performance across all diagnostics. Panel (a) demonstrates tight
+agreement between posterior standard deviations and asymptotic standard errors along the
+1:1 line, validating that both approaches yield similar uncertainty estimates. Panel (b)
+shows well-behaved, approximately normal marginal posterior distributions for various
+log-scale parameters with good coverage by density curves, indicating proper sampling.
+Panel (c) presents the spawning stock biomass time series from 1978-2020, showing higher
+biomass in early years, decline through the 1980s-1990s, and lower variability in recent
+decades with appropriate uncertainty quantification throughout. Panel (d) displays
+pairwise plots for the 5 parameters with the greatest Bayesian-frequentist variance
+discrepancies, yet even these show reasonable correlations and good mixing in trace plots.
+Overall, this validation demonstrates that the RTMB Bayesian implementation performs
+excellently with close agreement to established frequentist methods while providing the
+additional benefits of full posterior distributions and proper uncertainty propagation.
 
-This figure provides comprehensive validation of the Bayesian MCMC results
-against frequentist asymptotic approximations for the EBS pollock stock
-assessment model, showing excellent overall performance across all diagnostics.
-Panel (a) demonstrates tight agreement between posterior standard deviations and
-asymptotic standard errors along the 1:1 line, validating that both approaches
-yield similar uncertainty estimates. Panel (b) shows well-behaved, approximately
-normal marginal posterior distributions for various log-scale parameters with
-good coverage by density curves, indicating proper sampling. Panel (c) presents
-the spawning stock biomass time series from 1978-2020, showing higher biomass in
-early years, decline through the 1980s-1990s, and lower variability in recent
-decades with appropriate uncertainty quantification throughout. Panel (d)
-displays pairwise plots for the 5 parameters with the greatest
-Bayesian-frequentist variance discrepancies, yet even these show reasonable
-correlations and good mixing in trace plots. Overall, this validation
-demonstrates that the RTMB Bayesian implementation performs excellently with
-close agreement to established frequentist methods while providing the
-additional benefits of full posterior distributions and proper uncertainty
-propagation.
-
-The point of using MCMC's is that in the future previously assumed variances can be estimated more objectively.
+The point of using MCMC's is that in the future previously assumed variances can be
+estimated more objectively.
 
 ```{r}
 #| echo: false
@@ -716,6 +692,7 @@ pairs(mcmc, pars=1:5, order='mismatch')
 #acf_plot
 
 ```
+
 # Considerations for future assessments regarding neighboring Russian federation fisheries
 
 As this year’s assessment moves forward, particular attention is warranted on how Russian
@@ -723,18 +700,16 @@ fisheries and assessments are considered alongside our own results. Pollock in t
 and western Bering Sea are generally recognized as a single biological stock, with
 seasonal exchange across the U.S.–Russia boundary documented by acoustic studies. As noted
 in the CIE reviews, Russian removals are substantial with recent estimates representing on
-the order of 20–45% of the U.S. catch in some years.\
-<!-- [oai_citation:0‡2025_08 Cieri EBS pollock assessment review report.pdf](file-service://file-DtNxGFHwQffPxqjpkEBdub) -->
+the order of 20–45% of the U.S. catch in some years.
 While examined in past assessments, the Russian catch magnitude should be re-evaluated to
 examine how they might alter management advice.
-<!-- [oai_citation:1‡2025_08 Cieri EBS pollock assessment review report.pdf](file-service://file-DtNxGFHwQffPxqjpkEBdub) [oai_citation:2‡2025_08 Nielsen EBS pollock assessment review report.pdf](file-service://file-9nnvtLxwuaXaY5D5r5qhm4).  -->
 As a step in beginning to make a more detailed evaluation, we compared the Russian stock
 assessment results presented as part of their Marine Stewardship Council (MSC) review
 panel with our model results (through 2024). The following sections compare outcomes from
 the assessments presented to
 
 
-### Russian literature context: MSY vs. Precaution in WBS pollock
+### Russian literature review related to WBS pollock
 
 The contrasts between the Russian WBS and U.S. EBS pollock assessments highlight both
 complementary perspectives and important methodological differences (@tbl-rususa-assessments). Both systems conclude
@@ -749,9 +724,9 @@ interpretation when comparing results across assessments: while the overall tren
 differences in model structure, reference points, and treatment of uncertainty can produce
 divergent management advice even under similar stock conditions.
 
-@BulatovVasilev2023 argue for moving from a precautionary HCR to a modern *MSY-based
-rule* for WBS/Navarin and N. Okhotsk pollock. Their stochastic projections (using
-*TISVPA*) resample historical recruitment (assumed independent of SSB) and set
+@BulatovVasilev2023 argue for moving from a precautionary HCR to a modern *MSY-based rule*
+for WBS/Navarin and N. Okhotsk pollock. Their stochastic projections (using *TISVPA*)
+resample historical recruitment (assumed independent of SSB) and set
 $F_{target} \ge F_{MSY}$, with *MSY* $B_{trigger}$ taken as the 5th percentile of the SSB
 distribution under $F_{MSY}$. Reported values include:
 
@@ -760,40 +735,39 @@ distribution under $F_{MSY}$. Reported values include:
 -   Expected catches 15–30% higher than under the precautionary rule (2002–2022
     reconstructions), with large short-term gains in 2022 (e.g., Navarin TAC +\~60%).
 
-The implications for our EBS–WBS comparison  are that the Russian MSY framing aligns with the
-recent WBS HCR updates (F<sub>target</sub>=F<sub>MSY</sub>, low B-trigger), helping
-explain higher Russian TAC recommendations when recruitment is strong. 
+The implications for our EBS–WBS comparison are that the Russian MSY framing aligns with
+the recent WBS HCR updates (F<sub>target</sub>=F<sub>MSY</sub>, low B-trigger), helping
+explain higher Russian TAC recommendations when recruitment is strong.
 
-@Datsky2022 provide a comprehensive synthesis of pollock
-distribution, biology, stock status, and fishery dynamics across the Bering Sea. Drawing
-on \>25 years of Russian survey and fishery data, they describe the **ecological
-plasticity** of pollock, its broad bathymetric range (20–600 m), and the role of
-**seasonal migrations** linking eastern and western Bering Sea populations.
+@Datsky2022 provide a comprehensive synthesis of pollock distribution, biology, stock
+status, and fishery dynamics across the Bering Sea. Drawing on \>25 years of Russian
+survey and fishery data, they describe the **ecological plasticity** of pollock, its broad
+bathymetric range (20–600 m), and the role of **seasonal migrations** linking eastern and
+western Bering Sea populations.
 
-Pollock in the Bering Sea are organized into three main regional
-groupings—eastern Bering Sea, Anadyr–Navarin, and western Bering Sea—that each
-maintain distinct spawning centers but intermingle during feeding migrations,
-especially in the northwest. The western stock experienced a marked decline in
-the late 1990s to early 2000s, but has gradually recovered since 2010, while
-biomass levels in the eastern and northwestern regions are now close to
-long-term averages. These dynamics are strongly shaped by environmental
-variability, including climate conditions, sea ice, and prey availability.
+Pollock in the Bering Sea are organized into three main regional groupings—eastern Bering
+Sea, Anadyr–Navarin, and western Bering Sea—that each maintain distinct spawning centers
+but intermingle during feeding migrations, especially in the northwest. The western stock
+experienced a marked decline in the late 1990s to early 2000s, but has gradually recovered
+since 2010, while biomass levels in the eastern and northwestern regions are now close to
+long-term averages. These dynamics are strongly shaped by environmental variability,
+including climate conditions, sea ice, and prey availability.
 
-In Russian waters, pollock dominate the fishery, making up about 70% of total
-catches, almost entirely from midwater trawls. Recent landings range between
-350,000 and 630,000 metric tons annually, with roughly 90% of harvests occurring
-between June and December. Importantly, the western and northwestern pollock
-populations are not isolated; they are continually reinforced by migrations from
-the eastern Bering Sea. This connectivity helps explain why U.S. and Russian
-assessments often capture similar recruitment and biomass patterns, even if
-absolute magnitudes differ, reflecting both shared basin-wide dynamics and
-methodological differences in survey coverage and assessment models.
+In Russian waters, pollock dominate the fishery, making up about 70% of total catches,
+almost entirely from midwater trawls. Recent landings range between 350,000 and 630,000
+metric tons annually, with roughly 90% of harvests occurring between June and December.
+Importantly, the western and northwestern pollock populations are not isolated; they are
+continually reinforced by migrations from the eastern Bering Sea. This connectivity helps
+explain why U.S. and Russian assessments often capture similar recruitment and biomass
+patterns, even if absolute magnitudes differ, reflecting both shared basin-wide dynamics
+and methodological differences in survey coverage and assessment models.
 
-Pollock dominate Russian Bering Sea fisheries, making up nearly 99% of total
-catches, with bycatch impacts on seabirds and marine mammals reported as very
-low (@Artyukhin2023; @Burdin2021). Recent analyses and
-reviews (@SharovJapp2023, @SharovJapp2024; @BulatovVasilev2023; @Datsky2022) 
-emphasize the ecological and management context of these fisheries.
+Pollock dominate Russian Bering Sea fisheries, making up nearly 99% of total catches, with
+bycatch impacts on seabirds and marine mammals reported as very low (@Artyukhin2023;
+@Burdin2021). Recent analyses and reviews (@SharovJapp2023, @SharovJapp2024;
+@BulatovVasilev2023; @Datsky2022) emphasize the ecological and management context of these
+fisheries.
+
 
 ::: {#tbl-rususa-assessments}
 Table: Comparison of Russian western Bering Sea (WBS) and U.S. eastern Bering Sea (EBS) pollock assessments.
@@ -821,6 +795,16 @@ suggesting that both assessments capture shared population dynamics across the
 basin while differing in magnitude due to survey intensity, model structure, and
 management frameworks.
 
+
+## Comparison of Russian and USA age‑structured assessment results
+
+Comparisons between Russian and U.S. assessments indicate that U.S. numbers-at-age are
+consistently higher, with total abundance estimates averaging about 2.9 times greater than
+Russian estimates (median ratio ≈ 2.7). Despite this scale difference, recruitment and
+biomass trends display synchrony, suggesting that both assessments capture shared
+population dynamics across the basin while differing in magnitude due to survey intensity,
+model structure, and management frameworks.
+
 The comparison of U.S. and Russian pollock assessments shows that U.S. estimates of total
 numbers-at-age are consistently higher than those from Russia, typically by a factor of
 2–4, with the ratio peaking above 5 in the early 2010s (@fig-plots_comparison,
@@ -833,7 +817,6 @@ structure and fishery/survey data inputs. Overall, while the magnitude of estima
 differs substantially between the two countries, the consistent synchrony in recruitment
 trends indicates that both assessments are capturing the same broad population dynamics,
 albeit with systematic differences in scale.
-
 
 ```{r}
 #| label: tbl-age_corr

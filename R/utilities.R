@@ -685,7 +685,7 @@ read_data <- function(file) {
 # helper
 
 read_wtage_data <- function(Wtage_file) {
-  cat("Opening", Wtage_file, "\n")
+  # cat("Opening", Wtage_file, "\n")
 
   # Read the entire file as lines
   lines <- readLines(Wtage_file)
