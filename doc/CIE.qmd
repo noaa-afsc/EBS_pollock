@@ -121,7 +121,7 @@ if (loadup) {
 
   # all_ts <- rbind( sam_run$ts,pm_run$ts,am_run$ts,ss_run$ts,gp_run$ts)
   save.image(file = here::here("compares.Rdata"))
-  qs::qsavem(spock, r1, r2, r3, c1, c2, pm_run, sam_run, file = here::here("compares.qs"))
+  # qs::qsavem(spock, r1, r2, r3, c1, c2, pm_run, sam_run, file = here::here("compares.qs"))
 } else {
   load(here::here("compares.Rdata"))
   spock$sel <- spock$sel %>%
@@ -1169,7 +1169,8 @@ M-at-age compared to the base model.
 #| message: false
 #| label: fig-selspock
 #| fig-cap: "Model estimates of selectivity comparing last year's model with the SPock model."
-#|   - fig-subcap: "Model estimates of selectivity comparing last year's model with the SPock model."
+#| fig-subcap: 
+#|   - "Model estimates of selectivity comparing last year's model with the SPock model."
 #|
 #names(spock$sel)
 #names(pm_run$sel)
