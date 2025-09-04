@@ -56,6 +56,13 @@ format:
       - \chead{--Draft--}
       - \rfoot{\thepage}
       - \lfoot{EBS pollock assessment discussion paper }
+  epub:
+    metadata:
+      title: "Eastern Bering Sea walleye pollock stock assessment research (part 2)"
+  docx:
+    metadata:
+      title: "Eastern Bering Sea walleye pollock stock assessment research (part 2)"
+    reference-docx: "template.docx"
       
 editor_options: 
   chunk_output_type: console
