@@ -177,8 +177,8 @@ Independent Experts (CIE) review panel prepared in May 2025 ([link here](doc/CIE
 The review panel provided a set of recommendations to enhance the model structure, address
 key uncertainties, and improve transparency. This is Part 2 in which we show actions taken
 since the review and is intended inform the September 2025 NPFMC review. It focuses on
-migrating the operational model from ADMB to RTMB and begin to examine ways to evaluate
-the influence of Russian fishery.
+migrating the operational model from ADMB to RTMB and begins to examine ways to evaluate
+the influence of the Russian fishery.
 
 Since the May 2025 CIE review, several key developments have been made in the EBS pollock
 assessment. The most significant is the completed transition from ADMB to RTMB. The ported
@@ -203,7 +203,7 @@ fishery dome-shaped selectivity penalties to apply at older ages and re-expressi
 likelihoods. Verification exercises show that RTMB matches ADMB closely when fed identical
 parameter estimates, with gradients near zero and likelihood components in agreement.
 Importantly, RTMB’s integration with modern R tools also allows efficient Bayesian
-sampling, demonstrated with the ADNUTS package.
+sampling, demonstrated with the adnuts R package.
 
 Beyond model platform changes, comparative analyses were extended. Russian and U.S.
 assessments of pollock show broadly synchronous signals, particularly for recruitment, but
@@ -215,8 +215,8 @@ target exploitation rates and lower biomass triggers, resulting in higher TACs w
 recruitment is favorable but greater risk if it falters. The U.S. maintains a more
 precautionary framework, constraining harvest below $F_{MSY}$ and maintaining conservative
 biomass thresholds, which reduces volatility and risk. The immediate step to harmonize
-perspectives is inclusion of Russian removals in U.S. sensitivity analyses. A parallel
-comparison with the Gulf of Alaska pollock stock shows even starker contrasts, with EBS
+perspectives is the inclusion of Russian removals as a sensitivity analyses in the EBS assessment. 
+A parallel comparison with the Gulf of Alaska pollock stock shows even starker contrasts, with EBS
 abundances five to fifteen times higher. Some weak coupling is evident at early ages, but
 overall the two populations are largely decoupled.
 
@@ -237,12 +237,11 @@ for Independent Experts (CIE) review of the Eastern Bering Sea (EBS) walleye pol
 assessment. Links to the reviews can be found from 
 [Matt Cieri](https://www.st.nmfs.noaa.gov/Assets/Quality-Assurance/documents/peer-review-reports/2025/2025_08%20Cieri%20EBS%20Pollock%20Assessment%20Review.pdf),
 [Yan Jiao](https://www.st.nmfs.noaa.gov/Assets/Quality-Assurance/documents/peer-review-reports/2025/2025_08%20Jiao%20EBS%20Pollock%20Assessment%20Review.pdf),
-and [Anders Nielsen](https://www.st.nmfs.noaa.gov/Assets/Quality-Assurance/documents/peer-review-reports/2025/2025_08%20Nielsen%20EBS%20Pollock%20Assessment%20Review.pdf)
+and [Anders Nielsen](https://www.st.nmfs.noaa.gov/Assets/Quality-Assurance/documents/peer-review-reports/2025/2025_08%20Nielsen%20EBS%20Pollock%20Assessment%20Review.pdf).
 
 One of the reviewers’ primary concerns was the continued reliance on ADMB. This has now
-been resolved with the transition to RTMB, which enables use of random-walk selectivity
-and recruitment deviations, improved error propagation through marginal likelihoods and
-MCMC evaluations.
+been resolved with the transition to RTMB, which enables easier use of random-effects for  selectivity
+and recruitment deviations.
 
 Another prominent theme was the absence of Russian removals from the assessment model. All
 three reviewers emphasized the need to explore the magnitude of this omission, both in
@@ -264,11 +263,13 @@ exploration of process error variances will follow after the Russian catch work 
 integrated.
 
 On data weighting and likelihood specification, Matt Cieri highlighted the potential
-advantages of a Dirichlet–multinomial (DM) framework estimated via Laplace approximation,
-as a more realistic representation of composition variance. For now, the bootstrap-based
+advantages of a Dirichlet–multinomial (DM) framework and other benefits related to random
+effects estimation via the Laplace approximation.
+For now, the bootstrap-based
 effective sample size approach has been retained, with DM implementation available in
-three different platforms (RCEATTLE, SPOCK, and the converted RTMB pollock model. We
-anticipate examining this as an option in the coming year.
+three different platforms (RCEATTLE, SPOCK, and rpm). 
+We anticipate examining this as an option in 2026 and seek guidance and advice from 
+the Plan Teams and SSC.
 
 A consolidated summary of reviewer recommendations and their current status is provided in
 @tbl-cie-final-responses.
@@ -294,16 +295,18 @@ tribble(
   gt::gt()
 ```
 
-Since the review, we adopted the ADMB operational model used in 2024 and ported it to
+Since the review, we ported  the ADMB operational model used in 2024 to
 RTMB. We verified that outputs match the between versions. Secondly, we have taken initial
-steps to address Russian catch uncertainty by comparing of assessments between regions.
+steps to address the Russian catch uncertainty by comparing of assessments between regions.
 
 # Bridging ADMB to RTMB
 
-The original ADMB code (first developed for application in 1996-[-@ianelli1998]) has
+The original ADMB code (first developed for application in 1996 [@ianelli1998]) has
 evolved over time and has a number of unique features. However, ADMB has less flexibility
-to incorporate random effects and marginal likelihood estimation. As such, we adopted the
+to incorporate random effects and marginal likelihood estimation. As such, we only adopted the
 set of features used for the 2024 EBS pollock assessment and fully ported those to RTMB.
+Features we ommitted included the ability to estimate time-varying natural mortality, predation and overlap
+factors, and a number of selectivity options to name a few. 
 This transition enables several important enhancements, including the ability to estimate
 random-walk selectivity and recruitment deviations, improved error propagation through
 marginal likelihood, and greater transparency for code review and modifications.
@@ -325,7 +328,9 @@ modified the following parameters which were parameterized as deviations from th
 `log_slp_bts` (slope of the selectivity for the bottom trawl)) to be simply the vector of
 values. These changes resulted in changes in the pattern of spawning biomass and
 recruitment estimates among the 2024 ADMB model and the 2024 modified version of the ADMB
-model used for comparisons with the RTMB results (@fig-admbdiffs).
+model used for comparisons with the RTMB results (@fig-admbdiffs). We note that the main
+cause of the differences between the original ADMB and the modified ADMB is the change in the
+way the dome-shaped selectivity penalty is applied.
 
 
 
@@ -389,8 +394,8 @@ The RTMB model code is implemented in the `R/` directory, with the main entry po
 `R/Rpm.R` within the main [repository](https://github.com/noaa-afsc/EBS_pollock). 
 The initial steps to bridge ADMB to RTMB involve identifying key components and
 their behaviors. We created a table function that was helpful to evaluate which components
-of the model in RTMB tracked with the ADMB version. When the bridging aspect was acheieved
-there were de minimus differences between the two model versions (@tbl-comparison).
+of the model in RTMB tracked with the ADMB version. When the bridging aspect was achieved
+there were extremely small differences between the two model versions (@tbl-comparison).
 Additionally, after some initial testing we were able to take the parameter estimates from
 the ADMB model and show that the gradients were very close to zero and the negative
 log-likelihood values matched (@tbl-gradient).
@@ -478,12 +483,12 @@ df1$year <- rep(1964:2024,4)
 p1<- df1 |> filter(name=="SSB") |>   ggplot(aes(x=year,y=value,color=model)) +
   geom_line(linetype=2) +
   geom_line(aes(x=year,y=std.dev*10)) +
-  labs(title = "RTMB vs ADMB SSB Standard Deviations", x = "Year ", y = "SSB, Standard Deviation x 10") +
+  labs(title = "RTMB vs ADMB SSB Standard errors", x = "Year ", y = "SSB, Standard errors x 10") +
 theme_minimal() 
 p2<- df1 |> filter(name!="SSB") |>   ggplot(aes(x=year,y=value,color=model)) +
   geom_line(linetype=2) +
   geom_line(aes(x=year,y=std.dev*10)) +
-  labs(title = "RTMB vs ADMB recruitment Standard Deviations", x = "Year ", y = "recruits, Standard Deviation x 10") +
+  labs(title = "RTMB vs ADMB recruitment Standard errors", x = "Year ", y = "recruits, Standard errors x 10") +
   theme_minimal()
 p1/p2
 
