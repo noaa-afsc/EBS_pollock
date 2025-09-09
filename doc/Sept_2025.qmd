@@ -173,7 +173,8 @@ if (loadup) {
 # Summary
 
 This document is a follow-up to the discussion paper presented to the Center for
-Independent Experts (CIE) review panel prepared in May 2025 ([link here](doc/CIE.qmd).\
+Independent Experts (CIE) review panel prepared in May 2025 
+([link here; part 1 of this report](https://noaa-afsc.github.io/EBS_pollock/doc/CIE.html)).
 The review panel provided a set of recommendations to enhance the model structure, address
 key uncertainties, and improve transparency. This is Part 2 in which we show actions taken
 since the review and is intended inform the September 2025 NPFMC review. It focuses on
