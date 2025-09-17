@@ -1368,26 +1368,32 @@ These were identified and will be suplemented and corrected for the November doc
 
 For Council consideration in 2025 and beyond, we plan to continue with the 2024 model but with
 the updated bottom-trawl survey methods (as presented to the CIE see part 1 of this report).
-In 2025 (this year) we will start with FT-NIR age compositions (processed in the same way as
-with results from traditional age estimation methods). 
-We will apply the revised estimates of acoustic-trawl survey uncertainty (as presented to the CIE see part 1 of this report; @urmy2025).
-We will also potentially continue to explore the use of the model converted to RTMB
-and run in parallel with the ADMB model (to the extent useful/practical). 
-If time allows, we will also explore some sensitivities with respect to the 
-hypotheses on connectivity of the stock in adjacent Russian waters.
-For 2026 we plan to:
 
-  - Present as a replacement for the ADMB code the RTMB code presented here, or prefereably
-the one of the models being developed in-house (Matt Cheng's or Grant Adams')
+For **2025** (this year) we will 
+
+  - adopt the updated software from AFSC GAP program to process the bottom-trawl survey data for aggregate biomass indices and age compositions (as presented to the CIE see part 1 of this report).
+  
+  - start with FT-NIR age compositions (processed in the same way as with results from traditional age estimation methods). 
+  
+  - apply the revised estimates of acoustic-trawl survey uncertainty (as presented to the CIE see part 1 of this report; @urmy2025).
+  
+  -  potentially continue to explore the use of the model converted to RTMB and run in parallel with the ADMB model (to the extent useful/practical). 
+  
+  - If time allows, we will also explore some sensitivities with respect to the  hypotheses on connectivity of the stock in adjacent Russian waters.
+
+
+For **2026** we plan to:
+
+  - Present as a replacement for the ADMB code the RTMB code presented here, or prefereably one of the models being developed in-house (Matt Cheng's or Grant Adams')
+  
+  - Continue to refine and validate the model structure, including selectivity pattern variability, random-effect factors affecting weight-at-age, and natural mortality rate variability.
 
   - Move forward with the FT-NIR age-composition data with fleet-specific age-error matrices
   
-  - Applying some advancements of the previous work on integrating survey data from acoustics and bottom-trawl to better quantify variable patterns in the vertical distribution of pollock (@monnahan2021).
+  - Further develop advancements of the previous work on integrating survey data from acoustics and bottom-trawl to better quantify variable patterns in the vertical distribution of pollock (@monnahan2021).
   
   - Explore the potential for integrating data from Russian surveys (if feasible) and develop a spatially disaggregated model (2 or 3 areas) to better represent the population dynamics and connectivity of the stock across the Bering Sea and adjacent Russian waters.
 
-  - Continue to refine and validate the model structure, including selectivity pattern variability, random-effect factors affecting weight-at-age, and natural mortality rate variability.
-  
-  - Include some developments on diagnostics for models where the effective degrees of freedom can be estimated and provide improvements on the model selection criteria (e.g., AIC, BIC) for models with random effects.
+  - Include some developments on diagnostics for models where the effective degrees of freedom can be estimated and provide improvements on the model selection criteria (e.g., AIC, BIC) for models with random effects (@zheng2024).
 
 # References

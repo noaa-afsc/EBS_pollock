@@ -27,5 +27,5 @@ context and then move to Part 2 for the most current results.
 
 ## Contents
 
-- [Part 1: Discussion paper presented to CIE review](doc/CIE.qmd)  
-- [Part 2: Assessment research developments for NPFMC Review](doc/Sept_2025.qmd)
+- [Part 1: Discussion paper presented to CIE review](doc/CIE.html)  
+- [Part 2: Assessment research developments for NPFMC Review](doc/Sept_2025.html)
