@@ -218,5 +218,152 @@
     "crumbs": [
       "Part 2, Assessment research developments for NPFMC Review"
     ]
+  },
+  {
+    "objectID": "R/testeq.html",
+    "href": "R/testeq.html",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "",
+    "text": "Years \\(y \\in \\{1964,\\ldots,2025\\}\\)\n\nAges \\(a \\in \\{1,\\ldots,A\\}\\) with \\(A=\\texttt{nages}\\)\n\nSpawning occurs at fraction \\(\\texttt{yrfrac}\\in[0,1]\\) within each year"
+  },
+  {
+    "objectID": "R/testeq.html#natural-mortality",
+    "href": "R/testeq.html#natural-mortality",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "2.1 Natural mortality",
+    "text": "2.1 Natural mortality\n\\[\nM_a=\n\\begin{cases}\n\\texttt{base\\_natmort}_a, & a\\in\\{1,2\\},\\\\[4pt]\n\\texttt{base\\_natmort}_a\\,\\exp(\\texttt{natmort\\_phi}), & a\\ge 3~.\n\\end{cases}\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#selectivity",
+    "href": "R/testeq.html#selectivity",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "2.2 Selectivity",
+    "text": "2.2 Selectivity\n\n2.2.1 Fishery selectivity\n\\[\ns^{\\text{fsh}}_{y,a}=\\exp\\!\\big(\\log s^{\\text{fsh}}_{y,a}\\big)\\,.\n\\]\n\n\n2.2.2 BTS selectivity (per-year logistic-by-age, free age–1)\nLet \\(a^\\ast=0.5+a\\) and index BTS years by \\(i\\). \\[\n\\log s^{\\text{bts}}_{i,a}=\n\\begin{cases}\n\\texttt{sel\\_age\\_one\\_bts\\_dev}[i], & a=1,\\\\[6pt]\n-\\log\\!\\Big(1+\\exp\\!\\big[-\\exp(\\texttt{sel\\_slp\\_bts\\_dev}[i])\\,(a^\\ast-\\exp(\\texttt{sel\\_a50\\_bts\\_dev}[i]))\\big]\\Big), & a\\ge 2,\n\\end{cases}\n\\qquad\ns^{\\text{bts}}_{i,a}=\\exp\\!\\big(\\log s^{\\text{bts}}_{i,a}\\big)\\,.\n\\]\n\n\n2.2.3 ATS selectivity\n\\[\ns^{\\text{ats}}_{i,a}=\\exp\\!\\big(\\log s^{\\text{ats}}_{i,a}\\big)\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#fishing-mortality-total-mortality-survival",
+    "href": "R/testeq.html#fishing-mortality-total-mortality-survival",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "2.3 Fishing mortality, total mortality, survival",
+    "text": "2.3 Fishing mortality, total mortality, survival\n\\[\nF^{\\star}_y=\\exp(\\texttt{log\\_F\\_devs}[y]),\\qquad\nF_{y,a}=F^{\\star}_y\\,s^{\\text{fsh}}_{y,a},\\qquad\nZ_{y,a}=M_a+F_{y,a},\\qquad\nS_{y,a}=\\exp(-Z_{y,a})\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#numbers-at-age-updates",
+    "href": "R/testeq.html#numbers-at-age-updates",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "2.4 Numbers-at-age updates",
+    "text": "2.4 Numbers-at-age updates\nInitial at \\(y=1964\\): \\[\nN_{1964},a}=\n\\begin{cases}\n\\text{(set by recruitment below)}, & a=1,\\\\\n\\exp(\\texttt{log_initdevs}[a]), & a=2,\\ldots,A~.\n\\end{cases}\n\\]\nRecruitment (working state): \\[\nN_{y,1}=\\exp\\!\\big(\\texttt{log\\_avgrec}+\\texttt{log\\_rec\\_devs}[y]\\big)\\,.\n\\]\nAging & plus group: \\[\nN_{y+1,a+1}=N_{y,a}\\,S_{y,a}\\quad (a=1,\\ldots,A-1),\\qquad\nN_{y+1,A}\\leftarrow N_{y+1,A}+N_{y,A}S_{y,A}\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#spawning-biomass",
+    "href": "R/testeq.html#spawning-biomass",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "2.5 Spawning biomass",
+    "text": "2.5 Spawning biomass\n\\[\n\\text{SSB}_y=0.5\\sum_{a=1}^{A} N_{y,a}\\,S_{y,a}^{\\texttt{yrfrac}}\\,p^{\\text{mat}}_a\\,w^{\\text{ssb}}_{y,a}\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#baranov-catch-in-numbers",
+    "href": "R/testeq.html#baranov-catch-in-numbers",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "5.1 Baranov catch in numbers",
+    "text": "5.1 Baranov catch in numbers\n\\[\nC^{(n)}_{y,a}\n= N_{y,a}\\,\\frac{F_{y,a}}{Z_{y,a}}\\big(1-e^{-Z_{y,a}}\\big)\n= N_{y,a}\\,\\frac{F_{y,a}}{Z_{y,a}}\\,(1-S_{y,a})\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#fishery-catch-and-composition",
+    "href": "R/testeq.html#fishery-catch-and-composition",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "5.2 Fishery catch and composition",
+    "text": "5.2 Fishery catch and composition\n\\[\n\\widehat{C}^{\\text{bio}}_y=\\sum_a C^{(n)}_{y,a}\\,w^{\\text{fsh}}_{y,a},\\qquad\n\\widehat{T}^{\\text{fsh}}_y=\\sum_a C^{(n)}_{y,a}\\,.\n\\]\nIf an ageing-error matrix \\(A\\) applies, the expected fishery age composition is \\[\n\\mathbf{p}^{\\text{fsh}}_y\n=\\frac{A\\,\\mathbf{C}^{(n)}_y}{\\mathbf{1}^\\top A\\,\\mathbf{C}^{(n)}_y}\n\\quad\\text{else}\\quad\n\\mathbf{p}^{\\text{fsh}}_y\n=\\frac{\\mathbf{C}^{(n)}_y}{\\mathbf{1}^\\top \\mathbf{C}^{(n)}_y}\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#cpue",
+    "href": "R/testeq.html#cpue",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "5.3 CPUE",
+    "text": "5.3 CPUE\n\\[\n\\widehat{I}^{\\text{cpue}}_y\n= q_{\\text{cpue}}\\sum_a N_{y,a}\\,w^{\\text{fsh}}_{y,a}\\,s^{\\text{fsh}}_{y,a}\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#avo-uses-ats-selectivity",
+    "href": "R/testeq.html#avo-uses-ats-selectivity",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "5.4 AVO (uses ATS selectivity)",
+    "text": "5.4 AVO (uses ATS selectivity)\n\\[\n\\widehat{I}^{\\text{avo}}_y\n= q_{\\text{avo}}\\sum_a N_{y,a}\\,w^{\\text{avo}}_{y,a}\\,s^{\\text{ats}}_{y,a}\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#bts-mid-year-availability",
+    "href": "R/testeq.html#bts-mid-year-availability",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "5.5 BTS (mid-year availability)",
+    "text": "5.5 BTS (mid-year availability)\n\\[\n\\widehat{I}^{\\text{bts}}_y\n= q_{\\text{bts}}\\sum_a N_{y,a}\\,S_{y,a}^{1/2}\\,w^{\\text{bts}}_{y,a}\\,s^{\\text{bts}}_{y,a},\n\\qquad\nq_{\\text{bts}}=\\frac{\\overline{O}_{\\text{bts}}}{\\overline{E}_{\\text{bts}}}\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#ats-mid-year-availability",
+    "href": "R/testeq.html#ats-mid-year-availability",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "5.6 ATS (mid-year availability)",
+    "text": "5.6 ATS (mid-year availability)\n\\[\n\\widehat{I}^{\\text{ats}}_y\n= q_{\\text{ats}}\\sum_a N_{y,a}\\,S_{y,a}^{1/2}\\,w^{\\text{ats}}_{y,a}\\,s^{\\text{ats}}_{y,a}\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#catch-biomass-lognormal",
+    "href": "R/testeq.html#catch-biomass-lognormal",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "7.1 Catch (biomass), lognormal",
+    "text": "7.1 Catch (biomass), lognormal\n\\[\n\\text{NLL}^{(\\text{cat})}\n=\\sum_y \\frac{\\big(\\log C^{\\text{obs}}_y-\\log \\widehat{C}^{\\text{bio}}_y\\big)^2}{2\\,\\tau^2_{\\text{cat},y}}\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#surveys",
+    "href": "R/testeq.html#surveys",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "7.2 Surveys",
+    "text": "7.2 Surveys\nIndependent lognormal forms (or MVN with \\(\\Sigma_y\\) if provided): \\[\n\\text{NLL}^{(\\text{cpue})}\n=\\sum_y \\frac{\\big(\\log I^{\\text{cpue}}_y-\\log \\widehat{I}^{\\text{cpue}}_y\\big)^2}{2\\,\\tau^2_{\\text{cpue},y}},\n\\qquad\n\\text{NLL}^{(\\text{avo})}\n=\\sum_y \\frac{\\big(\\log I^{\\text{avo}}_y-\\log \\widehat{I}^{\\text{avo}}_y\\big)^2}{2\\,\\tau^2_{\\text{avo},y}},\n\\] \\[\n\\text{NLL}^{(\\text{bts})}\n=\\sum_y \\frac{\\big(\\log I^{\\text{bts}}_y-\\log \\widehat{I}^{\\text{bts}}_y\\big)^2}{2\\,\\tau^2_{\\text{bts},y}}\n\\quad\\text{or}\\quad\n\\tfrac{1}{2}\\sum_y(\\mathbf{z}_y-\\widehat{\\mathbf{z}}_y)^\\top \\Sigma^{-1}_y (\\mathbf{z}_y-\\widehat{\\mathbf{z}}_y),\n\\] \\[\n\\text{NLL}^{(\\text{ats})}\n=\\sum_y \\frac{\\big(\\log I^{\\text{ats}}_y-\\log \\widehat{I}^{\\text{ats}}_y\\big)^2}{2\\,\\tau^2_{\\text{ats},y}}\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#ats-age-1-index",
+    "href": "R/testeq.html#ats-age-1-index",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "7.3 ATS age-1 index",
+    "text": "7.3 ATS age-1 index\n\\[\n\\text{NLL}^{(\\text{ats-age1})}\n=\\sum_y \\frac{\\big(\\log A^{\\text{obs}}_{1,y}-\\log \\widehat{A}_{1,y}\\big)^2}{2\\,\\sigma^2_{\\text{age1}}}\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#age-compositions-multinomial",
+    "href": "R/testeq.html#age-compositions-multinomial",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "7.4 Age compositions (multinomial)",
+    "text": "7.4 Age compositions (multinomial)\nFor dataset \\(d\\in\\{\\text{fsh},\\text{bts},\\text{ats}\\}\\) and samples \\(i\\): \\[\n\\text{NLL}^{(\\text{age},d)}=-\\sum_i n_i \\sum_{a} o^{(d)}_{i,a}\\,\\log p^{(d)}_{i,a}+\\text{const}\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#recruitment-bh",
+    "href": "R/testeq.html#recruitment-bh",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "7.5 Recruitment (BH)",
+    "text": "7.5 Recruitment (BH)\n\\[\n\\text{NLL}^{(\\text{rec})}\n=\\sum_{y\\in\\mathcal{Y}} \\frac{\\big(\\log R_y-\\log \\mathbb{E}[R_y\\mid \\text{SSB}_y]\\big)^2}{2\\,\\sigma_R^2}\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#centered-f-penalty",
+    "href": "R/testeq.html#centered-f-penalty",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "7.6 Centered \\(F\\) penalty",
+    "text": "7.6 Centered \\(F\\) penalty\n\\[\n\\text{NLL}^{(F\\text{-pen})}\n=\\sum_y \\big(\\texttt{log\\_F\\_devs}[y]-\\overline{\\texttt{log\\_F\\_devs}}\\big)^2\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#selectivity-penalties-shape-temporal",
+    "href": "R/testeq.html#selectivity-penalties-shape-temporal",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "7.7 Selectivity penalties (shape & temporal)",
+    "text": "7.7 Selectivity penalties (shape & temporal)\nGeneric quadratic forms consistent with code tuning: \\[\n\\text{NLL}^{(\\text{sel-shape})}\n=\\lambda_{\\text{age}}\\sum_{y}\\sum_{a}\\big(\\Delta^2_a \\log s_{y,a}\\big)^2,\\qquad\n\\text{NLL}^{(\\text{sel-dev})}\n=\\sum_{y}\\sum_{a}\\frac{\\big(\\Delta_y \\log s_{y,a}\\big)^2}{2\\,\\sigma^2_{\\text{ch},y}}\\,.\n\\]\n\n7.7.1 Average selectivity penalty\n\\[\n\\text{NLL}^{(\\overline{\\text{sel}})} = 10\\,\\big(\\texttt{avgsel\\_fsh}^2+\\texttt{avgsel\\_ats}^2\\big)\\,.\n\\]"
+  },
+  {
+    "objectID": "R/testeq.html#priors-example-beta-prior-on-steepness",
+    "href": "R/testeq.html#priors-example-beta-prior-on-steepness",
+    "title": "Stock Assessment: Population Dynamics, Predictions, and Likelihood",
+    "section": "7.8 Priors (example: Beta prior on steepness)",
+    "text": "7.8 Priors (example: Beta prior on steepness)\n\\[\n\\text{NLL}^{(\\text{prior-}h)}= -\\big[(a-1)\\log h + (b-1)\\log(1-h)\\big]\\,.\n\\]"
+  },
+  {
+    "objectID": "doc/ssc.html",
+    "href": "doc/ssc.html",
+    "title": "EBS Pollock Stock Assessment Update Checklist (2025)",
+    "section": "",
+    "text": "Data updates\n\nInsert final 2024 commercial catches (fleet/gear, retained/discards)\nVerify Russian catch updates\nAdd 2025 BTS biomass and age comps\nAdd 2024 ATS age comps (no new biomass estimate in 2025)\nUpdate 2025 AVO index\nInsert 2024–2025 fishery age/length comps\nRe-weight composition data (effective sample sizes)\nUpdate environmental/ancillary indices (copepod, sea ice, etc.)\nCheck FT-NIR age validation / genetics updates\n\n\n\nModel inputs and structure\n\nUpdate input data files to 2025 terminal year\nHandle missing ATS biomass index (skip-year) correctly\nRe-examine composition weighting method\nReview variance inflation factors for surveys\nCheck selectivity blocks and time-varying assumptions\n\n\n\nModel runs and diagnostics\n\nExtend base model to 2025\nConfirm convergence and parameter plausibility\nRun sensitivities (recruitment assumptions, survey weighting, Russian catch)\nUpdate retrospective analysis (peels including 2025)\nUpdate likelihood profiles (steepness, M, selectivity)\nRun MCMC/posterior sampling; check diagnostics (R-hat, ESS)\n\n\n\nReference points and projections\n\nRecalculate SSB, B40%, F40% (or proxy values)\nUpdate FABC and FOFL for 2026\nRun 2026–2036 projections with recruitment assumptions\nUpdate alternative harvest scenarios\n\n\n\nDocument and presentation updates\n\nUpdate SAFE text, tables, and executive summary\nReplace 2024 values with 2025 throughout\nRevise all figures (surveys, selectivity, fits, Kobe plots)\nEnsure consistency (no outdated numbers left in text)\nCheck table/figure numbering\nAddress 2025 PT/SSC requests\n\n\nNotes: Acoustic-trawl biomass index is static at 2024; only ATS ages are updated. AVO index extends to 2025. Main survey input is 2025 BTS.\n\nResponses to 2024 SSC Comments\nDynamic Species Environment Models (DSEM) and recruitment mechanisms\nThe SSC recommended further exploration of DSEM to reconcile contrasting signals such as record larval biomass in 2024, low age-0 abundance, chronically low condition, and increasing adult biomass.\nIn 2025, exploratory DSEM analyses continue under the ESR framework. No new results are incorporated into the current assessment, but anomalous recruitment indicators are highlighted in the Recruitment section for context.\nPollock cannibalism index\nThe SSC requested extrapolation of the index to biomass consumed.\nFor 2025, the index is updated. Work is underway to provide biomass-consumed estimates, though results are not yet finalized. This remains a development priority.\nTier 1 vs. Tier 3 classification\nThe SSC supported Tier 3 classification given reliance on priors and limited data at low stock sizes.\nThe 2025 assessment maintains Tier 3a status. Tier 1 calculations are not carried forward, consistent with SSC guidance.\nMultispecies model outputs\nThe SSC encouraged use of time-varying mortality or consumption estimates from the multispecies model, noting its strategic role in climate planning.\nIn 2025, no direct integration of multispecies outputs occurred. These remain under review for potential use in ESP indicators and future assessment development.\nBiological observations\nThe SSC noted low weight-at-age and condition in recent years and emphasized the importance of the 2018 year class.\nThe 2025 BTS confirms condition remains below average. The 2018 year class continues to dominate spawning biomass but shows expected decline as it ages out of the population.\nSelectivity assumptions\nThe SSC supported the use of the five-year moving average selectivity for projections.\nThis method is retained in 2025, with updated retrospective diagnostics.\nModel status and diagnostics\nThe SSC endorsed Model 23.0, Tier 3a classification, and ABC equal to the maximum permissible.\nModel 23.0 is retained for 2025 with updated data inputs. Tier 3a status and ABC recommendations remain as supported by the SSC.\nAdditional recommendations\n- State-space approach (TMB/RTMB): exploratory work is ongoing.\n- Russian proportion/movement: no new estimates available for 2025.\n- FT-NIR age validation: further evaluation continues; integration not yet implemented.\n- Recruitment penalty (2018 cohort): sensitivity analyses are included; discussion of penalty influence is provided.\nStock–Recruitment relationship\nThe SSC noted reduced influence under Tier 3, but stressed unbiased estimation of recruitment deviates and transparent use of steepness priors.\nRecruitment is estimated without bias correction; steepness priors remain meta-analysis based. No Tier 1 analyses are presented.\nDocumentation request\nThe SSC requested that the September 2024 SRR document be included as an appendix or linked.\nThe document has been added as Appendix X in this SAFE."
   }
 ]

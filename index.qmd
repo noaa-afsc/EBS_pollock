@@ -29,3 +29,5 @@ context and then move to Part 2 for the most current results.
 
 - [Part 1: Discussion paper presented to CIE review](doc/CIE.html)  
 - [Part 2: Assessment research developments for NPFMC Review](doc/Sept_2025.html)
+- [To do list ](doc/ssc.html) for 2025 assessment update
+

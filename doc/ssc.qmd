@@ -1,0 +1,96 @@
+---
+title: "To do list"
+format: html
+---
+---
+title: "EBS Pollock Stock Assessment Update Checklist (2025)"
+format: html
+---
+
+# Data updates
+- [ ] Insert final 2024 commercial catches (fleet/gear, retained/discards)
+- [ ] Verify Russian catch updates
+- [ ] Add 2025 BTS biomass and age comps
+- [ ] Add 2024 ATS age comps (no new biomass estimate in 2025)
+- [ ] Update 2025 AVO index
+- [ ] Insert 2024–2025 fishery age/length comps
+- [ ] Re-weight composition data (effective sample sizes)
+- [ ] Update environmental/ancillary indices (copepod, sea ice, etc.)
+- [ ] Check FT-NIR age validation / genetics updates
+
+# Model inputs and structure
+- [ ] Update input data files to 2025 terminal year
+- [ ] Handle missing ATS biomass index (skip-year) correctly
+- [ ] Re-examine composition weighting method
+- [ ] Review variance inflation factors for surveys
+- [ ] Check selectivity blocks and time-varying assumptions
+
+# Model runs and diagnostics
+- [ ] Extend base model to 2025
+- [ ] Confirm convergence and parameter plausibility
+- [ ] Run sensitivities (recruitment assumptions, survey weighting, Russian catch)
+- [ ] Update retrospective analysis (peels including 2025)
+- [ ] Update likelihood profiles (steepness, M, selectivity)
+- [ ] Run MCMC/posterior sampling; check diagnostics (R-hat, ESS)
+
+# Reference points and projections
+- [ ] Recalculate SSB, B40%, F40% (or proxy values)
+- [ ] Update FABC and FOFL for 2026
+- [ ] Run 2026–2036 projections with recruitment assumptions
+- [ ] Update alternative harvest scenarios
+
+# Document and presentation updates
+- [ ] Update SAFE text, tables, and executive summary
+- [ ] Replace 2024 values with 2025 throughout
+- [ ] Revise all figures (surveys, selectivity, fits, Kobe plots)
+- [ ] Ensure consistency (no outdated numbers left in text)
+- [ ] Check table/figure numbering
+- [ ] Address 2025 PT/SSC requests
+
+---
+
+*Notes: Acoustic-trawl biomass index is static at 2024; only ATS ages are updated. AVO index extends to 2025. Main survey input is 2025 BTS.*
+
+### Responses to 2024 SSC Comments
+
+**Dynamic Species Environment Models (DSEM) and recruitment mechanisms**  
+*The SSC recommended further exploration of DSEM to reconcile contrasting signals such as record larval biomass in 2024, low age-0 abundance, chronically low condition, and increasing adult biomass.*  
+  *In 2025, exploratory DSEM analyses continue under the ESR framework. No new results are incorporated into the current assessment, but anomalous recruitment indicators are highlighted in the Recruitment section for context.*
+
+**Pollock cannibalism index**  
+*The SSC requested extrapolation of the index to biomass consumed.*  
+  *For 2025, the index is updated. Work is underway to provide biomass-consumed estimates, though results are not yet finalized. This remains a development priority.*
+
+**Tier 1 vs. Tier 3 classification**  
+*The SSC supported Tier 3 classification given reliance on priors and limited data at low stock sizes.*  
+  *The 2025 assessment maintains Tier 3a status. Tier 1 calculations are not carried forward, consistent with SSC guidance.*
+
+**Multispecies model outputs**  
+*The SSC encouraged use of time-varying mortality or consumption estimates from the multispecies model, noting its strategic role in climate planning.*  
+  *In 2025, no direct integration of multispecies outputs occurred. These remain under review for potential use in ESP indicators and future assessment development.*
+
+**Biological observations**  
+*The SSC noted low weight-at-age and condition in recent years and emphasized the importance of the 2018 year class.*  
+  *The 2025 BTS confirms condition remains below average. The 2018 year class continues to dominate spawning biomass but shows expected decline as it ages out of the population.*
+
+**Selectivity assumptions**  
+*The SSC supported the use of the five-year moving average selectivity for projections.*  
+  *This method is retained in 2025, with updated retrospective diagnostics.*
+
+**Model status and diagnostics**  
+*The SSC endorsed Model 23.0, Tier 3a classification, and ABC equal to the maximum permissible.*  
+  *Model 23.0 is retained for 2025 with updated data inputs. Tier 3a status and ABC recommendations remain as supported by the SSC.*
+
+**Additional recommendations**  
+- *State-space approach (TMB/RTMB):* exploratory work is ongoing.  
+- *Russian proportion/movement:* no new estimates available for 2025.  
+- *FT-NIR age validation:* further evaluation continues; integration not yet implemented.  
+- *Recruitment penalty (2018 cohort):* sensitivity analyses are included; discussion of penalty influence is provided.
+
+**Stock–Recruitment relationship**  
+*The SSC noted reduced influence under Tier 3, but stressed unbiased estimation of recruitment deviates and transparent use of steepness priors.*  
+  *Recruitment is estimated without bias correction; steepness priors remain meta-analysis based. No Tier 1 analyses are presented.*
+
+**Documentation request**  
+*The SSC requested that the September 2024 SRR document be included as an appendix or linked.*  
+  *The document has been added as Appendix X in this SAFE.*
