@@ -94,3 +94,18 @@ format: html
 **Documentation request**  
 *The SSC requested that the September 2024 SRR document be included as an appendix or linked.*  
   *The document has been added as Appendix X in this SAFE.*
+  
+### SSC 2024 Comments and 2025 Responses
+
+| SSC Comment | 2025 Response |
+|-------------|---------------|
+| Explore use of DSEM for pollock recruitment anomalies | Highlighted anomalies in Recruitment section; exploratory analyses ongoing, no integration yet. |
+| Extrapolate cannibalism index to biomass consumed | Index updated; extrapolated biomass estimates in development, not finalized. |
+| Tier 1 vs. Tier 3 classification | Maintained Tier 3a classification; Tier 1 calculations not carried forward. |
+| Use multispecies model outputs (time-varying M, consumption) | No direct integration in 2025; retained for ESP and future assessment consideration. |
+| Biological observations (low condition, 2018 year class) | 2025 BTS confirms below-average condition; 2018 cohort still dominant but declining. |
+| Use of five-year moving average selectivity | Retained for 2025 projections; retrospective diagnostics updated. |
+| Endorse Model 23.0, Tier 3a, ABC=max permissible | Continued use of Model 23.0; Tier 3a classification; ABC set equal to maximum permissible. |
+| Recommendations: state-space approach, Russian distribution, FT-NIR, recruitment penalty | State-space exploration ongoing; no new Russian estimates; FT-NIR evaluation continues; penalty influence discussed with sensitivity runs. |
+| Stock–recruitment relationship | SRR not carried forward; recruitment deviates estimated unbiasedly; steepness prior remains meta-analysis based. |
+| Add Sept 2024 SRR document as appendix | Document included as Appendix X. |
