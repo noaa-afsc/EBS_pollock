@@ -81,6 +81,8 @@ Fit_bsp <- function (fn = "bsp0.xlsx", initmode=4, rand_rec=FALSE, rand_sel=FALS
 
 #fm00    <- Fit_bsp(fn = "bsp00.xlsx",rand_sel=FALSE, rand_rec = FALSE)
 fm0     <- Fit_bsp(fn = "bsp0.xlsx", rand_sel=FALSE, rand_rec = FALSE, initmode=2)
+names(fm0$quantities)
+(fm0$quantities$ssb)
 tail(getFs(fm0) |> filter(year %in% 2010:2024))
 plot_selectivity(fm0)
 #wham::check_estimability(fm0$obj)
