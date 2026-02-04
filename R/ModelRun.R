@@ -76,9 +76,9 @@ mcmc <- sample_snuts(obj, chains=1, cores=1, iter=5000, control = list(adapt_del
 #mcmc <- adnuts::sample_sparse_tmb(obj,skip_optimization=TRUE,iter=3000, chains = 8)
 #mcpilot <- adnuts::sample_sparse_tmb(obj,skip_optimizatioon=TRUE,iter=2000, chains = 5)
 plot_uncertainties(mcmc)
-pairs_admb(mcmc, pars=1:8, order='slow')
-pairs_admb(mcmc, pars=1:8, order='mismatch')
-pairs_admb(mcmc, pars=1200:1208)
+pairs(mcmc, pars=1:8, order='slow')
+pairs(mcmc, pars=1:8, order='mismatch')
+pairs(mcmc, pars=1200:1208)
 sum(grepl("log_F_devs", mcmc$par_names))
 
 #Merge RTMB and ADMB sds ######################################

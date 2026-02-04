@@ -1168,3 +1168,14 @@ assign_wtage_data <- function(wtage_data) {
    
    return(p)
  }
+ # Convert any single-element lists to scalars
+ fix_structure <- function(x) {
+   if(is.list(x) && length(x) == 1 && is.numeric(x[[1]])) {
+     return(x[[1]])
+   }
+   if(is.list(x) && all(sapply(x, is.numeric))) {
+     return(unlist(x))
+   }
+   return(x)
+ }
+ #parms <- fix_structure(parms)

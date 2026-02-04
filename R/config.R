@@ -24,29 +24,31 @@ pm$SSB <- pm$SSB[,2]
 parms <- read_pars(here::here("runs", "rtmb", "pm.par"))
 data <- Get_Data()
 data$sam_bts <- floor(pm$sam_bts) # to avoid non-integer sample sizes, was an issue!
+
 map_obj <- c(create_map_from_par(parms,  parms,   
                                           exact_names = c(
-                                             #"sel_devs_fsh", #Primary
+                                             #"sel_devs_fsh", 
                                              #"log_rec_devs",
-                                             #"sel_a50_bts_dev", #Primary
-                                             #"sel_slp_bts_dev", #Primary
-                                             #"sel_age_one_bts_dev", #Primary
-                                             #"log_F_devs", #Primary
-                                             # "sel_coffs_fsh", #Primary
+                                             #"sel_a50_bts_dev", 
+                                             #"sel_slp_bts_dev", 
+                                             #"sel_age_one_bts_dev", 
+                                             #"log_F_devs", 
+                                             # "sel_coffs_fsh", 
                                              # "log_initdevs",
-                                              "log_Rzero",
-                                              "steepness",
+                                             # "log_Rzero",
+                                             # "steepness",
                                              # "log_q_ats",
                                              # "log_q_cpue",
                                              # "log_q_avo",
                                              # "sel_devs_ats",
                                              # "sel_coffs_ats",
+                                             #"coh_eff", 
+                                             #"yr_eff", 
                                              # -- these are out of play from here down
-                                            "log_K","d_scale", "L1", "L2", #Secondary
-                                            "coh_eff", "yr_eff", #Secondary
+                                            "log_K","d_scale", "L1", "L2", 
                                              "log_avginit",
                                              "log_avgrec",
-                                             "log_avg_F", #Keep off
+                                             "log_avg_F", 
                                             "log_q_bts",
                                              "rec_dev_future",
                                             "natmort_phi",
@@ -76,21 +78,6 @@ map_obj <- c(create_map_from_par(parms,  parms,
                                             "log_alpha"
                                           ), exclude_patterns = "xxx")
 )
-# Convert any single-element lists to scalars
-fix_structure <- function(x) {
-  if(is.list(x) && length(x) == 1 && is.numeric(x[[1]])) {
-    return(x[[1]])
-  }
-  if(is.list(x) && all(sapply(x, is.numeric))) {
-    return(unlist(x))
-  }
-  return(x)
-}
-#parms <- fix_structure(parms)
+
 
 obj <- MakeADFun(rpm, parms, map = map_obj)
-
-#vars$data <- lapply(vars$data, fix_structure)
-#vars$parameters <- lapply(vars$parameters, fix_structure)
-#vars$data <- vars$data[sapply(vars$data, is.numeric)]
-source(here::here("R/rpm.R"))

@@ -131,3 +131,5 @@ sims
 *.tex.bak
 auto/
 runs/ss/hake
+
+**/*.quarto_ipynb

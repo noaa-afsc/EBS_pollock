@@ -42,6 +42,8 @@ website:
         text: Part 1, Discussion-paper presented to  CIE review
       - href: doc/Sept_2025.qmd
         text: Part 2, Assessment research developments for NPFMC Review
+      - href: doc/double_logistic_selectivity.qmd
+        text: Part 3, Exploration of 3-parameter double logistic selectivity option
 
 lightbox: true
 engine: knitr
@@ -107,4 +109,3 @@ bibliography: doc/references.bib
 filters:
   #- include-files.lua
   - quarto
-

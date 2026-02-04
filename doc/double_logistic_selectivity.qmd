@@ -1,0 +1,593 @@
+---
+title: "Double Logistic Selectivity (3-parameter formulation)"
+subtitle: "Results and parameterization from double_logistic_selectivity.R"
+lightbox: true
+format:
+  html:
+    toc: true
+    number-sections: true
+    embed-resources: true
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+## Overview
+
+This document summarizes the 3-parameter double logistic selectivity curve used
+for prior elicitation in the EBS pollock assessment workflow. The content and
+plots below are based on `double_logistic_selectivity.R` and are intended as a
+starting point for an RTMB prior demonstration.
+
+## Model definition
+
+Let age be $a$, with parameters $p_1$, $p_2$, and $p_3$ and derived inflection
+points $\gamma_1$ and $\gamma_2$:
+
+$$
+\gamma_1 = p_1 + p_2, \qquad
+\gamma_2 = 2p_1 + p_2 + p_3.
+$$
+
+The ascending limb is a standard logistic and the descending limb is
+one minus a logistic:
+
+$$
+\text{asc}(a) = \frac{1}{1 + \exp\left[-\log(19)\,\frac{a - \gamma_1}{p_1}\right]},
+$$
+
+$$
+\text{desc}(a) = 1 - \frac{1}{1 + \exp\left[-\log(19)\,\frac{a - \gamma_2}{p_3}\right]}.
+$$
+
+The full double logistic selectivity is
+
+$$
+\text{sel}(a) = \min\left(1,\ \frac{\text{asc}(a)\,\text{desc}(a)}{0.95^2}\right).
+$$
+
+### Interpretation
+
+- $p_1 > 0$ controls the ascending slope and is the distance from
+  $\gamma_1$ (50 percent selectivity) to the 95 percent point.
+- $p_2$ shifts the ascending limb through $\gamma_1 = p_1 + p_2$.
+- $p_3 > 0$ controls the descending slope and is the distance from
+  $\gamma_2$ (50 percent on the descending limb) to the 5 percent point.
+- The dome width is $\gamma_2 - \gamma_1 = p_1 + p_3$.
+- The factor $0.95^{-2}$ normalizes the curve so that when both limbs are at
+  0.95 the product is near 1 (then capped at 1.0).
+
+## Scenarios used in `double_logistic_selectivity.R`
+
+```{r setup}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(patchwork)
+
+dbl_logistic_sel <- function(age, p1, p2, p3) {
+  gamma1 <- p1 + p2
+  gamma2 <- 2 * p1 + p2 + p3
+
+  asc <- 1 / (1 + exp(-log(19) * (age - gamma1) / p1))
+  desc <- 1 - 1 / (1 + exp(-log(19) * (age - gamma2) / p3))
+
+  sel <- asc * desc * 0.95^(-2)
+  pmin(sel, 1.0)
+}
+
+ages <- seq(1, 15, by = 0.1)
+
+scenarios <- tibble(
+  scenario = c(
+    "Wide dome",
+    "Asymmetric\n(fast rise, slow decline)",
+    "Asymmetric\n(slow rise, fast decline)",
+    "Nearly asymptotic"
+  ),
+  p1 = c(2.0, 0.8, 2.0, 1.5),
+  p2 = c(4.0, 4.0, 3.0, 4.0),
+  p3 = c(2.5, 3.0, 0.8, 8.0)
+) %>%
+  mutate(
+    gamma1 = p1 + p2,
+    gamma2 = 2 * p1 + p2 + p3,
+    dome_width = gamma2 - gamma1
+  )
+
+sel_data <- scenarios %>%
+  rowwise() %>%
+  do({
+    scen <- .
+    tibble(
+      scenario = scen$scenario,
+      age = ages,
+      selectivity = dbl_logistic_sel(ages, scen$p1, scen$p2, scen$p3),
+      p1 = scen$p1,
+      p2 = scen$p2,
+      p3 = scen$p3,
+      gamma1 = scen$gamma1,
+      gamma2 = scen$gamma2
+    )
+  }) %>%
+  ungroup() %>%
+  mutate(
+    label = sprintf("%s\n(p1=%.1f, p2=%.1f, p3=%.1f)", scenario, p1, p2, p3)
+  )
+```
+
+```{r scenario-table}
+#| label: tbl-dl-scenarios
+#| tbl-cap: "Scenario parameters and derived inflection points"
+knitr::kable(
+  scenarios,
+  digits = 2
+)
+```
+
+The scenario summary in @tbl-dl-scenarios lists the four parameter sets and the
+derived inflection points ($\gamma_1$, $\gamma_2$) used in the selectivity
+scenarios.
+
+## Faceted scenario curves
+
+Each scenario appears on its own panel in @fig-dl-faceted so the ascent,
+descent, and dome width can be compared against the 50 and 95 percent reference
+lines.
+
+```{r plot-faceted}
+#| label: fig-dl-faceted
+#| fig-cap: "Double logistic selectivity for each parameter scenario."
+p1_plot <- ggplot(sel_data, aes(x = age, y = selectivity)) +
+  geom_line(linewidth = 1.2, color = "steelblue") +
+  geom_hline(yintercept = c(0.5, 0.95), linetype = "dashed",
+             color = "gray50", alpha = 0.7) +
+  geom_vline(aes(xintercept = gamma1), linetype = "dotted",
+             color = "red", alpha = 0.5) +
+  geom_vline(aes(xintercept = gamma2), linetype = "dotted",
+             color = "orange", alpha = 0.5) +
+  facet_wrap(~label, ncol = 2) +
+  scale_x_continuous(breaks = seq(2, 14, by = 2)) +
+  scale_y_continuous(limits = c(0, 1.05), breaks = seq(0, 1, by = 0.25)) +
+  labs(
+    title = "3-parameter double logistic selectivity curves",
+    subtitle = "Dashed lines show 50 and 95 percent selectivity",
+    x = "Age",
+    y = "Selectivity",
+    caption = "Red dotted = gamma1, orange dotted = gamma2"
+  ) +
+  theme_bw(base_size = 11) +
+  theme(
+    strip.text = element_text(size = 9),
+    plot.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+
+p1_plot
+```
+
+## Overlay comparison
+
+All scenarios are overlaid in @fig-dl-overlay to highlight differences in peak
+age and decline shape when the curves are viewed on a common axis.
+
+```{r plot-overlay}
+#| label: fig-dl-overlay
+#| fig-cap: "All scenarios overlaid for direct comparison."
+p2_plot <- ggplot(sel_data, aes(x = age, y = selectivity, color = scenario)) +
+  geom_line(linewidth = 1.2) +
+  geom_hline(yintercept = c(0.5, 0.95), linetype = "dashed",
+             color = "gray50", alpha = 0.5) +
+  scale_x_continuous(breaks = seq(2, 14, by = 2)) +
+  scale_y_continuous(limits = c(0, 1.05), breaks = seq(0, 1, by = 0.25)) +
+  scale_color_brewer(palette = "Set1", name = "Scenario") +
+  labs(
+    title = "Comparison of double logistic selectivity curves",
+    subtitle = "All scenarios overlaid",
+    x = "Age",
+    y = "Selectivity"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(
+    legend.position = "right",
+    plot.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+
+p2_plot
+```
+
+## Parameter sensitivity analysis
+
+The three panels in @fig-dl-sensitivity show how each parameter changes the
+curve when the other two are held fixed.
+
+```{r plot-sensitivity}
+#| label: fig-dl-sensitivity
+#| fig-cap: "Sensitivity to p1, p2, and p3 with other parameters fixed."
+#| fig-width: 8
+#| fig-height: 8
+p1_vary <- expand_grid(
+  p1 = seq(0.5, 3, by = 0.5),
+  p2 = 5,
+  p3 = 2,
+  age = ages
+) %>%
+  rowwise() %>%
+  mutate(selectivity = dbl_logistic_sel(age, p1, p2, p3)) %>%
+  ungroup()
+
+p3a <- ggplot(p1_vary, aes(x = age, y = selectivity, color = factor(p1))) +
+  geom_line(linewidth = 1) +
+  scale_color_viridis_d(name = "p1", option = "C") +
+  scale_y_continuous(limits = c(0, 1.05)) +
+  labs(title = "Sensitivity to p1 (ascending slope)",
+       subtitle = "p2 = 5, p3 = 2 fixed",
+       x = "Age", y = "Selectivity") +
+  theme_bw(base_size = 9) +
+  theme(
+    legend.position = "right",
+    aspect.ratio = 1
+  )
+
+p2_vary <- expand_grid(
+  p1 = 1.5,
+  p2 = seq(2, 8, by = 1),
+  p3 = 2,
+  age = ages
+) %>%
+  rowwise() %>%
+  mutate(selectivity = dbl_logistic_sel(age, p1, p2, p3)) %>%
+  ungroup()
+
+p3b <- ggplot(p2_vary, aes(x = age, y = selectivity, color = factor(p2))) +
+  geom_line(linewidth = 1) +
+  scale_color_viridis_d(name = "p2", option = "D") +
+  scale_y_continuous(limits = c(0, 1.05)) +
+  labs(title = "Sensitivity to p2 (horizontal shift)",
+       subtitle = "p1 = 1.5, p3 = 2 fixed",
+       x = "Age", y = "Selectivity") +
+  theme_bw(base_size = 9) +
+  theme(
+    legend.position = "right",
+    aspect.ratio = 1
+  )
+
+p3_vary <- expand_grid(
+  p1 = 1.5,
+  p2 = 4,
+  p3 = seq(0.5, 6.5, by = 1),
+  age = ages
+) %>%
+  rowwise() %>%
+  mutate(selectivity = dbl_logistic_sel(age, p1, p2, p3)) %>%
+  ungroup()
+
+p3c <- ggplot(p3_vary, aes(x = age, y = selectivity, color = factor(p3))) +
+  geom_line(linewidth = 1) +
+  scale_color_viridis_d(name = "p3", option = "E") +
+  scale_y_continuous(limits = c(0, 1.05)) +
+  labs(title = "Sensitivity to p3 (descending slope)",
+       subtitle = "p1 = 1.5, p2 = 4 fixed",
+       x = "Age", y = "Selectivity") +
+  theme_bw(base_size = 9) +
+  theme(
+    legend.position = "right",
+    aspect.ratio = 1
+  )
+
+p_sensitivity <- (p3a | p3b) / (p3c | plot_spacer()) +
+  plot_annotation(
+    title = "Parameter sensitivity analysis",
+    subtitle = "Effect of varying each parameter individually"
+  )
+
+p_sensitivity
+```
+
+## RTMB draft with priors
+
+A common approach is to estimate on the log scale for the positive parameters
+and apply lognormal priors on $p_1$ and $p_3$:
+
+$$
+\log(p_k) \sim \mathcal{N}(\mu_k, \sigma_k^2), \qquad k \in \{1, 3\}.
+$$
+
+If using a lognormal prior specified by median $m$ and coefficient of variation
+$\text{CV}$ on the natural scale, a convenient conversion is
+
+$$
+\mu = \log(m), \qquad \sigma = \sqrt{\log(\text{CV}^2 + 1)}.
+$$
+
+Parameter $p_2$ can remain unconstrained (normal prior) or be modeled on the log
+scale if you want to enforce $p_2 > 0$.
+
+The draft RTMB objective below is set up for a single selectivity curve with
+Gaussian observation error and priors on $p_1$, $p_2$, and $p_3$. Replace
+`sel_obs` and `sel_sd` with observed selectivity or pseudo-data for a prior
+conditioning exercise.
+
+```{r rtmb-draft}
+#| eval: true
+#| echo: false
+library(RTMB)
+
+dbl_logistic_sel <- function(age, p1, p2, p3) {
+  gamma1 <- p1 + p2
+  gamma2 <- 2 * p1 + p2 + p3
+  asc <- 1 / (1 + exp(-log(19) * (age - gamma1) / p1))
+  desc <- 1 - 1 / (1 + exp(-log(19) * (age - gamma2) / p3))
+  #pmin(asc * desc * 0.95^(-2), 1.0)
+  (asc * desc * 0.95^(-2))
+}
+
+lognorm_from_median_cv <- function(median, cv) {
+  sigma <- sqrt(log(cv^2 + 1))
+  mu <- log(median)
+  list(mu = mu, sigma = sigma)
+}
+
+age <- seq(1, 15, by = 0.25)
+sel_obs <- c(
+  0, 0, 0, 0, 0, 0, 0, 0.01, 0.01, 0.037142857, 0.064285714, 0.091428571,
+  0.118571429, 0.145714286, 0.172857143, 0.2, 0.205882353, 0.211764706,
+  0.217647059, 0.223529412, 0.229411765, 0.235294118, 0.241176471,
+  0.247058824, 0.252941176, 0.258823529, 0.264705882, 0.270588235,
+  0.276470588, 0.282352941, 0.288235294, 0.294117647, 0.3, 0.31, 0.32,
+  0.33, 0.34, 0.35, 0.36, 0.37, 0.38, 0.39, 0.4, 0.41, 0.42, 0.43,
+  0.44, 0.45, 0.46, 0.47, 0.48, 0.49, 0.5, 0.5125, 0.525, 0.5375, 0.55,
+  0.5625, 0.575, 0.5875, 0.6, 0.6125, 0.625, 0.6375, 0.65, 0.6625,
+  0.675, 0.6875, 0.7, 0.7125, 0.725, 0.7375, 0.75, 0.7625, 0.775,
+  0.7875, 0.8, 0.807894737, 0.815789474, 0.823684211, 0.831578947,
+  0.839473684, 0.847368421, 0.855263158, 0.863157895, 0.871052632,
+  0.878947368, 0.886842105, 0.894736842, 0.902631579, 0.910526316,
+  0.918421053, 0.926315789, 0.934210526, 0.942105263, 0.95, 0.954545455,
+  0.959090909, 0.963636364, 0.968181818, 0.972727273, 0.977272727,
+  0.981818182, 0.986363636, 0.990909091, 0.995454545, 1, 1, 1, 1, 1, 1,
+  1, 0.989285714, 0.978571429, 0.967857143, 0.957142857, 0.946428571,
+  0.935714286, 0.925, 0.914285714, 0.903571429, 0.892857143, 0.882142857,
+  0.871428571, 0.860714286, 0.85, 0.839285714, 0.828571429, 0.817857143,
+  0.807142857, 0.796428571, 0.785714286, 0.775, 0.764285714, 0.753571429,
+  0.742857143, 0.732142857, 0.721428571, 0.710714286, 0.7
+)
+sel_sd <- rep(0.05, length(age))
+
+p1_prior <- lognorm_from_median_cv(median = 1.5, cv = 0.4)
+p3_prior <- lognorm_from_median_cv(median = 2.5, cv = 0.6)
+p2_prior <- list(mu = 4, sigma = 1)
+
+make_prior_data <- function(p1_prior, p2_prior, p3_prior) {
+  list(
+    age = age,
+    sel_obs = sel_obs,
+    sel_sd = sel_sd,
+    mu_log_p1 = p1_prior$mu,
+    sd_log_p1 = p1_prior$sigma,
+    mu_p2 = p2_prior$mu,
+    sd_p2 = p2_prior$sigma,
+    mu_log_p3 = p3_prior$mu,
+    sd_log_p3 = p3_prior$sigma
+  )
+}
+
+data <- make_prior_data(p1_prior, p2_prior, p3_prior)
+
+#parms <- list(
+parameters <- list(
+  log_p1 = log(1.5),
+  p2 = 4,
+  log_p3 = log(2.5)
+)
+
+make_obj <- function(data, parameters) {
+  f <- function(parms) {
+    getAll(data, parms, warn = FALSE)
+    p1 <- exp(log_p1)
+    p3 <- exp(log_p3)
+    sel_hat <- dbl_logistic_sel(age, p1, p2, p3)
+
+    nll <- 0
+    # nll <- nll - sum(dnorm(sel_obs, sel_hat, sel_sd, log = TRUE))
+    nll <- nll - dnorm(log_p1, mu_log_p1, sd_log_p1, log = TRUE)
+    nll <- nll - dnorm(p2, mu_p2, sd_p2, log = TRUE)
+    nll <- nll - dnorm(log_p3, mu_log_p3, sd_log_p3, log = TRUE)
+
+    ADREPORT(c(p1 = p1, p2 = p2, p3 = p3))
+    nll
+  }
+
+  MakeADFun(f, parameters)
+}
+
+obj <- make_obj(data, parameters)
+opt <- nlminb(obj$par, obj$fn, obj$gr)
+sdrep <- sdreport(obj)
+
+# MCMC (SparseNUTS) sketch
+# devtools::install_github("noaa-afsc/SparseNUTS")
+# If you see: "unused argument (check_diagnostics = FALSE)",
+# update StanEstimators (it must accept that argument):
+# remotes::install_github("andrjohns/StanEstimators")
+library(SparseNUTS)
+run_snuts <- function(obj, data, seed = 1, model_name = "selectivity") {
+  sample_snuts(
+    obj,
+    refresh = 0,
+    seed = seed,
+    model_name = model_name,
+    cores = 1,
+    chains = 1,
+    num_samples = 1150,
+    num_warmup = 150,
+    globals = list(dat = data)
+  )
+}
+
+fit_set1 <- run_snuts(obj, data, seed = 1, model_name = "selectivity_set1")
+```
+
+## MCMC evaluations
+
+```{r mcmc-selectivity-helpers}
+#| include: false
+#| echo: false
+mcmc_selectivity_df <- function(fit, age) {
+  p1 <- exp(fit$samples[, , 1])
+  p2 <- fit$samples[, , 2]
+  p3 <- exp(fit$samples[, , 3])
+
+  tibble(p1, p2, p3) %>%
+    mutate(set = factor(row_number())) %>%
+    crossing(age = age) %>%
+    mutate(sel = dbl_logistic_sel(age, p1, p2, p3)) %>%
+    mutate(age = as.numeric(age)) %>%
+    arrange(set, age)
+}
+
+plot_mcmc_selectivity <- function(df, alpha = 0.1) {
+  ggplot(df, aes(age, sel, group = set)) +
+    geom_line(alpha = alpha) +
+    ggthemes::theme_few()
+}
+```
+
+```{r plot-marginals}
+#| echo: false
+#| label: fig-dl-marginals
+#| fig-cap: "Marginal posterior distributions for selectivity parameters (SparseNUTS, prior set 1)."
+SparseNUTS::plot_marginals(fit_set1, pars = 1:3)
+#SparseNUTS::plot_uncertainties(fit_set1)
+```
+
+The marginal posterior densities in @fig-dl-marginals summarize $(p_1, p_2,
+p_3)$ under prior set 1, highlighting the implied uncertainty in each parameter.
+
+```{r plot-pairs}
+#| label: fig-dl-pairs
+#| fig-cap: "Pairwise posterior scatterplots for selectivity parameters (SparseNUTS, prior set 1)."
+#| echo: false
+pairs(fit_set1)
+```
+
+Pairwise posterior relationships in @fig-dl-pairs show $(p_1, p_2, p_3)$ and are
+useful for diagnosing parameter correlations and non-linear structure.
+
+```{r posterior-draws-set1}
+#| label: fig-dl-mcmc-set1
+#| fig-cap: "MCMC selectivity draws for prior set 1 (p1 median 1.5, p3 median 2.5, p2 sd 1)."
+df_set1 <- mcmc_selectivity_df(fit_set1, age)
+plot_mcmc_selectivity(df_set1)
+```
+
+Posterior selectivity draws in @fig-dl-mcmc-set1 show the spread of age-specific
+selectivity implied by prior set 1.
+
+```{r mcmc-prior-sets}
+p1_prior_set2 <- lognorm_from_median_cv(median = 1.5, cv = 0.4)
+p3_prior_set2 <- lognorm_from_median_cv(median = 8, cv = 0.6)
+p2_prior_set2 <- list(mu = 4, sigma = 1)
+data_set2 <- make_prior_data(p1_prior_set2, p2_prior_set2, p3_prior_set2)
+obj_set2 <- make_obj(data_set2, parameters)
+fit_set2 <- run_snuts(obj_set2, data_set2, seed = 2, model_name = "selectivity_set2")
+
+p1_prior_set3 <- lognorm_from_median_cv(median = 1.5, cv = 0.4)
+p3_prior_set3 <- lognorm_from_median_cv(median = 8, cv = 0.6)
+p2_prior_set3 <- list(mu = 4, sigma = 2)
+data_set3 <- make_prior_data(p1_prior_set3, p2_prior_set3, p3_prior_set3)
+obj_set3 <- make_obj(data_set3, parameters)
+fit_set3 <- run_snuts(obj_set3, data_set3, seed = 3, model_name = "selectivity_set3")
+```
+
+```{r posterior-draws-set2}
+#| label: fig-dl-mcmc-set2
+#| fig-cap: "MCMC selectivity draws for prior set 2 (p1 median 1.5, p3 median 8, p2 sd 1)."
+df_set2 <- mcmc_selectivity_df(fit_set2, age)
+plot_mcmc_selectivity(df_set2)
+```
+
+The selectivity draws in @fig-dl-mcmc-set2 show prior set 2, which widens the
+dome by increasing the median of $p_3$.
+
+```{r posterior-draws-set3}
+#| label: fig-dl-mcmc-set3
+#| fig-cap: "MCMC selectivity draws for prior set 3 (p1 median 1.5, p3 median 8, p2 sd 2)."
+df_set3 <- mcmc_selectivity_df(fit_set3, age)
+plot_mcmc_selectivity(df_set3)
+```
+
+Posterior draws in @fig-dl-mcmc-set3 emphasize how a larger $p_2$ standard
+deviation shifts the curves horizontally under prior set 3.
+
+## Parameter correlations
+
+After fitting, use `sdreport()` to extract the covariance matrix and convert to
+correlation with `cov2cor()`. `cov.fixed` is on the estimation scale
+(`log_p1`, `p2`, `log_p3`), while `cov.report` is on the reported scale
+(`p1`, `p2`, `p3`) if you used `ADREPORT()`.
+
+```{r param-corr-table}
+#| eval: false
+#| echo: false
+sdrep <- sdreport(obj, getReportCovariance = TRUE)
+
+# Correlation on estimation scale
+cor_fix <- cov2cor(sdrep$cov.fixed)
+cor_fix[c("log_p1", "p2", "log_p3"), c("log_p1", "p2", "log_p3")]
+
+# Correlation on natural scale (from ADREPORT)
+if (!is.null(sdrep$cov.report)) {
+  cor_rep <- cov2cor(sdrep$cov.report)
+  cor_rep[c("p1", "p2", "p3"), c("p1", "p2", "p3")]
+} else {
+  # Fallback: simulate from fixed-effect covariance and transform
+  if (!requireNamespace("MASS", quietly = TRUE)) {
+    stop("Install MASS for the simulated correlation fallback.")
+  }
+  theta <- MASS::mvrnorm(5000, mu = obj$par, Sigma = sdrep$cov.fixed)
+  cor(cbind(
+    p1 = exp(theta[, "log_p1"]),
+    p2 = theta[, "p2"],
+    p3 = exp(theta[, "log_p3"])
+  ))
+}
+```
+
+```{r param-corr-heatmap}
+#| label: fig-dl-corr-heatmap
+#| eval: false
+#| echo: false
+#| fig-cap: "Parameter correlation heatmap (natural scale)."
+sdrep <- sdreport(obj, getReportCovariance = TRUE)
+
+if (!is.null(sdrep$cov.report)) {
+  cor_rep <- cov2cor(sdrep$cov.report)
+  cor_rep <- cor_rep[c("p1", "p2", "p3"), c("p1", "p2", "p3")]
+} else {
+  if (!requireNamespace("MASS", quietly = TRUE)) {
+    stop("Install MASS for the simulated correlation fallback.")
+  }
+  theta <- MASS::mvrnorm(5000, mu = obj$par, Sigma = sdrep$cov.fixed)
+  cor_rep <- cor(cbind(
+    p1 = exp(theta[, "log_p1"]),
+    p2 = theta[, "p2"],
+    p3 = exp(theta[, "log_p3"])
+  ))
+}
+
+cor_df <- as.data.frame(as.table(cor_rep))
+names(cor_df) <- c("param1", "param2", "cor")
+
+ggplot(cor_df, aes(param1, param2, fill = cor)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient2(limits = c(-1, 1), midpoint = 0) +
+  coord_equal() +
+  labs(x = NULL, y = NULL) +
+  theme_bw()
+```
+
+The heatmap in @fig-dl-corr-heatmap visualizes the natural-scale correlation
+structure among $(p_1, p_2, p_3)$ and helps identify any strong dependencies
+implied by the fitted model.

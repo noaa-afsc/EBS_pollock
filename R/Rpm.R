@@ -7,66 +7,31 @@ rpm <- function(parms) {
   ## Initialize joint negative log likelihood
   nll <- 0
   # sel_devs_fsh <- sel_devs_fsh - mean(sel_devs_fsh) # Centering selectivity deviations
-  tmp <- compute_selectivity_fsh(
-    nsel = n_selages_fsh,
-    stsel = styr,
-    endyr = endyr,
-    nages = nages,
-    coffs = sel_coffs_fsh,
-    sel_devs = sel_devs_fsh,
-    yrs_ch_fsh = 1965:2023
-  )
-  #--
+  tmp <- compute_selectivity_fsh( nsel = n_selages_fsh, stsel = styr, endyr = endyr,
+    nages = nages, coffs = sel_coffs_fsh, sel_devs = sel_devs_fsh, yrs_ch_fsh = 1965:2023 )
   log_sel_fsh <- tmp$log_sel
   avgsel_fsh <- tmp$avgsel
   sel_fsh <- exp(log_sel_fsh)
-  #summary(sel_fsh/ pm$sel_fsh)
-  #sel_slp_bts_dev <- sel_slp_bts_dev - mean(sel_slp_bts_dev ) # Centering selectivity deviations
-  #sel_a50_bts_dev <- sel_a50_bts_dev - mean(sel_a50_bts_dev ) # Centering selectivity deviations
-  # log_sel_bts <- compute_selectivity_ind(
-  #   stsel = styr_bts,
-  #   slp = sel_slp_bts,
-  #   a50 = sel_a50_bts,
-  #   se = sel_slp_bts_dev,
-  #   ae = sel_a50_bts_dev,
-  #   age_vector = 0.5 + 1:nages,
-  #   endyr = endyr
-  # )
   age_vector = 0.5 + 1:nages
   nyrs_bts <- endyr - styr_bts + 1
   log_sel_bts <- matrix(0, nrow = nyrs_bts, ncol = nages)
   rownames(log_sel_bts) <- as.character(styr_bts:endyr)
-  
   for (i in 1:nyrs_bts) {
     log_sel_bts[i, ] <- -log(1 + exp(-exp(sel_slp_bts_dev[i]) * 
                                        (age_vector - exp(sel_a50_bts_dev[i]) )))
   }
-  #sel_age_one_bts_dev <- sel_age_one_bts_dev - mean(sel_age_one_bts_dev ) # Centering selectivity deviations
-  #log_sel_bts[, 1] <- sel_age_one_bts * exp(sel_age_one_bts_dev)
   log_sel_bts[, 1] <- sel_age_one_bts_dev
   sel_bts <- exp(log_sel_bts)
- # ( exp(log_sel_bts) / ((pm$sel_bts)))
-  # dim(log_sel_bts)
 
   yrs_ch_ats <- 1995:2024
-  tmp <- compute_selectivity_ats_devs(
-    nsel = n_selages_ats,
-    nages = nages,
-    stsel = styr_ats,
-    endyr = endyr,
-    avgsel=avgsel_ats,
-    coffs = sel_coffs_ats,
-    sel_devs = sel_devs_ats,
-    mina_ats, yrs_ch_ats
-  )
+  tmp <- compute_selectivity_ats_devs( nsel = n_selages_ats, nages = nages, stsel = styr_ats,
+    endyr = endyr, avgsel=avgsel_ats, coffs = sel_coffs_ats, sel_devs = sel_devs_ats, mina_ats, yrs_ch_ats )
   log_sel_ats <- tmp$log_sel
   avgsel_ats <- tmp$avgsel
   #--get mortality rates--------------
-  # OjO move to data
   nyrs <- endyr - styr + 1
   years <- styr:endyr
   ages <- 1:nages
-  #
   #   Initialize outputs
   S <- matrix(0, nrow = nyrs, ncol = nages, dimnames = list(years, ages))
   Z <- matrix(0, nrow = nyrs, ncol = nages, dimnames = list(years, ages))
@@ -80,8 +45,6 @@ rpm <- function(parms) {
   }
 
   # Fishing mortality
-  # log_F_devs <- log_F_devs-mean(log_F_devs) 
-  #Fmort <- exp(log_avg_F + log_F_devs) # vector of length = nyrs
   Fmort <- exp(log_F_devs) # vector of length = nyrs
 
   for (i in seq_along(years)) {
@@ -135,12 +98,10 @@ rpm <- function(parms) {
   names(pred_rec) <- years
 
   # Initial numbers at age
-  # log_initage <- log_avginit + log_initdevs
   log_initage <- log_initdevs
   # log_initage
   natage[as.character(styr), 2:nages] <- exp(log_initage) # Eq. 1
   # Loop over years
-  # for (i in styr:(endyr - 1)) {
   for (i in 1:(nyrs - 1)) {
     yr <- as.character(years[i])
     yr1 <- as.character(years[i] + 1)
@@ -149,16 +110,12 @@ rpm <- function(parms) {
     SSB[i] <- 0.5 * sum(natage[i, ] * (S[i, ]^yrfrac) * p_mature * wt_ssb[i, ])
 
     # Recruitment
-    #natage[yr, 1] <- exp(log_avgrec + log_rec_devs[i]) # Eq. 1
     natage[yr, 1] <- exp(log_avgrec + log_rec_devs[i]) # Eq. 1
 
     # Survivors advance age
     natage[yr1, 2:nages] <- natage[yr, 1:(nages - 1)] * S[i, 1:(nages - 1)]
     natage[yr1, nages] <- natage[yr1, nages] + natage[yr, nages] * S[i, nages]
-
-    # Optional print check
   }
-  # natage[yr1, 1] <- exp(log_avgrec + log_rec_devs[i + 1]) # Eq. 1
   natage[yr1, 1] <- exp(log_rec_devs[i + 1]) # Eq. 1
   SSB[yr1] <- 0.5 * sum(natage[yr1, ] * S[nyrs, ]^yrfrac * p_mature * wt_ssb[nyrs, ])
   pred_rec <- natage[, 1]
@@ -190,15 +147,9 @@ rpm <- function(parms) {
   et_cpue <- numeric(n_cpue) # Expected total numbers in CPUE
   Fmort <- numeric(endyr - styr + 1) # Fishing mortality vector
 
-  # Alternative initialization if you want to explicitly set names/indices
-  # (more similar to ADMB's 1-based indexing approach)
-
   # For the Fmort vector with specific year range:
   Fmort <- setNames(numeric(length(years)), years)
 
-  # If you want to maintain 1-based indexing conceptually, you could use:
-  # eac_fsh <- array(0, dim = c(n_fsh_r, nbins), dimnames = list(1:n_fsh_r, 1:nbins))
-  # But standard R 0-based indexing is more common and efficient
   # Calculate catchability coefficients
   q_cpue <- exp(log_q_cpue)
   q_avo <- exp(log_q_avo)
@@ -221,8 +172,6 @@ rpm <- function(parms) {
       eac_fsh[i, ] <- catage[i, ] / et_fsh[i]
     }
   }
-  # Only do this for 3+ predicted fish
-  # elc_fsh <- (selages * catage[endyr, ]) / sum(catage[endyr, 3:nages]) * age_len
 
   # CPUE predicted values
   for (i in 1:n_cpue) {
@@ -235,15 +184,10 @@ rpm <- function(parms) {
     iyr <- as.character(yrs_avo[i])
     # Note uses ats selectivity for predicted AVO
     pred_avo[i] <- sum((wt_avo[i, ] * natage[iyr, ]) * exp(log_sel_ats[iyr, ])) * q_avo
-    # Alternative formulations (commented out):
-    # pred_avo[i] <- sum(wt_fsh[iyr, ] * (natage[iyr, ] * sel_avo_in)) * q_avo
-    # pred_avo[i] <- sum(wt_fsh[iyr, ] * natage[iyr, ]) * q_avo
   }
 
   q_bts <- exp(log_q_bts)
   # Trawl survey (BTS) expected values
-  # length(yrs_bts_data)
-  # Problem that in ADMB the selectivity matrix is 43 rows, but here its the same dimension as the number of data points
   for (i in 1:(n_bts)) {
     iyr <- (yrs_bts_data[i]) - styr + 1 #
     # Added a selectivity index to account for the fact that the bts selectivity is defined from styr_bts to endyr
@@ -263,10 +207,6 @@ rpm <- function(parms) {
     et_bts[i] <- sum(eac_bts[i, ])
     eac_bts[i, ] <- eac_bts[i, ] / (et_bts[i])
   }
-  # sel_bts[42,1:8 ]
-  # (yrs_bts_data)
-  # (wt_bts)
-
   q_bts   <- mean(ob_bts)/mean(eb_bts)
   eb_bts <- eb_bts * q_bts
   # Hydro survey (ATS) expected values
@@ -320,19 +260,6 @@ rpm <- function(parms) {
     domFish, selTFsh, selCFsh, selCurv,
     sel_devs_fsh, sel_ch_sig_fsh, year_index )
   
-  # # bts
-  #pen_bts <- list(shape=0, dev_pen=0)
-  # This was transition from selex "1" to 1982...incorrect strictly speaking...
-   #log_sel_tmp <- rbind(rep(0, 15), log_sel_bts)
-  #for (j in q_amin:(q_amax - 1)) {
-    # differences across years for a given age j
-    #pen_bts$dev_pen <- pen_bts$dev_pen + selVarbts * sum(diff(log_sel_tmp[, j])^2)
-  #}
-  # pen_bts$dev_pen <- pen_bts$dev_pen + 8.0 * sum(diff(
-  #   sel_age_one_bts_dev-mean(sel_age_one_bts_dev))^2)
-  #pen_bts$dev_pen <- pen_bts$dev_pen + 1.0 * sum( (sel_age_one_bts_dev-mean(sel_age_one_bts_dev))^2)
-  
-  
    pen_bts <- selectivity_like_bts(
      styr=styr, endyr=endyr,
      styr_bts = styr_bts,
@@ -355,11 +282,6 @@ rpm <- function(parms) {
     selATS, selTATS, sel_ch_sig_ats, year_index )
  sel_like <-  unlist(c(pen_fsh$shape, pen_bts$shape, pen_ats$shape))
  sel_like_dev <-  unlist(c(pen_fsh$dev,  pen_bts$dev,  pen_ats$dev))
- # sel_like / pm$sel_like
- #  sel_like_dev ; pm$sel_like_dev
- # sel_like_dev ; pm$sel_like_dev
- # 
-# (sel_bts[,8]/ pm$sel_bts[,8])
   styr_est <- 1978
   endyr_est <- endyr - omitSR
   # Define your SR function (e.g., Beverton–Holt with parameters a, b):
@@ -416,8 +338,6 @@ rpm <- function(parms) {
       wt_inc * exp((sigma_yr^2) / 2 + sigma_yr * yr_eff[i])
     # wt_inc * exp(                sigma_yr * yr_eff[i]) #   wt_inc * exp(square(sigma_yr)/2. + sigma_yr*yr_eff(i)));
   }
-  # wt_prek
-  # h=1;i=1
   for (h in 1:ndat_wt) {
     for (i in 1:nyrs_data[h]) {
       iyr <- yr_index[as.character(yrs_data[h, i])]  # - styr_wt  # Adjust year index to start from 1
@@ -433,31 +353,15 @@ rpm <- function(parms) {
         # Fit to predicted values
         wt_nll[2] <- wt_nll[2] + (wt_obs[h, i, j - 2] - wt_hat[h, i, j])^2 /
           (2 * sd_obs[h, i, j - 2]^2)
-        # print(wt_nll[2])
-        # wt_nll(2) +=       square(wt_obs(h, i, j )  - wt_hat(h, i, j))   / (2.*square(sd_obs(h,i,j)));
       }
        #print(c(iyr+styr_wt,wt_nll[2],wt_hat[h,i,3:6]))
     }
   }
-  # wt_pre[20:22,] (cbind(wt_hat[1,,3:7], wt_obs[1,,1:5]))
   wt_nll[3] <- wt_nll[3] + 0.5 * sum(coh_eff^2) # norm2 equivalent
   wt_nll[4] <- wt_nll[4] + 0.5 * sum(yr_eff^2) # norm2 equivalent
-  #wt_nll
-  # 1 5568.18 
-  # 2 732.671 # 3 20.6849 # 4 23.3254 dim(wt_pre) dim(wt_obs) dim(wt_hat) dim(sd_obs) 
-  # (wt_obs[1,42,]) dim(wt_pre_hat) (wt_pre_hat[2,2,])
 
   # Add penalty terms
   wt_like <- sum(wt_nll[1:4])
-  # age_like/pm$age_like
-   #age_like <- age_like + age_like_offset
-   #age_like <- age_like - pm$age_like_offset
-   #pm$age_like <- pm$age_like + pm$age_like_offset
-  # age_like_offset <- pm$age_like_offset
-  
-  #age_like <- age_like - age_like_offset
-  #pm$age_like <- pm$age_like - age_like_offset
-
   avgsel_like <- 10 * (avgsel_fsh^2 + avgsel_ats^2) # 10 * square(avgsel_fsh) + 10 * square(avgsel_ats)
   NLL <- numeric(20) # Initialize NLL vector
   NLL[1] <- cat_like
@@ -471,8 +375,6 @@ rpm <- function(parms) {
   NLL[10] <- age_like[1] #- age_like_offset[1]
   NLL[11] <- age_like[2] # - age_like_offset[2]) #/1.0041863 
   NLL[12] <- age_like[3] #- age_like_offset[3]
-  #age_like; pm$age_like
-  # age_like_offset; pm$age_like_offset
   NLL[13] <- 0 #len_like
   NLL[14] <- sum(sel_like)
   NLL[15] <- sum(sel_like_dev)
@@ -483,12 +385,6 @@ rpm <- function(parms) {
   
   NLL-pm$NLL
   NLL/pm$NLL
-  # nll <-  sum(NLL+sum(sel_slp_bts_dev^2+sel_age_one_bts_dev^2 + sel_a50_bts_dev^2))
-  # nll <- sum(c(
-  #   Fpen_like ,
-  #   cat_like
-  #   #10.*avgsel_fsh*avgsel_fsh
-  # ))
 
   recruitment <- natage[,1] # Recruitment at age 1
   ADREPORT(log_rec_devs)
@@ -540,18 +436,18 @@ rpm <- function(parms) {
       F = F,                                    # from Get_Mortality_Rates()
       M = M,                                    # from Get_Mortality_Rates()
       S = exp(-Z),                              # or from Get_Mortality_Rates()
-      C = C,  #F / Z * (1 - exp(-Z)) * natage,       # Baranov catch
+      C = C,  #F / Z * (1 - exp(-Z)) * natage,  # Baranov catch
       pred_catch = pred_catch,
-      obs_catch = obs_catch,               # if available
-      SSB = SSB,                                # computed inside GetNumbersAtAge()
+      obs_catch = obs_catch,              # if available
+      SSB = SSB,                          # computed inside GetNumbersAtAge()
       phizero = phizero,                  # from Get_Bzero()
       Bzero = Bzero,                      # from Get_Bzero()
       steepness = steepness,              # input parameter
       pred_cpue=pred_cpue,
       pred_avo=pred_avo,
-      eb_bts = eb_bts,                        # BTS biomass
-      eb_ats = eb_ats,                        # BTS biomass
-      sel_fsh = sel_fsh,                        # selectivity-at-age
+      eb_bts = eb_bts,                    # BTS biomass
+      eb_ats = eb_ats,                    # BTS biomass
+      sel_fsh = sel_fsh,                  # selectivity-at-age
       sel_bts = exp(log_sel_bts),
       sel_ats = exp(log_sel_ats),
       sam_fsh = sam_fsh,
