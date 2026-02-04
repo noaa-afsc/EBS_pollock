@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/doc/CIE.html</loc>
-    <lastmod>2025-09-02T23:58:25.843Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/doc/ssc.html</loc>
-    <lastmod>2025-09-24T15:14:40.398Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/index.html</loc>
-    <lastmod>2025-10-07T02:28:23.525Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/doc/Sept_2025.html</loc>
-    <lastmod>2025-09-17T05:07:02.916Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/doc/pollock_forum.html</loc>
-    <lastmod>2025-10-20T06:16:12.138Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/doc/rpm_function_reference.html</loc>
-    <lastmod>2025-11-17T17:21:12.951Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/doc/rpm_reference_slides.html</loc>
-    <lastmod>2025-11-17T18:30:09.193Z</lastmod>
-  </url>
-  <url>
     <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/doc/double_logistic_selectivity.html</loc>
     <lastmod>2026-01-31T06:19:06.005Z</lastmod>
   </url>
