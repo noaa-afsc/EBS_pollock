@@ -20,6 +20,10 @@ and retains the earlier responses to 2024 SSC comments for reference.
 **Assessment preparation checklist** lists work to review and update during
 preparation of the 2026 assessment.
 
+**Rceattle development** links to the separately maintained report on
+refinements to Rceattle for EBS pollock. This is the first linked resource for
+the 2026 assessment preparation.
+
 **2025 activities** collects the three papers prepared for review meetings and
 assessment research during 2025.
 
@@ -29,4 +33,5 @@ assessment research during 2025.
 
 - [Responses to SSC comments](doc/ssc.html)
 - [Assessment preparation checklist](doc/todo.html)
+- [Refinements to Rceattle for eastern Bering Sea pollock](https://noaa-afsc.github.io/ebswp_rceattle/) *(external project site)*
 - [2025 activities](doc/activities_2025.html)
