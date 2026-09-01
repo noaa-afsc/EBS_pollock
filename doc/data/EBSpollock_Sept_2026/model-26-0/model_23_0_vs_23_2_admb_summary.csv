@@ -1,0 +1,3 @@
+"Quantity","Start_year","End_year","Correlation","Mean_absolute_percent_difference","Terminal_percent_difference"
+"Spawning biomass",1978,2024,0.994281195515297,7.1465667238147,1.12052586237417
+"Age-1 recruitment",1978,2024,0.998670279113058,3.26250449876209,-9.18621247833054

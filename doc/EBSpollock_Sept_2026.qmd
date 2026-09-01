@@ -39,6 +39,9 @@ resources:
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_retrospective_data_block_deletion.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_retrospective_data_cumulative_addition.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_retrospective_data_reproduction_check.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_23_0_vs_23_2_admb_trajectories.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_23_0_vs_23_2_admb_summary.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_23_0_vs_23_2_admb_provenance.csv
 ---
 
 <!--
@@ -77,7 +80,10 @@ the method used to expand BTS age samples into annual proportions at age.
 
 Model 25.0 reproduces the corrected full-age BTS ADMB bridge and supports
 continued evaluation of composition fit, selectivity, and retrospective
-stability. The simple Model 26.0 Rceattle fit met the stated convergence
+stability. From 1978 through 2024, the matched Model 23.0 and Model 23.2 ADMB
+runs have correlations of 0.994 for spawning biomass and 0.999 for age-1
+recruitment; their 2024 differences are +1.12% and -9.19%, respectively. The
+simple Model 26.0 Rceattle fit met the stated convergence
 criteria and closely followed the Model 23.2 Rceattle-aligned ADMB bridge, with
 trajectory correlations above 0.998. Its composition residuals varied less
 than expected under the fitted model. Forty-seven of 50 dispersed-start fits
@@ -381,12 +387,28 @@ provides the closest reference for evaluating the fitted Model 26.0
 trajectories, while Model 23.1 continues to identify the direct RTMB translation
 described earlier.
 
+The matched Model 23.0 and Model 23.2 ADMB runs use the same input selector and
+shared data files. From 1978 through 2024, their spawning biomass trajectories
+have a correlation of 0.994 and a mean absolute difference of 7.15%. Their
+age-1 recruitment trajectories have a correlation of 0.999 and a mean absolute
+difference of 3.26%. In 2024, Model 23.2 spawning biomass is 1.12% higher and
+age-1 recruitment is 9.19% lower than Model 23.0. The uncertainty intervals
+overlap broadly across the displayed period (@fig-model-23-0-23-2-admb).
+
 The three Model 26.0 trajectories have correlations above 0.998 with the Model
 23.2 bridge, and their mean absolute differences range from 0.69% to 1.45%
 (@tbl-model-26-bridge). The fitted trajectories closely follow the bridge over
 the full assessment period (@fig-model-26-bridge). The remaining differences
 reflect parameter estimation in Rceattle rather than a fixed-parameter
 translation test.
+
+The [annual comparison data](data/EBSpollock_Sept_2026/model-26-0/model_23_0_vs_23_2_admb_trajectories.csv),
+[summary](data/EBSpollock_Sept_2026/model-26-0/model_23_0_vs_23_2_admb_summary.csv),
+and [source record](data/EBSpollock_Sept_2026/model-26-0/model_23_0_vs_23_2_admb_provenance.csv)
+preserve the paired estimates, standard errors, run summaries, and file
+checksums used for the comparison.
+
+![Spawning biomass and age-1 recruitment from matched ADMB Model 23.0 and Rceattle-aligned ADMB Model 23.2 runs, 1978--2024. Shading and vertical bars show plus or minus two standard errors.](assets/model-26-0/model_23_0_vs_23_2_admb_trajectories.png){#fig-model-23-0-23-2-admb fig-alt="Two vertically arranged panels compare Model 23.0 and Model 23.2 from 1978 through 2024. The upper panel shows spawning biomass lines with shaded uncertainty bands; Model 23.2 is generally higher through much of the series, and the estimates converge in recent years. The lower panel shows age-1 recruitment points with vertical uncertainty bars; the two models track closely, with Model 23.2 lower in 2024. Models are distinguished by color, line type, and point shape." width="100%"}
 
 | Quantity | Correlation | Mean absolute difference | 2024 difference |
 |---|---:|---:|---:|

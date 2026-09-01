@@ -1,0 +1,23 @@
+"Model","File_role","Source_file","SHA256","Parameters","Objective","Maximum_gradient"
+"Model 23.0","ADMB template","m23/pm.tpl","91628255761b748db23e7d9d42e8f9ac7253a691a06fa4e3b554ad46ea14accd",NA,NA,NA
+"Model 23.0","ADMB control","m23/control.dat","6b3a83e26dbb7df81d9b2562094995e5e9de145648d6fb0eb805f57ebcb3f8c8",NA,NA,NA
+"Model 23.0","input selector","m23/pm.dat","bcbb8486a86a0dd2be692b4fa333fa5f8bb8260a5c3928d8b8f6568676b57ad1",NA,NA,NA
+"Model 23.0","parameter and convergence output","m23/pm.par","313937bd8bb3569c94d07db558a81e6896bf5f179fba31f0a1e74d691cc6f29e",NA,NA,NA
+"Model 23.0","report output","m23/pm.rep","b968ae5e647e9570a6445614dbec126d496ac3893ed8d73f4b171d9f748a773d",NA,NA,NA
+"Model 23.0","standard-error output","m23/pm.std","84b31bb0aa0718d4af27ee2373ff5c6d9a92c706d7d8a8a5cc1d8c74c4c21b91",NA,NA,NA
+"Model 23.0","run summary","pm.par header",NA,1366,7062.38853231584,0.000545105262664459
+"Model 23.2","ADMB template","m23_rceattle_full/pm.tpl","89d12c2b720ef3ccb1fa79d9ecded9dae8d9a510857f279ee401e17579e54d67",NA,NA,NA
+"Model 23.2","ADMB control","m23_rceattle_full/control.dat","dcd1b33370ce7a7db7e8d79ab2f5944b1c707722f32f72689d2510280618d444",NA,NA,NA
+"Model 23.2","input selector","m23_rceattle_full/pm.dat","bcbb8486a86a0dd2be692b4fa333fa5f8bb8260a5c3928d8b8f6568676b57ad1",NA,NA,NA
+"Model 23.2","parameter and convergence output","m23_rceattle_full/pm.par","bf8baba708dfa94d2f17baa747b04cac5e9d580b5c3a0b67e29e0b524dddde23",NA,NA,NA
+"Model 23.2","report output","m23_rceattle_full/pm.rep","4f6f12203e240408f6d1fc364fdbbb848b4a395924563b35571995896716f579",NA,NA,NA
+"Model 23.2","standard-error output","m23_rceattle_full/pm.std","eeace5cc0caeffb35eb2a79adc8e7e7e4b0a142b4195d0bfbb8fc57a0e642006",NA,NA,NA
+"Model 23.2","run summary","pm.par header",NA,1211,726.300734101359,0.000289090495661826
+"Models 23.0 and 23.2","shared ADMB input","data/pm_24.dat","836ed74afdb010447fa034d81ba483380ad6cc5627c512377f4375aec41af277",NA,NA,NA
+"Models 23.0 and 23.2","shared ADMB input","data/selvar24.dat","b9fa94ebeb7468948cf81cd9a62cc7dd3e8c31833bae9d03cffb08187c38b2bc",NA,NA,NA
+"Models 23.0 and 23.2","shared ADMB input","data/pm_fmsy_alt.dat","7a43736b874b5286afc896cc89e64a2da818de822c7689fcf6e13c482fc1c142",NA,NA,NA
+"Models 23.0 and 23.2","shared ADMB input","data/cov_2024.dat","0a78418f99ed25c4a803327024adde2765b22120f6a00b7edaa7e3a6226f688c",NA,NA,NA
+"Models 23.0 and 23.2","shared ADMB input","data/wtage2024.dat","d3ad409d65c9060942bcf374cc183da9078898dcd05a9d7f791c55d684ffd8fe",NA,NA,NA
+"Models 23.0 and 23.2","shared ADMB input","data/surveycpue.dat","7572c14b39d3c9a69aa6450729319325ec6269fb58e98da48cb82d7a39f22bf1",NA,NA,NA
+"Models 23.0 and 23.2","shared ADMB input","data/temp_paul23.dat","a0a3a4d8cffb57622dd4c356c9606bf14d12c9b47ff205f475aa01c1aaa42fb5",NA,NA,NA
+"Models 23.0 and 23.2","shared ADMB input","data/q_bts.dat","176a4ffb4aad8debb931b845a68759cb8b48dfdc71f05c78fe758673d0787c25",NA,NA,NA
