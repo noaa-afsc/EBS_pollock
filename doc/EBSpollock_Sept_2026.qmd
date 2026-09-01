@@ -43,6 +43,8 @@ resources:
   - data/EBSpollock_Sept_2026/model-26-0/model_23_0_vs_23_2_admb_summary.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_23_0_vs_23_2_admb_provenance.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_23_2_vs_26_0_selectivity.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_index_series_sensitivity_summary.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_index_series_sensitivity_trajectories.csv
 ---
 
 <!--
@@ -73,11 +75,12 @@ treatment, and quality-control checks are complete.
 
 The model numbering plan separates scientific purpose from software. Model
 23.0 is the accepted 2024 ADMB assessment model. Model 23.1 is the direct RTMB
-translation check, Model 25.0 is the RTMB development line begun in 2025, and
-Model 26.0 is the Rceattle development line begun in 2026. SPoRC provides a
-supporting comparison across the development lines. The Data section also
-separates two age-data questions: use of FT-NIRS predicted ages and revision of
-the method used to expand BTS age samples into annual proportions at age.
+translation check, and Model 23.2 is the Rceattle translation check. Model 25.0
+is the RTMB development line begun in 2025, and Model 26.0 is the Rceattle
+development line begun in 2026. SPoRC provides a supporting comparison across
+the development lines. The Data section also separates two age-data questions:
+use of FT-NIRS predicted ages and revision of the method used to expand BTS age
+samples into annual proportions at age.
 
 Model 25.0 reproduces the corrected full-age BTS ADMB bridge and supports
 continued evaluation of composition fit, selectivity, and retrospective
@@ -102,17 +105,29 @@ to the revision.
 These results make composition fit, the recurring alternative solution, and
 retrospective stability the principal Model 26.0 evaluation priorities.
 
+The whole-index-fleet sensitivities retained CPUE and removed BTS, ATS, or AVO
+in separate refits. All three completed with convergence status OK and
+positive-definite Hessians. BTS had the greatest influence: its removal reduced
+2024 spawning biomass by 12.2% and increased 2024 fishing mortality by 98.7%.
+Removing ATS increased 2024 spawning biomass by 11.7% and age-1 recruitment by
+34.3%. Removing AVO changed each 2024 quantity by less than 7%. These severe
+deletion tests show the complementary roles of the survey series and identify
+BTS as the principal source of scale information.
+
 The `spmR` projections demonstrate a reproducible handoff from Model 26.0 to
-the standard seven-alternative projection workflow. They serve as development
-tests, while Model 23.0 provides the management recommendations. The exploratory recruitment
-analysis favored the model containing age-0 late-summer sea-surface
-temperature; its negative fitted pathway provides a testable in-sample
-association for further biological and predictive evaluation. Model 23.0
-continues to provide current management advice while Models 25.0 and 26.0
-proceed through simulation testing and review. Appendix 1 preserves the SSC
-comments and response plan, Appendix 2 provides the development framework for
-an Ecosystem and Socioeconomic Profile, and Appendix 3 documents fishery
-length-frequency patterns.
+the standard seven-alternative projection workflow. Updated 2025 and 2026 data
+will provide the basis for ABC, OFL, and status determinations during the
+November and December 2026 review cycle. The exploratory recruitment analysis
+favored the model containing age-0 late-summer sea-surface temperature; its
+negative fitted pathway provides a testable in-sample association for further
+biological and predictive evaluation. The bridge, convergence tests,
+diagnostics, retrospective evaluation, index sensitivities, and projection
+handoff support the recommendation that Model 26.0 be adopted for 2026
+management advice after the updated-data run and formal Plan Team and SSC
+review. Model 23.0 provides continuity through that transition. Appendix 1
+preserves the SSC comments and response plan, Appendix 2 provides the
+development framework for an Ecosystem and Socioeconomic Profile, and Appendix
+3 documents fishery length-frequency patterns.
 
 # Introduction
 
@@ -126,12 +141,11 @@ model numbering, ADMB-to-RTMB bridge, and 2026 RTMB and Rceattle development.
 The appendices preserve supporting material that informs this work.
 [Appendix 1](#sec-ssc-comments) presents the main SSC comments and planned
 responses and retains the earlier 2024 comments. [Appendix
-2](#sec-length-frequency-patterns) summarizes seasonal and spatial patterns in
-the observed pollock length-frequency samples. [Appendix
-3](#sec-esp-development-framework) provides the development structure for an
-EBS pollock Ecosystem and Socioeconomic Profile (ESP). Together, the main
-sections and appendices connect the resumed work with the assessment review
-record.
+2](#sec-esp-development-framework) provides the development structure for an
+EBS pollock Ecosystem and Socioeconomic Profile (ESP). [Appendix
+3](#sec-length-frequency-patterns) summarizes seasonal and spatial patterns in
+the observed pollock length-frequency samples. Together, the main sections and
+appendices connect the resumed work with the assessment review record.
 
 # Model specifications
 
@@ -139,27 +153,29 @@ record.
 
 The model number should identify the model's place in the review record. The
 software name should be shown separately. Under this plan, **Model 23.0** is the
-2024 ADMB source and **Model 23.1** is its direct RTMB translation check. The
-newer model names are **Model 25.0 (RTMB)** for the work begun in 2025 and
-**Model 26.0 (Rceattle)** for the development line begun in 2026.
+2024 ADMB source, **Model 23.1** is its direct RTMB translation check, and
+**Model 23.2** is the Rceattle translation check. The newer model names are
+**Model 25.0 (RTMB)** for the work begun in 2025 and **Model 26.0 (Rceattle)**
+for the development line begun in 2026.
 The flowchart shows the two numbered development lines and SPoRC's supporting
 comparison role (@fig-model-numbering).
 
 ```{mermaid}
 %%| label: fig-model-numbering
 %%| fig-cap: "Proposed numbering and development history for EBS pollock assessment models."
-%%| fig-alt: "Flowchart beginning with the Model 23.0 ADMB source used in 2024. One branch passes through the Model 23.1 RTMB translation check to Model 25.0 in RTMB, begun in 2025. A second branch leads to Model 26.0 in Rceattle, begun in 2026. SPoRC supports comparisons with both development lines and would receive a model number if advanced as an assessment candidate."
+%%| fig-alt: "Flowchart beginning with the Model 23.0 ADMB source used in 2024. One branch passes through the Model 23.1 RTMB translation check to Model 25.0 in RTMB, begun in 2025. A second branch passes through the Model 23.2 Rceattle translation check to Model 26.0 in Rceattle, begun in 2026. SPoRC supports comparisons with both development lines and would receive a model number if advanced as an assessment candidate."
 
 flowchart LR
   accTitle: EBS pollock assessment model numbering and development history
-  accDescr: Flowchart from the 2024 Model 23.0 ADMB source to the Model 23.1 RTMB translation check, Model 25.0 RTMB line, and Model 26.0 Rceattle line, with SPoRC supporting comparisons of the two development lines.
+  accDescr: Flowchart from the 2024 Model 23.0 ADMB source through the Model 23.1 RTMB translation check to the Model 25.0 RTMB line, and through the Model 23.2 Rceattle translation check to the Model 26.0 Rceattle line, with SPoRC supporting comparisons of the two development lines.
   A["Model 23.0<br/>2024 ADMB source"] -->|"direct translation<br/>and checks"| B["Model 23.1<br/>RTMB translation check"]
   B --> C["Model 25.0<br/>RTMB line begun in 2025"]
-  A -->|"new implementation<br/>and development"| D["Model 26.0<br/>Rceattle line begun in 2026"]
+  A -->|"Rceattle bridge<br/>and checks"| E["Model 23.2<br/>Rceattle translation check"]
+  E --> D["Model 26.0<br/>Rceattle line begun in 2026"]
   S["SPoRC<br/>supporting comparison"] -.->|"common tests"| C
   S -.->|"common tests"| D
   classDef model fill:#e8f0f7,stroke:#52616b,color:#111111
-  class A,B,C,D,S model
+  class A,B,C,D,E,S model
 ```
 
 The labels should be used as follows:
@@ -168,13 +184,16 @@ The labels should be used as follows:
 - **Model 23.1 (RTMB)** identifies the direct translation used to check that the
   new code reproduces Model 23.0. Its role is a numbered translation check,
   while Model 23.0 continues to support management advice.
+- **Model 23.2 (Rceattle)** identifies the Rceattle translation check aligned
+  with the modified ADMB bridge. It provides the direct reference for Model
+  26.0 implementation checks.
 - **Model 25.0 (RTMB)** is the public name for the RTMB assessment line begun in
   2025 at the SSC's request.
 - **Model 26.0 (Rceattle)** is the public name for the Rceattle development line
   begun in 2026. List its scientific changes separately from the software
   change. Its bridge, diagnostics, retrospective behavior, and projections
-  support review of its future operational role. Model 23.0 continues to
-  support current management advice.
+  support the recommendation for its 2026 operational role. Model 23.0 provides
+  continuity through the formal review transition.
 - **SPoRC** remains a supporting comparison. The [single-region EBS pollock
   vignette](https://chengmatt.github.io/SPoRC/dev/articles/f_single_region_ebs_pollock_case_study.html)
   illustrates the bridge from Model 23.0 to SPoRC and identifies the current
@@ -337,13 +356,14 @@ The analysis is archived as separate R scripts for the
 [DSEM pathways](scripts/model-26-0/run_model_26_dsem_5_23_pathways.R),
 [retrospective analysis](scripts/model-26-0/run_model_26_retrospective_sensitivity_5_23.R),
 [retrospective data sensitivity](scripts/model-26-0/run_model_26_retrospective_data_sensitivity_5_23.R),
+[whole-index-fleet sensitivity](scripts/model-26-0/run_model_26_index_series_sensitivity_5_23.R),
 [spmR projections](scripts/model-26-0/run_model_26_spmr_projection_5_23.R),
 and [self-test](scripts/model-26-0/run_model_26_self_test_5_23.R).
 
 ```{mermaid}
 %%| label: fig-model-26-approach
 %%| fig-cap: "Data and calculation flow for the simple Model 26.0 Rceattle analysis."
-%%| fig-alt: "Fishery catch, survey and abundance indices, age compositions, and biological schedules enter the Rceattle population model. The model estimates annual abundance, recruitment, fishing mortality, and selectivity. The fitted model is then compared with the Model 23.2 bridge and used for OSA residuals, jitter tests, self-tests, retrospective analysis, Standard Projection Model projections, and exploratory DSEM pathways."
+%%| fig-alt: "Fishery catch, survey and abundance indices, age compositions, and biological schedules enter the Rceattle population model. The model estimates annual abundance, recruitment, fishing mortality, and selectivity. The fitted model is then compared with the Model 23.2 bridge and used for OSA residuals, jitter tests, self-tests, whole-index-fleet sensitivities, retrospective analysis, Standard Projection Model projections, and exploratory DSEM pathways."
 
 flowchart LR
   accTitle: Simple Model 26.0 data and analysis flow
@@ -353,7 +373,7 @@ flowchart LR
   C["Maturity, mortality,<br/>weight, and ageing error"] --> M
   M --> S["Abundance, recruitment,<br/>fishing mortality, selectivity"]
   S --> V["Model 23.2 bridge comparison"]
-  S --> D["OSA, jitter, self-test,<br/>and retrospective checks"]
+  S --> D["OSA, jitter, self-test,<br/>index sensitivity, retrospective"]
   S --> P["spmR projection"]
   S --> E["Exploratory DSEM pathways"]
   classDef input fill:#e8f0f7,stroke:#52616b,color:#111111
@@ -442,9 +462,10 @@ retain the unscaled and normalized annual values.
 ### Diagnostics
 
 The diagnostic sequence begins with one-step-ahead residuals for composition
-data, followed by dispersed starting values, simulated-data recovery, and
-retrospective peels. These tests address complementary questions: observation
-fit, sensitivity to starting values, recovery under known simulated data, and
+data, followed by dispersed starting values, simulated-data recovery,
+whole-index-fleet deletion, and retrospective peels. These tests address
+complementary questions: observation fit, sensitivity to starting values,
+recovery under known simulated data, influence of major survey streams, and
 stability as recent years are removed.
 
 #### One-step-ahead residuals
@@ -539,6 +560,48 @@ simulated distributions directly.
 {#tbl-model-26-self-test}
 
 ![Distribution of differences between self-test refits and the operating Model 26.0 values.](assets/model-26-0/model_26_0_self_test_recovery.png){#fig-model-26-self-test fig-alt="Horizontal boxplots show percent differences from the operating-model values for age-1 recruitment, spawning biomass, and total biomass across 50 simulated observation sets and all assessment years. Distributions are centered slightly below zero and are widest for recruitment." width="82%"}
+
+#### Whole index-series sensitivity
+
+Three refits tested the influence of the complete BTS, ATS, and AVO fleets.
+Each fit started from the converged Model 26.0 estimates and retained the base
+configuration, including the non-parametric selectivity settings, fixed
+effects for recruitment deviations, and CPUE. Setting a fleet's `Fleet_type` to `Off` removes
+its index and composition contributions from the likelihood. The ATS
+sensitivity also removed the separate ATS age-1 index fleet; the BTS age-1
+fleet was already off in the base model. The objective values have different
+data contributions, so interpretation uses the trajectory changes rather than
+an objective or AIC comparison.
+The [reproducible sensitivity script](scripts/model-26-0/run_model_26_index_series_sensitivity_5_23.R)
+records this configuration.
+
+All three refits completed with convergence status OK and positive-definite
+Hessians. Their maximum gradients ranged from $3.68\times10^{-5}$ to
+$6.68\times10^{-5}$. Dropping BTS had the greatest effect on population scale
+and fishing mortality: 2024 spawning biomass decreased 12.2%, total biomass
+decreased 15.3%, and fishing mortality increased 98.7%. Dropping ATS increased
+2024 spawning biomass 11.7%, total biomass 19.3%, and recruitment 34.3%.
+Dropping AVO changed each 2024 quantity by less than 7% (@tbl-model-26-index-sensitivity).
+
+The trajectories show the strong historical role of BTS and the increasing
+recent contribution of ATS, while AVO provides a smaller complementary signal
+(@fig-model-26-index-sensitivity). Whole-series deletion is an intentionally
+severe influence test. The result supports retaining all three survey streams
+and giving particular attention to BTS data preparation and availability in
+the operational update. The [summary data](data/EBSpollock_Sept_2026/model-26-0/model_26_0_index_series_sensitivity_summary.csv)
+and [annual trajectories](data/EBSpollock_Sept_2026/model-26-0/model_26_0_index_series_sensitivity_trajectories.csv)
+provide the reported values.
+
+| Sensitivity | Index observations excluded | Composition years excluded | 2024 SSB change | 2024 total biomass change | 2024 recruitment change | 2024 fishing mortality change |
+|---|---:|---:|---:|---:|---:|---:|
+| Drop BTS | 42 | 42 | -12.2% | -15.3% | -4.6% | +98.7% |
+| Drop ATS and ATS age-1 | 37 | 19 | +11.7% | +19.3% | +34.3% | -11.6% |
+| Drop AVO | 18 | 0 | +4.4% | +5.3% | +6.8% | -3.3% |
+
+: Whole-index-fleet sensitivities relative to the Model 26.0 base fit. CPUE was
+retained in every fit. {#tbl-model-26-index-sensitivity}
+
+![Annual changes in spawning biomass, total biomass, age-1 recruitment, and fishing mortality after dropping the complete BTS, ATS, or AVO fleet from Model 26.0.](assets/model-26-0/model_26_0_index_series_sensitivity.png){#fig-model-26-index-sensitivity fig-alt="Four line-chart panels show percent changes from the Model 26.0 base fit after dropping BTS, ATS, or AVO. Drop BTS is a blue solid line and produces the largest historical changes, a lower terminal biomass, and nearly double the terminal fishing mortality. Drop ATS is an orange long-dashed line and produces higher recent biomass and recruitment. Drop AVO is a green dot-dashed line and stays closest to the base fit. A horizontal gray line marks zero change." width="100%"}
 
 #### Retrospective analysis
 
@@ -766,6 +829,33 @@ indicator and mechanism work.
 : Standardized direct proxy pathways to age-1 recruitment. {#tbl-model-26-dsem-paths}
 
 ![Standardized cold-pool and age-0 SST coefficients for the exploratory DSEM models.](assets/model-26-0/dsem_recruitment_paths.png){#fig-model-26-dsem-paths fig-alt="Point estimates and 95-percent intervals compare direct cold-pool and age-0 late-summer SST paths to recruitment. Both SST estimates are negative with intervals below zero. Cold-pool estimates lie near zero with intervals spanning zero." width="88%"}
+
+# Conclusion
+
+Model 26.0 provides a reproducible Rceattle implementation of the EBS pollock
+assessment. It closely follows the Model 23.2 bridge, passes the stated
+convergence and simulated-data recovery checks, carries the assessment state
+into the standard Tier 3 projection model, and makes the full analysis
+available through documented R workflows. The whole-index-fleet sensitivities
+show that BTS supplies the strongest information about population scale and
+fishing mortality, ATS contributes increasingly to recent biomass and
+recruitment, and AVO provides a smaller complementary signal. These patterns
+are consistent with the roles and lengths of the three survey series.
+
+The diagnostic results also define a practical operational checklist. The
+production run should retain the two-stage fitting sequence and multi-start
+evaluation, repeat the OSA and lag-preserving retrospective analyses, review
+BTS inputs closely, and carry the fitted state into the validated `spmR`
+projection workflow. The operational specification should keep DSEM disabled
+(`DSEM = NULL`); the environmental pathways and SparseNUTS work remain separate
+research evaluations.
+
+The combined bridge, convergence, self-test, index-sensitivity, retrospective,
+and projection evidence supports a recommendation that the Plan Team and SSC
+adopt Model 26.0 for producing EBS pollock management advice in November and
+December 2026. The updated-data run will provide the ABC, OFL, and stock-status
+results for that review. Model 23.0 provides continuity until the review bodies
+complete this transition.
 
 # References {.unnumbered}
 
