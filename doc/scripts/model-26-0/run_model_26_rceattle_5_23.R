@@ -258,9 +258,11 @@ write.csv(
 )
 
 selectivity_colors <- c("Model 23.2" = "#0072B2", "Model 26.0" = "#009E73")
+selectivity_min_age <- c(Fishery = 1L, BTS = 1L, ATS = 2L)
 for (fleet_name in names(admb_selectivity)) {
+  fleet_min_age <- selectivity_min_age[[fleet_name]]
   plot_data <- selectivity_comparison |>
-    filter(Fleet == fleet_name) |>
+    filter(Fleet == fleet_name, Age >= fleet_min_age) |>
     mutate(
       Model = factor(Model, levels = c("Model 23.2", "Model 26.0")),
       Year_plot = factor(Year, levels = rev(sort(unique(Year))))
@@ -285,7 +287,11 @@ for (fleet_name in names(admb_selectivity)) {
     facet_grid(cols = vars(Model)) +
     scale_color_manual(values = selectivity_colors) +
     scale_fill_manual(values = selectivity_colors) +
-    scale_x_continuous(breaks = seq_len(nages), expand = expansion(mult = c(0.02, 0.02))) +
+    scale_x_continuous(
+      breaks = seq.int(fleet_min_age, nages),
+      limits = c(fleet_min_age, nages),
+      expand = expansion(mult = c(0.02, 0.02))
+    ) +
     labs(x = "Age", y = "Year") +
     ggthemes::theme_few(base_size = 10) +
     theme(
