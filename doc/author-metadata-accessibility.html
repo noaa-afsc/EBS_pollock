@@ -1,0 +1,15 @@
+<script>
+document.querySelectorAll(".quarto-title-author-email").forEach((link) => {
+  link.setAttribute("aria-label", "Email James Ianelli");
+});
+
+document.querySelectorAll(".quarto-title-author-orcid img").forEach((image) => {
+  image.setAttribute("alt", "");
+  image.setAttribute("role", "presentation");
+  image.removeAttribute("aria-label");
+});
+
+document.querySelectorAll(".sidebar-logo").forEach((image) => {
+  image.setAttribute("alt", "EBS pollock assessment home");
+});
+</script>

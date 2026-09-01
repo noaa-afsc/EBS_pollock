@@ -1,0 +1,312 @@
+This section documents two distinct age-composition product issues considered after the 2024
+assessment: the method used to assign ages to individual otoliths and the
+spatio-temporal method used to expand BTS age samples into annual proportions
+at age. The first concerns traditional microscope ages (TMA) versus ages
+predicted by Fourier-transform near-infrared spectroscopy (FT-NIRS). The
+second concerns replacement of the prior BTS age-composition estimator with a
+tinyVAST implementation. In the second case, the survey observations remain
+the same; the estimated annual age-composition data product derived from those
+observations has changed because the expansion method was revised. These
+changes occur at different stages of the data workflow and should be evaluated
+separately.
+
+Source material: [RTMB working-paper age-data appendix](https://jimianelli.github.io/rtmb_ebswp/ebs_pollock_rtmb_ebswp_assessment.html#sec-age-data-issues).
+
+
+### FTNIRS age-data {#sec-ftnirs-age-data}
+
+The Alaska Fisheries Science Center's Age and Growth Program has produced more
+than 460,000 walleye pollock age estimates since 1971. From 2005 through 2024,
+annual production averaged 11,141 pollock ages and ranged from 8,408 to 14,441.
+Across Alaska pollock stocks, inter-reader precision was relatively high: the
+overall average coefficient of variation was 4.28%, percent agreement was
+68.6%, and reader and tester estimates generally differed by one year or less
+year. Eighty percent of pollock aged by the program were 3--10 years old, and
+the maximum observed age was 31 years. Radiometric analysis supports the
+accuracy of the program's ageing criteria through age 8, while marginal
+increment analyses, year-class tracking, hard-structure comparisons, and
+captive-rearing studies provide additional corroboration. Older ages occur
+more frequently in the Bering Sea and Aleutian Islands than in the Gulf of
+Alaska, and Bering Sea pollock generally grow more slowly but attain greater
+lengths and ages. Female pollock also become larger at age than males beginning
+at approximately age 5 [@matta2026agegrowth, pp. 33--42]. These production and
+precision statistics summarize AFSC pollock ageing across Alaska stocks rather
+than the eastern Bering Sea alone; the eastern Bering Sea assessment is the
+most data-rich pollock assessment.
+
+These results describe traditional microscope ageing (TMA), which assigns age
+by preparing an otolith and visually counting annual growth zones. FT-NIRS is
+being developed as a rapid secondary ageing method that depends on reference
+ages produced through traditional microscopic examination
+[@matta2026agegrowth]. FT-NIRS measures the wavelengths and amount of
+near-infrared light absorbed by an otolith and predicts age from its spectral
+and chemical signal using a calibration model. It can process otoliths
+substantially faster, but its predicted ages are methodologically different
+from direct microscope readings ([NOAA Fisheries age-method
+overview](https://www.fisheries.noaa.gov/feature-story/age-and-growth-homework-determining-how-old-fish-are)). The established scale, precision, and
+corroboration of the TMA series therefore provide important context for
+evaluating whether FT-NIRS predictions preserve the age structure and cohort
+signals used by the assessment.
+
+The 2025 CIE discussion paper compared the two methods using pollock data. For
+the same design-based BTS abundance-at-age inputs, TMA estimates showed a high
+degree of cohort consistency, whereas FT-NIRS estimates showed lower cohort
+consistency; the assessment authors described the consequence of that
+difference as unresolved. The comparison also identified differences between
+TMA- and FT-NIRS-based proportions at age for the fishery, BTS, and ATS. Model
+tests therefore treated FT-NIRS ages as a separate data source and considered
+both global and fleet-specific FT-NIRS age-error matrices. See the official
+[FT-NIRS data consistency
+comparisons](https://noaa-afsc.github.io/EBS_pollock/doc/CIE.html#ft-nirs-data-consistency-comparisons)
+for the cohort plots, composition comparisons, data coverage, and alternative
+age-error treatments.
+
+The FT-NIRS issue concerns age assignment and associated ageing error. The BTS
+bridge below concerns the subsequent expansion of age observations across
+space and time. Its scope is the expansion method; a separate analysis
+compares TMA with FT-NIRS.
+
+### Impact of revised BTS age-composition estimates {#sec-bts-age-data-bridge}
+
+This section isolates the effect of replacing the original bottom-trawl
+survey (BTS) estimates of proportions at age in `BTSProp.csv` with the revised
+estimates in `tinyVAST_props_new.csv`. The age-composition data product changes
+while the underlying survey data remain the same. Both ADMB runs use the
+complete 2025 input set and the
+same model specification, executable, starting parameter file, and tinyVAST
+2025 BTS age-composition estimate. The sensitivity restores the original
+1982-2024 BTS proportion estimates while holding the 2025 tinyVAST row
+constant. The comparison therefore addresses the historical estimator change.
+
+The 2024 assessment used the previous spatio-temporal expansion of BTS age
+samples. The revised series uses an improved implementation in `tinyVAST`, a
+multivariate spatio-temporal generalized linear mixed-model framework that can
+model age groups jointly, share information across locations and years, and
+area-expand predictions to annual abundance and proportions at age
+[@thorson2019spatiotemporalcomposition; @thorson2025tinyvast]. The
+[tinyVAST age-composition expansion
+example](https://vast-lib.github.io/tinyVAST/articles/web_only/age_composition_expansion.html)
+documents this workflow for EBS pollock age data. This methodological update
+changes the estimated BTS proportions at age supplied to the assessment; the
+controlled runs below quantify the resulting assessment-model effect while
+holding the other inputs and model configuration fixed.
+
+```{r}
+#| label: bts-age-data-issues-load
+#| include: false
+
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(ggplot2)
+  library(gt)
+  library(tibble)
+  library(tidyr)
+})
+
+theme_set(ggthemes::theme_few())
+
+report_source <- normalizePath(knitr::current_input(dir = TRUE), mustWork = TRUE)
+age_data_dir <- file.path(
+  dirname(report_source), "data", "EBSpollock_Sept_2026"
+)
+
+read_report_csv <- function(filename) {
+  path <- file.path(age_data_dir, filename)
+  if (!file.exists(path)) {
+    stop("Missing September 2026 report input: ", path)
+  }
+  as_tibble(read.csv(path, check.names = FALSE, stringsAsFactors = FALSE))
+}
+
+drop_all_na_cols <- function(data) {
+  data |>
+    select(where(~!all(is.na(.x))))
+}
+
+gt_report <- function(data, ...) {
+  data <- drop_all_na_cols(data)
+  table <- gt(data, ...)
+
+  integer_cols <- names(data)[tolower(names(data)) %in% c("year", "age")]
+  if (length(integer_cols) > 0) {
+    table <- table |>
+      fmt_number(columns = all_of(integer_cols), decimals = 0, use_seps = FALSE)
+  }
+
+  table
+}
+
+bts_age_input_summary <- read_report_csv("input_summary.csv")
+bts_age_input_comparison <- read_report_csv("age_data_comparison.csv")
+bts_age_diagnostics <- read_report_csv("diagnostics.csv")
+bts_age_comparison <- read_report_csv("comparison.csv")
+
+bts_age_input_extremes <- bts_age_input_comparison |>
+  summarise(
+    maximum_increase = max(percent_change),
+    maximum_decrease = min(percent_change),
+    maximum_percentage_point_change = max(
+      abs(100 * (tinyvast_proportion - original_proportion))
+    )
+  )
+
+bts_age_result_summary <- bts_age_comparison |>
+  group_by(quantity) |>
+  summarise(
+    terminal_year = max(year),
+    terminal_percent_difference = percent_difference[which.max(year)],
+    maximum_absolute_percent_difference = max(abs(percent_difference)),
+    year_of_maximum_difference = year[which.max(abs(percent_difference))],
+    .groups = "drop"
+  ) |>
+  mutate(
+    quantity = recode(
+      quantity,
+      spawning_biomass = "Spawning biomass",
+      recruitment_age1 = "Age-1 recruitment",
+      predicted_catch = "Predicted catch"
+    )
+  )
+```
+
+```{r}
+#| label: tbl-bts-age-data-contrast
+#| tbl-cap: "Controlled input contrast for the revised BTS age-composition product. The 2025 BTS age-composition estimate and all other assessment inputs are identical between runs."
+bts_age_input_summary |>
+  gt_report() |>
+  tab_header(title = "BTS Age-Data Contrast")
+```
+
+The derived-product comparison uses the `both` region from `BTSProp.csv` as
+the original estimated series and `tinyVAST_props_new.csv` as the revised
+estimated series
+(@fig-bts-age-input-change). Across the 42 matched survey years, relative
+changes range from
+`r sprintf("%.1f%%", bts_age_input_extremes$maximum_decrease)` to
+`r sprintf("%+.1f%%", bts_age_input_extremes$maximum_increase)`; the largest
+absolute change is
+`r sprintf("%.2f percentage points", bts_age_input_extremes$maximum_percentage_point_change)`.
+The calculation uses the original estimated proportion as the denominator and
+describes the revision to the derived age-composition product rather than a
+change in the survey observations or its influence on model results. The
+revised 2025 row is excluded because the original file ends in 2024.
+
+```{r}
+#| label: fig-bts-age-input-change
+#| fig-cap: "Percent change in the estimated BTS proportions at age from the original BTSProp.csv data product to the revised tinyVAST_props_new.csv data product for each matched historical survey year. The underlying survey observations are unchanged. Positive bars indicate a larger tinyVAST estimate and negative bars indicate a smaller tinyVAST estimate. Age 15 is the plus group; the BTS survey was absent in 2020."
+#| fig-alt: "Small-multiple bar chart comparing two age-composition data products derived from the same BTS observations for 42 matched survey years from 1982 through 2024, excluding 2020. Each panel shows relative percent change from the original estimated proportions to the tinyVAST estimates for ages 1 through 15. Bars above zero indicate increases and bars below zero indicate decreases. Changes range from about minus 12 percent to plus 55 percent, with the largest increase at age 12 in 2023."
+#| fig-width: 13
+#| fig-height: 10
+bts_age_input_comparison |>
+  ggplot(aes(age, percent_change, fill = direction)) +
+  geom_hline(yintercept = 0, color = "grey35", linewidth = 0.3) +
+  geom_col(width = 0.82) +
+  facet_wrap(vars(year), ncol = 7) +
+  scale_x_continuous(breaks = c(1, 5, 10, 15)) +
+  scale_y_continuous(labels = scales::label_number(suffix = "%")) +
+  scale_fill_manual(
+    values = c("Decrease" = "#2166AC", "Increase" = "#B2182B")
+  ) +
+  labs(
+    x = "Age (15 is plus group)",
+    y = "Change from prior proportion at age",
+    fill = "Direction"
+  ) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank(),
+    strip.text = element_text(face = "bold")
+  )
+```
+
+Both runs reached maximum absolute gradients below 0.001. The likelihood
+components in @tbl-bts-age-data-diagnostics document the fits and support a
+structured contrast between scenarios with different observed BTS age values.
+
+```{r}
+#| label: tbl-bts-age-data-diagnostics
+#| tbl-cap: "ADMB fit diagnostics for the matched 2025 model with tinyVAST BTS proportions and with original BTSProp proportions for 1982-2024. Negative-log-likelihood values diagnose each data version; cross-data model selection requires a common observation set and likelihood definition."
+bts_age_diagnostics |>
+  gt_report() |>
+  fmt_number(
+    columns = c(total_nll, bts_index_nll, bts_age_nll),
+    decimals = 3
+  ) |>
+  fmt_scientific(columns = maximum_gradient, decimals = 2) |>
+  cols_label(
+    scenario = "Data version",
+    total_nll = "Total NLL",
+    bts_index_nll = "BTS index NLL",
+    bts_age_nll = "BTS age NLL",
+    maximum_gradient = "Maximum |gradient|"
+  ) |>
+  tab_header(title = "BTS Age-Data Bridge Diagnostics")
+```
+
+The revision changes terminal spawning biomass by
+`r sprintf("%+.3f%%", bts_age_result_summary$terminal_percent_difference[bts_age_result_summary$quantity == "Spawning biomass"])`.
+The largest spawning-biomass difference is
+`r sprintf("%.3f%%", bts_age_result_summary$maximum_absolute_percent_difference[bts_age_result_summary$quantity == "Spawning biomass"])`
+in `r bts_age_result_summary$year_of_maximum_difference[bts_age_result_summary$quantity == "Spawning biomass"]`.
+Terminal age-1 recruitment changes by
+`r sprintf("%+.3f%%", bts_age_result_summary$terminal_percent_difference[bts_age_result_summary$quantity == "Age-1 recruitment"])`,
+which is the largest recruitment difference in the series. Terminal predicted
+catch changes by
+`r sprintf("%+.3f%%", bts_age_result_summary$terminal_percent_difference[bts_age_result_summary$quantity == "Predicted catch"])`.
+
+```{r}
+#| label: tbl-bts-age-data-results
+#| tbl-cap: "Relative effects of replacing the original historical BTS proportions with tinyVAST proportions. Percent differences are tinyVAST minus original, divided by the absolute original estimate."
+bts_age_result_summary |>
+  rename(
+    result_quantity = quantity,
+    result_terminal_year = terminal_year
+  ) |>
+  gt_report() |>
+  fmt_number(
+    columns = c(
+      terminal_percent_difference,
+      maximum_absolute_percent_difference
+    ),
+    decimals = 3
+  ) |>
+  cols_label(
+    result_quantity = "Quantity",
+    result_terminal_year = "Terminal year",
+    terminal_percent_difference = "Terminal difference (%)",
+    maximum_absolute_percent_difference = "Maximum absolute difference (%)",
+    year_of_maximum_difference = "Year of maximum"
+  ) |>
+  tab_header(title = "Effects of tinyVAST Historical BTS Proportions")
+```
+
+```{r}
+#| label: fig-bts-age-data-bridge
+#| fig-cap: "Percent differences in spawning biomass, age-1 recruitment, and predicted catch between the 2025 model using tinyVAST BTS proportions and the sensitivity using original BTSProp proportions for 1982-2024. The horizontal line marks zero difference."
+#| fig-alt: "Three-panel line graph of percent differences from 1964 through 2025. Spawning-biomass differences remain within one percent and equal minus 0.4 percent in 2025. Recruitment differences remain within four percent and equal minus 2.0 percent in 2025. Predicted-catch differences remain within 0.1 percent."
+#| fig-width: 10
+#| fig-height: 7
+bts_age_comparison |>
+  mutate(
+    quantity = recode(
+      quantity,
+      spawning_biomass = "Spawning biomass",
+      recruitment_age1 = "Age-1 recruitment",
+      predicted_catch = "Predicted catch"
+    )
+  ) |>
+  ggplot(aes(year, percent_difference)) +
+  geom_hline(yintercept = 0, color = "grey50", linewidth = 0.4) +
+  geom_line(color = "#1f4e79", linewidth = 0.7) +
+  geom_point(color = "#1f4e79", size = 1.1) +
+  facet_wrap(vars(quantity), scales = "free_y", ncol = 1) +
+  labs(x = "Year", y = "Difference from prior-age sensitivity (%)") +
+  theme(legend.position = "none")
+```
+
+### Planned 2026 survey-data update {#sec-planned-2026-survey-data}
+
+Data from the 2026 Acoustic-Trawl Survey (ATS), along with 2026 AVO data, will
+be added to this report after processing and quality-control review are
+complete. The update will identify any resulting changes to the relevant time
+series, figures, tables, and model inputs.

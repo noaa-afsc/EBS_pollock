@@ -1,0 +1,3 @@
+scenario,total_nll,bts_index_nll,bts_age_nll,maximum_gradient
+Current tinyVAST BTS ages,7062.47,32.6731,211.608,4.96778e-4
+Prior BTSProp ages for 1982-2024,7061.36,32.8558,210.849,2.07122e-4

@@ -1,0 +1,15 @@
+.quarto-float-caption,
+table caption,
+blockquote,
+blockquote p,
+blockquote strong {
+  color: #59636e !important;
+}
+
+body.quarto-dark .quarto-float-caption,
+body.quarto-dark table caption,
+body.quarto-dark blockquote,
+body.quarto-dark blockquote p,
+body.quarto-dark blockquote strong {
+  color: #c7ced6 !important;
+}

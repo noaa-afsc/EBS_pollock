@@ -13,6 +13,12 @@ material addresses SSC comments and provides a working assessment preparation
 checklist. Links to additional 2026 preparation material will be added here as
 it becomes ready for review.
 
+**September 2026 assessment developments** is the working document for material
+being assembled for the September review. Its Summary is currently a
+placeholder; the model-numbering plan and main October 2025 SSC comments and
+responses establish the initial structure, followed by the retained 2024 SSC
+comments and 2025 responses in Appendix 1.
+
 **SSC comments** presents the responses to the October 2025 SSC comments. It
 summarizes the current status of each issue, explains the model numbering plan,
 and retains the earlier responses to 2024 SSC comments for reference.
@@ -31,6 +37,7 @@ assessment research during 2025.
 
 ## Contents
 
+- [September 2026 assessment developments](doc/EBSpollock_Sept_2026.html)
 - [Responses to SSC comments](doc/ssc.html)
 - [Assessment preparation checklist](doc/todo.html)
 - [Refinements to Rceattle for eastern Bering Sea pollock](https://noaa-afsc.github.io/ebswp_rceattle/) *(external project site)*

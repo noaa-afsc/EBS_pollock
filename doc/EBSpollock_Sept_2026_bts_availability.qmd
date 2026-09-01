@@ -1,0 +1,308 @@
+This diagnostic isolates the biomass variation induced by the fitted
+time-varying bottom-trawl survey (BTS) selectivity, the proportion of fish at
+each age available to the survey. It holds population
+abundance and weight at age constant across years. The fixed abundance vector
+for ages 1--15 is the arithmetic mean of the model-estimated numbers at each
+age across 1982--2024. The fixed weight vector is the mean BTS weight at each
+age across the survey observations. This centers the controlled calculation
+on the estimated population age structure over the analysis period while
+removing annual changes in population abundance.
+
+Source material: [RTMB working-paper Appendix A-2](https://jimianelli.github.io/rtmb_ebswp/ebs_pollock_rtmb_ebswp_assessment.html#sec-bts-availability).
+
+For year $t$, the selectivity-only vulnerable biomass is
+
+$$
+B^{\mathrm{sel}}_t = \sum_{a=1}^{15} \bar{N}_a\,\bar{w}_a\,s_{t,a},
+$$
+
+where $\bar{N}_a$ is mean estimated numbers at age across 1982--2024,
+$\bar{w}_a$ is mean BTS weight at age, and only BTS selectivity $s_{t,a}$
+varies. This is an availability index rather than an estimated stock biomass
+trajectory.
+
+```{r}
+#| label: bts-availability-load
+#| include: false
+
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(ggplot2)
+  library(tidyr)
+})
+
+report_source <- normalizePath(knitr::current_input(dir = TRUE), mustWork = TRUE)
+availability_path <- file.path(
+  dirname(report_source),
+  "data",
+  "EBSpollock_Sept_2026",
+  "bts_availability_components.csv"
+)
+
+if (!file.exists(availability_path)) {
+  stop("Missing September 2026 report input: ", availability_path)
+}
+
+bts_component_input <- read.csv(
+  availability_path,
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+) |>
+  as_tibble()
+
+component_series <- function(series_name) {
+  bts_component_input |>
+    filter(series == series_name) |>
+    transmute(year, relative_biomass)
+}
+
+bts_availability <- component_series("Selectivity only")
+bts_weight_availability <- component_series("Weight at age only")
+bts_numbers_availability <- component_series("Numbers at age only")
+bts_survey_biomass <- component_series("Observed BTS biomass") |>
+  right_join(tibble(year = 1982:2024), by = "year") |>
+  arrange(year)
+
+bts_availability_min <- min(bts_availability$relative_biomass)
+bts_availability_max <- max(bts_availability$relative_biomass)
+bts_weight_availability_min <- min(bts_weight_availability$relative_biomass)
+bts_weight_availability_max <- max(bts_weight_availability$relative_biomass)
+bts_numbers_availability_min <- min(bts_numbers_availability$relative_biomass)
+bts_numbers_availability_max <- max(bts_numbers_availability$relative_biomass)
+```
+
+```{r}
+#| label: fig-bts-selectivity-only-biomass
+#| fig-cap: "Relative BTS-vulnerable biomass attributable only to fitted annual BTS selectivity. Mean estimated numbers at ages 1–15 across 1982–2024 and mean BTS weight at age are held fixed. Values are divided by the 1982–2024 mean; the dashed horizontal line marks that mean."
+#| fig-alt: "Line plot from 1982 through 2024 showing the BTS vulnerable-biomass variation attributable to fitted annual selectivity when mean estimated numbers and mean weight at age are held fixed."
+#| fig-width: 10
+#| fig-height: 5.5
+
+ggplot(bts_availability, aes(x = year, y = relative_biomass)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "#555555") +
+  geom_line(color = "#1f5673", linewidth = 0.8) +
+  geom_point(color = "#1f5673", size = 1.5) +
+  scale_x_continuous(breaks = seq(1985, 2025, by = 5)) +
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
+  labs(
+    x = "BTS selectivity year",
+    y = "Relative vulnerable biomass (period mean = 100%)"
+  ) +
+  ggthemes::theme_few()
+```
+
+With numbers and weights fixed, the selectivity-only index ranges from
+`r scales::percent(bts_availability_min, accuracy = 0.1)` to
+`r scales::percent(bts_availability_max, accuracy = 0.1)` of its period mean.
+Thus, fitted BTS selectivity alone produces deviations of approximately
+`r scales::percent(bts_availability_min - 1, accuracy = 0.1)` to
+`r scales::percent(bts_availability_max - 1, accuracy = 0.1)` around mean
+vulnerable biomass. This range describes changes in modeled survey
+availability caused by selectivity. Population biomass change is outside this
+controlled calculation.
+
+An analogous weight-only calculation holds mean estimated numbers at age and
+BTS selectivity fixed. Selectivity is averaged at each age over 1982--2024,
+while the observed BTS weight-at-age vector varies among the 42 survey years.
+The 2020 survey was absent, so the plotted BTS weight series moves directly
+from 2019 to 2021.
+
+```{r}
+#| label: fig-bts-weight-only-biomass
+#| fig-cap: "Relative BTS-vulnerable biomass attributable only to annual BTS weight at age. Mean estimated numbers at ages 1–15 across 1982–2024 and mean 1982–2024 BTS selectivity at age are held fixed. Values are divided by the mean across the 42 BTS observation years; the dashed horizontal line marks that mean."
+#| fig-alt: "Line plot over the 42 BTS observation years from 1982 through 2024 showing the vulnerable-biomass variation attributable to annual weight at age when mean estimated numbers and mean selectivity at age are held fixed; the series moves from 2019 to 2021 because the 2020 survey was absent."
+#| fig-width: 10
+#| fig-height: 5.5
+
+ggplot(bts_weight_availability, aes(x = year, y = relative_biomass)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "#555555") +
+  geom_line(color = "#8c510a", linewidth = 0.8) +
+  geom_point(color = "#8c510a", size = 1.5) +
+  scale_x_continuous(breaks = seq(1985, 2025, by = 5)) +
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
+  labs(
+    x = "BTS observation year",
+    y = "Relative vulnerable biomass (period mean = 100%)"
+  ) +
+  ggthemes::theme_few()
+```
+
+With mean estimated numbers at age and mean selectivity fixed, annual BTS
+weights alone produce a relative vulnerable-biomass range of
+`r scales::percent(bts_weight_availability_min, accuracy = 0.1)` to
+`r scales::percent(bts_weight_availability_max, accuracy = 0.1)`, equivalent
+to deviations of
+`r scales::percent(bts_weight_availability_min - 1, accuracy = 0.1)` to
+`r scales::percent(bts_weight_availability_max - 1, accuracy = 0.1)` around
+the mean.
+
+The third calculation holds both BTS selectivity and BTS weight at age at
+their period means and varies only the model-estimated numbers at ages 1--15.
+It therefore describes how the estimated population age structure and scale
+would change BTS-vulnerable biomass under a constant observation process.
+
+```{r}
+#| label: fig-bts-numbers-only-biomass
+#| fig-cap: "Relative BTS-vulnerable biomass attributable only to annual estimated numbers at ages 1–15. Mean BTS selectivity at age and mean BTS weight at age are held fixed. Values are divided by the 1982–2024 mean; the dashed horizontal line marks that mean."
+#| fig-alt: "Line plot from 1982 through 2024 showing a numbers-at-age-only BTS vulnerable-biomass index ranging from about 0.48 to 1.53."
+#| fig-width: 10
+#| fig-height: 5.5
+
+ggplot(bts_numbers_availability, aes(x = year, y = relative_biomass)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "#555555") +
+  geom_line(color = "#4d7c0f", linewidth = 0.8) +
+  geom_point(color = "#4d7c0f", size = 1.5) +
+  scale_x_continuous(breaks = seq(1985, 2025, by = 5)) +
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
+  labs(
+    x = "Model year",
+    y = "Relative vulnerable biomass (period mean = 100%)"
+  ) +
+  ggthemes::theme_few()
+```
+
+With mean selectivity and mean weight fixed, estimated numbers at age alone
+produce a relative vulnerable-biomass range of
+`r scales::percent(bts_numbers_availability_min, accuracy = 0.1)` to
+`r scales::percent(bts_numbers_availability_max, accuracy = 0.1)`, equivalent
+to deviations of
+`r scales::percent(bts_numbers_availability_min - 1, accuracy = 0.1)` to
+`r scales::percent(bts_numbers_availability_max - 1, accuracy = 0.1)` around
+the mean. Unlike the first two controlled calculations, this third series
+reflects estimated population change rather than observation-process
+variation.
+
+The combined comparison in @fig-bts-biomass-components-overlay places the
+three controlled series from @fig-bts-selectivity-only-biomass,
+@fig-bts-weight-only-biomass, and @fig-bts-numbers-only-biomass on the same
+scale as the observed BTS biomass index. Each series is divided by its own
+period mean, so 100% represents the mean for that series rather than a common
+biomass level. The BTS observation series retains the 2020 survey gap.
+
+```{r}
+#| label: fig-bts-biomass-components-overlay
+#| fig-cap: "Relative BTS-vulnerable-biomass components and observed BTS biomass index. The selectivity-only, weight-only, numbers-at-age-only, and observed survey series are each normalized to their own 1982–2024 mean. The dashed horizontal line marks 100%; the observed BTS series moves from 2019 to 2021 because the 2020 survey was absent."
+#| fig-alt: "Overlaid time-series plot from 1982 through 2024 comparing normalized BTS vulnerable biomass attributable separately to annual selectivity, annual weight at age, and annual numbers at age with the normalized observed BTS biomass index. Each series has a period mean of 100 percent, and the observed survey line has a gap in 2020."
+#| fig-width: 11
+#| fig-height: 6.5
+
+bts_component_overlay <- bind_rows(
+  bts_availability |>
+    transmute(year, series = "Selectivity only", relative_biomass),
+  bts_weight_availability |>
+    transmute(year, series = "Weight at age only", relative_biomass),
+  bts_numbers_availability |>
+    transmute(year, series = "Numbers at age only", relative_biomass),
+  bts_survey_biomass |>
+    transmute(year, series = "Observed BTS biomass", relative_biomass)
+) |>
+  mutate(
+    series = factor(
+      series,
+      levels = c(
+        "Observed BTS biomass",
+        "Selectivity only",
+        "Weight at age only",
+        "Numbers at age only"
+      )
+    ),
+    line_segment = if_else(
+      series == "Observed BTS biomass" & year > 2020,
+      "Observed BTS biomass after 2020",
+      as.character(series)
+    )
+  )
+
+ggplot(
+  bts_component_overlay,
+  aes(
+    x = year,
+    y = relative_biomass,
+    color = series,
+    linetype = series,
+    shape = series,
+    group = line_segment
+  )
+) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "#555555") +
+  geom_line(linewidth = 0.85, na.rm = TRUE) +
+  geom_point(size = 1.8, na.rm = TRUE) +
+  scale_x_continuous(breaks = seq(1985, 2025, by = 5)) +
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
+  scale_color_manual(
+    values = c(
+      "Observed BTS biomass" = "#000000",
+      "Selectivity only" = "#1f5673",
+      "Weight at age only" = "#8c510a",
+      "Numbers at age only" = "#4d7c0f"
+    )
+  ) +
+  scale_linetype_manual(
+    values = c(
+      "Observed BTS biomass" = "solid",
+      "Selectivity only" = "longdash",
+      "Weight at age only" = "dotdash",
+      "Numbers at age only" = "twodash"
+    )
+  ) +
+  scale_shape_manual(values = c(16, 17, 15, 18)) +
+  labs(
+    x = "Year",
+    y = "Relative index (period mean = 100%)",
+    color = NULL,
+    linetype = NULL,
+    shape = NULL
+  ) +
+  ggthemes::theme_few() +
+  theme(legend.position = "bottom")
+```
+
+The pairwise display in @fig-bts-biomass-components-pairs removes the time
+axis and compares the four normalized series directly. Diagonal panels show
+each marginal distribution, lower panels show paired annual values, and upper
+panels report Pearson correlations based on the years available for each
+pair. These correlations describe shared temporal variation among the
+normalized indices. The controlled calculations leave causal contributions to
+observed survey biomass undetermined.
+
+```{r}
+#| label: fig-bts-biomass-components-pairs
+#| fig-cap: "Pairwise relationships among observed BTS biomass and the selectivity-only, weight-at-age-only, and numbers-at-age-only relative indices shown in @fig-bts-biomass-components-overlay. Values are percentages of each series' 1982–2024 mean. Upper panels report Pearson correlations using available paired years."
+#| fig-alt: "Pairs-plot matrix for four normalized annual series: observed BTS biomass, selectivity-only vulnerable biomass, weight-at-age-only vulnerable biomass, and numbers-at-age-only vulnerable biomass. Diagonal panels show distributions, lower panels show paired annual points, and upper panels give Pearson correlations."
+#| fig-width: 11
+#| fig-height: 10
+
+bts_component_pairs <- bts_component_overlay |>
+  select(year, series, relative_biomass) |>
+  mutate(
+    series = recode(
+      as.character(series),
+      "Observed BTS biomass" = "BTS biomass",
+      "Selectivity only" = "Selectivity",
+      "Weight at age only" = "Weight at age",
+      "Numbers at age only" = "Numbers at age"
+    ),
+    relative_biomass = 100 * relative_biomass
+  ) |>
+  tidyr::pivot_wider(names_from = series, values_from = relative_biomass) |>
+  select(`BTS biomass`, Selectivity, `Weight at age`, `Numbers at age`)
+
+GGally::ggpairs(
+  bts_component_pairs,
+  upper = list(
+    continuous = GGally::wrap("cor", method = "pearson", size = 4)
+  ),
+  lower = list(
+    continuous = GGally::wrap("points", alpha = 0.7, size = 1.5)
+  ),
+  diag = list(
+    continuous = GGally::wrap("densityDiag", alpha = 0.45)
+  ),
+  progress = FALSE
+) +
+  ggthemes::theme_few() +
+  theme(
+    strip.text = element_text(size = 10),
+    axis.text = element_text(size = 8)
+  )
+```

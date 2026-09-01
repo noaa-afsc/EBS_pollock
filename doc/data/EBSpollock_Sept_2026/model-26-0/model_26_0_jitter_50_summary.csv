@@ -1,0 +1,2 @@
+"Requested_runs","Completed_converged_runs","Nonconverged_or_timed_out_runs","Runs_returning_to_best","Best_objective","Largest_delta_objective","Jitter_standard_deviation","Seed"
+50,50,0,47,716.907540753111,609.512325734026,0.2,20260831

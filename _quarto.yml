@@ -38,6 +38,8 @@ website:
     contents:
       - href: index.qmd
         text: Preface
+      - href: doc/EBSpollock_Sept_2026.qmd
+        text: September 2026 assessment developments
       - href: doc/ssc.qmd
         text: Responses to SSC comments
       - href: doc/todo.qmd
