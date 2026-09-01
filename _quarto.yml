@@ -44,6 +44,10 @@ website:
         text: Part 2, Assessment research developments for NPFMC Review
       - href: doc/double_logistic_selectivity.qmd
         text: Part 3, Exploration of 3-parameter double logistic selectivity option
+      - href: doc/ssc.qmd
+        text: Responses to SSC comments
+      - href: doc/todo.qmd
+        text: Assessment preparation checklist
 
 lightbox: true
 engine: knitr

@@ -1,0 +1,58 @@
+---
+title: "Assessment preparation checklist"
+format: html
+---
+
+This checklist was moved from the SSC response page. It records tasks that were
+listed for the planned 2025 assessment update. A lapse in funding prevented the
+November and December 2025 SAFE package, so the list should be reviewed and
+updated before it is used for 2026 assessment planning.
+
+# Data updates
+
+- [ ] Insert final 2024 commercial catches (fleet/gear, retained/discards)
+- [ ] Verify Russian catch updates
+- [ ] Add 2025 BTS biomass and age comps
+- [ ] Add 2024 ATS age comps (no new biomass estimate in 2025)
+- [ ] Update 2025 AVO index
+- [ ] Insert 2024-2025 fishery age/length comps
+- [ ] Re-weight composition data (effective sample sizes)
+- [ ] Update environmental/ancillary indices (copepod, sea ice, etc.)
+- [ ] Check FT-NIR age validation / genetics updates
+
+# Model inputs and structure
+
+- [ ] Update input data files to 2025 terminal year
+- [ ] Handle missing ATS biomass index (skip-year) correctly
+- [ ] Re-examine composition weighting method
+- [ ] Review variance inflation factors for surveys
+- [ ] Check selectivity blocks and time-varying assumptions
+
+# Model runs and diagnostics
+
+- [ ] Extend base model to 2025
+- [ ] Confirm convergence and parameter plausibility
+- [ ] Run sensitivities (recruitment assumptions, survey weighting, Russian
+  catch)
+- [ ] Update retrospective analysis (peels including 2025)
+- [ ] Update likelihood profiles (steepness, M, selectivity)
+- [ ] Run MCMC/posterior sampling; check diagnostics (R-hat, ESS)
+
+# Reference points and projections
+
+- [ ] Recalculate SSB, B40%, F40% (or proxy values)
+- [ ] Update FABC and FOFL for 2026
+- [ ] Run 2026-2036 projections with recruitment assumptions
+- [ ] Update alternative harvest scenarios
+
+# Document and presentation updates
+
+- [ ] Update SAFE text, tables, and executive summary
+- [ ] Replace 2024 values with 2025 throughout
+- [ ] Revise all figures (surveys, selectivity, fits, Kobe plots)
+- [ ] Ensure consistency (no outdated numbers left in text)
+- [ ] Check table/figure numbering
+- [ ] Address 2025 PT/SSC requests
+
+*Notes: Acoustic-trawl biomass index is static at 2024; only ATS ages are
+updated. AVO index extends to 2025. Main survey input is 2025 BTS.*

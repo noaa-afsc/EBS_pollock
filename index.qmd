@@ -8,7 +8,8 @@ format:
 
 # Preface
 
-This document is organized into two complementary parts.  
+This site brings together the 2025 review papers, responses to SSC comments,
+and the assessment preparation checklist.
 
 **Part 1** is a *discussion paper* that was prepared for and presented to the  
 Center for Independent Experts (CIE) review panel in **May 2025**.  
@@ -19,9 +20,11 @@ considered at that time.
 including research and model refinements in support of the North Pacific Fishery  
 Management Council (NPFMC) review process in September 2025.  
 
-Together, these two parts provide a transparent record of the assessment’s  
-evolution over the course of 2025. Readers may wish to begin with Part 1 for  
-context and then move to Part 2 for the most current results.
+**Part 3** examines a three-parameter double-logistic selectivity option.
+
+The SSC response page includes the October 2025 comments and retains the
+earlier 2024 responses. The assessment checklist is maintained on a separate
+page.
 
 ---
 
@@ -29,5 +32,6 @@ context and then move to Part 2 for the most current results.
 
 - [Part 1: Discussion paper presented to CIE review](doc/CIE.html)  
 - [Part 2: Assessment research developments for NPFMC Review](doc/Sept_2025.html)
-- [To do list ](doc/ssc.html) for 2025 assessment update
-
+- [Part 3: Three-parameter double-logistic selectivity](doc/double_logistic_selectivity.html)
+- [Responses to SSC comments](doc/ssc.html)
+- [Assessment preparation checklist](doc/todo.html)
