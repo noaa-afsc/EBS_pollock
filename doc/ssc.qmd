@@ -31,18 +31,18 @@ for review.
 ## Model numbering plan
 
 The model number should identify the model's place in the review record. The
-software name should be shown separately. Under this plan, `23A` and `23B` are
-tracking labels used to document the transition from the 2024 ADMB model; the
-public model names are **Model 25.0 (RTMB)** for the work begun in 2025 and
+software name should be shown separately. Under this plan, **Model 23.0** is the
+2024 ADMB source and **Model 23.1** is its direct RTMB translation check. The
+newer model names are **Model 25.0 (RTMB)** for the work begun in 2025 and
 **Model 26.0 (Rceattle)** for the development line begun in 2026.
 
 ```{mermaid}
 %%| label: fig-model-numbering
 %%| fig-cap: "Proposed numbering and development history for EBS pollock assessment models."
-%%| fig-alt: "Flowchart beginning with the Model 23A ADMB source used in 2024. One branch passes through the Model 23B translation check to Model 25.0 in RTMB, begun in 2025. A second branch leads to Model 26.0 in Rceattle, begun in 2026. SPoRC supports comparisons with the two development lines but does not yet have an assessment model number."
+%%| fig-alt: "Flowchart beginning with the Model 23.0 ADMB source used in 2024. One branch passes through the Model 23.1 RTMB translation check to Model 25.0 in RTMB, begun in 2025. A second branch leads to Model 26.0 in Rceattle, begun in 2026. SPoRC supports comparisons with the two development lines but does not yet have an assessment model number."
 
 flowchart LR
-  A["Model 23A<br/>2024 ADMB source"] -->|"direct translation<br/>and checks"| B["Model 23B<br/>translation check"]
+  A["Model 23.0<br/>2024 ADMB source"] -->|"direct translation<br/>and checks"| B["Model 23.1<br/>RTMB translation check"]
   B --> C["Model 25.0<br/>RTMB line begun in 2025"]
   A -->|"new implementation<br/>and development"| D["Model 26.0<br/>Rceattle line begun in 2026"]
   S["SPoRC<br/>supporting comparison"] -.->|"common tests"| C
@@ -51,16 +51,15 @@ flowchart LR
 
 The labels should be used as follows:
 
-- **Model 23A** identifies the ADMB source used in 2024. This is the tracking
-  label for the previously accepted Model 23.0 configuration.
-- **Model 23B** identifies the direct RTMB translation used to check that the
-  new code reproduces the source model. It is a tracking label, not a second
-  public model number.
+- **Model 23.0 (ADMB)** identifies the accepted source model used in 2024.
+- **Model 23.1 (RTMB)** identifies the direct translation used to check that the
+  new code reproduces Model 23.0. It is a numbered translation check, not a
+  candidate for management advice.
 - **Model 25.0 (RTMB)** is the public name for the RTMB assessment line begun in
   2025 at the SSC's request.
 - **Model 26.0 (Rceattle)** is the public name for the Rceattle development line
   begun in 2026. Its changes must be listed separately from the change in
-  software.
+  software. This is the proposed operational model for 2026 management advice.
 - **SPoRC** remains a supporting comparison. It should receive a numbered model
   name only if it is brought forward as an assessment candidate.
 
@@ -72,7 +71,7 @@ the same label in the report, tables, presentations, run folders, and archive.
 
 | SSC comment | Response |
 |---|---|
-| Use the 2024 base model as the source for an RTMB implementation, with routine data updates. | Use the accepted 2024 ADMB configuration as the scientific source. First check the direct RTMB translation under the 23B tracking label, then use Model 25.0 (RTMB) for the assessment line begun in 2025. List each new data set and each model change separately. Save the model version, run files, diagnostics, projections, and management quantities used in the report. |
+| Use the 2024 base model as the source for an RTMB implementation, with routine data updates. | Use the accepted Model 23.0 (ADMB) configuration as the scientific source. First check the direct RTMB translation as Model 23.1, then use Model 25.0 (RTMB) for the assessment line begun in 2025. List each new data set and each model change separately. Save the model version, run files, diagnostics, projections, and management quantities used in the report. |
 | Use the updated Groundfish Assessment Program estimates of survey biomass and age composition. | Add the `sdmTMB` biomass estimates and `tinyVAST` age compositions as updated survey data. Record the data delivery date, software version, model settings, and input files. Compare the old and new survey series and show whether the change affects the assessment results. |
 | Use FT-NIRS age compositions for the 2025 fishery and surveys. | Document how the FT-NIRS ages were produced, screened, grouped, and assigned to fishery and survey data. Record sample sizes and aging-error matrices. Check the final model input against the source data before fitting the assessment. |
 | Compare traditional microscope ages with FT-NIRS ages and show the effects on model results and management quantities. | Run the same assessment with traditional ages, FT-NIRS ages with one aging-error matrix, and FT-NIRS ages with fleet-specific aging-error matrices. Compare cohort patterns, fits to fishery and survey ages, residuals, recruitment, spawning biomass, reference points, ABC, and OFL. Save the full comparison in the assessment appendix and at a permanent web address. |
@@ -82,7 +81,7 @@ the same label in the report, tables, presentations, run folders, and archive.
 | Explore time-varying natural mortality, selectivity, age-composition weighting, and cohort and temperature effects on weight at age. | Study each topic separately. State the scientific question before fitting a model. For each change, show model fit, parameter uncertainty, retrospective results, projections, and effects on management advice. Keep poorly estimated or unstable models as research results. |
 | Continue work with CEATTLE estimates of natural mortality and consider Rceattle for time-varying mortality. | Test time-varying natural mortality as a sensitivity analysis. Check whether the model can separate mortality changes from recruitment, selectivity, and survey effects. Model software should be chosen from the full set of assessment needs, not from this feature alone. |
 | Explain how the recruitment penalty affects the estimated 2018 year class and why the likelihood profile favored a larger recruitment estimate. | Prepare a likelihood profile for the 2018 recruitment deviation. Show how the recruitment penalty and each data source change across the profile. Explain which parts of the model favor a larger year class and how the estimate affects spawning biomass, reference points, ABC, and OFL. |
-| Clearly identify the models proposed for the assessment, including model numbers. | Use Model 25.0 (RTMB) for the line begun in 2025 and Model 26.0 (Rceattle) for the line begun in 2026. Retain 23A and 23B only as tracking labels for the 2024 ADMB source and its direct RTMB translation. Use the same short names in the report, presentations, run folders, tables, and archive. For every model, list its purpose, parent model, data set, model changes, software version, and review status. State clearly which model is recommended for management advice. |
+| Clearly identify the models proposed for the assessment, including model numbers. | Use Model 23.0 (ADMB) for the accepted 2024 source, Model 23.1 (RTMB) for the direct translation check, Model 25.0 (RTMB) for the line begun in 2025, and Model 26.0 (Rceattle) for the line begun in 2026. Use the same short names in the report, presentations, run folders, tables, and archive. For every model, list its purpose, parent model, data set, model changes, software version, and review status. State clearly which model is recommended for management advice. |
 | Archive the October and December SAFE documents and presentations. | Archive the October 2025 material that exists and add a short note explaining that the funding lapse prevented the November and December SAFE package. For future reviews, save the Quarto source, rendered reports, presentations, model files, data list, software versions, and file checksums in one dated release. |
 
 : Responses to the October 2025 SSC comments on EBS pollock. The SSC comments
