@@ -54,12 +54,50 @@ interpretations, and conclusions.
 
 # Summary
 
-::: {.callout-note title="Summary placeholder"}
-TODO: Update this summary after the relevant assessment-development sections
-have been moved into this document. Summarize the changes in assessment inputs,
-methods, diagnostics, projections, and management advice represented in the
-completed sections.
-:::
+This working paper brings together eastern Bering Sea pollock assessment work
+that resumed after the 2025 funding lapse and federal furlough. It establishes
+a common review record for data preparation, model numbering, software
+translations, diagnostics, projections, and responses to Scientific and
+Statistical Committee (SSC) comments. The comparisons use the 1964--2024 data
+basis inherited from accepted Model 23.0. New 2025 and 2026 observations will
+enter the assessment after the source products, sample sizes, ageing-error
+treatment, and quality-control checks are complete.
+
+The model numbering plan separates scientific purpose from software. Model
+23.0 is the accepted 2024 ADMB assessment model. Model 23.1 is the direct RTMB
+translation check, Model 25.0 is the RTMB development line begun in 2025, and
+Model 26.0 is the Rceattle development line begun in 2026. SPoRC provides a
+supporting comparison across the development lines. The Data section also
+separates two age-data questions: use of FT-NIRS predicted ages and revision of
+the method used to expand BTS age samples into annual proportions at age.
+
+Model 25.0 reproduces the corrected full-age BTS ADMB bridge and supports
+continued evaluation of composition fit, selectivity, and retrospective
+stability. The simple Model 26.0 Rceattle fit met the stated convergence
+criteria and closely followed the Model 23.2 Rceattle-aligned ADMB bridge, with
+trajectory correlations above 0.998. Its composition residuals varied less
+than expected under the fitted model. Forty-seven of 50 dispersed-start fits
+returned to the best solution, while three reached the same higher objective.
+The repeated higher objective indicates a recurring alternative solution. All
+50 simulated-data self-tests completed with convergence status OK. The lag-preserving
+nine-peel retrospective produced Mohn's rho values of 0.329 for spawning
+biomass, 0.211 for total biomass, 0.185 for age-1 recruitment, and -0.126 for
+fishing mortality. The peels generally estimated greater biomass and
+recruitment and lower fishing mortality than the full fit over the same years.
+These results make composition fit, the recurring alternative solution, and
+retrospective stability the principal Model 26.0 evaluation priorities.
+
+The `spmR` projections demonstrate a reproducible handoff from Model 26.0 to
+the standard seven-alternative projection workflow. They serve as development
+tests, while Model 23.0 provides the management recommendations. The exploratory recruitment
+analysis favored the model containing age-0 late-summer sea-surface
+temperature; its negative fitted pathway provides a testable in-sample
+association for further biological and predictive evaluation. Model 23.0
+continues to provide current management advice while Models 25.0 and 26.0
+proceed through simulation testing and review. Appendix 1 preserves the SSC
+comments and response plan, Appendix 2 documents observed length-frequency
+patterns, and Appendix 3 provides the development framework for an Ecosystem
+and Socioeconomic Profile.
 
 # Introduction
 
@@ -370,19 +408,31 @@ Rceattle calculated the internal residuals, and
 [`afscOSA` version 0.0.1](https://github.com/noaa-afsc/afscOSA/releases/tag/v0.0.1)
 produced the common AFSC plots and summaries. The `N` input came from the
 Rceattle `Sample_size` field used in the multinomial likelihood. It represents
-the likelihood sample size rather than an estimated effective sample size.
+the likelihood sample size. The table reports the effective sample size
+separately.
 
-| Composition source | Residuals | SDNR | Expected interval | Input sample-size total | Effective sample size |
-|---|---:|---:|---:|---:|---:|
-| Fishery | 840 | 0.638 | 0.952--1.048 | 17,127 | 154,219 |
-| BTS | 588 | 0.802 | 0.943--1.057 | 5,397 | 3,040 |
-| ATS | 266 | 0.534 | 0.915--1.085 | 914 | 680 |
+The table and figure use the same composition rows retained by the `afscOSA`
+count conversion. The fishery and BTS retain every input year. ATS 2020 remains
+in the fitted Rceattle likelihood and full internal OSA calculation. Its
+sample size of one is distributed among 15 ages, and every age-specific count
+rounds to zero in the `afscOSA` conversion. The common display therefore uses
+the other 18 ATS years. Across all 19 ATS years, the Rceattle internal result
+contains 266 residuals, has an SDNR of 0.534, and has an expected interval of
+0.915--1.085.
+
+| Composition source | Years displayed | Residuals | SDNR | Expected interval | Likelihood sample-size total | Rounded count total | Effective sample size |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Fishery | 60 | 840 | 0.638 | 0.952--1.048 | 17,147 | 17,127 | 154,219 |
+| BTS | 42 | 588 | 0.802 | 0.943--1.057 | 5,403 | 5,397 | 3,040 |
+| ATS | 18 | 252 | 0.536 | 0.913--1.087 | 930 | 914 | 680 |
 
 : OSA dispersion and aggregate sample-size diagnostics. SDNR is the standard
-deviation of normalized residuals. The sample-size totals reflect the integer
-counts retained by the `afscOSA` plotting conversion. {#tbl-model-26-osa}
+deviation of normalized residuals. The likelihood sample-size total sums the
+Rceattle `Sample_size` field over the displayed years. The rounded count total
+and effective sample size come from the same `afscOSA` plotting conversion.
+{#tbl-model-26-osa}
 
-Each SDNR is below its expected interval, with the fishery showing the lowest
+Each SDNR is below its expected interval, with the ATS showing the lowest
 value (@tbl-model-26-osa). The aggregate fits and residual bubbles show the age,
 year, and cohort locations of the remaining patterns
 (@fig-model-26-osa). The current Rceattle decomposition also marked 188
@@ -390,7 +440,7 @@ extremely small conditional predictions as uninformative, including slight
 values below zero. Interpretation therefore emphasizes aggregate fits and
 cells supported by appreciable predicted counts.
 
-![Aggregate age-composition fits, OSA quantile plots, and residual bubbles for the fishery, BTS, and ATS.](assets/model-26-0/model_26_0_afscosa.png){#fig-model-26-osa fig-alt="Four rows of diagnostic plots for fishery, bottom-trawl survey, and acoustic-trawl survey age compositions. The first row compares aggregate observed and fitted proportions. The second row shows OSA quantile plots with SDNR values below one. The lower rows show OSA and Pearson residual bubbles by age and year." width="100%"}
+![Aggregate age-composition fits, OSA quantile plots, and residual bubbles for the fishery, BTS, and ATS. The fishery and BTS panels retain every input year. The ATS panels retain 18 years because its sample size of one in 2020 produces zero rounded counts in the plotting conversion.](assets/model-26-0/model_26_0_afscosa.png){#fig-model-26-osa fig-alt="Four rows of diagnostic plots for fishery, bottom-trawl survey, and acoustic-trawl survey age compositions. The fishery and bottom-trawl survey panels contain all input years, while the acoustic-trawl survey panels contain 18 years and omit 2020 from the display because its sample size of one produces zero rounded age counts. The first row compares aggregate observed and fitted proportions. The second row shows OSA quantile plots with residual standard deviations below one. The lower rows show OSA and Pearson residual bubbles by age and year." width="100%"}
 
 #### Jitter test
 
