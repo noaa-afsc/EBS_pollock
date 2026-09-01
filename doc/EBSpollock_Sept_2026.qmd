@@ -33,6 +33,8 @@ format:
     toc-location: left
     number-sections: true
 lightbox: true
+resources:
+  - scripts/model-26-0/*.R
 ---
 
 <!--
@@ -258,7 +260,7 @@ this analysis to focus on the simpler assessment structure requested for Model
 ```{mermaid}
 %%| label: fig-model-26-approach
 %%| fig-cap: "Data and calculation flow for the simple Model 26.0 Rceattle analysis."
-%%| fig-alt: "Fishery catch, survey and abundance indices, age compositions, and biological schedules enter the Rceattle population model. The model estimates annual abundance, recruitment, fishing mortality, and selectivity. The fitted model is then compared with the Model 23.2 bridge and used for OSA residuals, jitter tests, self-tests, retrospective analysis, native projections, and exploratory DSEM pathways."
+%%| fig-alt: "Fishery catch, survey and abundance indices, age compositions, and biological schedules enter the Rceattle population model. The model estimates annual abundance, recruitment, fishing mortality, and selectivity. The fitted model is then compared with the Model 23.2 bridge and used for OSA residuals, jitter tests, self-tests, retrospective analysis, Standard Projection Model projections, and exploratory DSEM pathways."
 
 flowchart LR
   accTitle: Simple Model 26.0 data and analysis flow
@@ -269,7 +271,7 @@ flowchart LR
   M --> S["Abundance, recruitment,<br/>fishing mortality, selectivity"]
   S --> V["Model 23.2 bridge comparison"]
   S --> D["OSA, jitter, self-test,<br/>and retrospective checks"]
-  S --> P["Native Rceattle projection"]
+  S --> P["spmR projection"]
   S --> E["Exploratory DSEM pathways"]
   classDef input fill:#e8f0f7,stroke:#52616b,color:#111111
   class A,B,C,M,S,V,D,P,E input
@@ -308,7 +310,8 @@ remains associated with the shared ATS/AVO annual selectivity changes.
 The analysis is archived as separate R scripts for the
 [assessment fit and OSA checks](scripts/model-26-0/run_model_26_rceattle_5_23.R),
 [DSEM pathways](scripts/model-26-0/run_model_26_dsem_5_23_pathways.R),
-[projection and retrospective](scripts/model-26-0/run_model_26_projection_retro_5_23.R),
+[retrospective analysis](scripts/model-26-0/run_model_26_retrospective_sensitivity_5_23.R),
+[spmR projections](scripts/model-26-0/run_model_26_spmr_projection_5_23.R),
 and [self-test](scripts/model-26-0/run_model_26_self_test_5_23.R).
 
 ### Model 23.2 bridge comparison
@@ -416,64 +419,142 @@ simulated distributions directly.
 
 ![Distribution of differences between self-test refits and the operating Model 26.0 values.](assets/model-26-0/model_26_0_self_test_recovery.png){#fig-model-26-self-test fig-alt="Horizontal boxplots show percent differences from the operating-model values for age-1 recruitment, spawning biomass, and total biomass across 50 simulated observation sets and all assessment years. Distributions are centered slightly below zero and are widest for recruitment." width="82%"}
 
-#### Retrospective patterns
+#### Retrospective analysis
 
-Nine phased peels ended in 2023 through 2015. The current Rceattle
-retrospective method preserves stream-specific observation lags, fixes peeled
-time-varying parameters at each peel's terminal-year values, and extends the
-peeled result through the removed years using observed catch and mean
-recruitment. All nine peels completed with convergence status OK. Their maximum
-gradients ranged from $8.17\times10^{-9}$ to $3.00\times10^{-4}$.
+##### Configuration and primary results
 
-| Quantity | Year-0 Mohn's rho |
+Nine peels ended in 2023 through 2015. The primary analysis follows the
+stream-specific lag rules used in the earlier retrospective analysis. Fishery
+age compositions retain their one-year lag, the ATS age-1 index retains its
+two-year lag, and the discontinued CPUE series continues to end in 1976. The
+remaining active index and composition series extend through the peel year when
+an observation exists. All 81 stream-by-peel checks reproduced these rules.
+
+Each peel recalculates its data-based fishery-selectivity starting values and
+uses the same two-stage fitting sequence as the full Model 26.0 fit. The first
+stage establishes population and selectivity scale with annual selectivity
+changes held constant. The second stage estimates those annual changes. The
+terminal fishery and CPUE selectivity increment is fixed at zero, which carries
+the preceding-year selectivity-at-age curve into the terminal year. The largest
+terminal-to-preceding-year selectivity difference was
+$6.7\times10^{-16}$. The
+[retrospective script](scripts/model-26-0/run_model_26_retrospective_sensitivity_5_23.R)
+records the lag, convergence, and selectivity checks.
+
+All nine peels completed with convergence status OK and positive-definite
+Hessians. The largest maximum gradient was $2.01\times10^{-4}$.
+
+| Quantity | Mohn's rho |
 |---|---:|
-| Total biomass | 2.899 |
-| Spawning biomass | 2.151 |
-| Age-1 recruitment | 0.121 |
-| Fishing mortality | 0.713 |
+| Total biomass | 0.211 |
+| Spawning biomass | 0.329 |
+| Age-1 recruitment | 0.185 |
+| Fishing mortality | -0.126 |
 
-: Mohn's rho from nine Model 26.0 retrospective peels. Year 0 compares each
-peel at its terminal assessment year. {#tbl-model-26-retro}
+: Mohn's rho from nine lag-preserving, two-stage Model 26.0 peels. Each value
+compares a peel at its terminal assessment year with the corresponding value
+from the full Model 26.0 fit. {#tbl-model-26-retro}
 
-The positive values show that models ending in earlier years generally
-estimate larger biomass, recruitment, and fishing mortality at their terminal
-years than the corresponding values from the full model. The large biomass
-values identify retrospective stability as a central Model 26.0 development
-priority (@fig-model-26-retro). Logarithmic vertical scales preserve the
-visibility of the full model and recent peels while also showing the much
-larger 2015 and 2016 peel estimates.
+The peels generally estimate greater spawning biomass, total biomass, and
+recruitment, together with lower fishing mortality, than the full model over
+the corresponding terminal years (@fig-model-26-retro). Spawning biomass has
+the largest average relative revision and remains a central Model 26.0
+evaluation priority.
 
-![Spawning biomass, total biomass, recruitment, and fishing mortality for Model 26.0 and nine retrospective peels on logarithmic vertical scales.](assets/model-26-0/model_26_0_retrospective.png){#fig-model-26-retro fig-alt="Four line-chart panels use logarithmic vertical scales to show the full Model 26.0 time series and nine retrospective peels ending from 2023 back to 2015. The 2015 and 2016 peels have much larger terminal recruitment and biomass estimates than the full model. The logarithmic scales keep the full model and recent peels visible while retaining those extreme early-peel estimates." width="100%"}
+![Spawning biomass, total biomass, recruitment, and fishing mortality for Model 26.0 and nine lag-preserving retrospective peels.](assets/model-26-0/model_26_0_retrospective.png){#fig-model-26-retro fig-alt="Four line-chart panels show age-1 recruitment, fishing mortality, spawning biomass, and total biomass for the full Model 26.0 fit and nine peels ending from 2023 back to 2015. Earlier peels generally show greater biomass and recruitment and lower fishing mortality over shared years." width="100%"}
+
+##### Sensitivity and evaluation
+
+The large pattern from the initial 5.23.0 run came from the package's native
+retrospective routine. That routine applies a common peel-year cutoff to all
+observation streams, which gives each peel a fishery composition from its
+terminal year and later ATS age-1 information than the established lag rules.
+It also estimates a new terminal selectivity change; the resulting maximum
+terminal-to-preceding-year differences ranged from 0.135 to 0.967. The native
+routine therefore represents a different retrospective configuration.
+
+| Quantity | Lag-preserving two-stage, 5.23.0 | Published two-stage, 5.8.1 | Native routine, 5.23.0 |
+|---|---:|---:|---:|
+| Total biomass | 0.211 | 0.119 | 2.899 |
+| Spawning biomass | 0.329 | 0.261 | 2.151 |
+| Age-1 recruitment | 0.185 | 0.147 | 0.121 |
+| Fishing mortality | -0.126 | -0.077 | 0.713 |
+
+: Retrospective sensitivity measured with Mohn's rho. The first two columns
+share the earlier lag-preserving, terminal-selectivity-held, two-stage
+specification. The third column combines the native common-cutoff and
+terminal-selectivity treatment. {#tbl-model-26-retro-sensitivity}
+
+The full-data 5.8.1 and 5.23.0 fits are closely aligned: annual spawning
+biomass differs by at most 0.27%, and terminal spawning biomass differs by
+0.002%. The two lag-preserving retrospective series also show the same
+direction and similar scale of revision. This evidence identifies the peel
+configuration as the source of the extreme native pattern; the full-data update
+contributed only small differences (@fig-model-26-retro-sensitivity). The sensitivity combines the
+lag, terminal-selectivity, and fitting-sequence differences; a future factorial
+test can apportion their individual contributions. The lag-preserving 5.23.0
+results provide the primary Model 26.0 retrospective evaluation.
+
+![Terminal-year retrospective differences under the primary 5.23.0 analysis, the published 5.8.1 analysis, and the native 5.23.0 routine.](assets/model-26-0/model_26_0_retrospective_sensitivity.png){#fig-model-26-retro-sensitivity fig-alt="Four panels compare terminal-year relative differences for recruitment, fishing mortality, spawning biomass, and total biomass. The lag-preserving 5.23.0 and published 5.8.1 series follow similar patterns. The native 5.23.0 routine produces much larger early-peel biomass and fishing-mortality differences." width="100%"}
 
 ### Projections
 
-The native Rceattle projection carries the saved Model 26.0 state from 2025
-through 2050 under the NPFMC Tier 3 harvest rule. The setup assigns all
-projected fishing mortality to the commercial fishery, uses $F_{40\%}$ as the
-target and $F_{35\%}$ as the limit, and applies the rule beginning in 2025.
-These deterministic results test the current branch's projection pathway.
-The accepted Model 23.0 continues to provide management advice.
+The projection uses `spmR` version 0.3.0 and the validated Standard Projection
+Model workflow. The
+[projection runner](scripts/model-26-0/run_model_26_spmr_projection_5_23.R)
+and [input writer](scripts/model-26-0/write_spmr_projection_inputs.R) transfer
+the current Model 26.0 population state, annual recruitment, biological
+schedules, and recent fishing pattern into the `pm.prj` format. The projection
+uses the arithmetic mean fishery selectivity-at-age and fishing mortality from
+2020--2024; mean fishing mortality over those years is 0.1984.
 
-| Year | Spawning biomass | Catch | Fishing mortality | Biomass relative to the $F_{40\%}$ reference |
-|---:|---:|---:|---:|---:|
-| 2025 | 2,944 | 1,880 | 0.324 | 1.25 |
-| 2026 | 2,332 | 1,612 | 0.324 | 1.00 |
-| 2027 | 2,034 | 1,397 | 0.324 | 0.88 |
-| 2028 | 2,040 | 1,214 | 0.286 | 0.89 |
-| 2030 | 2,254 | 1,423 | 0.305 | 0.98 |
-| 2035 | 2,291 | 1,525 | 0.324 | 1.00 |
-| 2050 | 2,286 | 1,522 | 0.324 | 1.00 |
+The seven alternatives use 1,000 simulations over 14 projection years beginning
+in 2025. Catch is fixed at 1,350 thousand t in 2025 and 2026, so the alternatives
+first separate in 2027. The accepted Model 23.0 continues to provide management
+advice; these Model 26.0 results evaluate the projection handoff.
 
-: Deterministic native Rceattle projection. Biomass and catch are in thousand
-metric tons. {#tbl-model-26-projection}
+| Alternative | Scenario | Year | Catch | ABC | OFL | Spawning biomass | F | B/B~35%~ |
+|---:|---|---:|---:|---:|---:|---:|---:|---:|
+| 1 | Maximum permissible ABC | 2027 | 1,863.74 | 1,863.74 | 2,259.26 | 2,476.20 | 0.35 | 1.17 |
+| 1 | Maximum permissible ABC | 2028 | 1,308.28 | 1,308.28 | 1,583.17 | 2,115.48 | 0.31 | 1.00 |
+| 2 | Author-specified ABC | 2027 | 1,863.74 | 1,863.74 | 2,259.26 | 2,476.20 | 0.35 | 1.17 |
+| 2 | Author-specified ABC | 2028 | 1,308.28 | 1,308.28 | 1,583.17 | 2,115.48 | 0.31 | 1.00 |
+| 3 | Average recent F | 2027 | 1,131.82 | 1,131.82 | 2,259.26 | 2,582.32 | 0.20 | 1.22 |
+| 3 | Average recent F | 2028 | 1,014.89 | 1,014.89 | 1,962.79 | 2,446.53 | 0.20 | 1.16 |
+| 4 | Alternative SPR rate | 2027 | 856.48 | 856.48 | 2,259.26 | 2,619.30 | 0.15 | 1.24 |
+| 4 | Alternative SPR rate | 2028 | 803.08 | 803.08 | 2,103.68 | 2,585.22 | 0.15 | 1.22 |
+| 5 | No fishing | 2027 | 0.00 | 0.00 | 2,259.26 | 2,725.74 | 0.00 | 1.29 |
+| 5 | No fishing | 2028 | 0.00 | 0.00 | 2,455.40 | 3,034.71 | 0.00 | 1.44 |
+| 6 | OFL threshold determination | 2027 | 1,560.83 | 1,560.83 | 1,560.83 | 2,016.94 | 0.37 | 0.95 |
+| 6 | OFL threshold determination | 2028 | 1,210.15 | 1,210.15 | 1,210.15 | 1,830.82 | 0.34 | 0.87 |
+| 7 | Status-determination ramp | 2027 | 1,509.33 | 1,809.05 | 1,809.05 | 2,210.63 | 0.32 | 1.05 |
+| 7 | Status-determination ramp | 2028 | 1,424.04 | 1,424.04 | 1,424.04 | 1,977.16 | 0.36 | 0.94 |
 
-Spawning biomass reaches its smallest ratio to the target reference in 2027.
-The harvest rule then reduces fishing mortality, and the projected stock
-returns toward the target reference by the early 2030s. The no-fishing line in
-@fig-model-26-projection provides a calculation reference rather than a harvest
-alternative proposed for management.
+: Model 26.0 `spmR` results for 2027 and 2028. Catch, ABC, OFL, and spawning
+biomass are simulation means in thousand t. {#tbl-model-26-projection}
 
-![Native Rceattle projection of spawning biomass and catch from 2025 through 2050.](assets/model-26-0/model_26_0_projection.png){#fig-model-26-projection fig-alt="Two projection panels show spawning biomass and catch from 2025 through 2050. The NPFMC Tier 3 spawning-biomass line declines through 2027 and then approaches a stable level. A no-fishing reference rises over time. Catch falls through 2028 and then approaches a stable level." width="90%"}
+![Projected spawning biomass under the seven Standard Projection Model alternatives.](assets/model-26-0/model_26_0_spmr_stock_status.png){#fig-model-26-projection fig-alt="Seven panels show median projected spawning biomass and central 90-percent intervals from 2025 through 2038. A dashed line marks B35 percent in each panel. The alternatives separate after the fixed-catch years." width="100%"}
+
+Projected catch, ABC, and OFL share the fixed-catch assumptions in 2025 and
+2026 and then follow the rules for each alternative
+(@fig-model-26-projection-removals).
+
+![Projected catch, ABC, and OFL under the seven Standard Projection Model alternatives.](assets/model-26-0/model_26_0_spmr_removals.png){#fig-model-26-projection-removals fig-alt="Seven panels compare projected catch, maximum permissible ABC, and OFL from 2025 through 2038. The lines share the fixed-catch years and then separate according to each alternative." width="100%"}
+
+An additional Alternative 2 run fixes catch at 1,300 thousand t from 2025
+through 2032. Mean spawning biomass remains above the $B_{35\%}$ proxy through
+the displayed fixed-catch period.
+
+| Year | Catch | ABC | OFL | Spawning biomass | F | B/B~35%~ |
+|---:|---:|---:|---:|---:|---:|---:|
+| 2025 | 1,300 | 2,359.72 | 2,878.38 | 3,522.97 | 0.180 | 1.67 |
+| 2026 | 1,300 | 2,130.65 | 2,587.65 | 3,013.40 | 0.200 | 1.43 |
+| 2028 | 1,300 | 1,583.16 | 1,909.26 | 2,366.46 | 0.269 | 1.12 |
+| 2030 | 1,300 | 1,459.51 | 1,786.01 | 2,446.68 | 0.308 | 1.16 |
+| 2032 | 1,300 | 1,594.32 | 1,967.32 | 2,644.63 | 0.313 | 1.25 |
+
+: Alternative 2 projection with catch fixed at 1,300 thousand t. Biomass and
+catch quantities are simulation means in thousand t. {#tbl-model-26-projection-alt2}
 
 ### Exploratory DSEM recruitment pathways
 
@@ -530,7 +611,8 @@ stronger next tests of the biological mechanism.
 The diagnostics and DSEM results support continued Model 26.0 development.
 The close bridge trajectories and complete convergence provide a strong
 implementation basis. The OSA dispersion, repeated higher jitter mode, and
-large biomass retrospective pattern define the next evaluation priorities.
+positive spawning-biomass retrospective pattern define the next evaluation
+priorities.
 The ESP framework in [Appendix 3](#sec-esp-development-framework) organizes the
 additional indicator and mechanism work.
 
