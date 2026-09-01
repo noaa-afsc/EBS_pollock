@@ -35,6 +35,10 @@ format:
 lightbox: true
 resources:
   - scripts/model-26-0/*.R
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_retrospective_new_data_inventory.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_retrospective_data_block_deletion.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_retrospective_data_cumulative_addition.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_retrospective_data_reproduction_check.csv
 ---
 
 <!--
@@ -84,6 +88,10 @@ nine-peel retrospective produced Mohn's rho values of 0.329 for spawning
 biomass, 0.211 for total biomass, 0.185 for age-1 recruitment, and -0.126 for
 fishing mortality. The peels generally estimated greater biomass and
 recruitment and lower fishing mortality than the full fit over the same years.
+Controlled data tests for the 2020-to-2021 peel transition identified the 2021
+BTS biomass index as the strongest single influence on spawning biomass, with
+the 2020 fishery age composition and 2021 BTS age composition also contributing
+to the revision.
 These results make composition fit, the recurring alternative solution, and
 retrospective stability the principal Model 26.0 evaluation priorities.
 
@@ -95,9 +103,9 @@ temperature; its negative fitted pathway provides a testable in-sample
 association for further biological and predictive evaluation. Model 23.0
 continues to provide current management advice while Models 25.0 and 26.0
 proceed through simulation testing and review. Appendix 1 preserves the SSC
-comments and response plan, Appendix 2 documents observed length-frequency
-patterns, and Appendix 3 provides the development framework for an Ecosystem
-and Socioeconomic Profile.
+comments and response plan, Appendix 2 provides the development framework for
+an Ecosystem and Socioeconomic Profile, and Appendix 3 documents fishery
+length-frequency patterns.
 
 # Introduction
 
@@ -303,6 +311,28 @@ The data-flow diagram shows how the shared observations support the fitted
 population states, bridge comparison, diagnostics, projections, and
 environmental-pathway analysis (@fig-model-26-approach).
 
+The Model 26.0 configuration retains ages 1--15, the established selectivity
+forms, and the two-stage fitting sequence (@tbl-model-26-configuration). The
+current branch retains the time-varying parametric BTS field as a compatibility
+setting and directs future development toward the newer selectivity-linkage
+interface. This run keeps the compatibility setting to match the bridge
+configuration. A later Model 26.x comparison can evaluate the interface change
+separately.
+
+Both fitting stages met the current Rceattle convergence criteria. Model 26.0
+had a maximum absolute gradient of $7.65\times10^{-5}$, a positive-definite
+Hessian, and a Hessian condition number of 489,090. The weakest direction
+remains associated with the shared ATS/AVO annual selectivity changes
+(@tbl-model-26-convergence).
+
+The analysis is archived as separate R scripts for the
+[assessment fit and OSA checks](scripts/model-26-0/run_model_26_rceattle_5_23.R),
+[DSEM pathways](scripts/model-26-0/run_model_26_dsem_5_23_pathways.R),
+[retrospective analysis](scripts/model-26-0/run_model_26_retrospective_sensitivity_5_23.R),
+[retrospective data sensitivity](scripts/model-26-0/run_model_26_retrospective_data_sensitivity_5_23.R),
+[spmR projections](scripts/model-26-0/run_model_26_spmr_projection_5_23.R),
+and [self-test](scripts/model-26-0/run_model_26_self_test_5_23.R).
+
 ```{mermaid}
 %%| label: fig-model-26-approach
 %%| fig-cap: "Data and calculation flow for the simple Model 26.0 Rceattle analysis."
@@ -323,9 +353,6 @@ flowchart LR
   class A,B,C,M,S,V,D,P,E input
 ```
 
-The Model 26.0 configuration retains ages 1--15, the established selectivity
-forms, and the two-stage fitting sequence (@tbl-model-26-configuration).
-
 | Item | Model 26.0 setting |
 |---|---|
 | Assessment years and ages | 1964--2024; ages 1--15 |
@@ -338,31 +365,12 @@ forms, and the two-stage fitting sequence (@tbl-model-26-configuration).
 
 : Main settings for the Rceattle 5.23.0 Model 26.0 analysis. {#tbl-model-26-configuration}
 
-The current branch retains the time-varying parametric BTS field as a
-compatibility setting and directs future development toward the newer
-selectivity-linkage interface. This run keeps the compatibility setting to
-match the bridge configuration. A later Model 26.x comparison can evaluate
-the interface change separately.
-
-Both fitting stages met the current Rceattle convergence criteria. Model 26.0
-had a maximum absolute gradient of $7.65\times10^{-5}$, a positive-definite
-Hessian, and a Hessian condition number of 489,090. The weakest direction
-remains associated with the shared ATS/AVO annual selectivity changes
-(@tbl-model-26-convergence).
-
 | Fit | Objective | Maximum gradient | Positive-definite Hessian | Status |
 |---|---:|---:|:---:|:---:|
 | Stage 1 scale fit | 562.952 | 0.0000495 | Yes | OK |
 | Model 26.0 | 716.908 | 0.0000765 | Yes | OK |
 
 : Model 26.0 fitting results from Rceattle 5.23.0. {#tbl-model-26-convergence}
-
-The analysis is archived as separate R scripts for the
-[assessment fit and OSA checks](scripts/model-26-0/run_model_26_rceattle_5_23.R),
-[DSEM pathways](scripts/model-26-0/run_model_26_dsem_5_23_pathways.R),
-[retrospective analysis](scripts/model-26-0/run_model_26_retrospective_sensitivity_5_23.R),
-[spmR projections](scripts/model-26-0/run_model_26_spmr_projection_5_23.R),
-and [self-test](scripts/model-26-0/run_model_26_self_test_5_23.R).
 
 ### Model 23.2 bridge comparison
 
@@ -375,7 +383,10 @@ described earlier.
 
 The three Model 26.0 trajectories have correlations above 0.998 with the Model
 23.2 bridge, and their mean absolute differences range from 0.69% to 1.45%
-(@tbl-model-26-bridge).
+(@tbl-model-26-bridge). The fitted trajectories closely follow the bridge over
+the full assessment period (@fig-model-26-bridge). The remaining differences
+reflect parameter estimation in Rceattle rather than a fixed-parameter
+translation test.
 
 | Quantity | Correlation | Mean absolute difference | 2024 difference |
 |---|---:|---:|---:|
@@ -385,10 +396,6 @@ The three Model 26.0 trajectories have correlations above 0.998 with the Model
 
 : Basic comparison of Model 26.0 with the Model 23.2 Rceattle-aligned ADMB
 bridge. Differences are relative to Model 23.2. {#tbl-model-26-bridge}
-
-The fitted trajectories closely follow the bridge over the full assessment
-period (@fig-model-26-bridge). The remaining differences reflect parameter
-estimation in Rceattle rather than a fixed-parameter translation test.
 
 ![Spawning biomass, age-1 recruitment, and total biomass from Model 26.0 and the Model 23.2 bridge.](assets/model-26-0/model_26_0_bridge_trajectories.png){#fig-model-26-bridge fig-alt="Three vertically arranged time-series panels compare Model 26.0 with the Model 23.2 bridge from 1964 through 2024. The two lines closely track for spawning biomass, age-1 recruitment, and total biomass, with small departures in selected years." width="92%"}
 
@@ -420,6 +427,14 @@ the other 18 ATS years. Across all 19 ATS years, the Rceattle internal result
 contains 266 residuals, has an SDNR of 0.534, and has an expected interval of
 0.915--1.085.
 
+Each SDNR is below its expected interval, with the ATS showing the lowest
+value (@tbl-model-26-osa). The aggregate fits and residual bubbles show the age,
+year, and cohort locations of the remaining patterns
+(@fig-model-26-osa). The current Rceattle decomposition also marked 188
+extremely small conditional predictions as uninformative, including slight
+values below zero. Interpretation therefore emphasizes aggregate fits and
+cells supported by appreciable predicted counts.
+
 | Composition source | Years displayed | Residuals | SDNR | Expected interval | Likelihood sample-size total | Rounded count total | Effective sample size |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | Fishery | 60 | 840 | 0.638 | 0.952--1.048 | 17,147 | 17,127 | 154,219 |
@@ -431,14 +446,6 @@ deviation of normalized residuals. The likelihood sample-size total sums the
 Rceattle `Sample_size` field over the displayed years. The rounded count total
 and effective sample size come from the same `afscOSA` plotting conversion.
 {#tbl-model-26-osa}
-
-Each SDNR is below its expected interval, with the ATS showing the lowest
-value (@tbl-model-26-osa). The aggregate fits and residual bubbles show the age,
-year, and cohort locations of the remaining patterns
-(@fig-model-26-osa). The current Rceattle decomposition also marked 188
-extremely small conditional predictions as uninformative, including slight
-values below zero. Interpretation therefore emphasizes aggregate fits and
-cells supported by appreciable predicted counts.
 
 ![Aggregate age-composition fits, OSA quantile plots, and residual bubbles for the fishery, BTS, and ATS. The fishery and BTS panels retain every input year. The ATS panels retain 18 years because its sample size of one in 2020 produces zero rounded counts in the plotting conversion.](assets/model-26-0/model_26_0_afscosa.png){#fig-model-26-osa fig-alt="Four rows of diagnostic plots for fishery, bottom-trawl survey, and acoustic-trawl survey age compositions. The fishery and bottom-trawl survey panels contain all input years, while the acoustic-trawl survey panels contain 18 years and omit 2020 from the display because its sample size of one produces zero rounded age counts. The first row compares aggregate observed and fitted proportions. The second row shows OSA quantile plots with residual standard deviations below one. The lower rows show OSA and Pearson residual bubbles by age and year." width="100%"}
 
@@ -472,6 +479,13 @@ central 90% range and the largest mean absolute difference, while total
 biomass had the narrowest range and smallest mean absolute difference
 (@tbl-model-26-self-test; @fig-model-26-self-test).
 
+The current simulator redrew some AVO and BTS index observations to retain
+positive values. Those simulated observations follow a positive-truncated
+distribution while the fitted bridge likelihood uses the corresponding normal
+form. The recovery summary therefore serves primarily as a fitting and coding
+check. A future observation-model sensitivity can align the fitted and
+simulated distributions directly.
+
 | Quantity | Median difference | Mean absolute difference | Central 90% range |
 |---|---:|---:|---:|
 | Age-1 recruitment | -1.51% | 9.76% | -23.76% to +22.83% |
@@ -480,13 +494,6 @@ biomass had the narrowest range and smallest mean absolute difference
 
 : Recovery across all years and the 50 observation-level self-tests.
 {#tbl-model-26-self-test}
-
-The current simulator redrew some AVO and BTS index observations to retain
-positive values. Those simulated observations follow a positive-truncated
-distribution while the fitted bridge likelihood uses the corresponding normal
-form. The recovery summary is therefore strongest as a fitting and coding
-check. A future observation-model sensitivity can align the fitted and
-simulated distributions directly.
 
 ![Distribution of differences between self-test refits and the operating Model 26.0 values.](assets/model-26-0/model_26_0_self_test_recovery.png){#fig-model-26-self-test fig-alt="Horizontal boxplots show percent differences from the operating-model values for age-1 recruitment, spawning biomass, and total biomass across 50 simulated observation sets and all assessment years. Distributions are centered slightly below zero and are widest for recruitment." width="82%"}
 
@@ -515,6 +522,12 @@ records the lag, convergence, and selectivity checks.
 All nine peels completed with convergence status OK and positive-definite
 Hessians. The largest maximum gradient was $2.01\times10^{-4}$.
 
+The peels generally estimate greater spawning biomass, total biomass, and
+recruitment, together with lower fishing mortality, than the full model over
+the corresponding terminal years. Spawning biomass has the largest Mohn's rho
+and the largest average relative revision, making it a central Model 26.0
+evaluation priority (@tbl-model-26-retro; @fig-model-26-retro).
+
 | Quantity | Mohn's rho |
 |---|---:|
 | Total biomass | 0.211 |
@@ -526,51 +539,58 @@ Hessians. The largest maximum gradient was $2.01\times10^{-4}$.
 compares a peel at its terminal assessment year with the corresponding value
 from the full Model 26.0 fit. {#tbl-model-26-retro}
 
-The peels generally estimate greater spawning biomass, total biomass, and
-recruitment, together with lower fishing mortality, than the full model over
-the corresponding terminal years. Spawning biomass has the largest Mohn's rho
-and the largest average relative revision, making it a central Model 26.0
-evaluation priority (@tbl-model-26-retro; @fig-model-26-retro).
-
 ![Spawning biomass, total biomass, recruitment, and fishing mortality for Model 26.0 and nine lag-preserving retrospective peels.](assets/model-26-0/model_26_0_retrospective.png){#fig-model-26-retro fig-alt="Four line-chart panels show age-1 recruitment, fishing mortality, spawning biomass, and total biomass for the full Model 26.0 fit and nine peels ending from 2023 back to 2015. Earlier peels generally show greater biomass and recruitment and lower fishing mortality over shared years." width="100%"}
 
 ##### Sensitivity and evaluation
 
-The large pattern from the initial 5.23.0 run came from the package's native
-retrospective routine. That routine applies a common peel-year cutoff to all
-observation streams, which gives each peel a fishery composition from its
-terminal year and later ATS age-1 information than the established lag rules.
-It also estimates a new terminal selectivity change; the resulting maximum
-terminal-to-preceding-year differences ranged from 0.135 to 0.967. The native
-routine therefore represents a different retrospective configuration.
+The data-sensitivity evaluation focuses on the main downward revision between
+the peels ending in 2020 and 2021. The same stream-specific lag rules identify
+five newly available observations: the 2020 fishery age composition and the
+2021 BTS biomass index, BTS age composition, AVO index, and BTS age-1 index.
+Each controlled refit starts from the converged 2021-peel estimates, retains
+the 2021 parameter map, keeps DSEM disabled, and removes one observation block.
+This design measures the conditional influence of each new data block while
+holding the Model 26.0 structure constant. The
+[data-sensitivity script](scripts/model-26-0/run_model_26_retrospective_data_sensitivity_5_23.R)
+records the [observation inventory](data/EBSpollock_Sept_2026/model-26-0/model_26_0_retrospective_new_data_inventory.csv),
+[block-deletion results](data/EBSpollock_Sept_2026/model-26-0/model_26_0_retrospective_data_block_deletion.csv),
+[cumulative-addition results](data/EBSpollock_Sept_2026/model-26-0/model_26_0_retrospective_data_cumulative_addition.csv),
+and [reproduction check](data/EBSpollock_Sept_2026/model-26-0/model_26_0_retrospective_data_reproduction_check.csv).
 
-| Quantity | Lag-preserving two-stage, 5.23.0 | Published two-stage, 5.8.1 | Native routine, 5.23.0 |
-|---|---:|---:|---:|
-| Total biomass | 0.211 | 0.119 | 2.899 |
-| Spawning biomass | 0.329 | 0.261 | 2.151 |
-| Age-1 recruitment | 0.185 | 0.147 | 0.121 |
-| Fishing mortality | -0.126 | -0.077 | 0.713 |
+All five block-deletion fits and six cumulative-addition fits completed with
+convergence status OK and positive-definite Hessians; the largest maximum
+gradient was $5.66\times10^{-5}$. Removing the 2021 BTS biomass index had the
+largest effect on 2020 spawning biomass, increasing it by 28.2%, and increased
+the 2013 and 2014 cohort estimates by 11.5% and 15.7%. Removing the 2021 BTS
+age composition increased 2020 spawning biomass by 14.1%, while removing the
+2020 fishery age composition increased the 2013 cohort by 13.6% and 2020
+spawning biomass by 5.7%. The AVO and BTS age-1 index effects on these older
+cohorts and spawning biomass were negligible
+(@tbl-model-26-retro-sensitivity; @fig-model-26-retro-sensitivity).
 
-: Retrospective sensitivity measured with Mohn's rho. The first two columns
-share the earlier lag-preserving, terminal-selectivity-held, two-stage
-specification. The third column combines the native common-cutoff and
-terminal-selectivity treatment. {#tbl-model-26-retro-sensitivity}
+The cumulative evaluation begins with the 2021 state and process dimensions
+and the observation availability of the 2020 peel. Adding the 2020 fishery age
+composition reduced the 2020 spawning-biomass difference from 46.1% to 28.6%,
+adding the 2021 BTS biomass index reduced it to 13.8%, and adding the 2021 BTS
+age composition brought it to within 0.04% of the complete 2021 peel. The AVO
+and BTS age-1 indices completed the sequence. The final step reproduced the
+complete 2021 objective and selected estimates exactly. Together, the removal
+and addition tests identify the fishery age composition and BTS data as the
+principal signals associated with this retrospective revision, with the BTS
+biomass index providing the largest single influence on spawning biomass.
 
-The full-data 5.8.1 and 5.23.0 fits are closely aligned: annual spawning
-biomass differs by at most 0.27%, and terminal spawning biomass differs by
-0.002%. The two lag-preserving retrospective series also show the same
-direction and similar scale of revision. This evidence identifies the peel
-configuration as the source of the extreme native pattern; the full-data update
-contributed only small differences. The Mohn's rho comparison and terminal-year
-patterns show the close agreement between the two lag-preserving analyses and
-the much larger native-routine revisions
-(@tbl-model-26-retro-sensitivity; @fig-model-26-retro-sensitivity). The
-sensitivity combines the lag, terminal-selectivity, and fitting-sequence
-differences; a future factorial test can apportion their individual
-contributions. The lag-preserving 5.23.0 results provide the primary Model 26.0
-retrospective evaluation.
+| Data block removed | 2013 cohort change | 2014 cohort change | 2020 SSB change | Maximum gradient |
+|---|---:|---:|---:|---:|
+| 2020 fishery age composition | +13.6% | +5.6% | +5.7% | $4.14\times10^{-5}$ |
+| 2021 BTS biomass index | +11.5% | +15.7% | +28.2% | $4.04\times10^{-5}$ |
+| 2021 BTS age composition | +7.6% | +6.0% | +14.1% | $5.66\times10^{-5}$ |
+| 2021 AVO index | +0.02% | +0.02% | -0.04% | $5.02\times10^{-5}$ |
+| 2021 BTS age-1 index | 0.0% | 0.0% | 0.0% | $4.83\times10^{-5}$ |
 
-![Terminal-year retrospective differences under the primary 5.23.0 analysis, the published 5.8.1 analysis, and the native 5.23.0 routine.](assets/model-26-0/model_26_0_retrospective_sensitivity.png){#fig-model-26-retro-sensitivity fig-alt="Four panels compare terminal-year relative differences for recruitment, fishing mortality, spawning biomass, and total biomass. The lag-preserving 5.23.0 and published 5.8.1 series follow similar patterns. The native 5.23.0 routine produces much larger early-peel biomass and fishing-mortality differences." width="100%"}
+: Controlled data-block removal from the lag-preserving 2021 peel. Percentages
+show changes from the complete 2021-peel estimates. {#tbl-model-26-retro-sensitivity}
+
+![Influence of data blocks entering between the lag-preserving 2020 and 2021 peels.](assets/model-26-0/model_26_0_retrospective_data_sensitivity.png){#fig-model-26-retro-sensitivity fig-alt="Horizontal grouped bars show changes in the 2013 and 2014 cohort estimates and spawning biomass in 2018 and 2020 after removing one observation block from the 2021 peel. Removing the 2021 BTS biomass index produces the largest increase in 2020 spawning biomass; the 2020 fishery age composition and 2021 BTS age composition also contribute." width="100%"}
 
 ### Projections
 
@@ -583,62 +603,63 @@ schedules, and recent fishing pattern into the `pm.prj` format. The projection
 uses the arithmetic mean fishery selectivity-at-age and fishing mortality from
 2020--2024; mean fishing mortality over those years is 0.1984.
 
+#### Standard alternatives
+
 The seven alternatives use 1,000 simulations over 14 projection years beginning
 in 2025. Catch is fixed at 1,350 thousand t in 2025 and 2026, so the alternatives
 first separate in 2027. The accepted Model 23.0 continues to provide management
 advice; these Model 26.0 results evaluate the projection handoff.
 
-| Alternative | Scenario | Year | Catch | ABC | OFL | Spawning biomass | F | B/B~35%~ |
-|---:|---|---:|---:|---:|---:|---:|---:|---:|
-| 1 | Maximum permissible ABC | 2027 | 1,863.74 | 1,863.74 | 2,259.26 | 2,476.20 | 0.35 | 1.17 |
-| 1 | Maximum permissible ABC | 2028 | 1,308.28 | 1,308.28 | 1,583.17 | 2,115.48 | 0.31 | 1.00 |
-| 2 | Author-specified ABC | 2027 | 1,863.74 | 1,863.74 | 2,259.26 | 2,476.20 | 0.35 | 1.17 |
-| 2 | Author-specified ABC | 2028 | 1,308.28 | 1,308.28 | 1,583.17 | 2,115.48 | 0.31 | 1.00 |
-| 3 | Average recent F | 2027 | 1,131.82 | 1,131.82 | 2,259.26 | 2,582.32 | 0.20 | 1.22 |
-| 3 | Average recent F | 2028 | 1,014.89 | 1,014.89 | 1,962.79 | 2,446.53 | 0.20 | 1.16 |
-| 4 | Alternative SPR rate | 2027 | 856.48 | 856.48 | 2,259.26 | 2,619.30 | 0.15 | 1.24 |
-| 4 | Alternative SPR rate | 2028 | 803.08 | 803.08 | 2,103.68 | 2,585.22 | 0.15 | 1.22 |
-| 5 | No fishing | 2027 | 0.00 | 0.00 | 2,259.26 | 2,725.74 | 0.00 | 1.29 |
-| 5 | No fishing | 2028 | 0.00 | 0.00 | 2,455.40 | 3,034.71 | 0.00 | 1.44 |
-| 6 | OFL threshold determination | 2027 | 1,560.83 | 1,560.83 | 1,560.83 | 2,016.94 | 0.37 | 0.95 |
-| 6 | OFL threshold determination | 2028 | 1,210.15 | 1,210.15 | 1,210.15 | 1,830.82 | 0.34 | 0.87 |
-| 7 | Status-determination ramp | 2027 | 1,509.33 | 1,809.05 | 1,809.05 | 2,210.63 | 0.32 | 1.05 |
-| 7 | Status-determination ramp | 2028 | 1,424.04 | 1,424.04 | 1,424.04 | 1,977.16 | 0.36 | 0.94 |
-
-: Model 26.0 `spmR` results for 2027 and 2028. Catch, ABC, OFL, and spawning
-biomass are simulation means in thousand t. {#tbl-model-26-projection}
-
 The 2027--2028 comparison keeps spawning biomass at or above the $B_{35\%}$
 proxy under Alternatives 1--5. Alternative 6 is below the proxy in both years,
-and Alternative 7 moves below it in 2028
-(@fig-model-26-projection; @tbl-model-26-projection).
+and Alternative 7 moves below it in 2028. Projected catch, ABC, and OFL share
+the fixed-catch assumptions in 2025 and 2026 and then follow the rules for each
+alternative (@tbl-model-26-projection; @fig-model-26-projection;
+@fig-model-26-projection-removals).
+
+| Alternative | Year | Catch | ABC | OFL | SSB | F | B/B~35%~ |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 2027 | 1,864 | 1,864 | 2,259 | 2,476 | 0.35 | 1.17 |
+| 1 | 2028 | 1,308 | 1,308 | 1,583 | 2,115 | 0.31 | 1.00 |
+| 2 | 2027 | 1,864 | 1,864 | 2,259 | 2,476 | 0.35 | 1.17 |
+| 2 | 2028 | 1,308 | 1,308 | 1,583 | 2,115 | 0.31 | 1.00 |
+| 3 | 2027 | 1,132 | 1,132 | 2,259 | 2,582 | 0.20 | 1.22 |
+| 3 | 2028 | 1,015 | 1,015 | 1,963 | 2,447 | 0.20 | 1.16 |
+| 4 | 2027 | 856 | 856 | 2,259 | 2,619 | 0.15 | 1.24 |
+| 4 | 2028 | 803 | 803 | 2,104 | 2,585 | 0.15 | 1.22 |
+| 5 | 2027 | 0 | 0 | 2,259 | 2,726 | 0.00 | 1.29 |
+| 5 | 2028 | 0 | 0 | 2,455 | 3,035 | 0.00 | 1.44 |
+| 6 | 2027 | 1,561 | 1,561 | 1,561 | 2,017 | 0.37 | 0.95 |
+| 6 | 2028 | 1,210 | 1,210 | 1,210 | 1,831 | 0.34 | 0.87 |
+| 7 | 2027 | 1,509 | 1,809 | 1,809 | 2,211 | 0.32 | 1.05 |
+| 7 | 2028 | 1,424 | 1,424 | 1,424 | 1,977 | 0.36 | 0.94 |
+
+: Model 26.0 `spmR` results for 2027 and 2028. Catch, ABC, OFL, and SSB are
+rounded simulation means in thousand t. {#tbl-model-26-projection}
 
 ![Projected spawning biomass under the seven Standard Projection Model alternatives.](assets/model-26-0/model_26_0_spmr_stock_status.png){#fig-model-26-projection fig-alt="Seven panels show median projected spawning biomass and central 90-percent intervals from 2025 through 2038. A dashed line marks B35 percent in each panel. The alternatives separate after the fixed-catch years." width="100%"}
 
-Projected catch, ABC, and OFL share the fixed-catch assumptions in 2025 and
-2026 and then follow the rules for each alternative
-(@fig-model-26-projection-removals).
-
 ![Projected catch, ABC, and OFL under the seven Standard Projection Model alternatives.](assets/model-26-0/model_26_0_spmr_removals.png){#fig-model-26-projection-removals fig-alt="Seven panels compare projected catch, maximum permissible ABC, and OFL from 2025 through 2038. The lines share the fixed-catch years and then separate according to each alternative." width="100%"}
+
+#### Fixed-catch sensitivity
 
 An additional Alternative 2 run fixes catch at 1,300 thousand t from 2025
 through 2032. Mean spawning biomass remains above the $B_{35\%}$ proxy through
-the displayed fixed-catch period.
-
-| Year | Catch | ABC | OFL | Spawning biomass | F | B/B~35%~ |
-|---:|---:|---:|---:|---:|---:|---:|
-| 2025 | 1,300 | 2,359.72 | 2,878.38 | 3,522.97 | 0.180 | 1.67 |
-| 2026 | 1,300 | 2,130.65 | 2,587.65 | 3,013.40 | 0.200 | 1.43 |
-| 2028 | 1,300 | 1,583.16 | 1,909.26 | 2,366.46 | 0.269 | 1.12 |
-| 2030 | 1,300 | 1,459.51 | 1,786.01 | 2,446.68 | 0.308 | 1.16 |
-| 2032 | 1,300 | 1,594.32 | 1,967.32 | 2,644.63 | 0.313 | 1.25 |
-
-: Alternative 2 projection with catch fixed at 1,300 thousand t. Biomass and
-catch quantities are simulation means in thousand t. {#tbl-model-26-projection-alt2}
-
-With catch fixed at 1,300 thousand t, the displayed $B/B_{35\%}$ values remain
+the displayed fixed-catch period. The displayed $B/B_{35\%}$ values remain
 above one, reaching 1.12 in 2028 and 1.25 in 2032
 (@tbl-model-26-projection-alt2).
+
+| Year | Catch | ABC | OFL | SSB | F | B/B~35%~ |
+|---:|---:|---:|---:|---:|---:|---:|
+| 2025 | 1,300 | 2,360 | 2,878 | 3,523 | 0.180 | 1.67 |
+| 2026 | 1,300 | 2,131 | 2,588 | 3,013 | 0.200 | 1.43 |
+| 2028 | 1,300 | 1,583 | 1,909 | 2,366 | 0.269 | 1.12 |
+| 2030 | 1,300 | 1,460 | 1,786 | 2,447 | 0.308 | 1.16 |
+| 2032 | 1,300 | 1,594 | 1,967 | 2,645 | 0.313 | 1.25 |
+
+: Alternative 2 projection with catch fixed at 1,300 thousand t. Catch, ABC,
+OFL, and SSB are rounded simulation means in thousand t.
+{#tbl-model-26-projection-alt2}
 
 ### Exploratory DSEM recruitment pathways
 
@@ -655,13 +676,29 @@ pathway, while cold-pool extent represents a possible spatial-separation and
 cannibalism pathway. The conceptual graph keeps the biological steps visible
 even though the fitted examples use direct proxy paths (@fig-model-26-dsem-dag).
 
-![Conceptual pathways from physical conditions and prey through age-0 condition, overwinter survival, cannibalism, and age-1 recruitment.](assets/model-26-0/dsem-dag.png){#fig-model-26-dsem-dag fig-alt="Directed graph in which sea ice affects cold-pool extent, temperature, blooms, and prey. Prey and juvenile abundance affect age-0 energy and overwinter survival. Cold-pool extent and adult-juvenile overlap affect cannibalism. These survival pathways lead to age-1 recruitment. Dashed direct paths connect late-summer SST and cold-pool extent to recruitment for the fitted proxy models." width="100%"}
-
 All four DSEM fits completed with positive-definite Hessians and convergence
 status OK. Fit AIC favored the DSEM model with age-0 late-summer SST. The
 combined model was 1.63 AIC units higher, the no-edge reference was 2.25 units
 higher, and the cold-pool model was 4.11 units higher
 (@fig-model-26-dsem-aic; @tbl-model-26-dsem).
+
+The SST pathway is negative in both models that include it, with intervals
+below zero. The cold-pool pathway is smaller and its interval spans zero in
+both models (@fig-model-26-dsem-paths; @tbl-model-26-dsem-paths). These results
+describe an in-sample association that is consistent with the proposed
+energetic pathway. Direct measurements of fall age-0 energy, prey quality,
+overwinter survival, and juvenile-adult overlap will provide the stronger next
+tests of the biological mechanism.
+
+The diagnostics and DSEM results support continued Model 26.0 development.
+The close bridge trajectories and complete convergence provide a strong
+implementation basis. The OSA dispersion, repeated higher jitter mode, and
+positive spawning-biomass retrospective pattern define the next evaluation
+priorities. The ESP framework in
+[Appendix 2](#sec-esp-development-framework) organizes the additional
+indicator and mechanism work.
+
+![Conceptual pathways from physical conditions and prey through age-0 condition, overwinter survival, cannibalism, and age-1 recruitment.](assets/model-26-0/dsem-dag.png){#fig-model-26-dsem-dag fig-alt="Directed graph in which sea ice affects cold-pool extent, temperature, blooms, and prey. Prey and juvenile abundance affect age-0 energy and overwinter survival. Cold-pool extent and adult-juvenile overlap affect cannibalism. These survival pathways lead to age-1 recruitment. Dashed direct paths connect late-summer SST and cold-pool extent to recruitment for the fitted proxy models." width="100%"}
 
 | DSEM specification | Delta AIC | Reduction in unexplained recruitment variation |
 |---|---:|---:|
@@ -683,37 +720,23 @@ higher, and the cold-pool model was 4.11 units higher
 
 : Standardized direct proxy pathways to age-1 recruitment. {#tbl-model-26-dsem-paths}
 
-The SST pathway is negative in both models that include it, with intervals
-below zero. The cold-pool pathway is smaller and its interval spans zero in
-both models (@fig-model-26-dsem-paths; @tbl-model-26-dsem-paths). These results
-describe an in-sample association that is consistent with the proposed
-energetic pathway. Direct measurements of fall age-0 energy, prey quality,
-overwinter survival, and juvenile-adult overlap will provide the stronger next
-tests of the biological mechanism.
-
 ![Standardized cold-pool and age-0 SST coefficients for the exploratory DSEM models.](assets/model-26-0/dsem_recruitment_paths.png){#fig-model-26-dsem-paths fig-alt="Point estimates and 95-percent intervals compare direct cold-pool and age-0 late-summer SST paths to recruitment. Both SST estimates are negative with intervals below zero. Cold-pool estimates lie near zero with intervals spanning zero." width="88%"}
-
-The diagnostics and DSEM results support continued Model 26.0 development.
-The close bridge trajectories and complete convergence provide a strong
-implementation basis. The OSA dispersion, repeated higher jitter mode, and
-positive spawning-biomass retrospective pattern define the next evaluation
-priorities.
-The ESP framework in [Appendix 3](#sec-esp-development-framework) organizes the
-additional indicator and mechanism work.
 
 # References {.unnumbered}
 
 ::: {#refs}
 :::
 
-# Appendix 1: Main SSC comments and responses {#sec-ssc-comments}
+# Appendices
+
+## Appendix 1: Main SSC comments and responses {#sec-ssc-comments}
 
 A funding lapse ended preparation of the November and December 2025 EBS
 pollock SAFE package. The October 2025 SSC comments therefore carry forward to
 the 2026 assessment cycle for formal response. The responses below describe
 the planned work for 2026 and later years.
 
-## Current status
+### Current status
 
 - The next assessment needs to trace the 2025 RTMB starting model back to the
   2024 ADMB source, along with updated survey data, 2025 FT-NIRS ages, the
@@ -729,7 +752,7 @@ the planned work for 2026 and later years.
 Completion of an SSC response requires the analysis, results, and explanation
 for review. Current research contributes evidence toward that completion.
 
-## Comments and responses
+### Comments and responses
 
 The response matrix pairs each October 2025 SSC comment with the analysis,
 documentation, or review action planned for the 2026 assessment cycle.
@@ -752,7 +775,7 @@ documentation, or review action planned for the 2026 assessment cycle.
 : Responses to the October 2025 SSC comments on EBS pollock. The SSC comments
 are summarized from pages 27 to 29 of the final October 2025 SSC report.
 
-## Earlier responses to 2024 SSC comments
+### Earlier responses to 2024 SSC comments
 
 ::: {.callout-note title="Retained material"}
 The responses below were on the previous version of the SSC response page and
@@ -806,7 +829,7 @@ results.
 *The SSC requested that the September 2024 SRR document be included as an appendix or linked.*  
 *The document has been added as Appendix X in this SAFE.*
 
-### SSC 2024 comments and 2025 responses
+#### SSC 2024 comments and 2025 responses
 
 The retained response matrix summarizes how the 2025 work addressed each 2024
 SSC comment and identifies topics that continue into the current cycle.
@@ -824,11 +847,7 @@ SSC comment and identifies topics that continue into the current cycle.
 | Stock-recruitment relationship | The 2025 assessment focuses on recruitment deviations with zero bias correction; the steepness prior remains meta-analysis based. |
 | Add Sept 2024 SRR document as appendix | Document included as Appendix X. |
 
-# Appendix 2: Length-frequency patterns {#sec-length-frequency-patterns}
-
-{{< include EBSpollock_Sept_2026_length_frequency.qmd >}}
-
-# Appendix 3: Draft EBS pollock ESP development framework {#sec-esp-development-framework}
+## Appendix 2: Draft EBS pollock ESP development framework {#sec-esp-development-framework}
 
 This appendix provides a working structure for an eastern Bering Sea pollock
 Ecosystem and Socioeconomic Profile (ESP). It separates the concise assessment
@@ -856,7 +875,7 @@ The framework assigns every ESP component a purpose and current development
 status, keeping the pending annual synthesis and review steps visible
 (@tbl-esp-appendix-structure).
 
-## Executive summary
+### Executive summary
 
 ::: {.callout-note title="ESP summary placeholder"}
 Summarize the current ecosystem and socioeconomic conditions after the annual
@@ -864,7 +883,7 @@ indicator assessment is complete. Distinguish indicators that improve
 prediction from those that provide management context.
 :::
 
-## Introduction and justification
+### Introduction and justification
 
 The ESP will connect ecosystem and fishing-community conditions with the
 assessment quantities used to evaluate pollock status and risk. Age-1
@@ -873,7 +892,7 @@ links physical conditions, prey, age-0 condition, overwinter survival, and
 cannibalism with later assessment observations. The completed ESP should state
 the management question for every retained indicator.
 
-## Data
+### Data
 
 The ESP data inventory will record the source, units, timing, spatial coverage,
 uncertainty, update schedule, and cohort alignment of each candidate series.
@@ -882,7 +901,7 @@ indices; plankton and prey; age-0 abundance and condition; predator overlap and
 consumption; and fishery and community indicators. The common data block used
 for each statistical comparison will be archived with the results.
 
-## Indicator synthesis
+### Indicator synthesis
 
 The life-stage synthesis connects the principal biological processes with the
 available evidence and the observations needed to strengthen each pathway
@@ -904,7 +923,7 @@ The conceptual graph in @fig-model-26-dsem-dag is the initial recruitment
 framework. Each candidate statistical pathway should trace to a stated
 mechanism, cohort timing, expected direction, and documented data source.
 
-## Proposed indicators
+### Proposed indicators
 
 Candidate indicators will be screened for a clear biological or socioeconomic
 mechanism, correct seasonal and cohort timing, adequate record length,
@@ -914,7 +933,7 @@ late-summer SST and cold-pool extent. Proximal biological indicators such as
 fall age-0 energy and lipid-rich prey have priority as their annual series
 develop.
 
-## Indicator assessment
+### Indicator assessment
 
 For every retained indicator, the annual assessment will show the current
 value, historical distribution, trend, uncertainty, and interpretation. A
@@ -922,7 +941,7 @@ short synthesis will distinguish broad environmental context from evidence
 that directly informs recruitment, stock status, fishery performance, or
 community exposure.
 
-## Indicator analysis
+### Indicator analysis
 
 The initial common-data DSEM comparison is presented in
 @sec-model-26-0. Future analyses will add terminal-year and blocked prediction,
@@ -931,7 +950,7 @@ stability, and candidate graphs containing proximal biological mediators.
 Candidate models will retain a common data block so changes in fit reflect the
 pathways rather than a changing set of years.
 
-## Data gaps and priorities
+### Data gaps and priorities
 
 The principal biological priorities are fall age-0 energy, lipid content and
 abundance of key prey, bloom and prey-match timing, juvenile-adult overlap,
@@ -939,7 +958,7 @@ predation mortality, and consistent observation-error estimates. The ESP team
 will also identify fishery and community indicators with stable annual updates
 and clear links to management questions.
 
-## Conclusion and management use
+### Conclusion and management use
 
 The completed ESP will classify each indicator as suitable for recruitment
 modeling, assessment risk evaluation, socioeconomic context, or continued
@@ -947,3 +966,7 @@ monitoring. Predictive indicators will require performance checks across
 withheld years. Contextual indicators will retain value by describing current
 conditions and plausible mechanisms even when they remain outside the
 assessment likelihood.
+
+## Appendix 3: Fishery length frequency patterns {#sec-length-frequency-patterns}
+
+{{< include EBSpollock_Sept_2026_length_frequency.qmd >}}

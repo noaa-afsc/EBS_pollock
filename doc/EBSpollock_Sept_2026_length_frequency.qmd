@@ -10,7 +10,7 @@ each figure.
 
 Source material: [RTMB working-paper length-frequency appendix](https://jimianelli.github.io/rtmb_ebswp/ebs_pollock_rtmb_ebswp_assessment.html#sec-length-frequency-patterns).
 
-## Change from 2025 to 2026
+### Change from 2025 to 2026
 
 The observed length distribution shifted toward smaller fish from 2025 to
 2026. Across seasons, mean sampled length declined from 46.17 to 44.81 cm,
@@ -38,7 +38,7 @@ Sample coverage also changed: the A-season count increased from 91,912 to
 describe the available observations and may reflect changes in sampling as
 well as changes in the fish encountered by the fishery.
 
-## A- and B-season distributions
+### A- and B-season distributions
 
 The seasonal distributions show the larger 2026 shift toward smaller fish in
 the B season and the broader-tailed A-season pattern
@@ -46,7 +46,7 @@ the B season and the broader-tailed A-season pattern
 
 ![Pollock length-frequency proportions by season. The left panel shows samples collected before June 20; the right panel shows samples collected from June 20 onward.](assets/appendices/fig-lf-seasons.png){#fig-appendix-lf-seasons fig-alt="Two-panel ridge plot of annual pollock length-frequency proportions from 1991 onward. A-season distributions before June 20 appear in the left panel and B-season distributions from June 20 onward appear in the right. Each row represents one year; a dashed vertical line marks 46 cm and a blue pie wedge gives the percentage longer than 46 cm."}
 
-## Combined-season distributions
+### Combined-season distributions
 
 The combined-season series places the 2026 increase in fish at or below 35 cm
 within the longer record of annual sample distributions
@@ -54,7 +54,7 @@ within the longer record of annual sample distributions
 
 ![Pollock length-frequency proportions across both seasons.](assets/appendices/fig-lf-combined.png){#fig-appendix-lf-combined fig-alt="Ridge plot of annual pollock length-frequency proportions across A and B seasons from 1991 onward. Each row represents one year; a dashed vertical line marks 46 cm and a blue pie wedge gives the percentage longer than 46 cm."}
 
-## B-season distributions by NMFS area
+### B-season distributions by NMFS area
 
 The B-season area comparison shows a stronger shift toward smaller fish in the
 western group, while the eastern group retains a larger share above 46 cm

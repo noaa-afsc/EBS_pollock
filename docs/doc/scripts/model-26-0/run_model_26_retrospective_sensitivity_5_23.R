@@ -6,7 +6,6 @@
 # specification: preserve each observation stream's terminal lag, recalculate
 # the empirical fishery-selectivity start for each peel, fit in two stages, and
 # hold the terminal fishery/CPUE selectivity curve at its preceding-year value.
-# The native Rceattle retrospective is retained as an implementation sensitivity.
 
 rceattle_library <- Sys.getenv(
   "RCEATTLE_LIB",
@@ -50,17 +49,17 @@ peels <- 9L
 peel_years <- (base_endyr - peels):(base_endyr - 1L)
 n_selages_fsh <- 12L
 
-native_file <- file.path(
+scaffold_file <- file.path(
   project_root,
   "results",
   "model_26_0_projection_retro_5.23.0",
   "model_26_0_retrospective_9.rds"
 )
-if (!file.exists(native_file)) {
+if (!file.exists(scaffold_file)) {
   stop("Run R/run_model_26_projection_retro_5_23.R before this validation.")
 }
-native_retro <- readRDS(native_file)
-native_models <- native_retro$Rceattle_list
+scaffold_retro <- readRDS(scaffold_file)
+scaffold_models <- scaffold_retro$Rceattle_list
 
 apply_observation_lags <- function(peeled_data, reference_data, endyr_peel) {
   apply_group_lag <- function(x, reference, group_var) {
@@ -217,7 +216,10 @@ run_primary_peel <- function(endyr_peel) {
   if (file.exists(checkpoint)) return(readRDS(checkpoint))
 
   message("Starting lag-preserving two-stage peel ending in ", endyr_peel)
-  scaffold_model <- native_models[[paste0("Year_", endyr_peel)]]
+  # Use the package-generated peel only to obtain correctly dimensioned arrays.
+  # The observation rows, active controls, start, map, and two-stage fit are
+  # replaced below by the stock-specific lag-preserving configuration.
+  scaffold_model <- scaffold_models[[paste0("Year_", endyr_peel)]]
   peeled_data <- scaffold_model$data_list
   peeled_data <- apply_observation_lags(peeled_data, base_data, endyr_peel)
   peeled_data$fleet_control <- base_data$fleet_control
@@ -351,64 +353,6 @@ write.csv(
   file.path(output_directory, "model_26_0_retrospective_primary_mohns_rho.csv"),
   row.names = FALSE
 )
-native_mohns <- calculate_mohns(native_models, "Native 5.23 routine")
-
-published_file <- file.path(
-  project_root,
-  "results",
-  "canonical_pm",
-  "ebs_pollock_nonparametric_two_stage_retro_9peels.rds"
-)
-published_retro <- readRDS(published_file)
-published_models <- published_retro$Rceattle_list
-published_mohns <- calculate_mohns(
-  published_models,
-  "Published two-stage (5.8.1)"
-)
-
-mohn_sensitivity <- bind_rows(
-  primary_mohns,
-  published_mohns,
-  native_mohns
-)
-write.csv(
-  mohn_sensitivity,
-  file.path(output_directory, "model_26_0_retrospective_mohn_sensitivity.csv"),
-  row.names = FALSE
-)
-
-terminal_comparison <- bind_rows(lapply(
-  list(
-    `Lag-preserving two-stage` = primary_models,
-    `Published two-stage (5.8.1)` = published_models,
-    `Native 5.23 routine` = native_models
-  ),
-  function(model_list) {
-    configuration <- deparse(substitute(model_list))
-    bind_rows(lapply(peel_years, function(endyr_peel) {
-      year_index <- endyr_peel - styr + 1L
-      bind_rows(lapply(objects, function(object) {
-        peel <- model_list[[paste0("Year_", endyr_peel)]]$quantities[[object]][
-          1,
-          year_index
-        ]
-        base <- base_fit$quantities[[object]][1, year_index]
-        data.frame(
-          Terminal_year = endyr_peel,
-          Object = object,
-          Quantity = unname(quantity_labels[object]),
-          Relative_difference = (peel - base) / base
-        )
-      }))
-    }))
-  }
-), .id = "Configuration")
-write.csv(
-  terminal_comparison,
-  file.path(output_directory, "model_26_0_retrospective_terminal_sensitivity.csv"),
-  row.names = FALSE
-)
-
 convergence <- bind_rows(lapply(names(primary_models), function(model_name) {
   model <- primary_models[[model_name]]
   data.frame(
@@ -554,39 +498,6 @@ ggsave(
   dpi = 180
 )
 
-sensitivity_figure <- terminal_comparison |>
-  ggplot(aes(
-    x = Terminal_year,
-    y = Relative_difference,
-    color = Configuration,
-    shape = Configuration
-  )) +
-  geom_hline(yintercept = 0, color = "grey55", linewidth = 0.4) +
-  geom_line(linewidth = 0.65) +
-  geom_point(size = 2) +
-  facet_wrap(vars(Quantity), ncol = 2, scales = "free_y") +
-  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
-  scale_color_manual(values = c(
-    "Lag-preserving two-stage" = "#0072B2",
-    "Published two-stage (5.8.1)" = "#009E73",
-    "Native 5.23 routine" = "#D55E00"
-  )) +
-  labs(
-    x = "Terminal year",
-    y = "Difference from the full Model 26.0 fit",
-    color = NULL,
-    shape = NULL
-  ) +
-  ggthemes::theme_few() +
-  theme(legend.position = "bottom")
-ggsave(
-  file.path(output_directory, "model_26_0_retrospective_sensitivity.png"),
-  sensitivity_figure,
-  width = 10,
-  height = 8,
-  dpi = 180
-)
-
 output <- list(
   Rceattle_list = primary_models,
   peel_details = primary_details,
@@ -599,8 +510,7 @@ output <- list(
     terminal_fishery_selectivity_equal_previous_year = TRUE,
     empirical_start_recalculated_by_peel = TRUE,
     two_stage_fit_by_peel = TRUE,
-    dsem = NULL,
-    native_routine_role = "implementation sensitivity"
+    dsem = NULL
   )
 )
 saveRDS(
@@ -613,5 +523,5 @@ capture.output(
   file = file.path(output_directory, "session_info.txt")
 )
 
-print(mohn_sensitivity, row.names = FALSE)
+print(primary_mohns, row.names = FALSE)
 print(convergence, row.names = FALSE)
