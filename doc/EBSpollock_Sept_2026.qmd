@@ -607,8 +607,10 @@ uses the arithmetic mean fishery selectivity-at-age and fishing mortality from
 
 The seven alternatives use 1,000 simulations over 14 projection years beginning
 in 2025. Catch is fixed at 1,350 thousand t in 2025 and 2026, so the alternatives
-first separate in 2027. The accepted Model 23.0 continues to provide management
-advice; these Model 26.0 results evaluate the projection handoff.
+first separate in 2027. These Model 26.0 results are intended to just demonstrate
+the linkage with the standard Tier 3 projection model. ABC and OFL
+recommendations and status determinations will be available when the new data
+are updated for the SSC's December 2026 consideration.
 
 The 2027--2028 comparison keeps spawning biomass at or above the $B_{35\%}$
 proxy under Alternatives 1--5. Alternative 6 is below the proxy in both years,
