@@ -100,6 +100,8 @@ results.
 *The SSC recommended further exploration of DSEM to reconcile contrasting signals such as record larval biomass in 2024, low age-0 abundance, chronically low condition, and increasing adult biomass.*  
 *In 2025, exploratory DSEM analyses continue under the ESR framework. No new results are incorporated into the current assessment, but anomalous recruitment indicators are highlighted in the Recruitment section for context.*
 
+> **2026 activity:** The [Rceattle application](https://noaa-afsc.github.io/ebswp_rceattle/) presents the DSEM analysis together with preliminary ESP work.
+
 **Pollock cannibalism index**  
 *The SSC requested extrapolation of the index to biomass consumed.*  
 *For 2025, the index is updated. Work is underway to provide biomass-consumed estimates, though results are not yet finalized. This remains a development priority.*
