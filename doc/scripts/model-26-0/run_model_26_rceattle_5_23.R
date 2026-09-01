@@ -16,6 +16,7 @@ suppressPackageStartupMessages({
   library(Rceattle)
   library(afscOSA)
   library(dplyr)
+  library(ggridges)
   library(ggplot2)
   library(tidyr)
 })
@@ -213,6 +214,99 @@ read_admb_matrix <- function(key, columns) {
 admb_ssb <- read_admb_series("SSB")
 admb_recruitment <- read_admb_series("R")
 admb_numbers <- read_admb_matrix("N", nages)
+admb_selectivity <- list(
+  Fishery = read_admb_matrix("sel_fsh", nages),
+  BTS = read_admb_matrix("sel_bts", nages),
+  ATS = read_admb_matrix("sel_ats", nages)
+)
+stopifnot(vapply(admb_selectivity, nrow, integer(1)) == nyears)
+
+model_26_selectivity <- list(
+  Fishery = model_26$quantities$sel_at_age[1, 1, , seq_len(nyears)],
+  BTS = model_26$quantities$sel_at_age[3, 1, , seq_len(nyears)],
+  ATS = model_26$quantities$sel_at_age[4, 1, , seq_len(nyears)]
+)
+selectivity_start_year <- c(Fishery = min(years), BTS = 1982L, ATS = 1994L)
+
+selectivity_comparison <- bind_rows(lapply(names(admb_selectivity), function(fleet_name) {
+  fleet_years <- years[years >= selectivity_start_year[[fleet_name]]]
+  year_rows <- match(fleet_years, years)
+  bind_rows(
+    data.frame(
+      Fleet = fleet_name,
+      Model = "Model 23.2",
+      Year = rep(fleet_years, each = nages),
+      Age = rep(seq_len(nages), times = length(fleet_years)),
+      Selectivity = as.numeric(t(admb_selectivity[[fleet_name]][year_rows, , drop = FALSE]))
+    ),
+    data.frame(
+      Fleet = fleet_name,
+      Model = "Model 26.0",
+      Year = rep(fleet_years, each = nages),
+      Age = rep(seq_len(nages), times = length(fleet_years)),
+      Selectivity = as.numeric(model_26_selectivity[[fleet_name]][, year_rows, drop = FALSE])
+    )
+  ) |>
+    group_by(Fleet, Model, Year) |>
+    mutate(Relative_selectivity = Selectivity / max(Selectivity)) |>
+    ungroup()
+}))
+write.csv(
+  selectivity_comparison,
+  file.path(output_directory, "model_23_2_vs_26_0_selectivity.csv"),
+  row.names = FALSE
+)
+
+selectivity_colors <- c("Model 23.2" = "#0072B2", "Model 26.0" = "#009E73")
+for (fleet_name in names(admb_selectivity)) {
+  plot_data <- selectivity_comparison |>
+    filter(Fleet == fleet_name) |>
+    mutate(
+      Model = factor(Model, levels = c("Model 23.2", "Model 26.0")),
+      Year_plot = factor(Year, levels = rev(sort(unique(Year))))
+    )
+  ridge_figure <- ggplot(
+    plot_data,
+    aes(
+      x = Age,
+      y = Year_plot,
+      height = Relative_selectivity,
+      group = interaction(Model, Year_plot),
+      color = Model,
+      fill = Model
+    )
+  ) +
+    ggridges::geom_density_ridges(
+      stat = "identity",
+      scale = 1.65,
+      alpha = 0.40,
+      linewidth = 0.28
+    ) +
+    facet_grid(cols = vars(Model)) +
+    scale_color_manual(values = selectivity_colors) +
+    scale_fill_manual(values = selectivity_colors) +
+    scale_x_continuous(breaks = seq_len(nages), expand = expansion(mult = c(0.02, 0.02))) +
+    labs(x = "Age", y = "Year") +
+    ggthemes::theme_few(base_size = 10) +
+    theme(
+      legend.position = "none",
+      panel.grid.major.y = element_blank(),
+      panel.grid.minor = element_blank(),
+      axis.text.y = element_text(size = 5.5),
+      strip.text = element_text(size = 9)
+    )
+  ggsave(
+    file.path(
+      output_directory,
+      paste0("model_23_2_vs_26_0_", tolower(fleet_name), "_selectivity.png")
+    ),
+    ridge_figure,
+    width = 8.5,
+    height = 10.5,
+    dpi = 220
+  )
+}
+
 weight_rows <- est$weight[est$weight$Wt_index == est$pop_wt_index, ]
 weight_matrix <- as.matrix(
   weight_rows[match(years, weight_rows$Year), paste0("Age", seq_len(nages))]
@@ -281,49 +375,56 @@ ggsave(
   dpi = 180
 )
 
-# Composition OSA residuals are calculated inside Rceattle, then passed to
-# afscOSA 0.0.1 so the report uses the common AFSC display and diagnostics.
-osa <- Rceattle::osa_residuals(
+# Composition OSA residuals use Rceattle's internal values for fishery and
+# BTS. ATS starts at age 2, so afscOSA 0.0.1 calculates its 14-bin residual
+# sequence directly before producing the common AFSC display and diagnostics.
+osa_internal <- Rceattle::osa_residuals(
   model_26,
   source = "comp",
   parallel = TRUE,
   seed = 20260831L
 )
-osa_summary <- Rceattle::osa_diagnostics(osa, seed = 20260831L)
-saveRDS(osa, file.path(output_directory, "model_26_0_osa_residuals.rds"))
-write.csv(
-  osa_summary,
-  file.path(output_directory, "model_26_0_osa_diagnostics.csv"),
-  row.names = FALSE
+saveRDS(
+  osa_internal,
+  file.path(output_directory, "model_26_0_osa_residuals_internal.rds")
 )
 
 make_afscosa_composition <- function(fleet_code) {
   comp_data <- model_26$data_list$comp_data
+  age_bins <- if (fleet_code == 4L) 2:nages else seq_len(nages)
   rows <- which(comp_data$Fleet_code == fleet_code)
   valid <- rowSums(round(
-    comp_data$Sample_size[rows] * model_26$quantities$comp_obs[rows, , drop = FALSE]
+    comp_data$Sample_size[rows] *
+      model_26$quantities$comp_obs[rows, age_bins, drop = FALSE]
   )) >= 1
   rows <- rows[valid]
   fleet_years <- comp_data$Year[rows]
 
-  internal_osa <- osa |>
-    filter(source == "comp", fleet == fleet_code, year %in% fleet_years) |>
-    arrange(match(year, fleet_years), age_length_bin)
-  nbins <- ncol(model_26$quantities$comp_obs)
-  stopifnot(nrow(internal_osa) == length(rows) * (nbins - 1L))
-  osa_matrix <- matrix(
-    internal_osa$residual,
-    nrow = length(rows),
-    ncol = nbins - 1L,
-    byrow = TRUE
-  )
+  # ATS age 1 is a structural zero in both the observed and fitted
+  # compositions. Its likelihood is therefore the ages 2--15 multinomial.
+  # The generic Rceattle OSA recursion starts at the zero column and shifts the
+  # diagnostic sequence, so afscOSA calculates ATS residuals directly from the
+  # 14 contributing ages. Fishery and BTS retain Rceattle's internal residuals.
+  osa_matrix <- NULL
+  if (fleet_code != 4L) {
+    internal_osa <- osa_internal |>
+      filter(source == "comp", fleet == fleet_code, year %in% fleet_years) |>
+      arrange(match(year, fleet_years), age_length_bin)
+    stopifnot(nrow(internal_osa) == length(rows) * (length(age_bins) - 1L))
+    osa_matrix <- matrix(
+      internal_osa$residual,
+      nrow = length(rows),
+      ncol = length(age_bins) - 1L,
+      byrow = TRUE
+    )
+  }
 
   afscOSA::run_osa(
-    obs = model_26$quantities$comp_obs[rows, , drop = FALSE],
-    exp = model_26$quantities$comp_hat[rows, , drop = FALSE],
+    obs = model_26$quantities$comp_obs[rows, age_bins, drop = FALSE],
+    exp = model_26$quantities$comp_hat[rows, age_bins, drop = FALSE],
     N = comp_data$Sample_size[rows],
     fleet = comp_data$Fleet_name[rows[1]],
-    index = seq_len(nbins),
+    index = age_bins,
     years = fleet_years,
     index_label = "Age",
     seed = 20260831L,
@@ -335,6 +436,26 @@ afscosa_composition <- lapply(c(1, 3, 4), make_afscosa_composition)
 saveRDS(
   afscosa_composition,
   file.path(output_directory, "model_26_0_afscosa_composition.rds")
+)
+
+osa <- bind_rows(lapply(seq_along(afscosa_composition), function(i) {
+  afscosa_composition[[i]]$res |>
+    transmute(
+      source = "comp",
+      fleet = c(1L, 3L, 4L)[i],
+      fleet_name = afscosa_composition[[i]]$res$fleet,
+      year,
+      age_length_bin = index,
+      residual = resid
+    )
+}))
+class(osa) <- c("rceattle_osa", class(osa))
+osa_summary <- Rceattle::osa_diagnostics(osa, seed = 20260831L)
+saveRDS(osa, file.path(output_directory, "model_26_0_osa_residuals.rds"))
+write.csv(
+  osa_summary,
+  file.path(output_directory, "model_26_0_osa_diagnostics.csv"),
+  row.names = FALSE
 )
 
 osa_panels <- afscOSA::plot_osa(

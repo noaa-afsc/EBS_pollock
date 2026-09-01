@@ -42,6 +42,7 @@ resources:
   - data/EBSpollock_Sept_2026/model-26-0/model_23_0_vs_23_2_admb_trajectories.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_23_0_vs_23_2_admb_summary.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_23_0_vs_23_2_admb_provenance.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_23_2_vs_26_0_selectivity.csv
 ---
 
 <!--
@@ -421,6 +422,23 @@ bridge. Differences are relative to Model 23.2. {#tbl-model-26-bridge}
 
 ![Spawning biomass, age-1 recruitment, and total biomass from Model 26.0 and the Model 23.2 bridge.](assets/model-26-0/model_26_0_bridge_trajectories.png){#fig-model-26-bridge fig-alt="Three vertically arranged time-series panels compare Model 26.0 with the Model 23.2 bridge from 1964 through 2024. The two lines closely track for spawning biomass, age-1 recruitment, and total biomass, with small departures in selected years." width="92%"}
 
+The annual selectivity comparisons place Model 23.2 on the left and Model 26.0
+on the right. Each curve is divided by its annual maximum, so the figures
+compare shape rather than scale. Fishery curves cover 1964--2024, BTS curves
+cover 1982--2024, and ATS curves cover 1994--2024. Across the matched ages and
+years, the normalized curves have correlations of 0.997 for the fishery,
+greater than 0.999 for BTS, and 0.878 for ATS. The fishery and BTS shapes align
+closely, while the ATS comparison shows more age-specific differences
+(@fig-model-23-2-26-fishery-selectivity--@fig-model-23-2-26-ats-selectivity).
+The [selectivity comparison data](data/EBSpollock_Sept_2026/model-26-0/model_23_2_vs_26_0_selectivity.csv)
+retain the unscaled and normalized annual values.
+
+![Annual fishery selectivity for Model 23.2 and Model 26.0, with each curve normalized to a maximum of one.](assets/model-26-0/model_23_2_vs_26_0_fishery_selectivity.png){#fig-model-23-2-26-fishery-selectivity fig-alt="Two tall side-by-side ridge plots compare relative fishery selectivity at ages 1 through 15 for every year from 1964 through 2024. Model 23.2 is on the left in blue and Model 26.0 is on the right in green. The annual curves have very similar shapes and track the same changes through time." width="92%"}
+
+![Annual bottom-trawl survey selectivity for Model 23.2 and Model 26.0, with each curve normalized to a maximum of one.](assets/model-26-0/model_23_2_vs_26_0_bts_selectivity.png){#fig-model-23-2-26-bts-selectivity fig-alt="Two tall side-by-side ridge plots compare relative bottom-trawl survey selectivity at ages 1 through 15 for every year from 1982 through 2024. Model 23.2 is on the left in blue and Model 26.0 is on the right in green. Both sets of curves rise from younger to older ages and align closely across years." width="92%"}
+
+![Annual acoustic-trawl survey selectivity for Model 23.2 and Model 26.0, with each curve normalized to a maximum of one.](assets/model-26-0/model_23_2_vs_26_0_ats_selectivity.png){#fig-model-23-2-26-ats-selectivity fig-alt="Two tall side-by-side ridge plots compare relative acoustic-trawl survey selectivity at ages 1 through 15 for every year from 1994 through 2024. Model 23.2 is on the left in blue and Model 26.0 is on the right in green. Age 1 is zero in both models. Both models rise across younger ages and level across older ages, with visible age-specific differences between the panels." width="92%"}
+
 ### Diagnostics
 
 The diagnostic sequence begins with one-step-ahead residuals for composition
@@ -433,43 +451,46 @@ stability as recent years are removed.
 
 One-step-ahead (OSA) residuals compare each observed age proportion with its
 conditional prediction after the preceding age bins have been accounted for.
-Rceattle calculated the internal residuals, and
+Rceattle calculated the internal fishery and BTS residuals, and
 [`afscOSA` version 0.0.1](https://github.com/noaa-afsc/afscOSA/releases/tag/v0.0.1)
-produced the common AFSC plots and summaries. The `N` input came from the
+produced the common AFSC plots and summaries. For ATS, `afscOSA` calculated
+the OSA residuals directly from ages 2--15, the ages that contribute to its
+composition likelihood. The `N` input came from the
 Rceattle `Sample_size` field used in the multinomial likelihood. It represents
 the likelihood sample size. The table reports the effective sample size
 separately.
 
 The table and figure use the same composition rows retained by the `afscOSA`
-count conversion. The fishery and BTS retain every input year. ATS 2020 remains
-in the fitted Rceattle likelihood and full internal OSA calculation. Its
-sample size of one is distributed among 15 ages, and every age-specific count
-rounds to zero in the `afscOSA` conversion. The common display therefore uses
-the other 18 ATS years. Across all 19 ATS years, the Rceattle internal result
-contains 266 residuals, has an SDNR of 0.534, and has an expected interval of
-0.915--1.085.
+count conversion. The fishery and BTS retain every input year. ATS age 1 is
+zero in both the observed and fitted compositions, so its composition
+likelihood and diagnostics begin at age 2. Including the structural-zero
+column in a generic 15-bin residual sequence creates an artificial first
+residual and shifts the remaining ATS sequence. The corrected conversion uses
+the 14 contributing ages. ATS 2020 remains in the fitted Rceattle likelihood;
+its sample size of one is distributed among ages 2--15, and every
+age-specific count rounds to zero in the `afscOSA` conversion. The common
+display therefore uses the other 18 ATS years.
 
-Each SDNR is below its expected interval, with the ATS showing the lowest
-value (@tbl-model-26-osa). The aggregate fits and residual bubbles show the age,
-year, and cohort locations of the remaining patterns
-(@fig-model-26-osa). The current Rceattle decomposition also marked 188
-extremely small conditional predictions as uninformative, including slight
-values below zero. Interpretation therefore emphasizes aggregate fits and
-cells supported by appreciable predicted counts.
+Each SDNR is below its expected interval: 0.638 for the fishery, 0.802 for BTS,
+and 0.849 for ATS (@tbl-model-26-osa). The aggregate fits and residual bubbles
+show the age, year, and cohort locations of the remaining patterns
+(@fig-model-26-osa). Interpretation emphasizes the aggregate fits and cells
+supported by appreciable predicted counts.
 
 | Composition source | Years displayed | Residuals | SDNR | Expected interval | Likelihood sample-size total | Rounded count total | Effective sample size |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | Fishery | 60 | 840 | 0.638 | 0.952--1.048 | 17,147 | 17,127 | 154,219 |
 | BTS | 42 | 588 | 0.802 | 0.943--1.057 | 5,403 | 5,397 | 3,040 |
-| ATS | 18 | 252 | 0.536 | 0.913--1.087 | 930 | 914 | 680 |
+| ATS | 18 | 234 | 0.849 | 0.909--1.091 | 930 | 914 | 680 |
 
 : OSA dispersion and aggregate sample-size diagnostics. SDNR is the standard
-deviation of normalized residuals. The likelihood sample-size total sums the
-Rceattle `Sample_size` field over the displayed years. The rounded count total
-and effective sample size come from the same `afscOSA` plotting conversion.
+deviation of normalized residuals. The likelihood sample-size total sums all
+rows used in the fitted Rceattle likelihood, including ATS 2020. The rounded
+count total and effective sample size come from the displayed `afscOSA`
+conversion.
 {#tbl-model-26-osa}
 
-![Aggregate age-composition fits, OSA quantile plots, and residual bubbles for the fishery, BTS, and ATS. The fishery and BTS panels retain every input year. The ATS panels retain 18 years because its sample size of one in 2020 produces zero rounded counts in the plotting conversion.](assets/model-26-0/model_26_0_afscosa.png){#fig-model-26-osa fig-alt="Four rows of diagnostic plots for fishery, bottom-trawl survey, and acoustic-trawl survey age compositions. The fishery and bottom-trawl survey panels contain all input years, while the acoustic-trawl survey panels contain 18 years and omit 2020 from the display because its sample size of one produces zero rounded age counts. The first row compares aggregate observed and fitted proportions. The second row shows OSA quantile plots with residual standard deviations below one. The lower rows show OSA and Pearson residual bubbles by age and year." width="100%"}
+![Aggregate age-composition fits, OSA quantile plots, and residual bubbles for the fishery, BTS, and ATS. The fishery and BTS panels retain every input year. ATS uses ages 2--15 and retains 18 display years because its sample size of one in 2020 produces zero rounded counts in the plotting conversion.](assets/model-26-0/model_26_0_afscosa.png){#fig-model-26-osa fig-alt="Four rows of diagnostic plots for fishery, bottom-trawl survey, and acoustic-trawl survey age compositions. The fishery and bottom-trawl survey panels contain ages 1 through 15 and all input years. The acoustic-trawl survey panels begin at age 2, contain 18 years, and omit 2020 from the display because its sample size of one produces zero rounded counts. The first row compares aggregate observed and fitted proportions. The second row shows OSA quantile plots with residual standard deviations of 0.64 for fishery, 0.80 for bottom-trawl survey, and 0.85 for acoustic-trawl survey. The lower rows show OSA and Pearson residual bubbles by age and year." width="100%"}
 
 #### Jitter test
 
