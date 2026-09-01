@@ -169,6 +169,10 @@ bts_age_result_summary <- bts_age_comparison |>
   )
 ```
 
+The controlled input comparison changes the historical BTS age-composition
+product while holding the 2025 age composition and every other assessment
+input constant (@tbl-bts-age-data-contrast).
+
 ```{r}
 #| label: tbl-bts-age-data-contrast
 #| tbl-cap: "Controlled input contrast for the revised BTS age-composition product. The 2025 BTS age-composition estimate and all other assessment inputs are identical between runs."
@@ -253,6 +257,8 @@ Terminal age-1 recruitment changes by
 which is the largest recruitment difference in the series. Terminal predicted
 catch changes by
 `r sprintf("%+.3f%%", bts_age_result_summary$terminal_percent_difference[bts_age_result_summary$quantity == "Predicted catch"])`.
+The terminal and maximum differences for each assessment quantity are
+summarized in @tbl-bts-age-data-results.
 
 ```{r}
 #| label: tbl-bts-age-data-results
@@ -279,6 +285,10 @@ bts_age_result_summary |>
   ) |>
   tab_header(title = "Effects of tinyVAST Historical BTS Proportions")
 ```
+
+Across years, spawning-biomass and predicted-catch differences remain small,
+while age-1 recruitment shows the larger year-to-year response
+(@fig-bts-age-data-bridge).
 
 ```{r}
 #| label: fig-bts-age-data-bridge

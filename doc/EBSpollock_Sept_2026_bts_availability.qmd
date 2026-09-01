@@ -91,7 +91,8 @@ ggplot(bts_availability, aes(x = year, y = relative_biomass)) +
   ggthemes::theme_few()
 ```
 
-With numbers and weights fixed, the selectivity-only index ranges from
+With numbers and weights fixed, the selectivity-only index in
+@fig-bts-selectivity-only-biomass ranges from
 `r scales::percent(bts_availability_min, accuracy = 0.1)` to
 `r scales::percent(bts_availability_max, accuracy = 0.1)` of its period mean.
 Thus, fitted BTS selectivity alone produces deviations of approximately
@@ -128,7 +129,8 @@ ggplot(bts_weight_availability, aes(x = year, y = relative_biomass)) +
 ```
 
 With mean estimated numbers at age and mean selectivity fixed, annual BTS
-weights alone produce a relative vulnerable-biomass range of
+weights alone produce the relative vulnerable-biomass range shown in
+@fig-bts-weight-only-biomass, from
 `r scales::percent(bts_weight_availability_min, accuracy = 0.1)` to
 `r scales::percent(bts_weight_availability_max, accuracy = 0.1)`, equivalent
 to deviations of
@@ -162,7 +164,8 @@ ggplot(bts_numbers_availability, aes(x = year, y = relative_biomass)) +
 ```
 
 With mean selectivity and mean weight fixed, estimated numbers at age alone
-produce a relative vulnerable-biomass range of
+produce the relative vulnerable-biomass range shown in
+@fig-bts-numbers-only-biomass, from
 `r scales::percent(bts_numbers_availability_min, accuracy = 0.1)` to
 `r scales::percent(bts_numbers_availability_max, accuracy = 0.1)`, equivalent
 to deviations of

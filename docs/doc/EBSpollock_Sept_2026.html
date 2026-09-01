@@ -7691,7 +7691,7 @@ color: #c7ced6 !important;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2026-09-01 07:19</p>
+      <p class="date">2026-09-01 07:33</p>
     </div>
   </div>
   
@@ -7748,7 +7748,7 @@ Editorial writing note for this document:
 <h1 data-number="3"><span class="header-section-number">3</span> Model specifications</h1>
 <section id="model-numbering-plan" class="level2 page-columns page-full" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="model-numbering-plan"><span class="header-section-number">3.1</span> Model numbering plan</h2>
-<p>The model number should identify the model’s place in the review record. The software name should be shown separately. Under this plan, <strong>Model 23.0</strong> is the 2024 ADMB source and <strong>Model 23.1</strong> is its direct RTMB translation check. The newer model names are <strong>Model 25.0 (RTMB)</strong> for the work begun in 2025 and <strong>Model 26.0 (Rceattle)</strong> for the development line begun in 2026.</p>
+<p>The model number should identify the model’s place in the review record. The software name should be shown separately. Under this plan, <strong>Model 23.0</strong> is the 2024 ADMB source and <strong>Model 23.1</strong> is its direct RTMB translation check. The newer model names are <strong>Model 25.0 (RTMB)</strong> for the work begun in 2025 and <strong>Model 26.0 (Rceattle)</strong> for the development line begun in 2026. The flowchart shows the two numbered development lines and SPoRC’s supporting comparison role (<a href="#fig-model-numbering" class="quarto-xref">Figure 1</a>).</p>
 <div class="cell page-columns page-full" data-layout-align="default">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-model-numbering" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
@@ -7788,7 +7788,7 @@ Figure 1: Proposed numbering and development history for EBS pollock assessment
 </section>
 <section id="data" class="level1 page-columns page-full" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Data</h1>
-<section id="sec-data-summary" class="level2 page-columns page-full" data-number="4.1">
+<section id="sec-data-summary" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="sec-data-summary"><span class="header-section-number">4.1</span> Data summary</h2>
 <p>The current cross-platform comparison uses the sex-combined, ages 1–15 data basis inherited from the 2024 Model 23.0 assessment. The population time series extends from 1964 through 2024. Fishery age compositions extend through 2023 because of the normal processing lag. The same underlying assessment observations are translated into the ADMB, RTMB, SPoRC, and Rceattle input structures. Each model retains its own fit calculations, sample-size conventions, and data organization. The accepted assessment and 2024 model-evaluation documents provide the overall data lineage <span class="citation" data-cites="ianelli2023a ianelli2024">(<a href="#ref-ianelli2023a" role="doc-biblioref">Ianelli et al. 2023</a>; <a href="#ref-ianelli2024" role="doc-biblioref">Ianelli and McGilliard 2024</a>)</span>.</p>
 <p>The basic data used across the platforms are:</p>
@@ -7799,41 +7799,7 @@ Figure 1: Proposed numbering and development history for EBS pollock assessment
 <li><strong>Supplementary abundance indices:</strong> the acoustic vessel-of-opportunity (AVO) series has 18 observations during 2006–2024, and the historical CPUE series has 12 observations during 1965–1976. The AVO approach and recent reanalysis are described by <span class="citation" data-cites="honkalehto2011">Honkalehto et al. (<a href="#ref-honkalehto2011" role="doc-biblioref">2011</a>)</span> and <span class="citation" data-cites="lauffenburger2024">Lauffenburger et al. (<a href="#ref-lauffenburger2024" role="doc-biblioref">2024</a>)</span>.</li>
 <li><strong>Biological schedules:</strong> the models use ageing-error information, maturity, natural mortality, and spawning, fishery, and survey weight-at-age schedules. AFSC pollock ageing methods and data quality are summarized by <span class="citation" data-cites="matta2026agegrowth">Matta et al. (<a href="#ref-matta2026agegrowth" role="doc-biblioref">2026</a>)</span>; spatial and temporal variation in EBS pollock weight at age is evaluated by <span class="citation" data-cites="indivero2023">Indivero et al. (<a href="#ref-indivero2023" role="doc-biblioref">2023</a>)</span>.</li>
 </ul>
-<div id="tbl-cross-platform-data" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
-<div aria-describedby="tbl-cross-platform-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
-<thead>
-<tr class="header">
-<th>Platform</th>
-<th>Use of the shared data basis</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>ADMB (Model 23.0)</strong></td>
-<td>Provides the accepted 2024 assessment reference, observation schedule, and source model settings.</td>
-</tr>
-<tr class="even">
-<td><strong>RTMB (Models 23.1 and 25.0)</strong></td>
-<td>Uses the corrected ADMB bridge inputs directly and preserves the complete ages 1–15 BTS composition treatment. See the <a href="https://jimianelli.github.io/rtmb_ebswp/ebs_pollock_rtmb_ebswp_assessment.html#data-inputs">RTMB data-input documentation</a>.</td>
-</tr>
-<tr class="odd">
-<td><strong>SPoRC</strong></td>
-<td>Maps the corrected bridge observations to one fishery and four survey/index components for an independent single-region model comparison. See the <a href="https://jimianelli.github.io/sporc_ebswp/">SPoRC EBS pollock working paper</a>.</td>
-</tr>
-<tr class="even">
-<td><strong>Rceattle (Model 26.0)</strong></td>
-<td>Reads a workbook prepared from the same 1964–2024 assessment source and retains all 15 modeled ages. See the <a href="https://noaa-afsc.github.io/ebswp_rceattle/">Rceattle EBS pollock application</a>.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-cross-platform-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 1: Cross-platform use of the common 2024 EBS pollock assessment data. The table describes the shared observations. Each platform retains its own internal data structure and method for measuring model fit.
-</figcaption>
-</figure>
-</div>
+<p>Across platforms, <strong>ADMB Model 23.0</strong> provides the accepted 2024 assessment reference, observation schedule, and source-model settings. <strong>RTMB Models 23.1 and 25.0</strong> use the corrected ADMB bridge inputs directly and preserve the complete ages 1–15 BTS composition treatment; the <a href="https://jimianelli.github.io/rtmb_ebswp/ebs_pollock_rtmb_ebswp_assessment.html#data-inputs">RTMB data-input documentation</a> describes that translation. <strong>SPoRC</strong> maps the corrected bridge observations to one fishery and four survey or index components for an independent single-region comparison, as described in the <a href="https://jimianelli.github.io/sporc_ebswp/">SPoRC EBS pollock working paper</a>. <strong>Rceattle Model 26.0</strong> reads a workbook prepared from the same 1964–2024 assessment source and retains all 15 modeled ages; its data application is documented in the <a href="https://noaa-afsc.github.io/ebswp_rceattle/">Rceattle EBS pollock report</a>. Each platform retains its own internal data structure and method for measuring model fit.</p>
 <p>The summary above describes the common 2024-terminal bridge used for model comparison. New 2025 and 2026 observations will enter the assessment only after their source products, sample sizes, ageing-error treatment, and quality control have been finalized.</p>
 </section>
 <section id="sec-age-data-issues" class="level2 page-columns page-full" data-number="4.2">
@@ -7851,25 +7817,26 @@ Table 1: Cross-platform use of the common 2024 EBS pollock assessment data. The
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="sec-bts-age-data-bridge"><span class="header-section-number">4.2.2</span> Impact of revised BTS age-composition estimates</h3>
 <p>This section isolates the effect of replacing the original bottom-trawl survey (BTS) estimates of proportions at age in <code>BTSProp.csv</code> with the revised estimates in <code>tinyVAST_props_new.csv</code>. The age-composition data product changes while the underlying survey data remain the same. Both ADMB runs use the complete 2025 input set and the same model specification, executable, starting parameter file, and tinyVAST 2025 BTS age-composition estimate. The sensitivity restores the original 1982-2024 BTS proportion estimates while holding the 2025 tinyVAST row constant. The comparison therefore addresses the historical estimator change.</p>
 <p>The 2024 assessment used the previous spatio-temporal expansion of BTS age samples. The revised series uses an improved implementation in <code>tinyVAST</code>, a multivariate spatio-temporal generalized linear mixed-model framework that can model age groups jointly, share information across locations and years, and area-expand predictions to annual abundance and proportions at age <span class="citation" data-cites="thorson2019spatiotemporalcomposition thorson2025tinyvast">(<a href="#ref-thorson2019spatiotemporalcomposition" role="doc-biblioref">Thorson and Haltuch 2019</a>; <a href="#ref-thorson2025tinyvast" role="doc-biblioref">Thorson et al. 2025</a>)</span>. The <a href="https://vast-lib.github.io/tinyVAST/articles/web_only/age_composition_expansion.html">tinyVAST age-composition expansion example</a> documents this workflow for EBS pollock age data. This methodological update changes the estimated BTS proportions at age supplied to the assessment; the controlled runs below quantify the resulting assessment-model effect while holding the other inputs and model configuration fixed.</p>
+<p>The controlled input comparison changes the historical BTS age-composition product while holding the 2025 age composition and every other assessment input constant (<a href="#tbl-bts-age-data-contrast" class="quarto-xref">Table 1</a>).</p>
 <div class="cell page-columns page-full">
 <div id="tbl-bts-age-data-contrast" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-bts-age-data-contrast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="xeauugmflh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xeauugmflh table {
+<div id="ylwfjfizjb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ylwfjfizjb table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#xeauugmflh thead, #xeauugmflh tbody, #xeauugmflh tfoot, #xeauugmflh tr, #xeauugmflh td, #xeauugmflh th {
+#ylwfjfizjb thead, #ylwfjfizjb tbody, #ylwfjfizjb tfoot, #ylwfjfizjb tr, #ylwfjfizjb td, #ylwfjfizjb th {
 border-style: none;
 }
-#xeauugmflh p {
+#ylwfjfizjb p {
 margin: 0;
 padding: 0;
 }
-#xeauugmflh .gt_table {
+#ylwfjfizjb .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -7894,11 +7861,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#xeauugmflh .gt_caption {
+#ylwfjfizjb .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#xeauugmflh .gt_title {
+#ylwfjfizjb .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -7909,7 +7876,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#xeauugmflh .gt_subtitle {
+#ylwfjfizjb .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -7920,7 +7887,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#xeauugmflh .gt_heading {
+#ylwfjfizjb .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -7931,12 +7898,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#xeauugmflh .gt_bottom_border {
+#ylwfjfizjb .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#xeauugmflh .gt_col_headings {
+#ylwfjfizjb .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -7950,7 +7917,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#xeauugmflh .gt_col_heading {
+#ylwfjfizjb .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -7969,7 +7936,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#xeauugmflh .gt_column_spanner_outer {
+#ylwfjfizjb .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -7980,13 +7947,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#xeauugmflh .gt_column_spanner_outer:first-child {
+#ylwfjfizjb .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#xeauugmflh .gt_column_spanner_outer:last-child {
+#ylwfjfizjb .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#xeauugmflh .gt_column_spanner {
+#ylwfjfizjb .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -7997,10 +7964,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#xeauugmflh .gt_spanner_row {
+#ylwfjfizjb .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#xeauugmflh .gt_group_heading {
+#ylwfjfizjb .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8025,7 +7992,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#xeauugmflh .gt_empty_group_heading {
+#ylwfjfizjb .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -8039,13 +8006,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#xeauugmflh .gt_from_md > :first-child {
+#ylwfjfizjb .gt_from_md > :first-child {
 margin-top: 0;
 }
-#xeauugmflh .gt_from_md > :last-child {
+#ylwfjfizjb .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#xeauugmflh .gt_row {
+#ylwfjfizjb .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8063,7 +8030,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#xeauugmflh .gt_stub {
+#ylwfjfizjb .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8075,7 +8042,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#xeauugmflh .gt_stub_row_group {
+#ylwfjfizjb .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8088,13 +8055,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#xeauugmflh .gt_row_group_first td {
+#ylwfjfizjb .gt_row_group_first td {
 border-top-width: 2px;
 }
-#xeauugmflh .gt_row_group_first th {
+#ylwfjfizjb .gt_row_group_first th {
 border-top-width: 2px;
 }
-#xeauugmflh .gt_summary_row {
+#ylwfjfizjb .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -8103,14 +8070,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#xeauugmflh .gt_first_summary_row {
+#ylwfjfizjb .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#xeauugmflh .gt_first_summary_row.thick {
+#ylwfjfizjb .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#xeauugmflh .gt_last_summary_row {
+#ylwfjfizjb .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8119,7 +8086,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#xeauugmflh .gt_grand_summary_row {
+#ylwfjfizjb .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -8128,7 +8095,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#xeauugmflh .gt_first_grand_summary_row {
+#ylwfjfizjb .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8137,7 +8104,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#xeauugmflh .gt_last_grand_summary_row_top {
+#ylwfjfizjb .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8146,10 +8113,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#xeauugmflh .gt_striped {
+#ylwfjfizjb .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#xeauugmflh .gt_table_body {
+#ylwfjfizjb .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -8157,7 +8124,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#xeauugmflh .gt_footnotes {
+#ylwfjfizjb .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -8170,7 +8137,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#xeauugmflh .gt_footnote {
+#ylwfjfizjb .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -8178,7 +8145,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#xeauugmflh .gt_sourcenotes {
+#ylwfjfizjb .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -8191,64 +8158,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#xeauugmflh .gt_sourcenote {
+#ylwfjfizjb .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#xeauugmflh .gt_left {
+#ylwfjfizjb .gt_left {
 text-align: left;
 }
-#xeauugmflh .gt_center {
+#ylwfjfizjb .gt_center {
 text-align: center;
 }
-#xeauugmflh .gt_right {
+#ylwfjfizjb .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#xeauugmflh .gt_font_normal {
+#ylwfjfizjb .gt_font_normal {
 font-weight: normal;
 }
-#xeauugmflh .gt_font_bold {
+#ylwfjfizjb .gt_font_bold {
 font-weight: bold;
 }
-#xeauugmflh .gt_font_italic {
+#ylwfjfizjb .gt_font_italic {
 font-style: italic;
 }
-#xeauugmflh .gt_super {
+#ylwfjfizjb .gt_super {
 font-size: 65%;
 }
-#xeauugmflh .gt_footnote_marks {
+#ylwfjfizjb .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#xeauugmflh .gt_asterisk {
+#ylwfjfizjb .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#xeauugmflh .gt_indent_1 {
+#ylwfjfizjb .gt_indent_1 {
 text-indent: 5px;
 }
-#xeauugmflh .gt_indent_2 {
+#ylwfjfizjb .gt_indent_2 {
 text-indent: 10px;
 }
-#xeauugmflh .gt_indent_3 {
+#ylwfjfizjb .gt_indent_3 {
 text-indent: 15px;
 }
-#xeauugmflh .gt_indent_4 {
+#ylwfjfizjb .gt_indent_4 {
 text-indent: 20px;
 }
-#xeauugmflh .gt_indent_5 {
+#ylwfjfizjb .gt_indent_5 {
 text-indent: 25px;
 }
-#xeauugmflh .katex-display {
+#ylwfjfizjb .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#xeauugmflh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ylwfjfizjb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -8291,7 +8258,7 @@ height: 0px !important;
 </div>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-bts-age-data-contrast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 2: Controlled input contrast for the revised BTS age-composition product. The 2025 BTS age-composition estimate and all other assessment inputs are identical between runs.
+Table 1: Controlled input contrast for the revised BTS age-composition product. The 2025 BTS age-composition estimate and all other assessment inputs are identical between runs.
 </figcaption>
 </figure>
 </div>
@@ -8311,26 +8278,26 @@ Figure 2: Percent change in the estimated BTS proportions at age from the origi
 </div>
 </div>
 </div>
-<p>Both runs reached maximum absolute gradients below 0.001. The likelihood components in <a href="#tbl-bts-age-data-diagnostics" class="quarto-xref">Table 3</a> document the fits and support a structured contrast between scenarios with different observed BTS age values.</p>
+<p>Both runs reached maximum absolute gradients below 0.001. The likelihood components in <a href="#tbl-bts-age-data-diagnostics" class="quarto-xref">Table 2</a> document the fits and support a structured contrast between scenarios with different observed BTS age values.</p>
 <div class="cell page-columns page-full">
 <div id="tbl-bts-age-data-diagnostics" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-bts-age-data-diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="vqzfogeyey" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vqzfogeyey table {
+<div id="biojhuxsju" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#biojhuxsju table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#vqzfogeyey thead, #vqzfogeyey tbody, #vqzfogeyey tfoot, #vqzfogeyey tr, #vqzfogeyey td, #vqzfogeyey th {
+#biojhuxsju thead, #biojhuxsju tbody, #biojhuxsju tfoot, #biojhuxsju tr, #biojhuxsju td, #biojhuxsju th {
 border-style: none;
 }
-#vqzfogeyey p {
+#biojhuxsju p {
 margin: 0;
 padding: 0;
 }
-#vqzfogeyey .gt_table {
+#biojhuxsju .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -8355,11 +8322,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#vqzfogeyey .gt_caption {
+#biojhuxsju .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#vqzfogeyey .gt_title {
+#biojhuxsju .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -8370,7 +8337,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#vqzfogeyey .gt_subtitle {
+#biojhuxsju .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -8381,7 +8348,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#vqzfogeyey .gt_heading {
+#biojhuxsju .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -8392,12 +8359,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#vqzfogeyey .gt_bottom_border {
+#biojhuxsju .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#vqzfogeyey .gt_col_headings {
+#biojhuxsju .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -8411,7 +8378,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#vqzfogeyey .gt_col_heading {
+#biojhuxsju .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8430,7 +8397,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#vqzfogeyey .gt_column_spanner_outer {
+#biojhuxsju .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8441,13 +8408,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#vqzfogeyey .gt_column_spanner_outer:first-child {
+#biojhuxsju .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#vqzfogeyey .gt_column_spanner_outer:last-child {
+#biojhuxsju .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#vqzfogeyey .gt_column_spanner {
+#biojhuxsju .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -8458,10 +8425,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#vqzfogeyey .gt_spanner_row {
+#biojhuxsju .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#vqzfogeyey .gt_group_heading {
+#biojhuxsju .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8486,7 +8453,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#vqzfogeyey .gt_empty_group_heading {
+#biojhuxsju .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -8500,13 +8467,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#vqzfogeyey .gt_from_md > :first-child {
+#biojhuxsju .gt_from_md > :first-child {
 margin-top: 0;
 }
-#vqzfogeyey .gt_from_md > :last-child {
+#biojhuxsju .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#vqzfogeyey .gt_row {
+#biojhuxsju .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8524,7 +8491,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#vqzfogeyey .gt_stub {
+#biojhuxsju .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8536,7 +8503,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#vqzfogeyey .gt_stub_row_group {
+#biojhuxsju .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8549,13 +8516,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#vqzfogeyey .gt_row_group_first td {
+#biojhuxsju .gt_row_group_first td {
 border-top-width: 2px;
 }
-#vqzfogeyey .gt_row_group_first th {
+#biojhuxsju .gt_row_group_first th {
 border-top-width: 2px;
 }
-#vqzfogeyey .gt_summary_row {
+#biojhuxsju .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -8564,14 +8531,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#vqzfogeyey .gt_first_summary_row {
+#biojhuxsju .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#vqzfogeyey .gt_first_summary_row.thick {
+#biojhuxsju .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#vqzfogeyey .gt_last_summary_row {
+#biojhuxsju .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8580,7 +8547,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#vqzfogeyey .gt_grand_summary_row {
+#biojhuxsju .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -8589,7 +8556,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#vqzfogeyey .gt_first_grand_summary_row {
+#biojhuxsju .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8598,7 +8565,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#vqzfogeyey .gt_last_grand_summary_row_top {
+#biojhuxsju .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8607,10 +8574,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#vqzfogeyey .gt_striped {
+#biojhuxsju .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#vqzfogeyey .gt_table_body {
+#biojhuxsju .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -8618,7 +8585,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#vqzfogeyey .gt_footnotes {
+#biojhuxsju .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -8631,7 +8598,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#vqzfogeyey .gt_footnote {
+#biojhuxsju .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -8639,7 +8606,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#vqzfogeyey .gt_sourcenotes {
+#biojhuxsju .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -8652,64 +8619,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#vqzfogeyey .gt_sourcenote {
+#biojhuxsju .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#vqzfogeyey .gt_left {
+#biojhuxsju .gt_left {
 text-align: left;
 }
-#vqzfogeyey .gt_center {
+#biojhuxsju .gt_center {
 text-align: center;
 }
-#vqzfogeyey .gt_right {
+#biojhuxsju .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#vqzfogeyey .gt_font_normal {
+#biojhuxsju .gt_font_normal {
 font-weight: normal;
 }
-#vqzfogeyey .gt_font_bold {
+#biojhuxsju .gt_font_bold {
 font-weight: bold;
 }
-#vqzfogeyey .gt_font_italic {
+#biojhuxsju .gt_font_italic {
 font-style: italic;
 }
-#vqzfogeyey .gt_super {
+#biojhuxsju .gt_super {
 font-size: 65%;
 }
-#vqzfogeyey .gt_footnote_marks {
+#biojhuxsju .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#vqzfogeyey .gt_asterisk {
+#biojhuxsju .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#vqzfogeyey .gt_indent_1 {
+#biojhuxsju .gt_indent_1 {
 text-indent: 5px;
 }
-#vqzfogeyey .gt_indent_2 {
+#biojhuxsju .gt_indent_2 {
 text-indent: 10px;
 }
-#vqzfogeyey .gt_indent_3 {
+#biojhuxsju .gt_indent_3 {
 text-indent: 15px;
 }
-#vqzfogeyey .gt_indent_4 {
+#biojhuxsju .gt_indent_4 {
 text-indent: 20px;
 }
-#vqzfogeyey .gt_indent_5 {
+#biojhuxsju .gt_indent_5 {
 text-indent: 25px;
 }
-#vqzfogeyey .katex-display {
+#biojhuxsju .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#vqzfogeyey div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#biojhuxsju div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -8749,31 +8716,31 @@ height: 0px !important;
 </div>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-bts-age-data-diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 3: ADMB fit diagnostics for the matched 2025 model with tinyVAST BTS proportions and with original BTSProp proportions for 1982-2024. Negative-log-likelihood values diagnose each data version; cross-data model selection requires a common observation set and likelihood definition.
+Table 2: ADMB fit diagnostics for the matched 2025 model with tinyVAST BTS proportions and with original BTSProp proportions for 1982-2024. Negative-log-likelihood values diagnose each data version; cross-data model selection requires a common observation set and likelihood definition.
 </figcaption>
 </figure>
 </div>
 </div>
-<p>The revision changes terminal spawning biomass by -0.415%. The largest spawning-biomass difference is 0.881% in 1985. Terminal age-1 recruitment changes by -2.015%, which is the largest recruitment difference in the series. Terminal predicted catch changes by +0.016%.</p>
+<p>The revision changes terminal spawning biomass by -0.415%. The largest spawning-biomass difference is 0.881% in 1985. Terminal age-1 recruitment changes by -2.015%, which is the largest recruitment difference in the series. Terminal predicted catch changes by +0.016%. The terminal and maximum differences for each assessment quantity are summarized in <a href="#tbl-bts-age-data-results" class="quarto-xref">Table 3</a>.</p>
 <div class="cell page-columns page-full">
 <div id="tbl-bts-age-data-results" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-bts-age-data-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="zkupqslhgi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zkupqslhgi table {
+<div id="gfnntmrgij" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gfnntmrgij table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#zkupqslhgi thead, #zkupqslhgi tbody, #zkupqslhgi tfoot, #zkupqslhgi tr, #zkupqslhgi td, #zkupqslhgi th {
+#gfnntmrgij thead, #gfnntmrgij tbody, #gfnntmrgij tfoot, #gfnntmrgij tr, #gfnntmrgij td, #gfnntmrgij th {
 border-style: none;
 }
-#zkupqslhgi p {
+#gfnntmrgij p {
 margin: 0;
 padding: 0;
 }
-#zkupqslhgi .gt_table {
+#gfnntmrgij .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -8798,11 +8765,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#zkupqslhgi .gt_caption {
+#gfnntmrgij .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#zkupqslhgi .gt_title {
+#gfnntmrgij .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -8813,7 +8780,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#zkupqslhgi .gt_subtitle {
+#gfnntmrgij .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -8824,7 +8791,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#zkupqslhgi .gt_heading {
+#gfnntmrgij .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -8835,12 +8802,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#zkupqslhgi .gt_bottom_border {
+#gfnntmrgij .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#zkupqslhgi .gt_col_headings {
+#gfnntmrgij .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -8854,7 +8821,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#zkupqslhgi .gt_col_heading {
+#gfnntmrgij .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8873,7 +8840,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#zkupqslhgi .gt_column_spanner_outer {
+#gfnntmrgij .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8884,13 +8851,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#zkupqslhgi .gt_column_spanner_outer:first-child {
+#gfnntmrgij .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#zkupqslhgi .gt_column_spanner_outer:last-child {
+#gfnntmrgij .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#zkupqslhgi .gt_column_spanner {
+#gfnntmrgij .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -8901,10 +8868,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#zkupqslhgi .gt_spanner_row {
+#gfnntmrgij .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#zkupqslhgi .gt_group_heading {
+#gfnntmrgij .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8929,7 +8896,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#zkupqslhgi .gt_empty_group_heading {
+#gfnntmrgij .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -8943,13 +8910,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#zkupqslhgi .gt_from_md > :first-child {
+#gfnntmrgij .gt_from_md > :first-child {
 margin-top: 0;
 }
-#zkupqslhgi .gt_from_md > :last-child {
+#gfnntmrgij .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#zkupqslhgi .gt_row {
+#gfnntmrgij .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8967,7 +8934,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#zkupqslhgi .gt_stub {
+#gfnntmrgij .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8979,7 +8946,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#zkupqslhgi .gt_stub_row_group {
+#gfnntmrgij .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8992,13 +8959,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#zkupqslhgi .gt_row_group_first td {
+#gfnntmrgij .gt_row_group_first td {
 border-top-width: 2px;
 }
-#zkupqslhgi .gt_row_group_first th {
+#gfnntmrgij .gt_row_group_first th {
 border-top-width: 2px;
 }
-#zkupqslhgi .gt_summary_row {
+#gfnntmrgij .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -9007,14 +8974,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#zkupqslhgi .gt_first_summary_row {
+#gfnntmrgij .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#zkupqslhgi .gt_first_summary_row.thick {
+#gfnntmrgij .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#zkupqslhgi .gt_last_summary_row {
+#gfnntmrgij .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -9023,7 +8990,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#zkupqslhgi .gt_grand_summary_row {
+#gfnntmrgij .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -9032,7 +8999,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#zkupqslhgi .gt_first_grand_summary_row {
+#gfnntmrgij .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -9041,7 +9008,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#zkupqslhgi .gt_last_grand_summary_row_top {
+#gfnntmrgij .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -9050,10 +9017,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#zkupqslhgi .gt_striped {
+#gfnntmrgij .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#zkupqslhgi .gt_table_body {
+#gfnntmrgij .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -9061,7 +9028,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#zkupqslhgi .gt_footnotes {
+#gfnntmrgij .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -9074,7 +9041,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#zkupqslhgi .gt_footnote {
+#gfnntmrgij .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -9082,7 +9049,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#zkupqslhgi .gt_sourcenotes {
+#gfnntmrgij .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -9095,64 +9062,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#zkupqslhgi .gt_sourcenote {
+#gfnntmrgij .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#zkupqslhgi .gt_left {
+#gfnntmrgij .gt_left {
 text-align: left;
 }
-#zkupqslhgi .gt_center {
+#gfnntmrgij .gt_center {
 text-align: center;
 }
-#zkupqslhgi .gt_right {
+#gfnntmrgij .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#zkupqslhgi .gt_font_normal {
+#gfnntmrgij .gt_font_normal {
 font-weight: normal;
 }
-#zkupqslhgi .gt_font_bold {
+#gfnntmrgij .gt_font_bold {
 font-weight: bold;
 }
-#zkupqslhgi .gt_font_italic {
+#gfnntmrgij .gt_font_italic {
 font-style: italic;
 }
-#zkupqslhgi .gt_super {
+#gfnntmrgij .gt_super {
 font-size: 65%;
 }
-#zkupqslhgi .gt_footnote_marks {
+#gfnntmrgij .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#zkupqslhgi .gt_asterisk {
+#gfnntmrgij .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#zkupqslhgi .gt_indent_1 {
+#gfnntmrgij .gt_indent_1 {
 text-indent: 5px;
 }
-#zkupqslhgi .gt_indent_2 {
+#gfnntmrgij .gt_indent_2 {
 text-indent: 10px;
 }
-#zkupqslhgi .gt_indent_3 {
+#gfnntmrgij .gt_indent_3 {
 text-indent: 15px;
 }
-#zkupqslhgi .gt_indent_4 {
+#gfnntmrgij .gt_indent_4 {
 text-indent: 20px;
 }
-#zkupqslhgi .gt_indent_5 {
+#gfnntmrgij .gt_indent_5 {
 text-indent: 25px;
 }
-#zkupqslhgi .katex-display {
+#gfnntmrgij .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#zkupqslhgi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gfnntmrgij div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -9199,11 +9166,12 @@ height: 0px !important;
 </div>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-bts-age-data-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 4: Relative effects of replacing the original historical BTS proportions with tinyVAST proportions. Percent differences are tinyVAST minus original, divided by the absolute original estimate.
+Table 3: Relative effects of replacing the original historical BTS proportions with tinyVAST proportions. Percent differences are tinyVAST minus original, divided by the absolute original estimate.
 </figcaption>
 </figure>
 </div>
 </div>
+<p>Across years, spawning-biomass and predicted-catch differences remain small, while age-1 recruitment shows the larger year-to-year response (<a href="#fig-bts-age-data-bridge" class="quarto-xref">Figure 3</a>).</p>
 <div class="cell page-columns page-full">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-bts-age-data-bridge" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Three-panel line graph of percent differences from 1964 through 2025. Spawning-biomass differences remain within one percent and equal minus 0.4 percent in 2025. Recruitment differences remain within four percent and equal minus 2.0 percent in 2025. Predicted-catch differences remain within 0.1 percent.">
@@ -9269,7 +9237,7 @@ Figure 5: Relative BTS-vulnerable biomass attributable only to fitted annual BT
 </div>
 </div>
 </div>
-<p>With numbers and weights fixed, the selectivity-only index ranges from 54.4% to 139.1% of its period mean. Thus, fitted BTS selectivity alone produces deviations of approximately -45.6% to 39.1% around mean vulnerable biomass. This range describes changes in modeled survey availability caused by selectivity. Population biomass change is outside this controlled calculation.</p>
+<p>With numbers and weights fixed, the selectivity-only index in <a href="#fig-bts-selectivity-only-biomass" class="quarto-xref">Figure 5</a> ranges from 54.4% to 139.1% of its period mean. Thus, fitted BTS selectivity alone produces deviations of approximately -45.6% to 39.1% around mean vulnerable biomass. This range describes changes in modeled survey availability caused by selectivity. Population biomass change is outside this controlled calculation.</p>
 <p>An analogous weight-only calculation holds mean estimated numbers at age and BTS selectivity fixed. Selectivity is averaged at each age over 1982–2024, while the observed BTS weight-at-age vector varies among the 42 survey years. The 2020 survey was absent, so the plotted BTS weight series moves directly from 2019 to 2021.</p>
 <div class="cell page-columns page-full">
 <div class="cell-output-display page-columns page-full">
@@ -9285,7 +9253,7 @@ Figure 6: Relative BTS-vulnerable biomass attributable only to annual BTS weigh
 </div>
 </div>
 </div>
-<p>With mean estimated numbers at age and mean selectivity fixed, annual BTS weights alone produce a relative vulnerable-biomass range of 80.8% to 124.5%, equivalent to deviations of -19.2% to 24.5% around the mean.</p>
+<p>With mean estimated numbers at age and mean selectivity fixed, annual BTS weights alone produce the relative vulnerable-biomass range shown in <a href="#fig-bts-weight-only-biomass" class="quarto-xref">Figure 6</a>, from 80.8% to 124.5%, equivalent to deviations of -19.2% to 24.5% around the mean.</p>
 <p>The third calculation holds both BTS selectivity and BTS weight at age at their period means and varies only the model-estimated numbers at ages 1–15. It therefore describes how the estimated population age structure and scale would change BTS-vulnerable biomass under a constant observation process.</p>
 <div class="cell page-columns page-full">
 <div class="cell-output-display page-columns page-full">
@@ -9301,7 +9269,7 @@ Figure 7: Relative BTS-vulnerable biomass attributable only to annual estimated
 </div>
 </div>
 </div>
-<p>With mean selectivity and mean weight fixed, estimated numbers at age alone produce a relative vulnerable-biomass range of 48.1% to 152.7%, equivalent to deviations of -51.9% to 52.7% around the mean. Unlike the first two controlled calculations, this third series reflects estimated population change rather than observation-process variation.</p>
+<p>With mean selectivity and mean weight fixed, estimated numbers at age alone produce the relative vulnerable-biomass range shown in <a href="#fig-bts-numbers-only-biomass" class="quarto-xref">Figure 7</a>, from 48.1% to 152.7%, equivalent to deviations of -51.9% to 52.7% around the mean. Unlike the first two controlled calculations, this third series reflects estimated population change rather than observation-process variation.</p>
 <p>The combined comparison in <a href="#fig-bts-biomass-components-overlay" class="quarto-xref">Figure 8</a> places the three controlled series from <a href="#fig-bts-selectivity-only-biomass" class="quarto-xref">Figure 5</a>, <a href="#fig-bts-weight-only-biomass" class="quarto-xref">Figure 6</a>, and <a href="#fig-bts-numbers-only-biomass" class="quarto-xref">Figure 7</a> on the same scale as the observed BTS biomass index. Each series is divided by its own period mean, so 100% represents the mean for that series rather than a common biomass level. The BTS observation series retains the 2020 survey gap.</p>
 <div class="cell page-columns page-full">
 <div class="cell-output-display page-columns page-full">
@@ -9339,7 +9307,7 @@ Figure 9: Pairwise relationships among observed BTS biomass and the selectivity
 <section id="data-and-simple-model-approach" class="level3 page-columns page-full" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="data-and-simple-model-approach"><span class="header-section-number">5.3.1</span> Data and simple model approach</h3>
 <p>Model 26.0 uses the common 1964–2024 bridge data described in <a href="#sec-data-summary" class="quarto-xref">Section 4.1</a>. This run was fitted with Rceattle version 5.23.0 from the <a href="https://github.com/grantdadams/Rceattle/tree/dsem-v5-integration"><code>dsem-v5-integration</code> branch</a>, pinned at commit <code>adf22f84b399e84e3b9a707e0b3bbb1624179a27</code>. The version number and commit are reported together because the run represents a branch snapshot.</p>
-<p>The simple configuration retains non-parametric selectivity for the fishery, acoustic vessel-of-opportunity (AVO), acoustic-trawl survey (ATS), and historical catch-per-unit-effort series. The bottom-trawl survey (BTS) retains the logistic curve and separate age-1 component used in the bridge. Annual selectivity changes follow the established random-walk configuration. The 2D age-by-year AR1 formulation remains a separate research sensitivity, allowing this analysis to focus on the simpler assessment structure requested for Model 26.0.</p>
+<p>The simple configuration retains non-parametric selectivity for the fishery, acoustic vessel-of-opportunity (AVO), acoustic-trawl survey (ATS), and historical catch-per-unit-effort series. The bottom-trawl survey (BTS) retains the logistic curve and separate age-1 component used in the bridge. Annual selectivity changes follow the established random-walk configuration. The 2D age-by-year AR1 formulation remains a separate research sensitivity, allowing this analysis to focus on the simpler assessment structure requested for Model 26.0. The data-flow diagram shows how the shared observations support the fitted population states, bridge comparison, diagnostics, projections, and environmental-pathway analysis (<a href="#fig-model-26-approach" class="quarto-xref">Figure 10</a>).</p>
 <div class="cell page-columns page-full" data-layout-align="default">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-model-26-approach" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
@@ -9369,6 +9337,7 @@ Figure 10: Data and calculation flow for the simple Model 26.0 Rceattle analysi
 </div>
 </div>
 </div>
+<p>The Model 26.0 configuration retains ages 1–15, the established selectivity forms, and the two-stage fitting sequence (<a href="#tbl-model-26-configuration" class="quarto-xref">Table 4</a>).</p>
 <div id="tbl-model-26-configuration" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-model-26-configuration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -9416,12 +9385,12 @@ Figure 10: Data and calculation flow for the simple Model 26.0 Rceattle analysi
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-model-26-configuration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 5: Main settings for the Rceattle 5.23.0 Model 26.0 analysis.
+Table 4: Main settings for the Rceattle 5.23.0 Model 26.0 analysis.
 </figcaption>
 </figure>
 </div>
 <p>The current branch retains the time-varying parametric BTS field as a compatibility setting and directs future development toward the newer selectivity-linkage interface. This run keeps the compatibility setting to match the bridge configuration. A later Model 26.x comparison can evaluate the interface change separately.</p>
-<p>Both fitting stages met the current Rceattle convergence criteria. Model 26.0 had a maximum absolute gradient of <span class="math inline">\(7.65\times10^{-5}\)</span>, a positive-definite Hessian, and a Hessian condition number of 489,090. The weakest direction remains associated with the shared ATS/AVO annual selectivity changes.</p>
+<p>Both fitting stages met the current Rceattle convergence criteria. Model 26.0 had a maximum absolute gradient of <span class="math inline">\(7.65\times10^{-5}\)</span>, a positive-definite Hessian, and a Hessian condition number of 489,090. The weakest direction remains associated with the shared ATS/AVO annual selectivity changes (<a href="#tbl-model-26-convergence" class="quarto-xref">Table 5</a>).</p>
 <div id="tbl-model-26-convergence" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-model-26-convergence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -9461,7 +9430,7 @@ Table 5: Main settings for the Rceattle 5.23.0 Model 26.0 analysis.
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-model-26-convergence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 6: Model 26.0 fitting results from Rceattle 5.23.0.
+Table 5: Model 26.0 fitting results from Rceattle 5.23.0.
 </figcaption>
 </figure>
 </div>
@@ -9470,6 +9439,7 @@ Table 6: Model 26.0 fitting results from Rceattle 5.23.0.
 <section id="model-23.2-bridge-comparison" class="level3 page-columns page-full" data-number="5.3.2">
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="model-23.2-bridge-comparison"><span class="header-section-number">5.3.2</span> Model 23.2 bridge comparison</h3>
 <p>For this comparison, <strong>Model 23.2</strong> identifies the Rceattle-aligned ADMB bridge configuration. It contains the structural and likelihood changes needed to place the ADMB and Rceattle calculations on a common basis. Model 23.2 therefore provides the closest reference for evaluating the fitted Model 26.0 trajectories, while Model 23.1 continues to identify the direct RTMB translation described earlier.</p>
+<p>The three Model 26.0 trajectories have correlations above 0.998 with the Model 23.2 bridge, and their mean absolute differences range from 0.69% to 1.45% (<a href="#tbl-model-26-bridge" class="quarto-xref">Table 6</a>).</p>
 <div id="tbl-model-26-bridge" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-model-26-bridge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -9505,7 +9475,7 @@ Table 6: Model 26.0 fitting results from Rceattle 5.23.0.
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-model-26-bridge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 7: Basic comparison of Model 26.0 with the Model 23.2 Rceattle-aligned ADMB bridge. Differences are relative to Model 23.2.
+Table 6: Basic comparison of Model 26.0 with the Model 23.2 Rceattle-aligned ADMB bridge. Differences are relative to Model 23.2.
 </figcaption>
 </figure>
 </div>
@@ -9578,11 +9548,11 @@ Figure 11: Spawning biomass, age-1 recruitment, and total biomass from Model 26
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-model-26-osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 8: OSA dispersion and aggregate sample-size diagnostics. SDNR is the standard deviation of normalized residuals. The sample-size totals reflect the integer counts retained by the <code>afscOSA</code> plotting conversion.
+Table 7: OSA dispersion and aggregate sample-size diagnostics. SDNR is the standard deviation of normalized residuals. The sample-size totals reflect the integer counts retained by the <code>afscOSA</code> plotting conversion.
 </figcaption>
 </figure>
 </div>
-<p>Each SDNR is below its expected interval, showing that the OSA residuals are narrower than the standard-normal reference. The bubble plots provide the more useful guide to persistent age, year, and cohort patterns. The current Rceattle decomposition also marked 188 extremely small conditional predictions as uninformative, including slight values below zero. Interpretation therefore emphasizes aggregate fits and cells supported by appreciable predicted counts.</p>
+<p>Each SDNR is below its expected interval, with the fishery showing the lowest value (<a href="#tbl-model-26-osa" class="quarto-xref">Table 7</a>). The aggregate fits and residual bubbles show the age, year, and cohort locations of the remaining patterns (<a href="#fig-model-26-osa" class="quarto-xref">Figure 12</a>). The current Rceattle decomposition also marked 188 extremely small conditional predictions as uninformative, including slight values below zero. Interpretation therefore emphasizes aggregate fits and cells supported by appreciable predicted counts.</p>
 <div id="fig-model-26-osa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Four rows of diagnostic plots for fishery, bottom-trawl survey, and acoustic-trawl survey age compositions. The first row compares aggregate observed and fitted proportions. The second row shows OSA quantile plots with SDNR values below one. The lower rows show OSA and Pearson residual bubbles by age and year.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-model-26-osa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -9596,7 +9566,7 @@ Figure 12: Aggregate age-composition fits, OSA quantile plots, and residual bub
 </section>
 <section id="jitter-test" class="level4 page-columns page-full" data-number="5.3.3.2">
 <h4 data-number="5.3.3.2" class="anchored" data-anchor-id="jitter-test"><span class="header-section-number">5.3.3.2</span> Jitter test</h4>
-<p>Fifty phased refits began from parameter values perturbed with standard deviation 0.2 and seed 20260831. All 50 completed with convergence status OK. Forty-seven returned to the best objective within 0.001. Three reached the same higher objective, approximately 609.5 units above the best value (<a href="#fig-model-26-jitter" class="quarto-xref">Figure 13</a>). This repeated higher solution identifies a second mode and supports retaining the two-stage fitting sequence and dispersed-start checks in routine work.</p>
+<p>Fifty phased refits began from parameter values perturbed with standard deviation 0.2 and seed 20260831. All 50 completed with convergence status OK. Forty-seven returned to the best objective within 0.001. Three reached the same higher objective, approximately 609.5 units above the best value. The objective distribution and summary count show the 47 returns to the best solution and the three higher-mode fits (<a href="#fig-model-26-jitter" class="quarto-xref">Figure 13</a>; <a href="#tbl-model-26-jitter" class="quarto-xref">Table 8</a>). This repeated higher solution identifies a second mode and supports retaining the two-stage fitting sequence and dispersed-start checks in routine work.</p>
 <div id="tbl-model-26-jitter" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-model-26-jitter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -9629,7 +9599,7 @@ Figure 12: Aggregate age-composition fits, OSA quantile plots, and residual bub
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-model-26-jitter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 9: Fifty-start jitter test for Model 26.0.
+Table 8: Fifty-start jitter test for Model 26.0.
 </figcaption>
 </figure>
 </div>
@@ -9646,7 +9616,7 @@ Figure 13: Distribution of objective differences from the best solution in 50 j
 </section>
 <section id="self-test" class="level4 page-columns page-full" data-number="5.3.3.3">
 <h4 data-number="5.3.3.3" class="anchored" data-anchor-id="self-test"><span class="header-section-number">5.3.3.3</span> Self-test</h4>
-<p>The self-test simulated 50 new observation sets from Model 26.0 and refitted each from the original pre-fit starting values. Recruitment deviations were held at their fitted realization, so this test measures recovery under new observation error. All 50 refits completed with convergence status OK; the largest maximum gradient was <span class="math inline">\(1.19\times10^{-4}\)</span>.</p>
+<p>The self-test simulated 50 new observation sets from Model 26.0 and refitted each from the original pre-fit starting values. Recruitment deviations were held at their fitted realization, so this test measures recovery under new observation error. All 50 refits completed with convergence status OK; the largest maximum gradient was <span class="math inline">\(1.19\times10^{-4}\)</span>. Recruitment had the widest central 90% range and the largest mean absolute difference, while total biomass had the narrowest range and smallest mean absolute difference (<a href="#tbl-model-26-self-test" class="quarto-xref">Table 9</a>; <a href="#fig-model-26-self-test" class="quarto-xref">Figure 14</a>).</p>
 <div id="tbl-model-26-self-test" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-model-26-self-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -9688,7 +9658,7 @@ Figure 13: Distribution of objective differences from the best solution in 50 j
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-model-26-self-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 10: Recovery across all years and the 50 observation-level self-tests.
+Table 9: Recovery across all years and the 50 observation-level self-tests.
 </figcaption>
 </figure>
 </div>
@@ -9742,11 +9712,11 @@ Figure 14: Distribution of differences between self-test refits and the operati
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-model-26-retro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 11: Mohn’s rho from nine lag-preserving, two-stage Model 26.0 peels. Each value compares a peel at its terminal assessment year with the corresponding value from the full Model 26.0 fit.
+Table 10: Mohn’s rho from nine lag-preserving, two-stage Model 26.0 peels. Each value compares a peel at its terminal assessment year with the corresponding value from the full Model 26.0 fit.
 </figcaption>
 </figure>
 </div>
-<p>The peels generally estimate greater spawning biomass, total biomass, and recruitment, together with lower fishing mortality, than the full model over the corresponding terminal years (<a href="#fig-model-26-retro" class="quarto-xref">Figure 15</a>). Spawning biomass has the largest average relative revision and remains a central Model 26.0 evaluation priority.</p>
+<p>The peels generally estimate greater spawning biomass, total biomass, and recruitment, together with lower fishing mortality, than the full model over the corresponding terminal years. Spawning biomass has the largest Mohn’s rho and the largest average relative revision, making it a central Model 26.0 evaluation priority (<a href="#tbl-model-26-retro" class="quarto-xref">Table 10</a>; <a href="#fig-model-26-retro" class="quarto-xref">Figure 15</a>).</p>
 <div id="fig-model-26-retro" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Four line-chart panels show age-1 recruitment, fishing mortality, spawning biomass, and total biomass for the full Model 26.0 fit and nine peels ending from 2023 back to 2015. Earlier peels generally show greater biomass and recruitment and lower fishing mortality over shared years.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-model-26-retro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -9808,11 +9778,11 @@ Figure 15: Spawning biomass, total biomass, recruitment, and fishing mortality 
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-model-26-retro-sensitivity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 12: Retrospective sensitivity measured with Mohn’s rho. The first two columns share the earlier lag-preserving, terminal-selectivity-held, two-stage specification. The third column combines the native common-cutoff and terminal-selectivity treatment.
+Table 11: Retrospective sensitivity measured with Mohn’s rho. The first two columns share the earlier lag-preserving, terminal-selectivity-held, two-stage specification. The third column combines the native common-cutoff and terminal-selectivity treatment.
 </figcaption>
 </figure>
 </div>
-<p>The full-data 5.8.1 and 5.23.0 fits are closely aligned: annual spawning biomass differs by at most 0.27%, and terminal spawning biomass differs by 0.002%. The two lag-preserving retrospective series also show the same direction and similar scale of revision. This evidence identifies the peel configuration as the source of the extreme native pattern; the full-data update contributed only small differences (<a href="#fig-model-26-retro-sensitivity" class="quarto-xref">Figure 16</a>). The sensitivity combines the lag, terminal-selectivity, and fitting-sequence differences; a future factorial test can apportion their individual contributions. The lag-preserving 5.23.0 results provide the primary Model 26.0 retrospective evaluation.</p>
+<p>The full-data 5.8.1 and 5.23.0 fits are closely aligned: annual spawning biomass differs by at most 0.27%, and terminal spawning biomass differs by 0.002%. The two lag-preserving retrospective series also show the same direction and similar scale of revision. This evidence identifies the peel configuration as the source of the extreme native pattern; the full-data update contributed only small differences. The Mohn’s rho comparison and terminal-year patterns show the close agreement between the two lag-preserving analyses and the much larger native-routine revisions (<a href="#tbl-model-26-retro-sensitivity" class="quarto-xref">Table 11</a>; <a href="#fig-model-26-retro-sensitivity" class="quarto-xref">Figure 16</a>). The sensitivity combines the lag, terminal-selectivity, and fitting-sequence differences; a future factorial test can apportion their individual contributions. The lag-preserving 5.23.0 results provide the primary Model 26.0 retrospective evaluation.</p>
 <div id="fig-model-26-retro-sensitivity" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Four panels compare terminal-year relative differences for recruitment, fishing mortality, spawning biomass, and total biomass. The lag-preserving 5.23.0 and published 5.8.1 series follow similar patterns. The native 5.23.0 routine produces much larger early-peel biomass and fishing-mortality differences.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-model-26-retro-sensitivity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -10017,10 +9987,11 @@ Figure 16: Terminal-year retrospective differences under the primary 5.23.0 ana
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-model-26-projection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 13: Model 26.0 <code>spmR</code> results for 2027 and 2028. Catch, ABC, OFL, and spawning biomass are simulation means in thousand t.
+Table 12: Model 26.0 <code>spmR</code> results for 2027 and 2028. Catch, ABC, OFL, and spawning biomass are simulation means in thousand t.
 </figcaption>
 </figure>
 </div>
+<p>The 2027–2028 comparison keeps spawning biomass at or above the <span class="math inline">\(B_{35\%}\)</span> proxy under Alternatives 1–5. Alternative 6 is below the proxy in both years, and Alternative 7 moves below it in 2028 (<a href="#fig-model-26-projection" class="quarto-xref">Figure 17</a>; <a href="#tbl-model-26-projection" class="quarto-xref">Table 12</a>).</p>
 <div id="fig-model-26-projection" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Seven panels show median projected spawning biomass and central 90-percent intervals from 2025 through 2038. A dashed line marks B35 percent in each panel. The alternatives separate after the fixed-catch years.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-model-26-projection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -10108,10 +10079,11 @@ Figure 18: Projected catch, ABC, and OFL under the seven Standard Projection Mo
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-model-26-projection-alt2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 14: Alternative 2 projection with catch fixed at 1,300 thousand t. Biomass and catch quantities are simulation means in thousand t.
+Table 13: Alternative 2 projection with catch fixed at 1,300 thousand t. Biomass and catch quantities are simulation means in thousand t.
 </figcaption>
 </figure>
 </div>
+<p>With catch fixed at 1,300 thousand t, the displayed <span class="math inline">\(B/B_{35\%}\)</span> values remain above one, reaching 1.12 in 2028 and 1.25 in 2032 (<a href="#tbl-model-26-projection-alt2" class="quarto-xref">Table 13</a>).</p>
 </section>
 <section id="exploratory-dsem-recruitment-pathways" class="level3 page-columns page-full" data-number="5.3.5">
 <h3 data-number="5.3.5" class="anchored" data-anchor-id="exploratory-dsem-recruitment-pathways"><span class="header-section-number">5.3.5</span> Exploratory DSEM recruitment pathways</h3>
@@ -10127,7 +10099,7 @@ Figure 19: Conceptual pathways from physical conditions and prey through age-0 
 </figcaption>
 </figure>
 </div>
-<p>All four DSEM fits completed with positive-definite Hessians and convergence status OK. The age-0 SST model had the lowest Akaike information criterion (AIC). The combined model was 1.63 AIC units higher, the no-edge reference was 2.25 units higher, and the cold-pool model was 4.11 units higher (<a href="#tbl-model-26-dsem" class="quarto-xref">Table 15</a>; <a href="#fig-model-26-dsem-aic" class="quarto-xref">Figure 20</a>).</p>
+<p>All four DSEM fits completed with positive-definite Hessians and convergence status OK. Fit AIC favored the DSEM model with age-0 late-summer SST. The combined model was 1.63 AIC units higher, the no-edge reference was 2.25 units higher, and the cold-pool model was 4.11 units higher (<a href="#fig-model-26-dsem-aic" class="quarto-xref">Figure 20</a>; <a href="#tbl-model-26-dsem" class="quarto-xref">Table 14</a>).</p>
 <div id="tbl-model-26-dsem" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-model-26-dsem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -10169,7 +10141,7 @@ Figure 19: Conceptual pathways from physical conditions and prey through age-0 
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-model-26-dsem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 15: Exploratory DSEM comparison using the common data block.
+Table 14: Exploratory DSEM comparison using the common data block.
 </figcaption>
 </figure>
 </div>
@@ -10224,11 +10196,11 @@ Figure 20: AIC differences among the four current-branch DSEM recruitment model
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-model-26-dsem-paths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 16: Standardized direct proxy pathways to age-1 recruitment.
+Table 15: Standardized direct proxy pathways to age-1 recruitment.
 </figcaption>
 </figure>
 </div>
-<p>The SST pathway is negative in both models that include it, with intervals below zero. The cold-pool pathway is smaller and its interval spans zero in both models. These results describe an in-sample association that is consistent with the proposed energetic pathway. Direct measurements of fall age-0 energy, prey quality, overwinter survival, and juvenile-adult overlap will provide the stronger next tests of the biological mechanism.</p>
+<p>The SST pathway is negative in both models that include it, with intervals below zero. The cold-pool pathway is smaller and its interval spans zero in both models (<a href="#fig-model-26-dsem-paths" class="quarto-xref">Figure 21</a>; <a href="#tbl-model-26-dsem-paths" class="quarto-xref">Table 15</a>). These results describe an in-sample association that is consistent with the proposed energetic pathway. Direct measurements of fall age-0 energy, prey quality, overwinter survival, and juvenile-adult overlap will provide the stronger next tests of the biological mechanism.</p>
 <div id="fig-model-26-dsem-paths" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Point estimates and 95-percent intervals compare direct cold-pool and age-0 late-summer SST paths to recruitment. Both SST estimates are negative with intervals below zero. Cold-pool estimates lie near zero with intervals spanning zero.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-model-26-dsem-paths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -10296,6 +10268,7 @@ Urmy, Samuel S., Patrick Ressler, and Alex De Robertis. 2025. <span>“Estimatin
 </section>
 <section id="comments-and-responses" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="comments-and-responses"><span class="header-section-number">6.2</span> Comments and responses</h2>
+<p>The response matrix pairs each October 2025 SSC comment with the analysis, documentation, or review action planned for the 2026 assessment cycle.</p>
 <table class="table">
 <caption>Responses to the October 2025 SSC comments on EBS pollock. The SSC comments are summarized from pages 27 to 29 of the final October 2025 SSC report.</caption>
 <colgroup>
@@ -10414,6 +10387,7 @@ Urmy, Samuel S., Patrick Ressler, and Alex De Robertis. 2025. <span>“Estimatin
 <em>The document has been added as Appendix X in this SAFE.</em></p>
 <section id="ssc-2024-comments-and-2025-responses" class="level3" data-number="6.3.1">
 <h3 data-number="6.3.1" class="anchored" data-anchor-id="ssc-2024-comments-and-2025-responses"><span class="header-section-number">6.3.1</span> SSC 2024 comments and 2025 responses</h3>
+<p>The retained response matrix summarizes how the 2025 work addressed each 2024 SSC comment and identifies topics that continue into the current cycle.</p>
 <table class="table">
 <colgroup>
 <col style="width: 50%">
@@ -10483,6 +10457,7 @@ Urmy, Samuel S., Patrick Ressler, and Alex De Robertis. 2025. <span>“Estimatin
 </section>
 <section id="a--and-b-season-distributions" class="level2 page-columns page-full" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="a--and-b-season-distributions"><span class="header-section-number">7.2</span> A- and B-season distributions</h2>
+<p>The seasonal distributions show the larger 2026 shift toward smaller fish in the B season and the broader-tailed A-season pattern (<a href="#fig-appendix-lf-seasons" class="quarto-xref">Figure 22</a>).</p>
 <div id="fig-appendix-lf-seasons" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Two-panel ridge plot of annual pollock length-frequency proportions from 1991 onward. A-season distributions before June 20 appear in the left panel and B-season distributions from June 20 onward appear in the right. Each row represents one year; a dashed vertical line marks 46 cm and a blue pie wedge gives the percentage longer than 46 cm.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-appendix-lf-seasons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -10496,6 +10471,7 @@ Figure 22: Pollock length-frequency proportions by season. The left panel shows
 </section>
 <section id="combined-season-distributions" class="level2 page-columns page-full" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="combined-season-distributions"><span class="header-section-number">7.3</span> Combined-season distributions</h2>
+<p>The combined-season series places the 2026 increase in fish at or below 35 cm within the longer record of annual sample distributions (<a href="#fig-appendix-lf-combined" class="quarto-xref">Figure 23</a>).</p>
 <div id="fig-appendix-lf-combined" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Ridge plot of annual pollock length-frequency proportions across A and B seasons from 1991 onward. Each row represents one year; a dashed vertical line marks 46 cm and a blue pie wedge gives the percentage longer than 46 cm.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-appendix-lf-combined-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -10509,6 +10485,7 @@ Figure 23: Pollock length-frequency proportions across both seasons.
 </section>
 <section id="b-season-distributions-by-nmfs-area" class="level2 page-columns page-full" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="b-season-distributions-by-nmfs-area"><span class="header-section-number">7.4</span> B-season distributions by NMFS area</h2>
+<p>The B-season area comparison shows a stronger shift toward smaller fish in the western group, while the eastern group retains a larger share above 46 cm (<a href="#fig-appendix-lf-b-season-area" class="quarto-xref">Figure 24</a>).</p>
 <div id="fig-appendix-lf-b-season-area" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Two-panel ridge plot of annual B-season pollock length-frequency proportions from June 20 onward for 1991 through 2026, divided into areas west and east of 170 degrees W. Each row represents one year; a dashed vertical line marks 46 cm and a blue pie wedge gives the percentage longer than 46 cm.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-appendix-lf-b-season-area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -10590,10 +10567,11 @@ Figure 24: B-season pollock length-frequency proportions by NMFS area group. Sa
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-esp-appendix-structure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 17: Proposed EBS pollock ESP structure and present development status.
+Table 16: Proposed EBS pollock ESP structure and present development status.
 </figcaption>
 </figure>
 </div>
+<p>The framework assigns every ESP component a purpose and current development status, keeping the pending annual synthesis and review steps visible (<a href="#tbl-esp-appendix-structure" class="quarto-xref">Table 16</a>).</p>
 <section id="executive-summary" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="executive-summary"><span class="header-section-number">8.1</span> Executive summary</h2>
 <div class="callout callout-style-default callout-note callout-titled" title="ESP summary placeholder">
@@ -10620,6 +10598,7 @@ Table 17: Proposed EBS pollock ESP structure and present development status.
 </section>
 <section id="indicator-synthesis" class="level2 page-columns page-full" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="indicator-synthesis"><span class="header-section-number">8.4</span> Indicator synthesis</h2>
+<p>The life-stage synthesis connects the principal biological processes with the available evidence and the observations needed to strengthen each pathway (<a href="#tbl-esp-life-history" class="quarto-xref">Table 17</a>).</p>
 <div id="tbl-esp-life-history" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-esp-life-history-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -10679,7 +10658,7 @@ Table 17: Proposed EBS pollock ESP structure and present development status.
 </table>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-esp-life-history-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table 18: Draft life-history synthesis for the EBS pollock ESP.
+Table 17: Draft life-history synthesis for the EBS pollock ESP.
 </figcaption>
 </figure>
 </div>
