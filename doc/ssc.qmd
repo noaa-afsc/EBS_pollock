@@ -61,7 +61,7 @@ The labels should be used as follows:
   begun in 2026. Its changes must be listed separately from the change in
   software. This is the proposed operational model for 2026 management advice.
 - **SPoRC** remains a supporting comparison. The [single-region EBS pollock
-  vignette](https://chengmatt.github.io/SPoRC/articles/f_single_region_ebs_pollock_case_study.html)
+  vignette](https://chengmatt.github.io/SPoRC/dev/articles/f_single_region_ebs_pollock_case_study.html)
   illustrates the bridge from Model 23.0 to SPoRC and identifies the current
   differences between the implementations. Research on pollock movement and
   connections between U.S. and Russian waters is progressing. SPoRC should
