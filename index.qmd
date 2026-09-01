@@ -8,30 +8,25 @@ format:
 
 # Preface
 
-This site brings together the 2025 review papers, responses to SSC comments,
-and the assessment preparation checklist.
+This site is being prepared for the 2026 EBS pollock assessment. The current
+material addresses SSC comments and provides a working assessment preparation
+checklist. Links to additional 2026 preparation material will be added here as
+it becomes ready for review.
 
-**Part 1** is a *discussion paper* that was prepared for and presented to the  
-Center for Independent Experts (CIE) review panel in **May 2025**.  
-It summarizes the assessment methods, data sources, and key uncertainties  
-considered at that time.  
+**SSC comments** presents the responses to the October 2025 SSC comments. It
+summarizes the current status of each issue, explains the model numbering plan,
+and retains the earlier responses to 2024 SSC comments for reference.
 
-**Part 2** provides *subsequent updates* and reports on **developments since May 2025**,  
-including research and model refinements in support of the North Pacific Fishery  
-Management Council (NPFMC) review process in September 2025.  
+**Assessment preparation checklist** lists work to review and update during
+preparation of the 2026 assessment.
 
-**Part 3** examines a three-parameter double-logistic selectivity option.
-
-The SSC response page includes the October 2025 comments and retains the
-earlier 2024 responses. The assessment checklist is maintained on a separate
-page.
+**2025 activities** collects the three papers prepared for review meetings and
+assessment research during 2025.
 
 ---
 
 ## Contents
 
-- [Part 1: Discussion paper presented to CIE review](doc/CIE.html)  
-- [Part 2: Assessment research developments for NPFMC Review](doc/Sept_2025.html)
-- [Part 3: Three-parameter double-logistic selectivity](doc/double_logistic_selectivity.html)
 - [Responses to SSC comments](doc/ssc.html)
 - [Assessment preparation checklist](doc/todo.html)
+- [2025 activities](doc/activities_2025.html)

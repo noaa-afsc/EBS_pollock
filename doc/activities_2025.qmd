@@ -1,0 +1,22 @@
+---
+title: "2025 activities"
+format: html
+---
+
+This page collects EBS pollock papers prepared for review meetings and
+assessment research during 2025.
+
+- [Part 1: Discussion paper presented to CIE review](CIE.html)
+- [Part 2: Assessment research developments for NPFMC review](Sept_2025.html)
+- [Part 3: Three-parameter double-logistic selectivity](double_logistic_selectivity.html)
+
+**Part 1** is a *discussion paper* that was prepared for and presented to the
+Center for Independent Experts (CIE) review panel in **May 2025**. It summarizes
+the assessment methods, data sources, and key uncertainties considered at that
+time.
+
+**Part 2** provides *subsequent updates* and reports on **developments since May
+2025**, including research and model refinements in support of the North Pacific
+Fishery Management Council (NPFMC) review process in September 2025.
+
+**Part 3** examines a three-parameter double-logistic selectivity option.

@@ -54,7 +54,7 @@
     "href": "index.html",
     "title": "Eastern Bering Sea walleye pollock stock assessment",
     "section": "",
-    "text": "This site brings together the 2025 review papers, responses to SSC comments, and the assessment preparation checklist.\nPart 1 is a discussion paper that was prepared for and presented to the\nCenter for Independent Experts (CIE) review panel in May 2025.\nIt summarizes the assessment methods, data sources, and key uncertainties\nconsidered at that time.\nPart 2 provides subsequent updates and reports on developments since May 2025,\nincluding research and model refinements in support of the North Pacific Fishery\nManagement Council (NPFMC) review process in September 2025.\nPart 3 examines a three-parameter double-logistic selectivity option.\nThe SSC response page includes the October 2025 comments and retains the earlier 2024 responses. The assessment checklist is maintained on a separate page.\n\n\n\n\nPart 1: Discussion paper presented to CIE review\n\nPart 2: Assessment research developments for NPFMC Review\nPart 3: Three-parameter double-logistic selectivity\nResponses to SSC comments\nAssessment preparation checklist",
+    "text": "This site is being prepared for the 2026 EBS pollock assessment. The current material addresses SSC comments and provides a working assessment preparation checklist. Links to additional 2026 preparation material will be added here as it becomes ready for review.\nSSC comments presents the responses to the October 2025 SSC comments. It summarizes the current status of each issue, explains the model numbering plan, and retains the earlier responses to 2024 SSC comments for reference.\nAssessment preparation checklist lists work to review and update during preparation of the 2026 assessment.\n2025 activities collects the three papers prepared for review meetings and assessment research during 2025.\n\n\n\n\nResponses to SSC comments\nAssessment preparation checklist\n2025 activities",
     "crumbs": [
       "Preface"
     ]
@@ -64,7 +64,7 @@
     "href": "index.html#contents",
     "title": "Eastern Bering Sea walleye pollock stock assessment",
     "section": "",
-    "text": "Part 1: Discussion paper presented to CIE review\n\nPart 2: Assessment research developments for NPFMC Review\nPart 3: Three-parameter double-logistic selectivity\nResponses to SSC comments\nAssessment preparation checklist",
+    "text": "Responses to SSC comments\nAssessment preparation checklist\n2025 activities",
     "crumbs": [
       "Preface"
     ]
@@ -78,5 +78,85 @@
     "crumbs": [
       "Responses to SSC comments"
     ]
+  },
+  {
+    "objectID": "doc/activities_2025.html",
+    "href": "doc/activities_2025.html",
+    "title": "2025 activities",
+    "section": "",
+    "text": "This page collects EBS pollock papers prepared for review meetings and assessment research during 2025.\n\nPart 1: Discussion paper presented to CIE review\nPart 2: Assessment research developments for NPFMC review\nPart 3: Three-parameter double-logistic selectivity\n\nPart 1 is a discussion paper that was prepared for and presented to the Center for Independent Experts (CIE) review panel in May 2025. It summarizes the assessment methods, data sources, and key uncertainties considered at that time.\nPart 2 provides subsequent updates and reports on developments since May 2025, including research and model refinements in support of the North Pacific Fishery Management Council (NPFMC) review process in September 2025.\nPart 3 examines a three-parameter double-logistic selectivity option.",
+    "crumbs": [
+      "2025 activities"
+    ]
+  },
+  {
+    "objectID": "doc/double_logistic_selectivity.html",
+    "href": "doc/double_logistic_selectivity.html",
+    "title": "Double Logistic Selectivity (3-parameter formulation)",
+    "section": "",
+    "text": "This document summarizes the 3-parameter double logistic selectivity curve used for prior elicitation in the EBS pollock assessment workflow. The content and plots below are based on double_logistic_selectivity.R and are intended as a starting point for an RTMB prior demonstration."
+  },
+  {
+    "objectID": "doc/double_logistic_selectivity.html#overview",
+    "href": "doc/double_logistic_selectivity.html#overview",
+    "title": "Double Logistic Selectivity (3-parameter formulation)",
+    "section": "",
+    "text": "This document summarizes the 3-parameter double logistic selectivity curve used for prior elicitation in the EBS pollock assessment workflow. The content and plots below are based on double_logistic_selectivity.R and are intended as a starting point for an RTMB prior demonstration."
+  },
+  {
+    "objectID": "doc/double_logistic_selectivity.html#model-definition",
+    "href": "doc/double_logistic_selectivity.html#model-definition",
+    "title": "Double Logistic Selectivity (3-parameter formulation)",
+    "section": "2 Model definition",
+    "text": "2 Model definition\nLet age be \\(a\\), with parameters \\(p_1\\), \\(p_2\\), and \\(p_3\\) and derived inflection points \\(\\gamma_1\\) and \\(\\gamma_2\\):\n\\[\n\\gamma_1 = p_1 + p_2, \\qquad\n\\gamma_2 = 2p_1 + p_2 + p_3.\n\\]\nThe ascending limb is a standard logistic and the descending limb is one minus a logistic:\n\\[\n\\text{asc}(a) = \\frac{1}{1 + \\exp\\left[-\\log(19)\\,\\frac{a - \\gamma_1}{p_1}\\right]},\n\\]\n\\[\n\\text{desc}(a) = 1 - \\frac{1}{1 + \\exp\\left[-\\log(19)\\,\\frac{a - \\gamma_2}{p_3}\\right]}.\n\\]\nThe full double logistic selectivity is\n\\[\n\\text{sel}(a) = \\min\\left(1,\\ \\frac{\\text{asc}(a)\\,\\text{desc}(a)}{0.95^2}\\right).\n\\]\n\n2.1 Interpretation\n\n\\(p_1 &gt; 0\\) controls the ascending slope and is the distance from \\(\\gamma_1\\) (50 percent selectivity) to the 95 percent point.\n\\(p_2\\) shifts the ascending limb through \\(\\gamma_1 = p_1 + p_2\\).\n\\(p_3 &gt; 0\\) controls the descending slope and is the distance from \\(\\gamma_2\\) (50 percent on the descending limb) to the 5 percent point.\nThe dome width is \\(\\gamma_2 - \\gamma_1 = p_1 + p_3\\).\nThe factor \\(0.95^{-2}\\) normalizes the curve so that when both limbs are at 0.95 the product is near 1 (then capped at 1.0)."
+  },
+  {
+    "objectID": "doc/double_logistic_selectivity.html#scenarios-used-in-double_logistic_selectivity.r",
+    "href": "doc/double_logistic_selectivity.html#scenarios-used-in-double_logistic_selectivity.r",
+    "title": "Double Logistic Selectivity (3-parameter formulation)",
+    "section": "3 Scenarios used in double_logistic_selectivity.R",
+    "text": "3 Scenarios used in double_logistic_selectivity.R\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nscenario\np1\np2\np3\ngamma1\ngamma2\ndome_width\n\n\n\n\nWide dome\n2.0\n4\n2.5\n6.0\n10.5\n4.5\n\n\nAsymmetric\n\n\n\n\n\n\n\n\n(fast rise, slow decline)\n0.8\n4\n3.0\n4.8\n8.6\n3.8\n\n\nAsymmetric\n\n\n\n\n\n\n\n\n(slow rise, fast decline)\n2.0\n3\n0.8\n5.0\n7.8\n2.8\n\n\nNearly asymptotic\n1.5\n4\n8.0\n5.5\n15.0\n9.5\n\n\n\n\n\n\nTable 1: Scenario parameters and derived inflection points\n\n\n\n\nThe scenario summary in Table 1 lists the four parameter sets and the derived inflection points (\\(\\gamma_1\\), \\(\\gamma_2\\)) used in the selectivity scenarios."
+  },
+  {
+    "objectID": "doc/double_logistic_selectivity.html#faceted-scenario-curves",
+    "href": "doc/double_logistic_selectivity.html#faceted-scenario-curves",
+    "title": "Double Logistic Selectivity (3-parameter formulation)",
+    "section": "4 Faceted scenario curves",
+    "text": "4 Faceted scenario curves\nEach scenario appears on its own panel in Figure 1 so the ascent, descent, and dome width can be compared against the 50 and 95 percent reference lines.\n\n\n\n\n\n\n\n\nFigure 1: Double logistic selectivity for each parameter scenario."
+  },
+  {
+    "objectID": "doc/double_logistic_selectivity.html#overlay-comparison",
+    "href": "doc/double_logistic_selectivity.html#overlay-comparison",
+    "title": "Double Logistic Selectivity (3-parameter formulation)",
+    "section": "5 Overlay comparison",
+    "text": "5 Overlay comparison\nAll scenarios are overlaid in Figure 2 to highlight differences in peak age and decline shape when the curves are viewed on a common axis.\n\n\n\n\n\n\n\n\nFigure 2: All scenarios overlaid for direct comparison."
+  },
+  {
+    "objectID": "doc/double_logistic_selectivity.html#parameter-sensitivity-analysis",
+    "href": "doc/double_logistic_selectivity.html#parameter-sensitivity-analysis",
+    "title": "Double Logistic Selectivity (3-parameter formulation)",
+    "section": "6 Parameter sensitivity analysis",
+    "text": "6 Parameter sensitivity analysis\nThe three panels in Figure 3 show how each parameter changes the curve when the other two are held fixed.\n\n\n\n\n\n\n\n\nFigure 3: Sensitivity to p1, p2, and p3 with other parameters fixed."
+  },
+  {
+    "objectID": "doc/double_logistic_selectivity.html#rtmb-draft-with-priors",
+    "href": "doc/double_logistic_selectivity.html#rtmb-draft-with-priors",
+    "title": "Double Logistic Selectivity (3-parameter formulation)",
+    "section": "7 RTMB draft with priors",
+    "text": "7 RTMB draft with priors\nA common approach is to estimate on the log scale for the positive parameters and apply lognormal priors on \\(p_1\\) and \\(p_3\\):\n\\[\n\\log(p_k) \\sim \\mathcal{N}(\\mu_k, \\sigma_k^2), \\qquad k \\in \\{1, 3\\}.\n\\]\nIf using a lognormal prior specified by median \\(m\\) and coefficient of variation \\(\\text{CV}\\) on the natural scale, a convenient conversion is\n\\[\n\\mu = \\log(m), \\qquad \\sigma = \\sqrt{\\log(\\text{CV}^2 + 1)}.\n\\]\nParameter \\(p_2\\) can remain unconstrained (normal prior) or be modeled on the log scale if you want to enforce \\(p_2 &gt; 0\\).\nThe draft RTMB objective below is set up for a single selectivity curve with Gaussian observation error and priors on \\(p_1\\), \\(p_2\\), and \\(p_3\\). Replace sel_obs and sel_sd with observed selectivity or pseudo-data for a prior conditioning exercise.\n\n\nouter mgc:  0 \n\n\nouter mgc:  0 \nouter mgc:  0.006737636 \nouter mgc:  0.006737636 \nouter mgc:  0.001 \nouter mgc:  0.001 \nouter mgc:  0.003252194 \nouter mgc:  0.003252194 \nouter mgc:  2.5 \n\n\n\n\nGradient evaluation took 3.3e-05 seconds\n1000 transitions using 10 leapfrog steps per transition would take 0.33 seconds.\nAdjust your expectations accordingly!\n\n\n\n Elapsed Time: 0.021 seconds (Warm-up)\n               0.141 seconds (Sampling)\n               0.162 seconds (Total)\n\n\n\nModel 'selectivity_set1' has 3 pars and was fit using SNUTS with a 'diag' metric\n1 chain(s) of 1300 total iterations (150 warmup) were used\nRun time per chain: average= 0.16 and max= 0.16 seconds \nMin bulk ESS=480.7 (41.8%) [lp__] and maximum Rhat=1.005 [lp__]\nThere were 0 divergences after warmup"
+  },
+  {
+    "objectID": "doc/double_logistic_selectivity.html#mcmc-evaluations",
+    "href": "doc/double_logistic_selectivity.html#mcmc-evaluations",
+    "title": "Double Logistic Selectivity (3-parameter formulation)",
+    "section": "8 MCMC evaluations",
+    "text": "8 MCMC evaluations\n\n\n\n\n\n\n\n\nFigure 4: Marginal posterior distributions for selectivity parameters (SparseNUTS, prior set 1).\n\n\n\n\n\nThe marginal posterior densities in Figure 4 summarize \\((p_1, p_2,\np_3)\\) under prior set 1, highlighting the implied uncertainty in each parameter.\n\n\n\n\n\n\n\n\nFigure 5: Pairwise posterior scatterplots for selectivity parameters (SparseNUTS, prior set 1).\n\n\n\n\n\nPairwise posterior relationships in Figure 5 show \\((p_1, p_2, p_3)\\) and are useful for diagnosing parameter correlations and non-linear structure.\n\n\n\n\n\n\n\n\nFigure 6: MCMC selectivity draws for prior set 1 (p1 median 1.5, p3 median 2.5, p2 sd 1).\n\n\n\n\n\nPosterior selectivity draws in Figure 6 show the spread of age-specific selectivity implied by prior set 1.\n\n\n\n\nGradient evaluation took 2.2e-05 seconds\n1000 transitions using 10 leapfrog steps per transition would take 0.22 seconds.\nAdjust your expectations accordingly!\n\n\n\n Elapsed Time: 0.02 seconds (Warm-up)\n               0.147 seconds (Sampling)\n               0.167 seconds (Total)\n\n\n\nModel 'selectivity_set2' has 3 pars and was fit using SNUTS with a 'diag' metric\n1 chain(s) of 1300 total iterations (150 warmup) were used\nRun time per chain: average= 0.17 and max= 0.17 seconds \nMin bulk ESS=508.8 (44.24%) [lp__] and maximum Rhat=1.004 [log_p1]\nThere were 0 divergences after warmup\n\n\n\n\nGradient evaluation took 3.1e-05 seconds\n1000 transitions using 10 leapfrog steps per transition would take 0.31 seconds.\nAdjust your expectations accordingly!\n\n\n\n Elapsed Time: 0.018 seconds (Warm-up)\n               0.142 seconds (Sampling)\n               0.16 seconds (Total)\n\n\n\nModel 'selectivity_set3' has 3 pars and was fit using SNUTS with a 'diag' metric\n1 chain(s) of 1300 total iterations (150 warmup) were used\nRun time per chain: average= 0.16 and max= 0.16 seconds \nMin bulk ESS=501.5 (43.61%) [lp__] and maximum Rhat=1 [p2]\nThere were 0 divergences after warmup\n\n\n\n\n\n\n\n\n\n\nFigure 7: MCMC selectivity draws for prior set 2 (p1 median 1.5, p3 median 8, p2 sd 1).\n\n\n\n\n\nThe selectivity draws in Figure 7 show prior set 2, which widens the dome by increasing the median of \\(p_3\\).\n\n\n\n\n\n\n\n\nFigure 8: MCMC selectivity draws for prior set 3 (p1 median 1.5, p3 median 8, p2 sd 2).\n\n\n\n\n\nPosterior draws in Figure 8 emphasize how a larger \\(p_2\\) standard deviation shifts the curves horizontally under prior set 3."
+  },
+  {
+    "objectID": "doc/double_logistic_selectivity.html#parameter-correlations",
+    "href": "doc/double_logistic_selectivity.html#parameter-correlations",
+    "title": "Double Logistic Selectivity (3-parameter formulation)",
+    "section": "9 Parameter correlations",
+    "text": "9 Parameter correlations\nAfter fitting, use sdreport() to extract the covariance matrix and convert to correlation with cov2cor(). cov.fixed is on the estimation scale (log_p1, p2, log_p3), while cov.report is on the reported scale (p1, p2, p3) if you used ADREPORT().\nThe heatmap in ?@fig-dl-corr-heatmap visualizes the natural-scale correlation structure among \\((p_1, p_2, p_3)\\) and helps identify any strong dependencies implied by the fitted model."
   }
 ]

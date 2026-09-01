@@ -38,16 +38,12 @@ website:
     contents:
       - href: index.qmd
         text: Preface
-      - href: doc/CIE.qmd
-        text: Part 1, Discussion-paper presented to  CIE review
-      - href: doc/Sept_2025.qmd
-        text: Part 2, Assessment research developments for NPFMC Review
-      - href: doc/double_logistic_selectivity.qmd
-        text: Part 3, Exploration of 3-parameter double logistic selectivity option
       - href: doc/ssc.qmd
         text: Responses to SSC comments
       - href: doc/todo.qmd
         text: Assessment preparation checklist
+      - href: doc/activities_2025.qmd
+        text: 2025 activities
 
 lightbox: true
 engine: knitr
