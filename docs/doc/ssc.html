@@ -7397,7 +7397,7 @@ border-radius: 5px;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2026-08-31 18:03</p>
+      <p class="date">2026-08-31 18:07</p>
     </div>
   </div>
   
@@ -7424,7 +7424,7 @@ border-radius: 5px;
 </section>
 <section id="model-numbering-plan" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="model-numbering-plan">Model numbering plan</h2>
-<p>The model number should identify the model’s place in the review record. The software name should be shown separately. Under this plan, <code>23A</code> and <code>23B</code> are lineage labels used to document the transition from the 2024 ADMB model; the public model names are <strong>Model 25.0 (RTMB)</strong> for the work begun in 2025 and <strong>Model 26.0 (Rceattle)</strong> for the development line begun in 2026.</p>
+<p>The model number should identify the model’s place in the review record. The software name should be shown separately. Under this plan, <code>23A</code> and <code>23B</code> are tracking labels used to document the transition from the 2024 ADMB model; the public model names are <strong>Model 25.0 (RTMB)</strong> for the work begun in 2025 and <strong>Model 26.0 (Rceattle)</strong> for the development line begun in 2026.</p>
 <div class="cell page-columns page-full" data-layout-align="default">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-model-numbering" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
@@ -7432,7 +7432,7 @@ border-radius: 5px;
 <div aria-describedby="fig-model-numbering-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <pre class="mermaid mermaid-js" data-label="fig-model-numbering">flowchart LR
-  A[&quot;Model 23A&lt;br/&gt;2024 ADMB source&quot;] --&gt;|&quot;direct translation&lt;br/&gt;and checks&quot;| B[&quot;Model 23B&lt;br/&gt;lineage label&quot;]
+  A[&quot;Model 23A&lt;br/&gt;2024 ADMB source&quot;] --&gt;|&quot;direct translation&lt;br/&gt;and checks&quot;| B[&quot;Model 23B&lt;br/&gt;translation check&quot;]
   B --&gt; C[&quot;Model 25.0&lt;br/&gt;RTMB line begun in 2025&quot;]
   A --&gt;|&quot;new implementation&lt;br/&gt;and development&quot;| D[&quot;Model 26.0&lt;br/&gt;Rceattle line begun in 2026&quot;]
   S[&quot;SPoRC&lt;br/&gt;supporting comparison&quot;] -.-&gt;|&quot;common tests&quot;| C
@@ -7441,7 +7441,7 @@ border-radius: 5px;
 </div>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-model-numbering-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 1: Proposed numbering and lineage for EBS pollock assessment models.
+Figure 1: Proposed numbering and development history for EBS pollock assessment models.
 </figcaption>
 </figure>
 </div>
@@ -7449,8 +7449,8 @@ Figure 1: Proposed numbering and lineage for EBS pollock assessment models.
 </div>
 <p>The labels should be used as follows:</p>
 <ul>
-<li><strong>Model 23A</strong> identifies the ADMB source used in 2024. This is the lineage label for the previously accepted Model 23.0 configuration.</li>
-<li><strong>Model 23B</strong> identifies the direct RTMB translation used to check that the new code reproduces the source model. It is a lineage label, not a second public model number.</li>
+<li><strong>Model 23A</strong> identifies the ADMB source used in 2024. This is the tracking label for the previously accepted Model 23.0 configuration.</li>
+<li><strong>Model 23B</strong> identifies the direct RTMB translation used to check that the new code reproduces the source model. It is a tracking label, not a second public model number.</li>
 <li><strong>Model 25.0 (RTMB)</strong> is the public name for the RTMB assessment line begun in 2025 at the SSC’s request.</li>
 <li><strong>Model 26.0 (Rceattle)</strong> is the public name for the Rceattle development line begun in 2026. Its changes must be listed separately from the change in software.</li>
 <li><strong>SPoRC</strong> remains a supporting comparison. It should receive a numbered model name only if it is brought forward as an assessment candidate.</li>
@@ -7474,7 +7474,7 @@ Figure 1: Proposed numbering and lineage for EBS pollock assessment models.
 <tbody>
 <tr class="odd">
 <td>Use the 2024 base model as the source for an RTMB implementation, with routine data updates.</td>
-<td>Use the accepted 2024 ADMB configuration as the scientific source. First check the direct RTMB translation under the 23B lineage label, then use Model 25.0 (RTMB) for the assessment line begun in 2025. List each new data set and each model change separately. Save the model version, run files, diagnostics, projections, and management quantities used in the report.</td>
+<td>Use the accepted 2024 ADMB configuration as the scientific source. First check the direct RTMB translation under the 23B tracking label, then use Model 25.0 (RTMB) for the assessment line begun in 2025. List each new data set and each model change separately. Save the model version, run files, diagnostics, projections, and management quantities used in the report.</td>
 </tr>
 <tr class="even">
 <td>Use the updated Groundfish Assessment Program estimates of survey biomass and age composition.</td>
@@ -7494,7 +7494,7 @@ Figure 1: Proposed numbering and lineage for EBS pollock assessment models.
 </tr>
 <tr class="even">
 <td>Develop a plan with the BSAI Groundfish Plan Team for moving beyond ADMB.</td>
-<td>Use the model lineage and numbering plan above. Compare RTMB, Rceattle, and SPoRC with the same data and a common set of tests. Ask the Plan Team to agree on the tests before selecting the model software for future assessments. Keep the accepted assessment model as the control until a replacement gives stable estimates, sound uncertainty, acceptable retrospective results, and reproducible projections.</td>
+<td>Use the model history and numbering plan above. Compare RTMB, Rceattle, and SPoRC with the same data and a common set of tests. Ask the Plan Team to agree on the tests before selecting the model software for future assessments. Keep the accepted assessment model as the control until a replacement gives stable estimates, sound uncertainty, acceptable retrospective results, and reproducible projections.</td>
 </tr>
 <tr class="odd">
 <td>Examine the effect of including Russian catches.</td>
@@ -7514,7 +7514,7 @@ Figure 1: Proposed numbering and lineage for EBS pollock assessment models.
 </tr>
 <tr class="odd">
 <td>Clearly identify the models proposed for the assessment, including model numbers.</td>
-<td>Use Model 25.0 (RTMB) for the line begun in 2025 and Model 26.0 (Rceattle) for the line begun in 2026. Retain 23A and 23B only as lineage labels for the 2024 ADMB source and its direct RTMB translation. Use the same short names in the report, presentations, run folders, tables, and archive. For every model, list its purpose, parent model, data set, model changes, software version, and review status. State clearly which model is recommended for management advice.</td>
+<td>Use Model 25.0 (RTMB) for the line begun in 2025 and Model 26.0 (Rceattle) for the line begun in 2026. Retain 23A and 23B only as tracking labels for the 2024 ADMB source and its direct RTMB translation. Use the same short names in the report, presentations, run folders, tables, and archive. For every model, list its purpose, parent model, data set, model changes, software version, and review status. State clearly which model is recommended for management advice.</td>
 </tr>
 <tr class="even">
 <td>Archive the October and December SAFE documents and presentations.</td>
