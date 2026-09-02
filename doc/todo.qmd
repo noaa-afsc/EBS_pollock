@@ -1,58 +1,126 @@
 ---
-title: "Assessment preparation checklist"
-format: html
+title: "2026 assessment preparation checklist"
+description: "Data, model, review, and publication tasks for the December 2026 EBS pollock assessment."
+format:
+  html:
+    toc: true
+    toc-depth: 2
 ---
 
-This checklist was moved from the SSC response page. It records tasks that were
-listed for the planned 2025 assessment update. A lapse in funding prevented the
-November and December 2025 SAFE package, so the list should be reviewed and
-updated before it is used for 2026 assessment planning.
+This checklist tracks the remaining work for the 2026 eastern Bering Sea
+(EBS) pollock assessment. The data update centers on 2025 fishery age data and
+the 2026 BTS and ATS survey results. Items should be checked only after the
+source file, assessment input, and displayed report value agree.
 
-# Data updates
+# Data deliveries and quality checks
 
-- [ ] Insert final 2024 commercial catches (fleet/gear, retained/discards)
-- [ ] Verify Russian catch updates
-- [ ] Add 2025 BTS biomass and age comps
-- [ ] Add 2024 ATS age comps (no new biomass estimate in 2025)
-- [ ] Update 2025 AVO index
-- [ ] Insert 2024-2025 fishery age/length comps
-- [ ] Re-weight composition data (effective sample sizes)
-- [ ] Update environmental/ancillary indices (copepod, sea ice, etc.)
-- [ ] Check FT-NIR age validation / genetics updates
+## Fishery
 
-# Model inputs and structure
+- [ ] Finalize 2025 retained catch and discard estimates by fleet and gear.
+- [ ] Add the 2025 fishery age composition and document the source sample
+  sizes used in the likelihood.
+- [ ] Add the final 2025 fishery length composition and verify the age-length
+  keys used to produce the age data.
+- [ ] Add the latest available 2026 catch and length information, and document
+  the method used for the full-year 2026 catch estimate.
+- [ ] Update Russian catch through the latest available year and record any
+  estimate used for an incomplete year.
+- [ ] Reconcile catch totals among the assessment workbook, catch accounting
+  source, figures, and projection inputs.
 
-- [ ] Update input data files to 2025 terminal year
-- [ ] Handle missing ATS biomass index (skip-year) correctly
-- [ ] Re-examine composition weighting method
-- [ ] Review variance inflation factors for surveys
-- [ ] Check selectivity blocks and time-varying assumptions
+## Bottom-trawl survey (BTS)
 
-# Model runs and diagnostics
+- [ ] Add the final 2026 BTS biomass estimate and its standard error.
+- [ ] Add the 2026 BTS age composition for ages 1--15 and retain the intended
+  sample size for the composition likelihood.
+- [ ] Add the 2026 BTS length composition and confirm agreement with the age
+  data and survey total.
+- [ ] Verify the separate ages 2--15 total-numbers quantity used for BTS
+  composition scaling.
+- [ ] Review survey timing, spatial coverage, and any 2026 field or processing
+  notes that affect interpretation.
 
-- [ ] Extend base model to 2025
-- [ ] Confirm convergence and parameter plausibility
-- [ ] Run sensitivities (recruitment assumptions, survey weighting, Russian
-  catch)
-- [ ] Update retrospective analysis (peels including 2025)
-- [ ] Update likelihood profiles (steepness, M, selectivity)
-- [ ] Run MCMC/posterior sampling; check diagnostics (R-hat, ESS)
+## Acoustic-trawl survey (ATS)
 
-# Reference points and projections
+- [ ] Add the final 2026 ATS biomass estimate and its standard error.
+- [ ] Add the 2026 ATS age composition for ages 2--15; keep age 1 in its
+  separate abundance-index series.
+- [ ] Add the 2026 ATS age-1 abundance estimate and uncertainty.
+- [ ] Add the 2026 ATS length composition and confirm agreement with the age
+  data and survey total.
+- [ ] Verify that ATS composition plots, residuals, and sample-size summaries
+  all use the same active ages and sampling years.
 
-- [ ] Recalculate SSB, B40%, F40% (or proxy values)
-- [ ] Update FABC and FOFL for 2026
-- [ ] Run 2026-2036 projections with recruitment assumptions
-- [ ] Update alternative harvest scenarios
+## Other indices and biological inputs
 
-# Document and presentation updates
+- [ ] Add the 2026 acoustic vessel-of-opportunity (AVO) estimate and
+  uncertainty when the final product is available.
+- [ ] Confirm whether the historical CPUE series remains unchanged and record
+  that decision in the input notes.
+- [ ] Update weight-at-age, maturity, natural mortality, ageing error, and
+  other biological schedules when a new accepted value is available.
+- [ ] Update environmental and ecosystem indicators used in the assessment or
+  ecosystem and socioeconomic profile, with source dates and units.
+- [ ] Record any FT-NIRS age-validation or genetics results used in the 2026
+  assessment.
 
-- [ ] Update SAFE text, tables, and executive summary
-- [ ] Replace 2024 values with 2025 throughout
-- [ ] Revise all figures (surveys, selectivity, fits, Kobe plots)
-- [ ] Ensure consistency (no outdated numbers left in text)
-- [ ] Check table/figure numbering
-- [ ] Address 2025 PT/SSC requests
+# Assessment inputs and model runs
 
-*Notes: Acoustic-trawl biomass index is static at 2024; only ATS ages are
-updated. AVO index extends to 2025. Main survey input is 2025 BTS.*
+- [ ] Extend the common assessment input workbook through 2026 and archive a
+  read-only copy with source dates, checksums, and a change log.
+- [ ] Confirm years, ages, units, fleet names, missing-value codes, and sample
+  sizes after translation to ADMB and RCeattle.
+- [ ] Rebuild the Model 23.0 accepted-model update and the Model 23.2
+  ADMB-to-RCeattle translation check from the same data snapshot.
+- [ ] Fit Model 26.0 with RCeattle 5.23.0, or document the reviewed replacement
+  version and commit used for the final run.
+- [ ] Confirm convergence, a positive-definite Hessian, gradients, parameter
+  bounds, and consistency among saved results and report tables.
+- [ ] Compare spawning biomass, recruitment, total biomass, fishing mortality,
+  selectivity, index fits, and age-composition fits across the bridge models.
+
+# Diagnostics and sensitivities
+
+- [ ] Run `afscOSA` diagnostics for fishery, BTS, and ATS compositions using
+  the likelihood sample sizes and the active age ranges.
+- [ ] Run dispersed-start jitter tests and simulated-data self tests.
+- [ ] Evaluate removal of the complete BTS, ATS, and AVO index series.
+- [ ] Run retrospective peels with the established stream-specific data lags
+  and evaluate sensitivity to the data added in each terminal year.
+- [ ] Review observation continuity and sampling-event case-deletion influence.
+- [ ] Run and archive posterior sampling diagnostics when SparseNUTS results
+  are included in the assessment.
+- [ ] Keep exploratory DSEM recruitment pathways separate from the base model
+  and identify the observations and settings used in each test.
+
+# Status, reference points, and projections
+
+- [ ] Update the stock-status quantities and Tier 3 reference points from the
+  final accepted assessment run.
+- [ ] Prepare the 2027 and 2028 ABC and OFL alternatives with `spmR`, using the
+  reviewed catch assumptions and the final model-to-projection handoff.
+- [ ] Verify projected catch, SSB, ABC, and OFL values against the saved `spmR`
+  output and round report tables consistently.
+- [ ] Document the recruitment assumptions and any alternative harvest
+  scenarios presented for review.
+
+# Report and review package
+
+- [ ] Update the Summary, Data, Model specifications, Model results,
+  Diagnostics, Projections, and Conclusion sections with the final 2026
+  results.
+- [ ] Describe every table and figure in the surrounding text and keep the
+  explanatory paragraphs together within each subsection.
+- [ ] Update responses to Plan Team and SSC comments, with supporting analyses
+  linked to the applicable section or appendix.
+- [ ] Check section, table, figure, equation, appendix, and literature
+  cross-references in HTML and PDF.
+- [ ] Verify title-page authorship, suggested citation, draft disclaimer,
+  headers, footers, page numbers, links, alt text, and acronym definitions.
+- [ ] Archive the final input snapshot, model executables or package commit,
+  run scripts, compact output tables, HTML, and PDF used for review.
+- [ ] Confirm the deployed public page after the repository update completes.
+
+The checklist uses the site-wide left navigation so the September development
+report, this preparation page, and the 2025 activity record remain available
+from the same menu.

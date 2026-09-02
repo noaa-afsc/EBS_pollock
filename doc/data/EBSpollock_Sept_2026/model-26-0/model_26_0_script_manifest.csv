@@ -11,3 +11,4 @@ Step,Script_ID,Script,Role,Primary_input,Primary_output
 10,M26-10,run_model_26_sparsenuts_5_23.R,Sample the complete joint Model 26.0 objective with four dense-metric chains,Converged Model 26.0 fit,SparseNUTS fit stored locally plus compact diagnostics
 11,M26-11,run_model_26_case_deletion_5_23.R,Build the observation schedule and refit after deleting selected complete sampling events,Converged Model 26.0 fit,Continuity inventory case-deletion summaries and figures
 12,M26-12,plot_model_26_sparsenuts_diagnostics.R,Create pairs and uncertainty-comparison diagnostics from the retained SparseNUTS draws,Saved four-chain SparseNUTS fit,Slowest-parameter and Hessian-to-MCMC uncertainty figures and data
+13,M26-13,plot_model_26_fits.R,Create fitted index and annual age-composition displays from the active Model 26.0 rows,Saved Rceattle 5.23.0 Model 26.0 fit,Index and composition fit figures and compact fit summaries

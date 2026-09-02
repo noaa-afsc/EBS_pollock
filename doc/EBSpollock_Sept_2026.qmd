@@ -65,6 +65,9 @@ resources:
   - data/EBSpollock_Sept_2026/model-26-0/model_23_2_vs_26_0_selectivity.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_index_series_sensitivity_summary.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_index_series_sensitivity_trajectories.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_index_fits.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_age_composition_fits.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_model_fit_summary.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_sparsenuts_diagnostic_summary.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_sparsenuts_chain_diagnostics.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_sparsenuts_run_manifest.csv
@@ -369,7 +372,7 @@ selectivity option.
 
 ## Model 26.0 {#sec-model-26-0}
 
-### Data and simple model approach
+### RCeattle implementation
 
 Model 26.0 uses the common 1964--2024 bridge data described in
 @sec-data-summary. This run was fitted with Rceattle version 5.23.0 from the
@@ -465,6 +468,50 @@ flowchart TB
 | Model 26.0 | 716.908 | 0.0000765 | Yes | OK |
 
 : Model 26.0 fitting results from Rceattle 5.23.0. {#tbl-model-26-convergence}
+
+### Model fits {#sec-model-26-fits}
+
+The fitted abundance indices generally follow the observed changes through
+time (@fig-model-26-index-fits). Correlations between observed and fitted
+values are 0.90 for BTS, 0.88 for the ATS biomass index, 0.89 for the
+historical catch-per-unit-effort series, and 0.81 for AVO. The separate ATS
+age-1 index has a correlation of 0.60 and wider observation intervals in
+several years. Each panel retains the input scale for that series, so the
+vertical ranges are intended for comparison within a panel.
+
+The annual age-composition panels compare observed proportions with fitted
+proportions for every sampling year available to Model 26.0. Fishery
+compositions span 1964--2023 (@fig-model-26-fishery-age-fits-early and
+@fig-model-26-fishery-age-fits-late), BTS compositions span 1982--2024
+(@fig-model-26-bts-age-fits-early and @fig-model-26-bts-age-fits-late), and
+ATS compositions span 19 survey years from 1994 through 2024
+(@fig-model-26-ats-age-fits). The root-mean-squared difference between observed
+and fitted proportions is 0.024 for both the fishery and BTS. These direct fit
+plots show close agreement for many year-age combinations and identify local
+departures for the residual checks that follow.
+
+ATS compositions begin at age 2 because age 1 is represented by its separate
+abundance index. The ATS root-mean-squared difference is 0.051 across all
+fitted rows. The 2020 composition has a likelihood sample size of one and
+contains the largest difference; the summary is 0.029 when sampling events
+with a sample size of one are set aside. The OSA section evaluates these same
+active ATS ages with the likelihood sample sizes retained by the model.
+
+![Observed abundance indices and Model 26.0 fitted values. Points show observations, vertical lines show their displayed intervals, and blue lines show fitted values.](assets/model-26-0/model_26_0_index_fits.png){#fig-model-26-index-fits fig-alt="Five panels show observed points and fitted lines for historical catch per unit effort, the bottom-trawl biomass survey, the acoustic-trawl biomass survey, the separate acoustic-trawl age-1 index, and the acoustic vessel-of-opportunity index. Fits generally follow the observed changes, while several age-1 observations have wide intervals." width="94%"}
+
+![Observed and fitted fishery age compositions for 1964--1993. Bars show observed proportions and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_fishery_age_fits_1964_1993.png){#fig-model-26-fishery-age-fits-early fig-alt="Thirty annual panels compare observed fishery age proportions, shown as blue bars, with Model 26.0 fitted proportions, shown as a brown line, for ages 1 through 15 from 1964 through 1993." width="100%"}
+
+![Observed and fitted fishery age compositions for 1994--2023. Bars show observed proportions and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_fishery_age_fits_1994_2023.png){#fig-model-26-fishery-age-fits-late fig-alt="Thirty annual panels compare observed fishery age proportions, shown as blue bars, with Model 26.0 fitted proportions, shown as a brown line, for ages 1 through 15 from 1994 through 2023." width="100%"}
+
+![Observed and fitted bottom-trawl survey age compositions for 1982--2002. Bars show observed proportions and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_bts_age_fits_1982_2002.png){#fig-model-26-bts-age-fits-early fig-alt="Twenty-one annual panels compare observed bottom-trawl survey age proportions, shown as blue bars, with Model 26.0 fitted proportions, shown as a brown line, for ages 1 through 15 from 1982 through 2002." width="100%"}
+
+![Observed and fitted bottom-trawl survey age compositions for the available years from 2003--2024. Bars show observed proportions and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_bts_age_fits_2003_2024.png){#fig-model-26-bts-age-fits-late fig-alt="Twenty-one annual panels compare observed bottom-trawl survey age proportions, shown as blue bars, with Model 26.0 fitted proportions, shown as a brown line, for ages 1 through 15 in the available years from 2003 through 2024; 2020 is absent." width="100%"}
+
+![Observed and fitted acoustic-trawl survey age compositions for the 19 available survey years from 1994--2024. The panels begin at age 2 because age 1 is fitted as a separate abundance index.](assets/model-26-0/model_26_0_ats_age_fits_1994_2024.png){#fig-model-26-ats-age-fits fig-alt="Nineteen annual panels compare observed acoustic-trawl survey age proportions, shown as blue bars, with Model 26.0 fitted proportions, shown as a brown line. Every panel begins at age 2 and ends at age 15. The largest difference occurs at age 2 in 2020, which has a likelihood sample size of one." width="100%"}
+
+```{=latex}
+\FloatBarrier
+```
 
 ### Model 23.2 bridge comparison
 
@@ -1291,7 +1338,9 @@ M26-04 for the self-test and lag-preserving retrospective evaluations. Fifth,
 run M26-09 and M26-11 for whole-index and sampling-event influence. Sixth, run
 M26-05 followed by M26-06 for the `spmR` projection handoff. Finally, run the
 research evaluations M26-07 and M26-10 separately from the operational fit,
-then run M26-12 to summarize the retained SparseNUTS draws.
+then run M26-12 to summarize the retained SparseNUTS draws. Run M26-13 after
+M26-01 to rebuild the fitted index and age-composition displays from the saved
+Model 26.0 object.
 
 The shell pattern below makes the analysis and report locations explicit. The
 scripts write complete fit objects beneath the analysis repository's
@@ -1306,6 +1355,7 @@ export RCEATTLE_LIB="/path/to/isolated-r-library"
 
 cd "$EBS_ANALYSIS_ROOT"
 Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_rceattle_5_23.R"
+Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/plot_model_26_fits.R"
 Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_self_test_5_23.R"
 Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_retrospective_sensitivity_5_23.R"
 Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_retrospective_data_sensitivity_5_23.R"
