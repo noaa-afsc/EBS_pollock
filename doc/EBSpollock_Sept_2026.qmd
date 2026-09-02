@@ -45,6 +45,16 @@ resources:
   - data/EBSpollock_Sept_2026/model-26-0/model_23_2_vs_26_0_selectivity.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_index_series_sensitivity_summary.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_index_series_sensitivity_trajectories.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_sparsenuts_diagnostic_summary.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_sparsenuts_chain_diagnostics.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_sparsenuts_run_manifest.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_script_manifest.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_observation_continuity_inventory.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_observation_continuity_schedule.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_case_deletion_manifest.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_case_deletion_summary.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_case_deletion_run_manifest.csv
+  - data/EBSpollock_Sept_2026/acronym_glossary.csv
 ---
 
 <!--
@@ -126,8 +136,10 @@ handoff support the recommendation that Model 26.0 be adopted for 2026
 management advice after the updated-data run and formal Plan Team and SSC
 review. Model 23.0 provides continuity through that transition. Appendix 1
 preserves the SSC comments and response plan, Appendix 2 provides the
-development framework for an Ecosystem and Socioeconomic Profile, and Appendix
-3 documents fishery length-frequency patterns.
+development framework for an Ecosystem and Socioeconomic Profile, and
+Appendices 3--6 document the exploratory SparseNUTS run, reproducible model
+workflow, observation continuity and case-deletion influence, and acronym
+glossary. Appendix 7 documents fishery length-frequency patterns.
 
 # Introduction
 
@@ -143,9 +155,14 @@ The appendices preserve supporting material that informs this work.
 responses and retains the earlier 2024 comments. [Appendix
 2](#sec-esp-development-framework) provides the development structure for an
 EBS pollock Ecosystem and Socioeconomic Profile (ESP). [Appendix
-3](#sec-length-frequency-patterns) summarizes seasonal and spatial patterns in
-the observed pollock length-frequency samples. Together, the main sections and
-appendices connect the resumed work with the assessment review record.
+3](#sec-sparsenuts) reports exploratory SparseNUTS sampling, [Appendix
+4](#sec-model-run-methods) records the reproducible model workflow, [Appendix
+5](#sec-observation-influence) evaluates observation continuity and
+case-deletion influence, and [Appendix 6](#sec-glossary) defines the report's
+acronyms. [Appendix 7](#sec-length-frequency-patterns) summarizes seasonal and
+spatial patterns in the observed pollock length-frequency samples. Together,
+the main sections and appendices connect the resumed work with the assessment
+review record.
 
 # Model specifications
 
@@ -1116,6 +1133,203 @@ withheld years. Contextual indicators will retain value by describing current
 conditions and plausible mechanisms even when they remain outside the
 assessment likelihood.
 
-## Appendix 3: Fishery length frequency patterns {#sec-length-frequency-patterns}
+## Appendix 3: Exploratory SparseNUTS sampling {#sec-sparsenuts}
+
+This appendix evaluates whether the complete Model 26.0 joint objective can be
+sampled with SparseNUTS. It uses the same 1964--2024 input data and operating
+configuration as the maximum-likelihood fit: DSEM is set to `NULL`, recruitment
+deviations are represented as fixed parameters, and the full set of 1,218 joint
+parameters enters the sampler. The four dense-metric chains each used 1,000
+warmup iterations followed by 1,000 retained draws, for 4,000 retained draws in
+total. The chains began at the converged maximum-likelihood estimates, where
+the maximum absolute gradient was 0.000077.
+
+The run completed with zero divergences, zero maximum-tree-depth events, and a
+minimum energy Bayesian fraction of missing information (E-BFMI) of 0.884.
+Minimum tail effective sample size (ESS) was 469. Maximum R-hat was 1.018 and
+minimum bulk ESS was 395; both occurred for `index_log_q[3]` and fall just
+outside the review targets of R-hat at or below 1.01 and bulk ESS at or above
+400. The trace examples show overlapping chains, while the full diagnostic
+distribution identifies this small group of slower-mixing parameters
+(@fig-model-26-sparsenuts-trace; @fig-model-26-sparsenuts-diagnostics;
+@tbl-model-26-sparsenuts-diagnostics).
+
+These results demonstrate that the complete joint objective can be sampled on
+four local cores. Additional retained draws and focused review of the index
+catchability parameters will strengthen the uncertainty summary. The
+SparseNUTS results therefore remain an exploratory evaluation and are separate
+from the maximum-likelihood Model 26.0 results proposed for management advice.
+The complete 87-MB fit object is retained in the local analysis results
+directory, while this report carries only compact diagnostic tables and
+figures. Script [M26-10](scripts/model-26-0/run_model_26_sparsenuts_5_23.R)
+reproduces the run from the saved Model 26.0 fit.
+
+![Retained SparseNUTS draws for four representative Model 26.0 parameters.](assets/model-26-0/model_26_0_sparsenuts_trace.png){#fig-model-26-sparsenuts-trace fig-alt="Four vertically arranged trace plots show overlapping retained draws from four SparseNUTS chains for a recruitment deviation, mean recruitment, and two selectivity deviations. The chains occupy common ranges without sustained separation." width="88%"}
+
+![Distributions of R-hat, bulk ESS, and tail ESS across the 1,218 sampled parameters.](assets/model-26-0/model_26_0_sparsenuts_diagnostics.png){#fig-model-26-sparsenuts-diagnostics fig-alt="Three vertically arranged histograms summarize R-hat, bulk effective sample size, and tail effective sample size across 1,218 Model 26.0 parameters. Most R-hat values lie close to one, while a small number extend above 1.01. Most effective sample sizes are well above 400." width="78%"}
+
+| Diagnostic | Result | Review target | Outcome |
+|---|---:|---:|---|
+| Chains | 4 | 4 | Pass |
+| Warmup iterations per chain | 1,000 | 1,000 | Pass |
+| Retained draws per chain | 1,000 | 1,000 | Pass |
+| Maximum R-hat | 1.018 | 1.01 or lower | Review |
+| Minimum bulk ESS | 395 | 400 or higher | Review |
+| Minimum tail ESS | 469 | 400 or higher | Pass |
+| Divergences | 0 | 0 | Pass |
+| Maximum-tree-depth events | 0 | 0 | Pass |
+| Minimum E-BFMI | 0.884 | above 0.30 | Pass |
+
+: SparseNUTS configuration and sampling diagnostics for the complete Model 26.0 joint objective. {#tbl-model-26-sparsenuts-diagnostics}
+
+## Appendix 4: Reproducible model run methods {#sec-model-run-methods}
+
+The model workflow keeps the editable report and analysis code under version
+control while storing large fit objects in the local analysis repository. The
+Rceattle library is pinned to version 5.23.0 from commit
+`adf22f84b399e84e3b9a707e0b3bbb1624179a27` on the
+`dsem-v5-integration` branch. This preserves the exact model code used for the
+results. Each script checks the expected package version before fitting. The
+base assessment specification uses the established nonparametric selectivity,
+omits the two-dimensional age-by-year AR1 option, sets DSEM to `NULL`, and
+retains recruitment deviations as fixed parameters.
+
+The following sequence reproduces the analysis. First, install the pinned
+Rceattle revision and afscOSA 0.0.1 in an isolated R library. Second, run
+M23-01 when the ADMB-to-Rceattle translation check needs rebuilding. Third,
+from the analysis repository, run M26-01; it reads the 1964--2024 assessment
+workbook, fits the model in two stages, saves the complete fit locally, and
+creates the bridge, OSA, and jitter products. Fourth, run M26-02 through
+M26-04 for the self-test and lag-preserving retrospective evaluations. Fifth,
+run M26-09 and M26-11 for whole-index and sampling-event influence. Sixth, run
+M26-05 followed by M26-06 for the `spmR` projection handoff. Finally, run the
+research evaluations M26-07 and M26-10 separately from the operational fit.
+
+The shell pattern below makes the analysis and report locations explicit. The
+scripts write complete fit objects beneath the analysis repository's
+`results/` directory and compact report products beneath the report source
+tree.
+
+```{bash}
+#| eval: false
+export EBS_ANALYSIS_ROOT="/path/to/ebswp_rceattle"
+export EBS_REPORT_ROOT="/path/to/EBS_pollock"
+export RCEATTLE_LIB="/path/to/isolated-r-library"
+
+cd "$EBS_ANALYSIS_ROOT"
+Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_rceattle_5_23.R"
+Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_self_test_5_23.R"
+Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_retrospective_sensitivity_5_23.R"
+Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_retrospective_data_sensitivity_5_23.R"
+Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_index_series_sensitivity_5_23.R"
+Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_case_deletion_5_23.R"
+Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_spmr_projection_5_23.R"
+Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_dsem_5_23_pathways.R"
+Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_sparsenuts_5_23.R"
+```
+
+The script register in @tbl-model-26-script-register gives the stable ID,
+purpose, input, and output for every step. These IDs provide a short reference
+for reruns, review notes, and archived products.
+
+```{r}
+#| label: tbl-model-26-script-register
+#| tbl-cap: "Model 23.2 bridge and Model 26.0 script register."
+script_register <- utils::read.csv(
+  "data/EBSpollock_Sept_2026/model-26-0/model_26_0_script_manifest.csv",
+  check.names = FALSE
+)
+script_register$Script <- sprintf(
+  "[%s](scripts/model-26-0/%s)",
+  script_register$Script,
+  script_register$Script
+)
+knitr::kable(
+  script_register[, c("Step", "Script_ID", "Script", "Role")],
+  col.names = c("Step", "Script ID", "Script", "Purpose"),
+  escape = FALSE,
+  align = c("r", "l", "l", "l")
+)
+```
+
+## Appendix 5: Observation continuity and case-deletion influence {#sec-observation-influence}
+
+This diagnostic separates whether an observation was available and used from
+how much the accepted fit changes when a fitted sampling event is removed. The
+observation-continuity panel uses an explicit assessment-input schedule: annual
+for the fishery, BTS, and AVO rows and even years for ATS rows. Years after
+2024 are shown only to distinguish the current fitted span; the schedule does
+not imply a commitment about future field operations.
+
+The continuity panel distinguishes events present in the Model 26.0 input,
+scheduled events that are absent, years outside a row's fitted span, and years
+after the terminal fitted year (@fig-model-26-observation-continuity). It also
+shows where age-1 proportions are fitted separately from the main age
+composition. This makes survey timing, composition coverage, and recent gaps
+visible without treating the schedule as a prediction.
+
+The case-deletion analysis removes an entire fitted index observation or
+composition row for one selected fleet-year event and then refits the complete
+model. All 12 refits reached convergence status OK with positive-definite
+Hessians. The 2024 BTS biomass index had the largest terminal spawning biomass
+effect (-5.29%) and lowered terminal age-1 recruitment by 25.33%. Removing the
+2024 ATS age composition lowered terminal spawning biomass by 2.64% and raised
+terminal recruitment by 25.35%; its largest recruitment change across all
+years was 53.93%. Removing the 2024 AVO index raised terminal spawning biomass
+by 5.05% and terminal recruitment by 5.87%. Other selected events produced
+smaller terminal changes (@fig-model-26-case-deletion; @tbl-model-26-case-deletion).
+
+These values describe influence within the current fitted model. Decisions
+about observation weighting draw on the full data-quality record, sampling
+design, fit diagnostics, and biological interpretation. Script
+[M26-11](scripts/model-26-0/run_model_26_case_deletion_5_23.R) creates the
+explicit schedule, refits the selected cases, and saves each compact checkpoint
+locally.
+
+![Observation continuity for fishery, BTS, ATS, and AVO inputs from 2014 through 2026.](assets/model-26-0/model_26_0_observation_continuity.png){#fig-model-26-observation-continuity fig-alt="A grid lists years 2014 through 2026 across rows for fishery, bottom-trawl survey, acoustic-trawl survey, and acoustic vessel-of-opportunity data types. Symbols distinguish fitted observations, scheduled gaps, years outside the fitted span, and years after 2024. Fishery, BTS, and AVO schedules are annual, while ATS schedules use even years." width="100%"}
+
+![Influence of selected sampling-event deletions on terminal spawning biomass and age-1 recruitment.](assets/model-26-0/model_26_0_case_deletion_influence.png){#fig-model-26-case-deletion fig-alt="Two horizontal dot plots show percent changes in terminal spawning biomass and terminal age-1 recruitment after 12 selected sampling events are deleted one at a time. The 2024 BTS biomass index, 2024 ATS age composition, and 2024 AVO index have the largest terminal effects." width="92%"}
+
+```{r}
+#| label: tbl-model-26-case-deletion
+#| tbl-cap: "Influence of selected sampling-event deletions on terminal Model 26.0 spawning biomass and recruitment."
+case_deletion <- utils::read.csv(
+  "data/EBSpollock_Sept_2026/model-26-0/model_26_0_case_deletion_summary.csv",
+  check.names = FALSE
+)
+case_deletion_table <- data.frame(
+  `Sampling event removed` = case_deletion$Scenario,
+  `Terminal SSB change (%)` = sprintf("%+.2f", case_deletion$Terminal_SSB_percent_change),
+  `Terminal recruitment change (%)` = sprintf("%+.2f", case_deletion$Terminal_recruitment_percent_change),
+  `Largest recruitment change (%)` = sprintf("%.2f", case_deletion$Maximum_absolute_recruitment_percent_change),
+  check.names = FALSE
+)
+knitr::kable(case_deletion_table, align = c("l", "r", "r", "r"))
+```
+
+## Appendix 6: Glossary of acronyms {#sec-glossary}
+
+This glossary follows the ASAR package convention of maintaining one
+alphabetical source table with `Label`, `Acronym`, and `Meaning` fields. The
+label provides a stable key for document automation, while the acronym and
+meaning provide the reader-facing text. The report-specific source file can be
+updated once and reused in future output formats (@tbl-acronym-glossary).
+
+```{r}
+#| label: tbl-acronym-glossary
+#| tbl-cap: "Acronyms used in the September 2026 assessment developments report."
+acronym_glossary <- utils::read.csv(
+  "data/EBSpollock_Sept_2026/acronym_glossary.csv",
+  check.names = FALSE
+)
+acronym_glossary <- acronym_glossary[order(acronym_glossary$Acronym), ]
+knitr::kable(
+  acronym_glossary[, c("Acronym", "Meaning")],
+  col.names = c("Acronym", "Meaning"),
+  align = c("l", "l")
+)
+```
+
+## Appendix 7: Fishery length frequency patterns {#sec-length-frequency-patterns}
 
 {{< include EBSpollock_Sept_2026_length_frequency.qmd >}}

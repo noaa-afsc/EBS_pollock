@@ -1,0 +1,49 @@
+Label,Acronym,Meaning
+abc,ABC,acceptable biological catch
+admb,ADMB,Automatic Differentiation Model Builder
+afsc,AFSC,Alaska Fisheries Science Center
+ai,AI,artificial intelligence
+aic,AIC,Akaike information criterion
+ar1,AR1,first-order autoregressive structure
+ats,ATS,acoustic-trawl survey
+avo,AVO,acoustic vessel-of-opportunity
+b35,B35%,spawning biomass reference point associated with 35 percent of unfished spawning potential
+b40,B40%,spawning biomass reference point associated with 40 percent of unfished spawning potential
+bsai,BSAI,Bering Sea and Aleutian Islands
+bts,BTS,bottom-trawl survey
+ceattle,CEATTLE,Climate-enhanced Age-based model with Temperature-specific Trophic Linkages and Energetics
+cpue,CPUE,catch per unit effort
+dsem,DSEM,dynamic species environment model
+ebfmi,E-BFMI,energy Bayesian fraction of missing information
+ebs,EBS,eastern Bering Sea
+esp,ESP,Ecosystem and Socioeconomic Profile
+esr,ESR,Ecosystem Status Report
+ess,ESS,effective sample size
+ftnir,FT-NIR,Fourier-transform near-infrared method
+ftnirs,FT-NIRS,Fourier-transform near-infrared spectroscopy
+goa,GOA,Gulf of Alaska
+hmc,HMC,Hamiltonian Monte Carlo
+iss,ISS,input sample size
+lr,LR,likelihood ratio
+mcmc,MCMC,Markov chain Monte Carlo
+mle,MLE,maximum-likelihood estimate
+nll,NLL,negative log likelihood
+noaa,NOAA,National Oceanic and Atmospheric Administration
+npfmc,NPFMC,North Pacific Fishery Management Council
+nuts,NUTS,no-U-turn sampler
+ofl,OFL,overfishing limit
+osa,OSA,one-step-ahead
+qq,Q-Q,quantile-quantile
+rceattle,Rceattle,R implementation of CEATTLE
+rhat,R-hat,rank-normalized potential scale-reduction statistic
+rtmb,RTMB,R Template Model Builder
+safe,SAFE,Stock Assessment and Fishery Evaluation
+sdnr,SDNR,standard deviation of normalized residuals
+sparsenuts,SparseNUTS,sparse-matrix implementation of the no-U-turn sampler
+spm,SPM,Standard Projection Model
+spr,SPR,spawning potential ratio
+srr,SRR,stock-recruit relationship
+ssb,SSB,spawning stock biomass
+ssc,SSC,Scientific and Statistical Committee
+sst,SST,sea-surface temperature
+tmb,TMB,Template Model Builder

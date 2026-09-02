@@ -1,0 +1,9 @@
+Component,Table,Fleet,First_year,Last_year,Schedule
+Fishery age composition,comp_data,Fishery,1964,2024,annual
+BTS biomass index,index_data,BTS,1982,2024,annual
+BTS age composition,comp_data,BTS,1982,2024,annual
+BTS age-1 index,index_data,BTS_1,1982,2024,annual
+ATS biomass index,index_data,ATS,1994,2024,even
+ATS age composition,comp_data,ATS,1994,2024,even
+ATS age-1 index,index_data,ATS_1,1994,2024,even
+AVO index,index_data,AVO,2006,2024,annual

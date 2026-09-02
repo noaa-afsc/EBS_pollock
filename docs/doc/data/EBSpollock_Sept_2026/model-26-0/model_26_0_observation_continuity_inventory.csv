@@ -1,0 +1,105 @@
+Component,Table,Fleet,Year,Scheduled,Status,Raw_weight,Weight_definition,Relative_weight,Display_weight
+Fishery age composition,comp_data,Fishery,2014,TRUE,Represented in base fit,606.3439178,Nominal composition sample size,0.6804028505843258,0.6804028505843258
+Fishery age composition,comp_data,Fishery,2015,TRUE,Represented in base fit,821.2348389,Nominal composition sample size,1,1
+Fishery age composition,comp_data,Fishery,2016,TRUE,Represented in base fit,704.1101836,Nominal composition sample size,0.8378734754340419,0.8378734754340419
+Fishery age composition,comp_data,Fishery,2017,TRUE,Represented in base fit,606.7200798,Nominal composition sample size,0.6810560791984811,0.6810560791984811
+Fishery age composition,comp_data,Fishery,2018,TRUE,Represented in base fit,667.8408369,Nominal composition sample size,0.7821601848587345,0.7821601848587345
+Fishery age composition,comp_data,Fishery,2019,TRUE,Represented in base fit,700.7958749,Nominal composition sample size,0.8329027694104205,0.8329027694104205
+Fishery age composition,comp_data,Fishery,2020,TRUE,Represented in base fit,565.2432815,Nominal composition sample size,0.6064763330768802,0.6064763330768802
+Fishery age composition,comp_data,Fishery,2021,TRUE,Represented in base fit,817.5780899,Nominal composition sample size,0.9952975279874754,0.9952975279874754
+Fishery age composition,comp_data,Fishery,2022,TRUE,Represented in base fit,641.2352943,Nominal composition sample size,0.7393355909705062,0.7393355909705062
+Fishery age composition,comp_data,Fishery,2023,TRUE,Represented in base fit,443.0433446,Nominal composition sample size,0.35,0.35
+Fishery age composition,comp_data,Fishery,2024,TRUE,No observation in scheduled year,NA,Nominal composition sample size,NA,0.22
+Fishery age composition,comp_data,Fishery,2025,FALSE,Outside fitted span,NA,Nominal composition sample size,NA,0.22
+Fishery age composition,comp_data,Fishery,2026,FALSE,Outside fitted span,NA,Nominal composition sample size,NA,0.22
+BTS biomass index,index_data,BTS,2014,TRUE,Represented in base fit,6.64328231292517e-7,Inverse diagonal BTS covariance,0.35099899447128824,0.35099899447128824
+BTS biomass index,index_data,BTS,2015,TRUE,Represented in base fit,9.997300728803224e-7,Inverse diagonal BTS covariance,0.37767405840929336,0.37767405840929336
+BTS biomass index,index_data,BTS,2016,TRUE,Represented in base fit,1.0019267050538184e-6,Inverse diagonal BTS covariance,0.3778487601745194,0.3778487601745194
+BTS biomass index,index_data,BTS,2017,TRUE,Represented in base fit,2.1337339063120117e-06,Inverse diagonal BTS covariance,0.467863195103007,0.467863195103007
+BTS biomass index,index_data,BTS,2018,TRUE,Represented in base fit,1.520646578925359e-6,Inverse diagonal BTS covariance,0.41910339311378353,0.41910339311378353
+BTS biomass index,index_data,BTS,2019,TRUE,Represented in base fit,1.021410813472e-6,Inverse diagonal BTS covariance,0.37939836330729826,0.37939836330729826
+BTS biomass index,index_data,BTS,2020,TRUE,No observation in scheduled year,NA,Inverse diagonal BTS covariance,NA,0.22
+BTS biomass index,index_data,BTS,2021,TRUE,Represented in base fit,8.824645469868248e-6,Inverse diagonal BTS covariance,1,1
+BTS biomass index,index_data,BTS,2022,TRUE,Represented in base fit,2.2244219283513698e-6,Inverse diagonal BTS covariance,0.47507575397331175,0.47507575397331175
+BTS biomass index,index_data,BTS,2023,TRUE,Represented in base fit,5.271953733334036e-6,Inverse diagonal BTS covariance,0.7174502987984923,0.7174502987984923
+BTS biomass index,index_data,BTS,2024,TRUE,Represented in base fit,6.517672669443196e-7,Inverse diagonal BTS covariance,0.35,0.35
+BTS biomass index,index_data,BTS,2025,FALSE,Outside fitted span,NA,Inverse diagonal BTS covariance,NA,0.22
+BTS biomass index,index_data,BTS,2026,FALSE,Outside fitted span,NA,Inverse diagonal BTS covariance,NA,0.22
+BTS age composition,comp_data,BTS,2014,TRUE,Represented in base fit,117,Nominal composition sample size,0.6515824851963994,0.6515824851963994
+BTS age composition,comp_data,BTS,2015,TRUE,Represented in base fit,103,Nominal composition sample size,0.5877083538488342,0.5877083538488342
+BTS age composition,comp_data,BTS,2016,TRUE,Represented in base fit,122,Nominal composition sample size,0.6725713289098931,0.6725713289098931
+BTS age composition,comp_data,BTS,2017,TRUE,Represented in base fit,234,Nominal composition sample size,1,1
+BTS age composition,comp_data,BTS,2018,TRUE,Represented in base fit,158,Nominal composition sample size,0.802409586313248,0.802409586313248
+BTS age composition,comp_data,BTS,2019,TRUE,Represented in base fit,120,Nominal composition sample size,0.6642800194548137,0.6642800194548137
+BTS age composition,comp_data,BTS,2020,TRUE,No observation in scheduled year,NA,Nominal composition sample size,NA,0.22
+BTS age composition,comp_data,BTS,2021,TRUE,Represented in base fit,149,Nominal composition sample size,0.7729395878518586,0.7729395878518586
+BTS age composition,comp_data,BTS,2022,TRUE,Represented in base fit,172,Nominal composition sample size,0.8450892314387195,0.8450892314387195
+BTS age composition,comp_data,BTS,2023,TRUE,Represented in base fit,126,Nominal composition sample size,0.6887569837682814,0.6887569837682814
+BTS age composition,comp_data,BTS,2024,TRUE,Represented in base fit,64,Nominal composition sample size,0.35,0.35
+BTS age composition,comp_data,BTS,2025,FALSE,Outside fitted span,NA,Nominal composition sample size,NA,0.22
+BTS age composition,comp_data,BTS,2026,FALSE,Outside fitted span,NA,Nominal composition sample size,NA,0.22
+BTS age-1 index,index_data,BTS_1,2014,TRUE,Available but excluded from likelihood,1,Inverse squared observation SD,0.675,0.22
+BTS age-1 index,index_data,BTS_1,2015,TRUE,Available but excluded from likelihood,1,Inverse squared observation SD,0.675,0.22
+BTS age-1 index,index_data,BTS_1,2016,TRUE,Available but excluded from likelihood,1,Inverse squared observation SD,0.675,0.22
+BTS age-1 index,index_data,BTS_1,2017,TRUE,Available but excluded from likelihood,1,Inverse squared observation SD,0.675,0.22
+BTS age-1 index,index_data,BTS_1,2018,TRUE,Available but excluded from likelihood,1,Inverse squared observation SD,0.675,0.22
+BTS age-1 index,index_data,BTS_1,2019,TRUE,Available but excluded from likelihood,1,Inverse squared observation SD,0.675,0.22
+BTS age-1 index,index_data,BTS_1,2020,TRUE,No observation in scheduled year,NA,Inverse squared observation SD,NA,0.22
+BTS age-1 index,index_data,BTS_1,2021,TRUE,Available but excluded from likelihood,1,Inverse squared observation SD,0.675,0.22
+BTS age-1 index,index_data,BTS_1,2022,TRUE,Available but excluded from likelihood,1,Inverse squared observation SD,0.675,0.22
+BTS age-1 index,index_data,BTS_1,2023,TRUE,Available but excluded from likelihood,1,Inverse squared observation SD,0.675,0.22
+BTS age-1 index,index_data,BTS_1,2024,TRUE,Available but excluded from likelihood,1,Inverse squared observation SD,0.675,0.22
+BTS age-1 index,index_data,BTS_1,2025,FALSE,Outside fitted span,NA,Inverse squared observation SD,NA,0.22
+BTS age-1 index,index_data,BTS_1,2026,FALSE,Outside fitted span,NA,Inverse squared observation SD,NA,0.22
+ATS biomass index,index_data,ATS,2014,TRUE,Represented in base fit,39.03133799892174,Inverse squared observation SD,0.7428796369634347,0.7428796369634347
+ATS biomass index,index_data,ATS,2015,FALSE,Not scheduled,NA,Inverse squared observation SD,NA,0.22
+ATS biomass index,index_data,ATS,2016,TRUE,Represented in base fit,131.39544284467127,Inverse squared observation SD,1,1
+ATS biomass index,index_data,ATS,2017,FALSE,Not scheduled,NA,Inverse squared observation SD,NA,0.22
+ATS biomass index,index_data,ATS,2018,TRUE,Represented in base fit,29.92014505951959,Inverse squared observation SD,0.6873651837749544,0.6873651837749544
+ATS biomass index,index_data,ATS,2019,FALSE,Not scheduled,NA,Inverse squared observation SD,NA,0.22
+ATS biomass index,index_data,ATS,2020,TRUE,Represented in base fit,5.436444510521844,Inverse squared observation SD,0.35,0.35
+ATS biomass index,index_data,ATS,2021,FALSE,Not scheduled,NA,Inverse squared observation SD,NA,0.22
+ATS biomass index,index_data,ATS,2022,TRUE,Represented in base fit,10.23813632443465,Inverse squared observation SD,0.469805161167118,0.469805161167118
+ATS biomass index,index_data,ATS,2023,FALSE,Not scheduled,NA,Inverse squared observation SD,NA,0.22
+ATS biomass index,index_data,ATS,2024,TRUE,Represented in base fit,14.968416464694828,Inverse squared observation SD,0.5453205975882089,0.5453205975882089
+ATS biomass index,index_data,ATS,2025,FALSE,Outside fitted span,NA,Inverse squared observation SD,NA,0.22
+ATS biomass index,index_data,ATS,2026,FALSE,Outside fitted span,NA,Inverse squared observation SD,NA,0.22
+ATS age composition,comp_data,ATS,2014,TRUE,Represented in base fit,79,Nominal composition sample size,1,1
+ATS age composition,comp_data,ATS,2015,FALSE,Not scheduled,NA,Nominal composition sample size,NA,0.22
+ATS age composition,comp_data,ATS,2016,TRUE,Represented in base fit,61,Nominal composition sample size,0.9550866423477344,0.9550866423477344
+ATS age composition,comp_data,ATS,2017,FALSE,Not scheduled,NA,Nominal composition sample size,NA,0.22
+ATS age composition,comp_data,ATS,2018,TRUE,Represented in base fit,50,Nominal composition sample size,0.9206722109227881,0.9206722109227881
+ATS age composition,comp_data,ATS,2019,FALSE,Not scheduled,NA,Nominal composition sample size,NA,0.22
+ATS age composition,comp_data,ATS,2020,TRUE,Represented in base fit,1,Nominal composition sample size,0.35,0.35
+ATS age composition,comp_data,ATS,2021,FALSE,Not scheduled,NA,Nominal composition sample size,NA,0.22
+ATS age composition,comp_data,ATS,2022,TRUE,Represented in base fit,52,Nominal composition sample size,0.9274501723197601,0.9274501723197601
+ATS age composition,comp_data,ATS,2023,FALSE,Not scheduled,NA,Nominal composition sample size,NA,0.22
+ATS age composition,comp_data,ATS,2024,TRUE,Represented in base fit,79,Nominal composition sample size,1,1
+ATS age composition,comp_data,ATS,2025,FALSE,Outside fitted span,NA,Nominal composition sample size,NA,0.22
+ATS age composition,comp_data,ATS,2026,FALSE,Outside fitted span,NA,Nominal composition sample size,NA,0.22
+ATS age-1 index,index_data,ATS_1,2014,TRUE,Represented in base fit,1,Inverse squared observation SD,0.675,0.675
+ATS age-1 index,index_data,ATS_1,2015,FALSE,Not scheduled,NA,Inverse squared observation SD,NA,0.22
+ATS age-1 index,index_data,ATS_1,2016,TRUE,Represented in base fit,1,Inverse squared observation SD,0.675,0.675
+ATS age-1 index,index_data,ATS_1,2017,FALSE,Not scheduled,NA,Inverse squared observation SD,NA,0.22
+ATS age-1 index,index_data,ATS_1,2018,TRUE,Represented in base fit,1,Inverse squared observation SD,0.675,0.675
+ATS age-1 index,index_data,ATS_1,2019,FALSE,Not scheduled,NA,Inverse squared observation SD,NA,0.22
+ATS age-1 index,index_data,ATS_1,2020,TRUE,Represented in base fit,1,Inverse squared observation SD,0.675,0.675
+ATS age-1 index,index_data,ATS_1,2021,FALSE,Not scheduled,NA,Inverse squared observation SD,NA,0.22
+ATS age-1 index,index_data,ATS_1,2022,TRUE,Represented in base fit,1,Inverse squared observation SD,0.675,0.675
+ATS age-1 index,index_data,ATS_1,2023,FALSE,Not scheduled,NA,Inverse squared observation SD,NA,0.22
+ATS age-1 index,index_data,ATS_1,2024,TRUE,Available but excluded from likelihood,1,Inverse squared observation SD,0.675,0.22
+ATS age-1 index,index_data,ATS_1,2025,FALSE,Outside fitted span,NA,Inverse squared observation SD,NA,0.22
+ATS age-1 index,index_data,ATS_1,2026,FALSE,Outside fitted span,NA,Inverse squared observation SD,NA,0.22
+AVO index,index_data,AVO,2014,TRUE,Represented in base fit,2.9701329108738173,Inverse squared observation SD,0.40453948036551496,0.40453948036551496
+AVO index,index_data,AVO,2015,TRUE,Represented in base fit,6.05895122131976,Inverse squared observation SD,0.6411530783193125,0.6411530783193125
+AVO index,index_data,AVO,2016,TRUE,Represented in base fit,6.958394315547507,Inverse squared observation SD,0.6904622070723551,0.6904622070723551
+AVO index,index_data,AVO,2017,TRUE,Represented in base fit,9.926944356307624,Inverse squared observation SD,0.8207975027558417,0.8207975027558417
+AVO index,index_data,AVO,2018,TRUE,Represented in base fit,15.383465747431377,Inverse squared observation SD,0.9873287074017945,0.9873287074017945
+AVO index,index_data,AVO,2019,TRUE,Represented in base fit,2.47692200819384,Inverse squared observation SD,0.35,0.35
+AVO index,index_data,AVO,2020,TRUE,No observation in scheduled year,NA,Inverse squared observation SD,NA,0.22
+AVO index,index_data,AVO,2021,TRUE,Represented in base fit,3.560942662150538,Inverse squared observation SD,0.4615777462801294,0.4615777462801294
+AVO index,index_data,AVO,2022,TRUE,Represented in base fit,4.835002264256584,Inverse squared observation SD,0.5628617892030717,0.5628617892030717
+AVO index,index_data,AVO,2023,TRUE,Represented in base fit,8.892123205049863,Inverse squared observation SD,0.7798913381622279,0.7798913381622279
+AVO index,index_data,AVO,2024,TRUE,Represented in base fit,15.89625573128363,Inverse squared observation SD,1,1
+AVO index,index_data,AVO,2025,FALSE,Outside fitted span,NA,Inverse squared observation SD,NA,0.22
+AVO index,index_data,AVO,2026,FALSE,Outside fitted span,NA,Inverse squared observation SD,NA,0.22

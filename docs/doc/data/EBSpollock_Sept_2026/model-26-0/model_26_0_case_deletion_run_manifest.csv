@@ -1,0 +1,9 @@
+Item,Value
+Script ID,M26-11
+Rceattle branch,dsem-v5-integration
+Rceattle commit,adf22f84b399e84e3b9a707e0b3bbb1624179a27
+Rceattle version,5.23.0
+Reference fit,/Users/jim/_mymods/pollock/ebswp_rceattle/results/model_26_0_rceattle_5.23.0/model_26_0_fit.rds
+Assessment end year,2024
+Displayed years,2014--2026
+Case-deletion refits,12

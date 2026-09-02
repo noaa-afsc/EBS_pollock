@@ -1,0 +1,12 @@
+Step,Script_ID,Script,Role,Primary_input,Primary_output
+1,M23-01,run_model_23_0_vs_23_2_admb_comparison.R,Rebuild and compare the original and Rceattle-aligned ADMB bridge runs,ADMB Model 23.0 and modified pm.tpl inputs,Model 23.0 versus 23.2 trajectories and provenance
+2,M26-01,run_model_26_rceattle_5_23.R,Fit the two-stage Model 26.0 base and create bridge OSA and jitter diagnostics,EBS 1964--2024 Rceattle workbook and pinned Rceattle 5.23.0 fit settings,model_26_0_fit.rds plus compact base-fit products
+3,M26-02,run_model_26_self_test_5_23.R,Simulate and refit the configured model for parameter and state recovery,Validated Model 26.0 base fit,Self-test summaries and recovery figure
+4,M26-03,run_model_26_retrospective_sensitivity_5_23.R,Run nine peels with stream-specific data lags and terminal selectivity treatment,Validated Model 26.0 base fit,Retrospective fits convergence trajectories and Mohn's rho
+5,M26-04,run_model_26_retrospective_data_sensitivity_5_23.R,Test observation blocks responsible for the 2020--2021 retrospective transition,Validated peel fits and explicit lag schedule,Block-deletion and cumulative-addition summaries
+6,M26-09,run_model_26_index_series_sensitivity_5_23.R,Refit after removing the complete BTS ATS or AVO fleet contribution while retaining CPUE,Validated Model 26.0 base fit,Whole-index sensitivity summaries trajectories and figure
+7,M26-05,write_spmr_projection_inputs.R,Translate the fitted population state and biological schedules into SPM files,Validated Model 26.0 base fit,pm.prj spm.dat schedules lineage and manifest
+8,M26-06,run_model_26_spmr_projection_5_23.R,Run and summarize the seven Tier 3 projection alternatives,Rceattle-derived SPM inputs,Projection tables status summaries and figures
+9,M26-07,run_model_26_dsem_5_23_pathways.R,Fit the separate exploratory recruitment-pathway models,Common cohort-aligned covariate data and Model 26.0 configuration,DSEM comparison and pathway summaries
+10,M26-10,run_model_26_sparsenuts_5_23.R,Sample the complete joint Model 26.0 objective with four dense-metric chains,Converged Model 26.0 fit,SparseNUTS fit stored locally plus compact diagnostics
+11,M26-11,run_model_26_case_deletion_5_23.R,Build the observation schedule and refit after deleting selected complete sampling events,Converged Model 26.0 fit,Continuity inventory case-deletion summaries and figures
