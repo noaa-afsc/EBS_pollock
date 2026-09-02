@@ -1,0 +1,44 @@
+% Running page furniture for the September 2026 EBS pollock working paper.
+\usepackage{fancyhdr}
+\usepackage{eso-pic}
+\usepackage{xcolor}
+
+\setlength{\headheight}{16pt}
+\setlength{\headsep}{18pt}
+\setlength{\footskip}{28pt}
+
+\newcommand{\EBSPollockPageStyle}{%
+  \fancyhf{}%
+  \fancyhead[L]{\footnotesize BSAI}%
+  \fancyhead[C]{\footnotesize EBS Pollock assessment activities}%
+  \fancyhead[R]{\footnotesize draft September 2026}%
+  \fancyfoot[C]{\footnotesize \thepage}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+\pagestyle{fancy}
+\EBSPollockPageStyle
+
+% KOMA-Script and Pandoc use plain or empty styles on title and chapter pages.
+% Define both so the requested header and centered page number remain visible.
+\fancypagestyle{plain}{\EBSPollockPageStyle}
+\fancypagestyle{empty}{\EBSPollockPageStyle}
+
+% Place the pre-dissemination review disclaimer near the bottom of page 1.
+\AddToShipoutPictureFG*{%
+  \AtPageLowerLeft{%
+    \raisebox{0.68in}[0pt][0pt]{%
+      \makebox[\paperwidth][c]{%
+        \parbox[c][0.58in][c]{0.80\paperwidth}{%
+          \centering\scriptsize\itshape
+          This information is distributed solely for the purpose of
+          pre-dissemination peer review under applicable information quality
+          guidelines. It has not been formally disseminated by the National
+          Marine Fisheries Service and should not be construed to represent
+          any agency determination or policy.%
+        }%
+      }%
+    }%
+  }%
+}

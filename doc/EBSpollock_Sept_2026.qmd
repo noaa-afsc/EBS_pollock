@@ -32,6 +32,26 @@ format:
     toc-title: "Contents"
     toc-location: left
     number-sections: true
+  pdf:
+    documentclass: scrreprt
+    papersize: letter
+    pdf-engine: lualatex
+    latex-tinytex: false
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    fig-cap-location: bottom
+    tbl-cap-location: top
+    geometry:
+      - top=0.86in
+      - bottom=0.82in
+      - left=0.82in
+      - right=0.82in
+      - headheight=16pt
+      - headsep=18pt
+      - footskip=28pt
+    header-includes:
+      - \input{EBSpollock_Sept_2026-pdf-header.tex}
 lightbox: true
 resources:
   - scripts/model-26-0/*.R
@@ -70,6 +90,14 @@ Artificial intelligence (AI) tools were used to aid document development and
 model implementation. AI-assisted material was reviewed and revised by the
 authors, who retain responsibility for the scientific content, code, analyses,
 interpretations, and conclusions.
+:::
+
+::: {.callout-note title="Suggested citation"}
+Ianelli, James, Sophia Wassermann, Carey McGilliard, Grant Adams, Matt Cheng,
+Cody Szuwalski, and Cole Monnahan. 2026. *September 2026 Assessment
+Developments: Eastern Bering Sea Walleye Pollock.* Seattle, WA: Alaska
+Fisheries Science Center, National Marine Fisheries Service.
+<https://noaa-afsc.github.io/EBS_pollock/doc/EBSpollock_Sept_2026.html>.
 :::
 
 # Summary
@@ -150,6 +178,17 @@ resumed, data preparation and model development progressed on different
 schedules. This report restores a single review record for the data updates,
 model numbering, ADMB-to-RTMB bridge, and 2026 RTMB and Rceattle development.
 
+The main report is organized around the decisions needed for the 2026 review.
+The **Model specifications** section defines the model numbers and their roles
+so results can be traced to the correct scientific configuration. The **Data**
+section summarizes the shared assessment inputs and identifies age-data issues
+that need consistent treatment across platforms. The **Model results** section
+presents the translation checks, Model 26.0 fit and diagnostics, retrospective
+evaluation, sensitivities, projections, and exploratory recruitment pathways
+needed to judge readiness for assessment use. The **Conclusion** brings that
+evidence together and states the recommended role and next steps for Model
+26.0 during the November and December review cycle.
+
 The appendices preserve supporting material that informs this work.
 [Appendix 1](#sec-ssc-comments) presents the main SSC comments and planned
 responses and retains the earlier 2024 comments. [Appendix
@@ -181,6 +220,7 @@ comparison role (@fig-model-numbering).
 %%| label: fig-model-numbering
 %%| fig-cap: "Proposed numbering and development history for EBS pollock assessment models."
 %%| fig-alt: "Flowchart beginning with the Model 23.0 ADMB source used in 2024. One branch passes through the Model 23.1 RTMB translation check to Model 25.0 in RTMB, begun in 2025. A second branch passes through the Model 23.2 Rceattle translation check to Model 26.0 in Rceattle, begun in 2026. SPoRC supports comparisons with both development lines and would receive a model number if advanced as an assessment candidate."
+%%| fig-width: 6.6
 
 flowchart LR
   accTitle: EBS pollock assessment model numbering and development history
@@ -192,7 +232,9 @@ flowchart LR
   S["SPoRC<br/>supporting comparison"] -.->|"common tests"| C
   S -.->|"common tests"| D
   classDef model fill:#e8f0f7,stroke:#52616b,color:#111111
-  class A,B,C,D,E,S model
+  classDef comparison fill:#fff4cc,stroke:#9a8444,color:#111111
+  class A,B,C,D,E model
+  class S comparison
 ```
 
 The labels should be used as follows:
@@ -265,16 +307,7 @@ The basic data used across the platforms are:
 Across platforms, **ADMB Model 23.0** provides the accepted 2024 assessment
 reference, observation schedule, and source-model settings. **RTMB Models 23.1
 and 25.0** use the corrected ADMB bridge inputs directly and preserve the
-complete ages 1--15 BTS composition treatment; the [RTMB data-input
-documentation](https://jimianelli.github.io/rtmb_ebswp/ebs_pollock_rtmb_ebswp_assessment.html#data-inputs)
-describes that translation. **SPoRC** maps the corrected bridge observations to
-one fishery and four survey or index components for an independent
-single-region comparison, as described in the [SPoRC EBS pollock working
-paper](https://jimianelli.github.io/sporc_ebswp/). **Rceattle Model 26.0** reads
-a workbook prepared from the same 1964--2024 assessment source and retains all
-15 modeled ages; its data application is documented in the [Rceattle EBS
-pollock report](https://noaa-afsc.github.io/ebswp_rceattle/). Each platform
-retains its own internal data structure and method for measuring model fit.
+complete ages 1--15 BTS composition treatment.
 
 The summary above describes the common 2024-terminal bridge used for model
 comparison. New 2025 and 2026 observations will enter the assessment only

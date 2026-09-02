@@ -7629,7 +7629,7 @@ color: #c7ced6 !important;
   </ul></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/noaa-afsc/ebs_pollock/edit/main/doc/EBSpollock_Sept_2026.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/blob/main/doc/EBSpollock_Sept_2026.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/noaa-afsc/ebs_pollock/edit/main/doc/EBSpollock_Sept_2026.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/blob/main/doc/EBSpollock_Sept_2026.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-afsc/ebs_pollock/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="EBSpollock_Sept_2026.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -7696,7 +7696,7 @@ color: #c7ced6 !important;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2026-09-01 19:19</p>
+      <p class="date">2026-09-01 19:41</p>
     </div>
   </div>
   
@@ -7728,6 +7728,19 @@ Editorial writing note for this document:
 <p>Artificial intelligence (AI) tools were used to aid document development and model implementation. AI-assisted material was reviewed and revised by the authors, who retain responsibility for the scientific content, code, analyses, interpretations, and conclusions.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled" title="Suggested citation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Suggested citation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ianelli, James, Sophia Wassermann, Carey McGilliard, Grant Adams, Matt Cheng, Cody Szuwalski, and Cole Monnahan. 2026. <em>September 2026 Assessment Developments: Eastern Bering Sea Walleye Pollock.</em> Seattle, WA: Alaska Fisheries Science Center, National Marine Fisheries Service. <a href="https://noaa-afsc.github.io/EBS_pollock/doc/EBSpollock_Sept_2026.html" class="uri">https://noaa-afsc.github.io/EBS_pollock/doc/EBSpollock_Sept_2026.html</a>.</p>
+</div>
+</div>
 <section id="summary" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Summary</h1>
 <p>This working paper brings together eastern Bering Sea pollock assessment work that resumed after the 2025 funding lapse and federal furlough. It establishes a common review record for data preparation, model numbering, software translations, diagnostics, projections, and responses to Scientific and Statistical Committee (SSC) comments. The comparisons use the 1964–2024 data basis inherited from accepted Model 23.0. New 2025 and 2026 observations will enter the assessment after the source products, sample sizes, ageing-error treatment, and quality-control checks are complete.</p>
@@ -7739,6 +7752,7 @@ Editorial writing note for this document:
 <section id="introduction" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Introduction</h1>
 <p>This document brings together eastern Bering Sea pollock assessment work affected by the 2025 funding lapse and federal furlough. Routine SAFE preparation, review, and archiving paused during that period. After work resumed, data preparation and model development progressed on different schedules. This report restores a single review record for the data updates, model numbering, ADMB-to-RTMB bridge, and 2026 RTMB and Rceattle development.</p>
+<p>The main report is organized around the decisions needed for the 2026 review. The <strong>Model specifications</strong> section defines the model numbers and their roles so results can be traced to the correct scientific configuration. The <strong>Data</strong> section summarizes the shared assessment inputs and identifies age-data issues that need consistent treatment across platforms. The <strong>Model results</strong> section presents the translation checks, Model 26.0 fit and diagnostics, retrospective evaluation, sensitivities, projections, and exploratory recruitment pathways needed to judge readiness for assessment use. The <strong>Conclusion</strong> brings that evidence together and states the recommended role and next steps for Model 26.0 during the November and December review cycle.</p>
 <p>The appendices preserve supporting material that informs this work. <a href="#sec-ssc-comments">Appendix 1</a> presents the main SSC comments and planned responses and retains the earlier 2024 comments. <a href="#sec-esp-development-framework">Appendix 2</a> provides the development structure for an EBS pollock Ecosystem and Socioeconomic Profile (ESP). <a href="#sec-sparsenuts">Appendix 3</a> reports exploratory SparseNUTS sampling, <a href="#sec-model-run-methods">Appendix 4</a> records the reproducible model workflow, <a href="#sec-observation-influence">Appendix 5</a> evaluates observation continuity and case-deletion influence, and <a href="#sec-glossary">Appendix 6</a> defines the report’s acronyms. <a href="#sec-length-frequency-patterns">Appendix 7</a> summarizes seasonal and spatial patterns in the observed pollock length-frequency samples. Together, the main sections and appendices connect the resumed work with the assessment review record.</p>
 </section>
 <section id="model-specifications" class="level1 page-columns page-full" data-number="3">
@@ -7746,7 +7760,7 @@ Editorial writing note for this document:
 <section id="model-numbering-plan" class="level2 page-columns page-full" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="model-numbering-plan"><span class="header-section-number">3.1</span> Model numbering plan</h2>
 <p>The model number should identify the model’s place in the review record. The software name should be shown separately. Under this plan, <strong>Model 23.0</strong> is the 2024 ADMB source, <strong>Model 23.1</strong> is its direct RTMB translation check, and <strong>Model 23.2</strong> is the Rceattle translation check. The newer model names are <strong>Model 25.0 (RTMB)</strong> for the work begun in 2025 and <strong>Model 26.0 (Rceattle)</strong> for the development line begun in 2026. The flowchart shows the two numbered development lines and SPoRC’s supporting comparison role (<a href="#fig-model-numbering" class="quarto-xref">Figure 1</a>).</p>
-<div class="cell page-columns page-full" data-layout-align="default">
+<div class="cell page-columns page-full" data-fig-width="6.6" data-layout-align="default">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-model-numbering" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -7762,7 +7776,9 @@ Editorial writing note for this document:
   S[&quot;SPoRC&lt;br/&gt;supporting comparison&quot;] -.-&gt;|&quot;common tests&quot;| C
   S -.-&gt;|&quot;common tests&quot;| D
   classDef model fill:#e8f0f7,stroke:#52616b,color:#111111
-  class A,B,C,D,E,S model
+  classDef comparison fill:#fff4cc,stroke:#9a8444,color:#111111
+  class A,B,C,D,E model
+  class S comparison
 </pre>
 </div>
 </div>
@@ -7798,13 +7814,12 @@ Figure 1: Proposed numbering and development history for EBS pollock assessment
 <li><strong>Supplementary abundance indices:</strong> the acoustic vessel-of-opportunity (AVO) series has 18 observations during 2006–2024, and the historical CPUE series has 12 observations during 1965–1976. The AVO approach and recent reanalysis are described by <span class="citation" data-cites="honkalehto2011">Honkalehto et al. (<a href="#ref-honkalehto2011" role="doc-biblioref">2011</a>)</span> and <span class="citation" data-cites="lauffenburger2024">Lauffenburger et al. (<a href="#ref-lauffenburger2024" role="doc-biblioref">2024</a>)</span>.</li>
 <li><strong>Biological schedules:</strong> the models use ageing-error information, maturity, natural mortality, and spawning, fishery, and survey weight-at-age schedules. AFSC pollock ageing methods and data quality are summarized by <span class="citation" data-cites="matta2026agegrowth">Matta et al. (<a href="#ref-matta2026agegrowth" role="doc-biblioref">2026</a>)</span>; spatial and temporal variation in EBS pollock weight at age is evaluated by <span class="citation" data-cites="indivero2023">Indivero et al. (<a href="#ref-indivero2023" role="doc-biblioref">2023</a>)</span>.</li>
 </ul>
-<p>Across platforms, <strong>ADMB Model 23.0</strong> provides the accepted 2024 assessment reference, observation schedule, and source-model settings. <strong>RTMB Models 23.1 and 25.0</strong> use the corrected ADMB bridge inputs directly and preserve the complete ages 1–15 BTS composition treatment; the <a href="https://jimianelli.github.io/rtmb_ebswp/ebs_pollock_rtmb_ebswp_assessment.html#data-inputs">RTMB data-input documentation</a> describes that translation. <strong>SPoRC</strong> maps the corrected bridge observations to one fishery and four survey or index components for an independent single-region comparison, as described in the <a href="https://jimianelli.github.io/sporc_ebswp/">SPoRC EBS pollock working paper</a>. <strong>Rceattle Model 26.0</strong> reads a workbook prepared from the same 1964–2024 assessment source and retains all 15 modeled ages; its data application is documented in the <a href="https://noaa-afsc.github.io/ebswp_rceattle/">Rceattle EBS pollock report</a>. Each platform retains its own internal data structure and method for measuring model fit.</p>
+<p>Across platforms, <strong>ADMB Model 23.0</strong> provides the accepted 2024 assessment reference, observation schedule, and source-model settings. <strong>RTMB Models 23.1 and 25.0</strong> use the corrected ADMB bridge inputs directly and preserve the complete ages 1–15 BTS composition treatment.</p>
 <p>The summary above describes the common 2024-terminal bridge used for model comparison. New 2025 and 2026 observations will enter the assessment only after their source products, sample sizes, ageing-error treatment, and quality control have been finalized.</p>
 </section>
 <section id="sec-age-data-issues" class="level2 page-columns page-full" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="sec-age-data-issues"><span class="header-section-number">4.2</span> Issues</h2>
 <p>This section documents two distinct age-composition product issues considered after the 2024 assessment: the method used to assign ages to individual otoliths and the spatio-temporal method used to expand BTS age samples into annual proportions at age. The first concerns traditional microscope ages (TMA) versus ages predicted by Fourier-transform near-infrared spectroscopy (FT-NIRS). The second concerns replacement of the prior BTS age-composition estimator with a tinyVAST implementation. In the second case, the survey observations remain the same; the estimated annual age-composition data product derived from those observations has changed because the expansion method was revised. These changes occur at different stages of the data workflow and should be evaluated separately.</p>
-<p>Source material: <a href="https://jimianelli.github.io/rtmb_ebswp/ebs_pollock_rtmb_ebswp_assessment.html#sec-age-data-issues">RTMB working-paper age-data appendix</a>.</p>
 <section id="sec-ftnirs-age-data" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="sec-ftnirs-age-data"><span class="header-section-number">4.2.1</span> FTNIRS age-data</h3>
 <p>The Alaska Fisheries Science Center’s Age and Growth Program has produced more than 460,000 walleye pollock age estimates since 1971. From 2005 through 2024, annual production averaged 11,141 pollock ages and ranged from 8,408 to 14,441. Across Alaska pollock stocks, inter-reader precision was relatively high: the overall average coefficient of variation was 4.28%, percent agreement was 68.6%, and reader and tester estimates generally differed by one year or less year. Eighty percent of pollock aged by the program were 3–10 years old, and the maximum observed age was 31 years. Radiometric analysis supports the accuracy of the program’s ageing criteria through age 8, while marginal increment analyses, year-class tracking, hard-structure comparisons, and captive-rearing studies provide additional corroboration. Older ages occur more frequently in the Bering Sea and Aleutian Islands than in the Gulf of Alaska, and Bering Sea pollock generally grow more slowly but attain greater lengths and ages. Female pollock also become larger at age than males beginning at approximately age 5 <span class="citation" data-cites="matta2026agegrowth">(<a href="#ref-matta2026agegrowth" role="doc-biblioref">Matta et al. 2026, 33–42</a>)</span>. These production and precision statistics summarize AFSC pollock ageing across Alaska stocks rather than the eastern Bering Sea alone; the eastern Bering Sea assessment is the most data-rich pollock assessment.</p>
@@ -7822,20 +7837,20 @@ Figure 1: Proposed numbering and development history for EBS pollock assessment
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-bts-age-data-contrast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="qcrbxpmpvx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qcrbxpmpvx table {
+<div id="tjyllalpjm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tjyllalpjm table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#qcrbxpmpvx thead, #qcrbxpmpvx tbody, #qcrbxpmpvx tfoot, #qcrbxpmpvx tr, #qcrbxpmpvx td, #qcrbxpmpvx th {
+#tjyllalpjm thead, #tjyllalpjm tbody, #tjyllalpjm tfoot, #tjyllalpjm tr, #tjyllalpjm td, #tjyllalpjm th {
 border-style: none;
 }
-#qcrbxpmpvx p {
+#tjyllalpjm p {
 margin: 0;
 padding: 0;
 }
-#qcrbxpmpvx .gt_table {
+#tjyllalpjm .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -7860,11 +7875,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#qcrbxpmpvx .gt_caption {
+#tjyllalpjm .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#qcrbxpmpvx .gt_title {
+#tjyllalpjm .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -7875,7 +7890,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#qcrbxpmpvx .gt_subtitle {
+#tjyllalpjm .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -7886,7 +7901,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#qcrbxpmpvx .gt_heading {
+#tjyllalpjm .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -7897,12 +7912,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#qcrbxpmpvx .gt_bottom_border {
+#tjyllalpjm .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#qcrbxpmpvx .gt_col_headings {
+#tjyllalpjm .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -7916,7 +7931,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#qcrbxpmpvx .gt_col_heading {
+#tjyllalpjm .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -7935,7 +7950,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#qcrbxpmpvx .gt_column_spanner_outer {
+#tjyllalpjm .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -7946,13 +7961,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#qcrbxpmpvx .gt_column_spanner_outer:first-child {
+#tjyllalpjm .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#qcrbxpmpvx .gt_column_spanner_outer:last-child {
+#tjyllalpjm .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#qcrbxpmpvx .gt_column_spanner {
+#tjyllalpjm .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -7963,10 +7978,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#qcrbxpmpvx .gt_spanner_row {
+#tjyllalpjm .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#qcrbxpmpvx .gt_group_heading {
+#tjyllalpjm .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -7991,7 +8006,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#qcrbxpmpvx .gt_empty_group_heading {
+#tjyllalpjm .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -8005,13 +8020,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#qcrbxpmpvx .gt_from_md > :first-child {
+#tjyllalpjm .gt_from_md > :first-child {
 margin-top: 0;
 }
-#qcrbxpmpvx .gt_from_md > :last-child {
+#tjyllalpjm .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#qcrbxpmpvx .gt_row {
+#tjyllalpjm .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8029,7 +8044,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#qcrbxpmpvx .gt_stub {
+#tjyllalpjm .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8041,7 +8056,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#qcrbxpmpvx .gt_stub_row_group {
+#tjyllalpjm .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8054,13 +8069,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#qcrbxpmpvx .gt_row_group_first td {
+#tjyllalpjm .gt_row_group_first td {
 border-top-width: 2px;
 }
-#qcrbxpmpvx .gt_row_group_first th {
+#tjyllalpjm .gt_row_group_first th {
 border-top-width: 2px;
 }
-#qcrbxpmpvx .gt_summary_row {
+#tjyllalpjm .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -8069,14 +8084,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#qcrbxpmpvx .gt_first_summary_row {
+#tjyllalpjm .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#qcrbxpmpvx .gt_first_summary_row.thick {
+#tjyllalpjm .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#qcrbxpmpvx .gt_last_summary_row {
+#tjyllalpjm .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8085,7 +8100,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#qcrbxpmpvx .gt_grand_summary_row {
+#tjyllalpjm .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -8094,7 +8109,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#qcrbxpmpvx .gt_first_grand_summary_row {
+#tjyllalpjm .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8103,7 +8118,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#qcrbxpmpvx .gt_last_grand_summary_row_top {
+#tjyllalpjm .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8112,10 +8127,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#qcrbxpmpvx .gt_striped {
+#tjyllalpjm .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#qcrbxpmpvx .gt_table_body {
+#tjyllalpjm .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -8123,7 +8138,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#qcrbxpmpvx .gt_footnotes {
+#tjyllalpjm .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -8136,7 +8151,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#qcrbxpmpvx .gt_footnote {
+#tjyllalpjm .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -8144,7 +8159,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#qcrbxpmpvx .gt_sourcenotes {
+#tjyllalpjm .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -8157,64 +8172,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#qcrbxpmpvx .gt_sourcenote {
+#tjyllalpjm .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#qcrbxpmpvx .gt_left {
+#tjyllalpjm .gt_left {
 text-align: left;
 }
-#qcrbxpmpvx .gt_center {
+#tjyllalpjm .gt_center {
 text-align: center;
 }
-#qcrbxpmpvx .gt_right {
+#tjyllalpjm .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#qcrbxpmpvx .gt_font_normal {
+#tjyllalpjm .gt_font_normal {
 font-weight: normal;
 }
-#qcrbxpmpvx .gt_font_bold {
+#tjyllalpjm .gt_font_bold {
 font-weight: bold;
 }
-#qcrbxpmpvx .gt_font_italic {
+#tjyllalpjm .gt_font_italic {
 font-style: italic;
 }
-#qcrbxpmpvx .gt_super {
+#tjyllalpjm .gt_super {
 font-size: 65%;
 }
-#qcrbxpmpvx .gt_footnote_marks {
+#tjyllalpjm .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#qcrbxpmpvx .gt_asterisk {
+#tjyllalpjm .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#qcrbxpmpvx .gt_indent_1 {
+#tjyllalpjm .gt_indent_1 {
 text-indent: 5px;
 }
-#qcrbxpmpvx .gt_indent_2 {
+#tjyllalpjm .gt_indent_2 {
 text-indent: 10px;
 }
-#qcrbxpmpvx .gt_indent_3 {
+#tjyllalpjm .gt_indent_3 {
 text-indent: 15px;
 }
-#qcrbxpmpvx .gt_indent_4 {
+#tjyllalpjm .gt_indent_4 {
 text-indent: 20px;
 }
-#qcrbxpmpvx .gt_indent_5 {
+#tjyllalpjm .gt_indent_5 {
 text-indent: 25px;
 }
-#qcrbxpmpvx .katex-display {
+#tjyllalpjm .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#qcrbxpmpvx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tjyllalpjm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -8283,20 +8298,20 @@ Figure 2: Percent change in the estimated BTS proportions at age from the origi
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-bts-age-data-diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="ldmfpxltjc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ldmfpxltjc table {
+<div id="lbvngbhpcv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lbvngbhpcv table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#ldmfpxltjc thead, #ldmfpxltjc tbody, #ldmfpxltjc tfoot, #ldmfpxltjc tr, #ldmfpxltjc td, #ldmfpxltjc th {
+#lbvngbhpcv thead, #lbvngbhpcv tbody, #lbvngbhpcv tfoot, #lbvngbhpcv tr, #lbvngbhpcv td, #lbvngbhpcv th {
 border-style: none;
 }
-#ldmfpxltjc p {
+#lbvngbhpcv p {
 margin: 0;
 padding: 0;
 }
-#ldmfpxltjc .gt_table {
+#lbvngbhpcv .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -8321,11 +8336,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#ldmfpxltjc .gt_caption {
+#lbvngbhpcv .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#ldmfpxltjc .gt_title {
+#lbvngbhpcv .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -8336,7 +8351,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#ldmfpxltjc .gt_subtitle {
+#lbvngbhpcv .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -8347,7 +8362,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#ldmfpxltjc .gt_heading {
+#lbvngbhpcv .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -8358,12 +8373,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#ldmfpxltjc .gt_bottom_border {
+#lbvngbhpcv .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#ldmfpxltjc .gt_col_headings {
+#lbvngbhpcv .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -8377,7 +8392,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#ldmfpxltjc .gt_col_heading {
+#lbvngbhpcv .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8396,7 +8411,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#ldmfpxltjc .gt_column_spanner_outer {
+#lbvngbhpcv .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8407,13 +8422,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#ldmfpxltjc .gt_column_spanner_outer:first-child {
+#lbvngbhpcv .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#ldmfpxltjc .gt_column_spanner_outer:last-child {
+#lbvngbhpcv .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#ldmfpxltjc .gt_column_spanner {
+#lbvngbhpcv .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -8424,10 +8439,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#ldmfpxltjc .gt_spanner_row {
+#lbvngbhpcv .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#ldmfpxltjc .gt_group_heading {
+#lbvngbhpcv .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8452,7 +8467,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#ldmfpxltjc .gt_empty_group_heading {
+#lbvngbhpcv .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -8466,13 +8481,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#ldmfpxltjc .gt_from_md > :first-child {
+#lbvngbhpcv .gt_from_md > :first-child {
 margin-top: 0;
 }
-#ldmfpxltjc .gt_from_md > :last-child {
+#lbvngbhpcv .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#ldmfpxltjc .gt_row {
+#lbvngbhpcv .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8490,7 +8505,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#ldmfpxltjc .gt_stub {
+#lbvngbhpcv .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8502,7 +8517,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ldmfpxltjc .gt_stub_row_group {
+#lbvngbhpcv .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8515,13 +8530,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#ldmfpxltjc .gt_row_group_first td {
+#lbvngbhpcv .gt_row_group_first td {
 border-top-width: 2px;
 }
-#ldmfpxltjc .gt_row_group_first th {
+#lbvngbhpcv .gt_row_group_first th {
 border-top-width: 2px;
 }
-#ldmfpxltjc .gt_summary_row {
+#lbvngbhpcv .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -8530,14 +8545,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ldmfpxltjc .gt_first_summary_row {
+#lbvngbhpcv .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#ldmfpxltjc .gt_first_summary_row.thick {
+#lbvngbhpcv .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#ldmfpxltjc .gt_last_summary_row {
+#lbvngbhpcv .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8546,7 +8561,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#ldmfpxltjc .gt_grand_summary_row {
+#lbvngbhpcv .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -8555,7 +8570,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ldmfpxltjc .gt_first_grand_summary_row {
+#lbvngbhpcv .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8564,7 +8579,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#ldmfpxltjc .gt_last_grand_summary_row_top {
+#lbvngbhpcv .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8573,10 +8588,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#ldmfpxltjc .gt_striped {
+#lbvngbhpcv .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#ldmfpxltjc .gt_table_body {
+#lbvngbhpcv .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -8584,7 +8599,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#ldmfpxltjc .gt_footnotes {
+#lbvngbhpcv .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -8597,7 +8612,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#ldmfpxltjc .gt_footnote {
+#lbvngbhpcv .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -8605,7 +8620,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ldmfpxltjc .gt_sourcenotes {
+#lbvngbhpcv .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -8618,64 +8633,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#ldmfpxltjc .gt_sourcenote {
+#lbvngbhpcv .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ldmfpxltjc .gt_left {
+#lbvngbhpcv .gt_left {
 text-align: left;
 }
-#ldmfpxltjc .gt_center {
+#lbvngbhpcv .gt_center {
 text-align: center;
 }
-#ldmfpxltjc .gt_right {
+#lbvngbhpcv .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#ldmfpxltjc .gt_font_normal {
+#lbvngbhpcv .gt_font_normal {
 font-weight: normal;
 }
-#ldmfpxltjc .gt_font_bold {
+#lbvngbhpcv .gt_font_bold {
 font-weight: bold;
 }
-#ldmfpxltjc .gt_font_italic {
+#lbvngbhpcv .gt_font_italic {
 font-style: italic;
 }
-#ldmfpxltjc .gt_super {
+#lbvngbhpcv .gt_super {
 font-size: 65%;
 }
-#ldmfpxltjc .gt_footnote_marks {
+#lbvngbhpcv .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#ldmfpxltjc .gt_asterisk {
+#lbvngbhpcv .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#ldmfpxltjc .gt_indent_1 {
+#lbvngbhpcv .gt_indent_1 {
 text-indent: 5px;
 }
-#ldmfpxltjc .gt_indent_2 {
+#lbvngbhpcv .gt_indent_2 {
 text-indent: 10px;
 }
-#ldmfpxltjc .gt_indent_3 {
+#lbvngbhpcv .gt_indent_3 {
 text-indent: 15px;
 }
-#ldmfpxltjc .gt_indent_4 {
+#lbvngbhpcv .gt_indent_4 {
 text-indent: 20px;
 }
-#ldmfpxltjc .gt_indent_5 {
+#lbvngbhpcv .gt_indent_5 {
 text-indent: 25px;
 }
-#ldmfpxltjc .katex-display {
+#lbvngbhpcv .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#ldmfpxltjc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lbvngbhpcv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -8726,20 +8741,20 @@ Table 2: ADMB fit diagnostics for the matched 2025 model with tinyVAST BTS prop
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-bts-age-data-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="pefungusik" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pefungusik table {
+<div id="nkjamadplx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nkjamadplx table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#pefungusik thead, #pefungusik tbody, #pefungusik tfoot, #pefungusik tr, #pefungusik td, #pefungusik th {
+#nkjamadplx thead, #nkjamadplx tbody, #nkjamadplx tfoot, #nkjamadplx tr, #nkjamadplx td, #nkjamadplx th {
 border-style: none;
 }
-#pefungusik p {
+#nkjamadplx p {
 margin: 0;
 padding: 0;
 }
-#pefungusik .gt_table {
+#nkjamadplx .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -8764,11 +8779,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#pefungusik .gt_caption {
+#nkjamadplx .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#pefungusik .gt_title {
+#nkjamadplx .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -8779,7 +8794,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#pefungusik .gt_subtitle {
+#nkjamadplx .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -8790,7 +8805,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#pefungusik .gt_heading {
+#nkjamadplx .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -8801,12 +8816,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#pefungusik .gt_bottom_border {
+#nkjamadplx .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#pefungusik .gt_col_headings {
+#nkjamadplx .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -8820,7 +8835,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#pefungusik .gt_col_heading {
+#nkjamadplx .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8839,7 +8854,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#pefungusik .gt_column_spanner_outer {
+#nkjamadplx .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8850,13 +8865,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#pefungusik .gt_column_spanner_outer:first-child {
+#nkjamadplx .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#pefungusik .gt_column_spanner_outer:last-child {
+#nkjamadplx .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#pefungusik .gt_column_spanner {
+#nkjamadplx .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -8867,10 +8882,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#pefungusik .gt_spanner_row {
+#nkjamadplx .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#pefungusik .gt_group_heading {
+#nkjamadplx .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8895,7 +8910,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#pefungusik .gt_empty_group_heading {
+#nkjamadplx .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -8909,13 +8924,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#pefungusik .gt_from_md > :first-child {
+#nkjamadplx .gt_from_md > :first-child {
 margin-top: 0;
 }
-#pefungusik .gt_from_md > :last-child {
+#nkjamadplx .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#pefungusik .gt_row {
+#nkjamadplx .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8933,7 +8948,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#pefungusik .gt_stub {
+#nkjamadplx .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8945,7 +8960,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#pefungusik .gt_stub_row_group {
+#nkjamadplx .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8958,13 +8973,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#pefungusik .gt_row_group_first td {
+#nkjamadplx .gt_row_group_first td {
 border-top-width: 2px;
 }
-#pefungusik .gt_row_group_first th {
+#nkjamadplx .gt_row_group_first th {
 border-top-width: 2px;
 }
-#pefungusik .gt_summary_row {
+#nkjamadplx .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -8973,14 +8988,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#pefungusik .gt_first_summary_row {
+#nkjamadplx .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#pefungusik .gt_first_summary_row.thick {
+#nkjamadplx .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#pefungusik .gt_last_summary_row {
+#nkjamadplx .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8989,7 +9004,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#pefungusik .gt_grand_summary_row {
+#nkjamadplx .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -8998,7 +9013,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#pefungusik .gt_first_grand_summary_row {
+#nkjamadplx .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -9007,7 +9022,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#pefungusik .gt_last_grand_summary_row_top {
+#nkjamadplx .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -9016,10 +9031,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#pefungusik .gt_striped {
+#nkjamadplx .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#pefungusik .gt_table_body {
+#nkjamadplx .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -9027,7 +9042,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#pefungusik .gt_footnotes {
+#nkjamadplx .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -9040,7 +9055,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#pefungusik .gt_footnote {
+#nkjamadplx .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -9048,7 +9063,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#pefungusik .gt_sourcenotes {
+#nkjamadplx .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -9061,64 +9076,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#pefungusik .gt_sourcenote {
+#nkjamadplx .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#pefungusik .gt_left {
+#nkjamadplx .gt_left {
 text-align: left;
 }
-#pefungusik .gt_center {
+#nkjamadplx .gt_center {
 text-align: center;
 }
-#pefungusik .gt_right {
+#nkjamadplx .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#pefungusik .gt_font_normal {
+#nkjamadplx .gt_font_normal {
 font-weight: normal;
 }
-#pefungusik .gt_font_bold {
+#nkjamadplx .gt_font_bold {
 font-weight: bold;
 }
-#pefungusik .gt_font_italic {
+#nkjamadplx .gt_font_italic {
 font-style: italic;
 }
-#pefungusik .gt_super {
+#nkjamadplx .gt_super {
 font-size: 65%;
 }
-#pefungusik .gt_footnote_marks {
+#nkjamadplx .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#pefungusik .gt_asterisk {
+#nkjamadplx .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#pefungusik .gt_indent_1 {
+#nkjamadplx .gt_indent_1 {
 text-indent: 5px;
 }
-#pefungusik .gt_indent_2 {
+#nkjamadplx .gt_indent_2 {
 text-indent: 10px;
 }
-#pefungusik .gt_indent_3 {
+#nkjamadplx .gt_indent_3 {
 text-indent: 15px;
 }
-#pefungusik .gt_indent_4 {
+#nkjamadplx .gt_indent_4 {
 text-indent: 20px;
 }
-#pefungusik .gt_indent_5 {
+#nkjamadplx .gt_indent_5 {
 text-indent: 25px;
 }
-#pefungusik .katex-display {
+#nkjamadplx .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#pefungusik div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#nkjamadplx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -9216,7 +9231,6 @@ Figure 4: Spawning stock biomass and age-1 recruitment from the original and mo
 <section id="sec-bts-availability" class="level3 page-columns page-full" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="sec-bts-availability"><span class="header-section-number">5.2.1</span> Evaluation of time-varying BTS availability</h3>
 <p>This diagnostic isolates the biomass variation induced by the fitted time-varying bottom-trawl survey (BTS) selectivity, the proportion of fish at each age available to the survey. It holds population abundance and weight at age constant across years. The fixed abundance vector for ages 1–15 is the arithmetic mean of the model-estimated numbers at each age across 1982–2024. The fixed weight vector is the mean BTS weight at each age across the survey observations. This centers the controlled calculation on the estimated population age structure over the analysis period while removing annual changes in population abundance.</p>
-<p>Source material: <a href="https://jimianelli.github.io/rtmb_ebswp/ebs_pollock_rtmb_ebswp_assessment.html#sec-bts-availability">RTMB working-paper Appendix A-2</a>.</p>
 <p>For year <span class="math inline">\(t\)</span>, the selectivity-only vulnerable biomass is</p>
 <p><span class="math display">\[
 B^{\mathrm{sel}}_t = \sum_{a=1}^{15} \bar{N}_a\,\bar{w}_a\,s_{t,a},

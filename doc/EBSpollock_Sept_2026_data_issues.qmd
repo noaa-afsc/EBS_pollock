@@ -10,9 +10,6 @@ observations has changed because the expansion method was revised. These
 changes occur at different stages of the data workflow and should be evaluated
 separately.
 
-Source material: [RTMB working-paper age-data appendix](https://jimianelli.github.io/rtmb_ebswp/ebs_pollock_rtmb_ebswp_assessment.html#sec-age-data-issues).
-
-
 ### FTNIRS age-data {#sec-ftnirs-age-data}
 
 The Alaska Fisheries Science Center's Age and Growth Program has produced more

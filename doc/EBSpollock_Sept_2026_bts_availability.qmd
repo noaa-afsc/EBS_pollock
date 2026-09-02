@@ -8,8 +8,6 @@ age across the survey observations. This centers the controlled calculation
 on the estimated population age structure over the analysis period while
 removing annual changes in population abundance.
 
-Source material: [RTMB working-paper Appendix A-2](https://jimianelli.github.io/rtmb_ebswp/ebs_pollock_rtmb_ebswp_assessment.html#sec-bts-availability).
-
 For year $t$, the selectivity-only vulnerable biomass is
 
 $$
