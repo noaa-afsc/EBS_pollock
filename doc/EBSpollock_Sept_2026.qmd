@@ -842,6 +842,20 @@ fishing mortality, ATS contributes increasingly to recent biomass and
 recruitment, and AVO provides a smaller complementary signal. These patterns
 are consistent with the roles and lengths of the three survey series.
 
+Rceattle is also being used to develop the Gulf of Alaska (GOA) pollock
+assessment, and the companion comparison successfully reran the GOA base model
+through its numerical fit checks. The GOA application estimates recruitment
+and changes in survey catchability within the fitted model, whereas the EBS
+application emphasizes translation of the established ADMB structure and a
+separate `spmR` projection handoff. Together, the applications show how
+Rceattle can support stocks with different survey histories and assessment
+structures. They also provide a shared basis for pinning software and input
+versions, recording which observations enter each fit, applying common fit and
+retrospective checks, and testing the projection handoff. Stock-specific
+surveys, age ranges, and selectivity choices remain central to each assessment
+while the shared Rceattle platform supports consistent and transparent
+evaluation across both regions.
+
 The diagnostic results also define a practical operational checklist. The
 production run should retain the two-stage fitting sequence and multi-start
 evaluation, repeat the OSA and lag-preserving retrospective analyses, review
