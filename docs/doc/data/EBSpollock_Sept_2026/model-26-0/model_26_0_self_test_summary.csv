@@ -1,0 +1,2 @@
+"Requested_simulations","Converged_refits","Dropped_refits","Maximum_refit_gradient","Median_refit_gradient","Simulation_seed","Starting_values","Simulated_process"
+50,50,0,0.000381149332667352,4.58960102197559e-05,20260831,"Original pre-fit starting values","Observation error only; fitted recruitment deviations retained"

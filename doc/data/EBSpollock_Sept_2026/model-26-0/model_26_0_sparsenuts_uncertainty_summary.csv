@@ -1,8 +1,8 @@
 "Metric","Value"
 "Parameters compared",1218
-"Log-scale SD correlation",0.970837933483947
-"Median MCMC-to-Hessian uncertainty ratio",1.00613053459212
-"Minimum ratio among slowest six",1.44577671194649
-"Maximum ratio among slowest six",1.62647662043593
-"Minimum pairwise correlation among slowest six",0.81932234062612
-"Maximum pairwise correlation among slowest six",0.926626643612719
+"Log-scale SD correlation",0.939197057091612
+"Median MCMC-to-Hessian uncertainty ratio",1.01247799697392
+"Minimum ratio among slowest six",1.63589818653102
+"Maximum ratio among slowest six",9.71176857195792
+"Minimum pairwise correlation among slowest six",-0.0139590965698317
+"Maximum pairwise correlation among slowest six",0.92894962730889

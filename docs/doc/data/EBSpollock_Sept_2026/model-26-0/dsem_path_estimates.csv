@@ -1,0 +1,25 @@
+"model","Model","path","lag","parameter","estimate","standard_error","lower_95","upper_95"
+"iid","No-edge reference","ColdPool -> ColdPool",1,"AR_ColdPool",0.379908324888356,0.14847250597583,0.0889022131757292,0.670914436600983
+"iid","No-edge reference","LateSummerSST -> LateSummerSST",1,"AR_LateSummerSST",0.434505900954444,0.143413487429906,0.153415465591828,0.71559633631706
+"iid","No-edge reference","recdevs1 <-> recdevs1",0,"sigmaR1",0.685289494866569,0.0692540690077744,0.549551519611332,0.821027470121807
+"iid","No-edge reference","ColdPool <-> ColdPool",0,"V[ColdPool]",0.919450282955521,0.101784347032032,0.719952962772739,1.1189476031383
+"iid","No-edge reference","LateSummerSST <-> LateSummerSST",0,"V[LateSummerSST]",0.900203742000442,0.100967586945092,0.702307271588061,1.09810021241282
+"cold_pool","Cold pool","ColdPool -> ColdPool",1,"AR_ColdPool",0.381379658287065,0.14896704448958,0.0894042510874879,0.673355065486643
+"cold_pool","Cold pool","LateSummerSST -> LateSummerSST",1,"AR_LateSummerSST",0.434506141162607,0.14341347095058,0.153415738099469,0.715596544225744
+"cold_pool","Cold pool","recdevs1 <-> recdevs1",0,"sigmaR1",0.684175627972569,0.0691913858907817,0.548560511626637,0.819790744318501
+"cold_pool","Cold pool","ColdPool -> recdevs1",0,"ColdPool_to_R",0.0407257642794358,0.107267525375554,-0.169518585456649,0.250970114015521
+"cold_pool","Cold pool","ColdPool <-> ColdPool",0,"V[ColdPool]",0.919346636186326,0.101765621157914,0.719886018716815,1.11880725365584
+"cold_pool","Cold pool","LateSummerSST <-> LateSummerSST",0,"V[LateSummerSST]",0.900203684906345,0.100967571531421,0.70230724470476,1.09810012510793
+"late_summer_sst","Age-0 late-summer SST","ColdPool -> ColdPool",1,"AR_ColdPool",0.379908726640624,0.148472496800722,0.0889026329112084,0.670914820370039
+"late_summer_sst","Age-0 late-summer SST","LateSummerSST -> LateSummerSST",1,"AR_LateSummerSST",0.477857401827506,0.160577770385336,0.163124971872247,0.792589831782765
+"late_summer_sst","Age-0 late-summer SST","recdevs1 <-> recdevs1",0,"sigmaR1",0.648429434121288,0.0679304465728772,0.515285758838449,0.781573109404128
+"late_summer_sst","Age-0 late-summer SST","LateSummerSST -> recdevs1",0,"LateSummerSST_to_R",-0.221542787149056,0.104252210340394,-0.425877119416228,-0.0172084548818842
+"late_summer_sst","Age-0 late-summer SST","ColdPool <-> ColdPool",0,"V[ColdPool]",0.919450362605598,0.101784368936374,0.719952999490305,1.11894772572089
+"late_summer_sst","Age-0 late-summer SST","LateSummerSST <-> LateSummerSST",0,"V[LateSummerSST]",0.901836571646128,0.101720634553005,0.702464127922238,1.10120901537002
+"combined","Cold pool + age-0 late-summer SST","ColdPool -> ColdPool",1,"AR_ColdPool",0.384069710324618,0.148253531835983,0.0934927879260913,0.674646632723144
+"combined","Cold pool + age-0 late-summer SST","LateSummerSST -> LateSummerSST",1,"AR_LateSummerSST",0.493135822674563,0.173014539038149,0.154027326159791,0.832244319189335
+"combined","Cold pool + age-0 late-summer SST","recdevs1 <-> recdevs1",0,"sigmaR1",0.642886718706143,0.0683022228191259,0.509014361980656,0.77675907543163
+"combined","Cold pool + age-0 late-summer SST","ColdPool -> recdevs1",0,"ColdPool_to_R",-0.0693285464861886,0.11357274877645,-0.291931134088031,0.153274041115654
+"combined","Cold pool + age-0 late-summer SST","LateSummerSST -> recdevs1",0,"LateSummerSST_to_R",-0.254012487701738,0.117559461932048,-0.484429033088553,-0.0235959423149225
+"combined","Cold pool + age-0 late-summer SST","ColdPool <-> ColdPool",0,"V[ColdPool]",0.919371307916436,0.101754307881951,0.719932864467812,1.11880975136506
+"combined","Cold pool + age-0 late-summer SST","LateSummerSST <-> LateSummerSST",0,"V[LateSummerSST]",0.903138224883282,0.10266341169855,0.701917937954124,1.10435851181244

@@ -133,13 +133,15 @@ runs have correlations of 0.994 for spawning biomass and 0.999 for age-1
 recruitment; their 2024 differences are +1.12% and -9.19%, respectively. The
 simple Model 26.0 Rceattle fit met the stated convergence
 criteria and closely followed the Model 23.2 Rceattle-aligned ADMB bridge, with
-trajectory correlations above 0.998. Its composition residuals varied less
+trajectory correlations above 0.998. The ATS age-composition likelihood uses
+ages 2--15 and 18 fitted survey years; its 2020 row has sample size zero because
+no age-composition sample was collected. Composition residuals varied less
 than expected under the fitted model. Forty-seven of 50 dispersed-start fits
 returned to the best solution, while three reached the same higher objective.
 The repeated higher objective indicates a recurring alternative solution. All
 50 simulated-data self-tests completed with convergence status OK. The lag-preserving
-nine-peel retrospective produced Mohn's rho values of 0.329 for spawning
-biomass, 0.211 for total biomass, 0.185 for age-1 recruitment, and -0.126 for
+nine-peel retrospective produced Mohn's rho values of 0.331 for spawning
+biomass, 0.214 for total biomass, 0.188 for age-1 recruitment, and -0.127 for
 fishing mortality. The peels generally estimated greater biomass and
 recruitment and lower fishing mortality than the full fit over the same years.
 Controlled data tests for the 2020-to-2021 peel transition identified the 2021
@@ -152,9 +154,9 @@ retrospective stability the principal Model 26.0 evaluation priorities.
 The whole-index-fleet sensitivities retained CPUE and removed BTS, ATS, or AVO
 in separate refits. All three completed with convergence status OK and
 positive-definite Hessians. BTS had the greatest influence: its removal reduced
-2024 spawning biomass by 12.2% and increased 2024 fishing mortality by 98.7%.
-Removing ATS increased 2024 spawning biomass by 11.7% and age-1 recruitment by
-34.3%. Removing AVO changed each 2024 quantity by less than 7%. These severe
+2024 spawning biomass by 11.8% and increased 2024 fishing mortality by 96.9%.
+Removing ATS increased 2024 spawning biomass by 11.4% and age-1 recruitment by
+34.5%. Removing AVO changed each 2024 quantity by less than 7%. These severe
 deletion tests show the complementary roles of the survey series and identify
 BTS as the principal source of scale information.
 
@@ -295,8 +297,9 @@ The basic data used across the platforms are:
   estimation of pollock survey indices and age compositions is described by
   @OLeary2020, and spatially structured estimation of pollock weight at age is
   described by @indivero2023.
-- **Acoustic-trawl survey (ATS):** pollock abundance indices, age compositions,
-  sample sizes, and weight at age for 19 survey years during 1994--2024. The
+- **Acoustic-trawl survey (ATS):** pollock abundance indices and weight at age
+  for 19 survey years during 1994--2024, with age compositions and sample sizes
+  for 18 of those years. No age-composition sample was collected in 2020. The
   survey series includes separate information for age-1 pollock and older
   pollock. Survey methods are documented by @honkalehto2015; current work on
   uncertainty in acoustic-trawl estimates is described by @urmy2025.
@@ -402,8 +405,8 @@ configuration. A later Model 26.x comparison can evaluate the interface change
 separately.
 
 Both fitting stages met the current Rceattle convergence criteria. Model 26.0
-had a maximum absolute gradient of $7.65\times10^{-5}$, a positive-definite
-Hessian, and a Hessian condition number of 489,090. The weakest direction
+had a maximum absolute gradient of $4.98\times10^{-5}$, a positive-definite
+Hessian, and a Hessian condition number of 489,317. The weakest direction
 remains associated with the shared ATS/AVO annual selectivity changes
 (@tbl-model-26-convergence).
 
@@ -453,7 +456,8 @@ flowchart TB
 | Item | Model 26.0 setting |
 |---|---|
 | Assessment years and ages | 1964--2024; ages 1--15 |
-| Composition fit | `MultinomialAFSC`; likelihood sample sizes retained from the bridge workbook |
+| Composition fit | `MultinomialAFSC`; likelihood sample sizes retained from the bridge workbook, with ATS 2020 set to zero |
+| 2020 ATS age composition | Excluded from fitting because no age-composition sample was collected |
 | Non-parametric selectivity | Fishery, AVO, ATS, and historical CPUE |
 | BTS selectivity | Logistic curve with the separate age-1 component retained from the bridge |
 | Time variation | Established random-walk selectivity changes |
@@ -464,8 +468,8 @@ flowchart TB
 
 | Fit | Objective | Maximum gradient | Positive-definite Hessian | Status |
 |---|---:|---:|:---:|:---:|
-| Stage 1 scale fit | 562.952 | 0.0000495 | Yes | OK |
-| Model 26.0 | 716.908 | 0.0000765 | Yes | OK |
+| Stage 1 scale fit | 561.986 | 0.000162 | Yes | OK |
+| Model 26.0 | 715.868 | 0.0000498 | Yes | OK |
 
 : Model 26.0 fitting results from Rceattle 5.23.0. {#tbl-model-26-convergence}
 
@@ -487,7 +491,7 @@ age-1 recruitment is 9.19% lower than Model 23.0. The uncertainty intervals
 overlap broadly across the displayed period (@fig-model-23-0-23-2-admb).
 
 The three Model 26.0 trajectories have correlations above 0.998 with the Model
-23.2 bridge, and their mean absolute differences range from 0.69% to 1.45%
+23.2 bridge, and their mean absolute differences range from 0.72% to 1.46%
 (@tbl-model-26-bridge). The fitted trajectories closely follow the bridge over
 the full assessment period (@fig-model-26-bridge). The remaining differences
 reflect parameter estimation in Rceattle rather than a fixed-parameter
@@ -503,9 +507,9 @@ checksums used for the comparison.
 
 | Quantity | Correlation | Mean absolute difference | 2024 difference |
 |---|---:|---:|---:|
-| Spawning biomass | 0.9992 | 1.45% | +2.88% |
-| Age-1 recruitment | 0.9997 | 0.69% | -4.95% |
-| Total biomass | 0.9989 | 1.17% | +1.63% |
+| Spawning biomass | 0.9992 | 1.46% | +3.19% |
+| Age-1 recruitment | 0.9997 | 0.72% | -5.05% |
+| Total biomass | 0.9989 | 1.18% | +1.86% |
 
 : Basic comparison of Model 26.0 with the Model 23.2 Rceattle-aligned ADMB
 bridge. Differences are relative to Model 23.2. {#tbl-model-26-bridge}
@@ -550,8 +554,10 @@ next column. A year without an age composition retains an empty panel. Fishery
 compositions span 1964--2023 (@fig-model-26-fishery-age-fits-early and
 @fig-model-26-fishery-age-fits-late), BTS compositions span 1982--2024
 (@fig-model-26-bts-age-fits-early and @fig-model-26-bts-age-fits-late), and
-ATS compositions span 19 survey years within the complete 1994--2024 panel
-sequence (@fig-model-26-ats-age-fits).
+ATS compositions span 18 fitted survey years within the complete 1994--2024
+panel sequence (@fig-model-26-ats-age-fits). The 2020 panel retains the
+workbook placeholder proportions for transparent review and labels them as
+excluded from fitting because no age-composition sample was collected.
 
 Bar fill follows cohort, calculated as year minus age. The fixed 15-color
 cycle gives the 15 ages a distinct fill within a panel and retains the same
@@ -564,12 +570,10 @@ The root-mean-squared difference between observed and fitted proportions is
 0.024 for both the fishery and BTS. These direct fit plots show close agreement
 for many year-age combinations and identify local departures for the residual
 checks that follow. ATS compositions begin at age 2 because age 1 is
-represented by its separate abundance index. The ATS root-mean-squared
-difference is 0.051 across all fitted rows. The 2020 composition has a
-likelihood sample size of one and contains the largest difference; the summary
-is 0.029 when sampling events with a sample size of one are set aside. The OSA
-section evaluates these same active ATS ages with the likelihood sample sizes
-retained by the model.
+represented by its separate abundance index. Across the 18 fitted ATS rows,
+the root-mean-squared difference is 0.029. The 2020 placeholder carries a
+likelihood sample size of zero and is omitted from this fit summary. The OSA
+section evaluates the same active ATS ages and fitted sampling events.
 
 ![Observed abundance indices and Model 26.0 fitted values. Points show observations, vertical lines show their displayed intervals, and blue lines show fitted values.](assets/model-26-0/model_26_0_index_fits.png){#fig-model-26-index-fits fig-alt="Five panels show observed points and fitted lines for historical catch per unit effort, the bottom-trawl biomass survey, the acoustic-trawl biomass survey, the separate acoustic-trawl age-1 index, and the acoustic vessel-of-opportunity index. Fits generally follow the observed changes, while several age-1 observations have wide intervals." width="94%"}
 
@@ -581,7 +585,7 @@ retained by the model.
 
 ![Observed and fitted bottom-trawl survey age compositions for 2003--2024. Panels proceed down each column before moving from left to right; 2020 remains as a blank panel. Bars show observed proportions, cohort colors remain stable as fish age, and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_bts_age_fits_2003_2024.png){#fig-model-26-bts-age-fits-late fig-alt="A complete 2003 through 2024 bottom-trawl survey grid is ordered from top to bottom within each column, then left to right. Cohort-colored bars show observed proportions and a brown line shows fitted proportions for ages 1 through 15. The 2020 panel is present and blank because an age composition is absent." width="100%"}
 
-![Observed and fitted acoustic-trawl survey age compositions within the complete 1994--2024 year sequence. Panels proceed down each column before moving from left to right, and years without an age composition remain blank. The panels begin at age 2 because age 1 is fitted as a separate abundance index.](assets/model-26-0/model_26_0_ats_age_fits_1994_2024.png){#fig-model-26-ats-age-fits fig-alt="A complete 1994 through 2024 acoustic-trawl survey grid is ordered from top to bottom within each column, then left to right. Nineteen panels contain cohort-colored observed bars and a brown fitted line for ages 2 through 15; the remaining years are blank. The largest difference occurs at age 2 in 2020, which has a likelihood sample size of one." width="100%"}
+![Acoustic-trawl survey age-composition fits within the complete 1994--2024 year sequence. Panels proceed down each column before moving from left to right, and years without an age composition remain blank. The panels begin at age 2 because age 1 is fitted as a separate abundance index. The 2020 panel shows the workbook placeholder proportions and notes that no age data were collected and the row was excluded from fitting.](assets/model-26-0/model_26_0_ats_age_fits_1994_2024.png){#fig-model-26-ats-age-fits fig-alt="A complete 1994 through 2024 acoustic-trawl survey grid is ordered from top to bottom within each column, then left to right. Eighteen panels contain fitted age compositions for ages 2 through 15. The 2020 panel retains placeholder proportions for review and is labeled no age data, excluded from fit. Other years without compositions are blank." width="100%"}
 
 ```{=latex}
 \FloatBarrier
@@ -615,10 +619,10 @@ zero in both the observed and fitted compositions, so its composition
 likelihood and diagnostics begin at age 2. Including the structural-zero
 column in a generic 15-bin residual sequence creates an artificial first
 residual and shifts the remaining ATS sequence. The corrected conversion uses
-the 14 contributing ages. ATS 2020 remains in the fitted Rceattle likelihood;
-its sample size of one is distributed among ages 2--15, and every
-age-specific count rounds to zero in the `afscOSA` conversion. The common
-display therefore uses the other 18 ATS years.
+the 14 contributing ages. ATS 2020 has no age-composition sample, carries a
+likelihood sample size of zero, and is excluded from both the Rceattle
+composition likelihood and the `afscOSA` conversion. The common display
+therefore uses the 18 fitted ATS years.
 
 Each SDNR is below its expected interval: 0.638 for the fishery, 0.802 for BTS,
 and 0.849 for ATS (@tbl-model-26-osa). The aggregate fits and residual bubbles
@@ -628,25 +632,25 @@ supported by appreciable predicted counts.
 
 | Composition source | Years displayed | Residuals | SDNR | Expected interval | Likelihood sample-size total | Rounded count total | Effective sample size |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Fishery | 60 | 840 | 0.638 | 0.952--1.048 | 17,147 | 17,127 | 154,219 |
-| BTS | 42 | 588 | 0.802 | 0.943--1.057 | 5,403 | 5,397 | 3,040 |
-| ATS | 18 | 234 | 0.849 | 0.909--1.091 | 930 | 914 | 680 |
+| Fishery | 60 | 840 | 0.638 | 0.952--1.048 | 17,147 | 17,127 | 153,725 |
+| BTS | 42 | 588 | 0.802 | 0.943--1.057 | 5,403 | 5,397 | 3,039 |
+| ATS | 18 | 234 | 0.849 | 0.909--1.091 | 929 | 914 | 673 |
 
 : OSA dispersion and aggregate sample-size diagnostics. SDNR is the standard
-deviation of normalized residuals. The likelihood sample-size total sums all
-rows used in the fitted Rceattle likelihood, including ATS 2020. The rounded
-count total and effective sample size come from the displayed `afscOSA`
-conversion.
+deviation of normalized residuals. The likelihood sample-size total sums the
+rows used in the fitted Rceattle likelihood; ATS 2020 contributes zero. The
+rounded count total and effective sample size come from the displayed
+`afscOSA` conversion.
 {#tbl-model-26-osa}
 
-![Aggregate age-composition fits, OSA quantile plots, and residual bubbles for the fishery, BTS, and ATS. The fishery and BTS panels retain every input year. ATS uses ages 2--15 and retains 18 display years because its sample size of one in 2020 produces zero rounded counts in the plotting conversion.](assets/model-26-0/model_26_0_afscosa.png){#fig-model-26-osa fig-alt="Four rows of diagnostic plots for fishery, bottom-trawl survey, and acoustic-trawl survey age compositions. The fishery and bottom-trawl survey panels contain ages 1 through 15 and all input years. The acoustic-trawl survey panels begin at age 2, contain 18 years, and omit 2020 from the display because its sample size of one produces zero rounded counts. The first row compares aggregate observed and fitted proportions. The second row shows OSA quantile plots with residual standard deviations of 0.64 for fishery, 0.80 for bottom-trawl survey, and 0.85 for acoustic-trawl survey. The lower rows show OSA and Pearson residual bubbles by age and year." width="100%"}
+![Aggregate age-composition fits, OSA quantile plots, and residual bubbles for the fishery, BTS, and ATS. The fishery and BTS panels retain every fitted input year. ATS uses ages 2--15 and 18 fitted years; its 2020 placeholder has sample size zero and is excluded.](assets/model-26-0/model_26_0_afscosa.png){#fig-model-26-osa fig-alt="Four rows of diagnostic plots for fishery, bottom-trawl survey, and acoustic-trawl survey age compositions. The fishery and bottom-trawl survey panels contain ages 1 through 15 and all fitted input years. The acoustic-trawl survey panels begin at age 2 and contain 18 fitted years; 2020 is excluded because no age-composition sample was collected. The first row compares aggregate observed and fitted proportions. The second row shows OSA quantile plots with residual standard deviations of 0.64 for fishery, 0.80 for bottom-trawl survey, and 0.85 for acoustic-trawl survey. The lower rows show OSA and Pearson residual bubbles by age and year." width="100%"}
 
 #### Jitter test
 
 Fifty phased refits began from parameter values perturbed with standard
 deviation 0.2 and seed 20260831. All 50 completed with convergence status OK.
 Forty-seven returned to the best objective within 0.001. Three reached the same
-higher objective, approximately 609.5 units above the best value. The objective
+higher objective, approximately 609.6 units above the best value. The objective
 distribution and summary count show the 47 returns to the best solution and
 the three higher-mode fits (@fig-model-26-jitter; @tbl-model-26-jitter). This
 repeated higher solution identifies a second mode and supports retaining the
@@ -654,11 +658,11 @@ two-stage fitting sequence and dispersed-start checks in routine work.
 
 | Requested fits | Converged fits | Returned to best | Higher-mode fits | Largest objective difference |
 |---:|---:|---:|---:|---:|
-| 50 | 50 | 47 | 3 | 609.5 |
+| 50 | 50 | 47 | 3 | 609.6 |
 
 : Fifty-start jitter test for Model 26.0. {#tbl-model-26-jitter}
 
-![Distribution of objective differences from the best solution in 50 jitter refits.](assets/model-26-0/model_26_0_jitter_50.png){#fig-model-26-jitter fig-alt="Histogram of objective differences for 50 converged jitter fits. Forty-seven values cluster at zero, while three fits occur around 609.5 objective units above the best solution." width="78%"}
+![Distribution of objective differences from the best solution in 50 jitter refits.](assets/model-26-0/model_26_0_jitter_50.png){#fig-model-26-jitter fig-alt="Histogram of objective differences for 50 converged jitter fits. Forty-seven values cluster at zero, while three fits occur around 609.6 objective units above the best solution." width="78%"}
 
 #### Self-test
 
@@ -666,7 +670,7 @@ The self-test simulated 50 new observation sets from Model 26.0 and refitted
 each from the original pre-fit starting values. Recruitment deviations were
 held at their fitted realization, so this test measures recovery under new
 observation error. All 50 refits completed with convergence status OK; the
-largest maximum gradient was $1.19\times10^{-4}$. Recruitment had the widest
+largest maximum gradient was $3.81\times10^{-4}$. Recruitment had the widest
 central 90% range and the largest mean absolute difference, while total
 biomass had the narrowest range and smallest mean absolute difference
 (@tbl-model-26-self-test; @fig-model-26-self-test).
@@ -680,9 +684,9 @@ simulated distributions directly.
 
 | Quantity | Median difference | Mean absolute difference | Central 90% range |
 |---|---:|---:|---:|
-| Age-1 recruitment | -1.51% | 9.76% | -23.76% to +22.83% |
-| Spawning biomass | -2.09% | 6.23% | -13.55% to +17.75% |
-| Total biomass | -1.71% | 4.77% | -9.34% to +13.36% |
+| Age-1 recruitment | -1.49% | 9.76% | -23.31% to +23.31% |
+| Spawning biomass | -2.21% | 6.27% | -13.49% to +17.85% |
+| Total biomass | -1.75% | 4.81% | -9.58% to +13.29% |
 
 : Recovery across all years and the 50 observation-level self-tests.
 {#tbl-model-26-self-test}
@@ -704,11 +708,11 @@ The [reproducible sensitivity script](scripts/model-26-0/run_model_26_index_seri
 records this configuration.
 
 All three refits completed with convergence status OK and positive-definite
-Hessians. Their maximum gradients ranged from $3.68\times10^{-5}$ to
-$6.68\times10^{-5}$. Dropping BTS had the greatest effect on population scale
-and fishing mortality: 2024 spawning biomass decreased 12.2%, total biomass
-decreased 15.3%, and fishing mortality increased 98.7%. Dropping ATS increased
-2024 spawning biomass 11.7%, total biomass 19.3%, and recruitment 34.3%.
+Hessians. Their maximum gradients ranged from $2.09\times10^{-5}$ to
+$3.89\times10^{-5}$. Dropping BTS had the greatest effect on population scale
+and fishing mortality: 2024 spawning biomass decreased 11.8%, total biomass
+decreased 15.0%, and fishing mortality increased 96.9%. Dropping ATS increased
+2024 spawning biomass 11.4%, total biomass 19.1%, and recruitment 34.5%.
 Dropping AVO changed each 2024 quantity by less than 7% (@tbl-model-26-index-sensitivity).
 
 The trajectories show the strong historical role of BTS and the increasing
@@ -722,9 +726,9 @@ provide the reported values.
 
 | Sensitivity | Index observations excluded | Composition years excluded | 2024 SSB change | 2024 total biomass change | 2024 recruitment change | 2024 fishing mortality change |
 |---|---:|---:|---:|---:|---:|---:|
-| Drop BTS | 42 | 42 | -12.2% | -15.3% | -4.6% | +98.7% |
-| Drop ATS and ATS age-1 | 37 | 19 | +11.7% | +19.3% | +34.3% | -11.6% |
-| Drop AVO | 18 | 0 | +4.4% | +5.3% | +6.8% | -3.3% |
+| Drop BTS | 42 | 42 | -11.8% | -15.0% | -4.5% | +96.9% |
+| Drop ATS and ATS age-1 | 37 | 18 | +11.4% | +19.1% | +34.5% | -11.4% |
+| Drop AVO | 18 | 0 | +4.5% | +5.4% | +6.9% | -3.4% |
 
 : Whole-index-fleet sensitivities relative to the Model 26.0 base fit. CPUE was
 retained in every fit. {#tbl-model-26-index-sensitivity}
@@ -764,10 +768,10 @@ evaluation priority (@tbl-model-26-retro; @fig-model-26-retro).
 
 | Quantity | Mohn's rho |
 |---|---:|
-| Total biomass | 0.211 |
-| Spawning biomass | 0.329 |
-| Age-1 recruitment | 0.185 |
-| Fishing mortality | -0.126 |
+| Total biomass | 0.214 |
+| Spawning biomass | 0.331 |
+| Age-1 recruitment | 0.188 |
+| Fishing mortality | -0.127 |
 
 : Mohn's rho from nine lag-preserving, two-stage Model 26.0 peels. Each value
 compares a peel at its terminal assessment year with the corresponding value
@@ -793,20 +797,20 @@ and [reproduction check](data/EBSpollock_Sept_2026/model-26-0/model_26_0_retrosp
 
 All five block-deletion fits and six cumulative-addition fits completed with
 convergence status OK and positive-definite Hessians; the largest maximum
-gradient was $5.66\times10^{-5}$. Removing the 2021 BTS biomass index had the
-largest effect on 2020 spawning biomass, increasing it by 28.2%, and increased
-the 2013 and 2014 cohort estimates by 11.5% and 15.7%. Removing the 2021 BTS
-age composition increased 2020 spawning biomass by 14.1%, while removing the
-2020 fishery age composition increased the 2013 cohort by 13.6% and 2020
-spawning biomass by 5.7%. The AVO and BTS age-1 index effects on these older
+gradient was $1.34\times10^{-4}$. Removing the 2021 BTS biomass index had the
+largest effect on 2020 spawning biomass, increasing it by 28.4%, and increased
+the 2013 and 2014 cohort estimates by 11.5% and 15.8%. Removing the 2021 BTS
+age composition increased 2020 spawning biomass by 13.9%, while removing the
+2020 fishery age composition increased the 2013 cohort by 13.4% and 2020
+spawning biomass by 5.4%. The AVO and BTS age-1 index effects on these older
 cohorts and spawning biomass were negligible
 (@tbl-model-26-retro-sensitivity; @fig-model-26-retro-sensitivity).
 
 The cumulative evaluation begins with the 2021 state and process dimensions
 and the observation availability of the 2020 peel. Adding the 2020 fishery age
-composition reduced the 2020 spawning-biomass difference from 46.1% to 28.6%,
-adding the 2021 BTS biomass index reduced it to 13.8%, and adding the 2021 BTS
-age composition brought it to within 0.04% of the complete 2021 peel. The AVO
+composition reduced the 2020 spawning-biomass difference from 47.5% to 29.1%,
+adding the 2021 BTS biomass index reduced it to 13.9%, and adding the 2021 BTS
+age composition brought it to within 0.05% of the complete 2021 peel. The AVO
 and BTS age-1 indices completed the sequence. The final step reproduced the
 complete 2021 objective and selected estimates exactly. Together, the removal
 and addition tests identify the fishery age composition and BTS data as the
@@ -815,11 +819,11 @@ biomass index providing the largest single influence on spawning biomass.
 
 | Data block removed | 2013 cohort change | 2014 cohort change | 2020 SSB change | Maximum gradient |
 |---|---:|---:|---:|---:|
-| 2020 fishery age composition | +13.6% | +5.6% | +5.7% | $4.14\times10^{-5}$ |
-| 2021 BTS biomass index | +11.5% | +15.7% | +28.2% | $4.04\times10^{-5}$ |
-| 2021 BTS age composition | +7.6% | +6.0% | +14.1% | $5.66\times10^{-5}$ |
-| 2021 AVO index | +0.02% | +0.02% | -0.04% | $5.02\times10^{-5}$ |
-| 2021 BTS age-1 index | 0.0% | 0.0% | 0.0% | $4.83\times10^{-5}$ |
+| 2020 fishery age composition | +13.4% | +5.3% | +5.4% | $4.25\times10^{-5}$ |
+| 2021 BTS biomass index | +11.5% | +15.8% | +28.4% | $4.90\times10^{-5}$ |
+| 2021 BTS age composition | +7.5% | +6.0% | +13.9% | $6.24\times10^{-5}$ |
+| 2021 AVO index | -0.02% | -0.03% | +0.05% | $4.31\times10^{-5}$ |
+| 2021 BTS age-1 index | 0.0% | 0.0% | 0.0% | $4.12\times10^{-5}$ |
 
 : Controlled data-block removal from the lag-preserving 2021 peel. Percentages
 show changes from the complete 2021-peel estimates. {#tbl-model-26-retro-sensitivity}
@@ -855,20 +859,20 @@ alternative (@tbl-model-26-projection; @fig-model-26-projection;
 
 | Alternative | Year | Catch | ABC | OFL | SSB | F | B/B~35%~ |
 |---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | 2027 | 1,864 | 1,864 | 2,259 | 2,476 | 0.35 | 1.17 |
-| 1 | 2028 | 1,308 | 1,308 | 1,583 | 2,115 | 0.31 | 1.00 |
-| 2 | 2027 | 1,864 | 1,864 | 2,259 | 2,476 | 0.35 | 1.17 |
-| 2 | 2028 | 1,308 | 1,308 | 1,583 | 2,115 | 0.31 | 1.00 |
-| 3 | 2027 | 1,132 | 1,132 | 2,259 | 2,582 | 0.20 | 1.22 |
-| 3 | 2028 | 1,015 | 1,015 | 1,963 | 2,447 | 0.20 | 1.16 |
-| 4 | 2027 | 856 | 856 | 2,259 | 2,619 | 0.15 | 1.24 |
-| 4 | 2028 | 803 | 803 | 2,104 | 2,585 | 0.15 | 1.22 |
-| 5 | 2027 | 0 | 0 | 2,259 | 2,726 | 0.00 | 1.29 |
-| 5 | 2028 | 0 | 0 | 2,455 | 3,035 | 0.00 | 1.44 |
-| 6 | 2027 | 1,561 | 1,561 | 1,561 | 2,017 | 0.37 | 0.95 |
-| 6 | 2028 | 1,210 | 1,210 | 1,210 | 1,831 | 0.34 | 0.87 |
-| 7 | 2027 | 1,509 | 1,809 | 1,809 | 2,211 | 0.32 | 1.05 |
-| 7 | 2028 | 1,424 | 1,424 | 1,424 | 1,977 | 0.36 | 0.94 |
+| 1 | 2027 | 1,870 | 1,870 | 2,270 | 2,483 | 0.35 | 1.17 |
+| 1 | 2028 | 1,312 | 1,312 | 1,587 | 2,118 | 0.31 | 1.00 |
+| 2 | 2027 | 1,870 | 1,870 | 2,270 | 2,483 | 0.35 | 1.17 |
+| 2 | 2028 | 1,312 | 1,312 | 1,587 | 2,118 | 0.31 | 1.00 |
+| 3 | 2027 | 1,135 | 1,135 | 2,270 | 2,589 | 0.20 | 1.22 |
+| 3 | 2028 | 1,016 | 1,016 | 1,969 | 2,451 | 0.20 | 1.16 |
+| 4 | 2027 | 859 | 859 | 2,270 | 2,626 | 0.15 | 1.24 |
+| 4 | 2028 | 805 | 805 | 2,110 | 2,589 | 0.15 | 1.22 |
+| 5 | 2027 | 0 | 0 | 2,270 | 2,733 | 0.00 | 1.29 |
+| 5 | 2028 | 0 | 0 | 2,462 | 3,041 | 0.00 | 1.44 |
+| 6 | 2027 | 1,566 | 1,566 | 1,566 | 2,019 | 0.37 | 0.96 |
+| 6 | 2028 | 1,211 | 1,211 | 1,211 | 1,831 | 0.34 | 0.87 |
+| 7 | 2027 | 1,515 | 1,815 | 1,815 | 2,214 | 0.32 | 1.05 |
+| 7 | 2028 | 1,425 | 1,425 | 1,425 | 1,978 | 0.36 | 0.94 |
 
 : Model 26.0 `spmR` results for 2027 and 2028. Catch, ABC, OFL, and SSB are
 rounded simulation means in thousand t. {#tbl-model-26-projection}
@@ -887,11 +891,11 @@ above one, reaching 1.12 in 2028 and 1.25 in 2032
 
 | Year | Catch | ABC | OFL | SSB | F | B/B~35%~ |
 |---:|---:|---:|---:|---:|---:|---:|
-| 2025 | 1,300 | 2,360 | 2,878 | 3,523 | 0.180 | 1.67 |
-| 2026 | 1,300 | 2,131 | 2,588 | 3,013 | 0.200 | 1.43 |
-| 2028 | 1,300 | 1,583 | 1,909 | 2,366 | 0.269 | 1.12 |
-| 2030 | 1,300 | 1,460 | 1,786 | 2,447 | 0.308 | 1.16 |
-| 2032 | 1,300 | 1,594 | 1,967 | 2,645 | 0.313 | 1.25 |
+| 2025 | 1,300 | 2,368 | 2,888 | 3,533 | 0.180 | 1.67 |
+| 2026 | 1,300 | 2,138 | 2,597 | 3,023 | 0.199 | 1.43 |
+| 2028 | 1,300 | 1,590 | 1,917 | 2,372 | 0.268 | 1.12 |
+| 2030 | 1,300 | 1,463 | 1,790 | 2,450 | 0.308 | 1.16 |
+| 2032 | 1,300 | 1,597 | 1,970 | 2,648 | 0.313 | 1.25 |
 
 : Alternative 2 projection with catch fixed at 1,300 thousand t. Catch, ABC,
 OFL, and SSB are rounded simulation means in thousand t.
@@ -915,7 +919,7 @@ even though the fitted examples use direct proxy paths (@fig-model-26-dsem-dag).
 All four DSEM fits completed with positive-definite Hessians and convergence
 status OK. Fit AIC favored the DSEM model with age-0 late-summer SST. The
 combined model was 1.63 AIC units higher, the no-edge reference was 2.25 units
-higher, and the cold-pool model was 4.11 units higher
+higher, and the cold-pool model was 4.10 units higher
 (@fig-model-26-dsem-aic; @tbl-model-26-dsem).
 
 The SST pathway is negative in both models that include it, with intervals
@@ -941,7 +945,7 @@ indicator and mechanism work.
 | Age-0 late-summer SST | 0.00 | 10.5% |
 | Cold pool + age-0 late-summer SST | 1.63 | 12.0% |
 | No-edge reference | 2.25 | 0.0% |
-| Cold pool | 4.11 | 0.3% |
+| Cold pool | 4.10 | 0.3% |
 
 : Exploratory DSEM comparison using the common data block. {#tbl-model-26-dsem}
 
@@ -1257,15 +1261,16 @@ deviations are represented as fixed parameters, and the full set of 1,218 joint
 parameters enters the sampler. The four dense-metric chains each used 1,000
 warmup iterations followed by 1,000 retained draws, for 4,000 retained draws in
 total. The chains began at the converged maximum-likelihood estimates, where
-the maximum absolute gradient was 0.000077.
+the maximum absolute gradient was 0.000050.
 
 The run completed with zero divergences, zero maximum-tree-depth events, and a
-minimum energy Bayesian fraction of missing information (E-BFMI) of 0.884.
-Minimum tail effective sample size (ESS) was 469. Maximum R-hat was 1.018 and
-minimum bulk ESS was 395; both occurred for `index_log_q[3]` and fall just
-outside the review targets of R-hat at or below 1.01 and bulk ESS at or above
-400. The trace examples show overlapping chains, while the full diagnostic
-distribution identifies this small group of slower-mixing parameters
+minimum energy Bayesian fraction of missing information (E-BFMI) of 1.001.
+Minimum tail effective sample size (ESS) was 22. Maximum R-hat was 1.075 and
+minimum bulk ESS was 36; both occurred for `log_sel_slp_dev[7]` and fall
+outside the review targets of R-hat at or below 1.01 and ESS at or above 400.
+The trace examples show representative parameters, while the full diagnostic
+distribution identifies incomplete mixing for a group of selectivity-change
+parameters
 (@fig-model-26-sparsenuts-trace; @fig-model-26-sparsenuts-diagnostics;
 @tbl-model-26-sparsenuts-diagnostics).
 
@@ -1281,8 +1286,9 @@ treated as a warning rather than a universal pass-or-fail threshold
 guide](https://mc-stan.org/docs/2_39/cmdstan-guide/diagnose_utility.html) uses
 0.30 as its nominal warning threshold.
 
-The six parameters with the lowest bulk ESS were `index_log_q[3]`, `log_F[2]`,
-`log_F[3]`, `log_F[8]`, `log_F[4]`, and `log_F[9]`. Their marginal and joint
+The six parameters with the lowest bulk ESS were `log_sel_slp_dev[7]`,
+`sel_inf_dev[7]`, `log_sel_slp_dev[6]`, `sel_inf_dev[6]`, `index_log_q[3]`,
+and `log_F[3]`. Their marginal and joint
 posterior distributions, pairwise correlations, maximum-likelihood estimates,
 and Hessian-based correlation ellipses are shown in
 @fig-model-26-sparsenuts-slowest-pairs. The uncertainty comparison in
@@ -1290,19 +1296,20 @@ and Hessian-based correlation ellipses are shown in
 from the retained draws with local asymptotic standard errors derived from the
 maximum-likelihood Hessian for all 1,218 parameters. The dashed one-to-one line
 marks agreement between the two uncertainty summaries. The pairwise posterior
-correlations among the six slowest-mixing parameters range from 0.82 to 0.93.
+correlations among the six slowest-mixing parameters range from -0.01 to 0.93.
 Across all parameters, the log-scale correlation between MCMC and Hessian
-uncertainty is 0.971, and the median ratio of MCMC standard deviation to
-Hessian standard error is 1.006. The corresponding ratios for the six slowest
-parameters range from 1.45 to 1.63. Differences from the one-to-one line can
+uncertainty is 0.939, and the median ratio of MCMC standard deviation to
+Hessian standard error is 1.012. The corresponding ratios for the six slowest
+parameters range from 1.64 to 9.71. Differences from the one-to-one line can
 reflect posterior shape as well as sampling behavior, so this figure is
 interpreted together with R-hat, ESS, trace, and pairs diagnostics.
 
-These results demonstrate that the complete joint objective can be sampled on
-four local cores. Additional retained draws and focused review of the index
-catchability parameters will strengthen the uncertainty summary. The
-SparseNUTS results therefore remain an exploratory evaluation and are separate
-from the maximum-likelihood Model 26.0 results proposed for management advice.
+These results demonstrate the mechanics for sampling the complete joint
+objective on four local cores. The mixing diagnostics support reparameterizing
+the annual selectivity changes and testing a longer, tuned run before using
+posterior summaries for inference. The SparseNUTS results therefore remain an
+exploratory evaluation and are separate from the maximum-likelihood Model 26.0
+results proposed for management advice.
 The complete 87-MB fit object is retained in the local analysis results
 directory, while this report carries only compact diagnostic tables and
 figures. Script [M26-10](scripts/model-26-0/run_model_26_sparsenuts_5_23.R)
@@ -1310,9 +1317,9 @@ reproduces the run from the saved Model 26.0 fit.
 
 ![Retained SparseNUTS draws for four representative Model 26.0 parameters.](assets/model-26-0/model_26_0_sparsenuts_trace.png){#fig-model-26-sparsenuts-trace fig-alt="Four vertically arranged trace plots show overlapping retained draws from four SparseNUTS chains for a recruitment deviation, mean recruitment, and two selectivity deviations. The chains occupy common ranges without sustained separation." width="88%"}
 
-![Distributions of R-hat, bulk ESS, and tail ESS across the 1,218 sampled parameters.](assets/model-26-0/model_26_0_sparsenuts_diagnostics.png){#fig-model-26-sparsenuts-diagnostics fig-alt="Three vertically arranged histograms summarize R-hat, bulk effective sample size, and tail effective sample size across 1,218 Model 26.0 parameters. Most R-hat values lie close to one, while a small number extend above 1.01. Most effective sample sizes are well above 400." width="78%"}
+![Distributions of R-hat, bulk ESS, and tail ESS across the 1,218 sampled parameters.](assets/model-26-0/model_26_0_sparsenuts_diagnostics.png){#fig-model-26-sparsenuts-diagnostics fig-alt="Three vertically arranged histograms summarize R-hat, bulk effective sample size, and tail effective sample size across 1,218 Model 26.0 parameters. Most R-hat values lie close to one and most effective sample sizes are well above 400, while selectivity-change parameters extend to R-hat 1.075, bulk ESS 36, and tail ESS 22." width="78%"}
 
-![Joint posterior relationships for the six Model 26.0 parameters with the lowest bulk effective sample sizes. Diagonal panels report bulk ESS and R-hat; upper panels report posterior correlations; and lower panels show retained draws in blue, the maximum-likelihood estimate as a red point, and the local 95% Hessian ellipse in red.](assets/model-26-0/model_26_0_sparsenuts_slowest_pairs.png){#fig-model-26-sparsenuts-slowest-pairs fig-alt="A six-by-six pairs display for index log catchability parameter 3 and fishing-mortality parameters 2, 3, 8, 4, and 9. Diagonal panels show posterior histograms with bulk effective sample size and R-hat. Lower panels show retained MCMC draws, maximum-likelihood estimates, and Hessian-based 95 percent ellipses. Upper panels show pairwise posterior correlations ranging from 0.82 to 0.93." width="94%"}
+![Joint posterior relationships for the six Model 26.0 parameters with the lowest bulk effective sample sizes. Diagonal panels report bulk ESS and R-hat; upper panels report posterior correlations; and lower panels show retained draws in blue, the maximum-likelihood estimate as a red point, and the local 95% Hessian ellipse in red.](assets/model-26-0/model_26_0_sparsenuts_slowest_pairs.png){#fig-model-26-sparsenuts-slowest-pairs fig-alt="A six-by-six pairs display for annual selectivity-change parameters 6 and 7, index log catchability parameter 3, and fishing mortality parameter 3. Diagonal panels show posterior histograms with bulk effective sample size and R-hat. Lower panels show retained MCMC draws, maximum-likelihood estimates, and Hessian-based 95 percent ellipses. Upper panels show pairwise posterior correlations ranging from about minus 0.01 to 0.93." width="94%"}
 
 ![MCMC posterior standard deviations compared with Hessian-based asymptotic standard errors for all 1,218 Model 26.0 parameters.](assets/model-26-0/model_26_0_sparsenuts_uncertainty_comparison.png){#fig-model-26-sparsenuts-uncertainty fig-alt="Log-scale scatterplot comparing MCMC posterior standard deviation on the horizontal axis with Hessian-based asymptotic standard error on the vertical axis for 1,218 parameters. A dashed diagonal marks equal uncertainty. The six parameters with the lowest bulk effective sample sizes are highlighted and labeled." width="78%"}
 
@@ -1321,12 +1328,12 @@ reproduces the run from the saved Model 26.0 fit.
 | Chains | 4 | 4 | Pass |
 | Warmup iterations per chain | 1,000 | 1,000 | Pass |
 | Retained draws per chain | 1,000 | 1,000 | Pass |
-| Maximum R-hat | 1.018 | 1.01 or lower | Review |
-| Minimum bulk ESS | 395 | 400 or higher | Review |
-| Minimum tail ESS | 469 | 400 or higher | Pass |
+| Maximum R-hat | 1.075 | 1.01 or lower | Review |
+| Minimum bulk ESS | 36 | 400 or higher | Review |
+| Minimum tail ESS | 22 | 400 or higher | Review |
 | Divergences | 0 | 0 | Pass |
 | Maximum-tree-depth events | 0 | 0 | Pass |
-| Minimum E-BFMI | 0.884 | above 0.30 | Pass |
+| Minimum E-BFMI | 1.001 | above 0.30 | Pass |
 
 : SparseNUTS configuration and sampling diagnostics for the complete Model 26.0 joint objective. {#tbl-model-26-sparsenuts-diagnostics}
 
@@ -1423,13 +1430,13 @@ visible without treating the schedule as a prediction.
 
 The case-deletion analysis removes an entire fitted index observation or
 composition row for one selected fleet-year event and then refits the complete
-model. All 12 refits reached convergence status OK with positive-definite
+model. All 11 refits reached convergence status OK with positive-definite
 Hessians. The 2024 BTS biomass index had the largest terminal spawning biomass
-effect (-5.29%) and lowered terminal age-1 recruitment by 25.33%. Removing the
-2024 ATS age composition lowered terminal spawning biomass by 2.64% and raised
-terminal recruitment by 25.35%; its largest recruitment change across all
-years was 53.93%. Removing the 2024 AVO index raised terminal spawning biomass
-by 5.05% and terminal recruitment by 5.87%. Other selected events produced
+effect (-5.28%) and lowered terminal age-1 recruitment by 25.31%. Removing the
+2024 ATS age composition lowered terminal spawning biomass by 2.66% and raised
+terminal recruitment by 25.48%; its largest recruitment change across all
+years was 54.24%. Removing the 2024 AVO index raised terminal spawning biomass
+by 5.10% and terminal recruitment by 5.93%. Other selected events produced
 smaller terminal changes (@fig-model-26-case-deletion; @tbl-model-26-case-deletion).
 
 These values describe influence within the current fitted model. Decisions
@@ -1441,7 +1448,7 @@ locally.
 
 ![Observation continuity for fishery, BTS, ATS, and AVO inputs from 2014 through 2026.](assets/model-26-0/model_26_0_observation_continuity.png){#fig-model-26-observation-continuity fig-alt="A grid lists years 2014 through 2026 across rows for fishery, bottom-trawl survey, acoustic-trawl survey, and acoustic vessel-of-opportunity data types. Symbols distinguish fitted observations, scheduled gaps, years outside the fitted span, and years after 2024. Fishery, BTS, and AVO schedules are annual, while ATS schedules use even years." width="100%"}
 
-![Influence of selected sampling-event deletions on terminal spawning biomass and age-1 recruitment.](assets/model-26-0/model_26_0_case_deletion_influence.png){#fig-model-26-case-deletion fig-alt="Two horizontal dot plots show percent changes in terminal spawning biomass and terminal age-1 recruitment after 12 selected sampling events are deleted one at a time. The 2024 BTS biomass index, 2024 ATS age composition, and 2024 AVO index have the largest terminal effects." width="92%"}
+![Influence of selected sampling-event deletions on terminal spawning biomass and age-1 recruitment.](assets/model-26-0/model_26_0_case_deletion_influence.png){#fig-model-26-case-deletion fig-alt="Two horizontal dot plots show percent changes in terminal spawning biomass and terminal age-1 recruitment after 11 selected fitted sampling events are deleted one at a time. The 2024 BTS biomass index, 2024 ATS age composition, and 2024 AVO index have the largest terminal effects." width="92%"}
 
 ```{r}
 #| label: tbl-model-26-case-deletion

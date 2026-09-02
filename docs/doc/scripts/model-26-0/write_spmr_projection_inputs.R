@@ -186,7 +186,7 @@ write_spmr_projection_inputs <- function(
       collapse = "; "
     ),
     composition_sample_sizes =
-      "fishery nominal; BTS and ATS integer sample sizes aligned with modified ADMB"
+      "fishery, BTS, and ATS nominal integer sample sizes; ATS 2020 set to zero"
   ), file.path(output_dir, "lineage.csv"), row.names = FALSE)
   invisible(list(output_dir = output_dir, manifest = manifest,
                  begin_year = fit$data_list$endyr + 1L,

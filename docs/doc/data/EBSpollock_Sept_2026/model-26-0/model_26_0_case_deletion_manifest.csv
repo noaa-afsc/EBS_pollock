@@ -6,7 +6,6 @@ bts_biomass_index_2024,BTS biomass index 2024,index_data,BTS,2024,Latest fitted 
 bts_age_composition_2021,BTS age composition 2021,comp_data,BTS,2021,2020--2021 transition
 bts_age_composition_2024,BTS age composition 2024,comp_data,BTS,2024,Latest fitted event
 ats_biomass_index_2024,ATS biomass index 2024,index_data,ATS,2024,Latest fitted event
-ats_age_composition_2020,ATS age composition 2020,comp_data,ATS,2020,Nominal sample size of one
 ats_age_composition_2024,ATS age composition 2024,comp_data,ATS,2024,Latest fitted event
 ats_age_1_index_2022,ATS age-1 index 2022,index_data,ATS_1,2022,Latest fitted event
 avo_index_2021,AVO index 2021,index_data,AVO,2021,2020--2021 transition

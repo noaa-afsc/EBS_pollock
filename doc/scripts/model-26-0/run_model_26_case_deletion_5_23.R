@@ -108,7 +108,11 @@ inventory_row <- function(schedule_row, year) {
     "Not scheduled"
   } else if (nrow(available) == 0L) {
     "No observation in scheduled year"
-  } else if (fleet_type == "Off" || available$Year[1] < 0) {
+  } else if (
+    fleet_type == "Off" ||
+      available$Year[1] < 0 ||
+      (schedule_row$Table == "comp_data" && available$Sample_size[1] <= 0)
+  ) {
     "Available but excluded from likelihood"
   } else {
     "Represented in base fit"
@@ -172,7 +176,6 @@ case_manifest <- tibble::tribble(
   "BTS age composition 2021", "comp_data", "BTS", 2021L, "2020--2021 transition",
   "BTS age composition 2024", "comp_data", "BTS", 2024L, "Latest fitted event",
   "ATS biomass index 2024", "index_data", "ATS", 2024L, "Latest fitted event",
-  "ATS age composition 2020", "comp_data", "ATS", 2020L, "Nominal sample size of one",
   "ATS age composition 2024", "comp_data", "ATS", 2024L, "Latest fitted event",
   "ATS age-1 index 2022", "index_data", "ATS_1", 2022L, "Latest fitted event",
   "AVO index 2021", "index_data", "AVO", 2021L, "2020--2021 transition",

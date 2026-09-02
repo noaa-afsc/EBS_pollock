@@ -66,13 +66,13 @@ ATS biomass index,index_data,ATS,2025,FALSE,Outside fitted span,NA,Inverse squar
 ATS biomass index,index_data,ATS,2026,FALSE,Outside fitted span,NA,Inverse squared observation SD,NA,0.22
 ATS age composition,comp_data,ATS,2014,TRUE,Represented in base fit,79,Nominal composition sample size,1,1
 ATS age composition,comp_data,ATS,2015,FALSE,Not scheduled,NA,Nominal composition sample size,NA,0.22
-ATS age composition,comp_data,ATS,2016,TRUE,Represented in base fit,61,Nominal composition sample size,0.9550866423477344,0.9550866423477344
+ATS age composition,comp_data,ATS,2016,TRUE,Represented in base fit,61,Nominal composition sample size,0.962191018888902,0.962191018888902
 ATS age composition,comp_data,ATS,2017,FALSE,Not scheduled,NA,Nominal composition sample size,NA,0.22
-ATS age composition,comp_data,ATS,2018,TRUE,Represented in base fit,50,Nominal composition sample size,0.9206722109227881,0.9206722109227881
+ATS age composition,comp_data,ATS,2018,TRUE,Represented in base fit,50,Nominal composition sample size,0.9332202481491788,0.9332202481491788
 ATS age composition,comp_data,ATS,2019,FALSE,Not scheduled,NA,Nominal composition sample size,NA,0.22
-ATS age composition,comp_data,ATS,2020,TRUE,Represented in base fit,1,Nominal composition sample size,0.35,0.35
+ATS age composition,comp_data,ATS,2020,TRUE,Available but excluded from likelihood,0,Nominal composition sample size,0.35,0.22
 ATS age composition,comp_data,ATS,2021,FALSE,Not scheduled,NA,Nominal composition sample size,NA,0.22
-ATS age composition,comp_data,ATS,2022,TRUE,Represented in base fit,52,Nominal composition sample size,0.9274501723197601,0.9274501723197601
+ATS age composition,comp_data,ATS,2022,TRUE,Represented in base fit,52,Nominal composition sample size,0.9389260743849721,0.9389260743849721
 ATS age composition,comp_data,ATS,2023,FALSE,Not scheduled,NA,Nominal composition sample size,NA,0.22
 ATS age composition,comp_data,ATS,2024,TRUE,Represented in base fit,79,Nominal composition sample size,1,1
 ATS age composition,comp_data,ATS,2025,FALSE,Outside fitted span,NA,Nominal composition sample size,NA,0.22

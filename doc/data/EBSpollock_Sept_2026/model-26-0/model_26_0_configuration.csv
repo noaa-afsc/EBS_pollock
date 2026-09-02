@@ -8,5 +8,6 @@
 "BTS selectivity retained from bridge","LogisticPM with the separate age-1 component"
 "Time-varying selectivity","Established RandomWalk configuration"
 "Composition distribution","MultinomialAFSC"
+"2020 ATS age composition","Excluded from fitting; no age-composition sample was collected"
 "2D age-by-year AR1 sensitivity","Excluded from this simple fit"
 "afscOSA version","0.0.1"

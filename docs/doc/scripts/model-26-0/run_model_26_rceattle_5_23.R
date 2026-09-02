@@ -52,6 +52,16 @@ est <- suppressWarnings(Rceattle::read_data(input_workbook))
 est$diet_data <- NULL
 stopifnot(!any(grepl("2DAR1", est$fleet_control$Selectivity, fixed = TRUE)))
 
+# The 2020 ATS survey collected no age-composition sample. The workbook
+# retains placeholder proportions so the input dimensions and plotting grid
+# remain continuous, but a sample size of zero excludes this row from the
+# composition likelihood and all likelihood-based diagnostics.
+ats_2020_row <- est$comp_data$Fleet_name == "ATS" &
+  est$comp_data$Year == 2020L
+stopifnot(sum(ats_2020_row) == 1L)
+est$comp_data$Sample_size[ats_2020_row] <- 0
+stopifnot(est$comp_data$Sample_size[ats_2020_row] == 0)
+
 years <- est$styr:est$endyr
 nyears <- length(years)
 nages <- est$nages
@@ -162,6 +172,7 @@ write.csv(
       "BTS selectivity retained from bridge",
       "Time-varying selectivity",
       "Composition distribution",
+      "2020 ATS age composition",
       "2D age-by-year AR1 sensitivity",
       "afscOSA version"
     ),
@@ -175,6 +186,7 @@ write.csv(
       "LogisticPM with the separate age-1 component",
       "Established RandomWalk configuration",
       paste(unique(est$fleet_control$Comp_distribution), collapse = "; "),
+      "Excluded from fitting; no age-composition sample was collected",
       "Excluded from this simple fit",
       as.character(packageVersion("afscOSA"))
     )

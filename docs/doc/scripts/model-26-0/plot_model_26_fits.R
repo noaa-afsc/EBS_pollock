@@ -149,16 +149,49 @@ composition_data <- bind_rows(lapply(annual_names, function(plot_name) {
       Fleet = Fleet_name,
       Year,
       Sample_size = N,
+      Used_in_fit = N > 0,
       Age = bin,
       Cohort = Year - Age,
       Observed = obs,
       Fitted = hat,
       Difference = Observed - Fitted,
       Absolute_difference = abs(Difference)
-    )
+  )
 }))
 
+# Rceattle's plotting helper returns likelihood-active rows. Add excluded
+# placeholder rows explicitly so the annual display can show their supplied
+# proportions while clearly identifying that they did not contribute to the
+# fit. The current configuration has one such row: ATS 2020.
+excluded_rows <- which(model_26$data_list$comp_data$Sample_size <= 0)
+if (length(excluded_rows)) {
+  excluded_composition <- bind_rows(lapply(excluded_rows, function(row) {
+    fleet_name <- model_26$data_list$comp_data$Fleet_name[row]
+    age_bins <- if (fleet_name == "ATS") {
+      2:model_26$data_list$nages
+    } else {
+      seq_len(model_26$data_list$nages)
+    }
+    observed <- as.numeric(model_26$quantities$comp_obs[row, age_bins])
+    fitted <- as.numeric(model_26$quantities$comp_hat[row, age_bins])
+    data.frame(
+      Fleet = fleet_name,
+      Year = model_26$data_list$comp_data$Year[row],
+      Sample_size = model_26$data_list$comp_data$Sample_size[row],
+      Used_in_fit = FALSE,
+      Age = age_bins,
+      Cohort = model_26$data_list$comp_data$Year[row] - age_bins,
+      Observed = observed,
+      Fitted = fitted,
+      Difference = observed - fitted,
+      Absolute_difference = abs(observed - fitted)
+    )
+  }))
+  composition_data <- bind_rows(composition_data, excluded_composition)
+}
+
 composition_summary <- composition_data |>
+  filter(Used_in_fit) |>
   group_by(Fleet) |>
   summarise(
     Composition_years = n_distinct(Year),
@@ -191,6 +224,14 @@ make_composition_plot <- function(data, years, ncol = 5L) {
         levels = seq_along(cohort_palette)
       )
     )
+  excluded_panels <- data |>
+    filter(!Used_in_fit) |>
+    distinct(Year_panel) |>
+    mutate(
+      Age = mean(c(youngest_age, 15)),
+      Proportion = Inf,
+      Label = "No age data\nexcluded from fit"
+    )
   ggplot(data, aes(x = Age)) +
     geom_col(
       aes(y = Observed, fill = Cohort_colour),
@@ -205,6 +246,15 @@ make_composition_plot <- function(data, years, ncol = 5L) {
     geom_point(
       aes(y = Fitted, colour = "Fitted"),
       size = 0.7
+    ) +
+    geom_text(
+      data = excluded_panels,
+      aes(x = Age, y = Proportion, label = Label),
+      inherit.aes = FALSE,
+      vjust = 1.15,
+      size = 2.1,
+      colour = "grey25",
+      lineheight = 0.9
     ) +
     facet_wrap(
       ~Year_panel,
