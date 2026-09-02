@@ -886,6 +886,10 @@ indicator and mechanism work.
 
 ![AIC differences among the four current-branch DSEM recruitment models.](assets/model-26-0/dsem_aic_comparison.png){#fig-model-26-dsem-aic fig-alt="Horizontal bars compare AIC differences for age-0 late-summer SST, the combined SST and cold-pool model, the no-edge reference, and the cold-pool-only model. The SST-only model has the lowest AIC." width="76%"}
 
+```{=latex}
+\clearpage
+```
+
 | Model | Recruitment pathway | Estimate | 95% interval |
 |---|---|---:|---:|
 | Cold pool | Cold pool | 0.041 | -0.169 to 0.251 |
