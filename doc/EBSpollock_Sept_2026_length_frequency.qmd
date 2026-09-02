@@ -8,8 +8,6 @@ displayed year and grouping. A season includes samples collected before June
 20; B season data are from June 20 onward. Earlier years appear at the top of
 each figure.
 
-Source material: [RTMB working-paper length-frequency appendix](https://jimianelli.github.io/rtmb_ebswp/ebs_pollock_rtmb_ebswp_assessment.html#sec-length-frequency-patterns).
-
 ### Change from 2025 to 2026
 
 The observed length distribution shifted toward smaller fish from 2025 to

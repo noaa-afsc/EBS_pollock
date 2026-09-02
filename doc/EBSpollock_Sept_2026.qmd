@@ -68,6 +68,9 @@ resources:
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_sparsenuts_diagnostic_summary.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_sparsenuts_chain_diagnostics.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_sparsenuts_run_manifest.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_sparsenuts_slowest_parameters.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_sparsenuts_uncertainty_comparison.csv
+  - data/EBSpollock_Sept_2026/model-26-0/model_26_0_sparsenuts_uncertainty_summary.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_script_manifest.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_observation_continuity_inventory.csv
   - data/EBSpollock_Sept_2026/model-26-0/model_26_0_observation_continuity_schedule.csv
@@ -414,18 +417,32 @@ and [self-test](scripts/model-26-0/run_model_26_self_test_5_23.R).
 %%| label: fig-model-26-approach
 %%| fig-cap: "Data and calculation flow for the simple Model 26.0 Rceattle analysis."
 %%| fig-alt: "Fishery catch, survey and abundance indices, age compositions, and biological schedules enter the Rceattle population model. The model estimates annual abundance, recruitment, fishing mortality, and selectivity. The fitted model is then compared with the Model 23.2 bridge and used for OSA residuals, jitter tests, self-tests, whole-index-fleet sensitivities, retrospective analysis, Standard Projection Model projections, and exploratory DSEM pathways."
+%%| fig-width: 5.8
 
-flowchart LR
+flowchart TB
   accTitle: Simple Model 26.0 data and analysis flow
-  accDescr: Assessment observations and biological schedules enter the simple Rceattle population model. Its fitted states support the bridge comparison, diagnostics, projection, and exploratory DSEM analyses.
-  A["Catch and abundance indices"] --> M["Model 26.0<br/>Rceattle 5.23.0"]
-  B["Ages 1-15<br/>composition data"] --> M
-  C["Maturity, mortality,<br/>weight, and ageing error"] --> M
+  accDescr: A top-to-bottom flowchart shows assessment inputs entering the simple Rceattle population model. Its fitted states support the bridge comparison, diagnostics, projection, and exploratory DSEM analyses.
+  subgraph I["Assessment inputs"]
+    direction TB
+    A["Catch and abundance indices"]
+    B["Ages 1-15 composition data"]
+    C["Maturity, mortality, weight,<br/>and ageing error"]
+  end
+  A --> M["Model 26.0<br/>Rceattle 5.23.0"]
+  B --> M
+  C --> M
   M --> S["Abundance, recruitment,<br/>fishing mortality, selectivity"]
-  S --> V["Model 23.2 bridge comparison"]
-  S --> D["OSA, jitter, self-test,<br/>index sensitivity, retrospective"]
-  S --> P["spmR projection"]
-  S --> E["Exploratory DSEM pathways"]
+  subgraph O["Model evaluation and use"]
+    direction TB
+    V["Model 23.2 bridge comparison"]
+    D["OSA, jitter, self-test,<br/>index sensitivity, retrospective"]
+    P["spmR projection"]
+    E["Exploratory DSEM pathways"]
+  end
+  S --> V
+  S --> D
+  S --> P
+  S --> E
   classDef input fill:#e8f0f7,stroke:#52616b,color:#111111
   class A,B,C,M,S,V,D,P,E input
 ```
@@ -1199,6 +1216,23 @@ treated as a warning rather than a universal pass-or-fail threshold
 guide](https://mc-stan.org/docs/2_39/cmdstan-guide/diagnose_utility.html) uses
 0.30 as its nominal warning threshold.
 
+The six parameters with the lowest bulk ESS were `index_log_q[3]`, `log_F[2]`,
+`log_F[3]`, `log_F[8]`, `log_F[4]`, and `log_F[9]`. Their marginal and joint
+posterior distributions, pairwise correlations, maximum-likelihood estimates,
+and Hessian-based correlation ellipses are shown in
+@fig-model-26-sparsenuts-slowest-pairs. The uncertainty comparison in
+@fig-model-26-sparsenuts-uncertainty compares posterior standard deviations
+from the retained draws with local asymptotic standard errors derived from the
+maximum-likelihood Hessian for all 1,218 parameters. The dashed one-to-one line
+marks agreement between the two uncertainty summaries. The pairwise posterior
+correlations among the six slowest-mixing parameters range from 0.82 to 0.93.
+Across all parameters, the log-scale correlation between MCMC and Hessian
+uncertainty is 0.971, and the median ratio of MCMC standard deviation to
+Hessian standard error is 1.006. The corresponding ratios for the six slowest
+parameters range from 1.45 to 1.63. Differences from the one-to-one line can
+reflect posterior shape as well as sampling behavior, so this figure is
+interpreted together with R-hat, ESS, trace, and pairs diagnostics.
+
 These results demonstrate that the complete joint objective can be sampled on
 four local cores. Additional retained draws and focused review of the index
 catchability parameters will strengthen the uncertainty summary. The
@@ -1212,6 +1246,10 @@ reproduces the run from the saved Model 26.0 fit.
 ![Retained SparseNUTS draws for four representative Model 26.0 parameters.](assets/model-26-0/model_26_0_sparsenuts_trace.png){#fig-model-26-sparsenuts-trace fig-alt="Four vertically arranged trace plots show overlapping retained draws from four SparseNUTS chains for a recruitment deviation, mean recruitment, and two selectivity deviations. The chains occupy common ranges without sustained separation." width="88%"}
 
 ![Distributions of R-hat, bulk ESS, and tail ESS across the 1,218 sampled parameters.](assets/model-26-0/model_26_0_sparsenuts_diagnostics.png){#fig-model-26-sparsenuts-diagnostics fig-alt="Three vertically arranged histograms summarize R-hat, bulk effective sample size, and tail effective sample size across 1,218 Model 26.0 parameters. Most R-hat values lie close to one, while a small number extend above 1.01. Most effective sample sizes are well above 400." width="78%"}
+
+![Joint posterior relationships for the six Model 26.0 parameters with the lowest bulk effective sample sizes. Diagonal panels report bulk ESS and R-hat; upper panels report posterior correlations; and lower panels show retained draws in blue, the maximum-likelihood estimate as a red point, and the local 95% Hessian ellipse in red.](assets/model-26-0/model_26_0_sparsenuts_slowest_pairs.png){#fig-model-26-sparsenuts-slowest-pairs fig-alt="A six-by-six pairs display for index log catchability parameter 3 and fishing-mortality parameters 2, 3, 8, 4, and 9. Diagonal panels show posterior histograms with bulk effective sample size and R-hat. Lower panels show retained MCMC draws, maximum-likelihood estimates, and Hessian-based 95 percent ellipses. Upper panels show pairwise posterior correlations ranging from 0.82 to 0.93." width="94%"}
+
+![MCMC posterior standard deviations compared with Hessian-based asymptotic standard errors for all 1,218 Model 26.0 parameters.](assets/model-26-0/model_26_0_sparsenuts_uncertainty_comparison.png){#fig-model-26-sparsenuts-uncertainty fig-alt="Log-scale scatterplot comparing MCMC posterior standard deviation on the horizontal axis with Hessian-based asymptotic standard error on the vertical axis for 1,218 parameters. A dashed diagonal marks equal uncertainty. The six parameters with the lowest bulk effective sample sizes are highlighted and labeled." width="78%"}
 
 | Diagnostic | Result | Review target | Outcome |
 |---|---:|---:|---|
@@ -1248,7 +1286,8 @@ creates the bridge, OSA, and jitter products. Fourth, run M26-02 through
 M26-04 for the self-test and lag-preserving retrospective evaluations. Fifth,
 run M26-09 and M26-11 for whole-index and sampling-event influence. Sixth, run
 M26-05 followed by M26-06 for the `spmR` projection handoff. Finally, run the
-research evaluations M26-07 and M26-10 separately from the operational fit.
+research evaluations M26-07 and M26-10 separately from the operational fit,
+then run M26-12 to summarize the retained SparseNUTS draws.
 
 The shell pattern below makes the analysis and report locations explicit. The
 scripts write complete fit objects beneath the analysis repository's
@@ -1271,6 +1310,7 @@ Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_case_deletion_5_23
 Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_spmr_projection_5_23.R"
 Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_dsem_5_23_pathways.R"
 Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/run_model_26_sparsenuts_5_23.R"
+Rscript "$EBS_REPORT_ROOT/doc/scripts/model-26-0/plot_model_26_sparsenuts_diagnostics.R"
 ```
 
 The script register in @tbl-model-26-script-register gives the stable ID,

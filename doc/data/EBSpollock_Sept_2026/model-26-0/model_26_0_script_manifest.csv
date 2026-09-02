@@ -10,3 +10,4 @@ Step,Script_ID,Script,Role,Primary_input,Primary_output
 9,M26-07,run_model_26_dsem_5_23_pathways.R,Fit the separate exploratory recruitment-pathway models,Common cohort-aligned covariate data and Model 26.0 configuration,DSEM comparison and pathway summaries
 10,M26-10,run_model_26_sparsenuts_5_23.R,Sample the complete joint Model 26.0 objective with four dense-metric chains,Converged Model 26.0 fit,SparseNUTS fit stored locally plus compact diagnostics
 11,M26-11,run_model_26_case_deletion_5_23.R,Build the observation schedule and refit after deleting selected complete sampling events,Converged Model 26.0 fit,Continuity inventory case-deletion summaries and figures
+12,M26-12,plot_model_26_sparsenuts_diagnostics.R,Create pairs and uncertainty-comparison diagnostics from the retained SparseNUTS draws,Saved four-chain SparseNUTS fit,Slowest-parameter and Hessian-to-MCMC uncertainty figures and data
