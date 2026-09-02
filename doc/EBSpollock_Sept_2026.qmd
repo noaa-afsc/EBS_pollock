@@ -469,50 +469,6 @@ flowchart TB
 
 : Model 26.0 fitting results from Rceattle 5.23.0. {#tbl-model-26-convergence}
 
-### Model fits {#sec-model-26-fits}
-
-The fitted abundance indices generally follow the observed changes through
-time (@fig-model-26-index-fits). Correlations between observed and fitted
-values are 0.90 for BTS, 0.88 for the ATS biomass index, 0.89 for the
-historical catch-per-unit-effort series, and 0.81 for AVO. The separate ATS
-age-1 index has a correlation of 0.60 and wider observation intervals in
-several years. Each panel retains the input scale for that series, so the
-vertical ranges are intended for comparison within a panel.
-
-The annual age-composition panels compare observed proportions with fitted
-proportions for every sampling year available to Model 26.0. Fishery
-compositions span 1964--2023 (@fig-model-26-fishery-age-fits-early and
-@fig-model-26-fishery-age-fits-late), BTS compositions span 1982--2024
-(@fig-model-26-bts-age-fits-early and @fig-model-26-bts-age-fits-late), and
-ATS compositions span 19 survey years from 1994 through 2024
-(@fig-model-26-ats-age-fits). The root-mean-squared difference between observed
-and fitted proportions is 0.024 for both the fishery and BTS. These direct fit
-plots show close agreement for many year-age combinations and identify local
-departures for the residual checks that follow.
-
-ATS compositions begin at age 2 because age 1 is represented by its separate
-abundance index. The ATS root-mean-squared difference is 0.051 across all
-fitted rows. The 2020 composition has a likelihood sample size of one and
-contains the largest difference; the summary is 0.029 when sampling events
-with a sample size of one are set aside. The OSA section evaluates these same
-active ATS ages with the likelihood sample sizes retained by the model.
-
-![Observed abundance indices and Model 26.0 fitted values. Points show observations, vertical lines show their displayed intervals, and blue lines show fitted values.](assets/model-26-0/model_26_0_index_fits.png){#fig-model-26-index-fits fig-alt="Five panels show observed points and fitted lines for historical catch per unit effort, the bottom-trawl biomass survey, the acoustic-trawl biomass survey, the separate acoustic-trawl age-1 index, and the acoustic vessel-of-opportunity index. Fits generally follow the observed changes, while several age-1 observations have wide intervals." width="94%"}
-
-![Observed and fitted fishery age compositions for 1964--1993. Bars show observed proportions and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_fishery_age_fits_1964_1993.png){#fig-model-26-fishery-age-fits-early fig-alt="Thirty annual panels compare observed fishery age proportions, shown as blue bars, with Model 26.0 fitted proportions, shown as a brown line, for ages 1 through 15 from 1964 through 1993." width="100%"}
-
-![Observed and fitted fishery age compositions for 1994--2023. Bars show observed proportions and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_fishery_age_fits_1994_2023.png){#fig-model-26-fishery-age-fits-late fig-alt="Thirty annual panels compare observed fishery age proportions, shown as blue bars, with Model 26.0 fitted proportions, shown as a brown line, for ages 1 through 15 from 1994 through 2023." width="100%"}
-
-![Observed and fitted bottom-trawl survey age compositions for 1982--2002. Bars show observed proportions and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_bts_age_fits_1982_2002.png){#fig-model-26-bts-age-fits-early fig-alt="Twenty-one annual panels compare observed bottom-trawl survey age proportions, shown as blue bars, with Model 26.0 fitted proportions, shown as a brown line, for ages 1 through 15 from 1982 through 2002." width="100%"}
-
-![Observed and fitted bottom-trawl survey age compositions for the available years from 2003--2024. Bars show observed proportions and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_bts_age_fits_2003_2024.png){#fig-model-26-bts-age-fits-late fig-alt="Twenty-one annual panels compare observed bottom-trawl survey age proportions, shown as blue bars, with Model 26.0 fitted proportions, shown as a brown line, for ages 1 through 15 in the available years from 2003 through 2024; 2020 is absent." width="100%"}
-
-![Observed and fitted acoustic-trawl survey age compositions for the 19 available survey years from 1994--2024. The panels begin at age 2 because age 1 is fitted as a separate abundance index.](assets/model-26-0/model_26_0_ats_age_fits_1994_2024.png){#fig-model-26-ats-age-fits fig-alt="Nineteen annual panels compare observed acoustic-trawl survey age proportions, shown as blue bars, with Model 26.0 fitted proportions, shown as a brown line. Every panel begins at age 2 and ends at age 15. The largest difference occurs at age 2 in 2020, which has a likelihood sample size of one." width="100%"}
-
-```{=latex}
-\FloatBarrier
-```
-
 ### Model 23.2 bridge comparison
 
 For this comparison, **Model 23.2** identifies the Rceattle-aligned ADMB bridge
@@ -572,6 +528,64 @@ retain the unscaled and normalized annual values.
 ![Annual bottom-trawl survey selectivity for Model 23.2 and Model 26.0, with each curve normalized to a maximum of one.](assets/model-26-0/model_23_2_vs_26_0_bts_selectivity.png){#fig-model-23-2-26-bts-selectivity fig-alt="Two tall side-by-side ridge plots compare relative bottom-trawl survey selectivity at ages 1 through 15 for every year from 1982 through 2024. Model 23.2 is on the left in blue and Model 26.0 is on the right in green. Both sets of curves rise from younger to older ages and align closely across years." width="92%"}
 
 ![Annual acoustic-trawl survey selectivity at ages 2--15 for Model 23.2 and Model 26.0, with each curve normalized to a maximum of one.](assets/model-26-0/model_23_2_vs_26_0_ats_selectivity.png){#fig-model-23-2-26-ats-selectivity fig-alt="Two tall side-by-side ridge plots compare relative acoustic-trawl survey selectivity at ages 2 through 15 for every year from 1994 through 2024. Model 23.2 is on the left in blue and Model 26.0 is on the right in green. Both panels begin at age 2, rise across younger ages, and level across older ages, with visible age-specific differences between the panels." width="92%"}
+
+```{=latex}
+\FloatBarrier
+```
+
+### Model fits {#sec-model-26-fits}
+
+The fitted abundance indices generally follow the observed changes through
+time (@fig-model-26-index-fits). Correlations between observed and fitted
+values are 0.90 for BTS, 0.88 for the ATS biomass index, 0.89 for the
+historical catch-per-unit-effort series, and 0.81 for AVO. The separate ATS
+age-1 index has a correlation of 0.60 and wider observation intervals in
+several years. Each panel retains the input scale for that series, so the
+vertical ranges are intended for comparison within a panel.
+
+The annual age-composition panels compare observed proportions with fitted
+proportions for every sampling year available to Model 26.0. Panels proceed
+from the top to the bottom of each column and then continue at the top of the
+next column. A year without an age composition retains an empty panel. Fishery
+compositions span 1964--2023 (@fig-model-26-fishery-age-fits-early and
+@fig-model-26-fishery-age-fits-late), BTS compositions span 1982--2024
+(@fig-model-26-bts-age-fits-early and @fig-model-26-bts-age-fits-late), and
+ATS compositions span 19 survey years within the complete 1994--2024 panel
+sequence (@fig-model-26-ats-age-fits).
+
+Bar fill follows cohort, calculated as year minus age. The fixed 15-color
+cycle gives the 15 ages a distinct fill within a panel and retains the same
+color as a cohort ages across panels. For example, the 1988 cohort is red at
+age 2 in 1990, age 3 in 1991, and age 4 in 1992. The cycle repeats after 15
+cohorts; the age position and year heading provide the primary identification,
+and color helps the reader follow diagonals through time.
+
+The root-mean-squared difference between observed and fitted proportions is
+0.024 for both the fishery and BTS. These direct fit plots show close agreement
+for many year-age combinations and identify local departures for the residual
+checks that follow. ATS compositions begin at age 2 because age 1 is
+represented by its separate abundance index. The ATS root-mean-squared
+difference is 0.051 across all fitted rows. The 2020 composition has a
+likelihood sample size of one and contains the largest difference; the summary
+is 0.029 when sampling events with a sample size of one are set aside. The OSA
+section evaluates these same active ATS ages with the likelihood sample sizes
+retained by the model.
+
+![Observed abundance indices and Model 26.0 fitted values. Points show observations, vertical lines show their displayed intervals, and blue lines show fitted values.](assets/model-26-0/model_26_0_index_fits.png){#fig-model-26-index-fits fig-alt="Five panels show observed points and fitted lines for historical catch per unit effort, the bottom-trawl biomass survey, the acoustic-trawl biomass survey, the separate acoustic-trawl age-1 index, and the acoustic vessel-of-opportunity index. Fits generally follow the observed changes, while several age-1 observations have wide intervals." width="94%"}
+
+![Observed and fitted fishery age compositions for 1964--1993. Panels proceed down each column before moving from left to right. Bars show observed proportions, cohort colors remain stable as fish age, and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_fishery_age_fits_1964_1993.png){#fig-model-26-fishery-age-fits-early fig-alt="Thirty fishery panels cover 1964 through 1993 and are ordered from top to bottom within each column, then left to right. Cohort-colored bars show observed proportions and a brown line shows fitted proportions for ages 1 through 15. The same cohort retains its bar color as it advances one age in the following year." width="100%"}
+
+![Observed and fitted fishery age compositions for 1994--2023. Panels proceed down each column before moving from left to right. Bars show observed proportions, cohort colors remain stable as fish age, and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_fishery_age_fits_1994_2023.png){#fig-model-26-fishery-age-fits-late fig-alt="Thirty fishery panels cover 1994 through 2023 and are ordered from top to bottom within each column, then left to right. Cohort-colored bars show observed proportions and a brown line shows fitted proportions for ages 1 through 15. The same cohort retains its bar color as it advances one age in the following year." width="100%"}
+
+![Observed and fitted bottom-trawl survey age compositions for 1982--2002. Panels proceed down each column before moving from left to right. Bars show observed proportions, cohort colors remain stable as fish age, and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_bts_age_fits_1982_2002.png){#fig-model-26-bts-age-fits-early fig-alt="Twenty-one bottom-trawl survey panels cover 1982 through 2002 and are ordered from top to bottom within each column, then left to right. Cohort-colored bars show observed proportions and a brown line shows fitted proportions for ages 1 through 15." width="100%"}
+
+![Observed and fitted bottom-trawl survey age compositions for 2003--2024. Panels proceed down each column before moving from left to right; 2020 remains as a blank panel. Bars show observed proportions, cohort colors remain stable as fish age, and the line shows Model 26.0 fitted proportions.](assets/model-26-0/model_26_0_bts_age_fits_2003_2024.png){#fig-model-26-bts-age-fits-late fig-alt="A complete 2003 through 2024 bottom-trawl survey grid is ordered from top to bottom within each column, then left to right. Cohort-colored bars show observed proportions and a brown line shows fitted proportions for ages 1 through 15. The 2020 panel is present and blank because an age composition is absent." width="100%"}
+
+![Observed and fitted acoustic-trawl survey age compositions within the complete 1994--2024 year sequence. Panels proceed down each column before moving from left to right, and years without an age composition remain blank. The panels begin at age 2 because age 1 is fitted as a separate abundance index.](assets/model-26-0/model_26_0_ats_age_fits_1994_2024.png){#fig-model-26-ats-age-fits fig-alt="A complete 1994 through 2024 acoustic-trawl survey grid is ordered from top to bottom within each column, then left to right. Nineteen panels contain cohort-colored observed bars and a brown fitted line for ages 2 through 15; the remaining years are blank. The largest difference occurs at age 2 in 2020, which has a likelihood sample size of one." width="100%"}
+
+```{=latex}
+\FloatBarrier
+```
 
 ### Diagnostics
 

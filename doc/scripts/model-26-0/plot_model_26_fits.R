@@ -150,6 +150,7 @@ composition_data <- bind_rows(lapply(annual_names, function(plot_name) {
       Year,
       Sample_size = N,
       Age = bin,
+      Cohort = Year - Age,
       Observed = obs,
       Fitted = hat,
       Difference = Observed - Fitted,
@@ -173,12 +174,26 @@ composition_summary <- composition_data |>
     .groups = "drop"
   )
 
-make_composition_plot <- function(data, ncol = 5L) {
+cohort_palette <- c(
+  "#E15759", "#4E79A7", "#59A14F", "#F28E2B", "#B07AA1",
+  "#76B7B2", "#EDC948", "#9C755F", "#FF9DA7", "#A0CBE8",
+  "#FFBE7D", "#8CD17D", "#B6992D", "#499894", "#D37295"
+)
+
+make_composition_plot <- function(data, years, ncol = 5L) {
   youngest_age <- min(data$Age)
   age_breaks <- if (youngest_age == 1) c(1, 5, 10, 15) else c(2, 5, 10, 15)
+  data <- data |>
+    mutate(
+      Year_panel = factor(Year, levels = years),
+      Cohort_colour = factor(
+        ((Cohort - 1988L) %% length(cohort_palette)) + 1L,
+        levels = seq_along(cohort_palette)
+      )
+    )
   ggplot(data, aes(x = Age)) +
     geom_col(
-      aes(y = Observed, fill = "Observed"),
+      aes(y = Observed, fill = Cohort_colour),
       width = 0.82,
       colour = "grey35",
       linewidth = 0.15
@@ -191,7 +206,12 @@ make_composition_plot <- function(data, ncol = 5L) {
       aes(y = Fitted, colour = "Fitted"),
       size = 0.7
     ) +
-    facet_wrap(~Year, ncol = ncol) +
+    facet_wrap(
+      ~Year_panel,
+      ncol = ncol,
+      dir = "v",
+      drop = FALSE
+    ) +
     scale_x_continuous(
       breaks = age_breaks,
       limits = c(youngest_age - 0.45, 15.45),
@@ -201,7 +221,7 @@ make_composition_plot <- function(data, ncol = 5L) {
       limits = c(0, 1.05 * max(c(data$Observed, data$Fitted))),
       expand = expansion(mult = c(0, 0.02))
     ) +
-    scale_fill_manual(name = NULL, values = c(Observed = "#A6CEE3")) +
+    scale_fill_manual(values = cohort_palette, guide = "none") +
     scale_colour_manual(name = NULL, values = c(Fitted = "#8C2D04")) +
     labs(x = "Age", y = "Proportion") +
     ggthemes::theme_few(base_size = 8) +
@@ -235,7 +255,7 @@ composition_specs <- list(
   ),
   list(
     fleet = "ATS", years = 1994:2024,
-    file = "model_26_0_ats_age_fits_1994_2024.png", height = 6.5
+    file = "model_26_0_ats_age_fits_1994_2024.png", height = 8.5
   )
 )
 
@@ -243,7 +263,7 @@ for (spec in composition_specs) {
   plot_data <- composition_data |>
     filter(Fleet == spec$fleet, Year %in% spec$years)
   stopifnot(nrow(plot_data) > 0)
-  plot_object <- make_composition_plot(plot_data)
+  plot_object <- make_composition_plot(plot_data, years = spec$years)
   ggsave(
     file.path(asset_directory, spec$file),
     plot_object,
