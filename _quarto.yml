@@ -40,8 +40,6 @@ website:
         text: Preface
       - href: doc/EBSpollock_Sept_2026.qmd
         text: September 2026 assessment developments
-      - href: doc/ssc.qmd
-        text: Responses to SSC comments
       - href: doc/todo.qmd
         text: Assessment preparation checklist
       - href: doc/activities_2025.qmd
