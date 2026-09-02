@@ -1187,6 +1187,18 @@ distribution identifies this small group of slower-mixing parameters
 (@fig-model-26-sparsenuts-trace; @fig-model-26-sparsenuts-diagnostics;
 @tbl-model-26-sparsenuts-diagnostics).
 
+**Energy Bayesian fraction of missing information (E-BFMI):** measures how
+effectively momentum resampling moves a Hamiltonian Monte Carlo chain across
+the energy levels of its joint position-and-momentum distribution. It compares
+the squared change in total energy between successive iterations with the
+overall variation in energy. In plain language, E-BFMI asks whether each step
+changes energy enough to explore the posterior landscape. Higher values
+support more effective energy exploration. Values below 0.30 are commonly
+treated as a warning rather than a universal pass-or-fail threshold
+[@betancourt2016cotangent; @betancourt2017hmc]. The [CmdStan diagnostic
+guide](https://mc-stan.org/docs/2_39/cmdstan-guide/diagnose_utility.html) uses
+0.30 as its nominal warning threshold.
+
 These results demonstrate that the complete joint objective can be sampled on
 four local cores. Additional retained draws and focused review of the index
 catchability parameters will strengthen the uncertainty summary. The
