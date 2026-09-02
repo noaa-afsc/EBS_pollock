@@ -108,6 +108,19 @@ Fisheries Science Center, National Marine Fisheries Service.
 
 # Summary
 
+Model 26.0 should be adopted as the operational model for calculating ABC and
+OFL and determining eastern Bering Sea pollock stock status for the November
+2026 Bering Sea and Aleutian Islands Groundfish Plan Team review and the
+December 2026 Scientific and Statistical Committee (SSC) and Council
+considerations. The fall assessment should apply Model 26.0 to the completed
+2025 fishery and 2026 survey updates and carry its fitted state into the
+standard Tier 3 projection workflow. This recommendation is supported by the
+Model 23.2 translation check, close agreement of population trajectories,
+successful convergence and simulated-data recovery, one-step-ahead residual
+checks, multi-start testing, lag-preserving retrospectives, survey-index
+sensitivities, and the reproducible `spmR` projection handoff. Model 23.0
+provides the continuity benchmark for the review of this transition.
+
 This working paper brings together eastern Bering Sea pollock assessment work
 that resumed after the 2025 funding lapse and federal furlough. It establishes
 a common review record for data preparation, model numbering, software
@@ -169,13 +182,14 @@ negative fitted pathway provides a testable in-sample association for further
 biological and predictive evaluation. The bridge, convergence tests,
 diagnostics, retrospective evaluation, index sensitivities, and projection
 handoff support the recommendation that Model 26.0 be adopted for 2026
-management advice after the updated-data run and formal Plan Team and SSC
-review. Model 23.0 provides continuity through that transition. Appendix 1
+management advice through the updated-data run and formal Plan Team, SSC, and
+Council review. Appendix 1
 preserves the SSC comments and response plan, Appendix 2 provides the
-development framework for an Ecosystem and Socioeconomic Profile, and
-Appendices 3--6 document the exploratory SparseNUTS run, reproducible model
-workflow, observation continuity and case-deletion influence, and acronym
-glossary. Appendix 7 documents fishery length-frequency patterns.
+development framework for an Ecosystem and Socioeconomic Profile, Appendix 3
+evaluates time- and age-varying BTS availability, and Appendices 4--7 document
+the exploratory SparseNUTS run, reproducible model workflow, observation
+continuity and case-deletion influence, and acronym glossary. Appendix 8
+documents fishery length-frequency patterns.
 
 # Introduction
 
@@ -202,11 +216,12 @@ The appendices preserve supporting material that informs this work.
 responses and retains the earlier 2024 comments. [Appendix
 2](#sec-esp-development-framework) provides the development structure for an
 EBS pollock Ecosystem and Socioeconomic Profile (ESP). [Appendix
-3](#sec-sparsenuts) reports exploratory SparseNUTS sampling, [Appendix
-4](#sec-model-run-methods) records the reproducible model workflow, [Appendix
-5](#sec-observation-influence) evaluates observation continuity and
-case-deletion influence, and [Appendix 6](#sec-glossary) defines the report's
-acronyms. [Appendix 7](#sec-length-frequency-patterns) summarizes seasonal and
+3](#sec-bts-availability) evaluates time- and age-varying BTS availability,
+[Appendix 4](#sec-sparsenuts) reports exploratory SparseNUTS sampling,
+[Appendix 5](#sec-model-run-methods) records the reproducible model workflow,
+[Appendix 6](#sec-observation-influence) evaluates observation continuity and
+case-deletion influence, and [Appendix 7](#sec-glossary) defines the report's
+acronyms. [Appendix 8](#sec-length-frequency-patterns) summarizes seasonal and
 spatial patterns in the observed pollock length-frequency samples. Together,
 the main sections and appendices connect the resumed work with the assessment
 review record.
@@ -368,10 +383,6 @@ Simulation testing and review will guide future operational refinements.
 Current management advice uses the accepted ADMB assessment model. The
 hierarchical Form-2 results generated with SparseNUTS describe a separate
 selectivity option.
-
-### Evaluation of time-varying BTS availability {#sec-bts-availability}
-
-{{< include EBSpollock_Sept_2026_bts_availability.qmd >}}
 
 ## Model 26.0 {#sec-model-26-0}
 
@@ -1252,7 +1263,15 @@ withheld years. Contextual indicators will retain value by describing current
 conditions and plausible mechanisms even when they remain outside the
 assessment likelihood.
 
-## Appendix 3: Exploratory SparseNUTS sampling {#sec-sparsenuts}
+## Appendix 3: Evaluation of time- and age-varying BTS availability {#sec-bts-availability}
+
+{{< include EBSpollock_Sept_2026_bts_availability.qmd >}}
+
+```{=latex}
+\clearpage
+```
+
+## Appendix 4: Exploratory SparseNUTS sampling {#sec-sparsenuts}
 
 This appendix evaluates whether the complete Model 26.0 joint objective can be
 sampled with SparseNUTS. It uses the same 1964--2024 input data and operating
@@ -1337,7 +1356,7 @@ reproduces the run from the saved Model 26.0 fit.
 
 : SparseNUTS configuration and sampling diagnostics for the complete Model 26.0 joint objective. {#tbl-model-26-sparsenuts-diagnostics}
 
-## Appendix 4: Reproducible model run methods {#sec-model-run-methods}
+## Appendix 5: Reproducible model run methods {#sec-model-run-methods}
 
 The model workflow keeps the editable report and analysis code under version
 control while storing large fit objects in the local analysis repository. The
@@ -1412,7 +1431,7 @@ knitr::kable(
 )
 ```
 
-## Appendix 5: Observation continuity and case-deletion influence {#sec-observation-influence}
+## Appendix 6: Observation continuity and case-deletion influence {#sec-observation-influence}
 
 This diagnostic separates whether an observation was available and used from
 how much the accepted fit changes when a fitted sampling event is removed. The
@@ -1467,7 +1486,7 @@ case_deletion_table <- data.frame(
 knitr::kable(case_deletion_table, align = c("l", "r", "r", "r"))
 ```
 
-## Appendix 6: Glossary of acronyms {#sec-glossary}
+## Appendix 7: Glossary of acronyms {#sec-glossary}
 
 This glossary follows the ASAR package convention of maintaining one
 alphabetical source table with `Label`, `Acronym`, and `Meaning` fields. The
@@ -1490,6 +1509,6 @@ knitr::kable(
 )
 ```
 
-## Appendix 7: Fishery length frequency patterns {#sec-length-frequency-patterns}
+## Appendix 8: Fishery length frequency patterns {#sec-length-frequency-patterns}
 
 {{< include EBSpollock_Sept_2026_length_frequency.qmd >}}
