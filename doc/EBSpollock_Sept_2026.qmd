@@ -1023,16 +1023,16 @@ complete this transition.
 ::: {#refs}
 :::
 
-# Appendices
+# Appendices {.unnumbered}
 
-## Appendix 1: Main SSC comments and responses {#sec-ssc-comments}
+## Appendix 1: Main SSC comments and responses {#sec-ssc-comments .unnumbered}
 
 A funding lapse ended preparation of the November and December 2025 EBS
 pollock SAFE package. The October 2025 SSC comments therefore carry forward to
 the 2026 assessment cycle for formal response. The responses below describe
 the planned work for 2026 and later years.
 
-### Current status
+### Current status {.unnumbered}
 
 - The next assessment needs to trace the 2025 RTMB starting model back to the
   2024 ADMB source, along with updated survey data, 2025 FT-NIRS ages, the
@@ -1048,7 +1048,7 @@ the planned work for 2026 and later years.
 Completion of an SSC response requires the analysis, results, and explanation
 for review. Current research contributes evidence toward that completion.
 
-### Comments and responses
+### Comments and responses {.unnumbered}
 
 The response matrix pairs each October 2025 SSC comment with the analysis,
 documentation, or review action planned for the 2026 assessment cycle.
@@ -1071,7 +1071,7 @@ documentation, or review action planned for the 2026 assessment cycle.
 : Responses to the October 2025 SSC comments on EBS pollock. The SSC comments
 are summarized from pages 27 to 29 of the final October 2025 SSC report.
 
-### Earlier responses to 2024 SSC comments
+### Earlier responses to 2024 SSC comments {.unnumbered}
 
 ::: {.callout-note title="Retained material"}
 The responses below were on the previous version of the SSC response page and
@@ -1125,7 +1125,7 @@ results.
 *The SSC requested that the September 2024 SRR document be included as an appendix or linked.*  
 *The document has been added as Appendix X in this SAFE.*
 
-#### SSC 2024 comments and 2025 responses
+#### SSC 2024 comments and 2025 responses {.unnumbered}
 
 The retained response matrix summarizes how the 2025 work addressed each 2024
 SSC comment and identifies topics that continue into the current cycle.
@@ -1143,7 +1143,7 @@ SSC comment and identifies topics that continue into the current cycle.
 | Stock-recruitment relationship | The 2025 assessment focuses on recruitment deviations with zero bias correction; the steepness prior remains meta-analysis based. |
 | Add Sept 2024 SRR document as appendix | Document included as Appendix X. |
 
-## Appendix 2: Draft EBS pollock ESP development framework {#sec-esp-development-framework}
+## Appendix 2: Draft EBS pollock ESP development framework {#sec-esp-development-framework .unnumbered}
 
 This appendix provides a working structure for an eastern Bering Sea pollock
 Ecosystem and Socioeconomic Profile (ESP). It separates the concise assessment
@@ -1171,7 +1171,7 @@ The framework assigns every ESP component a purpose and current development
 status, keeping the pending annual synthesis and review steps visible
 (@tbl-esp-appendix-structure).
 
-### Executive summary
+### Executive summary {.unnumbered}
 
 ::: {.callout-note title="ESP summary placeholder"}
 Summarize the current ecosystem and socioeconomic conditions after the annual
@@ -1179,7 +1179,7 @@ indicator assessment is complete. Distinguish indicators that improve
 prediction from those that provide management context.
 :::
 
-### Introduction and justification
+### Introduction and justification {.unnumbered}
 
 The ESP will connect ecosystem and fishing-community conditions with the
 assessment quantities used to evaluate pollock status and risk. Age-1
@@ -1188,7 +1188,7 @@ links physical conditions, prey, age-0 condition, overwinter survival, and
 cannibalism with later assessment observations. The completed ESP should state
 the management question for every retained indicator.
 
-### Data
+### Data {.unnumbered}
 
 The ESP data inventory will record the source, units, timing, spatial coverage,
 uncertainty, update schedule, and cohort alignment of each candidate series.
@@ -1197,7 +1197,7 @@ indices; plankton and prey; age-0 abundance and condition; predator overlap and
 consumption; and fishery and community indicators. The common data block used
 for each statistical comparison will be archived with the results.
 
-### Indicator synthesis
+### Indicator synthesis {.unnumbered}
 
 The life-stage synthesis connects the principal biological processes with the
 available evidence and the observations needed to strengthen each pathway
@@ -1219,7 +1219,7 @@ The conceptual graph in @fig-model-26-dsem-dag is the initial recruitment
 framework. Each candidate statistical pathway should trace to a stated
 mechanism, cohort timing, expected direction, and documented data source.
 
-### Proposed indicators
+### Proposed indicators {.unnumbered}
 
 Candidate indicators will be screened for a clear biological or socioeconomic
 mechanism, correct seasonal and cohort timing, adequate record length,
@@ -1229,7 +1229,7 @@ late-summer SST and cold-pool extent. Proximal biological indicators such as
 fall age-0 energy and lipid-rich prey have priority as their annual series
 develop.
 
-### Indicator assessment
+### Indicator assessment {.unnumbered}
 
 For every retained indicator, the annual assessment will show the current
 value, historical distribution, trend, uncertainty, and interpretation. A
@@ -1237,7 +1237,7 @@ short synthesis will distinguish broad environmental context from evidence
 that directly informs recruitment, stock status, fishery performance, or
 community exposure.
 
-### Indicator analysis
+### Indicator analysis {.unnumbered}
 
 The initial common-data DSEM comparison is presented in
 @sec-model-26-0. Future analyses will add terminal-year and blocked prediction,
@@ -1246,7 +1246,7 @@ stability, and candidate graphs containing proximal biological mediators.
 Candidate models will retain a common data block so changes in fit reflect the
 pathways rather than a changing set of years.
 
-### Data gaps and priorities
+### Data gaps and priorities {.unnumbered}
 
 The principal biological priorities are fall age-0 energy, lipid content and
 abundance of key prey, bloom and prey-match timing, juvenile-adult overlap,
@@ -1254,7 +1254,7 @@ predation mortality, and consistent observation-error estimates. The ESP team
 will also identify fishery and community indicators with stable annual updates
 and clear links to management questions.
 
-### Conclusion and management use
+### Conclusion and management use {.unnumbered}
 
 The completed ESP will classify each indicator as suitable for recruitment
 modeling, assessment risk evaluation, socioeconomic context, or continued
@@ -1263,7 +1263,7 @@ withheld years. Contextual indicators will retain value by describing current
 conditions and plausible mechanisms even when they remain outside the
 assessment likelihood.
 
-## Appendix 3: Evaluation of time- and age-varying BTS availability {#sec-bts-availability}
+## Appendix 3: Evaluation of time- and age-varying BTS availability {#sec-bts-availability .unnumbered}
 
 {{< include EBSpollock_Sept_2026_bts_availability.qmd >}}
 
@@ -1271,7 +1271,7 @@ assessment likelihood.
 \clearpage
 ```
 
-## Appendix 4: Exploratory SparseNUTS sampling {#sec-sparsenuts}
+## Appendix 4: Exploratory SparseNUTS sampling {#sec-sparsenuts .unnumbered}
 
 This appendix evaluates whether the complete Model 26.0 joint objective can be
 sampled with SparseNUTS. It uses the same 1964--2024 input data and operating
@@ -1356,7 +1356,7 @@ reproduces the run from the saved Model 26.0 fit.
 
 : SparseNUTS configuration and sampling diagnostics for the complete Model 26.0 joint objective. {#tbl-model-26-sparsenuts-diagnostics}
 
-## Appendix 5: Reproducible model run methods {#sec-model-run-methods}
+## Appendix 5: Reproducible model run methods {#sec-model-run-methods .unnumbered}
 
 The model workflow keeps the editable report and analysis code under version
 control while storing large fit objects in the local analysis repository. The
@@ -1431,7 +1431,7 @@ knitr::kable(
 )
 ```
 
-## Appendix 6: Observation continuity and case-deletion influence {#sec-observation-influence}
+## Appendix 6: Observation continuity and case-deletion influence {#sec-observation-influence .unnumbered}
 
 This diagnostic separates whether an observation was available and used from
 how much the accepted fit changes when a fitted sampling event is removed. The
@@ -1486,7 +1486,7 @@ case_deletion_table <- data.frame(
 knitr::kable(case_deletion_table, align = c("l", "r", "r", "r"))
 ```
 
-## Appendix 7: Glossary of acronyms {#sec-glossary}
+## Appendix 7: Glossary of acronyms {#sec-glossary .unnumbered}
 
 This glossary follows the ASAR package convention of maintaining one
 alphabetical source table with `Label`, `Acronym`, and `Meaning` fields. The
@@ -1509,6 +1509,6 @@ knitr::kable(
 )
 ```
 
-## Appendix 8: Fishery length frequency patterns {#sec-length-frequency-patterns}
+## Appendix 8: Fishery length frequency patterns {#sec-length-frequency-patterns .unnumbered}
 
 {{< include EBSpollock_Sept_2026_length_frequency.qmd >}}
