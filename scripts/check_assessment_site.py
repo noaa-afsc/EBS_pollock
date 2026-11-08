@@ -21,11 +21,11 @@ for name in ['index.html','development.html','2026/assessment.html']:
         target=(ROOT/'docs'/unquote(u.path).lstrip('/')) if u.path.startswith('/') else p.parent/unquote(u.path)
         assert target.exists(),(name,url)
     if name=='2026/assessment.html':
-        assert parser.tables==88 and parser.images==88,(parser.tables,parser.images)
+        assert parser.tables==89 and parser.images==88,(parser.tables,parser.images)
         assert 'This approach was adopted in the 2024 assessment' in s
 for name in ['assessment.html','assessment.pdf']:
     assert (ROOT/'2026'/name).read_bytes()==(ROOT/'docs/2026'/name).read_bytes(),name
 manifest=json.loads((ROOT/'2026/release.json').read_text())
 for name,sha in manifest['files'].items():
     assert hashlib.sha256((ROOT/'2026'/name).read_bytes()).hexdigest()==sha,name
-print('PASS: homepage, development links, 88 tables, 88 images, report assets, matching release hashes')
+print('PASS: homepage, development links, 89 tables, 88 images, report assets, matching release hashes')

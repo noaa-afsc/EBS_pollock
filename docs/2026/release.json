@@ -1,16 +1,17 @@
 {
   "version": "2026-11-08",
   "status": "Review draft",
-  "tables": 88,
+  "tables": 89,
   "images": 88,
-  "pages": 259,
+  "pages": 260,
   "local_only_HTML_links_retained_as_text": 95,
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "188ac713a46abea07e22ce987ed9e071fc695b3b890298e06b6302420ea3d170",
-    "assessment.pdf": "3705ea02ed380618a14242ce4c287d24a0e4242c3a0850192ac77beec8180558"
+    "assessment.html": "74adfd256a3cb9dbf445a27afbd2d3ed0c28455afa14b17c28829255aae7064f",
+    "assessment.pdf": "a0ec6935a1c8439fdfeb6ee0d2fc8b7cbc82aacf506e68b28ee21b5ae0777b46"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
-  "revision_note": "Added assessment navigation and revised cover citation to author initials, removing private draft wording."
+  "revision_note": "Added main Table 54 and fishery narrative for annual prohibited-species catches, 1991\u20132026; 2024 halibut mortality is 53 t for display.",
+  "psc_source_sha256": "1abb83dae9a149f3678a5bc5d6b21a399c13272321810333e75b0d99fca20d13"
 }

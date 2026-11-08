@@ -23,3 +23,8 @@ The initial release contains 88 tables, 88 images, and a 259-page PDF. Local-onl
 supporting-file links were removed while preserving their displayed text.
 Scientific content and the PDF page layout were retained. Manual accessibility
 review is pending; automated link checks establish link integrity only.
+
+The November 8 PSC revision adds main Table 54 (89 tables total) and
+one PDF page (260 total), retaining the numbers of all earlier tables. Annual aggregated
+CSV values and the R aggregation recipe are provided; vessel-level inputs are
+excluded.
