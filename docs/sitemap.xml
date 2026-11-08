@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/doc/ssc.html</loc>
+    <loc>https://noaa-afsc.github.io/EBS_pollock/doc/ssc.html</loc>
     <lastmod>2026-09-01T14:18:59.985Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/doc/todo.html</loc>
+    <loc>https://noaa-afsc.github.io/EBS_pollock/doc/todo.html</loc>
     <lastmod>2026-09-02T04:35:55.664Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/index.html</loc>
+    <loc>https://noaa-afsc.github.io/EBS_pollock/index.html</loc>
     <lastmod>2026-09-02T04:12:24.858Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/doc/activities_2025.html</loc>
+    <loc>https://noaa-afsc.github.io/EBS_pollock/doc/activities_2025.html</loc>
     <lastmod>2026-09-01T01:17:47.209Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/doc/double_logistic_selectivity.html</loc>
+    <loc>https://noaa-afsc.github.io/EBS_pollock/doc/double_logistic_selectivity.html</loc>
     <lastmod>2026-08-31T23:08:36.735Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/doc/EBSpollock_Sept_2026.html</loc>
+    <loc>https://noaa-afsc.github.io/EBS_pollock/doc/EBSpollock_Sept_2026.html</loc>
     <lastmod>2026-09-04T03:59:00.509Z</lastmod>
+  </url>
+  <url>
+    <loc>https://noaa-afsc.github.io/EBS_pollock/index.html</loc>
+    <lastmod>2026-11-08T23:09:12.868Z</lastmod>
+  </url>
+  <url>
+    <loc>https://noaa-afsc.github.io/EBS_pollock/development.html</loc>
+    <lastmod>2026-11-08T23:09:12.868Z</lastmod>
   </url>
 </urlset>

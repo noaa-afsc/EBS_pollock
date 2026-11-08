@@ -1,0 +1,15 @@
+---
+title: "Development and previous years"
+date: ""
+lightbox: true
+format:
+  html:
+    toc: false
+---
+
+These materials document earlier assessment development and review. For the
+current report, see the [2026 assessment](index.qmd).
+
+- [September 2026 assessment developments](doc/EBSpollock_Sept_2026.qmd): earlier model development and responses to review comments.
+- [Assessment preparation checklist](doc/todo.qmd): preparation tasks and review topics.
+- [2025 activities](doc/activities_2025.qmd): papers prepared for assessment research and review meetings in 2025.

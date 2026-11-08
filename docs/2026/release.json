@@ -1,0 +1,14 @@
+{
+  "version": "2026-11-08",
+  "status": "Review draft",
+  "tables": 88,
+  "images": 88,
+  "pages": 259,
+  "local_only_HTML_links_retained_as_text": 95,
+  "local_only_PDF_links_removed": 99,
+  "manual_accessibility": "Not Tested",
+  "files": {
+    "assessment.html": "b49c21ac326bed641a226cf429fc5d615aef4540ee208aaa78ba49b7f929f898",
+    "assessment.pdf": "e46c220ba85a26657d39adfac799e610144c2381cbb01858923decc7b48972a0"
+  }
+}
