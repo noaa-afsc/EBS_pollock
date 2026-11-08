@@ -8,8 +8,9 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "0868f7017e2c70f3cb4208f035e66192e68f72bba26dd7c64be456a0f16a8ae8",
-    "assessment.pdf": "4e938de1438afdf96e56876ac7e7230b701201fc983b29f3b2473dda86432054"
+    "assessment.html": "188ac713a46abea07e22ce987ed9e071fc695b3b890298e06b6302420ea3d170",
+    "assessment.pdf": "3705ea02ed380618a14242ce4c287d24a0e4242c3a0850192ac77beec8180558"
   },
-  "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf"
+  "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
+  "revision_note": "Added assessment navigation and revised cover citation to author initials, removing private draft wording."
 }
