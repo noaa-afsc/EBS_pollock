@@ -8,8 +8,8 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "5613c5866760dafdeaa905dfd99c61ecac1e697a39d185e4a0f19f8a6c5280a5",
-    "assessment.pdf": "5fd99fdbabbd7323c148d72e4d88b6c906b8a33d719df53ec4c904ebf5dc92a3"
+    "assessment.html": "14c7bbce15a2e221a3c84e6535207f1b4f92f764d65a72294450d4ce521fccf5",
+    "assessment.pdf": "3321b265e594861b899890da8193518b6498f39a554fd5ff121281f82083f7d4"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -67,5 +67,6 @@
     "revision": "Applied annotated review: removed highlighted process prose and redundant Table B12, shortened DSEM analysis; retained pilot Tables B10\u2013B11.",
     "date": "2026-11-09",
     "manual_accessibility": "Not tested"
-  }
+  },
+  "ESP_socioeconomic_monitoring": "Connected future ESP development to main-assessment fishery conditions and catch-decision Tables 51\u201352, with the F-based effort proxy distinguished from observed effort and economic outcomes."
 }
