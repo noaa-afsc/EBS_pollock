@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "current_status_year": 2026,
+  "current_intermediate_test": "Alternative6 in2036",
+  "approaching_test": "Alternative7 in2028; intermediate branch in2038",
+  "model_checks": {
+    "26_0": {
+      "B35_kt": 2155.371038385562,
+      "SSB_2026_kt": 3057.0127422592855,
+      "Alt6_SSB2036_kt": 2263.0908345639446,
+      "Alt7_SSB2028_kt": 3123.453890466512,
+      "Alt7_SSB2038_kt": 2263.1884030846095,
+      "overfished": false,
+      "approaching_overfished": false,
+      "long_term_branch_required": false
+    },
+    "26_1_2": {
+      "B35_kt": 2176.8609527479052,
+      "SSB_2026_kt": 3064.6642418428523,
+      "Alt6_SSB2036_kt": 2288.013254209675,
+      "Alt7_SSB2028_kt": 3178.8447082627063,
+      "Alt7_SSB2038_kt": 2287.976126777435,
+      "overfished": false,
+      "approaching_overfished": false,
+      "long_term_branch_required": false
+    }
+  },
+  "PDF_pages_checked": [
+    31,
+    32
+  ],
+  "manual_accessibility": "Not tested"
+}
