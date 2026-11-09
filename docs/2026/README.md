@@ -91,5 +91,6 @@ Bycatch table revision: the formerTables7,8,6,9 now appear asTables6,7,8,9.
 All four estimate and column-definition downloads are part of their small Source
 footers in HTML and PDF. Table8 now supplies a PSC column dictionary derived
 from the existing aggregation recipe. Numeric content is unchanged.
-Pages publishing uses the existing static.yml workflow; the repository Pages
-build_type was aligned to workflow to avoid competing branch-based builds.
+Pages publishes docs/ from main using branch-based publishing. The redundant
+static.yml deployment workflow is disabled after repeated deployment collisions
+and synchronization stalls. The rendered report remains owned by2026/.
