@@ -80,3 +80,9 @@ figure is now34 and distinguishes2026 weights and the selected2027 projection
 curve. Report prose, tables, captions and eight graphic assets use tons; numeric
 values retain their metric-ton basis. See tables/weight-age-revision-20261109/
 for section source, saved curve data, PDF reflow source and validation.
+
+Table 2 link restoration: all36 row-source links and3 note links are active
+in both HTML and PDF. Targets are hosted under table2-sources/; archived HTML
+sources have self-contained reading copies with original-source provenance.
+PDF text and all266 pages are unchanged. Source hashes and verification
+evidence accompany the restored files.

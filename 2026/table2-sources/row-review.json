@@ -1,0 +1,315 @@
+{
+  "source_rows": 26,
+  "derived_rows": 23,
+  "rows": [
+    {
+      "supplied_row": 1,
+      "original": {
+        "Year": "1977",
+        "Management Measure": "Preliminary BSAI FMP implemented with several closure areas"
+      },
+      "derived_rows": [
+        1
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 2,
+      "original": {
+        "Year": "1982",
+        "Management Measure": "FMP implemented for the BSAI"
+      },
+      "derived_rows": [
+        2
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 3,
+      "original": {
+        "Year": "1982",
+        "Management Measure": "Chinook salmon bycatch limits established for foreign trawlers"
+      },
+      "derived_rows": [
+        2
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 4,
+      "original": {
+        "Year": "1984",
+        "Management Measure": "2 million t groundfish OY limit established"
+      },
+      "derived_rows": [
+        3
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 5,
+      "original": {
+        "Year": "1984",
+        "Management Measure": "Limits on Chinook salmon bycatch reduced"
+      },
+      "derived_rows": [
+        3
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 6,
+      "original": {
+        "Year": "1990",
+        "Management Measure": "New observer program established along with data reporting"
+      },
+      "derived_rows": [
+        4
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 7,
+      "original": {
+        "Year": "1992",
+        "Management Measure": "Pollock CDQ program commences"
+      },
+      "derived_rows": [
+        5
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 8,
+      "original": {
+        "Year": "1994",
+        "Management Measure": "NMFS adopts minimum mesh size requirements for trawl codends"
+      },
+      "derived_rows": [
+        7
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Changed implemented-NMFS assertion to Council recommendation; implementation not established."
+    },
+    {
+      "supplied_row": 9,
+      "original": {
+        "Year": "1994",
+        "Management Measure": "Voluntary retention of salmon for foodbank donations"
+      },
+      "derived_rows": [
+        6
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Distinguished programme establishment in 1993 from voluntary-donation milestone reported 1994."
+    },
+    {
+      "supplied_row": 10,
+      "original": {
+        "Year": "1994",
+        "Management Measure": "NMFS publishes individual vessel bycatch rates on internet"
+      },
+      "derived_rows": [
+        8
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 11,
+      "original": {
+        "Year": "1995",
+        "Management Measure": "Trawl closures areas and trigger limits established for chum and Chinook salmon"
+      },
+      "derived_rows": [
+        9
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Distinguished 1994 emergency chum precursor from 1995 permanent regime."
+    },
+    {
+      "supplied_row": 12,
+      "original": {
+        "Year": "1998",
+        "Management Measure": "Improved utilization and retention in effect (reduced discarded pollock)"
+      },
+      "derived_rows": [
+        10
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Requirements effective 1998; removed unquantified discard-reduction outcome claim."
+    },
+    {
+      "supplied_row": 13,
+      "original": {
+        "Year": "1998",
+        "Management Measure": "American Fisheries Act (AFA) passed"
+      },
+      "derived_rows": [
+        11
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 14,
+      "original": {
+        "Year": "1999",
+        "Management Measure": "The AFA was implemented for catcher/processors"
+      },
+      "derived_rows": [
+        12
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 15,
+      "original": {
+        "Year": "1999",
+        "Management Measure": "Additional critical habitat areas around sea lion haulouts in the GOA and Eastern Bering Sea are closed"
+      },
+      "derived_rows": [
+        13
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Narrowed to emergency dispersal and selected exclusion zones; no blanket critical-habitat closure."
+    },
+    {
+      "supplied_row": 16,
+      "original": {
+        "Year": "2000",
+        "Management Measure": "AFA implemented for remaining sectors (catcher vessel and motherships)"
+      },
+      "derived_rows": [
+        14
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 17,
+      "original": {
+        "Year": "2001",
+        "Management Measure": "Pollock industry adopts voluntary rolling hotspot program for chum salmon"
+      },
+      "derived_rows": [
+        15
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 18,
+      "original": {
+        "Year": "2002",
+        "Management Measure": "Pollock industry adopts voluntary rolling hotspot program for Chinook salmon"
+      },
+      "derived_rows": [
+        16
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Retained with source-verified wording; see linked row sources."
+    },
+    {
+      "supplied_row": 19,
+      "original": {
+        "Year": "2005",
+        "Management Measure": "Rolling hotspot program adopted in regulations to exempt fleet from triggered time/area closures for Chinook and chum salmon"
+      },
+      "derived_rows": [
+        17,
+        18,
+        19
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Split Council action 2005, EFP 2006 and general regulations 2007."
+    },
+    {
+      "supplied_row": 20,
+      "original": {
+        "Year": "2011",
+        "Management Measure": "Amendment 91 enacted, Chinook salmon management under hard limits"
+      },
+      "derived_rows": [
+        20
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Distinguished 2010 rule effective date from 2011 programme operation."
+    },
+    {
+      "supplied_row": 21,
+      "original": {
+        "Year": "2015",
+        "Management Measure": "Amendment 110 (BSAI) Salmon prohibited species catch management in the Bering Sea pollock fishery (additional measures that change limits depending on Chinook salmon run-strength indices) and includes additional provisions for reporting requirements"
+      },
+      "derived_rows": [
+        21
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Separated 2015 Council action,2016 rule and 2017 first index year; no unverified annual index estimate."
+    },
+    {
+      "supplied_row": 22,
+      "original": {
+        "Year": "2016",
+        "Management Measure": "Measures of Amendment 110 go into effect for 2017 fishing season; Chinook salmon runs above the 3-run index value so bycatch limits stay the same"
+      },
+      "derived_rows": [
+        22,
+        23
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Separated 2015 Council action,2016 rule and 2017 first index year; no unverified annual index estimate."
+    },
+    {
+      "supplied_row": 23,
+      "original": {
+        "Year": "2017",
+        "Management Measure": "Due to Amendment 110, about 45% of the TAC is taken in the A-season (traditionally only 40% was allowed)"
+      },
+      "derived_rows": [
+        22
+      ],
+      "disposition": "retained/clarified/merged",
+      "reason": "Corrected to 2016 rule change in pollock allocation; not a Chinook PSC seasonal allocation."
+    },
+    {
+      "supplied_row": 24,
+      "original": {
+        "Year": "2020",
+        "Management Measure": "Comprehensive review of Amendment 91 and 110 performance metrics submitted to NPFMC; bycatch measures adapted for multi-species interaction changes during anomalous oceanographic years"
+      },
+      "derived_rows": [],
+      "disposition": "omitted unsupported management claim",
+      "reason": "Omitted: unspecified 2020 comprehensive performance/adaptation claim not verified; no inference that no reviews existed."
+    },
+    {
+      "supplied_row": 25,
+      "original": {
+        "Year": "2023",
+        "Management Measure": "Incorporate real-time Near-Infrared Spectroscopy (NIRS) data for rapid age-determination and population energetic modeling to reduce stock assessment turnaround times"
+      },
+      "derived_rows": [],
+      "disposition": "omitted unsupported management claim",
+      "reason": "Excluded as management milestone:2023 NOAA article describes future integration; current assessment FT-NIRS inputs are cross-referenced, no direct M change."
+    },
+    {
+      "supplied_row": 26,
+      "original": {
+        "Year": "2025",
+        "Management Measure": "Implementation of advanced spatial tracking and integrated acoustic-trawl survey tools to mitigate high-latitude climate shifting patterns of standard survey designs"
+      },
+      "derived_rows": [],
+      "disposition": "omitted unsupported management claim",
+      "reason": "Excluded as management milestone: combined 2025 survey-tool implementation/outcome claim unverified; cross-reference actual survey sections."
+    }
+  ]
+}

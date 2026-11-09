@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-09-fishery-weights-tons",
+  "version": "2026-11-09-table2-links",
   "status": "Review draft",
   "tables": 91,
   "images": 90,
@@ -8,8 +8,8 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "28ebf9ec0bc8ab48bd9b63b1452abc0801deef8ffa1855c5e78d578ae1159128",
-    "assessment.pdf": "e5afada75442c86bfdf99aaedb17bffc7a54bf50a5cfde79eb8f002abe7cd33b"
+    "assessment.html": "b78e841a06f3315c68f6bba44840809e5058bd4e8d448c1616f9244a2f46fe1c",
+    "assessment.pdf": "08f6f07169ad0be1daf95da778e872e3e3f1ce0f84605a0562c89363482865d5"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -157,5 +157,13 @@
     }
   },
   "figure34_selectivity_display": "2026 ATS/AVO curve and uncertainty band begin at age2; age1 omitted from display only.",
-  "PDF_compaction": "Removed unreferenced objects and losslessly compressed streams; text, page count, link count and bookmarks verified unchanged."
+  "PDF_compaction": "Removed unreferenced objects and losslessly compressed streams; text, page count, link count and bookmarks verified unchanged.",
+  "table2_source_links": {
+    "row_links": 36,
+    "note_links": 3,
+    "PDF_annotations": 39,
+    "source_manifest": "table2-sources/source-manifest.json",
+    "validation": "validation/table2-links-20261109/checks.json",
+    "PDF_text_and_page_count_unchanged": true
+  }
 }

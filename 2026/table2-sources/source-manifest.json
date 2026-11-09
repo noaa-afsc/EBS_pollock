@@ -1,0 +1,137 @@
+[
+  {
+    "label": "SAFE 2024",
+    "original_report_target": "source/baseline2024/assessment2024-official.pdf#page=63",
+    "published_target": "table2-sources/assessment2024-official.pdf#page=63",
+    "original_sha256": "3e884b9a3f74000899d6bfe6fa2dcbb048171f46a9858e68cee3d4ffd64d47a5",
+    "published_sha256": "3e884b9a3f74000899d6bfe6fa2dcbb048171f46a9858e68cee3d4ffd64d47a5",
+    "official_url": null,
+    "reading_copy": false
+  },
+  {
+    "label": "History 1997",
+    "original_report_target": "source/management-timeline-20261026/sources/historical-management-1997.pdf",
+    "published_target": "table2-sources/historical-management-1997.pdf",
+    "original_sha256": "0bf98d46e60f8b47c76207ae6d6e72226d8805b1acff993a1e374d05f761a740",
+    "published_sha256": "0bf98d46e60f8b47c76207ae6d6e72226d8805b1acff993a1e374d05f761a740",
+    "official_url": "https://spo.nmfs.noaa.gov/sites/default/files/pdf-content/MFR/mfr594/mfr5943.pdf",
+    "reading_copy": false
+  },
+  {
+    "label": "NOAA history",
+    "original_report_target": "source/management-timeline-20261026/sources/observer-program-history.html",
+    "published_target": "table2-sources/observer-program-history.html",
+    "original_sha256": "9f919171540e35957eff129e49f8516b6293c84f1370c65defaaec387f643776",
+    "published_sha256": "a2e08b1b9345e63f31a7351904124025e92c4be9194c133affbf27e92bb0ff22",
+    "official_url": "https://www.fisheries.noaa.gov/alaska/fisheries-observers/fisheries-monitoring-and-analysis-division-history",
+    "reading_copy": true
+  },
+  {
+    "label": "Council overview",
+    "original_report_target": "source/management-timeline-20261026/sources/salmon-bycatch-overview.html",
+    "published_target": "table2-sources/salmon-bycatch-overview.html",
+    "original_sha256": "0ffd4730cfb2248213ccbb7bb996c1122cac5daa0683b859606f829fc7d8fc40",
+    "published_sha256": "551af0aec2ca06448ad968227fa1cf9b9393027378c7a8134eea2b019740a6c3",
+    "official_url": "https://www.npfmc.org/fisheries-issues/bycatch/salmon-bycatch/",
+    "reading_copy": true
+  },
+  {
+    "label": "Gear review",
+    "original_report_target": "source/management-timeline-20261026/sources/gear-definition-analysis-2025.pdf#page=20",
+    "published_target": "table2-sources/gear-definition-analysis-2025.pdf#page=20",
+    "original_sha256": "9a2f82e2cabadc62d7926374f844e696fd9da9f0971f14a188c157be35f68d9f",
+    "published_sha256": "9a2f82e2cabadc62d7926374f844e696fd9da9f0971f14a188c157be35f68d9f",
+    "official_url": "https://meetings.npfmc.org/CommentReview/DownloadFile?fileName=C3c+Pelagic+Trawl+Gear+Definition+Analysis.pdf&p=a316c8dd-243e-4e88-b66a-4d68bb193f51.pdf",
+    "reading_copy": false
+  },
+  {
+    "label": "2023 notice history",
+    "original_report_target": "source/management-timeline-20261026/sources/salmon-management-review-2023.pdf#page=2",
+    "published_target": "table2-sources/salmon-management-review-2023.pdf#page=2",
+    "original_sha256": "35f9f2b9699244934853986fb414b3bc8d620d424ddcbfbb585cbb4b32c1ca57",
+    "published_sha256": "35f9f2b9699244934853986fb414b3bc8d620d424ddcbfbb585cbb4b32c1ca57",
+    "official_url": "https://www.govinfo.gov/content/pkg/FR-2023-07-11/pdf/2023-14581.pdf",
+    "reading_copy": false
+  },
+  {
+    "label": "Amendment 49",
+    "original_report_target": "source/management-timeline-20261026/sources/utilization-retention-final-1997.html",
+    "published_target": "table2-sources/utilization-retention-final-1997.html",
+    "original_sha256": "9ea5ff49d8167661517f00034c3db7c13245108f33a2a533e3617b857487fbbe",
+    "published_sha256": "a46147047d82dbb3da2eed2f7051d323751a0b3a3b0878ccf5133fe47b19ec55",
+    "official_url": "https://www.govinfo.gov/content/pkg/FR-1997-12-03/html/97-31711.htm",
+    "reading_copy": true
+  },
+  {
+    "label": "AFA rule",
+    "original_report_target": "source/management-timeline-20261026/sources/AFA-final-2000.html",
+    "published_target": "table2-sources/AFA-final-2000.html",
+    "original_sha256": "d03637bd3fbaaa7f4f4c3939679644b393c203256cf83444e2de0b1b3fa1904b",
+    "published_sha256": "8fcfa45a904e94158532316cb09e5111064d8ed8f4a6a7162ec7137fc7d0cb12",
+    "official_url": "https://www.govinfo.gov/content/pkg/FR-2000-01-05/html/99-34065.htm",
+    "reading_copy": true
+  },
+  {
+    "label": "1999 emergency rule",
+    "original_report_target": "source/management-timeline-20261026/sources/sea-lion-emergency-1999.html",
+    "published_target": "table2-sources/sea-lion-emergency-1999.html",
+    "original_sha256": "22558de725209134c26bf0e060a863381c0c9be6e632f07c747b1177873fbf4d",
+    "published_sha256": "c24718c2de8714ab987ffb4b2feba7bf6b206bde71b8e68693ff1a3d4201b867",
+    "official_url": "https://www.govinfo.gov/content/pkg/FR-1999-01-22/html/99-1378.htm",
+    "reading_copy": true
+  },
+  {
+    "label": "Amendment 84",
+    "original_report_target": "source/management-timeline-20261026/sources/amendment84-final-2007.pdf",
+    "published_target": "table2-sources/amendment84-final-2007.pdf",
+    "original_sha256": "a4a85491b5fdf4e0c937d75ae2ec0c95093b1a9c14677d4c37fc1613c4eb8ea8",
+    "published_sha256": "a4a85491b5fdf4e0c937d75ae2ec0c95093b1a9c14677d4c37fc1613c4eb8ea8",
+    "official_url": "https://www.govinfo.gov/content/pkg/FR-2007-10-29/pdf/E7-21256.pdf",
+    "reading_copy": false
+  },
+  {
+    "label": "Amendment 91",
+    "original_report_target": "source/management-timeline-20261026/sources/amendment91-final-2010.pdf",
+    "published_target": "table2-sources/amendment91-final-2010.pdf",
+    "original_sha256": "6f4ba83a492bc452ca621e61affbd2a9f1530421b323a8ef0ba139e5c6bf9d27",
+    "published_sha256": "6f4ba83a492bc452ca621e61affbd2a9f1530421b323a8ef0ba139e5c6bf9d27",
+    "official_url": "https://www.govinfo.gov/content/pkg/FR-2010-08-30/pdf/2010-20618.pdf",
+    "reading_copy": false
+  },
+  {
+    "label": "Amendment 110",
+    "original_report_target": "source/management-timeline-20261026/sources/amendment110-final-2016.pdf",
+    "published_target": "table2-sources/amendment110-final-2016.pdf",
+    "original_sha256": "cfa7dfddb1d4ca28579947488e6fd39926725b9d1423d66748117ff85bc6b81a",
+    "published_sha256": "cfa7dfddb1d4ca28579947488e6fd39926725b9d1423d66748117ff85bc6b81a",
+    "official_url": "https://www.govinfo.gov/content/pkg/FR-2016-06-10/pdf/2016-13697.pdf",
+    "reading_copy": false
+  },
+  {
+    "label": "Supplied CSV",
+    "original_report_target": "source/management-timeline-20261026/originals/ebs_pollock_management_measures.csv",
+    "published_target": "table2-sources/ebs_pollock_management_measures.csv",
+    "original_sha256": "70a47d64024b48372ec0a898bc5c10509cf741eef6a135bc50c0555976d1d885",
+    "published_sha256": "70a47d64024b48372ec0a898bc5c10509cf741eef6a135bc50c0555976d1d885",
+    "official_url": null,
+    "reading_copy": false
+  },
+  {
+    "label": "supplied Markdown",
+    "original_report_target": "source/management-timeline-20261026/originals/ebs_pollock_management_measures.md",
+    "published_target": "table2-sources/ebs_pollock_management_measures.md",
+    "original_sha256": "34421f7f14a5314f82cc733f207e5fdaf81cecfc2809589afa0ccfb98fdce44a",
+    "published_sha256": "34421f7f14a5314f82cc733f207e5fdaf81cecfc2809589afa0ccfb98fdce44a",
+    "official_url": null,
+    "reading_copy": false
+  },
+  {
+    "label": "row-by-row verification and corrections",
+    "original_report_target": "source/management-timeline-20261026/row-review.json",
+    "published_target": "table2-sources/row-review.json",
+    "original_sha256": "e32791ddd3f7815312ba0f7eabf48791b5449a74cfe4f0a2b6041eac8ce9489b",
+    "published_sha256": "e32791ddd3f7815312ba0f7eabf48791b5449a74cfe4f0a2b6041eac8ce9489b",
+    "official_url": null,
+    "reading_copy": false
+  }
+]

@@ -1,0 +1,444 @@
+{
+  "table_rows": 23,
+  "HTML_row_links": 36,
+  "HTML_note_links": 3,
+  "PDF_links_added": 39,
+  "PDF_link_details": [
+    {
+      "label": "SAFE 2024",
+      "page": 43,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        414.3500061035156,
+        554.7445068359375,
+        463.61602783203125,
+        566.3679809570312
+      ]
+    },
+    {
+      "label": "SAFE 2024",
+      "page": 43,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        414.3500061035156,
+        584.094482421875,
+        463.61602783203125,
+        595.718017578125
+      ]
+    },
+    {
+      "label": "SAFE 2024",
+      "page": 43,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        414.3500061035156,
+        618.5445556640625,
+        463.61602783203125,
+        630.1680297851562
+      ]
+    },
+    {
+      "label": "SAFE 2024",
+      "page": 43,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        414.3500061035156,
+        647.89453125,
+        463.61602783203125,
+        659.5180053710938
+      ]
+    },
+    {
+      "label": "SAFE 2024",
+      "page": 43,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        414.3500061035156,
+        677.2445068359375,
+        463.61602783203125,
+        688.8679809570312
+      ]
+    },
+    {
+      "label": "SAFE 2024",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        494.0,
+        95.09451293945312,
+        543.2660522460938,
+        106.71800994873047
+      ]
+    },
+    {
+      "label": "SAFE 2024",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        414.3500061035156,
+        174.19448852539062,
+        463.61602783203125,
+        185.8179931640625
+      ]
+    },
+    {
+      "label": "SAFE 2024",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        500.1499938964844,
+        213.74447631835938,
+        549.4160766601562,
+        225.36798095703125
+      ]
+    },
+    {
+      "label": "SAFE 2024",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        414.3500061035156,
+        303.04449462890625,
+        463.61602783203125,
+        314.6679992675781
+      ]
+    },
+    {
+      "label": "SAFE 2024",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        414.3500061035156,
+        332.3945007324219,
+        463.61602783203125,
+        344.01800537109375
+      ]
+    },
+    {
+      "label": "SAFE 2024",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        414.3500061035156,
+        406.3945007324219,
+        463.61602783203125,
+        418.01800537109375
+      ]
+    },
+    {
+      "label": "SAFE 2024",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        500.1499938964844,
+        435.7445068359375,
+        549.4160766601562,
+        447.3680114746094
+      ]
+    },
+    {
+      "label": "SAFE 2024",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/assessment2024-official.pdf#page=63",
+      "rect": [
+        500.1499938964844,
+        459.9945068359375,
+        549.4160766601562,
+        471.6180114746094
+      ]
+    },
+    {
+      "label": "History 1997",
+      "page": 43,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/historical-management-1997.pdf",
+      "rect": [
+        468.3999938964844,
+        554.7445068359375,
+        523.4830322265625,
+        566.3679809570312
+      ]
+    },
+    {
+      "label": "History 1997",
+      "page": 43,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/historical-management-1997.pdf",
+      "rect": [
+        468.3999938964844,
+        584.094482421875,
+        523.4830322265625,
+        595.718017578125
+      ]
+    },
+    {
+      "label": "History 1997",
+      "page": 43,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/historical-management-1997.pdf",
+      "rect": [
+        468.3999938964844,
+        618.5445556640625,
+        523.4830322265625,
+        630.1680297851562
+      ]
+    },
+    {
+      "label": "History 1997",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/historical-management-1997.pdf",
+      "rect": [
+        414.3500061035156,
+        139.74447631835938,
+        469.4330139160156,
+        151.36798095703125
+      ]
+    },
+    {
+      "label": "History 1997",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/historical-management-1997.pdf",
+      "rect": [
+        468.3999938964844,
+        174.19448852539062,
+        523.4830322265625,
+        185.8179931640625
+      ]
+    },
+    {
+      "label": "NOAA history",
+      "page": 43,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/observer-program-history.html",
+      "rect": [
+        468.3999938964844,
+        647.89453125,
+        530.4445190429688,
+        659.5180053710938
+      ]
+    },
+    {
+      "label": "Council overview",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/salmon-bycatch-overview.html",
+      "rect": [
+        414.3500061035156,
+        95.09451293945312,
+        489.2464904785156,
+        106.71800994873047
+      ]
+    },
+    {
+      "label": "Gear review",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/gear-definition-analysis-2025.pdf#page=20",
+      "rect": [
+        474.20001220703125,
+        139.74447631835938,
+        525.7654418945312,
+        151.36798095703125
+      ]
+    },
+    {
+      "label": "2023 notice history",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/salmon-management-review-2023.pdf#page=2",
+      "rect": [
+        414.3500061035156,
+        213.74447631835938,
+        495.3575134277344,
+        225.36798095703125
+      ]
+    },
+    {
+      "label": "2023 notice history",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/salmon-management-review-2023.pdf#page=2",
+      "rect": [
+        414.3500061035156,
+        435.7445068359375,
+        495.3575134277344,
+        447.3680114746094
+      ]
+    },
+    {
+      "label": "2023 notice history",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/salmon-management-review-2023.pdf#page=2",
+      "rect": [
+        414.3500061035156,
+        459.9945068359375,
+        495.3575134277344,
+        471.6180114746094
+      ]
+    },
+    {
+      "label": "Amendment 49",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/utilization-retention-final-1997.html",
+      "rect": [
+        414.3500061035156,
+        263.4944763183594,
+        479.3345031738281,
+        275.11798095703125
+      ]
+    },
+    {
+      "label": "AFA rule",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/AFA-final-2000.html",
+      "rect": [
+        468.3999938964844,
+        303.04449462890625,
+        508.27899169921875,
+        314.6679992675781
+      ]
+    },
+    {
+      "label": "AFA rule",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/AFA-final-2000.html",
+      "rect": [
+        468.3999938964844,
+        332.3945007324219,
+        508.27899169921875,
+        344.01800537109375
+      ]
+    },
+    {
+      "label": "AFA rule",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/AFA-final-2000.html",
+      "rect": [
+        468.3999938964844,
+        406.3945007324219,
+        508.27899169921875,
+        418.01800537109375
+      ]
+    },
+    {
+      "label": "1999 emergency rule",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/sea-lion-emergency-1999.html",
+      "rect": [
+        414.3500061035156,
+        366.8445129394531,
+        502.9279479980469,
+        378.468017578125
+      ]
+    },
+    {
+      "label": "Amendment 84",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/amendment84-final-2007.pdf",
+      "rect": [
+        414.3500061035156,
+        494.4444885253906,
+        479.3345031738281,
+        506.0679931640625
+      ]
+    },
+    {
+      "label": "Amendment 84",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/amendment84-final-2007.pdf",
+      "rect": [
+        414.3500061035156,
+        539.094482421875,
+        479.3345031738281,
+        550.718017578125
+      ]
+    },
+    {
+      "label": "Amendment 84",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/amendment84-final-2007.pdf",
+      "rect": [
+        414.3500061035156,
+        588.844482421875,
+        479.3345031738281,
+        600.468017578125
+      ]
+    },
+    {
+      "label": "Amendment 91",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/amendment91-final-2010.pdf",
+      "rect": [
+        414.3500061035156,
+        643.6944580078125,
+        479.3345031738281,
+        655.3179931640625
+      ]
+    },
+    {
+      "label": "Amendment 110",
+      "page": 44,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/amendment110-final-2016.pdf",
+      "rect": [
+        414.3500061035156,
+        693.4444580078125,
+        484.5845031738281,
+        705.0679931640625
+      ]
+    },
+    {
+      "label": "Amendment 110",
+      "page": 45,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/amendment110-final-2016.pdf",
+      "rect": [
+        414.3500061035156,
+        100.19448852539062,
+        484.5845031738281,
+        111.81798553466797
+      ]
+    },
+    {
+      "label": "Amendment 110",
+      "page": 45,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/amendment110-final-2016.pdf",
+      "rect": [
+        414.3500061035156,
+        155.04452514648438,
+        484.5845031738281,
+        166.66802978515625
+      ]
+    },
+    {
+      "label": "Supplied CSV",
+      "page": 45,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/ebs_pollock_management_measures.csv",
+      "rect": [
+        53.75,
+        258.3945007324219,
+        114.08300018310547,
+        270.01800537109375
+      ]
+    },
+    {
+      "label": "supplied Markdown",
+      "page": 45,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/ebs_pollock_management_measures.md",
+      "rect": [
+        118.8499984741211,
+        258.3945007324219,
+        203.07049560546875,
+        270.01800537109375
+      ]
+    },
+    {
+      "label": "row-by-row verification and corrections",
+      "page": 45,
+      "uri": "https://noaa-afsc.github.io/EBS_pollock/2026/table2-sources/row-review.json",
+      "rect": [
+        207.85000610351562,
+        258.3945007324219,
+        375.9759521484375,
+        270.01800537109375
+      ]
+    }
+  ],
+  "PDF_text_unchanged": true,
+  "PDF_pages_unchanged": 266,
+  "all_local_targets_exist": true,
+  "PDF_page_fragments_valid": true,
+  "manual_accessibility": "Not Tested",
+  "local_HTTP_targets_verified": 15,
+  "local_HTTP_target_hashes_match": true
+}
