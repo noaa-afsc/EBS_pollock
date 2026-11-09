@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-09-table2-links",
+  "version": "2026-11-09-table2-links-table56-subscripts",
   "status": "Review draft",
   "tables": 91,
   "images": 90,
@@ -8,8 +8,8 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "b78e841a06f3315c68f6bba44840809e5058bd4e8d448c1616f9244a2f46fe1c",
-    "assessment.pdf": "08f6f07169ad0be1daf95da778e872e3e3f1ce0f84605a0562c89363482865d5"
+    "assessment.html": "3c188f9bfa910f7b7ae79e99851c6845c4b8ca23d2b9cb80da44c0b00446ba26",
+    "assessment.pdf": "cb7f3a9ee175de47e318a1d0a8c98df8135de62f5e66d5c0f848586636f70944"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -165,5 +165,13 @@
     "source_manifest": "table2-sources/source-manifest.json",
     "validation": "validation/table2-links-20261109/checks.json",
     "PDF_text_and_page_count_unchanged": true
+  },
+  "table56_subscripts": {
+    "event_labels_matched": 9,
+    "HTML_subscript_elements": 16,
+    "numeric_cells_unchanged": 72,
+    "PDF_numeric_region_unchanged": true,
+    "PDF_pages": 266,
+    "PDF_link_count_unchanged": 570
   }
 }
