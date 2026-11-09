@@ -1,0 +1,69 @@
+---
+title: "Historical jellyfish bycatch reconciliation"
+date: "2026-11-08"
+lightbox: true
+format:
+  html:
+    toc: false
+execute:
+  echo: false
+---
+
+The current CSV aggregation uses `FMP Area == BSAI`, both pollock target
+categories, the single `Scypho jellies` group, and the sum of retained and
+discarded `Nontarget Estimate (mt)` records. BSAI includes BS and AI. Annual
+BSAI totals reconcile to BS plus AI and to retained plus discarded totals.
+The current export contains no exact duplicate rows, and all BSAI jellyfish
+weight records are populated. All 2019–2022 BSAI jellyfish detail-record counts
+are one, so weighting by that count produces the same totals.
+
+## Source-history finding
+
+The September 10, 2024 assessment source at revision `c29d1e0` contains
+jellyfish totals close to the current CSV totals. The November 5 source at
+revision `d38de13` approximately doubled the 2019–2022 totals. In 2019 the
+November total is exactly twice the September total at stored precision;
+other years differ slightly as well as showing the same twofold pattern.
+The earlier 2003–2018 jellyfish totals stayed unchanged across these revisions.
+The November summary was carried into the 2024 SAFE table.
+
+The factor-of-two pattern therefore predates the current processing and is
+already present in the historical summary CSV. The 2024 Quarto table code
+reads that precomputed CSV and formats it; it supplies no doubling step.
+The upstream raw export or aggregation operation that introduced the larger
+historical totals remains unavailable in the inspected record. Duplication
+in that upstream preparation is a plausible explanation, not an established
+mechanism. The current table retains the directly summed CSV estimates.
+
+## Competing explanations checked
+
+- **Area:** AI contributes only 0.122 t in 2020 and 0.00685 t in 2022, with zero
+  in 2019 and 2021. Including all GOA and inside-water records still falls far
+  below the 2024 SAFE totals.
+- **Species:** Jellyfish are selected directly from the single source group
+  `Scypho jellies`; the mapping of other nontarget columns has no effect.
+- **Disposition:** Both retained and discarded weights are included once.
+  In 2019 all BSAI jellyfish records are discarded. In 2020–2022 the retained
+  component is included and is much smaller than the discrepancy.
+- **Duplicates/units:** Exact-duplicate rows are absent. The source field is
+  already metric tons, and no record-count expansion or unit conversion is applied.
+
+```{r}
+library(readr)
+library(dplyr)
+library(gt)
+z <- read_csv("jellyfish-history-audit.csv", show_col_types = FALSE)
+z |>
+  filter(Year >= 2019, Year <= 2022) |>
+  select(Year, September2024_mt, November2024_mt, BSAI_mt,
+         discarded_mt, retained_mt, November_over_current) |>
+  gt() |>
+  fmt_number(columns = -Year, decimals = 3) |>
+  tab_source_note("All catch values are unrounded annual sums in metric tons; ratios are dimensionless.")
+```
+
+[Annual audit CSV](jellyfish-history-audit.csv) ·
+[Disaggregated filter audit](jellyfish-filter-audit.csv)
+
+Historical source: `noaa-afsc/ebs_pollock_safe2024`,
+`doc/data/byc_nontarg.csv`, revisions `c29d1e0` and `d38de13`.

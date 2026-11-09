@@ -40,3 +40,9 @@ maps the selected groups, with preliminary 2026 coverage through October 24.
 
 Final layout validation removed an existing blank appendix section-break page,
 redirected its table-section link, and refreshed page numbers (262 pages total).
+
+Introduction/audit revision: three explanatory paragraphs summarize data and
+method changes since 2024. The jellyfish audit traces the twofold historical
+change to the November 2024 precomputed summary, validates current filters,
+and distinguishes the documented transition from its unresolved upstream cause.
+The PDF has 263 pages after adding room for the expanded introduction.
