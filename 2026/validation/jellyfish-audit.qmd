@@ -1,5 +1,5 @@
 ---
-title: "Historical jellyfish bycatch reconciliation"
+title: "Historical nontarget bycatch reconciliation"
 date: "2026-11-08"
 lightbox: true
 format:
@@ -34,6 +34,50 @@ The upstream raw export or aggregation operation that introduced the larger
 historical totals remains unavailable in the inspected record. Duplication
 in that upstream preparation is a plausible explanation, not an established
 mechanism. The current table retains the directly summed CSV estimates.
+
+## Other nontarget columns, 2019–2022
+
+The November summary approximately doubles each of the six same-named
+historical columns **Jellies, MiscFish, SeaStar, Osmerid, Grenadier, and
+Eelpouts** relative to September. All 24 year-column ratios are within
+0.001 of two. These are comparisons of historical summary column labels;
+they do not establish that every historical label represented the same
+biological grouping as the current explicit species-name mapping.
+
+The other four columns (**Sea pen, Anemone, Snails, and Other**) change
+non-uniformly. Numerical matches across columns indicate changed column
+alignment or allocation. For example, November 2019 Snails (1.287252353 t)
+equals twice September Sea pen (0.643626176 t), while November Sea pen
+(0.651518564 t) equals twice September Anemone (0.325759282 t).
+The same two cross-column patterns occur in 2020–2022. These are numerical
+relationships, rather than confirmation of a particular upstream coding error.
+A blanket division by two would retain ambiguous labels and fail to reconcile
+all groups.
+
+The current Table 57 is rebuilt directly from named species in the new export:
+Jellies = Scypho jellies; MiscFish = Misc fish; SeaStar = Sea star; Osmerid
+combines the explicitly listed osmerid groups; Grenadier combines named
+grenadier groups; and the remaining columns use their published source-name
+mapping. BSAI records and both catch dispositions are included. The retained
+current table values receive no scaling adjustment. Its category mapping
+and excluded squid/sculpin/seabird scope are separate from the historical
+column-label comparison.
+
+[All 40 year-column comparisons](nontarget-history-column-audit.csv) ·
+[Current species-to-column map](../tables/nontarget-species-column-map.csv)
+
+```{r}
+library(readr)
+library(dplyr)
+library(gt)
+cols <- read_csv("nontarget-history-column-audit.csv", show_col_types = FALSE)
+cols |>
+  select(Year, historical_column, November_over_September) |>
+  tidyr::pivot_wider(names_from = Year, values_from = November_over_September) |>
+  gt() |>
+  fmt_number(columns = -historical_column, decimals = 3) |>
+  tab_source_note("Ratios compare the same historical header, including columns with apparent alignment changes.")
+```
 
 ## Competing explanations checked
 

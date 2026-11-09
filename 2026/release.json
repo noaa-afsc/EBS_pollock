@@ -8,11 +8,11 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "482d4279d7ebc38aad4b36519e269f030c79754d5acdf26f44aa1f0ccfcb0d56",
-    "assessment.pdf": "04d95ca4f779486be281625bc429b355e052f9b80389eee9e1c6c13d31ba830d"
+    "assessment.html": "87369b130928d502b56f2c0c6f2e96df29c9c436daaa1109d1594989fde4bbfa",
+    "assessment.pdf": "b2196a590b6f084bad4a2e5563553981b50ffaa38bafe3a43ff282b496f73a79"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
-  "revision_note": "Expanded the introduction with input and method changes since 2024; traced the historical jellyfish doubling to the November 2024 summary revision and verified filters.",
+  "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
   "psc_source_sha256": "1abb83dae9a149f3678a5bc5d6b21a399c13272321810333e75b0d99fca20d13",
   "fmp_bycatch_sources": {
     "FMP Groundfish Bycatch in pollock fishery.csv": "9e6f2df237f6c1dd40eea1cee9602d5a7deaa668448552f61fe118333a13ea13",

@@ -1,0 +1,20 @@
+{
+  "source_run": "ebs_fishery2026_pool9_12_cv100_20261022/attempt-001",
+  "fit_rerun": false,
+  "saved_numerical_diagnostics": {
+    "max_gradient": 8.92669049790129e-10,
+    "hessian_positive_definite": true,
+    "warning_count": 0
+  },
+  "saved_output_sha256": {
+    "weights_with_se.csv": "6ca9781e94b9d56c16483692896124bbdc957376b7084c54bde86f0d6b79d332",
+    "observation_residuals.csv": "0975fb8506dbcb22f9e5369f6304ea1855288511253ccaea920950579a530213"
+  },
+  "fishery_observations": "1991-2025",
+  "BTS_observations": "1982-2026 (2020 absent)",
+  "model_weights": "1970-2028",
+  "display_ages": "3-10",
+  "reference": "panel- and age-specific mean through 2026",
+  "figure_added_to_main_report": false,
+  "scientific_status": "Preview of the identified saved fit; numerical diagnostics are separate from scientific adoption."
+}

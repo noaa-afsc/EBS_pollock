@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Historical jellyfish bycatch reconciliation – Assessment of walleye pollock in the eastern Bering Sea</title>
+<title>Historical nontarget bycatch reconciliation – Assessment of walleye pollock in the eastern Bering Sea</title>
 <style>
 
 span.smallcaps{font-variant: small-caps;}
@@ -4186,7 +4186,7 @@ border-radius: 5px;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Historical jellyfish bycatch reconciliation</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Historical nontarget bycatch reconciliation</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -4271,7 +4271,7 @@ border-radius: 5px;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Historical jellyfish bycatch reconciliation</h1>
+<h1 class="title">Historical nontarget bycatch reconciliation</h1>
 </div>
 
 
@@ -4300,14 +4300,12 @@ border-radius: 5px;
 <p>The September 10, 2024 assessment source at revision <code>c29d1e0</code> contains jellyfish totals close to the current CSV totals. The November 5 source at revision <code>d38de13</code> approximately doubled the 2019–2022 totals. In 2019 the November total is exactly twice the September total at stored precision; other years differ slightly as well as showing the same twofold pattern. The earlier 2003–2018 jellyfish totals stayed unchanged across these revisions. The November summary was carried into the 2024 SAFE table.</p>
 <p>The factor-of-two pattern therefore predates the current processing and is already present in the historical summary CSV. The 2024 Quarto table code reads that precomputed CSV and formats it; it supplies no doubling step. The upstream raw export or aggregation operation that introduced the larger historical totals remains unavailable in the inspected record. Duplication in that upstream preparation is a plausible explanation, not an established mechanism. The current table retains the directly summed CSV estimates.</p>
 </section>
-<section id="competing-explanations-checked" class="level2">
-<h2 class="anchored" data-anchor-id="competing-explanations-checked">Competing explanations checked</h2>
-<ul>
-<li><strong>Area:</strong> AI contributes only 0.122 t in 2020 and 0.00685 t in 2022, with zero in 2019 and 2021. Including all GOA and inside-water records still falls far below the 2024 SAFE totals.</li>
-<li><strong>Species:</strong> Jellyfish are selected directly from the single source group <code>Scypho jellies</code>; the mapping of other nontarget columns has no effect.</li>
-<li><strong>Disposition:</strong> Both retained and discarded weights are included once. In 2019 all BSAI jellyfish records are discarded. In 2020–2022 the retained component is included and is much smaller than the discrepancy.</li>
-<li><strong>Duplicates/units:</strong> Exact-duplicate rows are absent. The source field is already metric tons, and no record-count expansion or unit conversion is applied.</li>
-</ul>
+<section id="other-nontarget-columns-20192022" class="level2">
+<h2 class="anchored" data-anchor-id="other-nontarget-columns-20192022">Other nontarget columns, 2019–2022</h2>
+<p>The November summary approximately doubles each of the six same-named historical columns <strong>Jellies, MiscFish, SeaStar, Osmerid, Grenadier, and Eelpouts</strong> relative to September. All 24 year-column ratios are within 0.001 of two. These are comparisons of historical summary column labels; they do not establish that every historical label represented the same biological grouping as the current explicit species-name mapping.</p>
+<p>The other four columns (<strong>Sea pen, Anemone, Snails, and Other</strong>) change non-uniformly. Numerical matches across columns indicate changed column alignment or allocation. For example, November 2019 Snails (1.287252353 t) equals twice September Sea pen (0.643626176 t), while November Sea pen (0.651518564 t) equals twice September Anemone (0.325759282 t). The same two cross-column patterns occur in 2020–2022. These are numerical relationships, rather than confirmation of a particular upstream coding error. A blanket division by two would retain ambiguous labels and fail to reconcile all groups.</p>
+<p>The current Table 57 is rebuilt directly from named species in the new export: Jellies = Scypho jellies; MiscFish = Misc fish; SeaStar = Sea star; Osmerid combines the explicitly listed osmerid groups; Grenadier combines named grenadier groups; and the remaining columns use their published source-name mapping. BSAI records and both catch dispositions are included. The retained current table values receive no scaling adjustment. Its category mapping and excluded squid/sculpin/seabird scope are separate from the historical column-label comparison.</p>
+<p><a href="nontarget-history-column-audit.csv">All 40 year-column comparisons</a> · <a href="../tables/nontarget-species-column-map.csv">Current species-to-column map</a></p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
 <pre><code>
@@ -4324,20 +4322,20 @@ Attaching package: &#39;dplyr&#39;</code></pre>
     intersect, setdiff, setequal, union</code></pre>
 </div>
 <div class="cell-output-display">
-<div id="tuhucelqag" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tuhucelqag table {
+<div id="ppopzfnbdq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ppopzfnbdq table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#tuhucelqag thead, #tuhucelqag tbody, #tuhucelqag tfoot, #tuhucelqag tr, #tuhucelqag td, #tuhucelqag th {
+#ppopzfnbdq thead, #ppopzfnbdq tbody, #ppopzfnbdq tfoot, #ppopzfnbdq tr, #ppopzfnbdq td, #ppopzfnbdq th {
 border-style: none;
 }
-#tuhucelqag p {
+#ppopzfnbdq p {
 margin: 0;
 padding: 0;
 }
-#tuhucelqag .gt_table {
+#ppopzfnbdq .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -4362,11 +4360,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#tuhucelqag .gt_caption {
+#ppopzfnbdq .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#tuhucelqag .gt_title {
+#ppopzfnbdq .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -4377,7 +4375,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#tuhucelqag .gt_subtitle {
+#ppopzfnbdq .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -4388,7 +4386,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#tuhucelqag .gt_heading {
+#ppopzfnbdq .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -4399,12 +4397,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#tuhucelqag .gt_bottom_border {
+#ppopzfnbdq .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#tuhucelqag .gt_col_headings {
+#ppopzfnbdq .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -4418,7 +4416,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#tuhucelqag .gt_col_heading {
+#ppopzfnbdq .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -4437,7 +4435,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#tuhucelqag .gt_column_spanner_outer {
+#ppopzfnbdq .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -4448,13 +4446,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#tuhucelqag .gt_column_spanner_outer:first-child {
+#ppopzfnbdq .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#tuhucelqag .gt_column_spanner_outer:last-child {
+#ppopzfnbdq .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#tuhucelqag .gt_column_spanner {
+#ppopzfnbdq .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -4465,10 +4463,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#tuhucelqag .gt_spanner_row {
+#ppopzfnbdq .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#tuhucelqag .gt_group_heading {
+#ppopzfnbdq .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -4493,7 +4491,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#tuhucelqag .gt_empty_group_heading {
+#ppopzfnbdq .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -4507,13 +4505,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#tuhucelqag .gt_from_md > :first-child {
+#ppopzfnbdq .gt_from_md > :first-child {
 margin-top: 0;
 }
-#tuhucelqag .gt_from_md > :last-child {
+#ppopzfnbdq .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#tuhucelqag .gt_row {
+#ppopzfnbdq .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -4531,7 +4529,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#tuhucelqag .gt_stub {
+#ppopzfnbdq .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -4543,7 +4541,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#tuhucelqag .gt_stub_row_group {
+#ppopzfnbdq .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -4556,13 +4554,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#tuhucelqag .gt_row_group_first td {
+#ppopzfnbdq .gt_row_group_first td {
 border-top-width: 2px;
 }
-#tuhucelqag .gt_row_group_first th {
+#ppopzfnbdq .gt_row_group_first th {
 border-top-width: 2px;
 }
-#tuhucelqag .gt_summary_row {
+#ppopzfnbdq .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -4571,14 +4569,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#tuhucelqag .gt_first_summary_row {
+#ppopzfnbdq .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#tuhucelqag .gt_first_summary_row.thick {
+#ppopzfnbdq .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#tuhucelqag .gt_last_summary_row {
+#ppopzfnbdq .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -4587,7 +4585,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#tuhucelqag .gt_grand_summary_row {
+#ppopzfnbdq .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -4596,7 +4594,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#tuhucelqag .gt_first_grand_summary_row {
+#ppopzfnbdq .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -4605,7 +4603,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#tuhucelqag .gt_last_grand_summary_row_top {
+#ppopzfnbdq .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -4614,10 +4612,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#tuhucelqag .gt_striped {
+#ppopzfnbdq .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#tuhucelqag .gt_table_body {
+#ppopzfnbdq .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -4625,7 +4623,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#tuhucelqag .gt_footnotes {
+#ppopzfnbdq .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -4638,7 +4636,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#tuhucelqag .gt_footnote {
+#ppopzfnbdq .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -4646,7 +4644,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#tuhucelqag .gt_sourcenotes {
+#ppopzfnbdq .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -4659,64 +4657,564 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#tuhucelqag .gt_sourcenote {
+#ppopzfnbdq .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#tuhucelqag .gt_left {
+#ppopzfnbdq .gt_left {
 text-align: left;
 }
-#tuhucelqag .gt_center {
+#ppopzfnbdq .gt_center {
 text-align: center;
 }
-#tuhucelqag .gt_right {
+#ppopzfnbdq .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#tuhucelqag .gt_font_normal {
+#ppopzfnbdq .gt_font_normal {
 font-weight: normal;
 }
-#tuhucelqag .gt_font_bold {
+#ppopzfnbdq .gt_font_bold {
 font-weight: bold;
 }
-#tuhucelqag .gt_font_italic {
+#ppopzfnbdq .gt_font_italic {
 font-style: italic;
 }
-#tuhucelqag .gt_super {
+#ppopzfnbdq .gt_super {
 font-size: 65%;
 }
-#tuhucelqag .gt_footnote_marks {
+#ppopzfnbdq .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#tuhucelqag .gt_asterisk {
+#ppopzfnbdq .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#tuhucelqag .gt_indent_1 {
+#ppopzfnbdq .gt_indent_1 {
 text-indent: 5px;
 }
-#tuhucelqag .gt_indent_2 {
+#ppopzfnbdq .gt_indent_2 {
 text-indent: 10px;
 }
-#tuhucelqag .gt_indent_3 {
+#ppopzfnbdq .gt_indent_3 {
 text-indent: 15px;
 }
-#tuhucelqag .gt_indent_4 {
+#ppopzfnbdq .gt_indent_4 {
 text-indent: 20px;
 }
-#tuhucelqag .gt_indent_5 {
+#ppopzfnbdq .gt_indent_5 {
 text-indent: 25px;
 }
-#tuhucelqag .katex-display {
+#ppopzfnbdq .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#tuhucelqag div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ppopzfnbdq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+height: 0px !important;
+}
+</style>
+
+<table class="gt_table table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="historical_column" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">historical_column</th>
+<th id="a2019" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2019</th>
+<th id="a2020" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2020</th>
+<th id="a2021" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2021</th>
+<th id="a2022" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2022</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="historical_column">Jellies</td>
+<td class="gt_row gt_right" headers="2019">2.000</td>
+<td class="gt_row gt_right" headers="2020">2.000</td>
+<td class="gt_row gt_right" headers="2021">2.000</td>
+<td class="gt_row gt_right" headers="2022">2.000</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="historical_column">MiscFish</td>
+<td class="gt_row gt_right" headers="2019">2.000</td>
+<td class="gt_row gt_right" headers="2020">2.000</td>
+<td class="gt_row gt_right" headers="2021">2.000</td>
+<td class="gt_row gt_right" headers="2022">2.000</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="historical_column">SeaStar</td>
+<td class="gt_row gt_right" headers="2019">2.000</td>
+<td class="gt_row gt_right" headers="2020">2.000</td>
+<td class="gt_row gt_right" headers="2021">2.000</td>
+<td class="gt_row gt_right" headers="2022">2.000</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="historical_column">Osmerid</td>
+<td class="gt_row gt_right" headers="2019">2.000</td>
+<td class="gt_row gt_right" headers="2020">2.000</td>
+<td class="gt_row gt_right" headers="2021">2.000</td>
+<td class="gt_row gt_right" headers="2022">2.000</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="historical_column">Grenadier</td>
+<td class="gt_row gt_right" headers="2019">2.000</td>
+<td class="gt_row gt_right" headers="2020">2.000</td>
+<td class="gt_row gt_right" headers="2021">2.000</td>
+<td class="gt_row gt_right" headers="2022">2.000</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="historical_column">Eelpouts</td>
+<td class="gt_row gt_right" headers="2019">2.000</td>
+<td class="gt_row gt_right" headers="2020">2.000</td>
+<td class="gt_row gt_right" headers="2021">2.000</td>
+<td class="gt_row gt_right" headers="2022">2.000</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="historical_column">Sea pen</td>
+<td class="gt_row gt_right" headers="2019">1.012</td>
+<td class="gt_row gt_right" headers="2020">9.859</td>
+<td class="gt_row gt_right" headers="2021">3.115</td>
+<td class="gt_row gt_right" headers="2022">1.895</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="historical_column">Anemone</td>
+<td class="gt_row gt_right" headers="2019">11.429</td>
+<td class="gt_row gt_right" headers="2020">7.481</td>
+<td class="gt_row gt_right" headers="2021">0.080</td>
+<td class="gt_row gt_right" headers="2022">0.230</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="historical_column">Snails</td>
+<td class="gt_row gt_right" headers="2019">2.919</td>
+<td class="gt_row gt_right" headers="2020">2.345</td>
+<td class="gt_row gt_right" headers="2021">3.656</td>
+<td class="gt_row gt_right" headers="2022">3.791</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="historical_column">Other</td>
+<td class="gt_row gt_right" headers="2019">1.506</td>
+<td class="gt_row gt_right" headers="2020">0.502</td>
+<td class="gt_row gt_right" headers="2021">2.583</td>
+<td class="gt_row gt_right" headers="2022">2.118</td>
+</tr>
+</tbody><tfoot>
+<tr class="gt_sourcenotes odd">
+<td colspan="5" class="gt_sourcenote">Ratios compare the same historical header, including columns with apparent alignment changes.</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="competing-explanations-checked" class="level2">
+<h2 class="anchored" data-anchor-id="competing-explanations-checked">Competing explanations checked</h2>
+<ul>
+<li><strong>Area:</strong> AI contributes only 0.122 t in 2020 and 0.00685 t in 2022, with zero in 2019 and 2021. Including all GOA and inside-water records still falls far below the 2024 SAFE totals.</li>
+<li><strong>Species:</strong> Jellyfish are selected directly from the single source group <code>Scypho jellies</code>; the mapping of other nontarget columns has no effect.</li>
+<li><strong>Disposition:</strong> Both retained and discarded weights are included once. In 2019 all BSAI jellyfish records are discarded. In 2020–2022 the retained component is included and is much smaller than the discrepancy.</li>
+<li><strong>Duplicates/units:</strong> Exact-duplicate rows are absent. The source field is already metric tons, and no record-count expansion or unit conversion is applied.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="dzmrbxnebc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dzmrbxnebc table {
+font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+#dzmrbxnebc thead, #dzmrbxnebc tbody, #dzmrbxnebc tfoot, #dzmrbxnebc tr, #dzmrbxnebc td, #dzmrbxnebc th {
+border-style: none;
+}
+#dzmrbxnebc p {
+margin: 0;
+padding: 0;
+}
+#dzmrbxnebc .gt_table {
+display: table;
+border-collapse: collapse;
+line-height: normal;
+margin-left: auto;
+margin-right: auto;
+color: #333333;
+font-size: 16px;
+font-weight: normal;
+font-style: normal;
+background-color: #FFFFFF;
+width: auto;
+border-top-style: solid;
+border-top-width: 2px;
+border-top-color: #A8A8A8;
+border-right-style: none;
+border-right-width: 2px;
+border-right-color: #D3D3D3;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #A8A8A8;
+border-left-style: none;
+border-left-width: 2px;
+border-left-color: #D3D3D3;
+}
+#dzmrbxnebc .gt_caption {
+padding-top: 4px;
+padding-bottom: 4px;
+}
+#dzmrbxnebc .gt_title {
+color: #333333;
+font-size: 125%;
+font-weight: initial;
+padding-top: 4px;
+padding-bottom: 4px;
+padding-left: 5px;
+padding-right: 5px;
+border-bottom-color: #FFFFFF;
+border-bottom-width: 0;
+}
+#dzmrbxnebc .gt_subtitle {
+color: #333333;
+font-size: 85%;
+font-weight: initial;
+padding-top: 3px;
+padding-bottom: 5px;
+padding-left: 5px;
+padding-right: 5px;
+border-top-color: #FFFFFF;
+border-top-width: 0;
+}
+#dzmrbxnebc .gt_heading {
+background-color: #FFFFFF;
+text-align: center;
+border-bottom-color: #FFFFFF;
+border-left-style: none;
+border-left-width: 1px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 1px;
+border-right-color: #D3D3D3;
+}
+#dzmrbxnebc .gt_bottom_border {
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+}
+#dzmrbxnebc .gt_col_headings {
+border-top-style: solid;
+border-top-width: 2px;
+border-top-color: #D3D3D3;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+border-left-style: none;
+border-left-width: 1px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 1px;
+border-right-color: #D3D3D3;
+}
+#dzmrbxnebc .gt_col_heading {
+color: #333333;
+background-color: #FFFFFF;
+font-size: 100%;
+font-weight: normal;
+text-transform: inherit;
+border-left-style: none;
+border-left-width: 1px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 1px;
+border-right-color: #D3D3D3;
+vertical-align: bottom;
+padding-top: 5px;
+padding-bottom: 6px;
+padding-left: 5px;
+padding-right: 5px;
+overflow-x: hidden;
+}
+#dzmrbxnebc .gt_column_spanner_outer {
+color: #333333;
+background-color: #FFFFFF;
+font-size: 100%;
+font-weight: normal;
+text-transform: inherit;
+padding-top: 0;
+padding-bottom: 0;
+padding-left: 4px;
+padding-right: 4px;
+}
+#dzmrbxnebc .gt_column_spanner_outer:first-child {
+padding-left: 0;
+}
+#dzmrbxnebc .gt_column_spanner_outer:last-child {
+padding-right: 0;
+}
+#dzmrbxnebc .gt_column_spanner {
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+vertical-align: bottom;
+padding-top: 5px;
+padding-bottom: 5px;
+overflow-x: hidden;
+display: inline-block;
+width: 100%;
+}
+#dzmrbxnebc .gt_spanner_row {
+border-bottom-style: hidden;
+}
+#dzmrbxnebc .gt_group_heading {
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+color: #333333;
+background-color: #FFFFFF;
+font-size: 100%;
+font-weight: initial;
+text-transform: inherit;
+border-top-style: solid;
+border-top-width: 2px;
+border-top-color: #D3D3D3;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+border-left-style: none;
+border-left-width: 1px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 1px;
+border-right-color: #D3D3D3;
+vertical-align: middle;
+text-align: left;
+}
+#dzmrbxnebc .gt_empty_group_heading {
+padding: 0.5px;
+color: #333333;
+background-color: #FFFFFF;
+font-size: 100%;
+font-weight: initial;
+border-top-style: solid;
+border-top-width: 2px;
+border-top-color: #D3D3D3;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+vertical-align: middle;
+}
+#dzmrbxnebc .gt_from_md > :first-child {
+margin-top: 0;
+}
+#dzmrbxnebc .gt_from_md > :last-child {
+margin-bottom: 0;
+}
+#dzmrbxnebc .gt_row {
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+margin: 10px;
+border-top-style: solid;
+border-top-width: 1px;
+border-top-color: #D3D3D3;
+border-left-style: none;
+border-left-width: 1px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 1px;
+border-right-color: #D3D3D3;
+vertical-align: middle;
+overflow-x: hidden;
+}
+#dzmrbxnebc .gt_stub {
+color: #333333;
+background-color: #FFFFFF;
+font-size: 100%;
+font-weight: initial;
+text-transform: inherit;
+border-right-style: solid;
+border-right-width: 2px;
+border-right-color: #D3D3D3;
+padding-left: 5px;
+padding-right: 5px;
+}
+#dzmrbxnebc .gt_stub_row_group {
+color: #333333;
+background-color: #FFFFFF;
+font-size: 100%;
+font-weight: initial;
+text-transform: inherit;
+border-right-style: solid;
+border-right-width: 2px;
+border-right-color: #D3D3D3;
+padding-left: 5px;
+padding-right: 5px;
+vertical-align: top;
+}
+#dzmrbxnebc .gt_row_group_first td {
+border-top-width: 2px;
+}
+#dzmrbxnebc .gt_row_group_first th {
+border-top-width: 2px;
+}
+#dzmrbxnebc .gt_summary_row {
+color: #333333;
+background-color: #FFFFFF;
+text-transform: inherit;
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+}
+#dzmrbxnebc .gt_first_summary_row {
+border-top-style: solid;
+border-top-color: #D3D3D3;
+}
+#dzmrbxnebc .gt_first_summary_row.thick {
+border-top-width: 2px;
+}
+#dzmrbxnebc .gt_last_summary_row {
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+}
+#dzmrbxnebc .gt_grand_summary_row {
+color: #333333;
+background-color: #FFFFFF;
+text-transform: inherit;
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+}
+#dzmrbxnebc .gt_first_grand_summary_row {
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+border-top-style: double;
+border-top-width: 6px;
+border-top-color: #D3D3D3;
+}
+#dzmrbxnebc .gt_last_grand_summary_row_top {
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+border-bottom-style: double;
+border-bottom-width: 6px;
+border-bottom-color: #D3D3D3;
+}
+#dzmrbxnebc .gt_striped {
+background-color: rgba(128, 128, 128, 0.05);
+}
+#dzmrbxnebc .gt_table_body {
+border-top-style: solid;
+border-top-width: 2px;
+border-top-color: #D3D3D3;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+}
+#dzmrbxnebc .gt_footnotes {
+color: #333333;
+background-color: #FFFFFF;
+border-bottom-style: none;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+border-left-style: none;
+border-left-width: 2px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 2px;
+border-right-color: #D3D3D3;
+}
+#dzmrbxnebc .gt_footnote {
+margin: 0px;
+font-size: 90%;
+padding-top: 4px;
+padding-bottom: 4px;
+padding-left: 5px;
+padding-right: 5px;
+}
+#dzmrbxnebc .gt_sourcenotes {
+color: #333333;
+background-color: #FFFFFF;
+border-bottom-style: none;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+border-left-style: none;
+border-left-width: 2px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 2px;
+border-right-color: #D3D3D3;
+}
+#dzmrbxnebc .gt_sourcenote {
+font-size: 90%;
+padding-top: 4px;
+padding-bottom: 4px;
+padding-left: 5px;
+padding-right: 5px;
+}
+#dzmrbxnebc .gt_left {
+text-align: left;
+}
+#dzmrbxnebc .gt_center {
+text-align: center;
+}
+#dzmrbxnebc .gt_right {
+text-align: right;
+font-variant-numeric: tabular-nums;
+}
+#dzmrbxnebc .gt_font_normal {
+font-weight: normal;
+}
+#dzmrbxnebc .gt_font_bold {
+font-weight: bold;
+}
+#dzmrbxnebc .gt_font_italic {
+font-style: italic;
+}
+#dzmrbxnebc .gt_super {
+font-size: 65%;
+}
+#dzmrbxnebc .gt_footnote_marks {
+font-size: 75%;
+vertical-align: 0.4em;
+position: initial;
+}
+#dzmrbxnebc .gt_asterisk {
+font-size: 100%;
+vertical-align: 0;
+}
+#dzmrbxnebc .gt_indent_1 {
+text-indent: 5px;
+}
+#dzmrbxnebc .gt_indent_2 {
+text-indent: 10px;
+}
+#dzmrbxnebc .gt_indent_3 {
+text-indent: 15px;
+}
+#dzmrbxnebc .gt_indent_4 {
+text-indent: 20px;
+}
+#dzmrbxnebc .gt_indent_5 {
+text-indent: 25px;
+}
+#dzmrbxnebc .katex-display {
+display: inline-flex !important;
+margin-bottom: 0.75em !important;
+}
+#dzmrbxnebc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
