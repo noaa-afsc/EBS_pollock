@@ -1,0 +1,23 @@
+{
+  "old_table_order": [
+    7,
+    8,
+    6,
+    9
+  ],
+  "new_numbers": [
+    6,
+    7,
+    8,
+    9
+  ],
+  "numeric_cells_unchanged": true,
+  "download_links_in_small_source_footers": 8,
+  "PDF_pages": 266,
+  "Table2_links_preserved": 39,
+  "old_to_new_number": {
+    "6": 8,
+    "7": 6,
+    "8": 7
+  }
+}

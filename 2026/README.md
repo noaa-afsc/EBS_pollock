@@ -86,3 +86,10 @@ in both HTML and PDF. Targets are hosted under table2-sources/; archived HTML
 sources have self-contained reading copies with original-source provenance.
 PDF text and all266 pages are unchanged. Source hashes and verification
 evidence accompany the restored files.
+
+Bycatch table revision: the formerTables7,8,6,9 now appear asTables6,7,8,9.
+All four estimate and column-definition downloads are part of their small Source
+footers in HTML and PDF. Table8 now supplies a PSC column dictionary derived
+from the existing aggregation recipe. Numeric content is unchanged.
+Pages publishing uses the existing static.yml workflow; the repository Pages
+build_type was aligned to workflow to avoid competing branch-based builds.

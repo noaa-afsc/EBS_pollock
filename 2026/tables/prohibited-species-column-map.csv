@@ -1,0 +1,12 @@
+Column,Definition,Units,Source species group,Source field
+Year,Calendar year,year,,Year
+Bairdi,Bairdi Tanner crab catch,individuals,Bairdi Tanner Crab,PSCNQ Estimate (*)
+Chinook,Chinook salmon catch,individuals,Chinook Salmon,PSCNQ Estimate (*)
+Halib,Halibut catch,metric tons,Halibut,PSCNQ Estimate (*)
+Halib.M,Halibut mortality,metric tons,Halibut,Halibut Mortality (mt)
+Herring,Herring catch,metric tons,Herring,PSCNQ Estimate (*)
+NonChin,Non-Chinook salmon catch,individuals,Non-Chinook Salmon,PSCNQ Estimate (*)
+Snow Crab,Opilio Tanner (snow) crab catch,individuals,Opilio Tanner (Snow) Crab,PSCNQ Estimate (*)
+Red King,Red king crab catch,individuals,Red King Crab,PSCNQ Estimate (*)
+Blue King,Blue king crab catch,individuals,Blue King Crab,PSCNQ Estimate (*)
+Golden King,Golden (brown) king crab catch,individuals,Golden (Brown) King Crab,PSCNQ Estimate (*)
