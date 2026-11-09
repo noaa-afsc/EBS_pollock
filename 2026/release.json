@@ -8,8 +8,8 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "9084fc3dce9ce1b0ab14f5587390bae4fcca2f87430a4111c9b0bed7efd1a206",
-    "assessment.pdf": "756e0e407c6ceb3aa057d64442eaaaaf2647039548255b4af9a6911787cc2bac"
+    "assessment.html": "ad4bcbf878401f512d734f5b3eb989b640bb6667189bbe24ef839ed253c80488",
+    "assessment.pdf": "bef23194446df9f62f5661dfc4457cdb7ea20238e7b8475619369dc5ffed8871"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -101,5 +101,6 @@
     "population_assessment_refits": 0,
     "manual_accessibility": "Not tested",
     "source_WtAgeRE_sha256": "be7a6a7993ed3aed64275149df73f3854fa111fffd163f94dfc39340bf11f413"
-  }
+  },
+  "editorial_revision_20261109": "Updated FT-NIRS/TMA and ATS age-key wording; removed specified status language and Figure4 source note."
 }
