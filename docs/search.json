@@ -674,5 +674,15 @@
     "title": "Model 26.0 projections with doubled-BTS-CV WtAgeRE weights",
     "section": "Verification and downloads",
     "text": "Verification and downloads\nThe new runs use the same frozen spmR 0.4.1 package and ADMB runtime as the previous comparison, with 1,000 simulations and seed 123. For every matched case, the only numerical species-input vectors changed are catch and spawning weights. Population-weight metadata are identical. Recruitment draws match exactly by scenario, simulation, and year across all four cases. All new native executions exited 0 and passed fresh-output checks.\nAn independent replay verifies all 168 deterministic scenario-year rows for each of the two new cases (336 rows total), including SPR roots, the fixed- catch solutions, the B20 rule, and the plus group. Maximum relative errors are below 9 × 10⁻¹⁴. Fresh first-year native results agree with the independent calculations within output precision. These historical-recruitment projections estimate no parameters, so optimizer gradients and Hessians are inapplicable here; the saved weight-model fits retain their separate convergence records.\n\nShort-term results\nAnnual summaries for all scenarios\nAge schedules\nReference points\nFour-case input and draw audit\nNew native-run verification\nOriginal-RE independent replay\nDoubled-CV independent replay\nWeight-curve PDF\nTrajectory PDF\nStandalone doubled-CV weight fit\n\nThe original assessment and advice remain unchanged. Manual accessibility review is pending."
+  },
+  {
+    "objectID": "index.html#weight-at-age-development-comparisons",
+    "href": "index.html#weight-at-age-development-comparisons",
+    "title": "Eastern Bering Sea walleye pollock stock assessment",
+    "section": "Weight-at-age development comparisons",
+    "text": "Weight-at-age development comparisons\nDoubling 2025–2026 BTS observation CVs shows the remade heatmap, age-3 comparison, and numerical checks for a separate WtAgeRE sensitivity. These comparisons retain their original inputs and projection baselines.\nModel 26.0 projection comparison: 2020–2024 empirical fishery weights uses the same five-year mean for catch and SSB weights, with the original assessment and projection results retained for comparison.\nExtended projection comparison with original and doubled-BTS-CV WtAgeRE weights compares both forecasts with the published baseline and empirical means, including a matched control for the effect of doubling the BTS CVs.",
+    "crumbs": [
+      "2026 assessment"
+    ]
   }
 ]
