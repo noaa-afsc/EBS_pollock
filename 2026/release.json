@@ -1,15 +1,15 @@
 {
-  "version": "2026-11-09",
+  "version": "2026-11-09-fishery-weights-tons",
   "status": "Review draft",
   "tables": 91,
-  "images": 89,
-  "pages": 265,
+  "images": 90,
+  "pages": 266,
   "local_only_HTML_links_retained_as_text": 95,
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "65ffb294e8c05af212c904a04f5d5c517b53250007dd54a4c22346eaad53638e",
-    "assessment.pdf": "f7c0c9c12fced6e40057d1ad1ee8cc3c0b49820bae198a054dbcafcc318f30f5"
+    "assessment.html": "28ebf9ec0bc8ab48bd9b63b1452abc0801deef8ffa1855c5e78d578ae1159128",
+    "assessment.pdf": "e5afada75442c86bfdf99aaedb17bffc7a54bf50a5cfde79eb8f002abe7cd33b"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -111,5 +111,51 @@
     "current_band": "95% log-scale delta-method parameter uncertainty",
     "2024_uncertainty_band": "Not shown; reliable matching archived uncertainty unavailable"
   },
-  "executive_status_alignment": "Executive summary and both model status-table notes match Section9 B35% comparisons and conditional Alternative6/2036 and Alternative7/2038 tests; No entries verified."
+  "executive_status_alignment": "Executive summary and both model status-table notes match Section9 B35% comparisons and conditional Alternative6/2036 and Alternative7/2038 tests; No entries verified.",
+  "weight_at_age_figure": {
+    "id": "fig-waa-omit-bts2026",
+    "number": "23",
+    "section": "Figures; referenced from4.1.3",
+    "fit": "omit_bts_2026_20261109/attempt-001",
+    "data": "tables/waa-omit-bts2026-figure.csv",
+    "caption": "Observed and predicted weight at age, 2014\u20132028, after omitting 2026 BTS weight observations from the standalone random-effects fit. Cell labels give mean weight in kg per fish for ages 3\u201310. Fishery and BTS observations end in 2025; the right-hand panel includes 2026 estimates without weight observations and 2027\u20132028 forecasts. The solid line marks 2026; dashed boxes mark forecast years. Colours show proportional deviations from each age\u2019s mean through 2025 within its own panel, saturating at \u00b150%. Blank cells indicate absent observations, including the 2020 BTS gap. This figure describes the selected fit; it provides no direct comparison with the fit that included 2026 BTS weights.",
+    "PDF_printed_page": "109",
+    "manual_accessibility": "Not Tested",
+    "views": "Recent years only,2014\u20132028"
+  },
+  "figure30_rounding": "Both panels show abundance multiples to one decimal place; CVs retain whole percentages. Saved numeric values and colours retained.",
+  "fishery_structure_revision": {
+    "section4_1": [
+      "4.1.1 Catch",
+      "4.1.2 Age compositions",
+      "4.1.3 Weight-at-age"
+    ],
+    "fishery_weight_material_moved_from": "4.3 Other data and former4.3.2",
+    "recent_weight_figure": 23,
+    "biological_schedules_figure": 34,
+    "main_figure_range": [
+      1,
+      74
+    ],
+    "units_wording": "tons; numerical values retain the metric-ton basis",
+    "validation": {
+      "HTML_and_PDF_section4_paragraphs_match": 72,
+      "main_figure_numbers_continuous": [
+        1,
+        74
+      ],
+      "PDF_caption_reference_links_checked": 72,
+      "PDF_caption_reference_links_repaired": 0,
+      "new_weight_crossreferences_verified": [
+        23,
+        34
+      ],
+      "editable_terminology_occurrences_remaining": 0,
+      "PDF_pages": 266,
+      "models_refitted": false,
+      "manual_accessibility": "Not Tested"
+    }
+  },
+  "figure34_selectivity_display": "2026 ATS/AVO curve and uncertainty band begin at age2; age1 omitted from display only.",
+  "PDF_compaction": "Removed unreferenced objects and losslessly compressed streams; text, page count, link count and bookmarks verified unchanged."
 }

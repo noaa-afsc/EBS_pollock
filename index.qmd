@@ -12,7 +12,7 @@ format:
 [Read the assessment online](2026/assessment.html){.btn .btn-primary}
 [Download the assessment PDF](2026/assessment.pdf){.btn .btn-outline-primary}
 
-**Version: November 9, 2026 · Review draft**
+**Version: November 9, 2026 · Review draft · Fishery sections and weight figures revised**
 
 The HTML and PDF present the same assessment revision. The HTML provides
 interactive figures and navigation; the PDF provides a paginated copy for

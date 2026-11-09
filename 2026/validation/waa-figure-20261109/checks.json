@@ -1,0 +1,8 @@
+{
+  "pages": 266,
+  "original_internal_links_preserved": 458,
+  "image_alt": "Two sets of three heatmaps compare observed fishery weights, observed BTS weights, and predicted fishery-scale weights. The historical view spans 1970\u20132028; the labelled detail spans 2014\u20132028. Observations stop in 2025. The predicted 2026 age-3 weight is 0.37 kg; that cohort reaches 0.48 kg at age 4 in 2027 and 0.60 kg at age 5 in 2028. Solid and dashed boundaries distinguish current-year estimates and forecasts.",
+  "caption": "Weight at age after omitting 2026 BTS weight observations from the standalone random-effects fit. (A) Full history; (B) recent years, with cell labels in kg per fish. Ages 3\u201310 are shown. Fishery and BTS observations end in 2025. The right-hand panels show fishery-scale fitted weights, 2026 estimates without weight observations, and 2027\u20132028 forecasts. The solid line marks 2026; dashed boxes mark the forecast years. Colours show proportional deviations from each age\u2019s mean through 2025 within its own panel; the scale saturates at \u00b150%. Blank cells indicate absent observations. The 2020 BTS gap is retained. This display describes the selected fit; a comparison of fits is required to isolate the effect of omitting 2026 BTS weights.",
+  "models_rerun": false,
+  "manual_accessibility": "Not Tested"
+}

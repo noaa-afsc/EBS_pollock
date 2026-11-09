@@ -64,3 +64,19 @@ the fishery forecast for catch and SSB at ages3-15+, with baseline young-age
 weights retained. The original-RE control isolates the CV effect. Main
 assessment advice remains unchanged. AppendixB now uses the author-provided
 POL_ESP_HexSticker emblem in both HTML and PDF.
+
+Weight-at-age figure revision: Figure 22a in Section 4.3.2 uses the saved
+omit_bts_2026_20261109/attempt-001 fit. Historical and recent-year panels
+distinguish observations, 2026 estimates, and 2027–2028 forecasts. Figure data
+are supplied as CSV. The PDF insertion uses printed page 18a to retain existing
+page numbers and Figure 22a to retain existing figure references.
+
+Fishery structure and terminology revision: Section 4.1 now contains Catch,
+Age compositions, and Weight-at-age (4.1.1–4.1.3). The fishery-weight treatment
+and former4.3.2 material are consolidated in4.1.3. The recent-year weight
+heatmap is Figure23 in the Figures section; the full-history panel was removed.
+Subsequent main figures are renumbered through74. The biological-schedule
+figure is now34 and distinguishes2026 weights and the selected2027 projection
+curve. Report prose, tables, captions and eight graphic assets use tons; numeric
+values retain their metric-ton basis. See tables/weight-age-revision-20261109/
+for section source, saved curve data, PDF reflow source and validation.

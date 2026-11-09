@@ -1,0 +1,206 @@
+{
+  "anchors": {
+    "": {
+      "page": 9,
+      "y": 0
+    },
+    "fishery-catch-and-age-compositions": {
+      "page": 1,
+      "y": 0
+    },
+    "sec-fishery-catch": {
+      "page": 1,
+      "y": 0
+    },
+    "sec-fishery-age-compositions": {
+      "page": 1,
+      "y": 0
+    },
+    "sec-fishery-weights": {
+      "page": 2,
+      "y": 0
+    },
+    "survey-data": {
+      "page": 3,
+      "y": 0
+    },
+    "bottom-trawl-survey": {
+      "page": 3,
+      "y": 0
+    },
+    "sec-ats": {
+      "page": 4,
+      "y": 0
+    },
+    "sec-ats-age-history": {
+      "page": 4,
+      "y": 0
+    },
+    "survey-design-and-results": {
+      "page": 5,
+      "y": 0
+    },
+    "sec-ats-derived-ages": {
+      "page": 5,
+      "y": 0
+    },
+    "sec-ats-derived-weights": {
+      "page": 5,
+      "y": 0
+    },
+    "survey-uncertainty-and-assessment-treatment": {
+      "page": 5,
+      "y": 0
+    },
+    "spatial-and-historical-patterns": {
+      "page": 5,
+      "y": 0
+    },
+    "biomass-time-series-and-observation-errors": {
+      "page": 6,
+      "y": 0
+    },
+    "sec-avo": {
+      "page": 6,
+      "y": 0
+    },
+    "assessment-index": {
+      "page": 6,
+      "y": 0
+    },
+    "spatial-distribution-and-sampling-coverage": {
+      "page": 6,
+      "y": 0
+    },
+    "sec-avo-assessment-cvs": {
+      "page": 7,
+      "y": 0
+    },
+    "sec-other-data": {
+      "page": 7,
+      "y": 0
+    },
+    "sec-weights": {
+      "page": 8,
+      "y": 0
+    },
+    "main-and-comparison-models": {
+      "page": 8,
+      "y": 0
+    },
+    "sec-model23-data-impacts": {
+      "page": 8,
+      "y": 0
+    },
+    "sec-model232-updated": {
+      "page": 9,
+      "y": 0
+    },
+    "sec-model262-updated": {
+      "page": 9,
+      "y": 0
+    }
+  },
+  "headings": [
+    {
+      "text": "4.1 Fishery data",
+      "page": 1
+    },
+    {
+      "text": "4.1.1 Catch",
+      "page": 1
+    },
+    {
+      "text": "4.1.2 Age compositions",
+      "page": 1
+    },
+    {
+      "text": "4.1.3 Weight-at-age",
+      "page": 2
+    },
+    {
+      "text": "4.2 Survey data",
+      "page": 3
+    },
+    {
+      "text": "4.2.1 Bottom-trawl survey",
+      "page": 3
+    },
+    {
+      "text": "4.2.2 Acoustic-trawl survey",
+      "page": 4
+    },
+    {
+      "text": "Historical abundance at age",
+      "page": 4
+    },
+    {
+      "text": "2026 survey design and results",
+      "page": 5
+    },
+    {
+      "text": "Provisional abundance at age from the 2026 BTS keys",
+      "page": 5
+    },
+    {
+      "text": "Biomass and mean weight at age",
+      "page": 5
+    },
+    {
+      "text": "Survey uncertainty and assessment treatment",
+      "page": 5
+    },
+    {
+      "text": "Spatial and historical patterns",
+      "page": 5
+    },
+    {
+      "text": "Biomass time series and observation errors",
+      "page": 6
+    },
+    {
+      "text": "4.2.3 Acoustic vessel-of-opportunity index",
+      "page": 6
+    },
+    {
+      "text": "Annual index",
+      "page": 6
+    },
+    {
+      "text": "Spatial distribution and sampling coverage",
+      "page": 6
+    },
+    {
+      "text": "Assessment use and observation uncertainty",
+      "page": 7
+    },
+    {
+      "text": "4.3 Other data",
+      "page": 7
+    },
+    {
+      "text": "4.3.1 Age-composition input sample sizes",
+      "page": 8
+    },
+    {
+      "text": "5 Analytic approach",
+      "page": 8
+    },
+    {
+      "text": "5.1 Main and comparison models",
+      "page": 8
+    },
+    {
+      "text": "5.1.1 Model 23.0 and impact of new data",
+      "page": 8
+    },
+    {
+      "text": "5.1.2 Model 23.2 fitted to the 2026 assessment data",
+      "page": 9
+    },
+    {
+      "text": "5.1.3 Model 26.0 fitted to the 2026 assessment data",
+      "page": 9
+    }
+  ]
+}

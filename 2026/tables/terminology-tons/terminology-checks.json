@@ -1,0 +1,48 @@
+{
+  "editable_PDF_occurrences_changed": 23,
+  "graphic_labels_replaced": [
+    {
+      "asset": "figure-008.png",
+      "figure": 8,
+      "PDF_page": 94
+    },
+    {
+      "asset": "figure-009.png",
+      "figure": 9,
+      "PDF_page": 95
+    },
+    {
+      "asset": "figure-010.png",
+      "figure": 10,
+      "PDF_page": 96
+    },
+    {
+      "asset": "figure-023.png",
+      "figure": 24,
+      "PDF_page": 110
+    },
+    {
+      "asset": "figure-027.png",
+      "figure": 28,
+      "PDF_page": 114
+    },
+    {
+      "asset": "figure-028.png",
+      "figure": 29,
+      "PDF_page": 115
+    },
+    {
+      "asset": "figure-029.png",
+      "figure": 30,
+      "PDF_page": 116
+    },
+    {
+      "asset": "figure-033.png",
+      "figure": 33,
+      "PDF_page": 120
+    }
+  ],
+  "report_source_files_relabelled": [],
+  "HTML_remaining_occurrences": 0,
+  "numeric_conversion": false
+}
