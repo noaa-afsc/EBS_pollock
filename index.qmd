@@ -20,7 +20,7 @@ reading and printing. This review draft presents Model 26.0 as the working
 assessment; final scientific adoption and harvest advice follow the assessment
 review process.
 
-The report includes the updated 1991–2026 prohibited-species bycatch table,
+The report includes the updated 1991–2026 prohibited-species, groundfish, and nontarget bycatch tables,
 the current Appendix H introduction, and portrait layouts
 for narrower PDF tables. Supporting references available only in the authors’
 local working files appear as text rather than download links. Manual

@@ -1,0 +1,67 @@
+Species Group Name,in_scope,column
+Benthic urochordata,TRUE,Other
+Birds - Auklets,FALSE,Other
+Birds - Cormorant,FALSE,Other
+Birds - Gull,FALSE,Other
+Birds - Kittiwake,FALSE,Other
+Birds - Laysan Albatross,FALSE,Other
+Birds - Murre,FALSE,Other
+Birds - Northern Fulmar,FALSE,Other
+Birds - Other,FALSE,Other
+Birds - Other Alcid,FALSE,Other
+Birds - Shearwaters,FALSE,Other
+Birds - Storm Petrels,FALSE,Other
+Birds - Unidentified,FALSE,Other
+Bivalves,TRUE,Other
+Bristlemouths,TRUE,Other
+Brittle star unidentified,TRUE,Other
+Capelin,TRUE,Osmerid
+Corals Bryozoans - Corals Bryozoans Unidentified,TRUE,Other
+Corals Bryozoans - Red Tree Coral,TRUE,Other
+Dark Rockfish,TRUE,Other
+Deep sea smelts (bathylagidae),TRUE,Other
+Eelpouts,TRUE,Eelpouts
+Eulachon,TRUE,Osmerid
+Giant Grenadier,TRUE,Grenadier
+Greenlings,TRUE,Other
+Grenadier - Pacific Grenadier,TRUE,Grenadier
+Grenadier - Rattail Grenadier Unidentified,TRUE,Grenadier
+Gunnels,TRUE,Other
+Hermit crab unidentified,TRUE,Other
+Invertebrate unidentified,TRUE,Other
+Lanternfishes (myctophidae),TRUE,Other
+Large Sculpins,FALSE,Other
+Large Sculpins - Bigmouth Sculpin,FALSE,Other
+Large Sculpins - Great Sculpin,FALSE,Other
+Large Sculpins - Hemilepidotus Unidentified,FALSE,Other
+Large Sculpins - Myoxocephalus Unidentified,FALSE,Other
+Large Sculpins - Plain Sculpin,FALSE,Other
+Large Sculpins - Red Irish Lord,FALSE,Other
+Large Sculpins - Warty Sculpin,FALSE,Other
+Large Sculpins - Yellow Irish Lord,FALSE,Other
+Misc crabs,TRUE,Other
+Misc crustaceans,TRUE,Other
+Misc deep fish,TRUE,Other
+Misc fish,TRUE,MiscFish
+Misc inverts (worms etc),TRUE,Other
+Other Sculpins,FALSE,Other
+Other osmerids,TRUE,Osmerid
+Pacific Hake,TRUE,Other
+Pacific Sand lance,TRUE,Other
+Pacific Sandfish,TRUE,Other
+Pandalid shrimp,TRUE,Other
+Polychaete unidentified,TRUE,Other
+Saffron Cod,TRUE,Other
+Sculpin,FALSE,Other
+Scypho jellies,TRUE,Jellies
+Sea anemone unidentified,TRUE,Anemone
+Sea pens whips,TRUE,Sea.pen
+Sea star,TRUE,SeaStar
+Smelt (Family Osmeridae),TRUE,Osmerid
+Snails,TRUE,Snails
+Sponge unidentified,TRUE,Other
+Squid,FALSE,Other
+State-managed Rockfish,TRUE,Other
+Stichaeidae,TRUE,Other
+Surf smelt,TRUE,Osmerid
+urchins dollars cucumbers,TRUE,Other

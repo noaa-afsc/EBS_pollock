@@ -28,3 +28,15 @@ The November 8 PSC revision adds main Table 54 (89 tables total) and
 one PDF page (260 total), retaining the numbers of all earlier tables. Annual aggregated
 CSV values and the R aggregation recipe are provided; vessel-level inputs are
 excluded.
+
+The subsequent FMP bycatch update adds main Tables 55-56 and matching narrative.
+The assessment now contains 91 tables, 88 images, and 262 PDF pages.
+Aggregated annual data, category maps, exclusion totals, and R scripts accompany
+the report. Vessel- and processor-level input rows remain outside this repository.
+
+The nontarget update adds main Table 57 and narrative, bringing the report to
+92 tables, 88 images, and 263 PDF pages. It uses BSAI records and explicitly
+maps the selected groups, with preliminary 2026 coverage through October 24.
+
+Final layout validation removed an existing blank appendix section-break page,
+redirected its table-section link, and refreshed page numbers (262 pages total).

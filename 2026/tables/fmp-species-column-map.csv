@@ -1,0 +1,46 @@
+Species Group Name,in_scope,column
+Alaska Plaice,TRUE,Other
+Arrowtooth Flounder,TRUE,Arrowtooth
+Atka Mackerel,TRUE,Atka.Mkrl
+BSAI Alaska Plaice,TRUE,Other
+BSAI Kamchatka Flounder,TRUE,Other
+BSAI Other Flatfish,TRUE,Other
+BSAI Rougheye Rockfish,TRUE,Other
+BSAI Shortraker Rockfish,TRUE,Other
+"BSAI Skate and GOA Skate, Other",TRUE,Skates
+BSAI Squid,TRUE,Other
+Chinook Salmon,FALSE,Other
+Chum Salmon,FALSE,Other
+Coho Salmon,FALSE,Other
+Demersal Shelf Rockfish,TRUE,Other
+Flathead Sole,TRUE,Flathead
+Flounder,TRUE,Other
+Greenland Turbot,TRUE,Other
+Halibut,FALSE,Other
+Non TAC Species,FALSE,Other
+Northern Rockfish,TRUE,Other
+Octopus,TRUE,Other
+Other,TRUE,Other
+Other Flatfish,TRUE,Other
+Other Rockfish,TRUE,Other
+Other Species,TRUE,Other
+Pacific Cod,TRUE,P.cod
+Pacific Ocean Perch,TRUE,POP
+Pink Salmon,FALSE,Other
+Pollock,FALSE,Other
+Rex Sole,TRUE,Other
+Rock Sole,TRUE,Rock.Sole
+Rougheye Rockfish,TRUE,Other
+Sablefish,TRUE,Sablefish
+Sculpin,TRUE,Other
+Shallow Water Flatfish,TRUE,Other
+Shark,TRUE,Shark
+Sharpchin/Northern Rockfish,TRUE,Other
+Shortraker Rockfish,TRUE,Other
+Shortraker/Rougheye Rockfish,TRUE,Other
+Shortraker/Rougheye/Sharpchin/Northern Rockfish,TRUE,Other
+Squid,TRUE,Other
+Thornyhead Rockfish,TRUE,Other
+Unspecified Salmon,FALSE,Other
+Yellowfin Sole,TRUE,Yellowfin
+NA,FALSE,Other

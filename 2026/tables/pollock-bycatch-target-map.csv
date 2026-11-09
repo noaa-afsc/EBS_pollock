@@ -1,0 +1,19 @@
+Trip Target Name,in_scope,column
+Alaska Plaice - BSAI,TRUE,Other.flats
+Arrowtooth Flounder,TRUE,Other.flats
+Atka Mackerel,TRUE,Other.spp
+Flathead Sole,TRUE,Other.flats
+Greenland Turbot - BSAI,TRUE,Other.flats
+Halibut,TRUE,Other.spp
+Kamchatka Flounder - BSAI,TRUE,Other.flats
+No retained catch,FALSE,Other.spp
+Other Flatfish - BSAI,TRUE,Other.flats
+Other Species,TRUE,Other.spp
+Pacific Cod,TRUE,P.cod
+Pollock - bottom,FALSE,Other.spp
+Pollock - midwater,FALSE,Other.spp
+Rock Sole - BSAI,TRUE,Rock.sole
+Rockfish,TRUE,Other.spp
+Sablefish,TRUE,Other.spp
+Yellowfin Sole - BSAI,TRUE,Yellowfin.sole
+NA,FALSE,Other.spp

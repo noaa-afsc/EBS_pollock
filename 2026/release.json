@@ -1,17 +1,24 @@
 {
   "version": "2026-11-08",
   "status": "Review draft",
-  "tables": 89,
+  "tables": 92,
   "images": 88,
-  "pages": 260,
+  "pages": 262,
   "local_only_HTML_links_retained_as_text": 95,
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "74adfd256a3cb9dbf445a27afbd2d3ed0c28455afa14b17c28829255aae7064f",
-    "assessment.pdf": "a0ec6935a1c8439fdfeb6ee0d2fc8b7cbc82aacf506e68b28ee21b5ae0777b46"
+    "assessment.html": "99aeebbc9cd858a1070963c91f497f1df9f3987506765cbed3959ac686702d8e",
+    "assessment.pdf": "9b8042c406e3b4f53435b93f67180280c1ac213a02aa6f83a0cf2891955ccb00"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
-  "revision_note": "Added main Table 54 and fishery narrative for annual prohibited-species catches, 1991\u20132026; 2024 halibut mortality is 53 t for display.",
-  "psc_source_sha256": "1abb83dae9a149f3678a5bc5d6b21a399c13272321810333e75b0d99fca20d13"
+  "revision_note": "Added main Tables 55-57 and narrative for two directions of groundfish bycatch and selected nontarget groups.",
+  "psc_source_sha256": "1abb83dae9a149f3678a5bc5d6b21a399c13272321810333e75b0d99fca20d13",
+  "fmp_bycatch_sources": {
+    "FMP Groundfish Bycatch in pollock fishery.csv": "9e6f2df237f6c1dd40eea1cee9602d5a7deaa668448552f61fe118333a13ea13",
+    "FMP pollock Bycatch in FMP fisheries.csv": "9d32104b00fbf16f2fb677780c3f4cb6ede9b27072790b5a5d49dc818e2a19ab"
+  },
+  "nontarget_source_sha256": "f62a7fd7af971f456d0ef0da5de11fc9d018c052a8e5fb584ab223f19c870350",
+  "nontarget_historical_source_differences": "2019\u20132022 jellyfish totals in the supplied CSV are approximately half the prior SAFE screenshot. No scaling adjustment applied; source cause unresolved.",
+  "layout_note": "Removed an existing blank appendix section-break page and redirected its table-section link to the following content page."
 }
