@@ -8,8 +8,8 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "22003b731d7b6ad02b8a97364f5b103838660b49d0b1552c8b5b7ea3db4f3ee3",
-    "assessment.pdf": "c903bf1b637b0003ae466283e632fb2c2bd68b7b92d704563d7416d38d66c584"
+    "assessment.html": "9084fc3dce9ce1b0ab14f5587390bae4fcca2f87430a4111c9b0bed7efd1a206",
+    "assessment.pdf": "756e0e407c6ceb3aa057d64442eaaaaf2647039548255b4af9a6911787cc2bac"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -80,5 +80,26 @@
     "HTML": "94 linked table references resolve to their matching table, including B8\u2019s two-panel wrapper.",
     "PDF": "Corrected two Table 1 destinations to table start; added four bycatch links to Tables 6\u20139.",
     "live_verification": "Downloaded HTML and PDF matched canonical artifacts before these link corrections; hanging styles checked in live browser."
+  },
+  "WtAgeRE_projection_weights": {
+    "status": "PASS",
+    "WtAgeRE_fit": "omit_bts_2026_20261109/attempt-001",
+    "weights": "2027 fishery WtAgeRE forecast fixed for catch and spawning ages3\u201315+; supplied ages1\u20132 retained",
+    "native_spmR_model_window_cases": 10,
+    "native_simulations_per_case": 1000,
+    "scenarios": 7,
+    "years": [
+      2027,
+      2038
+    ],
+    "independent_deterministic_rows": 840,
+    "HTML_changed_rows_verified": 100,
+    "PDF_numeric_cells_verified": 417,
+    "HTML_table_links_verified": 96,
+    "hanging_HTML_captions": 166,
+    "PDF_pages": 264,
+    "population_assessment_refits": 0,
+    "manual_accessibility": "Not tested",
+    "source_WtAgeRE_sha256": "be7a6a7993ed3aed64275149df73f3854fa111fffd163f94dfc39340bf11f413"
   }
 }

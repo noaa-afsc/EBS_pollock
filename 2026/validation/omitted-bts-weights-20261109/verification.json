@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "WtAgeRE_fit": "omit_bts_2026_20261109/attempt-001",
+  "weights": "2027 fishery WtAgeRE forecast fixed for catch and spawning ages3\u201315+; supplied ages1\u20132 retained",
+  "native_spmR_model_window_cases": 10,
+  "native_simulations_per_case": 1000,
+  "scenarios": 7,
+  "years": [
+    2027,
+    2038
+  ],
+  "independent_deterministic_rows": 840,
+  "HTML_changed_rows_verified": 100,
+  "PDF_numeric_cells_verified": 417,
+  "HTML_table_links_verified": 96,
+  "hanging_HTML_captions": 166,
+  "PDF_pages": 264,
+  "population_assessment_refits": 0,
+  "manual_accessibility": "Not tested",
+  "source_WtAgeRE_sha256": "be7a6a7993ed3aed64275149df73f3854fa111fffd163f94dfc39340bf11f413"
+}
