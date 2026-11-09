@@ -4,10 +4,13 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 quarto render index.qmd --to html
 quarto render development.qmd --to html
-if [[ -f 2026/weight-at-age-bts-cv-sensitivity.qmd ]]; then
-  quarto render 2026/weight-at-age-bts-cv-sensitivity.qmd --to html
-  cp docs/2026/weight-at-age-bts-cv-sensitivity.html 2026/weight-at-age-bts-cv-sensitivity.html
-fi
+for report in 2026/weight-at-age-bts-cv-sensitivity.qmd 2026/projection-empirical-weight-comparison.qmd; do
+  if [[ -f "$report" ]]; then
+    quarto render "$report" --to html
+    report_html="${report%.qmd}.html"
+    cp "docs/$report_html" "$report_html"
+  fi
+done
 mkdir -p docs/2026
 rsync -a --delete 2026/ docs/2026/
 python3 scripts/update_site_navigation.py

@@ -1,0 +1,16 @@
+{
+  "status": "COMPARISON_ONLY",
+  "scope": "Catch and SSB schedules both equal the age-wise arithmetic mean of the five prepared empirical annual fishery input curves,2020-2024",
+  "age_basis": "Historical input basis retained for2020-2023;2024 FT-NIR converted to independent TMA tester basis",
+  "gap_filling": "Previously authorized historical input interpolation retained; annual curves are prepared empirical inputs, not RE predictions. See inherited_gap_filling.csv. The2024 conversion supersedes earlier 2024 imputation.",
+  "age3_mean_kg": 0.4300465708123732,
+  "n_years": 5,
+  "population_weights": "2026 unchanged",
+  "assessment_refits": 0,
+  "baseline_replaced": false,
+  "source_hashes": {
+    "native_short_term_comparison.csv": "60f980144a1505223f38ed4d322496c5995bae3cea15c03b9a4d40d20fa3149f",
+    "reference_point_comparison.csv": "f19e93c507c15199e5adf7ba46fde31cb5a8c224cac72507d4894d27bc2757b9",
+    "native_verification.json": "a6013e014650cdea1aaeb48852ac1af111e30093a196e342378c370b4b728e77"
+  }
+}

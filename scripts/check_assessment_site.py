@@ -12,7 +12,7 @@ class Links(HTMLParser):
         for k in ('href','src'):
             if k in a:self.urls.append(a[k])
         self.tables+=tag=='table'; self.images+=tag=='img'
-for name in ['index.html','development.html','2026/assessment.html','2026/weight-at-age-bts-cv-sensitivity.html']:
+for name in ['index.html','development.html','2026/assessment.html','2026/weight-at-age-bts-cv-sensitivity.html','2026/projection-empirical-weight-comparison.html']:
     p=ROOT/'docs'/name; s=p.read_text(); parser=Links();parser.feed(s)
     assert '/Users/' not in s and 'file:///' not in s,name
     for url in parser.urls:

@@ -28,5 +28,16 @@
     "change": "BTS 2025-2026 observation SD/CV doubled",
     "main_assessment_replaced": false,
     "numerical_checks": "PASS"
+  },
+  "projection_weight_comparison": {
+    "scope": "COMPARISON_ONLY",
+    "report": "projection-empirical-weight-comparison.html",
+    "years_averaged": [
+      2020,
+      2024
+    ],
+    "weight_policy": "Prepared empirical annual fishery curve, equal-year mean at age; same catch/SSB schedule; inherited historical interpolation retained",
+    "assessment_or_main_projections_replaced": false,
+    "numerical_checks": "PASS"
   }
 }

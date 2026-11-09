@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "selectivity_window": "primary",
+      "common_native_recruitment_draws": "identical",
+      "only_numeric_input_vectors_changed": [
+        "fishery_weight",
+        "spawning_weight"
+      ],
+      "population_weights_metadata": "identical",
+      "process_exit_codes": 0
+    },
+    {
+      "selectivity_window": "selectivity_window_check",
+      "common_native_recruitment_draws": "identical",
+      "only_numeric_input_vectors_changed": [
+        "fishery_weight",
+        "spawning_weight"
+      ],
+      "population_weights_metadata": "identical",
+      "process_exit_codes": 0
+    }
+  ],
+  "independent_deterministic_replay": "PASS;168rows;relative_error<5e-13",
+  "assessment_refits": 0,
+  "main_assessment_preserved": true
+}

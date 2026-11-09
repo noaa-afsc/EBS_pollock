@@ -593,9 +593,44 @@
     "href": "index.html#weight-at-age-sensitivity",
     "title": "Eastern Bering Sea walleye pollock stock assessment",
     "section": "Weight-at-age sensitivity",
-    "text": "Weight-at-age sensitivity\nDoubling 2025–2026 BTS observation CVs shows the remade heatmap, age-3 comparison, and numerical checks for a separate WtAgeRE sensitivity. The assessment baseline is retained.",
+    "text": "Weight-at-age sensitivity\nDoubling 2025–2026 BTS observation CVs shows the remade heatmap, age-3 comparison, and numerical checks for a separate WtAgeRE sensitivity. The assessment baseline is retained.\nModel 26.0 projection comparison: 2020–2024 empirical fishery weights uses the same five-year mean for catch and SSB weights, with the original assessment and projection results retained for comparison.",
     "crumbs": [
       "2026 assessment"
     ]
+  },
+  {
+    "objectID": "2026/projection-empirical-weight-comparison.html",
+    "href": "2026/projection-empirical-weight-comparison.html",
+    "title": "Model 26.0 projections: empirical fishery weight comparison",
+    "section": "",
+    "text": "Assessment homepage · Current assessment\nThis comparison replaces both the projection fishery catch weights and spawning-biomass weights with the age-specific arithmetic mean of the prepared empirical fishery weight inputs for 2020–2024. Each year receives equal weight. The same 15-age vector is used for catch and SSB and is held fixed through 2027–2038. The original assessment and its projection products are preserved; these comparison results are separate from the assessment baseline."
+  },
+  {
+    "objectID": "2026/projection-empirical-weight-comparison.html#age-3-concern-and-the-scope-of-this-comparison",
+    "href": "2026/projection-empirical-weight-comparison.html#age-3-concern-and-the-scope-of-this-comparison",
+    "title": "Model 26.0 projections: empirical fishery weight comparison",
+    "section": "Age-3 concern and the scope of this comparison",
+    "text": "Age-3 concern and the scope of this comparison\nThe empirical five-year age-3 mean is 0.430 kg. The weight supplied for the 2026 fishery is about 0.644 kg, while the original projection catch schedule already uses the 2027 forecast, about 0.370 kg at age 3. Thus the new comparison increases projected age-3 catch weight relative to the prior projection, even though it is below the high 2026 input. The full catch and SSB curves also change; effects cannot be assigned to age 3 alone. The age-4 catch-weight contrast is particularly large: 0.758 kg in the previous forecast versus 0.494 kg in the empirical mean.\nThe fitted 2026 abundance and mortality are retained when forming the initial 2027 population. This experiment therefore measures sensitivity to future projection weight assumptions, rather than removing the high 2026 weight from the assessment fit. The separate BTS-observation-CV sensitivity evaluates its influence within the standalone weight model. Neither comparison refits the stock assessment or replaces its advice.\n\n\n\nFour weight curves show the previous projection catch weights, previous SSB weights, 2026 fishery inputs, and the common empirical 2020–2024 fishery mean used for catch and SSB."
+  },
+  {
+    "objectID": "2026/projection-empirical-weight-comparison.html#results-with-matched-recruitment-draws",
+    "href": "2026/projection-empirical-weight-comparison.html#results-with-matched-recruitment-draws",
+    "title": "Model 26.0 projections: empirical fishery weight comparison",
+    "section": "Results with matched recruitment draws",
+    "text": "Results with matched recruitment draws\n\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nUnder the primary selectivity assumption, maximum ABC decreases by 7.5% in 2027 and 7.3% in 2028. The expected catch remains 1,375 kt in both years. Higher fishing mortality is required to take that fixed tonnage under the empirical catch-weight schedule.\n\n\n\n\n\n\n\n\nYear\nPrevious max ABC (kt)\nEmpirical max ABC (kt)\nABC change (%)\nPrevious OFL (kt)\nEmpirical OFL (kt)\n\n\n\n\n2027\n2,222.3\n2,056.1\n−7.5\n2,746.2\n2,539.1\n\n\n2028\n2,318.8\n2,149.2\n−7.3\n2,869.8\n2,661.7\n\n\n\nNative spmR means across 1,000 future-recruitment simulations; Alternative 2. These are comparison outputs, not adopted catch advice.\n\n\n\n\n\n\n\n\nThe SSB differences reflect the altered weight schedule as well as changes in fishing mortality and surviving age structure. They represent a changed projection calculation, rather than evidence for a change in the fitted population. SPR reference fishing rates and biomass reference points are recalculated consistently with the new SSB weights.\n\n\n\n\n\n\n\n\nSchedules\nB35% (kt)\nB40% (kt)\nF40\nF35\n\n\n\n\nprevious\n2,181.8\n2,493.5\n0.5338\n0.6884\n\n\nempirical_2020_2024\n2,012.9\n2,300.5\n0.5775\n0.7480\n\n\n\n\n\n\n\n\n\n\nAlternative-2 catch and female spawning-biomass trajectories compare the previous and empirical weight schedules with common recruitment draws. Ribbons show recruitment variation only."
+  },
+  {
+    "objectID": "2026/projection-empirical-weight-comparison.html#inputs-and-averaging",
+    "href": "2026/projection-empirical-weight-comparison.html#inputs-and-averaging",
+    "title": "Model 26.0 projections: empirical fishery weight comparison",
+    "section": "Inputs and averaging",
+    "text": "Inputs and averaging\nThe source is the prepared annual observation input, before WtAgeRE smoothing or prediction. Historical 2020–2023 inputs retain their existing age basis and previously authorized interpolation for sparse cells. The 2024 inputs use the year-specific FT-NIR-to-independent-TMA conversion, including the approved tail preparation. Hence “empirical” here distinguishes the prepared annual data curves from fitted/predicted weight curves; it does not imply that every sparse historical cell had an independent observation. All five age-3 annual values are available without the historical mean fills.\n\n\n\n\n\n\n\n\nAge (15 = 15+)\nCatch and SSB weight (kg)\nAnnual input values\n\n\n\n\n1\n0.0962\n5\n\n\n2\n0.3006\n5\n\n\n3\n0.4300\n5\n\n\n4\n0.4942\n5\n\n\n5\n0.5727\n5\n\n\n6\n0.6697\n5\n\n\n7\n0.7803\n5\n\n\n8\n0.8855\n5\n\n\n9\n0.9946\n5\n\n\n10\n1.0402\n5\n\n\n11\n1.1586\n5\n\n\n12\n1.1861\n5\n\n\n13\n1.2594\n5\n\n\n14\n1.0706\n5\n\n\n15\n0.9274\n5\n\n\n\n\n\n\n\nAll 75 annual inputs · Inherited historical gap-filling record\nThe population-biomass weights stay at their previous 2026 values. Maturity, natural mortality, sex ratio, spawning timing, fitted initial population, recruitment history, fixed catches, and selectivity are held constant. The primary selectivity average is 2023–2025; the 2024–2026 window check is also repeated. Both cases use the 1978–2023 age-1 recruitment history, the same random seed (123), and identical recruitment draws for each simulation, year, and scenario. All seven harvest scenarios are run through 2038."
+  },
+  {
+    "objectID": "2026/projection-empirical-weight-comparison.html#verification-and-downloads",
+    "href": "2026/projection-empirical-weight-comparison.html#verification-and-downloads",
+    "title": "Model 26.0 projections: empirical fishery weight comparison",
+    "section": "Verification and downloads",
+    "text": "Verification and downloads\nThe matched runs use the same frozen spmR 0.4.1 package and ADMB projection runtime. All 12 native executions exit 0 and pass fresh-output checks. The only numerical species-input vectors that differ between matched cases are catch and spawning weights; population-weight metadata are identical. These historical-recruitment projections estimate no parameters, so optimizer gradients and Hessian checks are inapplicable. The fitted assessment is read without refitting.\nAn independent Python replay checks all 168 deterministic scenario-year rows across both selectivity windows, including SPR roots, catch solutions, the B20 closure, and plus-group accounting. Its maximum relative error is below 5 × 10⁻¹³. Native first-year projections also agree with the independent calculation within output precision. Projection intervals represent future recruitment variation, conditional on fixed inputs; assessment and weight uncertainty are outside these intervals.\n\nShort-term native results\nNative annual summaries\nReference points\nDeterministic scenarios\nPaired-input audit\nNative execution verification\nIndependent replay\nComparison scope and source notes\nWeight-curve PDF\nTrajectory PDF\n\nManual accessibility review remains pending."
   }
 ]

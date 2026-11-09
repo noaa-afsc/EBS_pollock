@@ -51,3 +51,9 @@ A separate WtAgeRE sensitivity doubles 2025-2026 BTS observation SDs/CVs.
 Its report is weight-at-age-bts-cv-sensitivity.qmd/html, with saved summaries
 and independent checks under weight-at-age-bts-cv-sensitivity/.
 The original fit and assessment products remain the baseline.
+
+The separate Model26.0 spmR comparison uses equal-year 2020-2024 empirical
+fishery input means for both catch and SSB weights. See
+projection-empirical-weight-comparison.qmd/html and its saved summaries.
+The original assessment and projections are retained. Historical gap fills
+and the 2024 TMA conversion are documented in the comparison source notes.

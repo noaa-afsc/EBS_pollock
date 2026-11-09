@@ -1,0 +1,76 @@
+year,age_bin,weight_kg,se_kg,age_basis,conversion_key,uncertainty
+2020,1,0.177100906,0.03934504822135443,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,1,0.0961821665,0.02805757327405783,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,1,0.0961821665,0.02805757327405783,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,1,0.0961821665,0.02805757327405783,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,1,0.015263427,0.01677009832676124,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,2,0.249662887,0.00540481461988349,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,2,0.325547204,0.0088271237909528,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,2,0.320181823,0.00962803908645583,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,2,0.3211708611111111,0.01602509031158465,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,2,0.286634217,0.01884741144098936,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,3,0.387278533,0.01935908414129399,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,3,0.393062974,0.00210796624522667,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,3,0.440140998,0.00907013845459822,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,3,0.49445541666666665,0.02032491069511217,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,3,0.4352949323951992,0.00530225409342646,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,4,0.521578796,0.01665117087468272,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,4,0.479855859,0.01404103421971039,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,4,0.506070315,0.00284959488678545,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,4,0.4826691388888889,0.01000118424174365,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,4,0.4807450956045795,0.0033313201518222,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,5,0.631983426,0.01333896971657195,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,5,0.573714566,0.01425507757454516,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,5,0.573912489,0.00959637733636297,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,5,0.5244819444444444,0.00331672714709152,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,5,0.5595602255939187,0.00207331705264981,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,6,0.715571536,0.00708889520249071,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,6,0.68978244,0.01701071357817886,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,6,0.7240341,0.02140094559963551,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,6,0.6017949444444445,0.01108041005931368,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,6,0.6174820921742573,0.00227903897471897,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,7,0.799211203,0.00680836718645054,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,7,0.756873301,0.0091950027119774291,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,7,0.837483976,0.0252353841316453,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,7,0.8115420555555556,0.05252988359288968,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,7,0.6964707057930196,0.00599718495444153,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,8,0.955081444,0.01820276400144099,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,8,0.841316211,0.01051805240759561,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,8,0.883258787,0.01362344285666805,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,8,0.9225525277777776,0.02355855098925848,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,8,0.8251894061176704,0.01378839176105021,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,9,1.005954392,0.02857015548033481,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,9,1.0106582,0.02932291771999528,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,9,0.983696798,0.02294532012735807,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,9,0.9566281944444444,0.03366116603346562,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,9,1.0162118543765113,0.0182199570225599,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,10,1.040257935,0.03823238916843021,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,10,1.129811105,0.05220720246421099,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,10,0.972326522,0.04707470228743847,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,10,1.0413486388888888,0.05370940919011852,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,10,1.0173214825504309,0.02249184611228398,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,11,1.18923468,0.04824447518715159,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,11,1.15974887,0.06446716757404594,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,11,1.271468946,0.10353207653845954,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,11,1.0946378611111112,0.06152219203328305,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,11,1.0777961849767366,0.02262873539247895,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,12,1.072450668,0.0715502150544785,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,12,1.26932969,0.09112626212048835,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,12,1.044233759,0.11237037908774372,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,12,1.29379,0.1981496291765392,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,12,1.250580933866217,0.04407381035616415,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,13,1.208377146,0.4649348031208996,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,13,1.21450031,0.28365240342957665,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,13,1.23453454,0.13683120667050813,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,13,1.3314197222222222,0.10863451407583163,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,13,1.3080482292465252,0.05987319034712402,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,14,0.96073877,0.6077261559371931,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,14,0.93552331,0.5752366014318406,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,14,0.91030785,0.5427470469264882,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,14,1.2183513888888888,0.5746455707211573,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,14,1.3280320300539787,0.06777481544775904,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),First 1000 transformed sampler draws; inherited zero-inclusive mean/sample SD; key and pooled row fixed; calibration uncertainty excluded
+2020,15,0.7689046909999999,0.6348994238070808,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2021,15,0.40816878199999984,0.44789418520389507,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2022,15,0.7695438354444444,0.7108442577607545,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2023,15,1.1309188888888888,0.973794330317614,Historical input preserved,NA,Original input SE; existing imputation flags retained in archived source
+2024,15,1.5594627083333332,1.5594627083333332,TMA independent tester ages; 2024 empirical key plus pooled source-age-13 offsets; 15+ pooled,fishery_2024_693pairs; source13 pooled offsets ages9-12 (34 pairs),User-assigned CV=100%; SE equals positive-abundance bootstrap mean; not an empirical sampling or calibration SE

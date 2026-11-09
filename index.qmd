@@ -37,3 +37,7 @@ the September 2026 assessment developments, preparation checklist, and
 [Doubling 2025–2026 BTS observation CVs](2026/weight-at-age-bts-cv-sensitivity.qmd)
 shows the remade heatmap, age-3 comparison, and numerical checks for a separate
 WtAgeRE sensitivity. The assessment baseline is retained.
+
+[Model 26.0 projection comparison: 2020–2024 empirical fishery weights](2026/projection-empirical-weight-comparison.qmd)
+uses the same five-year mean for catch and SSB weights, with the original
+assessment and projection results retained for comparison.

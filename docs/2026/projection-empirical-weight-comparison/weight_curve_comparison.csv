@@ -1,0 +1,61 @@
+age,weight_kg,Schedule
+1,0.025182262,Previous projection catch
+2,0.186221762,Previous projection catch
+3,0.369581,Previous projection catch
+4,0.75762,Previous projection catch
+5,0.620961,Previous projection catch
+6,0.819745,Previous projection catch
+7,0.878095,Previous projection catch
+8,0.954298,Previous projection catch
+9,1.00075,Previous projection catch
+10,1.08319,Previous projection catch
+11,1.19497,Previous projection catch
+12,1.29443,Previous projection catch
+13,1.33565,Previous projection catch
+14,1.40159,Previous projection catch
+15,1.50381,Previous projection catch
+1,0.084881666,Previous projection SSB
+2,0.195868126,Previous projection SSB
+3,0.317467,Previous projection SSB
+4,0.541033,Previous projection SSB
+5,0.656783,Previous projection SSB
+6,0.732351,Previous projection SSB
+7,0.80376,Previous projection SSB
+8,0.911116,Previous projection SSB
+9,1.018604,Previous projection SSB
+10,1.134811,Previous projection SSB
+11,1.226987,Previous projection SSB
+12,1.278578,Previous projection SSB
+13,1.333499,Previous projection SSB
+14,1.434007,Previous projection SSB
+15,1.466315,Previous projection SSB
+1,0.025182262,Fishery input 2026
+2,0.186221762,Fishery input 2026
+3,0.6436922282065639,Fishery input 2026
+4,0.5013360666670805,Fishery input 2026
+5,0.6974912908182299,Fishery input 2026
+6,0.7556356167351174,Fishery input 2026
+7,0.833575980712371,Fishery input 2026
+8,0.8832806252654317,Fishery input 2026
+9,0.9701181854925364,Fishery input 2026
+10,1.0871029986200682,Fishery input 2026
+11,1.1923112740154105,Fishery input 2026
+12,1.2396033676990823,Fishery input 2026
+13,1.3117547261362372,Fishery input 2026
+14,1.420182621222178,Fishery input 2026
+15,1.4418368857239705,Fishery input 2026
+1,0.0961821665,Empirical 2020-2024: catch and SSB
+2,0.3006393984222222,Empirical 2020-2024: catch and SSB
+3,0.4300465708123732,Empirical 2020-2024: catch and SSB
+4,0.49418384089869366,Empirical 2020-2024: catch and SSB
+5,0.5727305302076726,Empirical 2020-2024: catch and SSB
+6,0.6697330225237403,Empirical 2020-2024: catch and SSB
+7,0.780316248269715,Empirical 2020-2024: catch and SSB
+8,0.8854796751790897,Empirical 2020-2024: catch and SSB
+9,0.9946298877641911,Empirical 2020-2024: catch and SSB
+10,1.040213136687864,Empirical 2020-2024: catch and SSB
+11,1.1585773084175697,Empirical 2020-2024: catch and SSB
+12,1.1860770101732434,Empirical 2020-2024: catch and SSB
+13,1.2593759894937495,Empirical 2020-2024: catch and SSB
+14,1.0705906697885734,Empirical 2020-2024: catch and SSB
+15,0.9273997811333332,Empirical 2020-2024: catch and SSB
