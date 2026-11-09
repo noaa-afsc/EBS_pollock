@@ -1,0 +1,19 @@
+{
+  "HTML_paragraphs_removed": 7,
+  "PDF_pages_cleaned": [
+    87,
+    88,
+    89,
+    90,
+    97
+  ],
+  "PDF_repeated_source_sentences_removed": 5,
+  "PDF_pages_unchanged": 266,
+  "links_removed_with_deleted_prose": 2,
+  "Table2_links_retained": 39,
+  "figure_images_and_captions_preserved": true,
+  "PDF_figure_pixel_hashes_unchanged": true,
+  "PDF_captions_unchanged": true,
+  "all_other_PDF_page_text_unchanged": true,
+  "PDF_bookmarks_unchanged": true
+}
