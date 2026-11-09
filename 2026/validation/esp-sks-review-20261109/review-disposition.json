@@ -1,0 +1,258 @@
+{
+  "source_sha256": "ebb8f3a3bd83aa3d6f46f27e9df9c0fc55070e93036849b91cf38853a7e468a1",
+  "comments": [
+    {
+      "page": 162,
+      "selected": "Original Word draft, saved standalone draft, and source and integration record. Authors S. Kalei Shotwell, Elizabeth Siddon, Russel Dame, and James Ianelli Draft prepared with an AI agent.",
+      "comment": "",
+      "status": "Already addressed or retained as section heading"
+    },
+    {
+      "page": 162,
+      "selected": "This contribution is Appendix B of the SAFE.",
+      "comment": "",
+      "status": "Already addressed or retained as section heading"
+    },
+    {
+      "page": 162,
+      "selected": "Appendix B",
+      "comment": "In general, any text that I highlighted should be removed. Usually it's because the text seems to be an AI remnant or it just doesn't seem needed at this time.",
+      "status": "Already addressed or retained as section heading"
+    },
+    {
+      "page": 162,
+      "selected": "Draft for the EBS pollock assessment and ESP teams. This contribution expands the EBS pollock ESP framework in the September 2026 assessment development document. It combines the pollock bibliography, the recruitment causal review, primary papers, and the assessment website. The present contribution establishes the scientific synthesis, incorporates annual age-0 energy density through 2025, and documents the existing indicator-analysis pilot. Recorded working indicator series and economic observations are included below. This contribution is Appendix B of the SAFE. The main finding is that fall age-0 energetic condition and juvenile exposure to predators provide strong biological reasons for organizing the ESP around successive survival stages. Physical indicators help describe those processes. The temperature and cold-pool fits remain research results; designation as predictive indicators requires additional numerical and prediction checks.",
+      "comment": "This text seems out of place. Reduce and move into the Executive Summary below.",
+      "status": "Already addressed or retained as section heading"
+    },
+    {
+      "page": 163,
+      "selected": "These are recorded repository inputs with incomplete primary-source metadata.",
+      "comment": "Seems AI, please remove",
+      "status": "Already addressed or retained as section heading"
+    },
+    {
+      "page": 163,
+      "selected": "Interpreting this series requires its sampling season and regional coverage.",
+      "comment": "Doesn't seem useful for an exec summary. Remove",
+      "status": "Already addressed or retained as section heading"
+    },
+    {
+      "page": 163,
+      "selected": "These studies support biological hypotheses; performance in withheld cohorts will determine whether the resulting annual indicators improve assessment forecasts.",
+      "comment": "Don't understand this, prob remove",
+      "status": "Already addressed or retained as section heading"
+    },
+    {
+      "page": 163,
+      "selected": "Age-1 response observations in the working-paper input end in 2024. Its 2025 and 2026 values are full-data conditional missing-year estimates, rather than observations or genuine forecasts. Rolling validation over seven observed age-1 years, 2018\u20132024, gives RMSE 1.924 for the configured DSEM versus 1.847 for AR1 in the working response units. The configured DSEM scores worse than the AR1 reference in this test. The historical Rceattle pilot has a different response, timing and scaling; its in-sample comparisons remain separate from that forecast test.",
+      "comment": "This looks like it took from my r-script in the leave one out. That was done for the ESR and doesn't make sense in the ESP context. Remove this.",
+      "status": "Already addressed or retained as section heading"
+    },
+    {
+      "page": 163,
+      "selected": "These descriptive comparisons use variable-specific periods and gaps, as detailed under Recorded Annual Indicator Series. Metadata and approval checks remain necessary before ecological status categories are assigned.",
+      "comment": "Seems AI, please remove",
+      "status": "Applied"
+    },
+    {
+      "page": 163,
+      "selected": "and documented denominators",
+      "comment": "Seems AI, please remove",
+      "status": "Already addressed or retained as section heading"
+    },
+    {
+      "page": 164,
+      "selected": "The template establishes useful review questions",
+      "comment": "Replace with \"A summary of potential SSC/PT comments on ESPs in general includes:\"",
+      "status": "Already addressed or retained as section heading"
+    },
+    {
+      "page": 164,
+      "selected": "These are drafting choices informed by the template. Formal responses require the exact relevant comment, meeting date, source page, analysis, and review disposition for the EBS pollock submission.",
+      "comment": "Seems AI, please delete",
+      "status": "Applied"
+    },
+    {
+      "page": 164,
+      "selected": "This recommendation supports exploration; acceptance of a particular model or assessment application requires subsequent review.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 164,
+      "selected": "Elizabeth Siddon\u2019s 3 September 2026 coordination email describes an exploratory age-1 survival analysis for the 2026 EBS ESR, drawing on process studies, the January 2025 pollock workshop, and Ecosystem REFRESH/subject-matter-expert input (Siddon 2026). Johanna Page\u2019s reply supplies annual energy density and requests the DAG and DSEM for contributor review. This revision documents the data, presents the regional series, and specifies a candidate cohort-aligned pathway. Fitting the expanded DSEM and reviewing its results remain the next analytical steps. The ESR analysis and the broader SAFE ESP share this development effort while retaining their own review processes.",
+      "comment": "Seems super strange to talk about a coordination email. Delete this and just reference the starter analysis in the EBS ESR on the age-1 DSEM (Siddon, 2026).",
+      "status": "Applied"
+    },
+    {
+      "page": 165,
+      "selected": "The September 2026 development document recommends Model 26.0 for review in November and December 2026 and retains Model 23.0 for continuity while the review bodies consider that transition. Its operational specification keeps DSEM disabled, with environmental pathways evaluated as research. This ESP contribution retains that review status. Selection of an assessment model and acceptance of an environmental forecasting component are separate decisions.",
+      "comment": "Doesn't seem like this should be in an ESP, sounds like this is about the main assessment model.",
+      "status": "Applied"
+    },
+    {
+      "page": 165,
+      "selected": "Each annual series needs a source, contributor, definition, units, season, spatial domain, observation years, uncertainty, revision history, and update schedule. Survey and assessment products require additional checks because several indicators may derive from the same samples. For example, assessment recruitment, survey age composition, and a juvenile index may contain overlapping evidence. A model that uses them together must account for that dependence. The pilot\u2019s archived standardized covariates contain 42 cold-pool observations and 41 SST observations in recruitment- year rows ending in 2024. The broader local cohort table contains 15 prey-index values and retains empty age-0 energy, ice-retreat, and juvenile\u2013predator overlap fields. The energy-density workbook provides a separate annual energy-density product; integrating it requires explicit regional and cohort definitions while preserving the historical fit archive. Age-0 Energy Density",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied: Data paragraphs removed, energy-density heading retained"
+    },
+    {
+      "page": 165,
+      "selected": "Missing years remain gaps, and values retain the precision reported by the contributors.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 165,
+      "selected": "The source describes annual means. Sampling season, exact regional boundaries, annual weighting, sample sizes, measurement consistency, and uncertainty require contributor confirmation. These definitions will determine whether the observations represent pre-winter condition and which region matches the recruitment response. Energy density measures energy per unit dry mass. Estimating total energy per fish requires compatible individual dry mass and aggregation methods. Regional means remain separate, and 2026 energy-density observations are pending.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 165,
+      "selected": "The 2026 NOAA temperature page reports an EBS survey domain, whereas the 2025 survey included both eastern and northern Bering Sea areas (Alaska Fisheries Science Center 2026a). Comparisons of area occupied, centers of distribution, temperature exposure, and predator overlap should therefore use a common domain or explicitly describe differences in coverage.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 166,
+      "selected": "Total energy in kJ per fish additionally depends on fish dry mass and appropriate individual-level aggregation.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 166,
+      "selected": "Translation into an age-1 forecasting component requires testing the corresponding response and lag.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 166,
+      "selected": "Predator abundance, spatial overlap, diet, biomass consumed, and predation mortality describe successive parts of this process and require separate definitions.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 166,
+      "selected": "The pilot\u2019s same-year cold-pool edge is retained as a research proxy, with this timing question identified for review.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 166,
+      "selected": "Adult Productivity and Observation Processes Adult growth, condition, maturity, distribution, and consumption connect recruitment to biomass production and future spawning output. Weight at age and condition should retain age, sex where available, season, gear, and location. Survey distribution indices also help evaluate changing availability to sampling. Changes in survey footprint or in the transformation of observations into annual estimates require documented comparison before they become evidence of a biological change.",
+      "comment": "Seems like this is about the assessment model and should not be in the ESP.",
+      "status": "Applied"
+    },
+    {
+      "page": 166,
+      "selected": "Their pathways are workshop hypotheses; annual indicator selection and estimation of pathway effects require subsequent evaluation.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 167,
+      "selected": "Use four working roles: candidate predictive, for indicators under forecast evaluation; contextual, for interpreting ecosystem or assessment conditions; fishery informed, for operational observations that require fishing-behavior interpretation; and socioeconomic monitoring, for economic and community questions. Promotion to a predictive role requires reliable performance using information that would have been available at the historical forecast date. This is the proposed working classification for this appendix; the ESP team should reconcile its labels with review guidance.",
+      "comment": "Seems like this is trying to summarize some of the standardized evergreen text that we have in the ESPs. Probably delete.",
+      "status": "Applied"
+    },
+    {
+      "page": 168,
+      "selected": "For each retained indicator, present the latest observation, historical baseline, trend, uncertainty, missing years, and mechanism-based interpretation. Define thresholds before assigning status categories. A high value describes an observation relative to its baseline; its biological meaning depends on the pathway. Missing observations should receive a missing-data label. The completed annual status tables should report five recent observation years where the series supports them, with 2026 provisional data clearly marked. Comparisons of year-to-date catch, effort, value, or bycatch should use the same cutoff date in each comparison year. Data revisions and changes in survey coverage should accompany the plotted series.",
+      "comment": "Seems like instructions for how to make and ESP. We usually just have boilerplate text that describes what this is, so don't need the summary here. probably delete.",
+      "status": "Applied"
+    },
+    {
+      "page": 168,
+      "selected": "Their sampling uncertainty and biological status classification await contributor metadata and agreed baselines. The latest observation year remains 2025.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 168,
+      "selected": "The plotted energy-density series preserves gaps and regional differences (Figure B4). Every plotted point corresponds to an annual mean. The series contains annual means without sampling-error estimates; regional pooling, interpolation, and a 2026 extrapolation remain outside this summary.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 168,
+      "selected": "These are working repository inputs, with primary-source attribution, units, seasons, spatial domains and transformations still partly unverified. Energy density has an independently corroborated SEBS identity and kJ/g dry-mass units; NBS remains a separate series.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 169,
+      "selected": "The repository energy series has 21 observations during 2002\u20132025 and numerically matches SEBS annual means rounded to two decimals. Its 2025 value is 19.23 kJ/g dry mass, compared with 19.87 in 2024 and an observed-period mean of 20.78. The separate NBS annual means are retained above. Missing 2026 energy and age-1 observations remain missing; the saved 2025\u20132026 age-1 estimates are conditional fitted states. The working paper\u2019s exact-observation assumption and \u00b11 estimated-state-SD ribbons describe uncertainty in the fitted states under the assumed model.",
+      "comment": "This sounds like it's comparing the condition indicator from Paige/Maselko with the indicator in the DSEM series. They are the same so we don't need to mention that. Not sure why we separate out the energy density indicator, but maybe cause it has the NBS? probably delete this",
+      "status": "Applied: shortened pilot analysis; redundant Table B12 removed"
+    },
+    {
+      "page": 169,
+      "selected": "The configured DSEM\u2019s age-1 rolling-validation RMSE of 1.924 exceeds the AR1 value of 1.847 over the seven observed 2018\u20132024 targets. The input histories, fitted states and forecast comparisons serve different purposes and retain separate labels. The archived Rceattle pilot uses different timing, scaling and response definitions; its coefficients and fit comparisons apply to that pilot analysis.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied: shortened pilot analysis; redundant Table B12 removed"
+    },
+    {
+      "page": 169,
+      "selected": "Indicator Analysis",
+      "comment": "This section is really hard to follow and I think it will confuse folks more than help. Perhaps delete most of this and just provide a reference to the existing pilot DSEM from September that are repeated in your Tables B10-B11 and just say this is an example of what could be provided. Probably don't need Table B12 because you have the figures already of the time series.",
+      "status": "Applied: shortened pilot analysis; redundant Table B12 removed"
+    },
+    {
+      "page": 169,
+      "selected": "The proposed workflow defines the response and cohort timing, assembles the literature-based mechanism table, draws a conceptual graph, and selects a small set of competing hypotheses. Statistical comparisons then use a common observation block and reference model. DSEM can organize these hypotheses while accounting for temporal dynamics (Thorson et al. 2024). Forecast evaluation and management strategy evaluation address whether environmentally informed recruitment methods improve decisions under uncertainty (Haltuch et al. 2019). The competing hypotheses from the recruitment review are: prey and age-0 energy; predator overlap; spawning and transport; and interactions between prey limitation and predator exposure over time. The present pilot fits only two direct proxy edges. Expansion should prioritize measured intermediates while retaining a small set of graphs that can be identified from the available series. Proposed Energy-Density Pathway The new observations allow a measured-condition hypothesis alongside the SST and cold-pool proxies: prey and thermal conditions in birth year t affect age-0 energy density, which contributes to overwinter survival and age-1 recruitment in t+1. This is a candidate pathway derived from the literature and workshop synthesis (Heintz et al. 2013; Siddon et al. 2013; Monnahan et al. 2026). It advances the age-1 focus described in the ESR coordination email (Siddon 2026). Confirm sampling season, response date, and regional overlap before assigning the observation to a pre-winter state. Evaluate SEBS and NBS individually before considering a combined regional index. Any regional aggregation requires documented weights and spatial coverage. The limited and different coverage supports a small set of competing pathways on a common observation block, with observation error and missing years handled explicitly. Preserve direct effects and intermediate-condition hypotheses as alternatives, and use withheld cohorts to evaluate prediction. The added data have descriptive and candidate explanatory roles in this revision; the expanded DSEM remains to be fitted. Existing DSEM Pilot",
+      "comment": "",
+      "status": "Applied: shortened pilot analysis; redundant Table B12 removed"
+    },
+    {
+      "page": 170,
+      "selected": "The SST model has the lowest AIC, while the combined model is 1.63 AIC units higher and the no-edge reference is 2.25 units higher. This is limited support from fit to the same historical data. The reduction in residual variance measures a component of the fitted recruitment model; it differs from the percentage of future recruitment variation predicted successfully. The cold-pool-only result provides little improvement in fitted recruitment variation.",
+      "comment": "",
+      "status": "Applied: shortened pilot analysis; redundant Table B12 removed"
+    },
+    {
+      "page": 170,
+      "selected": "Both SST coefficients are negative, with their reported intervals below zero. That direction is consistent with the energetic hypothesis, while measured prey and age-0 condition are needed to identify the intermediate mechanism. The cold-pool intervals include zero and the point estimate changes sign in the combined fit. That pattern supports further testing of spatially explicit overlap and the biological timing of the pathway. Separate age-1 DSEM working paper A separate age-1 DSEM working paper documents the repository workflow, input versions and numerical checks. It retains its own review status and distinguishes terminal conditional estimates from forecasts. AR1 has lower RMSE in its saved forecast comparison; the archived Rceattle pilot remains a separate analysis.",
+      "comment": "",
+      "status": "Applied: shortened pilot analysis; redundant Table B12 removed"
+    },
+    {
+      "page": 170,
+      "selected": "The working paper retains its fitted-state and forecast comparisons in the separate report. Its Figures 5\u20137 show IID, AR1 and recruitment- path state reconstructions. This appendix presents the observed input histories. Numerical and Scientific Validation The live CSV files label all four fits OK and record positive-definite Hessians. Recalculation of the diagnostic gate shows that the SST-only fit\u2019s maximum gradient, 1.52\u00d710 \u2212 4, exceeds the required 10 \u2212 4. The other three pass that gradient threshold. Tightening and rechecking the SST-only fit is required before treating its numerical estimates as a finalized comparison. Compilation and warning logs were outside the archived CSV evidence reviewed here and require confirmation with the fit archive. The remaining scientific checks are cohort and seasonal timing, alternative spatial domains, observation-error sensitivity, retrospective stability, residual patterns, competing mechanisms, and terminal-year or blocked prediction. Forecast tests must use the assessment estimate and environmental information available at each historical prediction date; later assessment revisions can otherwise introduce future information. Report both uncertainty calibration and improvement over the reference model. A common data block is required within each comparison, with shorter biological series evaluated on their explicitly defined subset.",
+      "comment": "",
+      "status": "Applied: shortened pilot analysis; redundant Table B12 removed"
+    },
+    {
+      "page": 171,
+      "selected": "The first priority is to confirm the annual energy-density metadata and connect the regional observations to age-0 season, size, diet, prey, sampling uncertainty, and the appropriate age-1 response. Annual energy density is now available through 2025. Integrating the series into a cohort-aligned model and deriving compatible total-energy measures remain analytical tasks.",
+      "comment": "this indicator was already included in the ESR DSEM for age-1, probably delete this.",
+      "status": "Applied"
+    },
+    {
+      "page": 171,
+      "selected": "The second priority",
+      "comment": "Replace with \"One of our priorities\"",
+      "status": "Already addressed or retained as section heading"
+    },
+    {
+      "page": 171,
+      "selected": "Evidence The working indicator inventory, descriptive time series and economic context support the annual synthesis within their stated source limits. Primary indicator metadata remain incomplete. The standalone working paper retains its own inputs, uncertainty assumptions and forecast evaluation. An updated fish-oil yield series, in tons of oil per 100 tons of retained catch, requires oil-specific production and matching retained-catch totals for shoreside and at-sea processing. The grouped production sources combine oil with other products, while the older oil-specific records end in 2021 and lack processing mode. Mode-specific oil yields therefore remain unavailable.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 171,
+      "selected": "The recorded working series add a mixed 2026 physical and prey context, while their metadata and biological interpretation remain subject to source and contributor checks.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    },
+    {
+      "page": 171,
+      "selected": "The standalone DSEM\u2019s terminal age-1 states are conditional estimates for missing years, and AR1 has lower RMSE in the recorded forecast comparison. Predictive use therefore requires further evaluation against that benchmark.",
+      "comment": "Seems AI, please remove.",
+      "status": "Applied"
+    }
+  ],
+  "scope": "Editorial review; assessment fits, projections and advice unchanged; Tables B10\u2013B11 preserved, B12 removed."
+}
