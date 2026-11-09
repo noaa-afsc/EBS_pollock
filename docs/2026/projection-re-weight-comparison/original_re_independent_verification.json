@@ -1,0 +1,19 @@
+{
+  "status": "PASS_INDEPENDENT_DETERMINISTIC_PROJECTIONS",
+  "model_cases": 1,
+  "selectivity_windows": 2,
+  "scenarios": 7,
+  "years": [
+    2027,
+    2038
+  ],
+  "rows_independently_replayed": 168,
+  "maximum_relative_state_catch_policy_error": 4.167139360850508e-14,
+  "maximum_relative_SPR_reference_error": 4.440892098500626e-15,
+  "zero_catch_zero_abundance_B20_and_plus_group_boundaries": "PASS",
+  "source_fit_and_WAA_hashes_preserved": true,
+  "random_draws": 0,
+  "simulations": 0,
+  "MCMC": false,
+  "retrospectives": false
+}

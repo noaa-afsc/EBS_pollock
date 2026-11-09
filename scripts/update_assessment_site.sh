@@ -4,7 +4,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 quarto render index.qmd --to html
 quarto render development.qmd --to html
-for report in 2026/weight-at-age-bts-cv-sensitivity.qmd 2026/projection-empirical-weight-comparison.qmd; do
+for report in 2026/weight-at-age-bts-cv-sensitivity.qmd 2026/projection-empirical-weight-comparison.qmd 2026/projection-re-weight-comparison.qmd; do
   if [[ -f "$report" ]]; then
     quarto render "$report" --to html
     report_html="${report%.qmd}.html"

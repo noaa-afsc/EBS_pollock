@@ -41,3 +41,7 @@ WtAgeRE sensitivity. The assessment baseline is retained.
 [Model 26.0 projection comparison: 2020–2024 empirical fishery weights](2026/projection-empirical-weight-comparison.qmd)
 uses the same five-year mean for catch and SSB weights, with the original
 assessment and projection results retained for comparison.
+
+[Extended projection comparison with original and doubled-BTS-CV WtAgeRE weights](2026/projection-re-weight-comparison.qmd)
+compares both forecasts with the published baseline and empirical means,
+including a matched control for the effect of doubling the BTS CVs.

@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "comparisons": [
+    {
+      "case": "original_re",
+      "window": "primary",
+      "common_recruitment_draws": true,
+      "rows_checked": 84000,
+      "only_changed_numeric_vectors": [
+        "catch_weight",
+        "spawning_weight"
+      ]
+    },
+    {
+      "case": "double_cv",
+      "window": "primary",
+      "common_recruitment_draws": true,
+      "rows_checked": 84000,
+      "only_changed_numeric_vectors": [
+        "catch_weight",
+        "spawning_weight"
+      ]
+    },
+    {
+      "case": "empirical_2020_2024",
+      "window": "primary",
+      "common_recruitment_draws": true,
+      "rows_checked": 84000,
+      "only_changed_numeric_vectors": [
+        "catch_weight",
+        "spawning_weight"
+      ]
+    },
+    {
+      "case": "original_re",
+      "window": "selectivity_window_check",
+      "common_recruitment_draws": true,
+      "rows_checked": 84000,
+      "only_changed_numeric_vectors": [
+        "catch_weight",
+        "spawning_weight"
+      ]
+    },
+    {
+      "case": "double_cv",
+      "window": "selectivity_window_check",
+      "common_recruitment_draws": true,
+      "rows_checked": 84000,
+      "only_changed_numeric_vectors": [
+        "catch_weight",
+        "spawning_weight"
+      ]
+    },
+    {
+      "case": "empirical_2020_2024",
+      "window": "selectivity_window_check",
+      "common_recruitment_draws": true,
+      "rows_checked": 84000,
+      "only_changed_numeric_vectors": [
+        "catch_weight",
+        "spawning_weight"
+      ]
+    }
+  ],
+  "forecast_year": 2027,
+  "forecast_schedule_held_fixed_through": 2038,
+  "RE_ages": [
+    3,
+    15
+  ],
+  "ages_1_2": "retain respective published-baseline catch/SSB values",
+  "population_weights": "unchanged",
+  "assessment_refits": 0,
+  "main_assessment_replaced": false,
+  "original_RE_control": "Same rule as doubled-CV case; identifies the CV effect separately from baseline source and SSB specification differences."
+}

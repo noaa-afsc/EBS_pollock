@@ -19,6 +19,9 @@ equal weight. The same 15-age vector is used for catch and SSB and is held fixed
 through 2027–2038. The original assessment and its projection products are
 preserved; these comparison results are separate from the assessment baseline.
 
+[Extended comparison with original and doubled-CV WtAgeRE forecasts](projection-re-weight-comparison.html)
+adds the saved weight-model forecasts and a matched CV-effect control.
+
 ## Age-3 concern and the scope of this comparison
 
 The empirical five-year age-3 mean is **0.430 kg**. The weight supplied for the

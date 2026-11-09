@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "comparisons": {
+    "original_re primary": {
+      "status": "PASS",
+      "weight_case": "original_re",
+      "window": "primary",
+      "simulations": 1000,
+      "rows": 84000,
+      "first_year_native_vs_independent_error": 1.72724702240813e-06,
+      "seed": 123,
+      "assessment_refits": 0
+    },
+    "original_re selectivity_window_check": {
+      "status": "PASS",
+      "weight_case": "original_re",
+      "window": "selectivity_window_check",
+      "simulations": 1000,
+      "rows": 84000,
+      "first_year_native_vs_independent_error": 3.01615610363694e-06,
+      "seed": 123,
+      "assessment_refits": 0
+    },
+    "double_cv primary": {
+      "status": "PASS",
+      "weight_case": "double_cv",
+      "window": "primary",
+      "simulations": 1000,
+      "rows": 84000,
+      "first_year_native_vs_independent_error": 2.95770966947038e-06,
+      "seed": 123,
+      "assessment_refits": 0
+    },
+    "double_cv selectivity_window_check": {
+      "status": "PASS",
+      "weight_case": "double_cv",
+      "window": "selectivity_window_check",
+      "simulations": 1000,
+      "rows": 84000,
+      "first_year_native_vs_independent_error": 2.0455235219302e-06,
+      "seed": 123,
+      "assessment_refits": 0
+    }
+  },
+  "engine": "ADMB via spmR",
+  "spmR_version": "0.4.1",
+  "seed": 123,
+  "runtime_sha256": "e6e6f93080b57771edd4dab81562259152f713a70b77ff23ba3bda7e93930935",
+  "runtime_source_sha256": "5ba973a67a15efde57b3f47904f1c40a4f9450a9866fc715ea1ed1a251525b64",
+  "fit_sha256": "ac11f9a03fd84cb6225188b1c595e016104ccdc4bb642e350e42047efa4dae2e",
+  "assessment_refits": 0,
+  "scope": "Comparison only; original assessment and projection outputs retained"
+}

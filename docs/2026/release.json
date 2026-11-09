@@ -8,8 +8,8 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "87369b130928d502b56f2c0c6f2e96df29c9c436daaa1109d1594989fde4bbfa",
-    "assessment.pdf": "b2196a590b6f084bad4a2e5563553981b50ffaa38bafe3a43ff282b496f73a79"
+    "assessment.html": "1bb0a8667de2097c501d841ebaf2c6e6496148c61fc3b613a69dde5ee092736f",
+    "assessment.pdf": "6b28ceb773eb272e1b4c76e86d1b19f017955b85a3cae80c752f3589a3587744"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -39,5 +39,25 @@
     "weight_policy": "Prepared empirical annual fishery curve, equal-year mean at age; same catch/SSB schedule; inherited historical interpolation retained",
     "assessment_or_main_projections_replaced": false,
     "numerical_checks": "PASS"
+  },
+  "ESP_emblem": {
+    "asset": "assets/pollock-esp-hex-sticker.png",
+    "source_sha256": "a31919605e531602c8a78ea12e2395dc17848932f26a10475c605eae1c39afee",
+    "updated": "2026-11-09",
+    "scope": "Appendix B cover image only"
+  },
+  "projection_RE_weight_comparison": {
+    "scope": "COMPARISON_ONLY",
+    "report": "projection-re-weight-comparison.html",
+    "date": "2026-11-09",
+    "weights": "2027 fishery forecasts, ages3-15+, both catch and SSB; baseline ages1-2 retained",
+    "controls": [
+      "published baseline",
+      "empirical 2020-2024",
+      "original WtAgeRE"
+    ],
+    "case": "doubled-BTS-CV WtAgeRE",
+    "assessment_advice_replaced": false,
+    "verification": "PASS"
   }
 }

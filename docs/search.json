@@ -593,7 +593,7 @@
     "href": "index.html#weight-at-age-sensitivity",
     "title": "Eastern Bering Sea walleye pollock stock assessment",
     "section": "Weight-at-age sensitivity",
-    "text": "Weight-at-age sensitivity\nDoubling 2025–2026 BTS observation CVs shows the remade heatmap, age-3 comparison, and numerical checks for a separate WtAgeRE sensitivity. The assessment baseline is retained.\nModel 26.0 projection comparison: 2020–2024 empirical fishery weights uses the same five-year mean for catch and SSB weights, with the original assessment and projection results retained for comparison.",
+    "text": "Weight-at-age sensitivity\nDoubling 2025–2026 BTS observation CVs shows the remade heatmap, age-3 comparison, and numerical checks for a separate WtAgeRE sensitivity. The assessment baseline is retained.\nModel 26.0 projection comparison: 2020–2024 empirical fishery weights uses the same five-year mean for catch and SSB weights, with the original assessment and projection results retained for comparison.\nExtended projection comparison with original and doubled-BTS-CV WtAgeRE weights compares both forecasts with the published baseline and empirical means, including a matched control for the effect of doubling the BTS CVs.",
     "crumbs": [
       "2026 assessment"
     ]
@@ -603,7 +603,7 @@
     "href": "2026/projection-empirical-weight-comparison.html",
     "title": "Model 26.0 projections: empirical fishery weight comparison",
     "section": "",
-    "text": "Assessment homepage · Current assessment\nThis comparison replaces both the projection fishery catch weights and spawning-biomass weights with the age-specific arithmetic mean of the prepared empirical fishery weight inputs for 2020–2024. Each year receives equal weight. The same 15-age vector is used for catch and SSB and is held fixed through 2027–2038. The original assessment and its projection products are preserved; these comparison results are separate from the assessment baseline."
+    "text": "Assessment homepage · Current assessment\nThis comparison replaces both the projection fishery catch weights and spawning-biomass weights with the age-specific arithmetic mean of the prepared empirical fishery weight inputs for 2020–2024. Each year receives equal weight. The same 15-age vector is used for catch and SSB and is held fixed through 2027–2038. The original assessment and its projection products are preserved; these comparison results are separate from the assessment baseline.\nExtended comparison with original and doubled-CV WtAgeRE forecasts adds the saved weight-model forecasts and a matched CV-effect control."
   },
   {
     "objectID": "2026/projection-empirical-weight-comparison.html#age-3-concern-and-the-scope-of-this-comparison",
@@ -632,5 +632,47 @@
     "title": "Model 26.0 projections: empirical fishery weight comparison",
     "section": "Verification and downloads",
     "text": "Verification and downloads\nThe matched runs use the same frozen spmR 0.4.1 package and ADMB projection runtime. All 12 native executions exit 0 and pass fresh-output checks. The only numerical species-input vectors that differ between matched cases are catch and spawning weights; population-weight metadata are identical. These historical-recruitment projections estimate no parameters, so optimizer gradients and Hessian checks are inapplicable. The fitted assessment is read without refitting.\nAn independent Python replay checks all 168 deterministic scenario-year rows across both selectivity windows, including SPR roots, catch solutions, the B20 closure, and plus-group accounting. Its maximum relative error is below 5 × 10⁻¹³. Native first-year projections also agree with the independent calculation within output precision. Projection intervals represent future recruitment variation, conditional on fixed inputs; assessment and weight uncertainty are outside these intervals.\n\nShort-term native results\nNative annual summaries\nReference points\nDeterministic scenarios\nPaired-input audit\nNative execution verification\nIndependent replay\nComparison scope and source notes\nWeight-curve PDF\nTrajectory PDF\n\nManual accessibility review remains pending."
+  },
+  {
+    "objectID": "2026/projection-re-weight-comparison.html",
+    "href": "2026/projection-re-weight-comparison.html",
+    "title": "Model 26.0 projections with doubled-BTS-CV WtAgeRE weights",
+    "section": "",
+    "text": "Homepage · Current assessment · Earlier empirical-mean comparison\nThese are comparison runs, retaining the published assessment and its projections. The new case uses fishery weights from the saved WtAgeRE run in which BTS observation CVs were doubled for 2025–2026. No weight-model or stock- assessment refit is performed here. All projections use the same fitted starting population, mortality, maturity, selectivity, recruitment history, and matched future recruitment draws."
+  },
+  {
+    "objectID": "2026/projection-re-weight-comparison.html#what-is-compared",
+    "href": "2026/projection-re-weight-comparison.html#what-is-compared",
+    "title": "Model 26.0 projections with doubled-BTS-CV WtAgeRE weights",
+    "section": "What is compared",
+    "text": "What is compared\n\nPublished baseline: the prior projection catch-weight forecast and carried 2026 spawning weights.\nEmpirical 2020–2024: the equal-year arithmetic mean of the prepared annual fishery inputs, used for both catch and SSB at all ages.\nOriginal WtAgeRE control: 2027 fishery forecasts from the original saved WtAgeRE fit, used for both catch and SSB at ages 3–15+.\nDoubled-BTS-CV WtAgeRE: 2027 fishery forecasts from the doubled-CV fit, used under exactly the same rules as the original-WtAgeRE control.\n\nWtAgeRE estimates ages 3–15+. Both WtAgeRE projection cases retain their respective published-baseline catch and spawning weights for ages 1–2. The selected 2027 forecast vector is fixed throughout 2027–2038; it is not replaced by the separate 2028 forecast in later years. Population- biomass weights are unchanged. The fishery forecast is explicitly used as an SSB-weight proxy in both WtAgeRE cases, matching the common-curve idea in the empirical comparison at modeled ages.\nThe original-WtAgeRE control is essential for interpreting the CV change: the published baseline has a different source fit and SSB specification. The original-versus-doubled WtAgeRE contrast isolates the CV sensitivity; comparisons with the published baseline or empirical means combine additional weight-schedule differences.\n\n\n\nCatch and SSB weight-at-age panels compare the published baseline, empirical five-year means, original WtAgeRE forecasts, and doubled-CV forecasts."
+  },
+  {
+    "objectID": "2026/projection-re-weight-comparison.html#short-term-results",
+    "href": "2026/projection-re-weight-comparison.html#short-term-results",
+    "title": "Model 26.0 projections with doubled-BTS-CV WtAgeRE weights",
+    "section": "Short-term results",
+    "text": "Short-term results\n\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\n\n\n\n\n\n\nCase\n2027 max ABC (kt)\n2028 max ABC (kt)\n\n\n\n\nPublished baseline\n2,222.3\n2,318.8\n\n\nEmpirical 2020–2024\n2,056.1\n2,149.2\n\n\nOriginal WtAgeRE\n2,469.1\n2,577.0\n\n\nDoubled-BTS-CV WtAgeRE\n2,296.8\n2,375.7\n\n\n\nNative spmR means over 1,000 simulations, Alternative 2; expected catch remains 1,375 kt in 2027 and 2028.\n\n\n\n\n\n\n\n\nThe doubled-CV case gives maximum ABC of about 2,297 kt in 2027 and 2,376 kt in 2028. Relative to the published projection baseline, these are increases of 3.3% and 2.5%. Relative to the empirical-mean case, they are increases of 11.7% and 10.5%.\nUnder the matched WtAgeRE specification, doubling the recent BTS CVs reduces maximum ABC by 7.0% in 2027 and 7.8% in 2028. This last contrast is the direct CV-effect comparison. The CV change affects the full fitted and forecast age profile, so the projection effect represents more than a change to projected age-3 weight alone.\n\n\n\n\n\n\n\n\nCase\nYear\nFemale SSB (kt)\nOFL (kt)\nF for prescribed catch\n\n\n\n\nPublished baseline\n2027\n3,326.0\n2,746.2\n0.3096\n\n\nPublished baseline\n2028\n3,669.5\n2,869.8\n0.2963\n\n\nEmpirical 2020–2024\n2027\n3,194.3\n2,539.1\n0.3627\n\n\nEmpirical 2020–2024\n2028\n3,413.5\n2,661.7\n0.3469\n\n\nOriginal WtAgeRE\n2027\n3,867.1\n3,066.9\n0.3102\n\n\nOriginal WtAgeRE\n2028\n4,023.0\n3,206.5\n0.2970\n\n\nDoubled-BTS-CV WtAgeRE\n2027\n3,707.0\n2,846.7\n0.3197\n\n\nDoubled-BTS-CV WtAgeRE\n2028\n3,840.7\n2,950.1\n0.3091\n\n\n\n\n\n\n\nSSB values use different weight schedules and therefore reflect both the weight basis and subsequent fishing mortality/age structure. These are conditional projections of the same fitted starting population, not new assessment estimates of the stock."
+  },
+  {
+    "objectID": "2026/projection-re-weight-comparison.html#age-3-context-and-full-weight-curves",
+    "href": "2026/projection-re-weight-comparison.html#age-3-context-and-full-weight-curves",
+    "title": "Model 26.0 projections with doubled-BTS-CV WtAgeRE weights",
+    "section": "Age-3 context and full weight curves",
+    "text": "Age-3 context and full weight curves\nThe 2026 WtAgeRE weight peak was the motivation for these comparisons. The standard projection convention uses the 2027 forecast, rather than carrying the large 2026 age-3 value forward at age 3. Effects also appear at older forecast ages, making the full age profile relevant.\n\n\n\n\n\n\n\n\nAge\nPublished baseline\nEmpirical 2020–2024\nOriginal WtAgeRE\nDoubled-BTS-CV WtAgeRE\n\n\n\n\n3\n0.370\n0.430\n0.370\n0.369\n\n\n4\n0.758\n0.494\n0.758\n0.694\n\n\n5\n0.621\n0.573\n0.619\n0.584\n\n\n6\n0.820\n0.670\n0.818\n0.813\n\n\n7\n0.878\n0.780\n0.876\n0.874\n\n\n\nProjected catch weight in kg. The empirical inputs retain their documented historical sparse-cell preparation."
+  },
+  {
+    "objectID": "2026/projection-re-weight-comparison.html#projection-trajectories-and-reference-points",
+    "href": "2026/projection-re-weight-comparison.html#projection-trajectories-and-reference-points",
+    "title": "Model 26.0 projections with doubled-BTS-CV WtAgeRE weights",
+    "section": "Projection trajectories and reference points",
+    "text": "Projection trajectories and reference points\n\n\n\nAlternative-2 catch and SSB trajectories compare all four weight schedules with the same recruitment draws. Ribbons show future recruitment variation only.\n\n\n\n\n\n\n\n\n\n\nCase\nB35% (kt)\nB40% (kt)\nF40\nF35\n\n\n\n\nPublished baseline\n2,181.8\n2,493.5\n0.5338\n0.6884\n\n\nEmpirical 2020–2024\n2,012.9\n2,300.5\n0.5775\n0.7480\n\n\nOriginal WtAgeRE\n2,337.3\n2,671.2\n0.6061\n0.7918\n\n\nDoubled-BTS-CV WtAgeRE\n2,294.4\n2,622.2\n0.5751\n0.7478\n\n\n\n\n\n\n\nReference points are recalculated for each SSB-weight schedule. All seven harvest scenarios are compared through 2038, with both the 2023–2025 primary selectivity average and the 2024–2026 window check. The 1,375-kt catches apply only to Alternative 2 in 2027–2028. Intervals represent future recruitment variation; assessment and weight-estimation uncertainty are outside them."
+  },
+  {
+    "objectID": "2026/projection-re-weight-comparison.html#verification-and-downloads",
+    "href": "2026/projection-re-weight-comparison.html#verification-and-downloads",
+    "title": "Model 26.0 projections with doubled-BTS-CV WtAgeRE weights",
+    "section": "Verification and downloads",
+    "text": "Verification and downloads\nThe new runs use the same frozen spmR 0.4.1 package and ADMB runtime as the previous comparison, with 1,000 simulations and seed 123. For every matched case, the only numerical species-input vectors changed are catch and spawning weights. Population-weight metadata are identical. Recruitment draws match exactly by scenario, simulation, and year across all four cases. All new native executions exited 0 and passed fresh-output checks.\nAn independent replay verifies all 168 deterministic scenario-year rows for each of the two new cases (336 rows total), including SPR roots, the fixed- catch solutions, the B20 rule, and the plus group. Maximum relative errors are below 9 × 10⁻¹⁴. Fresh first-year native results agree with the independent calculations within output precision. These historical-recruitment projections estimate no parameters, so optimizer gradients and Hessians are inapplicable here; the saved weight-model fits retain their separate convergence records.\n\nShort-term results\nAnnual summaries for all scenarios\nAge schedules\nReference points\nFour-case input and draw audit\nNew native-run verification\nOriginal-RE independent replay\nDoubled-CV independent replay\nWeight-curve PDF\nTrajectory PDF\nStandalone doubled-CV weight fit\n\nThe original assessment and advice remain unchanged. Manual accessibility review is pending."
   }
 ]

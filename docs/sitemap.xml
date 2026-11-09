@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://noaa-afsc.github.io/EBS_pollock/index.html</loc>
-    <lastmod>2026-11-09T04:12:12.102Z</lastmod>
+    <lastmod>2026-11-09T13:53:56.796Z</lastmod>
   </url>
   <url>
     <loc>https://noaa-afsc.github.io/EBS_pollock/doc/activities_2025.html</loc>
@@ -42,6 +42,10 @@
   </url>
   <url>
     <loc>https://noaa-afsc.github.io/EBS_pollock/2026/projection-empirical-weight-comparison.html</loc>
-    <lastmod>2026-11-09T04:13:34.963Z</lastmod>
+    <lastmod>2026-11-09T13:53:56.796Z</lastmod>
+  </url>
+  <url>
+    <loc>https://noaa-afsc.github.io/EBS_pollock/2026/projection-re-weight-comparison.html</loc>
+    <lastmod>2026-11-09T13:52:01.614Z</lastmod>
   </url>
 </urlset>

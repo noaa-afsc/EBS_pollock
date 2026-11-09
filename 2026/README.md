@@ -57,3 +57,10 @@ fishery input means for both catch and SSB weights. See
 projection-empirical-weight-comparison.qmd/html and its saved summaries.
 The original assessment and projections are retained. Historical gap fills
 and the 2024 TMA conversion are documented in the comparison source notes.
+
+November9:projection-re-weight-comparison.qmd/html adds the original and
+doubled-BTS-CV WtAgeRE 2027 forecasts to the projection comparisons. Both use
+the fishery forecast for catch and SSB at ages3-15+, with baseline young-age
+weights retained. The original-RE control isolates the CV effect. Main
+assessment advice remains unchanged. AppendixB now uses the author-provided
+POL_ESP_HexSticker emblem in both HTML and PDF.
