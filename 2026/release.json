@@ -9,7 +9,7 @@
   "manual_accessibility": "Not Tested",
   "files": {
     "assessment.html": "22003b731d7b6ad02b8a97364f5b103838660b49d0b1552c8b5b7ea3db4f3ee3",
-    "assessment.pdf": "9bbbefcd16b1381318171c191089108acf588e7a86aca3434d64a6ad12571627"
+    "assessment.pdf": "c903bf1b637b0003ae466283e632fb2c2bd68b7b92d704563d7416d38d66c584"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -74,5 +74,11 @@
     "tables": "Former Tables 54\u201357 are now 6\u20139; former 6\u201353 are now 10\u201357.",
     "date": "2026-11-09"
   },
-  "caption_layout": "All 166 distinct HTML table/figure captions and 168 PDF caption instances use hanging layout."
+  "caption_layout": "All 166 distinct HTML table/figure captions and 168 PDF caption instances use hanging layout.",
+  "table_reference_audit": {
+    "date": "2026-11-09",
+    "HTML": "94 linked table references resolve to their matching table, including B8\u2019s two-panel wrapper.",
+    "PDF": "Corrected two Table 1 destinations to table start; added four bycatch links to Tables 6\u20139.",
+    "live_verification": "Downloaded HTML and PDF matched canonical artifacts before these link corrections; hanging styles checked in live browser."
+  }
 }
