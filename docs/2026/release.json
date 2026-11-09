@@ -8,8 +8,8 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "1bb0a8667de2097c501d841ebaf2c6e6496148c61fc3b613a69dde5ee092736f",
-    "assessment.pdf": "6b28ceb773eb272e1b4c76e86d1b19f017955b85a3cae80c752f3589a3587744"
+    "assessment.html": "47918ebe6009263fc34c62320ca323373f0d78e022aa1547b88df16b272a47fa",
+    "assessment.pdf": "8c7eefc0980ba2125b50899676dc2ff1b20baa1bf8fb7a02274b028d2b1df4ee"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -59,5 +59,6 @@
     "case": "doubled-BTS-CV WtAgeRE",
     "assessment_advice_replaced": false,
     "verification": "PASS"
-  }
+  },
+  "ESP_cover_cleanup": "Removed source-record sentence, appendix-specific author block and standalone AI-agent preparation line,2026-11-09;intro and emblem preserved."
 }
