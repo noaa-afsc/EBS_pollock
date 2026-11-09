@@ -8,8 +8,8 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "f31ae3218ffb533b9359d95b317bdf9bb45108f09a3da863bbd600989c930695",
-    "assessment.pdf": "8b88588a4510ac4d3fd0ec515197d7670f1091cce01bf5514a5ace325c4c9030"
+    "assessment.html": "65ffb294e8c05af212c904a04f5d5c517b53250007dd54a4c22346eaad53638e",
+    "assessment.pdf": "f7c0c9c12fced6e40057d1ad1ee8cc3c0b49820bae198a054dbcafcc318f30f5"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -110,5 +110,6 @@
     "comparison": "Published December2024 Tables26/32 versus current Scenario2 through2028",
     "current_band": "95% log-scale delta-method parameter uncertainty",
     "2024_uncertainty_band": "Not shown; reliable matching archived uncertainty unavailable"
-  }
+  },
+  "executive_status_alignment": "Executive summary and both model status-table notes match Section9 B35% comparisons and conditional Alternative6/2036 and Alternative7/2038 tests; No entries verified."
 }
