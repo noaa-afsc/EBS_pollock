@@ -3,13 +3,13 @@
   "status": "Review draft",
   "tables": 91,
   "images": 88,
-  "pages": 263,
+  "pages": 264,
   "local_only_HTML_links_retained_as_text": 95,
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "14c7bbce15a2e221a3c84e6535207f1b4f92f764d65a72294450d4ce521fccf5",
-    "assessment.pdf": "3321b265e594861b899890da8193518b6498f39a554fd5ff121281f82083f7d4"
+    "assessment.html": "22003b731d7b6ad02b8a97364f5b103838660b49d0b1552c8b5b7ea3db4f3ee3",
+    "assessment.pdf": "9bbbefcd16b1381318171c191089108acf588e7a86aca3434d64a6ad12571627"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -68,5 +68,11 @@
     "date": "2026-11-09",
     "manual_accessibility": "Not tested"
   },
-  "ESP_socioeconomic_monitoring": "Connected future ESP development to main-assessment fishery conditions and catch-decision Tables 51\u201352, with the F-based effort proxy distinguished from observed effort and economic outcomes."
+  "ESP_socioeconomic_monitoring": "Connected future ESP development to main-assessment fishery conditions and catch-decision Tables 51\u201352, with the F-based effort proxy distinguished from observed effort and economic outcomes.",
+  "bycatch_relocation": {
+    "section": "3.2 Bycatch",
+    "tables": "Former Tables 54\u201357 are now 6\u20139; former 6\u201353 are now 10\u201357.",
+    "date": "2026-11-09"
+  },
+  "caption_layout": "All 166 distinct HTML table/figure captions and 168 PDF caption instances use hanging layout."
 }
