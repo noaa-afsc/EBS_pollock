@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "independent_graph_rebuild": true,
+  "objective": 14665.875852556,
+  "objective_difference": 1.81898940354586e-12,
+  "maximum_gradient": 8.72128111950587e-08,
+  "minimum_fixed_hessian_eigenvalue": 86.4673696474008,
+  "means_identical": true,
+  "observation_masks_identical": true,
+  "fishery_SDs_identical": true,
+  "BTS_other_year_SDs_identical": true,
+  "recent_BTS_SDs_doubled": true,
+  "affected_fitted_BTS_cells": 26,
+  "baseline_files_preserved": true
+}

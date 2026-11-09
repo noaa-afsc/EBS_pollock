@@ -46,3 +46,8 @@ method changes since 2024. The jellyfish audit traces the twofold historical
 change to the November 2024 precomputed summary, validates current filters,
 and distinguishes the documented transition from its unresolved upstream cause.
 The PDF has 263 pages after adding room for the expanded introduction.
+
+A separate WtAgeRE sensitivity doubles 2025-2026 BTS observation SDs/CVs.
+Its report is weight-at-age-bts-cv-sensitivity.qmd/html, with saved summaries
+and independent checks under weight-at-age-bts-cv-sensitivity/.
+The original fit and assessment products remain the baseline.

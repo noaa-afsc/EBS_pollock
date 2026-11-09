@@ -1,0 +1,1535 @@
+dataset_id,dataset,year,age_bin,age_group,weight_kg,se_kg,period,observed_kg,observation_available,estimate_status
+1,fishery,1970,3,3,0.3621758379480647,8.932036503743307e-4,history,NA,FALSE,model prediction without observation
+1,fishery,1970,4,4,0.46664717054106886,6.282538930519062e-4,history,NA,FALSE,model prediction without observation
+1,fishery,1970,5,5,0.5766627749274708,5.591173495458505e-4,history,NA,FALSE,model prediction without observation
+1,fishery,1970,6,6,0.6897054815774208,6.644037457296351e-4,history,NA,FALSE,model prediction without observation
+1,fishery,1970,7,7,0.8036205604505818,8.209270677917719e-4,history,NA,FALSE,model prediction without observation
+1,fishery,1970,8,8,0.9166248533797592,0.0010097871865183475,history,NA,FALSE,model prediction without observation
+1,fishery,1970,9,9,1.0272892278621097,0.00128967264675237,history,NA,FALSE,model prediction without observation
+1,fishery,1970,10,10,1.1345063850847923,0.001722090807094226,history,NA,FALSE,model prediction without observation
+1,fishery,1970,11,11,1.2374519005577662,0.0023288242849266254,history,NA,FALSE,model prediction without observation
+1,fishery,1970,12,12,1.3355435057317238,0.0030994206447576365,history,NA,FALSE,model prediction without observation
+1,fishery,1970,13,13,1.428401658596547,0.004011166429429344,history,NA,FALSE,model prediction without observation
+1,fishery,1970,14,14,1.5158131314049754,0.005039104189719061,history,NA,FALSE,model prediction without observation
+1,fishery,1970,15,15+,1.5976984718092304,0.006159167864673981,history,NA,FALSE,model prediction without observation
+1,fishery,1971,3,3,0.3517077644191747,0.06081072232159461,history,NA,FALSE,model prediction without observation
+1,fishery,1971,4,4,0.48492803608915436,0.052629700460037704,history,NA,FALSE,model prediction without observation
+1,fishery,1971,5,5,0.5959138021907513,0.055422194927823354,history,NA,FALSE,model prediction without observation
+1,fishery,1971,6,6,0.7094862048645457,0.05694831916700761,history,NA,FALSE,model prediction without observation
+1,fishery,1971,7,7,0.823553935368777,0.057389686367690054,history,NA,FALSE,model prediction without observation
+1,fishery,1971,8,8,0.9363988548605549,0.05693384569516459,history,NA,FALSE,model prediction without observation
+1,fishery,1971,9,9,1.0466537798464912,0.05576122815001294,history,NA,FALSE,model prediction without observation
+1,fishery,1971,10,10,1.1532677274261558,0.05403798047389767,history,NA,FALSE,model prediction without observation
+1,fishery,1971,11,11,1.255465771735914,0.05191263351891926,history,NA,FALSE,model prediction without observation
+1,fishery,1971,12,12,1.352708017766493,0.04951519277908079,history,NA,FALSE,model prediction without observation
+1,fishery,1971,13,13,1.4446503975130742,0.04695768516274517,history,NA,FALSE,model prediction without observation
+1,fishery,1971,14,14,1.5311087856491523,0.044335503081725666,history,NA,FALSE,model prediction without observation
+1,fishery,1971,15,15+,1.6120271384504525,0.041729094493238306,history,NA,FALSE,model prediction without observation
+1,fishery,1972,3,3,0.35553441709353745,0.05873383107023882,history,NA,FALSE,model prediction without observation
+1,fishery,1972,4,4,0.4654187444398279,0.07309864490137295,history,NA,FALSE,model prediction without observation
+1,fishery,1972,5,5,0.6046736340617407,0.07081812288973345,history,NA,FALSE,model prediction without observation
+1,fishery,1972,6,6,0.7189542252265134,0.07376184203447649,history,NA,FALSE,model prediction without observation
+1,fishery,1972,7,7,0.8334761544161662,0.0751515235967481,history,NA,FALSE,model prediction without observation
+1,fishery,1972,8,8,0.9465525472997424,0.07522578272953141,history,NA,FALSE,model prediction without observation
+1,fishery,1972,9,9,1.0568506014156027,0.07422459085035196,history,NA,FALSE,model prediction without observation
+1,fishery,1972,10,10,1.1633534305565665,0.07237462880183071,history,NA,FALSE,model prediction without observation
+1,fishery,1972,11,11,1.265317944099156,0.06988149538798416,history,NA,FALSE,model prediction without observation
+1,fishery,1972,12,12,1.3622327888618793,0.06692636817019648,history,NA,FALSE,model prediction without observation
+1,fishery,1972,13,13,1.4537787259032604,0.06366546145402793,history,NA,FALSE,model prediction without observation
+1,fishery,1972,14,14,1.539792710637552,0.06023115230362729,history,NA,FALSE,model prediction without observation
+1,fishery,1972,15,15+,1.6202362244937119,0.05673401182420432,history,NA,FALSE,model prediction without observation
+1,fishery,1973,3,3,0.3480433873413083,0.053905788986375894,history,NA,FALSE,model prediction without observation
+1,fishery,1973,4,4,0.46311032113956496,0.06729681387185409,history,NA,FALSE,model prediction without observation
+1,fishery,1973,5,5,0.5787036792376234,0.08168258917409923,history,NA,FALSE,model prediction without observation
+1,fishery,1973,6,6,0.7210756274301358,0.08180626938487719,history,NA,FALSE,model prediction without observation
+1,fishery,1973,7,7,0.8362545150772762,0.08448118503448117,history,NA,FALSE,model prediction without observation
+1,fishery,1973,8,8,0.9498385925244021,0.08550712973816134,history,NA,FALSE,model prediction without observation
+1,fishery,1973,9,9,1.060505531674943,0.08514811741680023,history,NA,FALSE,model prediction without observation
+1,fishery,1973,10,10,1.1672539276793619,0.0836662557489145,history,NA,FALSE,model prediction without observation
+1,fishery,1973,11,11,1.2693581748210334,0.08130690411020029,history,NA,FALSE,model prediction without observation
+1,fishery,1973,12,12,1.3663245345580308,0.07829095330078774,history,NA,FALSE,model prediction without observation
+1,fishery,1973,13,13,1.4578504046665284,0.07481171634455744,history,NA,FALSE,model prediction without observation
+1,fishery,1973,14,14,1.5437878028238616,0.07103470018429009,history,NA,FALSE,model prediction without observation
+1,fishery,1973,15,15+,1.6241114352432944,0.06709907944123555,history,NA,FALSE,model prediction without observation
+1,fishery,1974,3,3,0.3731357157643432,0.05674391952448264,history,NA,FALSE,model prediction without observation
+1,fishery,1974,4,4,0.447321133728011,0.06036521373260307,history,NA,FALSE,model prediction without observation
+1,fishery,1974,5,5,0.5676567167847988,0.07321363517340788,history,NA,FALSE,model prediction without observation
+1,fishery,1974,6,6,0.6861266907290237,0.08721444734899576,history,NA,FALSE,model prediction without observation
+1,fishery,1974,7,7,0.8293276428806233,0.0881498811373669,history,NA,FALSE,model prediction without observation
+1,fishery,1974,8,8,0.9436410225102521,0.09047815523561792,history,NA,FALSE,model prediction without observation
+1,fishery,1974,9,9,1.0550015059401117,0.09115021348337597,history,NA,FALSE,model prediction without observation
+1,fishery,1974,10,10,1.1623925994366258,0.09043715979468925,history,NA,FALSE,model prediction without observation
+1,fishery,1974,11,11,1.265081709934134,0.08860712782520595,history,NA,FALSE,model prediction without observation
+1,fishery,1974,12,12,1.3625733493518584,0.08591034962336346,history,NA,FALSE,model prediction without observation
+1,fishery,1974,13,13,1.4545664275370904,0.0825714507901085,history,NA,FALSE,model prediction without observation
+1,fishery,1974,14,14,1.5409163885433763,0.07878641977086993,history,NA,FALSE,model prediction without observation
+1,fishery,1974,15,15+,1.6216023750674518,0.07472249025574364,history,NA,FALSE,model prediction without observation
+1,fishery,1975,3,3,0.4205085322871698,0.057847745067466504,history,NA,FALSE,model prediction without observation
+1,fishery,1975,4,4,0.4732563213494517,0.06300639291954839,history,NA,FALSE,model prediction without observation
+1,fishery,1975,5,5,0.5527551189332106,0.06612911778681674,history,NA,FALSE,model prediction without observation
+1,fishery,1975,6,6,0.6759917400477324,0.07829900987196678,history,NA,FALSE,model prediction without observation
+1,fishery,1975,7,7,0.7952977561206029,0.09172352651798053,history,NA,FALSE,model prediction without observation
+1,fishery,1975,8,8,0.9376258521689375,0.09292776911568863,history,NA,FALSE,model prediction without observation
+1,fishery,1975,9,9,1.0496967596667255,0.09486514585705248,history,NA,FALSE,model prediction without observation
+1,fishery,1975,10,10,1.1577535858055847,0.09517678544089617,history,NA,FALSE,model prediction without observation
+1,fishery,1975,11,11,1.261050930823848,0.0941320757830833,history,NA,FALSE,model prediction without observation
+1,fishery,1975,12,12,1.359088272969874,0.09199787859428558,history,NA,FALSE,model prediction without observation
+1,fishery,1975,13,13,1.4515644081197185,0.08902332318271794,history,NA,FALSE,model prediction without observation
+1,fishery,1975,14,14,1.5383376341968218,0.08543193915685787,history,NA,FALSE,model prediction without observation
+1,fishery,1975,15,15+,1.6193915995541888,0.08141854016880327,history,NA,FALSE,model prediction without observation
+1,fishery,1976,3,3,0.4122612224472307,0.054886822562841386,history,NA,FALSE,model prediction without observation
+1,fishery,1976,4,4,0.5376060371341377,0.0639346466676184,history,NA,FALSE,model prediction without observation
+1,fishery,1976,5,5,0.5965681663133349,0.07029439195229915,history,NA,FALSE,model prediction without observation
+1,fishery,1976,6,6,0.6794599149888446,0.07274158750381597,history,NA,FALSE,model prediction without observation
+1,fishery,1976,7,7,0.8036743412878161,0.08396705102782044,history,NA,FALSE,model prediction without observation
+1,fishery,1976,8,8,0.9219594958588461,0.0966027156682064,history,NA,FALSE,model prediction without observation
+1,fishery,1976,9,9,1.0616648761356087,0.09785137404018465,history,NA,FALSE,model prediction without observation
+1,fishery,1976,10,10,1.1698719433840807,0.09927406096991685,history,NA,FALSE,model prediction without observation
+1,fishery,1976,11,11,1.2731408666784374,0.09913576465271946,history,NA,FALSE,model prediction without observation
+1,fishery,1976,12,12,1.370997668624659,0.09769667299430176,history,NA,FALSE,model prediction without observation
+1,fishery,1976,13,13,1.4631690550876784,0.09521640680354662,history,NA,FALSE,model prediction without observation
+1,fishery,1976,14,14,1.549540236577285,0.09193824820497813,history,NA,FALSE,model prediction without observation
+1,fishery,1976,15,15+,1.6301194542128226,0.08808086517804518,history,NA,FALSE,model prediction without observation
+1,fishery,1977,3,3,0.37164088862052785,0.05149744954348065,history,NA,FALSE,model prediction without observation
+1,fishery,1977,4,4,0.5571390589398623,0.061496833663333555,history,NA,FALSE,model prediction without observation
+1,fishery,1977,5,5,0.690172510139944,0.06909214411116305,history,NA,FALSE,model prediction without observation
+1,fishery,1977,6,6,0.7533325375932384,0.0763626113312315,history,NA,FALSE,model prediction without observation
+1,fishery,1977,7,7,0.837434066953823,0.07794374383688815,history,NA,FALSE,model prediction without observation
+1,fishery,1977,8,8,0.9603854415256159,0.08821180513525709,history,NA,FALSE,model prediction without observation
+1,fishery,1977,9,9,1.075425664556755,0.10015841078166479,history,NA,FALSE,model prediction without observation
+1,fishery,1977,10,10,1.210350543177179,0.10135342820774076,history,NA,FALSE,model prediction without observation
+1,fishery,1977,11,11,1.3126338206202666,0.10226323375828085,history,NA,FALSE,model prediction without observation
+1,fishery,1977,12,12,1.409171480847554,0.10170553292392663,history,NA,FALSE,model prediction without observation
+1,fishery,1977,13,13,1.4997706817934269,0.09992302938271186,history,NA,FALSE,model prediction without observation
+1,fishery,1977,14,14,1.5843887691546512,0.09716175802871346,history,NA,FALSE,model prediction without observation
+1,fishery,1977,15,15+,1.6630964693138583,0.09365432152529687,history,NA,FALSE,model prediction without observation
+1,fishery,1978,3,3,0.4006566742907762,0.05789504051935477,history,NA,FALSE,model prediction without observation
+1,fishery,1978,4,4,0.5238509472047708,0.06391448334619883,history,NA,FALSE,model prediction without observation
+1,fishery,1978,5,5,0.7174268735317523,0.07106595859294171,history,NA,FALSE,model prediction without observation
+1,fishery,1978,6,6,0.8548706773275088,0.07740211181704787,history,NA,FALSE,model prediction without observation
+1,fishery,1978,7,7,0.9193017120888032,0.08409602156616082,history,NA,FALSE,model prediction without observation
+1,fishery,1978,8,8,1.0020762670684682,0.08485272495206816,history,NA,FALSE,model prediction without observation
+1,fishery,1978,9,9,1.1216184851278101,0.09389048847531928,history,NA,FALSE,model prediction without observation
+1,fishery,1978,10,10,1.231636266805676,0.10472372640378333,history,NA,FALSE,model prediction without observation
+1,fishery,1978,11,11,1.360337554467353,0.10545415087749144,history,NA,FALSE,model prediction without observation
+1,fishery,1978,12,12,1.4555489017202305,0.10580994040875773,history,NA,FALSE,model prediction without observation
+1,fishery,1978,13,13,1.5444616560254842,0.10479589325630032,history,NA,FALSE,model prediction without observation
+1,fishery,1978,14,14,1.6271252877592437,0.10263676535596795,history,NA,FALSE,model prediction without observation
+1,fishery,1978,15,15+,1.7036920473915458,0.09956438224450338,history,NA,FALSE,model prediction without observation
+1,fishery,1979,3,3,0.3667014533818268,0.060080314764358426,history,NA,FALSE,model prediction without observation
+1,fishery,1979,4,4,0.6257356800631918,0.06738390868252513,history,NA,FALSE,model prediction without observation
+1,fishery,1979,5,5,0.7608748487875187,0.0718343463736421,history,NA,FALSE,model prediction without observation
+1,fishery,1979,6,6,0.960972537122698,0.0763658385166575,history,NA,FALSE,model prediction without observation
+1,fishery,1979,7,7,1.1002958294612946,0.08132444183063849,history,NA,FALSE,model prediction without observation
+1,fishery,1979,8,8,1.1627646149657334,0.08771455137743357,history,NA,FALSE,model prediction without observation
+1,fishery,1979,9,9,1.2404979160001455,0.0877171305234064,history,NA,FALSE,model prediction without observation
+1,fishery,1979,10,10,1.3526132523089665,0.09586165370790109,history,NA,FALSE,model prediction without observation
+1,fishery,1979,11,11,1.453427965028327,0.10613366144179873,history,NA,FALSE,model prediction without observation
+1,fishery,1979,12,12,1.571671711112859,0.10658037985690058,history,NA,FALSE,model prediction without observation
+1,fishery,1979,13,13,1.6556078098046192,0.10660095705965258,history,NA,FALSE,model prediction without observation
+1,fishery,1979,14,14,1.7327859255116482,0.10535481874276112,history,NA,FALSE,model prediction without observation
+1,fishery,1979,15,15+,1.8035437419712437,0.10304230451452921,history,NA,FALSE,model prediction without observation
+1,fishery,1980,3,3,0.3526679208090202,0.05265818568408033,history,NA,FALSE,model prediction without observation
+1,fishery,1980,4,4,0.5971721294841136,0.05822893390398715,history,NA,FALSE,model prediction without observation
+1,fishery,1980,5,5,0.8684373867937294,0.06087458928627179,history,NA,FALSE,model prediction without observation
+1,fishery,1980,6,6,1.0102545435172008,0.06439565391468174,history,NA,FALSE,model prediction without observation
+1,fishery,1980,7,7,1.2122767427311638,0.06826631081728396,history,NA,FALSE,model prediction without observation
+1,fishery,1980,8,8,1.3495907809798167,0.07322839495552932,history,NA,FALSE,model prediction without observation
+1,fishery,1980,9,9,1.4068975514789974,0.08035047681290353,history,NA,FALSE,model prediction without observation
+1,fishery,1980,10,10,1.477026063019604,0.08049396456493117,history,NA,FALSE,model prediction without observation
+1,fishery,1980,11,11,1.5797178748295324,0.08948734377173324,history,NA,FALSE,model prediction without observation
+1,fishery,1980,12,12,1.669824540081821,0.10078302360727344,history,NA,FALSE,model prediction without observation
+1,fishery,1980,13,13,1.7765229438978274,0.1016790250186301,history,NA,FALSE,model prediction without observation
+1,fishery,1980,14,14,1.848443305794111,0.10217015038500833,history,NA,FALSE,model prediction without observation
+1,fishery,1980,15,15+,1.9134304075664152,0.10137664800759143,history,NA,FALSE,model prediction without observation
+1,fishery,1981,3,3,0.3132369525374937,0.03442533622468101,history,NA,FALSE,model prediction without observation
+1,fishery,1981,4,4,0.528727351274891,0.03795241564570391,history,NA,FALSE,model prediction without observation
+1,fishery,1981,5,5,0.7825749971405134,0.04100586843191697,history,NA,FALSE,model prediction without observation
+1,fishery,1981,6,6,1.0589416529606515,0.042600518215915296,history,NA,FALSE,model prediction without observation
+1,fishery,1981,7,7,1.2022289676017126,0.046802964298584465,history,NA,FALSE,model prediction without observation
+1,fishery,1981,8,8,1.402716272499751,0.05199624547620272,history,NA,FALSE,model prediction without observation
+1,fishery,1981,9,9,1.5360869829582835,0.05881530716190612,history,NA,FALSE,model prediction without observation
+1,fishery,1981,10,10,1.5875843596997177,0.06821116641698853,history,NA,FALSE,model prediction without observation
+1,fishery,1981,11,11,1.650514123077153,0.06930230911908487,history,NA,FALSE,model prediction without observation
+1,fishery,1981,12,12,1.7450259235713792,0.08041316431139979,history,NA,FALSE,model prediction without observation
+1,fishery,1981,13,13,1.8263129575425583,0.0936214863013884,history,NA,FALSE,model prediction without observation
+1,fishery,1981,14,14,1.9238323898181657,0.0953574148547339,history,NA,FALSE,model prediction without observation
+1,fishery,1981,15,15+,1.9864398837763324,0.09666418784018709,history,NA,FALSE,model prediction without observation
+1,fishery,1982,3,3,0.2985692060652149,0.011140207334062867,history,NA,FALSE,model prediction without observation
+1,fishery,1982,4,4,0.4253220663800111,0.011448154382660409,history,NA,FALSE,model prediction without observation
+1,fishery,1982,5,5,0.6467607986909619,0.015720781959055154,history,NA,FALSE,model prediction without observation
+1,fishery,1982,6,6,0.9038561594406717,0.019744178418792113,history,NA,FALSE,model prediction without observation
+1,fishery,1982,7,7,1.1811587652245437,0.022107402015765443,history,NA,FALSE,model prediction without observation
+1,fishery,1982,8,8,1.323468916622026,0.029513152106520123,history,NA,FALSE,model prediction without observation
+1,fishery,1982,9,9,1.5214457718207528,0.038018689237815574,history,NA,FALSE,model prediction without observation
+1,fishery,1982,10,10,1.65111803477795,0.047805507080125924,history,NA,FALSE,model prediction without observation
+1,fishery,1982,11,11,1.6980324561772158,0.05945693618713474,history,NA,FALSE,model prediction without observation
+1,fishery,1982,12,12,1.7557545604299598,0.06144610778400786,history,NA,FALSE,model prediction without observation
+1,fishery,1982,13,13,1.8446514990927216,0.07448201528424096,history,NA,FALSE,model prediction without observation
+1,fishery,1982,14,14,1.9200949036295645,0.08909178876735968,history,NA,FALSE,model prediction without observation
+1,fishery,1982,15,15+,2.0116854637039947,0.09138309229762881,history,NA,FALSE,model prediction without observation
+1,fishery,1983,3,3,0.27432369647854105,0.011690178484511088,history,NA,FALSE,model prediction without observation
+1,fishery,1983,4,4,0.40389491105817094,0.01185553556934852,history,NA,FALSE,model prediction without observation
+1,fishery,1983,5,5,0.5362373845311252,0.011530043904821718,history,NA,FALSE,model prediction without observation
+1,fishery,1983,6,6,0.7607279749172102,0.015310465618562958,history,NA,FALSE,model prediction without observation
+1,fishery,1983,7,7,1.0187028421989552,0.01974662544064173,history,NA,FALSE,model prediction without observation
+1,fishery,1983,8,8,1.2950872135804627,0.02248314223142092,history,NA,FALSE,model prediction without observation
+1,fishery,1983,9,9,1.4350383105472124,0.03005544841361702,history,NA,FALSE,model prediction without observation
+1,fishery,1983,10,10,1.6295397569507544,0.038257714643705025,history,NA,FALSE,model prediction without observation
+1,fishery,1983,11,11,1.754905444433145,0.0479561062405021,history,NA,FALSE,model prediction without observation
+1,fishery,1983,12,12,1.7969262599835396,0.059600427774238976,history,NA,FALSE,model prediction without observation
+1,fishery,1983,13,13,1.8493721124615123,0.06160141595355313,history,NA,FALSE,model prediction without observation
+1,fishery,1983,14,14,1.9327778278138013,0.07458348973484998,history,NA,FALSE,model prediction without observation
+1,fishery,1983,15,15+,2.0026499069266497,0.08917342879811282,history,NA,FALSE,model prediction without observation
+1,fishery,1984,3,3,0.2583863853389491,0.012845286316795827,history,NA,FALSE,model prediction without observation
+1,fishery,1984,4,4,0.39571655367940445,0.01149412102566836,history,NA,FALSE,model prediction without observation
+1,fishery,1984,5,5,0.531730061827938,0.011527497632197297,history,NA,FALSE,model prediction without observation
+1,fishery,1984,6,6,0.6675899460937926,0.011378120832707573,history,NA,FALSE,model prediction without observation
+1,fishery,1984,7,7,0.893094209361134,0.01580820493980031,history,NA,FALSE,model prediction without observation
+1,fishery,1984,8,8,1.150010768059133,0.0201922528820789,history,NA,FALSE,model prediction without observation
+1,fishery,1984,9,9,1.423676217619437,0.022856374376090373,history,NA,FALSE,model prediction without observation
+1,fishery,1984,10,10,1.5596217415533102,0.0303506651554475,history,NA,FALSE,model prediction without observation
+1,fishery,1984,11,11,1.749159656009234,0.03863638922357443,history,NA,FALSE,model prediction without observation
+1,fishery,1984,12,12,1.8688852312697406,0.04819583956391314,history,NA,FALSE,model prediction without observation
+1,fishery,1984,13,13,1.904824917068443,0.059874400616560484,history,NA,FALSE,model prediction without observation
+1,fishery,1984,14,14,1.9509418749310805,0.0618125124213186,history,NA,FALSE,model prediction without observation
+1,fishery,1984,15,15+,2.0279263741931497,0.07481167007010069,history,NA,FALSE,model prediction without observation
+1,fishery,1985,3,3,0.3641426735244015,0.013669949579890948,history,NA,FALSE,model prediction without observation
+1,fishery,1985,4,4,0.45625952511828993,0.013865260675480082,history,NA,FALSE,model prediction without observation
+1,fishery,1985,5,5,0.6040907796449773,0.013061056109548032,history,NA,FALSE,model prediction without observation
+1,fishery,1985,6,6,0.7458377480113002,0.013679164408927278,history,NA,FALSE,model prediction without observation
+1,fishery,1985,7,7,0.8833499423088025,0.013657015736645038,history,NA,FALSE,model prediction without observation
+1,fishery,1985,8,8,1.1071291383263078,0.01722255558790877,history,NA,FALSE,model prediction without observation
+1,fishery,1985,9,9,1.3596137921331823,0.021053779935454178,history,NA,FALSE,model prediction without observation
+1,fishery,1985,10,10,1.6267500658349818,0.024004361251530378,history,NA,FALSE,model prediction without observation
+1,fishery,1985,11,11,1.7546049189211859,0.03120958982227398,history,NA,FALSE,model prediction without observation
+1,fishery,1985,12,12,1.9349493211739546,0.03938454844097382,history,NA,FALSE,model prediction without observation
+1,fishery,1985,13,13,2.044762515548806,0.04883818234747222,history,NA,FALSE,model prediction without observation
+1,fishery,1985,14,14,2.0703859580549002,0.060456820042858954,history,NA,FALSE,model prediction without observation
+1,fishery,1985,15,15+,2.106036186504695,0.062418132769794035,history,NA,FALSE,model prediction without observation
+1,fishery,1986,3,3,0.3014486409889737,0.012807956859690594,history,NA,FALSE,model prediction without observation
+1,fishery,1986,4,4,0.42874604043563697,0.011936421074299899,history,NA,FALSE,model prediction without observation
+1,fishery,1986,5,5,0.5242913792138506,0.012183071279552293,history,NA,FALSE,model prediction without observation
+1,fishery,1986,6,6,0.6739945443724401,0.011761486239614427,history,NA,FALSE,model prediction without observation
+1,fishery,1986,7,7,0.8162809734828776,0.012625390155465295,history,NA,FALSE,model prediction without observation
+1,fishery,1986,8,8,0.953229952618322,0.01246570154309414,history,NA,FALSE,model prediction without observation
+1,fishery,1986,9,9,1.1755621812600818,0.01624231469888599,history,NA,FALSE,model prediction without observation
+1,fishery,1986,10,10,1.425915132178503,0.02044040123160931,history,NA,FALSE,model prediction without observation
+1,fishery,1986,11,11,1.6904098923433322,0.02351432290996446,history,NA,FALSE,model prediction without observation
+1,fishery,1986,12,12,1.8152631665253671,0.03088650352548483,history,NA,FALSE,model prediction without observation
+1,fishery,1986,13,13,1.9923712872897337,0.039190107230722936,history,NA,FALSE,model prediction without observation
+1,fishery,1986,14,14,2.0988163436175458,0.04871678862467388,history,NA,FALSE,model prediction without observation
+1,fishery,1986,15,15+,2.121022516041543,0.06038038462015066,history,NA,FALSE,model prediction without observation
+1,fishery,1987,3,3,0.30217833760423785,0.01227711269282299,history,NA,FALSE,model prediction without observation
+1,fishery,1987,4,4,0.35983133944454787,0.01315620666915013,history,NA,FALSE,model prediction without observation
+1,fishery,1987,5,5,0.4902270965002856,0.012504547582172175,history,NA,FALSE,model prediction without observation
+1,fishery,1987,6,6,0.58746409933849,0.013661203034971996,history,NA,FALSE,model prediction without observation
+1,fishery,1987,7,7,0.7376547804805039,0.012920464131006408,history,NA,FALSE,model prediction without observation
+1,fishery,1987,8,8,0.8794322265062484,0.013757873052761915,history,NA,FALSE,model prediction without observation
+1,fishery,1987,9,9,1.0150735669842639,0.013386906137006624,history,NA,FALSE,model prediction without observation
+1,fishery,1987,10,10,1.2354793547471072,0.016996843606984835,history,NA,FALSE,model prediction without observation
+1,fishery,1987,11,11,1.4834451438863727,0.020879460878370518,history,NA,FALSE,model prediction without observation
+1,fishery,1987,12,12,1.7452273476562157,0.023905160806254436,history,NA,FALSE,model prediction without observation
+1,fishery,1987,13,13,1.8671559624081262,0.031177041843994845,history,NA,FALSE,model prediction without observation
+1,fishery,1987,14,14,2.0412202636726944,0.03940725456430673,history,NA,FALSE,model prediction without observation
+1,fishery,1987,15,15+,2.144577099397106,0.04890266810723576,history,NA,FALSE,model prediction without observation
+1,fishery,1988,3,3,0.29985353940479414,0.011704422615045078,history,NA,FALSE,model prediction without observation
+1,fishery,1988,4,4,0.3928303060376823,0.010389399066234196,history,NA,FALSE,model prediction without observation
+1,fishery,1988,5,5,0.4552941889027375,0.012125954874087724,history,NA,FALSE,model prediction without observation
+1,fishery,1988,6,6,0.588316626139813,0.011105819181518454,history,NA,FALSE,model prediction without observation
+1,fishery,1988,7,7,0.6863106046696055,0.013284169584589884,history,NA,FALSE,model prediction without observation
+1,fishery,1988,8,8,0.8357109777281063,0.012544903855609536,history,NA,FALSE,model prediction without observation
+1,fishery,1988,9,9,0.975458027396173,0.013417949811078753,history,NA,FALSE,model prediction without observation
+1,fishery,1988,10,10,1.1081081450913408,0.012946028216306813,history,NA,FALSE,model prediction without observation
+1,fishery,1988,11,11,1.324807339634376,0.016767983514440837,history,NA,FALSE,model prediction without observation
+1,fishery,1988,12,12,1.5685612889101699,0.02064087400047848,history,NA,FALSE,model prediction without observation
+1,fishery,1988,13,13,1.8258023162467247,0.02383659721303064,history,NA,FALSE,model prediction without observation
+1,fishery,1988,14,14,1.943004732372808,0.03112722288425377,history,NA,FALSE,model prediction without observation
+1,fishery,1988,15,15+,2.112273892541457,0.03944909087088323,history,NA,FALSE,model prediction without observation
+1,fishery,1989,3,3,0.2648427849913097,0.010185197433009203,history,NA,FALSE,model prediction without observation
+1,fishery,1989,4,4,0.3711621562968007,0.011014217571453603,history,NA,FALSE,model prediction without observation
+1,fishery,1989,5,5,0.4679232563295581,0.01028461804519609,history,NA,FALSE,model prediction without observation
+1,fishery,1989,6,6,0.5324533373587088,0.012564865618425474,history,NA,FALSE,model prediction without observation
+1,fishery,1989,7,7,0.6660712265260715,0.011503422502038538,history,NA,FALSE,model prediction without observation
+1,fishery,1989,8,8,0.7634435332121328,0.013813008644620966,history,NA,FALSE,model prediction without observation
+1,fishery,1989,9,9,0.9112467566608613,0.012855295706484166,history,NA,FALSE,model prediction without observation
+1,fishery,1989,10,10,1.0486408518024377,0.013761119335894667,history,NA,FALSE,model prediction without observation
+1,fishery,1989,11,11,1.1783752905503815,0.013214765362812322,history,NA,FALSE,model prediction without observation
+1,fishery,1989,12,12,1.3917613692237345,0.01691171323176023,history,NA,FALSE,model prediction without observation
+1,fishery,1989,13,13,1.6319431400226967,0.020734338999987105,history,NA,FALSE,model prediction without observation
+1,fishery,1989,14,14,1.8854664467957751,0.023943201143323885,history,NA,FALSE,model prediction without observation
+1,fishery,1989,15,15+,1.9988969108588088,0.03122943551608715,history,NA,FALSE,model prediction without observation
+1,fishery,1990,3,3,0.23570034929141329,0.012012701856944358,history,NA,FALSE,model prediction without observation
+1,fishery,1990,4,4,0.3752961431971444,0.011176974266099478,history,NA,FALSE,model prediction without observation
+1,fishery,1990,5,5,0.4874772511454747,0.011446476539922886,history,NA,FALSE,model prediction without observation
+1,fishery,1990,6,6,0.5874387852336102,0.010661852383816825,history,NA,FALSE,model prediction without observation
+1,fishery,1990,7,7,0.6528911904953283,0.01283292956936135,history,NA,FALSE,model prediction without observation
+1,fishery,1990,8,8,0.7855461421407626,0.011698861298932429,history,NA,FALSE,model prediction without observation
+1,fishery,1990,9,9,0.8804445467144935,0.014125050947283972,history,NA,FALSE,model prediction without observation
+1,fishery,1990,10,10,1.0246031653386738,0.013111555152472209,history,NA,FALSE,model prediction without observation
+1,fishery,1990,11,11,1.1574810246421792,0.014025377172715306,history,NA,FALSE,model prediction without observation
+1,fishery,1990,12,12,1.2820836183217261,0.013490118148313518,history,NA,FALSE,model prediction without observation
+1,fishery,1990,13,13,1.4899365773515698,0.017173655431565005,history,NA,FALSE,model prediction without observation
+1,fishery,1990,14,14,1.7243597913448552,0.020999473562767115,history,NA,FALSE,model prediction without observation
+1,fishery,1990,15,15+,1.9720405395252436,0.024242662932267223,history,NA,FALSE,model prediction without observation
+1,fishery,1991,3,3,0.307448590440773,0.00999080618682821,history,0.284523455,TRUE,fitted to observation
+1,fishery,1991,4,4,0.43764572850380534,0.010436176245627928,history,0.4825005,TRUE,fitted to observation
+1,fishery,1991,5,5,0.5879587214916628,0.008973413010212707,history,0.604388982,TRUE,fitted to observation
+1,fishery,1991,6,6,0.7059912845650891,0.009847064544618409,history,0.729958835,TRUE,fitted to observation
+1,fishery,1991,7,7,0.807639133310634,0.008511536340601991,history,0.843771072,TRUE,fitted to observation
+1,fishery,1991,8,8,0.8713309693494473,0.011265991897127162,history,0.882392174,TRUE,fitted to observation
+1,fishery,1991,9,9,0.9994628072722742,0.009745220875482187,history,1.020125703,TRUE,fitted to observation
+1,fishery,1991,10,10,1.0876976652112245,0.01257250195334754,history,1.122591009,TRUE,fitted to observation
+1,fishery,1991,11,11,1.223599106563961,0.011478311717158051,history,1.13485437,TRUE,fitted to observation
+1,fishery,1991,12,12,1.3470942507085,0.012794509581625514,history,1.23715895,TRUE,fitted to observation
+1,fishery,1991,13,13,1.4615804661919787,0.012475845245871371,history,1.23597818,TRUE,fitted to observation
+1,fishery,1991,14,14,1.658904873109614,0.016638996227998866,history,1.29560779,TRUE,fitted to observation
+1,fishery,1991,15,15+,1.882645951858332,0.02074438377862329,history,1.24672814,TRUE,fitted to observation
+1,fishery,1992,3,3,0.4159296072483991,0.009129443652164662,history,0.39680313,TRUE,fitted to observation
+1,fishery,1992,4,4,0.43155464280442024,0.010353315126572595,history,0.464697432,TRUE,fitted to observation
+1,fishery,1992,5,5,0.5683380631367743,0.011609801294670234,history,0.651190101,TRUE,fitted to observation
+1,fishery,1992,6,6,0.7222470829264874,0.011214484546982569,history,0.713675625,TRUE,fitted to observation
+1,fishery,1992,7,7,0.8413159750112051,0.011520132861890353,history,0.818542598,TRUE,fitted to observation
+1,fishery,1992,8,8,0.9418818614111899,0.01053629921356401,history,0.985786535,TRUE,fitted to observation
+1,fishery,1992,9,9,1.0027940062746272,0.012407206551813193,history,1.030419547,TRUE,fitted to observation
+1,fishery,1992,10,10,1.126830744468958,0.011403437870840149,history,1.199785801,TRUE,fitted to observation
+1,fishery,1992,11,11,1.2099911328715298,0.013613606125416422,history,1.236505467,TRUE,fitted to observation
+1,fishery,1992,12,12,1.3401264024833068,0.012781903161899054,history,1.26924022,TRUE,fitted to observation
+1,fishery,1992,13,13,1.4574045003798537,0.013909375945976932,history,1.193139554,TRUE,fitted to observation
+1,fishery,1992,14,14,1.5654203670747284,0.013675809378865495,history,1.35742978,TRUE,fitted to observation
+1,fishery,1992,15,15+,1.7561800402946268,0.017559329795682418,history,1.4313865,TRUE,fitted to observation
+1,fishery,1993,3,3,0.46622333077858985,0.006836504994479296,history,0.49472775,TRUE,fitted to observation
+1,fishery,1993,4,4,0.6101058074353961,0.0049381297948459186,history,0.612071454,TRUE,fitted to observation
+1,fishery,1993,5,5,0.6360357333658893,0.00875279419362123,history,0.651817369,TRUE,fitted to observation
+1,fishery,1993,6,6,0.7784454934847103,0.011332102331050515,history,0.774858018,TRUE,fitted to observation
+1,fishery,1993,7,7,0.933975952565446,0.011047744036886962,history,0.934475727,TRUE,fitted to observation
+1,fishery,1993,8,8,1.0513520074919027,0.011371823840162889,history,1.062411234,TRUE,fitted to observation
+1,fishery,1993,9,9,1.14756879197584,0.010365796319908109,history,1.19773405,TRUE,fitted to observation
+1,fishery,1993,10,10,1.202073748071914,0.012212907024472912,history,1.24041873,TRUE,fitted to observation
+1,fishery,1993,11,11,1.3181709765181504,0.011354389770084718,history,1.42333539,TRUE,fitted to observation
+1,fishery,1993,12,12,1.3923096186242205,0.013648259311148174,history,1.53983216,TRUE,fitted to observation
+1,fishery,1993,13,13,1.5127177041556865,0.013069869379462012,history,1.57572931,TRUE,fitted to observation
+1,fishery,1993,14,14,1.6198723010808684,0.014395629652224892,history,1.60870209,TRUE,fitted to observation
+1,fishery,1993,15,15+,1.7176169922739148,0.014445065687386299,history,1.50768835,TRUE,fitted to observation
+1,fishery,1994,3,3,0.36551461394865936,0.008563659874499797,history,0.400050503,TRUE,fitted to observation
+1,fishery,1994,4,4,0.5686375598581859,0.007026246261554994,history,0.651626422,TRUE,fitted to observation
+1,fishery,1994,5,5,0.7179551382547262,0.005099384248568762,history,0.732390096,TRUE,fitted to observation
+1,fishery,1994,6,6,0.7468525609804804,0.00883435012285188,history,0.745802836,TRUE,fitted to observation
+1,fishery,1994,7,7,0.8901175157875769,0.011516833523119474,history,0.7269725,TRUE,fitted to observation
+1,fishery,1994,8,8,1.0447551228485819,0.011323798111836094,history,1.07004583,TRUE,fitted to observation
+1,fishery,1994,9,9,1.1598373337329178,0.011651931010430406,history,1.37989415,TRUE,fitted to observation
+1,fishery,1994,10,10,1.2526747787429904,0.010673232986341718,history,1.32486267,TRUE,fitted to observation
+1,fishery,1994,11,11,1.302992204290326,0.012501968544481417,history,1.335020116,TRUE,fitted to observation
+1,fishery,1994,12,12,1.4143310988572397,0.011699019986754404,history,1.40900715,TRUE,fitted to observation
+1,fishery,1994,13,13,1.4833393384848341,0.014019186533877627,history,1.397040133,TRUE,fitted to observation
+1,fishery,1994,14,14,1.5984079923734396,0.013554806828624165,history,1.27783839,TRUE,fitted to observation
+1,fishery,1994,15,15+,1.7001452697726036,0.014948956224681311,history,1.36979349,TRUE,fitted to observation
+1,fishery,1995,3,3,0.2751815965489775,0.007547067553599952,history,0.385611534,TRUE,fitted to observation
+1,fishery,1995,4,4,0.43924789196799807,0.0083053765200274,history,0.505264489,TRUE,fitted to observation
+1,fishery,1995,5,5,0.6462838475368342,0.007938534482157058,history,0.728522112,TRUE,fitted to observation
+1,fishery,1995,6,6,0.7977378797073558,0.007069194030832166,history,0.843244857,TRUE,fitted to observation
+1,fishery,1995,7,7,0.8272510011331633,0.009577501331715641,history,0.847295609,TRUE,fitted to observation
+1,fishery,1995,8,8,0.969873145787876,0.012048384979419634,history,0.969591893,TRUE,fitted to observation
+1,fishery,1995,9,9,1.1228592963861344,0.011834901134000644,history,1.231843043,TRUE,fitted to observation
+1,fishery,1995,10,10,1.2355085467415723,0.012161759727767967,history,1.296301595,TRUE,fitted to observation
+1,fishery,1995,11,11,1.3253311728447463,0.011211041104267747,history,1.4006777,TRUE,fitted to observation
+1,fishery,1995,12,12,1.3722228287701648,0.012997607876873115,history,1.40195111,TRUE,fitted to observation
+1,fishery,1995,13,13,1.479868082368473,0.012225963030867055,history,1.3922331,TRUE,fitted to observation
+1,fishery,1995,14,14,1.5450321901666677,0.014526784294673084,history,1.094947991,TRUE,fitted to observation
+1,fishery,1995,15,15+,1.6562006367274318,0.014109583593426287,history,1.3055071600000001,TRUE,fitted to observation
+1,fishery,1996,3,3,0.3273638084240494,0.009153721567723658,history,0.335606389,TRUE,fitted to observation
+1,fishery,1996,4,4,0.38706183012131645,0.008588536883533615,history,0.445074427,TRUE,fitted to observation
+1,fishery,1996,5,5,0.5570655861607581,0.009586462279849892,history,0.684364427,TRUE,fitted to observation
+1,fishery,1996,6,6,0.7673433201188152,0.00873872251186622,history,0.796765028,TRUE,fitted to observation
+1,fishery,1996,7,7,0.9197315914310455,0.007894017155280049,history,0.94837944,TRUE,fitted to observation
+1,fishery,1996,8,8,0.9482693357690134,0.009844490667183478,history,0.955519142,TRUE,fitted to observation
+1,fishery,1996,9,9,1.0883856195729693,0.012353117600557711,history,1.02546574,TRUE,fitted to observation
+1,fishery,1996,10,10,1.2376800830584695,0.01216116182563263,history,1.099697907,TRUE,fitted to observation
+1,fishery,1996,11,11,1.3457547552513356,0.012501728603564966,history,1.418002059,TRUE,fitted to observation
+1,fishery,1996,12,12,1.4303792413048486,0.01164149598050282,history,1.48923278,TRUE,fitted to observation
+1,fishery,1996,13,13,1.4716662987992633,0.013431148690742405,history,1.52059129,TRUE,fitted to observation
+1,fishery,1996,14,14,1.5734786045277738,0.012806912053726483,history,1.70190128,TRUE,fitted to observation
+1,fishery,1996,15,15+,1.6327246775045006,0.01508607706751045,history,1.60196253,TRUE,fitted to observation
+1,fishery,1997,3,3,0.3718167979481239,0.008861660040835025,history,0.32671751,TRUE,fitted to observation
+1,fishery,1997,4,4,0.4342548731688701,0.008238876342675684,history,0.476869951,TRUE,fitted to observation
+1,fishery,1997,5,5,0.4996255813392745,0.007075815104670353,history,0.559045521,TRUE,fitted to observation
+1,fishery,1997,6,6,0.6727265524329422,0.008777143389144529,history,0.747564413,TRUE,fitted to observation
+1,fishery,1997,7,7,0.8838968642253044,0.008845529643188741,history,0.888807785,TRUE,fitted to observation
+1,fishery,1997,8,8,1.0353532542559367,0.008513708458876272,history,1.074088782,TRUE,fitted to observation
+1,fishery,1997,9,9,1.06149688369186,0.010527673764572105,history,1.09517763,TRUE,fitted to observation
+1,fishery,1997,10,10,1.1980861068740458,0.012795591094249235,history,1.235658204,TRUE,fitted to observation
+1,fishery,1997,11,11,1.3430099901869583,0.012566435907621083,history,1.286725055,TRUE,fitted to observation
+1,fishery,1997,12,12,1.4461183273368994,0.012931299063947337,history,1.39973464,TRUE,fitted to observation
+1,fishery,1997,13,13,1.525388145504688,0.012185200646182889,history,1.56127113,TRUE,fitted to observation
+1,fishery,1997,14,14,1.5611023686520904,0.013972145012747423,history,1.36341636,TRUE,fitted to observation
+1,fishery,1997,15,15+,1.6572605474355169,0.013489381293986878,history,1.337754147,TRUE,fitted to observation
+1,fishery,1998,3,3,0.3815241090922335,0.006872548829484943,history,0.369383672,TRUE,fitted to observation
+1,fishery,1998,4,4,0.4708105624814526,0.008457847409996437,history,0.589302496,TRUE,fitted to observation
+1,fishery,1998,5,5,0.538502216103104,0.007897797111896485,history,0.618376139,TRUE,fitted to observation
+1,fishery,1998,6,6,0.606741311622059,0.005663383378197018,history,0.621628031,TRUE,fitted to observation
+1,fishery,1998,7,7,0.7806689153268602,0.008326071129930142,history,0.779568341,TRUE,fitted to observation
+1,fishery,1998,8,8,0.9909761948687368,0.008523255964922882,history,1.040015819,TRUE,fitted to observation
+1,fishery,1998,9,9,1.1402153514248543,0.008057481840318964,history,1.1692864,TRUE,fitted to observation
+1,fishery,1998,10,10,1.1630925056926256,0.01023321706557737,history,1.27585814,TRUE,fitted to observation
+1,fishery,1998,11,11,1.295634054866586,0.012562171548145587,history,1.316131244,TRUE,fitted to observation
+1,fishery,1998,12,12,1.43595852472051,0.012429287663564952,history,1.4277181,TRUE,fitted to observation
+1,fishery,1998,13,13,1.5341078062833537,0.012921843845829565,history,1.44836347,TRUE,fitted to observation
+1,fishery,1998,14,14,1.6082165209253387,0.012327842685992354,history,1.43697434,TRUE,fitted to observation
+1,fishery,1998,15,15+,1.6386943539892536,0.014211416638429234,history,1.528370777,TRUE,fitted to observation
+1,fishery,1999,3,3,0.39835430322431975,0.0045294661737311556,history,0.40445582,TRUE,fitted to observation
+1,fishery,1999,4,4,0.49235806516740155,0.005078779840750827,history,0.507015926,TRUE,fitted to observation
+1,fishery,1999,5,5,0.5875264534488667,0.007301966297719411,history,0.643391663,TRUE,fitted to observation
+1,fishery,1999,6,6,0.6584295691145623,0.006619508474811761,history,0.702294283,TRUE,fitted to observation
+1,fishery,1999,7,7,0.7275941669916162,0.00495026067606114,history,0.728631916,TRUE,fitted to observation
+1,fishery,1999,8,8,0.9005555151045352,0.008014464809937324,history,0.893662232,TRUE,fitted to observation
+1,fishery,1999,9,9,1.1083803680139745,0.008279688331851165,history,1.037729163,TRUE,fitted to observation
+1,fishery,1999,10,10,1.2539623612425403,0.007904164087701409,history,1.25272383,TRUE,fitted to observation
+1,fishery,1999,11,11,1.2723077177213384,0.010113844940695864,history,1.223967714,TRUE,fitted to observation
+1,fishery,1999,12,12,1.3996997386226018,0.012536453291616309,history,1.42241993,TRUE,fitted to observation
+1,fishery,1999,13,13,1.5344720229251865,0.012502882878688865,history,0.994869796,TRUE,fitted to observation
+1,fishery,1999,14,14,1.6268429049678694,0.013134853776531353,history,0.61644297,TRUE,fitted to observation
+1,fishery,1999,15,15+,1.6950889288510813,0.012702786145106568,history,1.23864456,TRUE,fitted to observation
+1,fishery,2000,3,3,0.37510001128689036,0.007189291945493881,history,0.352966915,TRUE,fitted to observation
+1,fishery,2000,4,4,0.5078278070779663,0.00471451265313412,history,0.525656627,TRUE,fitted to observation
+1,fishery,2000,5,5,0.6076413049981388,0.0050761976053090635,history,0.62991625,TRUE,fitted to observation
+1,fishery,2000,6,6,0.7059817356292974,0.007593942943603757,history,0.731738432,TRUE,fitted to observation
+1,fishery,2000,7,7,0.777798993400479,0.0067465940996552865,history,0.779707642,TRUE,fitted to observation
+1,fishery,2000,8,8,0.84600919617149,0.0055442614376800025,history,0.806637556,TRUE,fitted to observation
+1,fishery,2000,9,9,1.016518588664164,0.00821324966930022,history,0.967905069,TRUE,fitted to observation
+1,fishery,2000,10,10,1.2207311687845617,0.008555764337768983,history,1.014842882,TRUE,fitted to observation
+1,fishery,2000,11,11,1.3618369906277208,0.008253473799019216,history,1.25287595,TRUE,fitted to observation
+1,fishery,2000,12,12,1.3750960276862934,0.010435431810266212,history,1.286417827,TRUE,fitted to observation
+1,fishery,2000,13,13,1.4970040143811219,0.01287318380049677,history,1.10813708,TRUE,fitted to observation
+1,fishery,2000,14,14,1.6260688272143202,0.012942851439112371,history,1.0838821,TRUE,fitted to observation
+1,fishery,2000,15,15+,1.7126489811976529,0.013682984637694361,history,1.35876186,TRUE,fitted to observation
+1,fishery,2001,3,3,0.384317953328087,0.006763499908752188,history,0.32898713,TRUE,fitted to observation
+1,fishery,2001,4,4,0.507322807486899,0.00753676395354151,history,0.504776539,TRUE,fitted to observation
+1,fishery,2001,5,5,0.6470676394468519,0.005759442106544629,history,0.667911679,TRUE,fitted to observation
+1,fishery,2001,6,6,0.7507123503489532,0.006538150351676871,history,0.785503545,TRUE,fitted to observation
+1,fishery,2001,7,7,0.8501568876457128,0.008423981261743237,history,0.963814278,TRUE,fitted to observation
+1,fishery,2001,8,8,0.9208214209204784,0.007797769167995031,history,0.985640409,TRUE,fitted to observation
+1,fishery,2001,9,9,0.9860701360542565,0.006802421556265885,history,1.061105349,TRUE,fitted to observation
+1,fishery,2001,10,10,1.1522166024324727,0.008967719910346464,history,1.13286349,TRUE,fitted to observation
+1,fishery,2001,11,11,1.3510228342035913,0.009279668488376207,history,1.31951532,TRUE,fitted to observation
+1,fishery,2001,12,12,1.485985367009362,0.009097644637824337,history,1.41110787,TRUE,fitted to observation
+1,fishery,2001,13,13,1.4926207525750517,0.011204861521573607,history,1.5682545,TRUE,fitted to observation
+1,fishery,2001,14,14,1.6076352188256737,0.013604216903211973,history,1.47239219,TRUE,fitted to observation
+1,fishery,2001,15,15+,1.7297059533742787,0.013798140355266324,history,1.49492148,TRUE,fitted to observation
+1,fishery,2002,3,3,0.41812195846513234,0.006849442100571698,history,0.384942633,TRUE,fitted to observation
+1,fishery,2002,4,4,0.5033696847832543,0.005883984101272609,history,0.509822391,TRUE,fitted to observation
+1,fishery,2002,5,5,0.6326925894567799,0.007037493866818475,history,0.667342923,TRUE,fitted to observation
+1,fishery,2002,6,6,0.7758869970737337,0.0056846441747204855,history,0.798843998,TRUE,fitted to observation
+1,fishery,2002,7,7,0.880525831637024,0.0065573057698449936,history,0.910851775,TRUE,fitted to observation
+1,fishery,2002,8,8,0.978932470393342,0.008397974419050243,history,1.025740532,TRUE,fitted to observation
+1,fishery,2002,9,9,1.0469305176987567,0.00785294066706064,history,1.11296386,TRUE,fitted to observation
+1,fishery,2002,10,10,1.1082509094037105,0.006853966787885131,history,1.10152103,TRUE,fitted to observation
+1,fishery,2002,11,11,1.2695295681849834,0.00909354260591889,history,1.28351659,TRUE,fitted to observation
+1,fishery,2002,12,12,1.4628044602949417,0.009529609741037184,history,1.44217266,TRUE,fitted to observation
+1,fishery,2002,13,13,1.5918031411671132,0.009518912178029939,history,1.57874939,TRUE,fitted to observation
+1,fishery,2002,14,14,1.5922316882125906,0.01169271481096993,history,1.289712209,TRUE,fitted to observation
+1,fishery,2002,15,15+,1.7009487749368086,0.014127394278106394,history,1.56780282,TRUE,fitted to observation
+1,fishery,2003,3,3,0.4653876671765344,0.005099164681578019,history,0.489241213,TRUE,fitted to observation
+1,fishery,2003,4,4,0.5406240927256947,0.0060289426774746266,history,0.548784202,TRUE,fitted to observation
+1,fishery,2003,5,5,0.632372981714516,0.005918796941240632,history,0.651561244,TRUE,fitted to observation
+1,fishery,2003,6,6,0.7652454389658218,0.006809914194523469,history,0.768839009,TRUE,fitted to observation
+1,fishery,2003,7,7,0.9094627823160575,0.005908444357307711,history,0.863003577,TRUE,fitted to observation
+1,fishery,2003,8,8,1.0130336375665236,0.0066509130896806115,history,0.95278432,TRUE,fitted to observation
+1,fishery,2003,9,9,1.1086965092374856,0.008507143651421016,history,1.085649709,TRUE,fitted to observation
+1,fishery,2003,10,10,1.1726523809423046,0.007983527770654888,history,1.20152919,TRUE,fitted to observation
+1,fishery,2003,11,11,1.2289638843891328,0.00709281638709504,history,1.2115767,TRUE,fitted to observation
+1,fishery,2003,12,12,1.3845508921080487,0.009366155271302684,history,1.19445331,TRUE,fitted to observation
+1,fishery,2003,13,13,1.5716890856471424,0.00995919179153217,history,1.374063742,TRUE,fitted to observation
+1,fishery,2003,14,14,1.694301039031667,0.01013930354236908,history,1.354663004,TRUE,fitted to observation
+1,fishery,2003,15,15+,1.6882496934892421,0.012342573132040523,history,1.70944157,TRUE,fitted to observation
+1,fishery,2004,3,3,0.40660609917538887,0.006282135578805632,history,0.408485451,TRUE,fitted to observation
+1,fishery,2004,4,4,0.5588717242993423,0.005110794306380134,history,0.583890898,TRUE,fitted to observation
+1,fishery,2004,5,5,0.6390693292282809,0.006198929200131177,history,0.641247213,TRUE,fitted to observation
+1,fishery,2004,6,6,0.733526959398997,0.00687090902777607,history,0.759872306,TRUE,fitted to observation
+1,fishery,2004,7,7,0.8671800412745212,0.007745946062211943,history,0.887631525,TRUE,fitted to observation
+1,fishery,2004,8,8,1.0105823862601269,0.006852764017790559,history,0.924376611,TRUE,fitted to observation
+1,fishery,2004,9,9,1.1120594128562,0.007439832484727848,history,1.035504964,TRUE,fitted to observation
+1,fishery,2004,10,10,1.204637611945517,0.009083276578833892,history,1.176251988,TRUE,fitted to observation
+1,fishery,2004,11,11,1.2647710915028785,0.008588575407362837,history,1.126812073,TRUE,fitted to observation
+1,fishery,2004,12,12,1.3167391715779575,0.007842309012345656,history,1.166778953,TRUE,fitted to observation
+1,fishery,2004,13,13,1.467643130440566,0.01002349347317532,history,1.309497257,TRUE,fitted to observation
+1,fishery,2004,14,14,1.6499074725901561,0.010671526931206161,history,1.253624205,TRUE,fitted to observation
+1,fishery,2004,15,15+,1.7675744782601484,0.010959984851036447,history,1.184688376,TRUE,fitted to observation
+1,fishery,2005,3,3,0.3518021929722284,0.005969096933808344,history,0.351069873,TRUE,fitted to observation
+1,fishery,2005,4,4,0.48765535296618095,0.00531947307303523,history,0.508227212,TRUE,fitted to observation
+1,fishery,2005,5,5,0.6442222450551,0.0044353428868947374,history,0.641091205,TRUE,fitted to observation
+1,fishery,2005,6,6,0.7267682873354103,0.005828810753911283,history,0.741709813,TRUE,fitted to observation
+1,fishery,2005,7,7,0.8219027071666405,0.006735485754861814,history,0.880134021,TRUE,fitted to observation
+1,fishery,2005,8,8,0.9548491978722157,0.007645937231930382,history,0.959955416,TRUE,fitted to observation
+1,fishery,2005,9,9,1.0964362253028568,0.0067445117179424485,history,1.061691321,TRUE,fitted to observation
+1,fishery,2005,10,10,1.1952388877492996,0.0073820400087303934,history,1.074204224,TRUE,fitted to observation
+1,fishery,2005,11,11,1.2845031310606787,0.009076508962454826,history,1.216280304,TRUE,fitted to observation
+1,fishery,2005,12,12,1.3408709287037934,0.008671345017535859,history,1.2679849,TRUE,fitted to observation
+1,fishery,2005,13,13,1.38877887674191,0.008079818392357753,history,1.21748792,TRUE,fitted to observation
+1,fishery,2005,14,14,1.5354572806771414,0.010328331896331568,history,1.075504804,TRUE,fitted to observation
+1,fishery,2005,15,15+,1.7134344284683305,0.011091365151548868,history,1.342282396,TRUE,fitted to observation
+1,fishery,2006,3,3,0.3369930344748816,0.007028821705802898,history,0.30552192,TRUE,fitted to observation
+1,fishery,2006,4,4,0.4556403263602053,0.005690904927186187,history,0.448377014,TRUE,fitted to observation
+1,fishery,2006,5,5,0.5970041543980398,0.005498953218811074,history,0.606399375,TRUE,fitted to observation
+1,fishery,2006,6,6,0.7565798015283625,0.005727271241735223,history,0.755330685,TRUE,fitted to observation
+1,fishery,2006,7,7,0.8399929285967136,0.006317564783454902,history,0.857665365,TRUE,fitted to observation
+1,fishery,2006,8,8,0.934222082744125,0.0071830423504203,history,0.958631335,TRUE,fitted to observation
+1,fishery,2006,9,9,1.0648428372140464,0.00802839490488251,history,1.060309814,TRUE,fitted to observation
+1,fishery,2006,10,10,1.2030035409179551,0.007188461544702687,history,1.11661672,TRUE,fitted to observation
+1,fishery,2006,11,11,1.2975604519722923,0.007821544748133217,history,1.190103027,TRUE,fitted to observation
+1,fishery,2006,12,12,1.382000204463342,0.009484491473975535,history,1.218200954,TRUE,fitted to observation
+1,fishery,2006,13,13,1.4331662696745313,0.009196182364775972,history,1.279676942,TRUE,fitted to observation
+1,fishery,2006,14,14,1.4756605499036908,0.008783025002084104,history,1.384136684,TRUE,fitted to observation
+1,fishery,2006,15,15+,1.6168463152416943,0.011011648948557612,history,1.41707779,TRUE,fitted to observation
+1,fishery,2007,3,3,0.3709394061451158,0.007123671573178184,history,0.349006047,TRUE,fitted to observation
+1,fishery,2007,4,4,0.5171795318379894,0.006386179418931914,history,0.507433122,TRUE,fitted to observation
+1,fishery,2007,5,5,0.6453892834918056,0.005045667838782899,history,0.642345264,TRUE,fitted to observation
+1,fishery,2007,6,6,0.791974093597071,0.005146515437843589,history,0.782934356,TRUE,fitted to observation
+1,fishery,2007,7,7,0.9530543610992771,0.00589577238698773,history,0.960533573,TRUE,fitted to observation
+1,fishery,2007,8,8,1.0348966138902482,0.006782333346473259,history,1.100323808,TRUE,fitted to observation
+1,fishery,2007,9,9,1.1250900034064992,0.007498687996703505,history,1.1921783,TRUE,fitted to observation
+1,fishery,2007,10,10,1.2497651842127913,0.008343397931745,history,1.26649122,TRUE,fitted to observation
+1,fishery,2007,11,11,1.380558391535003,0.007644535660984844,history,1.32689268,TRUE,fitted to observation
+1,fishery,2007,12,12,1.4667435409434757,0.008427088071353932,history,1.487725809,TRUE,fitted to observation
+1,fishery,2007,13,13,1.5421569182817025,0.010181609913283278,history,1.443787904,TRUE,fitted to observation
+1,fishery,2007,14,14,1.5839288446678166,0.010190631450378886,history,1.72854413,TRUE,fitted to observation
+1,fishery,2007,15,15+,1.6168919509647748,0.010142310842426602,history,1.51178103,TRUE,fitted to observation
+1,fishery,2008,3,3,0.3153519061072139,0.006480024660404175,history,0.328222145,TRUE,fitted to observation
+1,fishery,2008,4,4,0.4903762664131009,0.007194927098823528,history,0.51871347,TRUE,fitted to observation
+1,fishery,2008,5,5,0.642954881326319,0.00614021888104418,history,0.652689432,TRUE,fitted to observation
+1,fishery,2008,6,6,0.7746253679118585,0.00531982475433906,history,0.773936749,TRUE,fitted to observation
+1,fishery,2008,7,7,0.9222075176388098,0.0057622593479248465,history,0.899905378,TRUE,fitted to observation
+1,fishery,2008,8,8,1.0822465290296441,0.0062366010932733106,history,1.05422698,TRUE,fitted to observation
+1,fishery,2008,9,9,1.1614136698484065,0.007040137815129053,history,1.1165658999999999,TRUE,fitted to observation
+1,fishery,2008,10,10,1.2476660279262979,0.007788265485521134,history,1.2888614,TRUE,fitted to observation
+1,fishery,2008,11,11,1.3674576539227512,0.008660205103321088,history,1.45242062,TRUE,fitted to observation
+1,fishery,2008,12,12,1.4927016278644003,0.008095059681865375,history,1.52770456,TRUE,fitted to observation
+1,fishery,2008,13,13,1.5729036324555254,0.008996793275786931,history,1.56042986,TRUE,fitted to observation
+1,fishery,2008,14,14,1.642090092335406,0.01081181981162797,history,1.87355184,TRUE,fitted to observation
+1,fishery,2008,15,15+,1.677544267359518,0.010997243383388025,history,1.64468809,TRUE,fitted to observation
+1,fishery,2009,3,3,0.3597400088229683,0.005384266562083141,history,0.339606441,TRUE,fitted to observation
+1,fishery,2009,4,4,0.5274895140351706,0.006284796107229575,history,0.525130076,TRUE,fitted to observation
+1,fishery,2009,5,5,0.7137719728716453,0.00845300327797255,history,0.70476811,TRUE,fitted to observation
+1,fishery,2009,6,6,0.8724973671663816,0.007606290443321405,history,0.87862654,TRUE,fitted to observation
+1,fishery,2009,7,7,1.005939277089419,0.0073672223199661956,history,0.999417089,TRUE,fitted to observation
+1,fishery,2009,8,8,1.1516720012687534,0.007542431616229471,history,1.13049152,TRUE,fitted to observation
+1,fishery,2009,9,9,1.306959616369946,0.007838178135921593,history,1.39828687,TRUE,fitted to observation
+1,fishery,2009,10,10,1.379126899856335,0.008495528296862133,history,1.4792252,TRUE,fitted to observation
+1,fishery,2009,11,11,1.4567053390684777,0.00920302522512736,history,1.55788074,TRUE,fitted to observation
+1,fishery,2009,12,12,1.5666407021612914,0.010095874262063554,history,1.57615198,TRUE,fitted to observation
+1,fishery,2009,13,13,1.6812577220236824,0.009816503835482613,history,1.80693852,TRUE,fitted to observation
+1,fishery,2009,14,14,1.7503997961091453,0.010850108485259101,history,2.02570229,TRUE,fitted to observation
+1,fishery,2009,15,15+,1.8083649909757662,0.0126389741628428,history,2.22207877,TRUE,fitted to observation
+1,fishery,2010,3,3,0.31571405728891194,0.007669970093311579,history,0.380772971,TRUE,fitted to observation
+1,fishery,2010,4,4,0.5127187833978019,0.004248721267181911,history,0.489989276,TRUE,fitted to observation
+1,fishery,2010,5,5,0.6885868402146632,0.006249515740469558,history,0.667530349,TRUE,fitted to observation
+1,fishery,2010,6,6,0.8793019255267124,0.008666350608305385,history,0.909046943,TRUE,fitted to observation
+1,fishery,2010,7,7,1.0393047461772493,0.008049859941203257,history,1.114264972,TRUE,fitted to observation
+1,fishery,2010,8,8,1.1714129800175532,0.0076487770103063155,history,1.27685588,TRUE,fitted to observation
+1,fishery,2010,9,9,1.3137193302078132,0.007811226385385903,history,1.37360813,TRUE,fitted to observation
+1,fishery,2010,10,10,1.4639591388056499,0.008192280875321454,history,1.58575649,TRUE,fitted to observation
+1,fishery,2010,11,11,1.5298713999421385,0.008971416863078837,history,1.6790192,TRUE,fitted to observation
+1,fishery,2010,12,12,1.6003421931521717,0.00983503304426265,history,1.92345261,TRUE,fitted to observation
+1,fishery,2010,13,13,1.7026141417830856,0.010903220890579782,history,1.94790431,TRUE,fitted to observation
+1,fishery,2010,14,14,1.8092555149312288,0.010895228871724977,history,2.07703881,TRUE,fitted to observation
+1,fishery,2010,15,15+,1.8703055991631485,0.012112499681195937,history,2.27116122,TRUE,fitted to observation
+1,fishery,2011,3,3,0.3004981477936038,0.005258136081075232,history,0.290306334,TRUE,fitted to observation
+1,fishery,2011,4,4,0.45160418868220076,0.00725369353212518,history,0.508276718,TRUE,fitted to observation
+1,fishery,2011,5,5,0.6558205756724544,0.005768395114055399,history,0.66555235,TRUE,fitted to observation
+1,fishery,2011,6,6,0.8356261081022385,0.006882521458980141,history,0.809441376,TRUE,fitted to observation
+1,fishery,2011,7,7,1.0274759236134114,0.008920988293126689,history,0.971459342,TRUE,fitted to observation
+1,fishery,2011,8,8,1.1862940477684871,0.008433910738495844,history,1.22376812,TRUE,fitted to observation
+1,fishery,2011,9,9,1.31535865406718,0.008028862873196539,history,1.3421732,TRUE,fitted to observation
+1,fishery,2011,10,10,1.4531810679015935,0.008226847490805902,history,1.51301507,TRUE,fitted to observation
+1,fishery,2011,11,11,1.5978645775203184,0.0087007119440575785,history,1.58174035,TRUE,fitted to observation
+1,fishery,2011,12,12,1.6574631591819389,0.0095933626755031,history,1.62333791,TRUE,fitted to observation
+1,fishery,2011,13,13,1.721126587115037,0.010580013401532426,history,2.07956946,TRUE,fitted to observation
+1,fishery,2011,14,14,1.81631381642487,0.011777831185798114,history,1.70723085,TRUE,fitted to observation
+1,fishery,2011,15,15+,1.9157671233364568,0.011973470011279122,history,2.24223663,TRUE,fitted to observation
+1,fishery,2012,3,3,0.31004226257138856,0.004583423969030417,history,0.27060829200000003,TRUE,fitted to observation
+1,fishery,2012,4,4,0.42235478261530884,0.0031394677198965134,history,0.4094757,TRUE,fitted to observation
+1,fishery,2012,5,5,0.57992772965425,0.006270268324914708,history,0.643213487,TRUE,fitted to observation
+1,fishery,2012,6,6,0.7876749655955186,0.0058464263529045615,history,0.824137923,TRUE,fitted to observation
+1,fishery,2012,7,7,0.9684980436121533,0.007054670522692321,history,0.973919869,TRUE,fitted to observation
+1,fishery,2012,8,8,1.1592855073046782,0.009056962678002272,history,1.169735123,TRUE,fitted to observation
+1,fishery,2012,9,9,1.3153743220826222,0.008574212606280721,history,1.30281785,TRUE,fitted to observation
+1,fishery,2012,10,10,1.4404180521817271,0.008253894487713187,history,1.50945146,TRUE,fitted to observation
+1,fishery,2012,11,11,1.5732579710496866,0.008577259101045216,history,1.59886882,TRUE,fitted to observation
+1,fishery,2012,12,12,1.7122798205738778,0.009210946739492583,history,1.63667487,TRUE,fitted to observation
+1,fishery,2012,13,13,1.765774039717453,0.010274256668698691,history,1.68001259,TRUE,fitted to observation
+1,fishery,2012,14,14,1.8230843936909371,0.01141126251284988,history,2.03115156,TRUE,fitted to observation
+1,fishery,2012,15,15+,1.9118258748549593,0.0127389726406437,history,2.06213317,TRUE,fitted to observation
+1,fishery,2013,3,3,0.35639571182374685,0.005192486227643869,history,0.289565055,TRUE,fitted to observation
+1,fishery,2013,4,4,0.46112123569658414,0.004212132557510574,history,0.442138315,TRUE,fitted to observation
+1,fishery,2013,5,5,0.5814514852791588,0.004123862230714234,history,0.564462021,TRUE,fitted to observation
+1,fishery,2013,6,6,0.7434020112210462,0.0065905240240130706,history,0.780571661,TRUE,fitted to observation
+1,fishery,2013,7,7,0.9524108095105152,0.006523318708904375,history,1.13010764,TRUE,fitted to observation
+1,fishery,2013,8,8,1.1319167740019498,0.007595384099714225,history,1.28147198,TRUE,fitted to observation
+1,fishery,2013,9,9,1.3193204149043463,0.009503778300140611,history,1.43958081,TRUE,fitted to observation
+1,fishery,2013,10,10,1.470424110503625,0.009117769308950462,history,1.68472541,TRUE,fitted to observation
+1,fishery,2013,11,11,1.5892904976600604,0.008953869740097589,history,1.82735188,TRUE,fitted to observation
+1,fishery,2013,12,12,1.7151110384324606,0.009453430441855072,history,1.78573408,TRUE,fitted to observation
+1,fishery,2013,13,13,1.8465646433373943,0.010272832346340886,history,1.93390415,TRUE,fitted to observation
+1,fishery,2013,14,14,1.8921822631360814,0.01151093869038593,history,2.15908299,TRUE,fitted to observation
+1,fishery,2013,15,15+,1.941501119458924,0.012777923779758896,history,2.18218255,TRUE,fitted to observation
+1,fishery,2014,3,3,0.441532730982288,0.005900989086424756,history,0.318821317,TRUE,fitted to observation
+1,fishery,2014,4,4,0.49148811170908835,0.0051361612869605215,history,0.454131676,TRUE,fitted to observation
+1,fishery,2014,5,5,0.6033829610188337,0.004667919148194982,history,0.616878649,TRUE,fitted to observation
+1,fishery,2014,6,6,0.7276275715972061,0.0037936776745828536,history,0.751255874,TRUE,fitted to observation
+1,fishery,2014,7,7,0.8907061664006826,0.006278942306153364,history,0.893856306,TRUE,fitted to observation
+1,fishery,2014,8,8,1.098537222855136,0.006460033193150624,history,1.1563452,TRUE,fitted to observation
+1,fishery,2014,9,9,1.275017427162681,0.007578943661603264,history,1.30671643,TRUE,fitted to observation
+1,fishery,2014,10,10,1.457963454277868,0.009546831415489256,history,1.386354753,TRUE,fitted to observation
+1,fishery,2014,11,11,1.6035434686806345,0.009327885761346563,history,1.66919794,TRUE,fitted to observation
+1,fishery,2014,12,12,1.7161332402828597,0.009381863640594566,history,1.77334777,TRUE,fitted to observation
+1,fishery,2014,13,13,1.8351863778396744,0.010108516581342104,history,1.70424223,TRUE,fitted to observation
+1,fishery,2014,14,14,1.959596853668304,0.011148914631595591,history,1.62338903,TRUE,fitted to observation
+1,fishery,2014,15,15+,1.9980686041645264,0.01257447827835125,history,2.21523384,TRUE,fitted to observation
+1,fishery,2015,3,3,0.4434097512910667,0.0036636819159028256,history,0.403995291,TRUE,fitted to observation
+1,fishery,2015,4,4,0.48957317743995526,0.0051289958112799025,history,0.462211481,TRUE,fitted to observation
+1,fishery,2015,5,5,0.5420780546231195,0.0048102572212579695,history,0.57057962,TRUE,fitted to observation
+1,fishery,2015,6,6,0.6553648967466295,0.00449459733430797,history,0.690256019,TRUE,fitted to observation
+1,fishery,2015,7,7,0.7800106618813775,0.003953076470614097,history,0.786073755,TRUE,fitted to observation
+1,fishery,2015,8,8,0.942670437834837,0.006487143249462303,history,0.886708131,TRUE,fitted to observation
+1,fishery,2015,9,9,1.1494254983766317,0.006596837937439479,history,1.140720555,TRUE,fitted to observation
+1,fishery,2015,10,10,1.324320522787638,0.007712110135990707,history,1.195296148,TRUE,fitted to observation
+1,fishery,2015,11,11,1.5053022638956515,0.00969047861460437,history,1.31540647,TRUE,fitted to observation
+1,fishery,2015,12,12,1.6486502399770666,0.009513893593504344,history,1.67091711,TRUE,fitted to observation
+1,fishery,2015,13,13,1.7588334433925419,0.009633857953425006,history,1.38920291,TRUE,fitted to observation
+1,fishery,2015,14,14,1.8753819614032399,0.010422891780830393,history,1.55916182,TRUE,fitted to observation
+1,fishery,2015,15,15+,1.9972512820528223,0.011518302145207817,history,2.60007725,TRUE,fitted to observation
+1,fishery,2016,3,3,0.40391935539023943,0.004196151659443879,history,0.408558886,TRUE,fitted to observation
+1,fishery,2016,4,4,0.5300707657165328,0.0023979884461184857,history,0.531116861,TRUE,fitted to observation
+1,fishery,2016,5,5,0.5808332737947977,0.004983864981311042,history,0.557025009,TRUE,fitted to observation
+1,fishery,2016,6,6,0.63584919153251,0.004816938522068655,history,0.645971991,TRUE,fitted to observation
+1,fishery,2016,7,7,0.7498596834836198,0.004815889892310347,history,0.731820729,TRUE,fitted to observation
+1,fishery,2016,8,8,0.8737499338578012,0.004467269760559674,history,0.799735963,TRUE,fitted to observation
+1,fishery,2016,9,9,1.0344687016778156,0.006828305237629112,history,0.940504639,TRUE,fitted to observation
+1,fishery,2016,10,10,1.2383642280559979,0.006926156775029511,history,1.043410635,TRUE,fitted to observation
+1,fishery,2016,11,11,1.4097158420585807,0.008043500722391492,history,1.177987108,TRUE,fitted to observation
+1,fishery,2016,12,12,1.586671169604113,0.010012426497910737,history,0.7877600400000002,TRUE,fitted to observation
+1,fishery,2016,13,13,1.7256778945997038,0.009959302137105613,history,0.91117821,TRUE,fitted to observation
+1,fishery,2016,14,14,1.831342970341083,0.01021272121968966,history,1.683923327,TRUE,fitted to observation
+1,fishery,2016,15,15+,1.9433074534006736,0.011109982760589008,history,1.42947008,TRUE,fitted to observation
+1,fishery,2017,3,3,0.42012823789266474,0.005601921632529403,history,0.408307359,TRUE,fitted to observation
+1,fishery,2017,4,4,0.5046155563046606,0.003812358671338873,history,0.498515995,TRUE,fitted to observation
+1,fishery,2017,5,5,0.6361108929749119,0.0037569922225362384,history,0.65028662,TRUE,fitted to observation
+1,fishery,2017,6,6,0.6897911172357226,0.005254408523844337,history,0.693721134,TRUE,fitted to observation
+1,fishery,2017,7,7,0.74564788352471,0.005190619150095108,history,0.751851661,TRUE,fitted to observation
+1,fishery,2017,8,8,0.8587805013056616,0.005329845625221349,history,0.827407009,TRUE,fitted to observation
+1,fishery,2017,9,9,0.9804153875316421,0.005071171937272522,history,0.893922017,TRUE,fitted to observation
+1,fishery,2017,10,10,1.1378115052699591,0.007233032299119545,history,0.911154686,TRUE,fitted to observation
+1,fishery,2017,11,11,1.337589748129429,0.00738285040314681,history,1.027503913,TRUE,fitted to observation
+1,fishery,2017,12,12,1.5042628506728495,0.008526156743772002,history,0.961318351,TRUE,fitted to observation
+1,fishery,2017,13,13,1.6761738397178896,0.010489698204812138,history,0.31221233699999995,TRUE,fitted to observation
+1,fishery,2017,14,14,1.8099307035729892,0.01060052834936547,history,0.7011478530000002,TRUE,fitted to observation
+1,fishery,2017,15,15+,1.9102693368823747,0.011010983028562786,history,0.6876749399999998,TRUE,fitted to observation
+1,fishery,2018,3,3,0.44107281910623863,0.007139606779698402,history,0.377245193,TRUE,fitted to observation
+1,fishery,2018,4,4,0.4913236831859334,0.005414433780162107,history,0.466752468,TRUE,fitted to observation
+1,fishery,2018,5,5,0.5795893290046985,0.003493427190859271,history,0.573181866,TRUE,fitted to observation
+1,fishery,2018,6,6,0.7131475846427893,0.004493383911575174,history,0.73369985,TRUE,fitted to observation
+1,fishery,2018,7,7,0.767422315811394,0.005695094208319902,history,0.808813471,TRUE,fitted to observation
+1,fishery,2018,8,8,0.8226583968919197,0.005722750944165232,history,0.853169951,TRUE,fitted to observation
+1,fishery,2018,9,9,0.9341963998475702,0.0057784038015207175,history,0.906350768,TRUE,fitted to observation
+1,fishery,2018,10,10,1.0534820658450614,0.005568338881681616,history,1.038827227,TRUE,fitted to observation
+1,fishery,2018,11,11,1.2079671320158771,0.007632947572529706,history,0.935593796,TRUE,fitted to observation
+1,fishery,2018,12,12,1.4044375171446684,0.007826786539802266,history,1.110071766,TRUE,fitted to observation
+1,fishery,2018,13,13,1.567544110500143,0.008988915252519977,history,0.56831773,TRUE,fitted to observation
+1,fishery,2018,14,14,1.7357432792557292,0.010941853985102107,history,0.4348725990000001,TRUE,fitted to observation
+1,fishery,2018,15,15+,1.8657341773908604,0.011164815019113455,history,1.1296406,TRUE,fitted to observation
+1,fishery,2019,3,3,0.4814405197144164,0.007073520699825079,history,0.421911581,TRUE,fitted to observation
+1,fishery,2019,4,4,0.5962671556868027,0.007236625434189881,history,0.565246646,TRUE,fitted to observation
+1,fishery,2019,5,5,0.6547541507839008,0.005555358966249664,history,0.643225276,TRUE,fitted to observation
+1,fishery,2019,6,6,0.7475166199502064,0.004087340216542794,history,0.759397562,TRUE,fitted to observation
+1,fishery,2019,7,7,0.8823708026629518,0.0045794342901721305,history,0.878483343,TRUE,fitted to observation
+1,fishery,2019,8,8,0.9352925423760525,0.005887275925192274,history,0.962275785,TRUE,fitted to observation
+1,fishery,2019,9,9,0.9870526259556884,0.005935531939786297,history,1.006798006,TRUE,fitted to observation
+1,fishery,2019,10,10,1.093469716002652,0.006028839599098034,history,1.064675052,TRUE,fitted to observation
+1,fishery,2019,11,11,1.2064097693712845,0.005954902636460037,history,1.034985041,TRUE,fitted to observation
+1,fishery,2019,12,12,1.353684250877577,0.00806660922971684,history,1.181891891,TRUE,fitted to observation
+1,fishery,2019,13,13,1.5423802337949382,0.00844987402117624,history,0.754172472,TRUE,fitted to observation
+1,fishery,2019,14,14,1.6973956706873103,0.009757884814695679,history,0.6978056845,TRUE,fitted to observation
+1,fishery,2019,15,15+,1.8573856548653134,0.011773345412974076,history,0.7689046909999999,TRUE,fitted to observation
+1,fishery,2020,3,3,0.4073566109471011,0.00575013031882184,history,0.387278533,TRUE,fitted to observation
+1,fishery,2020,4,4,0.5312699440002698,0.006829537535625537,history,0.521578796,TRUE,fitted to observation
+1,fishery,2020,5,5,0.6487410171085887,0.006898494492554311,history,0.631983426,TRUE,fitted to observation
+1,fishery,2020,6,6,0.7086718414294858,0.004944266346167214,history,0.715571536,TRUE,fitted to observation
+1,fishery,2020,7,7,0.8018504037437071,0.004628753585368376,history,0.799211203,TRUE,fitted to observation
+1,fishery,2020,8,8,0.936270171214396,0.005466239152661514,history,0.955081444,TRUE,fitted to observation
+1,fishery,2020,9,9,0.9880758460110526,0.006476322069687829,history,1.005954392,TRUE,fitted to observation
+1,fishery,2020,10,10,1.0381917191917773,0.006495826507134937,history,1.040257935,TRUE,fitted to observation
+1,fishery,2020,11,11,1.1425713751995619,0.0066011818555404165,history,1.18923468,TRUE,fitted to observation
+1,fishery,2020,12,12,1.253196271388402,0.006543249723322152,history,1.072450668,TRUE,fitted to observation
+1,fishery,2020,13,13,1.3979745665331444,0.008515832361650603,history,1.208377146,TRUE,fitted to observation
+1,fishery,2020,14,14,1.584072660395747,0.00893703197254753,history,0.96073877,TRUE,fitted to observation
+1,fishery,2020,15,15+,1.7364523120502673,0.010229581638663419,history,0.7689046909999999,TRUE,fitted to observation
+1,fishery,2021,3,3,0.3913672643697781,0.001942356922523724,history,0.393062974,TRUE,fitted to observation
+1,fishery,2021,4,4,0.47690114541158124,0.00402787999895893,history,0.479855859,TRUE,fitted to observation
+1,fishery,2021,5,5,0.6045051923787621,0.005628145945780854,history,0.573714566,TRUE,fitted to observation
+1,fishery,2021,6,6,0.7239913485961953,0.006208722752127588,history,0.68978244,TRUE,fitted to observation
+1,fishery,2021,7,7,0.7845028941411558,0.004598446780313854,history,0.756873301,TRUE,fitted to observation
+1,fishery,2021,8,8,0.8770751639644228,0.00454054873254298,history,0.841316211,TRUE,fitted to observation
+1,fishery,2021,9,9,1.0099372932291997,0.0053607122930338725,history,1.0106582,TRUE,fitted to observation
+1,fishery,2021,10,10,1.0594482225337556,0.006389499217248509,history,1.129811105,TRUE,fitted to observation
+1,fishery,2021,11,11,1.1067205468718535,0.006441434639026108,history,1.15974887,TRUE,fitted to observation
+1,fishery,2021,12,12,1.2078690491870503,0.006626690014585006,history,1.26932969,TRUE,fitted to observation
+1,fishery,2021,13,13,1.3150101379480796,0.00666644528604842,history,1.21450031,TRUE,fitted to observation
+1,fishery,2021,14,14,1.4561626841002768,0.008750404163282554,history,0.93552331,TRUE,fitted to observation
+1,fishery,2021,15,15+,1.638582139087519,0.009255639895039412,history,0.40816878199999984,TRUE,fitted to observation
+1,fishery,2022,3,3,0.4526835970543211,0.002971648982490742,history,0.440140998,TRUE,fitted to observation
+1,fishery,2022,4,4,0.5002184023919973,0.002387924914104847,history,0.506070315,TRUE,fitted to observation
+1,fishery,2022,5,5,0.591528990586249,0.00410096688860493,history,0.573912489,TRUE,fitted to observation
+1,fishery,2022,6,6,0.7222870465826869,0.005819395255751907,history,0.7240341,TRUE,fitted to observation
+1,fishery,2022,7,7,0.8426821479329003,0.006365304281286285,history,0.837483976,TRUE,fitted to observation
+1,fishery,2022,8,8,0.9022447241861271,0.004902132729328069,history,0.883258787,TRUE,fitted to observation
+1,fishery,2022,9,9,0.9923789779575788,0.004892297720025306,history,0.983696798,TRUE,fitted to observation
+1,fishery,2022,10,10,1.1216493704998376,0.0056670842688008385,history,0.972326522,TRUE,fitted to observation
+1,fishery,2022,11,11,1.1667095758197532,0.006731087851689717,history,1.271468946,TRUE,fitted to observation
+1,fishery,2022,12,12,1.20892449687992,0.006890474751817587,history,1.044233759,TRUE,fitted to observation
+1,fishery,2022,13,13,1.3046201421720944,0.007218833427072085,history,1.23453454,TRUE,fitted to observation
+1,fishery,2022,14,14,1.4060862069062816,0.007452411197187145,history,0.91030785,TRUE,fitted to observation
+1,fishery,2022,15,15+,1.5414809457622023,0.009528160413412512,history,0.7695438354444444,TRUE,fitted to observation
+1,fishery,2023,3,3,0.4161557299213919,0.003962969759953297,history,0.49445541666666665,TRUE,fitted to observation
+1,fishery,2023,4,4,0.48759108788095284,0.0032028934114967426,history,0.4826691388888889,TRUE,fitted to observation
+1,fishery,2023,5,5,0.5369784264635371,0.0026869651056122333,history,0.5244819444444444,TRUE,fitted to observation
+1,fishery,2023,6,6,0.6293004743747596,0.004249257566177928,history,0.6017949444444445,TRUE,fitted to observation
+1,fishery,2023,7,7,0.7603500201476109,0.005967150843405464,history,0.8115420555555556,TRUE,fitted to observation
+1,fishery,2023,8,8,0.8804407963667522,0.006467183693410422,history,0.9225525277777776,TRUE,fitted to observation
+1,fishery,2023,9,9,0.9392215248183828,0.0051334473877719606,history,0.9566281944444444,TRUE,fitted to observation
+1,fishery,2023,10,10,1.0282039439010011,0.005096715155211733,history,1.0413486388888888,TRUE,fitted to observation
+1,fishery,2023,11,11,1.1560470329764465,0.005859990111231731,history,1.0946378611111112,TRUE,fitted to observation
+1,fishery,2023,12,12,1.1994853787390012,0.006926524275996481,history,1.29379,TRUE,fitted to observation
+1,fishery,2023,13,13,1.2399516221099072,0.007124594640759626,history,1.3314197222222222,TRUE,fitted to observation
+1,fishery,2023,14,14,1.3338273429368228,0.0074952601180340445,history,1.2183513888888888,TRUE,fitted to observation
+1,fishery,2023,15,15+,1.4334469354243418,0.00778616973314667,history,1.1309188888888888,TRUE,fitted to observation
+1,fishery,2024,3,3,0.43750455375047864,0.004451866057187127,history,0.4352949323951992,TRUE,fitted to observation
+1,fishery,2024,4,4,0.48689065460313086,0.002928024619080054,history,0.4807450956045795,TRUE,fitted to observation
+1,fishery,2024,5,5,0.5620799002368244,0.001777694627919334,history,0.5595602255939187,TRUE,fitted to observation
+1,fishery,2024,6,6,0.6135168140023937,0.0018280530991990132,history,0.6174820921742573,TRUE,fitted to observation
+1,fishery,2024,7,7,0.7064295233129846,0.0036303817651523024,history,0.6964707057930196,TRUE,fitted to observation
+1,fishery,2024,8,8,0.8368623987175172,0.005552757520293415,history,0.8251894061176704,TRUE,fitted to observation
+1,fishery,2024,9,9,0.955368874717741,0.006215117855010832,history,1.0162118543765113,TRUE,fitted to observation
+1,fishery,2024,10,10,1.011815578636784,0.00482676717891699,history,1.0173214825504309,TRUE,fitted to observation
+1,fishery,2024,11,11,1.0979057759975817,0.00484097362191764,history,1.0777961849767366,TRUE,fitted to observation
+1,fishery,2024,12,12,1.2224624038889775,0.005728680831151146,history,1.250580933866217,TRUE,fitted to observation
+1,fishery,2024,13,13,1.2623573100712768,0.006928321827198301,history,1.3080482292465252,TRUE,fitted to observation
+1,fishery,2024,14,14,1.2991357426907344,0.007253830681666467,history,1.3280320300539787,TRUE,fitted to observation
+1,fishery,2024,15,15+,1.3892698575699844,0.0077562276598088925,history,1.5594627083333332,TRUE,fitted to observation
+1,fishery,2025,3,3,0.33448191101461144,0.01060169559086963,history,0.3143167343353849,TRUE,fitted to observation
+1,fishery,2025,4,4,0.5540292687736184,0.004644677415095464,history,0.5559325354012838,TRUE,fitted to observation
+1,fishery,2025,5,5,0.6095993119069089,0.0033416770692266218,history,0.6213717767615777,TRUE,fitted to observation
+1,fishery,2025,6,6,0.6881649117982821,0.002084683582819985,history,0.6928526361900164,TRUE,fitted to observation
+1,fishery,2025,7,7,0.740574847752625,0.0021291210251253943,history,0.7295292009425128,TRUE,fitted to observation
+1,fishery,2025,8,8,0.832471689169741,0.0037690592680552095,history,0.8554547943882489,TRUE,fitted to observation
+1,fishery,2025,9,9,0.9602946779821682,0.005591041893159289,history,0.9657128702192804,TRUE,fitted to observation
+1,fishery,2025,10,10,1.0749562139511344,0.00636559567555286,history,1.1395019491761793,TRUE,fitted to observation
+1,fishery,2025,11,11,1.1266384353541472,0.005111475456212306,history,1.194346253359842,TRUE,fitted to observation
+1,fishery,2025,12,12,1.2073147024021746,0.005238433281521383,history,1.08151043915053,TRUE,fitted to observation
+1,fishery,2025,13,13,1.326034068302429,0.006209609611234822,history,NA,FALSE,model prediction without observation
+1,fishery,2025,14,14,1.3598538835900214,0.0075136654280083945,history,NA,FALSE,model prediction without observation
+1,fishery,2025,15,15+,1.3904686061505191,0.007998107068105807,history,1.26763098426023,TRUE,fitted to observation
+1,fishery,2026,3,3,0.5804981209533284,0.06168127940586906,history,NA,FALSE,model prediction without observation
+1,fishery,2026,4,4,0.4636632857901386,0.013222097318048753,history,NA,FALSE,model prediction without observation
+1,fishery,2026,5,5,0.6900662721184728,0.009990720983604396,history,NA,FALSE,model prediction without observation
+1,fishery,2026,6,6,0.7493794017261619,0.009640349422874003,history,NA,FALSE,model prediction without observation
+1,fishery,2026,7,7,0.829023711348839,0.009464486725198163,history,NA,FALSE,model prediction without observation
+1,fishery,2026,8,8,0.8803074380604188,0.009348739584226577,history,NA,FALSE,model prediction without observation
+1,fishery,2026,9,9,0.9693109127105836,0.00961685468584178,history,NA,FALSE,model prediction without observation
+1,fishery,2026,10,10,1.0928713325129198,0.01018456699694986,history,NA,FALSE,model prediction without observation
+1,fishery,2026,11,11,1.202250878293002,0.010453691798926662,history,NA,FALSE,model prediction without observation
+1,fishery,2026,12,12,1.2479311201107939,0.00963788153170075,history,NA,FALSE,model prediction without observation
+1,fishery,2026,13,13,1.3221360945339833,0.009494606501194313,history,NA,FALSE,model prediction without observation
+1,fishery,2026,14,14,1.4341205064503668,0.009903650914953578,history,NA,FALSE,model prediction without observation
+1,fishery,2026,15,15+,1.461107122969989,0.010645168058465103,history,NA,FALSE,model prediction without observation
+1,fishery,2027,3,3,0.3685316281787722,0.06876170398003098,forecast,NA,FALSE,forecast
+1,fishery,2027,4,4,0.6943494173175933,0.07770047431356775,forecast,NA,FALSE,forecast
+1,fishery,2027,5,5,0.5835566466653757,0.05149767341805452,forecast,NA,FALSE,forecast
+1,fishery,2027,6,6,0.8132585237839212,0.05210670156459183,forecast,NA,FALSE,forecast
+1,fishery,2027,7,7,0.8735223515980901,0.05242620605746135,forecast,NA,FALSE,forecast
+1,fishery,2027,8,8,0.9521741003156924,0.051988483255146246,forecast,NA,FALSE,forecast
+1,fishery,2027,9,9,1.0009078188868024,0.050928694068196695,forecast,NA,FALSE,forecast
+1,fishery,2027,10,10,1.0861545677049014,0.04945557832212275,forecast,NA,FALSE,forecast
+1,fishery,2027,11,11,1.2050598161914596,0.04769117765482779,forecast,NA,FALSE,forecast
+1,fishery,2027,12,12,1.3091496430959173,0.04563087895531879,forecast,NA,FALSE,forecast
+1,fishery,2027,13,13,1.34912654682979,0.04316986451276237,forecast,NA,FALSE,forecast
+1,fishery,2027,14,14,1.4173958107579503,0.040770096323212504,forecast,NA,FALSE,forecast
+1,fishery,2027,15,15+,1.523357926198546,0.03848911549778234,forecast,NA,FALSE,forecast
+1,fishery,2028,3,3,0.3685316281787722,0.06876170398003098,forecast,NA,FALSE,forecast
+1,fishery,2028,4,4,0.48238292454303705,0.08343027491337739,forecast,NA,FALSE,forecast
+1,fishery,2028,5,5,0.8142427781928303,0.09231397575619438,forecast,NA,FALSE,forecast
+1,fishery,2028,6,6,0.7067488983308239,0.07263712356278326,forecast,NA,FALSE,forecast
+1,fishery,2028,7,7,0.9374014736558494,0.0733475889165033,forecast,NA,FALSE,forecast
+1,fishery,2028,8,8,0.9966727405649435,0.0732863383140645,forecast,NA,FALSE,forecast
+1,fishery,2028,9,9,1.0727744811420759,0.07223676319753897,forecast,NA,FALSE,forecast
+1,fishery,2028,10,10,1.1177514738811203,0.07039633111920045,forecast,NA,FALSE,forecast
+1,fishery,2028,11,11,1.1983430513834414,0.0680062407421859,forecast,NA,FALSE,forecast
+1,fishery,2028,12,12,1.311958580994375,0.06522900986487967,forecast,NA,FALSE,forecast
+1,fishery,2028,13,13,1.4103450698149134,0.06212819947157398,forecast,NA,FALSE,forecast
+1,fishery,2028,14,14,1.444386263053757,0.05867461757551899,forecast,NA,FALSE,forecast
+1,fishery,2028,15,15+,1.5066332305061294,0.055243570317634154,forecast,NA,FALSE,forecast
+2,BTS,1970,3,3,0.21340853888675793,0.0027520086326857005,history,NA,FALSE,model prediction without observation
+2,BTS,1970,4,4,0.4067910412540811,0.00296794545513675,history,NA,FALSE,model prediction without observation
+2,BTS,1970,5,5,0.5406011451971593,0.0028574602953460484,history,NA,FALSE,model prediction without observation
+2,BTS,1970,6,6,0.6577621207067326,0.003092391598624936,history,NA,FALSE,model prediction without observation
+2,BTS,1970,7,7,0.7763806161871212,0.0036285615596594934,history,NA,FALSE,model prediction without observation
+2,BTS,1970,8,8,0.8971665966442282,0.004551263526188172,history,NA,FALSE,model prediction without observation
+2,BTS,1970,9,9,1.0046844497893679,0.005773585512670558,history,NA,FALSE,model prediction without observation
+2,BTS,1970,10,10,1.0923571803176946,0.007030841407598319,history,NA,FALSE,model prediction without observation
+2,BTS,1970,11,11,1.2013983008969746,0.009062028694049018,history,NA,FALSE,model prediction without observation
+2,BTS,1970,12,12,1.2933463148230187,0.01104584143327291,history,NA,FALSE,model prediction without observation
+2,BTS,1970,13,13,1.4214874988713855,0.013458054273912208,history,NA,FALSE,model prediction without observation
+2,BTS,1970,14,14,1.497182733031279,0.017326803606981345,history,NA,FALSE,model prediction without observation
+2,BTS,1970,15,15+,1.6541730710126994,0.014454536757581984,history,NA,FALSE,model prediction without observation
+2,BTS,1971,3,3,0.20724032984935684,0.03592795818642354,history,NA,FALSE,model prediction without observation
+2,BTS,1971,4,4,0.42272704772918535,0.04597769389722456,history,NA,FALSE,model prediction without observation
+2,BTS,1971,5,5,0.5586483086993641,0.05203651225040491,history,NA,FALSE,model prediction without observation
+2,BTS,1971,6,6,0.6766267097900249,0.054397406220088956,history,NA,FALSE,model prediction without observation
+2,BTS,1971,7,7,0.7956383189678964,0.05556128410506269,history,NA,FALSE,model prediction without observation
+2,BTS,1971,8,8,0.916520832507625,0.0559098802031326,history,NA,FALSE,model prediction without observation
+2,BTS,1971,9,9,1.0236228984055713,0.05483561639540069,history,NA,FALSE,model prediction without observation
+2,BTS,1971,10,10,1.1104215008789713,0.05249193149288153,history,NA,FALSE,model prediction without observation
+2,BTS,1971,11,11,1.2188873315544482,0.05118033611126173,history,NA,FALSE,model prediction without observation
+2,BTS,1971,12,12,1.3099685051826964,0.04914717772212257,history,NA,FALSE,model prediction without observation
+2,BTS,1971,13,13,1.4376575859776706,0.048506035971697524,history,NA,FALSE,model prediction without observation
+2,BTS,1971,14,14,1.5122903930391933,0.04689983596479297,history,NA,FALSE,model prediction without observation
+2,BTS,1971,15,15+,1.6690082197717688,0.045085952923820505,history,NA,FALSE,model prediction without observation
+2,BTS,1972,3,3,0.2094951471797718,0.03471181685866451,history,NA,FALSE,model prediction without observation
+2,BTS,1972,4,4,0.40572018351750017,0.06378730355401413,history,NA,FALSE,model prediction without observation
+2,BTS,1972,5,5,0.5668603441333957,0.06645427095925925,history,NA,FALSE,model prediction without observation
+2,BTS,1972,6,6,0.6856562235731241,0.07041280680033524,history,NA,FALSE,model prediction without observation
+2,BTS,1972,7,7,0.8052242092711962,0.07269373413640597,history,NA,FALSE,model prediction without observation
+2,BTS,1972,8,8,0.9264589807647331,0.07377032288766337,history,NA,FALSE,model prediction without observation
+2,BTS,1972,9,9,1.0335953460764995,0.07282159219503527,history,NA,FALSE,model prediction without observation
+2,BTS,1972,10,10,1.1201324997573368,0.07003847909494165,history,NA,FALSE,model prediction without observation
+2,BTS,1972,11,11,1.228452457384396,0.06844387255384907,history,NA,FALSE,model prediction without observation
+2,BTS,1972,12,12,1.3191923361869895,0.0657360042362236,history,NA,FALSE,model prediction without observation
+2,BTS,1972,13,13,1.4467417288125308,0.06472090298116331,history,NA,FALSE,model prediction without observation
+2,BTS,1972,14,14,1.5208675865455723,0.061824531245669674,history,NA,FALSE,model prediction without observation
+2,BTS,1972,15,15+,1.677507476239736,0.06001305398020853,history,NA,FALSE,model prediction without observation
+2,BTS,1973,3,3,0.2050811318129883,0.031871496802984844,history,NA,FALSE,model prediction without observation
+2,BTS,1973,4,4,0.4037078581949651,0.05873961619393607,history,NA,FALSE,model prediction without observation
+2,BTS,1973,5,5,0.542514421474521,0.0766251955929015,history,NA,FALSE,model prediction without observation
+2,BTS,1973,6,6,0.6876793741056314,0.07807759104896607,history,NA,FALSE,model prediction without observation
+2,BTS,1973,7,7,0.8079083931612316,0.08169561056662666,history,NA,FALSE,model prediction without observation
+2,BTS,1973,8,8,0.9296752693038849,0.08381531232277707,history,NA,FALSE,model prediction without observation
+2,BTS,1973,9,9,1.03716985216206,0.08347682874962951,history,NA,FALSE,model prediction without observation
+2,BTS,1973,10,10,1.123888085530065,0.08087053197211393,history,NA,FALSE,model prediction without observation
+2,BTS,1973,11,11,1.2323749745523824,0.07947609359635875,history,NA,FALSE,model prediction without observation
+2,BTS,1973,12,12,1.3231548010521166,0.0766628132828994,history,NA,FALSE,model prediction without observation
+2,BTS,1973,13,13,1.450793698667489,0.07561471006228462,history,NA,FALSE,model prediction without observation
+2,BTS,1973,14,14,1.5248135762683734,0.07205119871465418,history,NA,FALSE,model prediction without observation
+2,BTS,1973,15,15+,1.6815196658860083,0.0704046552724339,history,NA,FALSE,model prediction without observation
+2,BTS,1974,3,3,0.21986653874782205,0.033560770527692185,history,NA,FALSE,model prediction without observation
+2,BTS,1974,4,4,0.3899439260569975,0.052703348020507315,history,NA,FALSE,model prediction without observation
+2,BTS,1974,5,5,0.5321582812612081,0.0686931935613639,history,NA,FALSE,model prediction without observation
+2,BTS,1974,6,6,0.6543490797481138,0.08322559452453464,history,NA,FALSE,model prediction without observation
+2,BTS,1974,7,7,0.8012163178598338,0.08523377498633426,history,NA,FALSE,model prediction without observation
+2,BTS,1974,8,8,0.9236092622819744,0.0886712417491886,history,NA,FALSE,model prediction without observation
+2,BTS,1974,9,9,1.0317869386484688,0.0893345426056943,history,NA,FALSE,model prediction without observation
+2,BTS,1974,10,10,1.1192073654551076,0.0873759823796291,history,NA,FALSE,model prediction without observation
+2,BTS,1974,11,11,1.2282231059854904,0.0865529076753158,history,NA,FALSE,model prediction without observation
+2,BTS,1974,12,12,1.319522136491359,0.08396456967686418,history,NA,FALSE,model prediction without observation
+2,BTS,1974,13,13,1.447525617586806,0.08317946886657189,history,NA,FALSE,model prediction without observation
+2,BTS,1974,14,14,1.5219774536678672,0.079360950337697,history,NA,FALSE,model prediction without observation
+2,BTS,1974,15,15+,1.6789219167802405,0.07811247067544928,history,NA,FALSE,model prediction without observation
+2,BTS,1975,3,3,0.24778050345171984,0.0342477174729798,history,NA,FALSE,model prediction without observation
+2,BTS,1975,4,4,0.4125524462488441,0.05502257849008884,history,NA,FALSE,model prediction without observation
+2,BTS,1975,5,5,0.518188555428204,0.062056508803886766,history,NA,FALSE,model prediction without observation
+2,BTS,1975,6,6,0.6446835241864303,0.07472991051423565,history,NA,FALSE,model prediction without observation
+2,BTS,1975,7,7,0.7683399260005849,0.08867530750860966,history,NA,FALSE,model prediction without observation
+2,BTS,1975,8,8,0.9177217829239205,0.091064774025795,history,NA,FALSE,model prediction without observation
+2,BTS,1975,9,9,1.0265989195917125,0.09296635610084658,history,NA,FALSE,model prediction without observation
+2,BTS,1975,10,10,1.1147407005547767,0.09194517119366169,history,NA,FALSE,model prediction without observation
+2,BTS,1975,11,11,1.2243097650530421,0.09188278800815922,history,NA,FALSE,model prediction without observation
+2,BTS,1975,12,12,1.3161471729082395,0.08976182505664818,history,NA,FALSE,model prediction without observation
+2,BTS,1975,13,13,1.4445381294055364,0.0894705529363535,history,NA,FALSE,model prediction without observation
+2,BTS,1975,14,14,1.5194303940070155,0.08568899893613885,history,NA,FALSE,model prediction without observation
+2,BTS,1975,15,15+,1.6766329959452893,0.08492696673468286,history,NA,FALSE,model prediction without observation
+2,BTS,1976,3,3,0.24292085750554226,0.032503838032115935,history,NA,FALSE,model prediction without observation
+2,BTS,1976,4,4,0.46864812097050784,0.05586771998270028,history,NA,FALSE,model prediction without observation
+2,BTS,1976,5,5,0.559261752135329,0.06597234231438434,history,NA,FALSE,model prediction without observation
+2,BTS,1976,6,6,0.6479910723576157,0.06943343794567408,history,NA,FALSE,model prediction without observation
+2,BTS,1976,7,7,0.776432574040872,0.08118820025399791,history,NA,FALSE,model prediction without observation
+2,BTS,1976,8,8,0.9023879944926817,0.09465731356172682,history,NA,FALSE,model prediction without observation
+2,BTS,1976,9,9,1.0383036860619872,0.09591186755117098,history,NA,FALSE,model prediction without observation
+2,BTS,1976,10,10,1.1264088366609812,0.09588910949192103,history,NA,FALSE,model prediction without observation
+2,BTS,1976,11,11,1.2360474563419805,0.09668577159106405,history,NA,FALSE,model prediction without observation
+2,BTS,1976,12,12,1.3276802850201106,0.09517524810434905,history,NA,FALSE,model prediction without observation
+2,BTS,1976,13,13,1.4560866042301723,0.09550874962921721,history,NA,FALSE,model prediction without observation
+2,BTS,1976,14,14,1.5304953086073387,0.09192397353910613,history,NA,FALSE,model prediction without observation
+2,BTS,1976,15,15+,1.6877400531273337,0.09173074539165865,history,NA,FALSE,model prediction without observation
+2,BTS,1977,3,3,0.21898572660293336,0.030479965986887517,history,NA,FALSE,model prediction without observation
+2,BTS,1977,4,4,0.48567567150719343,0.05374968452553464,history,NA,FALSE,model prediction without observation
+2,BTS,1977,5,5,0.6470125445710954,0.06487323599303473,history,NA,FALSE,model prediction without observation
+2,BTS,1977,6,6,0.7184423217739648,0.07289324939555332,history,NA,FALSE,model prediction without observation
+2,BTS,1977,7,7,0.8090479623283329,0.0753838052189287,history,NA,FALSE,model prediction without observation
+2,BTS,1977,8,8,0.9399982281336073,0.08650079062887335,history,NA,FALSE,model prediction without observation
+2,BTS,1977,9,9,1.0517616779970718,0.09815688054085694,history,NA,FALSE,model prediction without observation
+2,BTS,1977,10,10,1.1653835746743708,0.09786131105543298,history,NA,FALSE,model prediction without observation
+2,BTS,1977,11,11,1.2743897690748875,0.099667714165762325,history,NA,FALSE,model prediction without observation
+2,BTS,1977,12,12,1.364647975813663,0.09896649725776684,history,NA,FALSE,model prediction without observation
+2,BTS,1977,13,13,1.492511061235983,0.10011287234619956,history,NA,FALSE,model prediction without observation
+2,BTS,1977,14,14,1.5649155284651461,0.09697409835463343,history,NA,FALSE,model prediction without observation
+2,BTS,1977,15,15+,1.7218827222886433,0.09744292546917968,history,NA,FALSE,model prediction without observation
+2,BTS,1978,3,3,0.23608299200755425,0.03425489367813096,history,NA,FALSE,model prediction without observation
+2,BTS,1978,4,4,0.4566573756962509,0.0558374305429096,history,NA,FALSE,model prediction without observation
+2,BTS,1978,5,5,0.6725625552564292,0.0667281588556011,history,NA,FALSE,model prediction without observation
+2,BTS,1978,6,6,0.815277773873722,0.07391241166563321,history,NA,FALSE,model prediction without observation
+2,BTS,1978,7,7,0.8881405787990299,0.08136894093699854,history,NA,FALSE,model prediction without observation
+2,BTS,1978,8,8,0.9808040342664601,0.08322372463812966,history,NA,FALSE,model prediction without observation
+2,BTS,1978,9,9,1.0969380579891326,0.09203384534699753,history,NA,FALSE,model prediction without observation
+2,BTS,1978,10,10,1.1858784906568038,0.10106968873576748,history,NA,FALSE,model prediction without observation
+2,BTS,1978,11,11,1.3207036377307109,0.10273262169955688,history,NA,FALSE,model prediction without observation
+2,BTS,1978,12,12,1.4095600779797464,0.10290467734261499,history,NA,FALSE,model prediction without observation
+2,BTS,1978,13,13,1.5369857093861896,0.10491296888296517,history,NA,FALSE,model prediction without observation
+2,BTS,1978,14,14,1.6071267855119564,0.10230045835170797,history,NA,FALSE,model prediction without observation
+2,BTS,1978,15,15+,1.7639132513547824,0.10348551883141714,history,NA,FALSE,model prediction without observation
+2,BTS,1979,3,3,0.2160752131264156,0.03550831430461329,history,NA,FALSE,model prediction without observation
+2,BTS,1979,4,4,0.5454735074201728,0.05889228254343795,history,NA,FALSE,model prediction without observation
+2,BTS,1979,5,5,0.7132935096391172,0.06744999504785479,history,NA,FALSE,model prediction without observation
+2,BTS,1979,6,6,0.9164655796458269,0.07298265346413667,history,NA,FALSE,model prediction without observation
+2,BTS,1979,7,7,1.0629996245819187,0.07872615230555306,history,NA,FALSE,model prediction without observation
+2,BTS,1979,8,8,1.1380812646097285,0.08599243333972374,history,NA,FALSE,model prediction without observation
+2,BTS,1979,9,9,1.2132016304650206,0.08597693959346972,history,NA,FALSE,model prediction without observation
+2,BTS,1979,10,10,1.3023609366836124,0.09252740703433877,history,NA,FALSE,model prediction without observation
+2,BTS,1979,11,11,1.4110818261898712,0.10336804654158499,history,NA,FALSE,model prediction without observation
+2,BTS,1979,12,12,1.5220139268811843,0.103624084508439,history,NA,FALSE,model prediction without observation
+2,BTS,1979,13,13,1.647593861647725,0.10671407629238235,history,NA,FALSE,model prediction without observation
+2,BTS,1979,14,14,1.7114887804877796,0.10492011784261718,history,NA,FALSE,model prediction without observation
+2,BTS,1979,15,15+,1.8672944507382183,0.10693462632930364,history,NA,FALSE,model prediction without observation
+2,BTS,1980,3,3,0.20780609252811705,0.0311288152113824,history,NA,FALSE,model prediction without observation
+2,BTS,1980,4,4,0.5205737604260908,0.050891952356300015,history,NA,FALSE,model prediction without observation
+2,BTS,1980,5,5,0.81412962002232,0.057256484205825624,history,NA,FALSE,model prediction without observation
+2,BTS,1980,6,6,0.9634651148163939,0.061594384473918434,history,NA,FALSE,model prediction without observation
+2,BTS,1980,7,7,1.171184774047123,0.06613326357004927,history,NA,FALSE,model prediction without observation
+2,BTS,1980,8,8,1.3209414553507075,0.07187881667999839,history,NA,FALSE,model prediction without observation
+2,BTS,1980,9,9,1.3759397588148505,0.0788273659738383,history,NA,FALSE,model prediction without observation
+2,BTS,1980,10,10,1.4221515600683488,0.07781080784357737,history,NA,FALSE,model prediction without observation
+2,BTS,1980,11,11,1.5336922347133963,0.08729775789936196,history,NA,FALSE,model prediction without observation
+2,BTS,1980,12,12,1.6170655662262532,0.09804710079334432,history,NA,FALSE,model prediction without observation
+2,BTS,1980,13,13,1.7679237076006695,0.10187002308532313,history,NA,FALSE,model prediction without observation
+2,BTS,1980,14,14,1.8257246510703473,0.10182069382440567,history,NA,FALSE,model prediction without observation
+2,BTS,1980,15,15+,1.981065331976574,0.10516158471476007,history,NA,FALSE,model prediction without observation
+2,BTS,1981,3,3,0.1845717835433104,0.020366827542251918,history,NA,FALSE,model prediction without observation
+2,BTS,1981,4,4,0.4609082907654665,0.03321873535073204,history,NA,FALSE,model prediction without observation
+2,BTS,1981,5,5,0.7336366383455829,0.038625469500812894,history,NA,FALSE,model prediction without observation
+2,BTS,1981,6,6,1.009897305387595,0.04087660638557928,history,NA,FALSE,model prediction without observation
+2,BTS,1981,7,7,1.1614775835766118,0.04543964635731769,history,NA,FALSE,model prediction without observation
+2,BTS,1981,8,8,1.372939190570576,0.05119225065031427,history,NA,FALSE,model prediction without observation
+2,BTS,1981,9,9,1.5022864675742553,0.05792529723275577,history,NA,FALSE,model prediction without observation
+2,BTS,1981,10,10,1.528602392615395,0.06609238085715194,history,NA,FALSE,model prediction without observation
+2,BTS,1981,11,11,1.6024258091789851,0.06787356714671632,history,NA,FALSE,model prediction without observation
+2,BTS,1981,12,12,1.6898909229356363,0.07849853742197879,history,NA,FALSE,model prediction without observation
+2,BTS,1981,13,13,1.8174727133293245,0.09395951275571306,history,NA,FALSE,model prediction without observation
+2,BTS,1981,14,14,1.9001871507818,0.09523448901072919,history,NA,FALSE,model prediction without observation
+2,BTS,1981,15,15+,2.056655508474914,0.10028456540564121,history,NA,FALSE,model prediction without observation
+2,BTS,1982,3,3,0.17592895866259797,0.00651940190984857,history,0.1795846436719917,TRUE,fitted to observation
+2,BTS,1982,4,4,0.3707666459231968,0.009974087581815635,history,0.36870202565623855,TRUE,fitted to observation
+2,BTS,1982,5,5,0.6063155862365817,0.014874561757985568,history,0.5499689624204057,TRUE,fitted to observation
+2,BTS,1982,6,6,0.8619945181352056,0.01898773616709416,history,0.8618445619869117,TRUE,fitted to observation
+2,BTS,1982,7,7,1.1411215878370282,0.021429417079662526,history,1.1514004721831317,TRUE,fitted to observation
+2,BTS,1982,8,8,1.2953741100431155,0.028904867175035934,history,1.3256053053664418,TRUE,fitted to observation
+2,BTS,1982,9,9,1.4879674260064073,0.037250144543788666,history,1.4625545321100035,TRUE,fitted to observation
+2,BTS,1982,10,10,1.5897756632783817,0.04626195208758774,history,1.6483235409951749,TRUE,fitted to observation
+2,BTS,1982,11,11,1.6485596788042531,0.058039989199079524,history,1.7899231740165076,TRUE,fitted to observation
+2,BTS,1982,12,12,1.7002805829389,0.05996092241835325,history,1.7781281936249569,TRUE,fitted to observation
+2,BTS,1982,13,13,1.8357224874066687,0.07498651295612864,history,2.141648787701468,TRUE,fitted to observation
+2,BTS,1982,14,14,1.8964956008997047,0.0890649459653311,history,1.7702815311092974,TRUE,fitted to observation
+2,BTS,1982,15,15+,2.0827934557880563,0.0948819501505404,history,2.6328607861253372,TRUE,fitted to observation
+2,BTS,1983,3,3,0.16164253137144632,0.006916076761998867,history,0.1787999026185684,TRUE,fitted to observation
+2,BTS,1983,4,4,0.35208791952188206,0.010463278250972919,history,0.34103140455886466,TRUE,fitted to observation
+2,BTS,1983,5,5,0.502703758208628,0.01088912619581612,history,0.4914634527528956,TRUE,fitted to observation
+2,BTS,1983,6,6,0.7254952431551956,0.014713931926929229,history,0.6907966532827172,TRUE,fitted to observation
+2,BTS,1983,7,7,0.9841723560364687,0.01928572972123409,history,0.9878306714736445,TRUE,fitted to observation
+2,BTS,1983,8,8,1.2675948982632044,0.022251776907162273,history,1.3035355985172403,TRUE,fitted to observation
+2,BTS,1983,9,9,1.4034613002408642,0.029768727326526797,history,1.4935757008567707,TRUE,fitted to observation
+2,BTS,1983,10,10,1.5689990620769125,0.03710823669777806,history,1.5390384721522323,TRUE,fitted to observation
+2,BTS,1983,11,11,1.703775652392244,0.04704383625040117,history,1.633852250498234,TRUE,fitted to observation
+2,BTS,1983,12,12,1.7401514412554537,0.05814401010509892,history,1.5996302763988024,TRUE,fitted to observation
+2,BTS,1983,13,13,1.8404202507075977,0.06225367371771095,history,1.806914234210105,TRUE,fitted to observation
+2,BTS,1983,14,14,1.909022643118546,0.07470038840107884,history,1.5550644118940915,TRUE,fitted to observation
+2,BTS,1983,15,15+,2.0734385149363166,0.09240877145468665,history,1.9605000251792497,TRUE,fitted to observation
+2,BTS,1984,3,3,0.15225162803743736,0.007645357791826326,history,0.1871433713392901,TRUE,fitted to observation
+2,BTS,1984,4,4,0.34495858771858634,0.010036806657877336,history,0.2928979037404421,TRUE,fitted to observation
+2,BTS,1984,5,5,0.49847830111124103,0.01090905588704877,history,0.4647090589161025,TRUE,fitted to observation
+2,BTS,1984,6,6,0.636670855074036,0.010925318919793656,history,0.6050585862964478,TRUE,fitted to observation
+2,BTS,1984,7,7,0.8628214193377226,0.015545096153058711,history,0.9554752913351776,TRUE,fitted to observation
+2,BTS,1984,8,8,1.125598158373708,0.020274392034253064,history,1.3753301955144814,TRUE,fitted to observation
+2,BTS,1984,9,9,1.392349222189239,0.022992106677144096,history,1.5196461857157415,TRUE,fitted to observation
+2,BTS,1984,10,10,1.5016786422387702,0.0300220135468192,history,1.710021855994294,TRUE,fitted to observation
+2,BTS,1984,11,11,1.698197269550302,0.0386547403287175,history,1.957421175419612,TRUE,fitted to observation
+2,BTS,1984,12,12,1.8098368314595512,0.047814913550628065,history,1.8293695614972152,TRUE,fitted to observation
+2,BTS,1984,13,13,1.8956046367321548,0.06094245819991493,history,1.8799743151454411,TRUE,fitted to observation
+2,BTS,1984,14,14,1.9269634414547832,0.06252208101707715,history,1.675192382584279,TRUE,fitted to observation
+2,BTS,1984,15,15+,2.0996084413775873,0.07782450215478602,history,2.091439975114648,TRUE,fitted to observation
+2,BTS,1985,3,3,0.2145674773431569,0.008263669325468235,history,0.183489585864929,TRUE,fitted to observation
+2,BTS,1985,4,4,0.39773580345458703,0.012188634187629962,history,0.3331793550138989,TRUE,fitted to observation
+2,BTS,1985,5,5,0.5663139385409329,0.012388686185772099,history,0.48541687362156705,TRUE,fitted to observation
+2,BTS,1985,6,6,0.7112946495843928,0.013287784093312256,history,0.7531294059942831,TRUE,fitted to observation
+2,BTS,1985,7,7,0.8534074490752652,0.01350353594705696,history,0.9407381568546872,TRUE,fitted to observation
+2,BTS,1985,8,8,1.0836268266297524,0.017373850414740856,history,1.2383049988957138,TRUE,fitted to observation
+2,BTS,1985,9,9,1.3296964453896858,0.02143543747432154,history,1.6672573842676308,TRUE,fitted to observation
+2,BTS,1985,10,10,1.5663130136233774,0.02432168836314271,history,1.6483159790959545,TRUE,fitted to observation
+2,BTS,1985,11,11,1.7034838827975787,0.031919958789992674,history,1.7794931843511554,TRUE,fitted to observation
+2,BTS,1985,12,12,1.87381359212145,0.040153132760706124,history,2.0623729384757272,TRUE,fitted to observation
+2,BTS,1985,13,13,2.0348648690798017,0.05076163237534248,history,2.1347938633832793,TRUE,fitted to observation
+2,BTS,1985,14,14,2.0449394736652855,0.06256140738949394,history,1.8168720779862668,TRUE,fitted to observation
+2,BTS,1985,15,15+,2.1804792379561806,0.06563092323623772,history,2.505229133446378,TRUE,fitted to observation
+2,BTS,1986,3,3,0.17762563727975905,0.007654960966385187,history,0.1373831460840449,TRUE,fitted to observation
+2,BTS,1986,4,4,0.3737514319869375,0.01048840181745968,history,0.35633508336638137,TRUE,fitted to observation
+2,BTS,1986,5,5,0.4915047968124077,0.011473627243708878,history,0.4333786717051597,TRUE,fitted to observation
+2,BTS,1986,6,6,0.642778827619655,0.011433397727086727,history,0.656846929230192,TRUE,fitted to observation
+2,BTS,1986,7,7,0.7886118852149894,0.012481182101678588,history,0.8293769032322861,TRUE,fitted to observation
+2,BTS,1986,8,8,0.9329946370716674,0.012693513821875278,history,1.0253119170252123,TRUE,fitted to observation
+2,BTS,1986,9,9,1.1496947609685304,0.016596119510543832,history,1.2695542400582762,TRUE,fitted to observation
+2,BTS,1986,10,10,1.3729395035907426,0.020963988393681892,history,1.634827416218961,TRUE,fitted to observation
+2,BTS,1986,11,11,1.6411592010690144,0.024963415426606426,history,1.714243047668077,TRUE,fitted to observation
+2,BTS,1986,12,12,1.757908983708654,0.032379867348822214,history,1.9516896315404608,TRUE,fitted to observation
+2,BTS,1986,13,13,1.9827272398824505,0.042139556498120574,history,2.0510724554624575,TRUE,fitted to observation
+2,BTS,1986,14,14,2.0730204300021406,0.052060366421077586,history,2.2118385125988436,TRUE,fitted to observation
+2,BTS,1986,15,15+,2.1959952963305147,0.06391360573275753,history,NA,FALSE,model prediction without observation
+2,BTS,1987,3,3,0.1780556038103161,0.007419597487501499,history,0.2387037704870706,TRUE,fitted to observation
+2,BTS,1987,4,4,0.31367631583146177,0.01150828887869194,history,0.29118629889852016,TRUE,fitted to observation
+2,BTS,1987,5,5,0.4595707253828982,0.011824527698940362,history,0.4241200235407128,TRUE,fitted to observation
+2,BTS,1987,6,6,0.5602559964235695,0.013202597391172074,history,0.5550805082596224,TRUE,fitted to observation
+2,BTS,1987,7,7,0.7126508469142723,0.012716326054112888,history,0.7047420457201375,TRUE,fitted to observation
+2,BTS,1987,8,8,0.860763500710998,0.013846181058873685,history,0.8612506158372807,TRUE,fitted to observation
+2,BTS,1987,9,9,0.992737585951018,0.01372269001190026,history,0.9931421807668824,TRUE,fitted to observation
+2,BTS,1987,10,10,1.1895788001152658,0.01741204239890284,history,1.2244478528027445,TRUE,fitted to observation
+2,BTS,1987,11,11,1.4402244439041612,0.022184363264477747,history,1.5055113038181405,TRUE,fitted to observation
+2,BTS,1987,12,12,1.690085982921868,0.025975669459508258,history,1.539368733665597,TRUE,fitted to observation
+2,BTS,1987,13,13,1.858118018158914,0.0343913115844818,history,1.931224508624609,TRUE,fitted to observation
+2,BTS,1987,14,14,2.016132245966029,0.04382390868646571,history,2.215250420743192,TRUE,fitted to observation
+2,BTS,1987,15,15+,2.22038247462053,0.05255951866123379,history,2.3388560968065812,TRUE,fitted to observation
+2,BTS,1988,3,3,0.17668573941030336,0.007105419195756776,history,0.2457719516562806,TRUE,fitted to observation
+2,BTS,1988,4,4,0.34244255471203894,0.009096983106462397,history,0.33069067098311633,TRUE,fitted to observation
+2,BTS,1988,5,5,0.4268223485613212,0.011467317667909588,history,0.4443911068497831,TRUE,fitted to observation
+2,BTS,1988,6,6,0.5610690388768714,0.010705382521764655,history,0.5266634965753837,TRUE,fitted to observation
+2,BTS,1988,7,7,0.6630470602324897,0.013036627620792756,history,0.6611929013293218,TRUE,fitted to observation
+2,BTS,1988,8,8,0.8179703734870407,0.012686058597681394,history,0.8834796099554468,TRUE,fitted to observation
+2,BTS,1988,9,9,0.9539937584926108,0.013735730530203948,history,0.9097926502035631,TRUE,fitted to observation
+2,BTS,1988,10,10,1.066939688284416,0.01345268778621951,history,1.1007289108770262,TRUE,fitted to observation
+2,BTS,1988,11,11,1.2862086082983726,0.01818031846447618,history,1.365624280027664,TRUE,fitted to observation
+2,BTS,1988,12,12,1.5190017800839237,0.022745330347867958,history,1.3896008353191676,TRUE,fitted to observation
+2,BTS,1988,13,13,1.8169645437860686,0.027964148667480457,history,1.871588488426588,TRUE,fitted to observation
+2,BTS,1988,14,14,1.919123851902713,0.03589782417274558,history,1.1687490796214803,TRUE,fitted to observation
+2,BTS,1988,15,15+,2.186937431121516,0.04325225122631469,history,1.715170711475602,TRUE,fitted to observation
+2,BTS,1989,3,3,0.15605599782666893,0.006028265176211643,history,0.16578716307244337,TRUE,fitted to observation
+2,BTS,1989,4,4,0.32355374588261343,0.009641782822362497,history,0.2932968924149579,TRUE,fitted to observation
+2,BTS,1989,5,5,0.4386616567507046,0.009722531464519157,history,0.38435594142771207,TRUE,fitted to observation
+2,BTS,1989,6,6,0.5077930300879128,0.012150763863193033,history,0.5092611284720223,TRUE,fitted to observation
+2,BTS,1989,7,7,0.6434937266722948,0.01136578211842973,history,0.7096479951779768,TRUE,fitted to observation
+2,BTS,1989,8,8,0.747237033663764,0.013862580061512439,history,0.8016902159157402,TRUE,fitted to observation
+2,BTS,1989,9,9,0.8911954116791835,0.013245169565475858,history,1.0880718307454256,TRUE,fitted to observation
+2,BTS,1989,10,10,1.0096817251101176,0.014199458221566428,history,1.0719976609941386,TRUE,fitted to observation
+2,BTS,1989,11,11,1.1440429088581938,0.014690571426406857,history,1.2006044504191906,TRUE,fitted to observation
+2,BTS,1989,12,12,1.3477879457115456,0.01905307073155892,history,1.2675452110482848,TRUE,fitted to observation
+2,BTS,1989,13,13,1.6240437403933339,0.024459322623674482,history,1.3026323621733489,TRUE,fitted to observation
+2,BTS,1989,14,14,1.8622927519014154,0.029999557538306767,history,1.289607070448198,TRUE,fitted to observation
+2,BTS,1989,15,15+,2.069552859951613,0.034809661255525655,history,1.4002701700235758,TRUE,fitted to observation
+2,BTS,1990,3,3,0.13888410514174607,0.007153315029344034,history,0.14493271564943597,TRUE,fitted to observation
+2,BTS,1990,4,4,0.3271574725135317,0.00986256342985735,history,0.33727936132797154,TRUE,fitted to observation
+2,BTS,1990,5,5,0.4569928417175049,0.010824560512569666,history,0.44143962214452087,TRUE,fitted to observation
+2,BTS,1990,6,6,0.560231854728666,0.010277815753236821,history,0.5360858727501842,TRUE,fitted to observation
+2,BTS,1990,7,7,0.6307604480598368,0.012595858424800935,history,0.6331194652214348,TRUE,fitted to observation
+2,BTS,1990,8,8,0.7688704449293886,0.011753347402329828,history,0.7413032173739353,TRUE,fitted to observation
+2,BTS,1990,9,9,0.8610709827326579,0.01441387722985537,history,0.9158304303144728,TRUE,fitted to observation
+2,BTS,1990,10,10,0.9865370872727945,0.01362538750786395,history,1.1341652649327467,TRUE,fitted to observation
+2,BTS,1990,11,11,1.123757404791903,0.015384754257549245,history,1.2558190373984184,TRUE,fitted to observation
+2,BTS,1990,12,12,1.2415755203293626,0.015772283510766427,history,1.3126076923468724,TRUE,fitted to observation
+2,BTS,1990,13,13,1.4827245586492874,0.02094223669848234,history,1.3925115207418122,TRUE,fitted to observation
+2,BTS,1990,14,14,1.7031662093743902,0.027024731684065162,history,1.4983709372430372,TRUE,fitted to observation
+2,BTS,1990,15,15+,2.0417471838312657,0.028500690643428844,history,1.6916463198549645,TRUE,fitted to observation
+2,BTS,1991,3,3,0.18116104829214827,0.006198094427469403,history,0.20192167554578397,TRUE,fitted to observation
+2,BTS,1991,4,4,0.3815095704792143,0.00940237839102844,history,0.33901436214520286,TRUE,fitted to observation
+2,BTS,1991,5,5,0.5511906992904614,0.008811054816712119,history,0.5488166938343642,TRUE,fitted to observation
+2,BTS,1991,6,6,0.6732936549582524,0.009822939675351682,history,0.6290581260597784,TRUE,fitted to observation
+2,BTS,1991,7,7,0.7802629733925301,0.008785222905246472,history,0.7135632648593405,TRUE,fitted to observation
+2,BTS,1991,8,8,0.852834218316889,0.011644606317702456,history,0.8085577789251658,TRUE,fitted to observation
+2,BTS,1991,9,9,0.9774703300442525,0.010720567181972196,history,0.9859038210610228,TRUE,fitted to observation
+2,BTS,1991,10,10,1.0472874989764567,0.013394380426439593,history,1.107673239802403,TRUE,fitted to observation
+2,BTS,1991,11,11,1.1879491129654423,0.013594868859711439,history,1.363953189178968,TRUE,fitted to observation
+2,BTS,1991,12,12,1.3045321080113799,0.015640306070447342,history,1.4003103170141955,TRUE,fitted to observation
+2,BTS,1991,13,13,1.454505704878444,0.01713984103601737,history,1.5520581584701048,TRUE,fitted to observation
+2,BTS,1991,14,14,1.6385157776401402,0.023562197658185024,history,1.8238449209864875,TRUE,fitted to observation
+2,BTS,1991,15,15+,1.9491927236361346,0.02545338619860713,history,1.9295693019994944,TRUE,fitted to observation
+2,BTS,1992,3,3,0.24508241705332193,0.006071055279466987,history,0.27006760235846633,TRUE,fitted to observation
+2,BTS,1992,4,4,0.37619977916268765,0.009275688832556106,history,0.38134712913601126,TRUE,fitted to observation
+2,BTS,1992,5,5,0.5327970195917691,0.011108453964094989,history,0.5101181273706791,TRUE,fitted to observation
+2,BTS,1992,6,6,0.6887965742326067,0.011013920316013127,history,0.5752143547455777,TRUE,fitted to observation
+2,BTS,1992,7,7,0.8127982871929459,0.011595423022170087,history,0.7739104676386426,TRUE,fitted to observation
+2,BTS,1992,8,8,0.9218874449317518,0.011106657833808533,history,0.916473244466386,TRUE,fitted to observation
+2,BTS,1992,9,9,0.9807282283518042,0.013095064612724442,history,0.9690620362433564,TRUE,fitted to observation
+2,BTS,1992,10,10,1.0849667052613396,0.012526478549914533,history,1.0828565756269624,TRUE,fitted to observation
+2,BTS,1992,11,11,1.1747376124090418,0.015244074360349056,history,1.2615972303118843,TRUE,fitted to observation
+2,BTS,1992,12,12,1.2977844125708167,0.015607678464250273,history,1.454891877883414,TRUE,fitted to observation
+2,BTS,1992,13,13,1.4503499527747379,0.018122178413619777,history,1.601110536673273,TRUE,fitted to observation
+2,BTS,1992,14,14,1.546180261248578,0.020705054535539728,history,1.6622255537653192,TRUE,fitted to observation
+2,BTS,1992,15,15+,1.8182565620255768,0.021834810129406777,history,1.6302177547710193,TRUE,fitted to observation
+2,BTS,1993,3,3,0.27471749739043616,0.005143811748882043,history,0.2706489163347207,TRUE,fitted to observation
+2,BTS,1993,4,4,0.5318484549987521,0.005720745614754283,history,0.46978381496594346,TRUE,fitted to observation
+2,BTS,1993,5,5,0.596261213301242,0.008728539576930603,history,0.524012934471692,TRUE,fitted to observation
+2,BTS,1993,6,6,0.742392183802914,0.011229199716147798,history,0.6458402251884117,TRUE,fitted to observation
+2,BTS,1993,7,7,0.9023174135193188,0.011250158039304382,history,0.7566326035629147,TRUE,fitted to observation
+2,BTS,1993,8,8,1.029033741512355,0.01191274912403623,history,0.8952501853342649,TRUE,fitted to observation
+2,BTS,1993,9,9,1.12231734655788,0.01150283477495593,history,1.100926771342834,TRUE,fitted to observation
+2,BTS,1993,10,10,1.157414279232654,0.013216817857572855,history,1.1123750984045118,TRUE,fitted to observation
+2,BTS,1993,11,11,1.2797655979733853,0.013718981861876983,history,1.318070005687613,TRUE,fitted to observation
+2,BTS,1993,12,12,1.3483188728873952,0.016204278680499735,history,1.4055287426409926,TRUE,fitted to observation
+2,BTS,1993,13,13,1.5053954137042118,0.017653812929373576,history,1.5608740372995695,TRUE,fitted to observation
+2,BTS,1993,14,14,1.5999629430878548,0.021223005752388203,history,1.6734926876827625,TRUE,fitted to observation
+2,BTS,1993,15,15+,1.7783304078121376,0.01856482106655814,history,1.7862401058830788,TRUE,fitted to observation
+2,BTS,1994,3,3,0.21537587970108155,0.0053671936936640074,history,0.20914317231704815,TRUE,fitted to observation
+2,BTS,1994,4,4,0.49569927704197553,0.0068092928064233975,history,0.3876158607835226,TRUE,fitted to observation
+2,BTS,1994,5,5,0.6730577849237904,0.0057431031933317805,history,0.5593582243899216,TRUE,fitted to observation
+2,BTS,1994,6,6,0.7122624620036909,0.00891407613031419,history,0.6745662567581169,TRUE,fitted to observation
+2,BTS,1994,7,7,0.859945625331727,0.011618555434888649,history,0.7187522600465567,TRUE,fitted to observation
+2,BTS,1994,8,8,1.022576896575105,0.01196118408234077,history,1.0531156486680393,TRUE,fitted to observation
+2,BTS,1994,9,9,1.1343159276688481,0.012716625348605015,history,1.239288571159998,TRUE,fitted to observation
+2,BTS,1994,10,10,1.2061353793619363,0.01226672194910095,history,1.1990505219686465,TRUE,fitted to observation
+2,BTS,1994,11,11,1.2650290646535924,0.01465138748119942,history,1.322318915859875,TRUE,fitted to observation
+2,BTS,1994,12,12,1.369644573011794,0.015140745608502058,history,1.413017698223152,TRUE,fitted to observation
+2,BTS,1994,13,13,1.4761592536318267,0.01827296651310055,history,1.5254985739909612,TRUE,fitted to observation
+2,BTS,1994,14,14,1.5787624456733553,0.020788521109306457,history,1.680214302692497,TRUE,fitted to observation
+2,BTS,1994,15,15+,1.7602411041194652,0.018939029149559087,history,1.7580065115281964,TRUE,fitted to observation
+2,BTS,1995,3,3,0.16214804052296775,0.004494642425781965,history,0.13923825134385787,TRUE,fitted to observation
+2,BTS,1995,4,4,0.3829062268504563,0.007421793122534521,history,0.3388142850778589,TRUE,fitted to observation
+2,BTS,1995,5,5,0.6058684612419832,0.007872828286853926,history,0.4849094586504045,TRUE,fitted to observation
+2,BTS,1995,6,6,0.7607910529061114,0.00748889735373914,history,0.6566733662089658,TRUE,fitted to observation
+2,BTS,1995,7,7,0.7992100670508837,0.009737009679200943,history,0.6925133304334999,TRUE,fitted to observation
+2,BTS,1995,8,8,0.9492845259156861,0.012466487399685977,history,0.911621169315075,TRUE,fitted to observation
+2,BTS,1995,9,9,1.0981515660670438,0.01273815704800761,history,1.078969083516565,TRUE,fitted to observation
+2,BTS,1995,10,10,1.1896069075681466,0.013423670181243186,history,1.3283670385648838,TRUE,fitted to observation
+2,BTS,1995,11,11,1.2867171794425185,0.013745975712782603,history,1.313985407216264,TRUE,fitted to observation
+2,BTS,1995,12,12,1.3288667355943207,0.01590628331599659,history,1.3732480665356106,TRUE,fitted to observation
+2,BTS,1995,13,13,1.4727048000857306,0.01706267527086727,history,1.5010832794822186,TRUE,fitted to observation
+2,BTS,1995,14,14,1.526042669224657,0.020986898611874548,history,1.480987510251934,TRUE,fitted to observation
+2,BTS,1995,15,15+,1.7147431394650072,0.018268264960119334,history,1.7465221824443116,TRUE,fitted to observation
+2,BTS,1996,3,3,0.19289589398340543,0.0054473112038952096,history,0.13658294299586696,TRUE,fitted to observation
+2,BTS,1996,4,4,0.3374139925078649,0.007697166679905021,history,0.2966770906147925,TRUE,fitted to observation
+2,BTS,1996,5,5,0.5222294674150061,0.009340738862658468,history,0.5000117156231206,TRUE,fitted to observation
+2,BTS,1996,6,6,0.731804201986526,0.00893102271728179,history,0.6315305016911344,TRUE,fitted to observation
+2,BTS,1996,7,7,0.8885558867254835,0.008545306385921504,history,0.7966297322317907,TRUE,fitted to observation
+2,BTS,1996,8,8,0.9281393249780225,0.010458442819617199,history,0.902902718676434,TRUE,fitted to observation
+2,BTS,1996,9,9,1.0644364583039356,0.013155122889085014,history,1.0431656570195995,TRUE,fitted to observation
+2,BTS,1996,10,10,1.1916977669227249,0.013428369544529204,history,1.175525132616167,TRUE,fitted to observation
+2,BTS,1996,11,11,1.3065457135378205,0.014871468164476266,history,1.3855805970992598,TRUE,fitted to observation
+2,BTS,1996,12,12,1.3851856660613973,0.015270097726980587,history,1.5108274249573932,TRUE,fitted to observation
+2,BTS,1996,13,13,1.4645427171436431,0.017963825621985282,history,1.680092550626633,TRUE,fitted to observation
+2,BTS,1996,14,14,1.5541394573548837,0.020321597585838982,history,1.6819881230481286,TRUE,fitted to observation
+2,BTS,1996,15,15+,1.6904373644718131,0.018922734155145938,history,1.7889372805703438,TRUE,fitted to observation
+2,BTS,1997,3,3,0.2190893794385049,0.005495522839510837,history,0.1930958752495268,TRUE,fitted to observation
+2,BTS,1997,4,4,0.3785536550477741,0.00744763613024363,history,0.29948793625560804,TRUE,fitted to observation
+2,BTS,1997,5,5,0.4683814755959921,0.006976830817051771,history,0.38022815698820545,TRUE,fitted to observation
+2,BTS,1997,6,6,0.6415695620861179,0.008767744104578772,history,0.6233984199937868,TRUE,fitted to observation
+2,BTS,1997,7,7,0.8539358322394566,0.009172371652671969,history,0.7542929312100234,TRUE,fitted to observation
+2,BTS,1997,8,8,1.013374612329529,0.00938777785872182,history,0.8989052161689642,TRUE,fitted to observation
+2,BTS,1997,9,9,1.038139390173995,0.011474230199086893,history,1.121502018336105,TRUE,fitted to observation
+2,BTS,1997,10,10,1.1535747869633388,0.013823749156923247,history,1.1847510370498275,TRUE,fitted to observation
+2,BTS,1997,11,11,1.3038809181763054,0.014832619764819574,history,1.319237192274914,TRUE,fitted to observation
+2,BTS,1997,12,12,1.4004274674934536,0.016201195987928126,history,1.5287821439097236,TRUE,fitted to observation
+2,BTS,1997,13,13,1.5180045239459943,0.017308109880040303,history,1.5826657748295765,TRUE,fitted to observation
+2,BTS,1997,14,14,1.5419153340318321,0.020900605652791723,history,1.6446932859580623,TRUE,fitted to observation
+2,BTS,1997,15,15+,1.7158405153353158,0.017751240016882386,history,1.7639028650911046,TRUE,fitted to observation
+2,BTS,1998,3,3,0.22480931674719043,0.00465596878792299,history,0.1854987453042702,TRUE,fitted to observation
+2,BTS,1998,4,4,0.4104204011848695,0.007723549062086412,history,0.32250048836452844,TRUE,fitted to observation
+2,BTS,1998,5,5,0.5048269584475275,0.007764313488067786,history,0.4602075304892555,TRUE,fitted to observation
+2,BTS,1998,6,6,0.5786403943610113,0.005938756021695737,history,0.5237756747473891,TRUE,fitted to observation
+2,BTS,1998,7,7,0.7542069520717182,0.00861288760311236,history,0.8013135307334638,TRUE,fitted to observation
+2,BTS,1998,8,8,0.9699395961473986,0.009306118109467397,history,0.8952826154222916,TRUE,fitted to observation
+2,BTS,1998,9,9,1.115125713302462,0.009632229370379365,history,1.0124943771165809,TRUE,fitted to observation
+2,BTS,1998,10,10,1.1198812687793567,0.011622093086322173,history,1.0815792214713638,TRUE,fitted to observation
+2,BTS,1998,11,11,1.2578852975209525,0.014663491653986664,history,1.285550917696228,TRUE,fitted to observation
+2,BTS,1998,12,12,1.3905886691189766,0.01581913283143028,history,1.348925516576942,TRUE,fitted to observation
+2,BTS,1998,13,13,1.5266819773196139,0.01792948741970225,history,1.4845482616024042,TRUE,fitted to observation
+2,BTS,1998,14,14,1.5884504205827272,0.020406535903771676,history,1.8862895572770808,TRUE,fitted to observation
+2,BTS,1998,15,15+,1.6966180539185234,0.018318092339637087,history,1.8862202126537972,TRUE,fitted to observation
+2,BTS,1999,3,3,0.2347263425743635,0.0038891118590533057,history,0.2186620692363351,TRUE,fitted to observation
+2,BTS,1999,4,4,0.42920403817527286,0.00519573660778744,history,0.3467542753138498,TRUE,fitted to observation
+2,BTS,1999,5,5,0.5507854631470375,0.007240580564964393,history,0.4074669889576275,TRUE,fitted to observation
+2,BTS,1999,6,6,0.6279347363258551,0.006846888875712215,history,0.5607930427933236,TRUE,fitted to observation
+2,BTS,1999,7,7,0.7029312532600934,0.005661498529443357,history,0.69991255705881,TRUE,fitted to observation
+2,BTS,1999,8,8,0.8814383808124733,0.008721967911408085,history,0.8972770823578725,TRUE,fitted to observation
+2,BTS,1999,9,9,1.0839912363462736,0.00969104796423613,history,1.086697784401665,TRUE,fitted to observation
+2,BTS,1999,10,10,1.2073751255697374,0.010167972636272497,history,1.151635646215469,TRUE,fitted to observation
+2,BTS,1999,11,11,1.2352385814750046,0.01269448640713419,history,1.291586679468394,TRUE,fitted to observation
+2,BTS,1999,12,12,1.3554754982050927,0.01567307306648249,history,1.3229373799519235,TRUE,fitted to observation
+2,BTS,1999,13,13,1.5270444309755098,0.01763740781348157,history,1.754187738794531,TRUE,fitted to observation
+2,BTS,1999,14,14,1.6068478734016234,0.020978254541495066,history,1.7561284930643528,TRUE,fitted to observation
+2,BTS,1999,15,15+,1.755006034337637,0.017407779082785665,history,1.9819998996894896,TRUE,fitted to observation
+2,BTS,2000,3,3,0.22102398050258842,0.004963623176911448,history,0.23593577099289056,TRUE,fitted to observation
+2,BTS,2000,4,4,0.4426894996052307,0.005180112770847632,history,0.4003929441470917,TRUE,fitted to observation
+2,BTS,2000,5,5,0.5696424316489059,0.005579539196361961,history,0.4770920863998345,TRUE,fitted to observation
+2,BTS,2000,6,6,0.6732845482765969,0.007809153065329113,history,0.5621673338843621,TRUE,fitted to observation
+2,BTS,2000,7,7,0.7514343105251113,0.007283674330389916,history,0.7038026849301797,TRUE,fitted to observation
+2,BTS,2000,8,8,0.8280499797275682,0.006672665933935986,history,0.7859177158834115,TRUE,fitted to observation
+2,BTS,2000,9,9,0.9941508109435797,0.009427153171173736,history,0.9457867425195484,TRUE,fitted to observation
+2,BTS,2000,10,10,1.175378539063722,0.010516144765981708,history,1.1641466613050278,TRUE,fitted to observation
+2,BTS,2000,11,11,1.3221593872871642,0.01193318767392783,history,1.364169994531356,TRUE,fitted to observation
+2,BTS,2000,12,12,1.3316491542980022,0.014151563641273323,history,1.475664802436056,TRUE,fitted to observation
+2,BTS,2000,13,13,1.4897577858414484,0.01768843949230632,history,1.7202712486550766,TRUE,fitted to observation
+2,BTS,2000,14,14,1.6060833096024145,0.020899578693784157,history,1.7518644982038978,TRUE,fitted to observation
+2,BTS,2000,15,15+,1.7731867901121474,0.018256805086613346,history,2.001247384684661,TRUE,fitted to observation
+2,BTS,2001,3,3,0.2264555618960349,0.0045838741115419935,history,0.1719741387936599,TRUE,fitted to observation
+2,BTS,2001,4,4,0.44224927555063076,0.0071319197390882156,history,0.35901950469306826,TRUE,fitted to observation
+2,BTS,2001,5,5,0.6066032386935105,0.006153801933493277,history,0.5295231822996662,TRUE,fitted to observation
+2,BTS,2001,6,6,0.7159434871779167,0.006940896161178036,history,0.668942255470079,TRUE,fitted to observation
+2,BTS,2001,7,7,0.8213395236130134,0.008800417163438885,history,0.7971509733417677,TRUE,fitted to observation
+2,BTS,2001,8,8,0.9012740787883271,0.008668274298559845,history,0.8811575756317594,TRUE,fitted to observation
+2,BTS,2001,9,9,0.9643723551517425,0.008296762086584393,history,0.996397296981235,TRUE,fitted to observation
+2,BTS,2001,10,10,1.1094094273028712,0.010506692423063868,history,1.1175600980163396,TRUE,fitted to observation
+2,BTS,2001,11,11,1.3116603051428584,0.012437134347805232,history,1.337031721274048,TRUE,fitted to observation
+2,BTS,2001,12,12,1.4390348873356342,0.013927627097941767,history,1.4992950319640037,TRUE,fitted to observation
+2,BTS,2001,13,13,1.4853957411573704,0.016450297777294134,history,1.5887091814072547,TRUE,fitted to observation
+2,BTS,2001,14,14,1.5878762630904466,0.0210868466025032,history,1.79413369514985,TRUE,fitted to observation
+2,BTS,2001,15,15+,1.7908466831053707,0.018297936792708247,history,1.8796899952749424,TRUE,fitted to observation
+2,BTS,2002,3,3,0.2463742383756398,0.004871090590079652,history,0.2441214568535233,TRUE,fitted to observation
+2,BTS,2002,4,4,0.4388032139384791,0.00577680055818696,history,0.3890999321356658,TRUE,fitted to observation
+2,BTS,2002,5,5,0.59312713303041,0.007112102071243017,history,0.5209917403265311,TRUE,fitted to observation
+2,BTS,2002,6,6,0.7399521828604022,0.006298791440532104,history,0.673903608170367,TRUE,fitted to observation
+2,BTS,2002,7,7,0.850679065940933,0.007288788818711349,history,0.7601264257908625,TRUE,fitted to observation
+2,BTS,2002,8,8,0.9581515377517856,0.009294018378812146,history,0.9345514640298432,TRUE,fitted to observation
+2,BTS,2002,9,9,1.0238935468357293,0.009277142748613847,history,1.0333251064575533,TRUE,fitted to observation
+2,BTS,2002,10,10,1.0670771486140893,0.00891160389283321,history,1.1205516668024569,TRUE,fitted to observation
+2,BTS,2002,11,11,1.232541374309934,0.011890675348143889,history,1.1273557237628382,TRUE,fitted to observation
+2,BTS,2002,12,12,1.4165863934118623,0.013998811782555772,history,1.4014560624538936,TRUE,fitted to observation
+2,BTS,2002,13,13,1.584098038682244,0.0161534495360464,history,1.5633635427014632,TRUE,fitted to observation
+2,BTS,2002,14,14,1.5726620525892807,0.019871668674320945,history,1.7410000855706846,TRUE,fitted to observation
+2,BTS,2002,15,15+,1.761073011158559,0.018409627411883626,history,1.9338687416143103,TRUE,fitted to observation
+2,BTS,2003,3,3,0.27422509085849883,0.004490066347697627,history,0.2793271646510327,TRUE,fitted to observation
+2,BTS,2003,4,4,0.471279055119811,0.006153649774209128,history,0.4613055436078573,TRUE,fitted to observation
+2,BTS,2003,5,5,0.5928275119711115,0.00630925159960061,history,0.6209306487868768,TRUE,fitted to observation
+2,BTS,2003,6,6,0.7298034831390728,0.00724056778983773,history,0.734975068232147,TRUE,fitted to observation
+2,BTS,2003,7,7,0.8786351545534093,0.006827011304481322,history,0.8148486386038319,TRUE,fitted to observation
+2,BTS,2003,8,8,0.9915287999780411,0.007915657770591337,history,0.96794475816549,TRUE,fitted to observation
+2,BTS,2003,9,9,1.084300421104163,0.00998744475858946,history,1.0447679815333148,TRUE,fitted to observation
+2,BTS,2003,10,10,1.1290859753453297,0.009986242979237527,history,1.2005565090597323,TRUE,fitted to observation
+2,BTS,2003,11,11,1.193157586087465,0.010505165442365651,history,1.250444709275021,TRUE,fitted to observation
+2,BTS,2003,12,12,1.340805287366336,0.013458457353083864,history,1.370903378250337,TRUE,fitted to observation
+2,BTS,2003,13,13,1.5640813449874635,0.016243989909855986,history,1.5475645164929486,TRUE,fitted to observation
+2,BTS,2003,14,14,1.6734769000476815,0.02006018458942152,history,1.5502053193994905,TRUE,fitted to observation
+2,BTS,2003,15,15+,1.7479250493073009,0.017023473148564554,history,1.7439097565863968,TRUE,fitted to observation
+2,BTS,2004,3,3,0.23958863191725957,0.004666391665665783,history,0.27477185356240075,TRUE,fitted to observation
+2,BTS,2004,4,4,0.487186090492292,0.005539885267544669,history,0.4211650437633366,TRUE,fitted to observation
+2,BTS,2004,5,5,0.5991051031248578,0.006522830481889224,history,0.5665038683380499,TRUE,fitted to observation
+2,BTS,2004,6,6,0.6995540289260199,0.007216543829889161,history,0.688725972281176,TRUE,fitted to observation
+2,BTS,2004,7,7,0.8377856514925339,0.008268692997791049,history,0.8189429330386516,TRUE,fitted to observation
+2,BTS,2004,8,8,0.989129584220394,0.00800163927864765,history,0.9276100652501572,TRUE,fitted to observation
+2,BTS,2004,9,9,1.0875893263902565,0.009097172551509302,history,1.0411677962215335,TRUE,fitted to observation
+2,BTS,2004,10,10,1.159882890382408,0.010863190315130984,history,1.1517446052696227,TRUE,fitted to observation
+2,BTS,2004,11,11,1.227921537532309,0.011616219039801578,history,1.2101384206053352,TRUE,fitted to observation
+2,BTS,2004,12,12,1.2751361133761183,0.012178397390008864,history,1.3042482653630538,TRUE,fitted to observation
+2,BTS,2004,13,13,1.4605390228792707,0.015538362677117229,history,1.4556474745644732,TRUE,fitted to observation
+2,BTS,2004,14,14,1.629628961435155,0.019888363441859513,history,1.748149431329326,TRUE,fitted to observation
+2,BTS,2004,15,15+,1.8300537645481194,0.01660855138196588,history,1.7455229358086224,TRUE,fitted to observation
+2,BTS,2005,3,3,0.20729597094250807,0.004209709452632483,history,0.2172153722258616,TRUE,fitted to observation
+2,BTS,2005,4,4,0.42510453578070206,0.005419847426155214,history,0.39524784554096626,TRUE,fitted to observation
+2,BTS,2005,5,5,0.6039357811540289,0.005133388606879485,history,0.5098969985172447,TRUE,fitted to observation
+2,BTS,2005,6,6,0.6931083813438974,0.006338307406495813,history,0.6298937283863381,TRUE,fitted to observation
+2,BTS,2005,7,7,0.7940430616634772,0.007316340317059324,history,0.8091297191132711,TRUE,fitted to observation
+2,BTS,2005,8,8,0.9345795087323164,0.008562883876606118,history,0.9416791967983708,TRUE,fitted to observation
+2,BTS,2005,9,9,1.0723099161080594,0.008523390557622173,history,1.0200397560849204,TRUE,fitted to observation
+2,BTS,2005,10,10,1.1508333477826136,0.0096127749645126,history,1.1080604245511554,TRUE,fitted to observation
+2,BTS,2005,11,11,1.2470786771247957,0.012126737881148087,history,1.360786019790576,TRUE,fitted to observation
+2,BTS,2005,12,12,1.2985054150985689,0.012855583767469767,history,1.3137667703389766,TRUE,fitted to observation
+2,BTS,2005,13,13,1.382056510579049,0.013927258457243982,history,1.2990567157332655,TRUE,fitted to observation
+2,BTS,2005,14,14,1.5165854420367852,0.01866580867282217,history,1.4796213471784962,TRUE,fitted to observation
+2,BTS,2005,15,15+,1.7740000009568595,0.016374848144935245,history,1.5992166870884148,TRUE,fitted to observation
+2,BTS,2006,3,3,0.19856982042135043,0.004738050019057487,history,0.17009440492617792,TRUE,fitted to observation
+2,BTS,2006,4,4,0.397196028388015,0.0056259285415543574,history,0.4207239110777033,TRUE,fitted to observation
+2,BTS,2006,5,5,0.5596704756876919,0.005805634672077354,history,0.5984463277069846,TRUE,fitted to observation
+2,BTS,2006,6,6,0.721539190320778,0.0061506225873172735,history,0.6957245351464044,TRUE,fitted to observation
+2,BTS,2006,7,7,0.8115200874540651,0.006785914044260412,history,0.8146001415785074,TRUE,fitted to observation
+2,BTS,2006,8,8,0.9143902692524758,0.007993774224942995,history,0.8939972440680224,TRUE,fitted to observation
+2,BTS,2006,9,9,1.041411718338532,0.009333810106636083,history,1.0424990451615928,TRUE,fitted to observation
+2,BTS,2006,10,10,1.1583095283955798,0.009401874615546453,history,1.163618657116652,TRUE,fitted to observation
+2,BTS,2006,11,11,1.2597555683642923,0.011253010445723632,history,1.274854999915276,TRUE,fitted to observation
+2,BTS,2006,12,12,1.3383351900229037,0.013589546163230748,history,1.3899444889342305,TRUE,fitted to observation
+2,BTS,2006,13,13,1.4262290469111667,0.01484243257535479,history,1.4668829097990026,TRUE,fitted to observation
+2,BTS,2006,14,14,1.457523654702386,0.017343265631651655,history,1.4343855081946737,TRUE,fitted to observation
+2,BTS,2006,15,15+,1.6739977422712766,0.015642910432946345,history,1.4889277782286674,TRUE,fitted to observation
+2,BTS,2007,3,3,0.21857238497589246,0.004979690645074528,history,0.2630047412462953,TRUE,fitted to observation
+2,BTS,2007,4,4,0.45084169272415703,0.006391148320766472,history,0.4970590702437813,TRUE,fitted to observation
+2,BTS,2007,5,5,0.6050298387953453,0.005628190828952183,history,0.636756326140057,TRUE,fitted to observation
+2,BTS,2007,6,6,0.7552942136370802,0.005935499205917097,history,0.8023094605339284,TRUE,fitted to observation
+2,BTS,2007,7,7,0.9207491303049875,0.006849331678566968,history,0.9068790645622168,TRUE,fitted to observation
+2,BTS,2007,8,8,1.0129276655974342,0.008013506337898903,history,1.0393000728368336,TRUE,fitted to observation
+2,BTS,2007,9,9,1.10033318794588,0.009162090965948364,history,1.145830931421143,TRUE,fitted to observation
+2,BTS,2007,10,10,1.2033338821481163,0.010501770121851285,history,1.4057545730601133,TRUE,fitted to observation
+2,BTS,2007,11,11,1.340335333544374,0.01152439723722196,history,1.3720731592994315,TRUE,fitted to observation
+2,BTS,2007,12,12,1.4204010167608643,0.013345437015768572,history,1.41111296788685,TRUE,fitted to observation
+2,BTS,2007,13,13,1.5346921276956014,0.01614249057509991,history,1.7228537233543,TRUE,fitted to observation
+2,BTS,2007,14,14,1.5644612567703569,0.018947449992767554,history,1.6362342264754768,TRUE,fitted to observation
+2,BTS,2007,15,15+,1.6740449911017212,0.014930034273621391,history,1.6890311068728792,TRUE,fitted to observation
+2,BTS,2008,3,3,0.18581799906581595,0.004415657405661457,history,0.2208125088875263,TRUE,fitted to observation
+2,BTS,2008,4,4,0.4274764417604414,0.00692502483294464,history,0.4551523319817043,TRUE,fitted to observation
+2,BTS,2008,5,5,0.6027476720667958,0.0064713118913599,history,0.584996870006629,TRUE,fitted to observation
+2,BTS,2008,6,6,0.7387489854156574,0.0059660121793606484,history,0.7167735038489874,TRUE,fitted to observation
+2,BTS,2008,7,7,0.8909478876391237,0.006679250255414336,history,0.8463160557224123,TRUE,fitted to observation
+2,BTS,2008,8,8,1.0592724292816946,0.0076731972246595484,history,0.996601477286754,TRUE,fitted to observation
+2,BTS,2008,9,9,1.1358575776150555,0.00891972582681089,history,1.0579839805073652,TRUE,fitted to observation
+2,BTS,2008,10,10,1.20131271375955,0.010058307554089098,history,1.2371456173928748,TRUE,fitted to observation
+2,BTS,2008,11,11,1.3276162905651985,0.01212008952106219,history,1.536618064251697,TRUE,fitted to observation
+2,BTS,2008,12,12,1.445538944439708,0.01331550383935384,history,1.50868524812801,TRUE,fitted to observation
+2,BTS,2008,13,13,1.5652900127977536,0.015632933183938796,history,1.7257216859281883,TRUE,fitted to observation
+2,BTS,2008,14,14,1.6219076622245436,0.019857484523037983,history,1.8495781235289153,TRUE,fitted to observation
+2,BTS,2008,15,15+,1.7368412134459246,0.015890555596195413,history,1.8940067595551733,TRUE,fitted to observation
+2,BTS,2009,3,3,0.21197325060935723,0.004034347370504303,history,0.2243730156529531,TRUE,fitted to observation
+2,BTS,2009,4,4,0.45982922904295553,0.006292897735955122,history,0.4985658907467197,TRUE,fitted to observation
+2,BTS,2009,5,5,0.6691362139555116,0.00856131631297384,history,0.6753278773687542,TRUE,fitted to observation
+2,BTS,2009,6,6,0.8320880924794838,0.008031271705708729,history,0.7907310657530885,TRUE,fitted to observation
+2,BTS,2009,7,7,0.9718414314283054,0.008116828795737132,history,0.999038437164941,TRUE,fitted to observation
+2,BTS,2009,8,8,1.1272241266631475,0.008810482363389905,history,1.1346168918860786,TRUE,fitted to observation
+2,BTS,2009,9,9,1.2782008877891338,0.009783692929857814,history,1.17372898975581,TRUE,fitted to observation
+2,BTS,2009,10,10,1.3278895486469695,0.010843726629399699,history,1.481486339584069,TRUE,fitted to observation
+2,BTS,2009,11,11,1.4142637127759001,0.012632483409369843,history,1.5678581184505236,TRUE,fitted to observation
+2,BTS,2009,12,12,1.5171418752711645,0.014715566445555155,history,1.7588584041242612,TRUE,fitted to observation
+2,BTS,2009,13,13,1.6731196157989565,0.016542500833326187,history,2.049024189996938,TRUE,fitted to observation
+2,BTS,2009,14,14,1.7288861643565796,0.020575251826672435,history,2.277463319268193,TRUE,fitted to observation
+2,BTS,2009,15,15+,1.8722861186985043,0.017449497018871864,history,2.359961674114758,TRUE,fitted to observation
+2,BTS,2010,3,3,0.18603139307625066,0.00503407750627744,history,0.24926378503024463,TRUE,fitted to observation
+2,BTS,2010,4,4,0.4469531177636523,0.004753606252732465,history,0.5099033946425056,TRUE,fitted to observation
+2,BTS,2010,5,5,0.6455260345781115,0.006606097866285405,history,0.6754705504153325,TRUE,fitted to observation
+2,BTS,2010,6,6,0.838577501157703,0.00898786184391859,history,0.875406783614271,TRUE,fitted to observation
+2,BTS,2010,7,7,1.0040759270654724,0.008796320946261704,history,1.0942921592796693,TRUE,fitted to observation
+2,BTS,2010,8,8,1.1465460408063037,0.008959046016316079,history,1.188427825590177,TRUE,fitted to observation
+2,BTS,2010,9,9,1.2848118588708268,0.009799611395077798,history,1.245285814164025,TRUE,fitted to observation
+2,BTS,2010,10,10,1.4095700984940156,0.010849127519126192,history,1.351961361359158,TRUE,fitted to observation
+2,BTS,2010,11,11,1.4852980545368366,0.012749247954168078,history,1.4533780392635782,TRUE,fitted to observation
+2,BTS,2010,12,12,1.5497785501454997,0.014629654244002735,history,1.6506013042609,TRUE,fitted to observation
+2,BTS,2010,13,13,1.6943726600851619,0.01724375526098926,history,1.8757802752148085,TRUE,fitted to observation
+2,BTS,2010,14,14,1.7870185054314276,0.02104907850058785,history,2.213054160820665,TRUE,fitted to observation
+2,BTS,2010,15,15+,1.9364161706911627,0.01722555558100181,history,2.4425737199903548,TRUE,fitted to observation
+2,BTS,2011,3,3,0.1770655685429959,0.0037607064560089758,history,0.2088204782530248,TRUE,fitted to observation
+2,BTS,2011,4,4,0.39367760000715374,0.006863363218164257,history,0.49869639083378264,TRUE,fitted to observation
+2,BTS,2011,5,5,0.6148088097016159,0.006134415094318604,history,0.6631701957488512,TRUE,fitted to observation
+2,BTS,2011,6,6,0.7969245071478284,0.00720807252752322,history,0.7733928951397043,TRUE,fitted to observation
+2,BTS,2011,7,7,0.992648060479118,0.009330046297630953,history,0.9383581371995976,TRUE,fitted to observation
+2,BTS,2011,8,8,1.1611112109075843,0.009554916802032107,history,1.1180886029674644,TRUE,fitted to observation
+2,BTS,2011,9,9,1.2864151105598396,0.009837895237083342,history,1.2468759434056322,TRUE,fitted to observation
+2,BTS,2011,10,10,1.3991924547039023,0.010742176869102456,history,1.2958405204155057,TRUE,fitted to observation
+2,BTS,2011,11,11,1.5513102267903136,0.01283491994624976,history,1.4549692828958556,TRUE,fitted to observation
+2,BTS,2011,12,12,1.6050947495779204,0.014762045796560319,history,1.5301514739066124,TRUE,fitted to observation
+2,BTS,2011,13,13,1.7127954961652911,0.01708761256958509,history,1.6383452775723486,TRUE,fitted to observation
+2,BTS,2011,14,14,1.7939900554872141,0.02150661148349639,history,1.7269750980591922,TRUE,fitted to observation
+2,BTS,2011,15,15+,1.983484644737784,0.01736483575228266,history,2.014876307842421,TRUE,fitted to observation
+2,BTS,2012,3,3,0.18268934400309889,0.003499874360968667,history,0.19483743220314195,TRUE,fitted to observation
+2,BTS,2012,4,4,0.36817997117503537,0.003640635283297956,history,0.4195316691968098,TRUE,fitted to observation
+2,BTS,2012,5,5,0.5436619258493103,0.006366868729098495,history,0.6061076356777776,TRUE,fitted to observation
+2,BTS,2012,6,6,0.7511941975765678,0.006344416036988279,history,0.783542998865363,TRUE,fitted to observation
+2,BTS,2012,7,7,0.9356693256504405,0.007657224593496809,history,0.932940695504294,TRUE,fitted to observation
+2,BTS,2012,8,8,1.1346760119939843,0.00989301408936296,history,1.1369148174483537,TRUE,fitted to observation
+2,BTS,2012,9,9,1.2864304338116044,0.010259728636063725,history,1.3332717881659557,TRUE,fitted to observation
+2,BTS,2012,10,10,1.3869036108089763,0.010701868234495407,history,1.4005534849482346,TRUE,fitted to observation
+2,BTS,2012,11,11,1.5274205425194882,0.012670080152710374,history,1.4317818999286238,TRUE,fitted to observation
+2,BTS,2012,12,12,1.6581794500746834,0.014891923420141314,history,1.5292251528986371,TRUE,fitted to observation
+2,BTS,2012,13,13,1.7572268333517407,0.017234819085118373,history,1.5584780142620085,TRUE,fitted to observation
+2,BTS,2012,14,14,1.8006774176464364,0.02138020749965296,history,1.844843213536255,TRUE,fitted to observation
+2,BTS,2012,15,15+,1.9794040830928321,0.017896028429616736,history,2.0152528571492048,TRUE,fitted to observation
+2,BTS,2013,3,3,0.210002656601069,0.0039780613722494975,history,0.2126532516230215,TRUE,fitted to observation
+2,BTS,2013,4,4,0.40197390974402875,0.004604102571535564,history,0.5012937141982422,TRUE,fitted to observation
+2,BTS,2013,5,5,0.5450903933551762,0.004469578500181581,history,0.582086854081374,TRUE,fitted to observation
+2,BTS,2013,6,6,0.7089717227128002,0.006831430847349337,history,0.744350171361462,TRUE,fitted to observation
+2,BTS,2013,7,7,0.9201273928786192,0.0071916658100818045,history,0.9927564069009318,TRUE,fitted to observation
+2,BTS,2013,8,8,1.1078882664717717,0.008691161076261082,history,1.1659611495335014,TRUE,fitted to observation
+2,BTS,2013,9,9,1.2902896956318246,0.011012032913626983,history,1.353972164156835,TRUE,fitted to observation
+2,BTS,2013,10,10,1.4157948834292773,0.011455329642610014,history,1.4094936181963331,TRUE,fitted to observation
+2,BTS,2013,11,11,1.5429859557853347,0.013004263288072712,history,1.5422871609855622,TRUE,fitted to observation
+2,BTS,2013,12,12,1.6609212141341425,0.015114113682223753,history,1.581748943565945,TRUE,fitted to observation
+2,BTS,2013,13,13,1.8376263711014076,0.01786182198777171,history,1.7104880261209716,TRUE,fitted to observation
+2,BTS,2013,14,14,1.8689260261847673,0.022129829429421308,history,1.8595288671496089,TRUE,fitted to observation
+2,BTS,2013,15,15+,2.0101282725226475,0.018028754149599972,history,1.923314608991005,TRUE,fitted to observation
+2,BTS,2014,3,3,0.2601688050850095,0.004719110931577114,history,0.2572917802075108,TRUE,fitted to observation
+2,BTS,2014,4,4,0.42844567233596115,0.005375897796957428,history,0.4375944821054647,TRUE,fitted to observation
+2,BTS,2014,5,5,0.5656503833809293,0.005298225575161424,history,0.5713562778496221,TRUE,fitted to observation
+2,BTS,2014,6,6,0.6939278682893051,0.004608257185118641,history,0.7160175987234734,TRUE,fitted to observation
+2,BTS,2014,7,7,0.8605143227347224,0.006630468579002336,history,0.7908954299463944,TRUE,fitted to observation
+2,BTS,2014,8,8,1.0752173016932378,0.007790556539303329,history,1.1056865817922028,TRUE,fitted to observation
+2,BTS,2014,9,9,1.2469615640248273,0.009512661986192581,history,1.2307949732186392,TRUE,fitted to observation
+2,BTS,2014,10,10,1.4037971657622597,0.01174549455339561,history,1.4233577100699355,TRUE,fitted to observation
+2,BTS,2014,11,11,1.556823661444143,0.01345336194908114,history,1.675740697996607,TRUE,fitted to observation
+2,BTS,2014,12,12,1.6619111189860212,0.015157937137913762,history,1.6055041780909851,TRUE,fitted to observation
+2,BTS,2014,13,13,1.8263031819504372,0.017836883050366507,history,1.6716644309080184,TRUE,fitted to observation
+2,BTS,2014,14,14,1.9355120444795593,0.022702999016342665,history,1.8472158962467984,TRUE,fitted to observation
+2,BTS,2014,15,15+,2.0686952747110947,0.01845807375902442,history,1.903221762047047,TRUE,fitted to observation
+2,BTS,2015,3,3,0.26127482078121583,0.003888773185685586,history,0.32747304826796214,TRUE,fitted to observation
+2,BTS,2015,4,4,0.42677636379955547,0.005308698467693763,history,0.4446221035458489,TRUE,fitted to observation
+2,BTS,2015,5,5,0.5081791817624512,0.005201521422802201,history,0.5882233283174432,TRUE,fitted to observation
+2,BTS,2015,6,6,0.6250120027100623,0.0050528743643234305,history,0.6857651856577145,TRUE,fitted to observation
+2,BTS,2015,7,7,0.7535710111304802,0.004782498268678084,history,0.7838594151678305,TRUE,fitted to observation
+2,BTS,2015,8,8,0.9226592813308945,0.007221092516990851,history,0.9045764757467932,TRUE,fitted to observation
+2,BTS,2015,9,9,1.1241331974381445,0.008450935425840474,history,1.1655582632048405,TRUE,fitted to observation
+2,BTS,2015,10,10,1.2751193392367195,0.010119361212417993,history,1.2289928799207113,TRUE,fitted to observation
+2,BTS,2015,11,11,1.4614447489760698,0.013306045495905172,history,1.4960323818516366,TRUE,fitted to observation
+2,BTS,2015,12,12,1.5965602791338374,0.015030162164359035,history,1.5495092795029637,TRUE,fitted to observation
+2,BTS,2015,13,13,1.750319832893433,0.017270499673508244,history,1.4317345551308136,TRUE,fitted to observation
+2,BTS,2015,14,14,1.8523322118530416,0.021884888810786228,history,1.4918402007403178,TRUE,fitted to observation
+2,BTS,2015,15,15+,2.067849062330361,0.018272397990197024,history,1.749706268797099,TRUE,fitted to observation
+2,BTS,2016,3,3,0.23800549465222193,0.0038152633833953634,history,0.2789758068499117,TRUE,fitted to observation
+2,BTS,2016,4,4,0.4620793874613226,0.003837309983279913,history,0.5312140352724772,TRUE,fitted to observation
+2,BTS,2016,5,5,0.5445108417507541,0.005362878257805329,history,0.5951011891168457,TRUE,fitted to observation
+2,BTS,2016,6,6,0.6064001575216379,0.005334079237954372,history,0.6967126012001857,TRUE,fitted to observation
+2,BTS,2016,7,7,0.7244420461199649,0.005516014663188168,history,0.7789551977217463,TRUE,fitted to observation
+2,BTS,2016,8,8,0.8552018326657266,0.00564620078806332,history,0.8275804189322719,TRUE,fitted to observation
+2,BTS,2016,9,9,1.0117059443253524,0.008249146543592429,history,0.9037245257090606,TRUE,fitted to observation
+2,BTS,2016,10,10,1.1923564945511045,0.009337135365647835,history,1.003859504070394,TRUE,fitted to observation
+2,BTS,2016,11,11,1.368643271413898,0.011929231808053766,history,1.1369325551545786,TRUE,fitted to observation
+2,BTS,2016,12,12,1.5365394696888484,0.015052717468132956,history,1.5543587023173038,TRUE,fitted to observation
+2,BTS,2016,13,13,1.7173247731050352,0.017411400968971823,history,1.3513995495991038,TRUE,fitted to observation
+2,BTS,2016,14,14,1.8088344906416765,0.021529099841325026,history,1.5357937505539927,TRUE,fitted to observation
+2,BTS,2016,15,15+,2.011998455799668,0.01808766110021594,history,1.4208564835295077,TRUE,fitted to observation
+2,BTS,2017,3,3,0.24755641873215944,0.004371999562001281,history,0.23133537750631988,TRUE,fitted to observation
+2,BTS,2017,4,4,0.4398892793974726,0.00438872666720244,history,0.4721830531131947,TRUE,fitted to observation
+2,BTS,2017,5,5,0.5963316728011037,0.0045547366664376214,history,0.6254259067668002,TRUE,fitted to observation
+2,BTS,2017,6,6,0.6578437901927918,0.00572234195927215,history,0.6734661973186389,TRUE,fitted to observation
+2,BTS,2017,7,7,0.7203730115428483,0.005848755353606605,history,0.7548378077919485,TRUE,fitted to observation
+2,BTS,2017,8,8,0.8405501735851558,0.006384302022081136,history,0.8143501404442715,TRUE,fitted to observation
+2,BTS,2017,9,9,0.9588420353994724,0.006922651642493552,history,0.8915223912991584,TRUE,fitted to observation
+2,BTS,2017,10,10,1.0955395086091393,0.009202941019406016,history,0.9188459683324334,TRUE,fitted to observation
+2,BTS,2017,11,11,1.2986185967919905,0.011224919721593264,history,1.057264455606796,TRUE,fitted to observation
+2,BTS,2017,12,12,1.456734884407207,0.013788824723358222,history,0.9932024118251384,TRUE,fitted to observation
+2,BTS,2017,13,13,1.6680603419596092,0.017451730125689048,history,1.2892954373589949,TRUE,fitted to observation
+2,BTS,2017,14,14,1.787685395534857,0.021624465901405734,history,1.1233934394840448,TRUE,fitted to observation
+2,BTS,2017,15,15+,1.977792525440566,0.018017787670354352,history,1.4847367637602735,TRUE,fitted to observation
+2,BTS,2018,3,3,0.2598978065500425,0.005136490089418083,history,0.21463796963896528,TRUE,fitted to observation
+2,BTS,2018,4,4,0.428302334811663,0.005506448596730798,history,0.42128572008255183,TRUE,fitted to observation
+2,BTS,2018,5,5,0.5433446870979343,0.004185115162687058,history,0.5914595965185303,TRUE,fitted to observation
+2,BTS,2018,6,6,0.6801185146139364,0.005133368970178866,history,0.6838721467927749,TRUE,fitted to observation
+2,BTS,2018,7,7,0.7414093662453484,0.006270453196489325,history,0.7769707152373289,TRUE,fitted to observation
+2,BTS,2018,8,8,0.8051948748923352,0.006612536956603771,history,0.8156970719588982,TRUE,fitted to observation
+2,BTS,2018,9,9,0.9136400640833414,0.007227555871414347,history,0.8958480286768048,TRUE,fitted to observation
+2,BTS,2018,10,10,1.0143430782681429,0.007741299895406786,history,0.9326300372001392,TRUE,fitted to observation
+2,BTS,2018,11,11,1.1727725815356003,0.010727390720517772,history,1.0360512101407438,TRUE,fitted to observation
+2,BTS,2018,12,12,1.3600635841533715,0.012863742629379572,history,0.9438652113538488,TRUE,fitted to observation
+2,BTS,2018,13,13,1.55995643353897,0.016007565650056867,history,1.4095201330595584,TRUE,fitted to observation
+2,BTS,2018,14,14,1.7144097862960612,0.021216299238782925,history,NA,FALSE,model prediction without observation
+2,BTS,2018,15,15+,1.9316831607237706,0.018126313225060642,history,1.5399568408492963,TRUE,fitted to observation
+2,BTS,2019,3,3,0.28368407582139205,0.0053252621132852205,history,0.2861378376251527,TRUE,fitted to observation
+2,BTS,2019,4,4,0.5197848662538859,0.0071069628274945795,history,0.48713852000142566,TRUE,fitted to observation
+2,BTS,2019,5,5,0.6138090737361872,0.0059465938794264,history,0.633547637995219,TRUE,fitted to observation
+2,BTS,2019,6,6,0.7128957654177834,0.0049291620469428445,history,0.731082245628857,TRUE,fitted to observation
+2,BTS,2019,7,7,0.8524614988607105,0.00567119685763964,history,0.8217534612973091,TRUE,fitted to observation
+2,BTS,2019,8,8,0.9154380049987633,0.007143857797062323,history,0.9252488476882887,TRUE,fitted to observation
+2,BTS,2019,9,9,0.9653332260528206,0.007635162432276049,history,0.9367857797258184,TRUE,fitted to observation
+2,BTS,2019,10,10,1.0528451064170734,0.00833225877079738,history,1.034870155811037,TRUE,fitted to observation
+2,BTS,2019,11,11,1.1712605932035682,0.00981491943956254,history,0.965320625381359,TRUE,fitted to observation
+2,BTS,2019,12,12,1.3109138937014606,0.012712776613934438,history,1.065626376956174,TRUE,fitted to observation
+2,BTS,2019,13,13,1.534914362252988,0.015515675761318367,history,1.038327044750087,TRUE,fitted to observation
+2,BTS,2019,14,14,1.6765334965264485,0.020271889194218,history,1.062664967877056,TRUE,fitted to observation
+2,BTS,2019,15,15+,1.923039539046606,0.018456389483699015,history,NA,FALSE,model prediction without observation
+2,BTS,2020,3,3,0.24003086357336853,0.004480487276435484,history,NA,FALSE,model prediction without observation
+2,BTS,2020,4,4,0.4631247489538718,0.006777648360345252,history,NA,FALSE,model prediction without observation
+2,BTS,2020,5,5,0.6081719716161377,0.007200835406090813,history,NA,FALSE,model prediction without observation
+2,BTS,2020,6,6,0.6758500631859615,0.005694115504860596,history,NA,FALSE,model prediction without observation
+2,BTS,2020,7,7,0.774670461640975,0.005750064461278678,history,NA,FALSE,model prediction without observation
+2,BTS,2020,8,8,0.9163948805781716,0.006907461361167327,history,NA,FALSE,model prediction without observation
+2,BTS,2020,9,9,0.9663339308693953,0.008143531074939732,history,NA,FALSE,model prediction without observation
+2,BTS,2020,10,10,0.9996207988910962,0.008517721764796248,history,NA,FALSE,model prediction without observation
+2,BTS,2020,11,11,1.1092821532695964,0.009943974247358267,history,NA,FALSE,model prediction without observation
+2,BTS,2020,12,12,1.213600884130028,0.011362499030617762,history,NA,FALSE,model prediction without observation
+2,BTS,2020,13,13,1.3912076887529683,0.014694191852223981,history,NA,FALSE,model prediction without observation
+2,BTS,2020,14,14,1.564603304902897,0.018957936148741774,history,NA,FALSE,model prediction without observation
+2,BTS,2020,15,15+,1.797831508493966,0.016988197964139442,history,NA,FALSE,model prediction without observation
+2,BTS,2021,3,3,0.23060929887111525,0.0031262218688128483,history,0.2447531213121662,TRUE,fitted to observation
+2,BTS,2021,4,4,0.4157297542215945,0.0045278139164703106,history,0.4421148372176586,TRUE,fitted to observation
+2,BTS,2021,5,5,0.5667024359578098,0.005877934036083637,history,0.5851827467593953,TRUE,fitted to observation
+2,BTS,2021,6,6,0.6904600551192005,0.006526335564620579,history,0.7127999291301742,TRUE,fitted to observation
+2,BTS,2021,7,7,0.7579109723280221,0.00528111870286049,history,0.8026434030944208,TRUE,fitted to observation
+2,BTS,2021,8,8,0.8584564742639952,0.005551130818183553,history,0.8573653195013672,TRUE,fitted to observation
+2,BTS,2021,9,9,0.9877143322931232,0.007031665898453032,history,0.976981039471856,TRUE,fitted to observation
+2,BTS,2021,10,10,1.0200875801797018,0.008299985594195093,history,1.1179989830734056,TRUE,fitted to observation
+2,BTS,2021,11,11,1.0744758515303172,0.00945275634644185,history,1.040374811860541,TRUE,fitted to observation
+2,BTS,2021,12,12,1.1697057990626472,0.010975299626324125,history,1.116867698823565,TRUE,fitted to observation
+2,BTS,2021,13,13,1.3086448484097621,0.013076757231243467,history,1.2979101452192137,TRUE,fitted to observation
+2,BTS,2021,14,14,1.4382654312399894,0.017668106194742416,history,0.9990309116062212,TRUE,fitted to observation
+2,BTS,2021,15,15+,1.696501872503888,0.015876045797706854,history,1.361116436156378,TRUE,fitted to observation
+2,BTS,2022,3,3,0.2667393428912774,0.003782946491489432,history,0.2695353642220752,TRUE,fitted to observation
+2,BTS,2022,4,4,0.43605614179028906,0.0037111284171828895,history,0.44684861523969976,TRUE,fitted to observation
+2,BTS,2022,5,5,0.5545377014641981,0.004747007915217747,history,0.5904610542117983,TRUE,fitted to observation
+2,BTS,2022,6,6,0.688834686992263,0.0062500301694378094,history,0.6972603219277145,TRUE,fitted to observation
+2,BTS,2022,7,7,0.8141181516003089,0.00688010725516968,history,0.771252583549547,TRUE,fitted to observation
+2,BTS,2022,8,8,0.8830917310976684,0.005992878475936489,history,0.8732393519880045,TRUE,fitted to observation
+2,BTS,2022,9,9,0.9705423754191975,0.006660020698390906,history,0.9689019266028098,TRUE,fitted to observation
+2,BTS,2022,10,10,1.0799778298054674,0.008034149570629963,history,1.034271115305016,TRUE,fitted to observation
+2,BTS,2022,11,11,1.132717078860431,0.009946197991716968,history,1.2540810877293211,TRUE,fitted to observation
+2,BTS,2022,12,12,1.1707278993373316,0.011076356086528337,history,1.250668580063608,TRUE,fitted to observation
+2,BTS,2022,13,13,1.2983051452737404,0.013211650698945103,history,1.323778437831778,TRUE,fitted to observation
+2,BTS,2022,14,14,1.3888044288033679,0.016568603895362074,history,1.2049191966896662,TRUE,fitted to observation
+2,BTS,2022,15,15+,1.5959683976360997,0.015356324778974112,history,1.8122926322696615,TRUE,fitted to observation
+2,BTS,2023,3,3,0.24521565760720856,0.003866529257046957,history,0.28261744629594554,TRUE,fitted to observation
+2,BTS,2023,4,4,0.42504851388110304,0.004063620862208448,history,0.4157522585033585,TRUE,fitted to observation
+2,BTS,2023,5,5,0.5033984590541115,0.0035608096294708204,history,0.5364494582583884,TRUE,fitted to observation
+2,BTS,2023,6,6,0.6001547408899782,0.0048481320357687116,history,0.6573128497743632,TRUE,fitted to observation
+2,BTS,2023,7,7,0.7345767968269816,0.006508719709295479,history,0.8116323150930648,TRUE,fitted to observation
+2,BTS,2023,8,8,0.8617506604916758,0.0072983134395636674,history,0.9553275097547068,TRUE,fitted to observation
+2,BTS,2023,9,9,0.9185546147079309,0.0066845571356546375,history,0.9684041543150724,TRUE,fitted to observation
+2,BTS,2023,10,10,0.9900040896352346,0.007374555364738143,history,1.0127550057750716,TRUE,fitted to observation
+2,BTS,2023,11,11,1.1223651929815408,0.009417729800170211,history,1.1792070430093842,TRUE,fitted to observation
+2,BTS,2023,12,12,1.1615870150379108,0.011140915827719903,history,1.2002818430743163,TRUE,fitted to observation
+2,BTS,2023,13,13,1.233949652345209,0.012778252487616987,history,1.413917746967559,TRUE,fitted to observation
+2,BTS,2023,14,14,1.3174336765634427,0.016012345610246132,history,1.759068921809301,TRUE,fitted to observation
+2,BTS,2023,15,15+,1.4841156583316493,0.013748366451717786,history,1.4870615921201034,TRUE,fitted to observation
+2,BTS,2024,3,3,0.2577952413975815,0.004187837399010342,history,0.3085699927568869,TRUE,fitted to observation
+2,BTS,2024,4,4,0.4244379241242128,0.0039551058251312225,history,0.4541478791096744,TRUE,fitted to observation
+2,BTS,2024,5,5,0.5269302111594599,0.003200731925474934,history,0.5596391645265766,TRUE,fitted to observation
+2,BTS,2024,6,6,0.5851020927722659,0.0031995179387695246,history,0.6071015367993067,TRUE,fitted to observation
+2,BTS,2024,7,7,0.6824840174509651,0.0046360655858916165,history,0.6925472691811819,TRUE,fitted to observation
+2,BTS,2024,8,8,0.8190973519303653,0.0066444738674424145,history,0.92345663639859,TRUE,fitted to observation
+2,BTS,2024,9,9,0.9343466535117979,0.007721718439479274,history,0.9971166365822456,TRUE,fitted to observation
+2,BTS,2024,10,10,0.9742245852574793,0.007289746458151853,history,1.0196475791008142,TRUE,fitted to observation
+2,BTS,2024,11,11,1.065917902129316,0.008664177102761439,history,1.126096001962805,TRUE,fitted to observation
+2,BTS,2024,12,12,1.1838380691411885,0.010725317371469536,history,1.1369449501889288,TRUE,fitted to observation
+2,BTS,2024,13,13,1.2562468858642413,0.012918221569644147,history,1.2594242729147669,TRUE,fitted to observation
+2,BTS,2024,14,14,1.2831684602293385,0.015625662744920044,history,1.4061202457087345,TRUE,fitted to observation
+2,BTS,2024,15,15+,1.438377032532028,0.013535632170239493,history,1.7541070928765805,TRUE,fitted to observation
+2,BTS,2025,3,3,0.1970901656998851,0.006695752730434554,history,0.22552048223632673,TRUE,fitted to observation
+2,BTS,2025,4,4,0.4829647694388464,0.005307186459698994,history,0.5259805178960268,TRUE,fitted to observation
+2,BTS,2025,5,5,0.5714779945172013,0.0043003232714498175,history,0.5870853535364724,TRUE,fitted to observation
+2,BTS,2025,6,6,0.6562929016384639,0.0036256040831219053,history,0.675791473212883,TRUE,fitted to observation
+2,BTS,2025,7,7,0.7154719340536632,0.0038660042244332187,history,0.734005572823376,TRUE,fitted to observation
+2,BTS,2025,8,8,0.8147998490563081,0.0053922931578833854,history,0.8124654930566213,TRUE,fitted to observation
+2,BTS,2025,9,9,0.9391640679344049,0.007328390439506741,history,0.9025749426794653,TRUE,fitted to observation
+2,BTS,2025,10,10,1.03501941837805,0.008596859558382172,history,1.0872049441311544,TRUE,fitted to observation
+2,BTS,2025,11,11,1.0938134252730198,0.009001509189213098,history,1.0659091749325011,TRUE,fitted to observation
+2,BTS,2025,12,12,1.1691689671524352,0.010420035008410098,history,1.1495726303012637,TRUE,fitted to observation
+2,BTS,2025,13,13,1.3196154175720334,0.013030040936981922,history,1.2577212883813582,TRUE,fitted to observation
+2,BTS,2025,14,14,1.3431403329178366,0.01629347403675886,history,1.3987231565472829,TRUE,fitted to observation
+2,BTS,2025,15,15+,1.4396181538423525,0.013582996300699864,history,1.5474353414512092,TRUE,fitted to observation
+2,BTS,2026,3,3,0.3420527899404568,0.036284668852804416,history,0.3970736587112745,TRUE,fitted to observation
+2,BTS,2026,4,4,0.404189894903176,0.011819040719159209,history,0.5440312845413688,TRUE,fitted to observation
+2,BTS,2026,5,5,0.6469129501485527,0.009793930251324894,history,0.6399536251700336,TRUE,fitted to observation
+2,BTS,2026,6,6,0.7146722733970503,0.00947524479842741,history,0.7254458955372507,TRUE,fitted to observation
+2,BTS,2026,7,7,0.8009226885507565,0.009444239588112071,history,0.807636815485819,TRUE,fitted to observation
+2,BTS,2026,8,8,0.8616201331364702,0.009592074264232432,history,0.8754834691885713,TRUE,fitted to observation
+2,BTS,2026,9,9,0.947981906749031,0.010241166612346716,history,0.9475659436501984,TRUE,fitted to observation
+2,BTS,2026,10,10,1.052268954083172,0.011002996099291952,history,1.0064233044440547,TRUE,fitted to observation
+2,BTS,2026,11,11,1.1672228728907124,0.012244159778083059,history,1.0415070329122975,TRUE,fitted to observation
+2,BTS,2026,12,12,1.2085020880424016,0.012810690854709999,history,1.2159143397185472,TRUE,fitted to observation
+2,BTS,2026,13,13,1.3157363118951202,0.014471707606429069,history,1.3719296334791895,TRUE,fitted to observation
+2,BTS,2026,14,14,1.4164941672945022,0.01795196831895446,history,1.5171484805963176,TRUE,fitted to observation
+2,BTS,2026,15,15+,1.512753563533723,0.01540401005119177,history,1.3664902974798538,TRUE,fitted to observation
+2,BTS,2027,3,3,0.21715362556700335,0.04061246424441488,forecast,NA,FALSE,forecast
+2,BTS,2027,4,4,0.605286264003887,0.0678844594771443,forecast,NA,FALSE,forecast
+2,BTS,2027,5,5,0.5470639083897764,0.04833726321928911,forecast,NA,FALSE,forecast
+2,BTS,2027,6,6,0.7755928661948609,0.04976249965958607,forecast,NA,FALSE,forecast
+2,BTS,2027,7,7,0.8439129795368805,0.05071469762466067,forecast,NA,FALSE,forecast
+2,BTS,2027,8,8,0.9319611985679913,0.05098872225881308,forecast,NA,FALSE,forecast
+2,BTS,2027,9,9,0.9788835451929238,0.04999674038909991,forecast,NA,FALSE,forecast
+2,BTS,2027,10,10,1.045801730660718,0.047914568405655195,forecast,NA,FALSE,forecast
+2,BTS,2027,11,11,1.1699499713880448,0.046873018888477426,forecast,NA,FALSE,forecast
+2,BTS,2027,12,12,1.2677863799894002,0.04517441807799485,forecast,NA,FALSE,forecast
+2,BTS,2027,13,13,1.3425961172562189,0.04440490704562517,forecast,NA,FALSE,forecast
+2,BTS,2027,14,14,1.3999750297523437,0.0429153341224362,forecast,NA,FALSE,forecast
+2,BTS,2027,15,15+,1.577204775177546,0.04142642398676982,forecast,NA,FALSE,forecast
+2,BTS,2028,3,3,0.21715362556700335,0.04061246424441488,forecast,NA,FALSE,forecast
+2,BTS,2028,4,4,0.42050839380538163,0.0727933936236906,forecast,NA,FALSE,forecast
+2,BTS,2028,5,5,0.7633240734412308,0.08664217108769293,forecast,NA,FALSE,forecast
+2,BTS,2028,6,6,0.6740161802252499,0.06930776567851894,forecast,NA,FALSE,forecast
+2,BTS,2028,7,7,0.9056268213491013,0.07091968449533566,forecast,NA,FALSE,forecast
+2,BTS,2028,8,8,0.9755152146744872,0.07181557843520706,forecast,NA,FALSE,forecast
+2,BTS,2028,9,9,1.0491688320117099,0.07080721757577624,forecast,NA,FALSE,forecast
+2,BTS,2028,10,10,1.0762247479228355,0.06800449562471315,forecast,NA,FALSE,forecast
+2,BTS,2028,11,11,1.1634289019030486,0.06642661635733636,forecast,NA,FALSE,forecast
+2,BTS,2028,12,12,1.2705065680356493,0.06387607181218197,forecast,NA,FALSE,forecast
+2,BTS,2028,13,13,1.403518312773847,0.0629465764876577,forecast,NA,FALSE,forecast
+2,BTS,2028,14,14,1.4266337506043865,0.05989275216511633,forecast,NA,FALSE,forecast
+2,BTS,2028,15,15+,1.559888903801673,0.05825169273807611,forecast,NA,FALSE,forecast

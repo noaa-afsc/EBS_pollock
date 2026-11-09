@@ -1,0 +1,18 @@
+{
+  "action": "BTS 2025-2026 observation SD x2 WtAgeRE sensitivity",
+  "exit_code": 0,
+  "independent_audit_exit_code": 0,
+  "recorded_utc": "2026-11-09T03:37:31.415804+00:00",
+  "model_source_changed": false,
+  "run_id": "bts_2025_2026_double_cv_20261108/attempt-001",
+  "baseline_run_id": "ebs_fishery2026_pool9_12_cv100_20261022/attempt-001",
+  "fit_console_sha256": "14885bc888dac9205e043212607fa732d871290531f6c2083335d8fd8953369d",
+  "input_means_preserved": true,
+  "fishery_inputs_preserved": true,
+  "saved_outputs_sha256": {
+    "weights_with_se.csv": "0f4fb413d0fa295be664d9f7e126fdabe58f8b6cbfda595137c84737cb5dc6fd",
+    "observation_residuals.csv": "52b5710c8ab07a659997296d540faf0f7876ff022574e74a9f36d27983509013",
+    "diagnostics.json": "7728d80e37de1cb71c68f6bc4075fda3fa4afe2c3f0cb1705ce22340e7ee9ee8",
+    "independent_audit.json": "afd7f0f8fb40ccdfc4810b449c17abcc607652d4c2270337e59f0e8fd33542c0"
+  }
+}

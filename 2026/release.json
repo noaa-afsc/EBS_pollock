@@ -21,5 +21,12 @@
   "nontarget_source_sha256": "f62a7fd7af971f456d0ef0da5de11fc9d018c052a8e5fb584ab223f19c870350",
   "nontarget_historical_source_differences": "2019\u20132022 jellyfish totals in the supplied CSV are approximately half the prior SAFE screenshot. No scaling adjustment applied; source cause unresolved.",
   "layout_note": "Removed an existing blank appendix section-break page and redirected its table-section link to the following content page.",
-  "jellyfish_audit": "validation/jellyfish-audit.html"
+  "jellyfish_audit": "validation/jellyfish-audit.html",
+  "weight_at_age_sensitivity": {
+    "report": "weight-at-age-bts-cv-sensitivity.html",
+    "run": "bts_2025_2026_double_cv_20261108/attempt-001",
+    "change": "BTS 2025-2026 observation SD/CV doubled",
+    "main_assessment_replaced": false,
+    "numerical_checks": "PASS"
+  }
 }

@@ -552,5 +552,50 @@
     "title": "Historical nontarget bycatch reconciliation",
     "section": "Other nontarget columns, 2019–2022",
     "text": "Other nontarget columns, 2019–2022\nThe November summary approximately doubles each of the six same-named historical columns Jellies, MiscFish, SeaStar, Osmerid, Grenadier, and Eelpouts relative to September. All 24 year-column ratios are within 0.001 of two. These are comparisons of historical summary column labels; they do not establish that every historical label represented the same biological grouping as the current explicit species-name mapping.\nThe other four columns (Sea pen, Anemone, Snails, and Other) change non-uniformly. Numerical matches across columns indicate changed column alignment or allocation. For example, November 2019 Snails (1.287252353 t) equals twice September Sea pen (0.643626176 t), while November Sea pen (0.651518564 t) equals twice September Anemone (0.325759282 t). The same two cross-column patterns occur in 2020–2022. These are numerical relationships, rather than confirmation of a particular upstream coding error. A blanket division by two would retain ambiguous labels and fail to reconcile all groups.\nThe current Table 57 is rebuilt directly from named species in the new export: Jellies = Scypho jellies; MiscFish = Misc fish; SeaStar = Sea star; Osmerid combines the explicitly listed osmerid groups; Grenadier combines named grenadier groups; and the remaining columns use their published source-name mapping. BSAI records and both catch dispositions are included. The retained current table values receive no scaling adjustment. Its category mapping and excluded squid/sculpin/seabird scope are separate from the historical column-label comparison.\nAll 40 year-column comparisons · Current species-to-column map\n\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\n\n\n\n\n\n\nhistorical_column\n2019\n2020\n2021\n2022\n\n\n\n\nJellies\n2.000\n2.000\n2.000\n2.000\n\n\nMiscFish\n2.000\n2.000\n2.000\n2.000\n\n\nSeaStar\n2.000\n2.000\n2.000\n2.000\n\n\nOsmerid\n2.000\n2.000\n2.000\n2.000\n\n\nGrenadier\n2.000\n2.000\n2.000\n2.000\n\n\nEelpouts\n2.000\n2.000\n2.000\n2.000\n\n\nSea pen\n1.012\n9.859\n3.115\n1.895\n\n\nAnemone\n11.429\n7.481\n0.080\n0.230\n\n\nSnails\n2.919\n2.345\n3.656\n3.791\n\n\nOther\n1.506\n0.502\n2.583\n2.118\n\n\n\nRatios compare the same historical header, including columns with apparent alignment changes."
+  },
+  {
+    "objectID": "2026/weight-at-age-bts-cv-sensitivity.html",
+    "href": "2026/weight-at-age-bts-cv-sensitivity.html",
+    "title": "WtAgeRE sensitivity: doubling recent BTS observation CVs",
+    "section": "",
+    "text": "Assessment homepage · Current assessment\nThis separate sensitivity doubles the observation SDs for BTS weight at age in 2025 and 2026. Observed means are identical, so CVs double and variances increase fourfold. All other input values, the saved RTMB model and adapter, default starts, and fitting procedure are preserved. The original fit and assessment outputs remain the baseline; this sensitivity has no assessment-model refit."
+  },
+  {
+    "objectID": "2026/weight-at-age-bts-cv-sensitivity.html#fit-and-input-checks",
+    "href": "2026/weight-at-age-bts-cv-sensitivity.html#fit-and-input-checks",
+    "title": "WtAgeRE sensitivity: doubling recent BTS observation CVs",
+    "section": "Fit and input checks",
+    "text": "Fit and input checks\n\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nThe fit converged with a maximum gradient of 8.72e-08 and a positive-definite fixed-parameter Hessian (minimum eigenvalue 86.467). The conditional random-effect Hessian and joint uncertainty precision are also positive definite. Model graph construction and fitting captured zero warnings; the fitting process exited 0. An independent graph rebuild reproduced the objective and verified gradients and curvature.\nThe input file contains 30 changed SD cells (all ages 1–15 for both recent BTS years). Of these, 26 observations at ages 3–15 enter this fit. Means, observation masks, fishery inputs, and BTS errors in every other year were independently checked against the original run. The converted TMA age basis and fixed conversion-key treatment are preserved."
+  },
+  {
+    "objectID": "2026/weight-at-age-bts-cv-sensitivity.html#effect-on-age-3",
+    "href": "2026/weight-at-age-bts-cv-sensitivity.html#effect-on-age-3",
+    "title": "WtAgeRE sensitivity: doubling recent BTS observation CVs",
+    "section": "Effect on age 3",
+    "text": "Effect on age 3\nThe 2026 modeled BTS age-3 weight decreases from 0.384 to 0.342 kg (−10.9%), and the predicted fishery age-3 weight decreases from 0.643 to 0.580 kg (−9.8%). The observed values remain unchanged. Both series respond because the standalone model fits fishery and BTS data jointly; the fishery 2026 value is a prediction rather than an observation.\n\n\n\n\n\n\n\n\nSeries\nYear\nOriginal (kg)\nDoubled BTS CV (kg)\nChange (%)\n\n\n\n\nfishery\n2024\n0.438\n0.438\n−0.1\n\n\nfishery\n2025\n0.367\n0.334\n−8.9\n\n\nfishery\n2026\n0.643\n0.580\n−9.8\n\n\nfishery\n2027\n0.370\n0.369\n−0.3\n\n\nfishery\n2028\n0.370\n0.369\n−0.3\n\n\nBTS\n2024\n0.261\n0.258\n−1.3\n\n\nBTS\n2025\n0.219\n0.197\n−10.0\n\n\nBTS\n2026\n0.384\n0.342\n−10.9\n\n\nBTS\n2027\n0.220\n0.217\n−1.5\n\n\nBTS\n2028\n0.220\n0.217\n−1.5\n\n\n\n\n\n\n\n\n\n\nAge-3 modeled weight for the original and doubled-CV fits. Both BTS and fishery estimates decrease in 2025–2026; observed points are identical. The dashed line separates 2027–2028 forecasts."
+  },
+  {
+    "objectID": "2026/weight-at-age-bts-cv-sensitivity.html#remade-heatmap",
+    "href": "2026/weight-at-age-bts-cv-sensitivity.html#remade-heatmap",
+    "title": "WtAgeRE sensitivity: doubling recent BTS observation CVs",
+    "section": "Remade heatmap",
+    "text": "Remade heatmap\nThe Fishery and BTS observation panels are unchanged. The third panel shows the new modeled fishery weights through 2028. Colors use the original plot’s panel- and age-specific reference means through 2026, so the anomaly reference and color limits are held fixed between the two figures. Cell labels are kg per fish, not anomalies.\n\n\n\nThree weight-at-age heatmap panels for fishery observations through 2025, BTS observations through 2026, and doubled-CV model estimates through 2028, with ages 3–10 shown.\n\n\nHeatmap PDF · Age-3 comparison PDF · Original heatmap"
+  },
+  {
+    "objectID": "2026/weight-at-age-bts-cv-sensitivity.html#saved-results-and-scope",
+    "href": "2026/weight-at-age-bts-cv-sensitivity.html#saved-results-and-scope",
+    "title": "WtAgeRE sensitivity: doubling recent BTS observation CVs",
+    "section": "Saved results and scope",
+    "text": "Saved results and scope\n\nAll modeled-weight comparisons\nAge-3 comparison\nExact changed SDs and CVs\nNumerical diagnostics\nIndependent audit\nRun provenance\n\nRun: bts_2025_2026_double_cv_20261108/attempt-001; baseline: ebs_fishery2026_pool9_12_cv100_20261022/attempt-001. Numerical convergence establishes an estimable sensitivity, while scientific adoption remains a separate assessment decision. Likelihood objectives use different assumed observation errors and therefore provide no direct test of improved fit. No assessment biomass, harvest advice, or assessment weights were replaced. Manual accessibility review is pending."
+  },
+  {
+    "objectID": "index.html#weight-at-age-sensitivity",
+    "href": "index.html#weight-at-age-sensitivity",
+    "title": "Eastern Bering Sea walleye pollock stock assessment",
+    "section": "Weight-at-age sensitivity",
+    "text": "Weight-at-age sensitivity\nDoubling 2025–2026 BTS observation CVs shows the remade heatmap, age-3 comparison, and numerical checks for a separate WtAgeRE sensitivity. The assessment baseline is retained.",
+    "crumbs": [
+      "2026 assessment"
+    ]
   }
 ]

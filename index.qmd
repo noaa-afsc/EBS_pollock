@@ -31,3 +31,9 @@ accessibility review remains pending.
 [Browse development material and previous years](development.qmd), including
 the September 2026 assessment developments, preparation checklist, and
 2025 activities. These documents retain their historical context.
+
+## Weight-at-age sensitivity
+
+[Doubling 2025–2026 BTS observation CVs](2026/weight-at-age-bts-cv-sensitivity.qmd)
+shows the remade heatmap, age-3 comparison, and numerical checks for a separate
+WtAgeRE sensitivity. The assessment baseline is retained.
