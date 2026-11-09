@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "gradient": 1.0687e-06,
+  "saved_Hessian_PD": true,
+  "relative_SE_step_check": 4.243e-09,
+  "interval": "95% log-scale delta-method assessment-parameter uncertainty; fixed weights; mean future recruitment; independent future recruitment innovations excluded",
+  "assessment_refits": 0
+}

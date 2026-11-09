@@ -1,0 +1,16 @@
+{
+  "historical_source": "https://files.npfmc.org/SAFE/2024/EBSpollock.pdf",
+  "historical_tables": [
+    26,
+    32
+  ],
+  "historical_pages": [
+    88,
+    92
+  ],
+  "current_interval": "95% log-scale delta method; parameter covariance from saved fit; mean recruitment and fixed weights; no new fit",
+  "new_figure": 67,
+  "old_figures_67_through_72": "renumbered68\u201373",
+  "HTML_figure_links_verified": 76,
+  "sentence": "The sum includes ages 1\u201315+."
+}
