@@ -8,8 +8,8 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "0eff2aefcdde51296eacc2099937ec7c3ba1506f8c047e0184a8037105ca9d3a",
-    "assessment.pdf": "34786017be2b39bab8896b233929bdb113d0f50af832ef47ad85d15a100d2f3c"
+    "assessment.html": "5b4035c8b87fd385fbd5dc9055bc63befa096c7f84f2379b5c01e9d2d445903d",
+    "assessment.pdf": "4ff2b16084f650e16b9befec6499b224dc048891de4ca7d5e25c161357291272"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -60,5 +60,6 @@
     "assessment_advice_replaced": false,
     "verification": "PASS"
   },
-  "ESP_cover_cleanup": "Removed specified source/author/preparation blocks and the two requested framing paragraphs,2026-11-09;introductory paragraph,emblem,and contents preserved."
+  "ESP_cover_cleanup": "Removed specified source/author/preparation blocks and the two requested framing paragraphs,2026-11-09;introductory paragraph,emblem,and contents preserved.",
+  "ESP_summary_cleanup": "Removed the three requested qualification sentences and the age-1 validation paragraph,2026-11-09;surrounding text and links preserved. Also removed \"and documented denominators\" from Fishery Informed Indicators."
 }
