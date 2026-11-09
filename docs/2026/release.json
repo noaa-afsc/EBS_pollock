@@ -8,8 +8,8 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "6abefed53a78320a67fa0cd0008236ccadc719cd78a05cb8e85f4f57fd17d9c3",
-    "assessment.pdf": "57cfdc08e0d810638a581ca9df0abd10fab2f2ef22df5b8ae84cb7feb1530dab"
+    "assessment.html": "9969c736e406e07c643beb6a19c6ce008776082604ec4b41e9c6ba7c2ca4c122",
+    "assessment.pdf": "172ca987d9c0cb72593bfd7726a72cc00d7e5389513c42c3a0f47a675cc3e023"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -103,5 +103,6 @@
     "source_WtAgeRE_sha256": "be7a6a7993ed3aed64275149df73f3854fa111fffd163f94dfc39340bf11f413"
   },
   "editorial_revision_20261109": "Updated FT-NIRS/TMA and ATS age-key wording; removed specified status language and Figure4 source note.",
-  "status_determination_revision": "Explicit Tier3 MSST branches: current2026 and Alternative6/2036; Alternative7/2028 and conditional2038; conclusions unchanged."
+  "status_determination_revision": "Explicit Tier3 MSST branches: current2026 and Alternative6/2036; Alternative7/2028 and conditional2038; conclusions unchanged.",
+  "decision_table_layout": "Table55: three columns, smaller type, subscripted indicators; Table56: shortened caption and duplicate policy sentence removed. Calculations unchanged."
 }
