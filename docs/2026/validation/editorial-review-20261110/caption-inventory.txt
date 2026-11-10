@@ -1,204 +1,204 @@
-tbl-risk-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-risk-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 55: 2026 risk-category scores and supporting summaries. Assessment-related and fishery-informed stock evaluations are Level 1 – Normal; population dynamics and ecosystem evaluations draw on the synthesis by Elizabeth Siddon and Kalei Shotwell.
 
 
-tbl-catch-management-history-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-catch-management-history-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 1: Catch and adopted harvest limits for EBS pollock, 1964–2026 (round-weight metric tons). Catch from 1991 onward uses the catch estimates; the highlighted 2026 value is the selected annual model input, with the extract coverage cutoff unspecified.
 
 
-tbl-management-measures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-management-measures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 2: Selected management and monitoring milestones affecting the EBS pollock fishery, 1977–2017. Dates distinguish Council recommendations, enactment, voluntary programs and regulatory implementation. BSAI- or GOA-wide scope is stated where applicable; the table is selective rather than a complete regulatory history.
 
 
-tbl-catch-area-season-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-catch-area-season-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 3: EBS pollock catch by reporting area and season, 1991–2026 (tons). Southeast (SE) comprises NMFS areas 520–539; Northwest (NW) comprises areas 500–517 and 519. Area 518 (Bogoslof) is excluded. A and B group records with week-ending dates before June 1 and from June 1 onward, respectively. The seasonal extract extends through October 17, 2026. Only the 1998 records included catch without an area; this catch is allocated between NW and SE in proportion to reported catch within each season. Totals include retained and discarded catch; values are rounded to whole tons.
 
 
-tbl-catch-retained-discarded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-catch-retained-discarded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 4: Retained and discarded EBS pollock catch by reporting area, 1991–2026 (tons), from the annual catch-accounting extract. Southeast (SE) comprises NMFS areas 520–539; Northwest (NW) comprises areas 500–517 and 519. Area 518 (Bogoslof) is excluded. Discarded percentage equals discarded catch divided by total catch. Values are rounded to whole tons; 2026 estimates are preliminary.
 
 
-tbl-fishery-catch-at-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-fishery-catch-at-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 5: EBS pollock fishery catch-at-age estimates, 1964–2025 (million fish). Ages 15 and older are pooled as 15+. Catch numbers are calculated from assessment proportions, annual fishery weights at age and catch biomass where complete annual numbers are unavailable. Age-specific values are rounded to 0.1 million fish; All ages totals are rounded to the nearest million fish.
 
 
-tbl-fishery-length-samples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-fishery-length-samples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 10: Numbers of EBS pollock measured for fishery length frequencies, by sex and processing stratum, 1977–2025.
 
 
-tbl-fishery-weight-length-samples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-fishery-weight-length-samples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 11: Numbers of EBS pollock with paired fish-weight and length measurements, by sex and processing stratum, 1977–2025.
 
 
-tbl-fishery-age-samples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-fishery-age-samples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 12: Numbers of EBS pollock contributing age estimates, by sex and processing stratum, 1977–2025. The 2024–2025 entries are released FT-NIRS age predictions.
 
 
-tbl-bts-sampling-effort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-bts-sampling-effort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 13: Pollock sampling effort from the NMFS bottom-trawl survey, 1982–2026 (counts). Historical values are as reported; recent haul counts use the survey records and recent ages are released EBS assignments, including FT-NIRS ages.
 
 
-tbl-bts-biomass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-bts-biomass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 14: Bottom-trawl survey (BTS) pollock biomass for the combined eastern and northern Bering Sea, 1982–2026, with assessment standard errors (SE) and coefficients of variation (CV).
 
 
-tbl-bts-abundance-at-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-bts-abundance-at-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 15: Combined eastern and northern Bering Sea model-based pollock abundance at age used for the assessment, 1982–2026 (million fish). Ages 15 and older are pooled as 15+.
 
 
-tbl-bts-historical-weights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-bts-historical-weights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 16: Annual BTS-derived population weight-at-age inputs used in Model 26.0, 1982–2026 (kg per fish). Ages 15 and older are pooled as 15+.
 
 
-tbl-ats-sampling-effort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ats-sampling-effort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 17: Sampling effort and biological collections from eastern Bering Sea acoustic-trawl surveys, 1979–2026 (counts). E and W denote collections east and west of 170°W within the US EEZ; US is the reported US subtotal and RU is the Russian-region count. The 2024 US aged-fish count is 2,260 (McCarthy et al. 2026, p. 15).
 
 
-tbl-ats-biomass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ats-biomass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 18: Midwater pollock biomass by area from summer ATS surveys of the U.S. EEZ Bering Sea shelf, 1994–2026 (million tons; near surface to 0.5 m above the seafloor). The core shelf excludes the Northern Extension. Assessment CVs average 20%, with 45% assigned to 2000; SE equals biomass × CV. The 2020 survey used uncrewed sailing vessels; 2026 estimates are preliminary.
 
 
-tbl-ats-regions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ats-regions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 19: Biomass and abundance summed across the 2026 survey intervals, including the below-3 m analysis and northern extension. The three core-shelf regions sum to the historical EBS estimate; the Northern Extension is additional.
 
 
-tbl-ats-age-history-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ats-age-history-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 20: ATS estimates of EBS pollock abundance at age, 1979–2026 (million fish). Ages 10 and older are pooled as 10+. The 2026 estimates use the BTS age–length key applied to ATS length distributions and remain provisional; ages from the 2026 ATS samples are expected in 2027. Mean and median summarize surveys with age compositions during 1994–2026; 1979–1991 provides historical context.
 
 
-tbl-ats-core-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ats-core-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 21: Recent core-area ATS pollock biomass and abundance estimates. The 2026 estimates are preliminary.
 
 
-tbl-ats-derived-abundance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ats-derived-abundance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 22: Provisional core-area 2026 ATS abundance by age, in million fish, restricted to supported lengths. FT-NIRS source age 15 retains its released label; the corresponding TMA row pools target ages 15–18. The upper-length tail remains unallocated.
 
 
-tbl-ats-tma-weights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ats-tma-weights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 23: Provisional core-area 2026 ATS TMA biomass, abundance and mean weight-at-age over supported lengths. The 15+ row sums exact ages 15–18 before dividing biomass by abundance. Unsupported upper-length biomass and fish are excluded from these age-specific estimates and retained separately.
 
 
-tbl-model23-age-sample-sizes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model23-age-sample-sizes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 24: Assumed age-composition likelihood sample sizes used in the completed full-data Model 23.0 fit, 1964–2026. Fishery inputs for 2023–2025 are the applied rounded values 443, 578 and 530; other values are rounded for display.
 
 
-tbl-avo-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-avo-index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 25: Revised mean-one AVO display index for 17 observations during 2009–2026, excluding 2020, including newly processed 2011 and 2013 values. Sampling relative errors, standard errors and scaled source 95% confidence intervals are retained. The blank 2020 row preserves calendar-year coverage.
 
 
-tbl-avo-coverage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-avo-coverage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 26: Counts of AVO sampling intervals during 2009–2026, including positive intervals and zeros; these counts describe survey coverage. There are no AVO observations in 2020.
 
 
-tbl-avo-assessment-series-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-avo-assessment-series-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 27: ATS biomass (million tons) and AVO backscatter (million m²), 2006–2026. AVO indices and sampling relative errors for 2009–2026 match Table 25. Assessment CVs from the saved Model 26.0 inputs average 23% across 20 observations; SE equals index × CV. The 2020 USV survey provides ATS biomass; AVO has no observation that year.
 
 
-tbl-fishery-weights-projections-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-fishery-weights-projections-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 28: Annual fishery mean weight-at-age (kg), with observational inputs through 2025 and standalone WtAgeRE predictions and forecasts for 2026–2028. Observational inputs extend through 2025; the 2026 row is predicted. Age 15 is a 15+ group. The fixed early schedule and mean/CV definitions are described below.
 
 
-tbl-model23-data-impacts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model23-data-impacts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 29: Effects of cumulative input updates within Model 23.0, expressed as 2026 estimates. Biomass uses the same reference population weight schedule in every fit, and fishing mortality is the maximum realized rate across ages. Each row includes preceding updates. ATS and AVO contrasts combine new observations, historical revisions and the stated uncertainty calibrations; the fits estimate their combined effect.
 
 
-tbl-updated-configuration-effects-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-updated-configuration-effects-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 30: Deterministic 2026 population estimates with the selected catch inputs. Model 26.1.2 is the Early-late fishery split comparison; its marginal sampling estimator is excluded.
 
 
-tbl-model262-current-terminal-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model262-current-terminal-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 31: Model 26.0 estimated population quantities in 2026. Ranges are approximate 95% confidence intervals under the selected model and fixed biological schedules. Fishing mortality is the largest realized rate across ages in 2026.
 
 
-tbl-model262-current-annual-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model262-current-annual-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 32: Model 26.0 annual estimates and approximate 95% confidence intervals, 1964–2026. Each cell gives the estimate followed by its 95% interval. Biomass and spawning biomass are million tons, recruitment is billion age-1 fish and fishing mortality is the maximum realized rate across ages per year. Recruitment is labeled by the calendar year fish enter age 1.
 
 
-tbl-model260-regularized-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model260-regularized-posterior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 33: Final 2026 population summaries from the regularized Model 26.0 posterior. All 5,000 saved draws contribute. Intervals are central 95% credible intervals. Priors, parameter support and biology remain fixed. Production-fit estimates and projections retain their separate roles.
 
 
-tbl-model262-current-numbers-at-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model262-current-numbers-at-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 34: Model 26.0 start-of-year numbers at age, 1964–2026, in billion fish. Age 15+ includes all older fish. Values are rounded to 0.001 billion fish; full precision is retained in the supporting tables.
 
 
-tbl-model262-current-terminal-numbers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model262-current-terminal-numbers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 35: Model 26.0 start-of-2026 numbers at age and uncertainty, in billion fish. Ranges are approximate 95% confidence intervals, accounting for covariance in the fitted model. Age 15+ includes all older fish.
 
 
-tbl-model262-current-biological-schedules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model262-current-biological-schedules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 36: Model 26.0 biological schedules and fishery weight predictions at ages 1–15+, with weights for 2024–2026. Mortality is an annual instantaneous rate; maturity and female fraction are proportions; weights are kg per fish. Population weights are the BTS schedule. Fishery 2026 values show the current predictions; projections use fixed 2027 fishery forecasts for catch and spawning weights.
 
 
-tbl-model262-current-selectivity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model262-current-selectivity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 37: Model 26.0 selectivity at age in 2026. Cells give the estimate and approximate 95% confidence interval. ATS and AVO share the same estimated curve. Relative selectivity can exceed one because the existing curve convention uses a different normalization than division by its maximum.
 
 
-tbl-model262-current-parameter-families-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model262-current-parameter-families-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 38: Estimated parameter groups and their uncertainty in Model 26.0. Standard errors use each group’s estimation scale; differences in scales make direct comparisons among groups inappropriate.
 
 
-tbl-model262-current-likelihood-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model262-current-likelihood-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 39: Contributions to the Model 26.0 fit, grouped by data source or stabilizing assumption. Rounded rows may differ slightly from their sum. Negative values arise from likelihood constants. Contributions across different data and model structures use different scales and assumptions.
 
 
-tbl-model262-index-residual-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model262-index-residual-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 40: Observed-index residual summaries for Model 26.0. Residuals measure observed-minus-predicted differences relative to the selected observation errors. The retained 2020 ATS placeholders are excluded.
 
 
-tbl-model260-ats-q-ssb2027-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model260-ats-q-ssb2027-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 41: Model 26.0 profile likelihood points and conditional 2027 female spawning biomass (thousand tons, kt), with approximate 95% confidence intervals. ATS catchability is fixed separately at each point; all other active parameters are re-estimated. The projection assumes 1,375 kt catch in 2027 and the mean 2023–2025 fishery selectivity curve.
 
 
-tbl-catch-revised-mohn-rho-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-catch-revised-mohn-rho-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 42: Model 26.0 Mohn’s rho against the full-2026 fit. Rho is the mean proportional terminal revision.
 
 
-tbl-model260-current-retrospective-revisions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model260-current-retrospective-revisions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 43: Model 26.0 retrospective terminal estimates and revisions: All rows use the full-2026 reference. Each row omits all observations after its terminal year, using the same data-lag rules. Relative revisions are 100 × (peel estimate / full-2026-fit estimate for the same calendar year − 1). SSB is female spawning biomass; F is the maximum age-specific fishing mortality. These are point-estimate comparisons; the peel comparisons cover population estimates only.
 
 
-tbl-model261-nll-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model261-nll-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 44: Native fitting objectives with the selected catch inputs, including the Early-late fishery split comparison. Model-specific penalties and normalizations preclude direct likelihood ranking.
 
 
-tbl-coordinated-model-abc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-coordinated-model-abc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 45: Maximum ABC and OFL for the four separately fitted Rceattle configurations and the Early-late fishery split Model 26.1.2 comparison under matched Scenario 2 assumptions, in million tons. Model 26.0 (Rceattle) is the adopted assessment model and main proposal for Tier 3 calculations and specifications; Model 26.1.2 is the sensitivity analysis. Adopted catch specifications remain separate.
 
 
-tbl-catch-revised-posterior-check-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-catch-revised-posterior-check-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 46: Final Model 26.0 posterior stock and selectivity summaries from 5,000 saved draws. SD is posterior standard deviation; intervals are central 95% credible intervals. R-hat and chain ESS describe the saved chains.
 
 
-tbl-proposed-tier3-reference-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-proposed-tier3-reference-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 47: Reference points for revised Model 26.0 and the Early-late fishery split Model 26.1.2 comparison. Biomass is female spawning biomass in million tons; F is the annual rate on the most selected age. Each column uses that model’s primary projection selectivity and fixed biological schedules.
 
 
-tbl-proposed-tier3-scenarios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-proposed-tier3-scenarios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 48: Projections from the revised fits. Harvest scenarios under the Model 26.0 base fit. Each scenario retains its own rule; specified catches apply only to Scenario 2.
 
 
-tbl-proposed-tier3-short-term-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-proposed-tier3-short-term-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 49: Projections from the revised fits. Short-term Tier 3 calculations under Scenario 2. Catch, spawning biomass, maximum ABC and OFL are thousand tons; F is the annual rate on the most selected age. The 2028 catch is a planning assumption.
 
 
-tbl-proposed-tier3-catch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-proposed-tier3-catch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 50: Projections from the revised fits. Thirteen-year catch table for the proposed harvest scenarios, in thousand tons.
 
 
-tbl-proposed-tier3-ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-proposed-tier3-ssb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 51: Projections from the revised fits. Thirteen-year female spawning-biomass table for the proposed harvest scenarios, in thousand tons.
 
 
-tbl-proposed-tier3-f-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-proposed-tier3-f-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 52: Thirteen-year fishing-mortality table for the proposed harvest scenarios. F is the annual rate on the most selected age.
 
 
-tbl-current-decision-definitions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-current-decision-definitions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 53: Definitions of the nine Model 26.0 catch-decision indicators. All benchmarks are calculated from the Model 26.0 fit.
 
 
-tbl-current-decision-model26-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-current-decision-model26-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table 54: Model 26.0 probabilities under eight alternative 2027 catches (kt), expressed as chances out of 100. Fishing mortality is set to achieve each 2027 catch and then held constant through 2031.
 
 
@@ -494,55 +494,55 @@ fig-selectivity-f35-mean-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | asse
 Figure 73: Annual Model 26.0 fishery selectivity and fully selected F35%, a proxy for FMSY, for 2001–2026. Mean selected age uses ages 1–10; SPR uses ages 1–14 and 15+, fixed mortality, maturity and the selected projection spawning weights, and quarter-year spawning timing. Curves are normalized to maximum one. The 2023–2025 mean-curve reference and inferred 2026 curve remain separately identified. The historical 2024 figure used FMSY, a different quantity.
 
 
-tbl-plan-team-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-plan-team-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table A1 Responses to SSC and Plan Team Requests
  Responses to the September 2026 BSAI Groundfish Plan Team recommendations. Status distinguishes completed work, decisions about further tests and development of the ESP draft.
 
-app-table-j1-apa-caption | 
+app-table-j1-apa-caption |
 Table A2 Earlier SSC Comments and Response Plan
  Responses to the October 2025 SSC comments on EBS pollock. The SSC comments are summarized from pages 27 to 29 of the final October 2025 SSC report.
 
-esp2026-tbl-review-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+esp2026-tbl-review-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table B1 Pollock Review Topics and Proposed ESP Contributions
  Pollock review topics and proposed ESP contributions. Topics are paraphrased from the assessment website; final responses require the original review record.
 
-esp2026-tbl-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+esp2026-tbl-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table B2 Source Inventory for the EBS Pollock ESP
  Source inventory for the EBS pollock contribution. Availability describes this draft’s verified inputs and proposed data assembly.
 
-esp2026-tbl-life-history-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+esp2026-tbl-life-history-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table B3 Life-Stage Synthesis for Eastern Bering Sea Pollock
  Life-stage synthesis for eastern Bering Sea pollock. The same cohort is followed from birth year t to ages 1 and 3.
 
-esp2026-tbl-mechanisms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+esp2026-tbl-mechanisms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table B4 Proposed Mechanisms and Responses
  Proposed mechanism table. Direction refers to the stated response; evidence supports hypotheses rather than a universal coefficient.
 
-esp2026-tbl-socioeconomic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+esp2026-tbl-socioeconomic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table B5 Proposed Pollock Socioeconomic Indicators
  Proposed pollock socioeconomic indicators and the questions they address. All require defined indicators and assessment data.
 
-esp2026-tbl-catch-exvessel-economics-source-caption | 
+esp2026-tbl-catch-exvessel-economics-source-caption |
 Table B6 BSAI Pollock Catch, Participation and Ex-Vessel Economics, 2020–2024
  BSAI denotes the Bering Sea and Aleutian Islands and differs from the BS-only assessment catch series. Total catch includes retained and discarded federal and state catch; retained catch and vessel counts cover federal TAC fisheries. The pollock target is assigned by vessel, week, catching mode, NMFS area and gear. Published catcher-vessel counts describe the target-vessel group; only the catch and value rows explicitly marked trawl carry a separate trawl filter. Unit values and shares are derived from rounded published cells; catcher-vessel unit value combines the reported catcher-vessel catch and value across delivery modes. Monetary values are nominal. Values are rounded to one decimal place. Source: Abelman et al. (2026), Tables 4.1, 4.2, 4.9, 4.10 and 4.14 (printed pp. 34–35, 45–46, 48 and 59), using NMFS accounting and production reports and ADF&G COAR data compiled by AKFIN.
 
-esp2026-tbl-first-wholesale-economics-source-caption | 
+esp2026-tbl-first-wholesale-economics-source-caption |
 Table B7 BSAI Pollock First-Wholesale Products and Values, 2020–2024
  BSAI denotes the Bering Sea and Aleutian Islands. Product weight differs from round-weight retained catch. Published aggregates can be incomplete because confidential components are excluded within a table (Economic SAFE §2.2.6). Fillets combine deep-skin and other fillets and exclude minced fish. Fillet volume, value share and unit value are unavailable for 2021–2022 because shoreside deep-skin components are confidential; unavailable cells are not zeros. Unit values and shares use rounded published values. The at-sea-minus-shoreside unit-value difference is unadjusted for product quality and reflects product mix. All dollar values are nominal. Values are rounded to one decimal place. Source: Abelman et al. (2026), Tables 4.16–4.18 (printed pp. 65, 70 and 74), using NMFS production reports and ADF&G COAR data compiled by AKFIN.
 
-esp2026-tbl-trade-global-source-caption | 
+esp2026-tbl-trade-global-source-caption |
 Table B8 Global Alaska Pollock Catch and U.S. Trade
  These observed historical statistics cover global catch and shares through 2024 and U.S. trade through 2025. Trade statistics remain revisable. Global catch is in thousand tons of live weight. Trade volumes are thousand tons of product weight. BSAI catch is a subset of U.S. catch and includes federal and state retained plus discarded catch from both the Bering Sea and Aleutian Islands. Trade covers U.S.-national Alaska-pollock products across their source fisheries. Export values are nominal U.S. dollars on a free-alongside-ship (FAS) export-value basis, distinct from wholesale revenue. Unit values reflect product mix as well as market conditions. Domestic exports exclude re-exports. The legacy import basket combines Alaska and unspecified (NSPF) pollock; legacy net exports subtract that broader basket from Alaska-pollock domestic exports. The legacy statistical aggregate combines mainland China, Taiwan and Hong Kong. The selected European aggregate comprises Austria, Belgium, Denmark, France, Germany, Greece, Ireland, Italy, Netherlands, Norway, Portugal, Spain, Sweden, Switzerland, United Kingdom. It is neither the European Union nor all Europe. Meat combines Alaska-pollock products other than surimi and roe, including frozen whole/headed-and-gutted fish, fillets and other meat. Product shares sum to 100% before rounding. Values are rounded to one decimal place from the source extract. Displayed net exports are rounded from the saved source totals rather than recalculated from separately rounded export and import values. Sources: NOAA Fisheries FOSS, retrieved 30 October 2026; FAO Global Capture Production release Capture_2026.1.0 (March 2026); Economic SAFE 2025, Table 4.1, p. 34, published 16 March 2026. Source links:  ;  ;  .
 
-esp2026-tbl-energy-density-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+esp2026-tbl-energy-density-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table B9 Annual Mean Age-0 Pollock Energy Density, 2021–2025
  Annual mean age-0 pollock energy density for 2021–2025, in kJ/g dry mass. Regions remain separate; sampling uncertainty is pending. Values are rounded to one decimal place. Source: Page and Maselko (2026), DATA sheet.
 
-esp2026-tbl-dsem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+esp2026-tbl-dsem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table B10 Archived DSEM Pilot Results
  Archived live DSEM pilot results. All Hessians are reported as positive definite. The gradient column applies the strict threshold of 1e-4 independently of the saved OK status.
 
-esp2026-tbl-paths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+esp2026-tbl-paths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table B11 Standardized Direct Proxy Coefficients From the Archived DSEM Pilot
  Standardized direct proxy coefficients from the archived live DSEM pilot, with approximate 95 percent intervals. These fitted paths remain provisional research estimates.
 
@@ -582,19 +582,19 @@ esp2026-fig-first-wholesale-products-caption | assets/figure-085.png
 Figure B9 BSAI Pollock First-Wholesale Product Indicators, 2020–2024
  BSAI pollock (a) nominal first-wholesale unit values, (b) production in thousand tons of product weight, and (c) shares of published first-wholesale value. Unit values equal total published value times the product value share, divided by product volume and converted to US$/lb; they reflect product mix as well as market conditions. Fillet observations for 2021–2022 are unavailable because confidential shoreside deep-skin components prevent their calculation. Gaps remain missing rather than zero. Other products account for the remaining value share. Values and definitions match  . Source:  .
 
-app-table-b1-source-caption | 
+app-table-b1-source-caption |
 Table C1 Reported Bering Sea Noncommercial Pollock Catch by Collection and Year
  Values are metric tons (source kilograms divided by 1,000), rounded to one decimal place. Source: received Noncommercial Fishery Catch (1).csv, 27 October 2026 received-date field. Reported records have FMP Area = BS and Species Group Code = PLCK. All reporting areas are retained, including 518. NA indicates missing records; 0.0 indicates a reported zero. Early panels show observed BS years only, and collection rows with no records in a panel are omitted from that panel. All collection-year cells and full source precision are retained in the accompanying CSV. Scope follows the FMP field, including collections whose names mention other regions. Positive amounts that round to 0.0 t are shown as <0.1; 0.0 denotes a source zero.
 
-app-table-b2-source-caption | 
+app-table-b2-source-caption |
 Table C2 Annual Reported Bering Sea Pollock Catch by Source Category
  Weights are metric tons, rounded to one decimal place. Categories are mutually exclusive source-label summaries. EFP comprises the two explicitly EFP-named collections; the Bogoslof column includes collections explicitly named for Bogoslof. Other reported BS includes all remaining BS-labelled records, including area-518 records from other collections. NA indicates missing records; 0.0 indicates a reported zero. The row count measures records. Totals cover the reported records; annual coverage and overlap with official catch accounting remain uncertain.
 
-tbl-model262-current-parameters-complete-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model262-current-parameters-complete-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table D1 Model 26.0 Estimated Parameters and Approximate 95% Confidence Intervals
  All estimated parameters and approximate 95% confidence intervals in Model 26.0, on their estimation scales. The parameter ID links to the complete numerical data and shared-parameter mappings. Recruitment and selectivity deviations are expressed on their fitted deviation or increment scales; the biological and selectivity schedules show their realized effects. The full precision data also supply natural-scale transformations where applicable.
 
-tbl-model262-current-parameter-correlations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-model262-current-parameter-correlations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table D2 Largest Pairwise Correlations Among Model 26.0 Parameters
  Ten largest absolute pairwise correlations among Model 26.0 estimated parameters. IDs link to the complete parameter table; correlations close to plus or minus one identify parameter combinations that change together. These are parameter correlations rather than correlations between survey observations.
 
@@ -606,15 +606,15 @@ fig-proposed-tier3-weights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | assets
 Figure E2 Weight Schedules for the Proposed Projection
 Note. Projection weight schedules: the fixed 2027 fishery forecast supplies catch and spawning weights at ages 3–15+; population weights retain the schedule.
 
-tbl-ftnir-treatment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ftnir-treatment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table G1 FT-NIRS Use and Transformations by Data Source and Year
  FT-NIRS use and transformations by collection and year. Current fitted applications are distinguished from retained historical preparation diagnostics. Unfiltered counts describe the original complete released tester pairs; the 2026 screened input excludes the 22 flagged complete pairs.
 
-tbl-ftnir-conversion-status-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ftnir-conversion-status-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table G2 Conversion Status by Data Source
  Conversion status by new data source.
 
-tbl-ftnir-fishery-2024-weights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ftnir-fishery-2024-weights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table G3 Fishery 2024 Weights and Partial Supported-Only Conversion
  Fishery 2024 weights in kilograms: preserved prepared values and partial supported-only conversion. SDs are conditional fixed-key diagnostics; all converted bins remain incomplete.
 
@@ -622,22 +622,22 @@ fig-ftnir-assessment-weights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | asse
 Figure G1 Mean Weights Before and After Conversion
  Mean weights before and after conversion, with source SEs and converted bootstrap SDs or survey SEs. Fishery 2024 shows a partial supported-only diagnostic; source-age-13 mass remains unallocated.
 
-tbl-ftnir-fishery-weights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ftnir-fishery-weights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table G4 Fishery 2024–2025 Weights and Uncertainty
  Fishery 2024–2025 weights and uncertainty in kilograms. The 2024 TMA results are a partial supported-only conversion; source-age-13 mass remains unallocated. Missing target ages have no converted abundance.
 
-tbl-ftnir-bts-weights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ftnir-bts-weights-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table G5 BTS Mean Weights and Standard Errors After Joint Covariance Propagation
  BTS mean weights and SEs in kilograms after propagating the joint model covariance.
 
-tbl-ftnir-checks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-ftnir-checks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table G6 Validation of the Transformations
  Validation of the transformations. Numerical checks retain the full-pair conversion basis; current fitted inputs use the selected 2024 tail treatment and screened 2026 key.
 
-tbl-bts-spatial-settings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-bts-spatial-settings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table H1 Delivered 2026 Pollock Fit and Companion Prediction Settings
  Retained settings in the 2026 pollock fit objects, with prediction-grid and integration settings identified separately as companion-code evidence. The complete production prediction record remains unavailable.
 
-tbl-data-updates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca | 
+tbl-data-updates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca |
 Table I1 Annual Data Additions, Revisions and Weight-at-Age Assumptions
  Annual data additions, revisions and weight-at-age assumptions relative to the 2024 assessment. Listed updates are incorporated in the Model 23.x and 26.x fits. Cumulative input-update fits retain their stated stepwise history.
