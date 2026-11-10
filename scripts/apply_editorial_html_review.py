@@ -32,6 +32,9 @@ p=ReaderTextEdits(s)
 for a,b,new in reversed(p.edits):s=s[:a]+new+s[b:]
 assert 'matching the original figure convention'not in s
 s=s.replace('The 2026 extract ends September 18','The 2026 data extend through September 18').replace('The figure summarizes saved sampler point estimates and retains their original age bases.','The 2024–2025 estimates use FT-NIRS ages before conversion to tester ages.').replace('2025, because sample collections','2025 because sample collections')
+# Preserve the linked table reference when an edit spans HTML text nodes.
+s,count=re.subn(r'Values and definitions match (<a href="#esp2026-tbl-first-wholesale-economics">Table B7</a>)\.',r'See \1 for definitions.',s)
+assert count==1, 'Expected one linked Table B7 note'
 (r/'assessment.html').write_text(s)
 (out/'HTML-editorial-checks.json').write_text(json.dumps({'baseline':base,'main_captions_reviewed':73,'main_captions_revised':len(caps),'text_edits':records,'management_rewritten':True,'numeric_tables_modified':False,'scientific_plot_data_modified':False,'graphic_labels_modified_separately':True},indent=2)+'\n')
 print('PASS: 46 captions, management context and requested prose edits applied to HTML')

@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-10-editorial-review",
+  "version": "2026-11-10-editorial-review-note-sync",
   "status": "Review draft",
   "tables": 89,
   "images": 89,
@@ -8,11 +8,11 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "d6ffe1a2a4230ebab192e8f126b070b24aa615d29a6bfcde6de7b54d3b368f79",
+    "assessment.html": "a3d4258b607040ab2a90d215085e5ed84d0bc97fe0fd2497bc09c5442c14b082",
     "assessment.pdf": "48bf4df6f0866befddb3392d6fddf2fc42fb3d294496591bc954168e5e013604"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
-  "revision_note": "Reviewed all main and appendix figure captions and embedded labels; revised 46 main captions and 19 graphics, explained Figure 2 provisional FT-NIRS basis, clarified fishery regulation and salmon monitoring context, and applied author-requested prose deletions and data-coverage wording. Numeric tables and scientific results retained.",
+  "revision_note": "Reviewed all main and appendix figure captions and embedded labels; revised 46 main captions and 19 graphics, explained Figure 2 provisional FT-NIRS basis, clarified fishery regulation and salmon monitoring context, and applied author-requested prose deletions and data-coverage wording. Numeric tables and scientific results retained. Synchronized the linked Table B7 appendix note with the PDF during live verification.",
   "psc_source_sha256": "1abb83dae9a149f3678a5bc5d6b21a399c13272321810333e75b0d99fca20d13",
   "fmp_bycatch_sources": {
     "FMP Groundfish Bycatch in pollock fishery.csv": "9e6f2df237f6c1dd40eea1cee9602d5a7deaa668448552f61fe118333a13ea13",
