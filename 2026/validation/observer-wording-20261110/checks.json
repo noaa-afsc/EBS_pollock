@@ -1,0 +1,27 @@
+{
+  "pages": 280,
+  "edited_pages": [
+    7,
+    31
+  ],
+  "fonts": [
+    "Arial Unicode MS Regular",
+    "CMU Serif Bold",
+    "CMU Serif BoldItalic",
+    "CMU Serif Italic",
+    "CMU Serif Roman",
+    "CMUSerif-Roman",
+    "Helvetica",
+    "Latin Modern Math Regula",
+    "Type3 (161 0 R)",
+    "Type3 (228 0 R)",
+    "Type3 (313 0 R)",
+    "Type3 (319 0 R)",
+    "Type3 (361 0 R)",
+    "Type3 (374 0 R)",
+    "Type3 (430 0 R)"
+  ],
+  "all_links_bookmarks_and_figure_pixels_preserved": true,
+  "both_wording_changes_verified": true,
+  "manual_accessibility": "Not Tested"
+}

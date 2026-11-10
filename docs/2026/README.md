@@ -101,3 +101,5 @@ a small Unicode fallback cover specialized symbols. Existing line and table
 positions, links, bookmarks, page count and raster figure pixels were verified.
 The PDF remains a direct revision of the current published report, rather than
 a rerun of the historical scientific/Quarto pipeline.
+
+November 10 observer attribution revision: both formats use “Available observer data suggest good fishing” and “The observer data”. Based on the November 9 21:35 publication revision, preserving all 280 PDF pages, Computer Modern Unicode, links, bookmarks and figure pixels. Scoped checks and edited-page previews: `validation/observer-wording-20261110/`.

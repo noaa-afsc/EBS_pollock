@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-09-table-pagination",
+  "version": "2026-11-10-observer-wording",
   "status": "Review draft",
   "tables": 89,
   "images": 89,
@@ -8,11 +8,11 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "ff29182353f857abc06ec147b9f4066ee5ecabae516c46f0c9e8768ed6f0bf9a",
-    "assessment.pdf": "2649f82e8b12064368dc629ed61656456229b1daced1db3a1b677cef65570e2e"
+    "assessment.html": "0d861a4af666eac4e2afca3169855b72d3c55400fde18128e57844941c22ed72",
+    "assessment.pdf": "4232fa9202c45f4e936cfa73c8d158e5aba0535c71caa971be8a603ee0e0ef4c"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
-  "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
+  "revision_note": "Applied two observer-data attribution changes to the November 9 21:35 publication baseline; retained 280-page layout and embedded Computer Modern Unicode.",
   "psc_source_sha256": "1abb83dae9a149f3678a5bc5d6b21a399c13272321810333e75b0d99fca20d13",
   "fmp_bycatch_sources": {
     "FMP Groundfish Bycatch in pollock fishery.csv": "9e6f2df237f6c1dd40eea1cee9602d5a7deaa668448552f61fe118333a13ea13",
@@ -365,5 +365,14 @@
     "Table_2_distinct_source_targets_preserved": 15,
     "original_figure_pages_without_printed_footer_retained": [],
     "manual_accessibility": "Not Tested"
+  },
+  "observer_wording": {
+    "baseline_commit": "b3d5fa83f463413396f28fa805d105da12f31901",
+    "edited_PDF_pages": [
+      7,
+      31
+    ],
+    "font": "Computer Modern Unicode Serif",
+    "links_bookmarks_figure_pixels_preserved": true
   }
 }
