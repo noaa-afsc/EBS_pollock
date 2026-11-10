@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-09-figure-prose-cleanup",
+  "version": "2026-11-09-computer-modern",
   "status": "Review draft",
   "tables": 91,
   "images": 90,
@@ -9,7 +9,7 @@
   "manual_accessibility": "Not Tested",
   "files": {
     "assessment.html": "273eea106da17b28f392a4af1d9c7a976de4972ed8fb15e5eff13b6b254e40c3",
-    "assessment.pdf": "a1b8471f1b833050ca9b12783b6393caf737772919f2a43b38e92bd121119100"
+    "assessment.pdf": "f4f75591ac055c1bd2da151c304df93c745c687649bb239d53a1b3d3d6018632"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -211,5 +211,38 @@
     "links_removed_with_deleted_prose": 2,
     "Table2_links_retained": 39,
     "figure_images_and_captions_preserved": true
+  },
+  "PDF_typography": {
+    "pages": 266,
+    "all_page_character_content_verified": true,
+    "all_links_and_bookmarks_verified": true,
+    "all_raster_figure_pixel_hashes_verified": true,
+    "used_fonts_characters": {
+      "CMU Serif Bold": 7175,
+      "CMU Serif Roman": 514584,
+      "CMU Serif Italic": 9207,
+      "Arial Unicode MS Regular": 8,
+      "CMU Serif BoldItalic": 78,
+      "Latin Modern Math Regula": 43
+    },
+    "font_family": "Computer Modern Unicode Serif",
+    "math_symbols": "Latin Modern Math",
+    "rare_unicode_symbols": "Unicode fallback",
+    "source_line_and_table_geometry_retained": true,
+    "horizontal_fit_range": [
+      0.4642637666371511,
+      2.342343010398304
+    ],
+    "counts": {
+      "unit_superscript_minus_mappings_recovered": 4,
+      "characters_bold": 7175,
+      "spans_replaced": 30485,
+      "characters_regular": 514579,
+      "characters_italic": 9194,
+      "characters_unicode": 8,
+      "characters_bolditalic": 78,
+      "characters_math": 40
+    },
+    "manual_accessibility": "Not Tested"
   }
 }

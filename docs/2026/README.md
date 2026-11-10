@@ -94,3 +94,10 @@ from the existing aggregation recipe. Numeric content is unchanged.
 Pages publishes docs/ from main using branch-based publishing. The redundant
 static.yml deployment workflow is disabled after repeated deployment collisions
 and synchronization stalls. The rendered report remains owned by2026/.
+
+PDF typography revision: report text and tables use embedded Computer Modern
+Unicode Serif (regular, bold, italic and bold italic). Latin Modern Math and
+a small Unicode fallback cover specialized symbols. Existing line and table
+positions, links, bookmarks, page count and raster figure pixels were verified.
+The PDF remains a direct revision of the current published report, rather than
+a rerun of the historical scientific/Quarto pipeline.
