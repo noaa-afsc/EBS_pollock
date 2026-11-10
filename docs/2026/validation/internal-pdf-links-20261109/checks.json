@@ -1,0 +1,19 @@
+{
+  "converted_same_report_links": 58,
+  "unique_destinations": 54,
+  "remaining_same_report_web_links": 0,
+  "all_page_text_unchanged": true,
+  "all_raster_figures_unchanged": true,
+  "all_existing_external_links_preserved": true,
+  "all_existing_bookmarks_preserved": true,
+  "Table_2_external_source_links_preserved": 39,
+  "Table_38_destination": {
+    "source_page": 21,
+    "anchor": "tbl-model262-current-parameter-families",
+    "destination_page": 80,
+    "destination_y": 321.13,
+    "destination_text": "Table\u00a038:   Estimated\u00a0parameter\u00a0groups\u00a0and\u00a0their\u00a0uncertainty\u00a0in\u00a0Model\u00a026.0.\u00a0Standard\u00a0errors\u00a0use\u00a0each\u00a0group\u2019s\u00a0estimation\u00a0scale\u037e\u00a0differences\u00a0in"
+  },
+  "pages": 265,
+  "manual_accessibility": "Not Tested"
+}

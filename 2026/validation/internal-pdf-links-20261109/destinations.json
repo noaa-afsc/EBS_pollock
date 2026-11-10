@@ -1,0 +1,408 @@
+[
+  {
+    "source_page": 3,
+    "anchor": "changes-inputs-detail",
+    "destination_page": 5,
+    "destination_y": 213.41,
+    "destination_text": "2.1.1 Changes in assessment inputs"
+  },
+  {
+    "source_page": 3,
+    "anchor": "changes-methods-detail",
+    "destination_page": 5,
+    "destination_y": 421.97,
+    "destination_text": "2.1.2 Changes in assessment methods"
+  },
+  {
+    "source_page": 3,
+    "anchor": "advice-model260",
+    "destination_page": 4,
+    "destination_y": 76.91,
+    "destination_text": "Model 26.0 advice from revised fits"
+  },
+  {
+    "source_page": 8,
+    "anchor": "tbl-catch-area-season",
+    "destination_page": 46,
+    "destination_y": 42.49,
+    "destination_text": "Table\u00a03:   EBS\u00a0pollock\u00a0catch\u00a0by\u00a0reporting\u00a0area\u00a0and\u00a0season,\u00a01991\u20132026\u00a0(tons).\u00a0Southeast\u00a0(SE)\u00a0comprises\u00a0NMFS\u00a0areas\u00a0520\u2013539\u037e\u00a0Northwest"
+  },
+  {
+    "source_page": 8,
+    "anchor": "esp2026-economic-observations",
+    "destination_page": 170,
+    "destination_y": 46.34,
+    "destination_text": "Catch\u00a0and\u00a0Market\u00a0Context"
+  },
+  {
+    "source_page": 12,
+    "anchor": "tbl-fishery-length-samples",
+    "destination_page": 54,
+    "destination_y": 44.49,
+    "destination_text": "Table\u00a010:   Numbers\u00a0of\u00a0EBS\u00a0pollock\u00a0measured\u00a0for\u00a0fishery\u00a0length\u00a0frequencies,\u00a0by\u00a0recorded\u00a0sex\u00a0and\u00a0processing\u00a0stratum,\u00a01977\u20132025."
+  },
+  {
+    "source_page": 12,
+    "anchor": "tbl-fishery-weight-length-samples",
+    "destination_page": 55,
+    "destination_y": 42.49,
+    "destination_text": "Table\u00a011:   Numbers\u00a0of\u00a0EBS\u00a0pollock\u00a0with\u00a0paired\u00a0fish\u00adweight\u00a0and\u00a0length\u00a0measurements,\u00a0by\u00a0recorded\u00a0sex\u00a0and\u00a0processing\u00a0stratum,\u00a01977\u2013\u00a02025."
+  },
+  {
+    "source_page": 12,
+    "anchor": "tbl-fishery-age-samples",
+    "destination_page": 56,
+    "destination_y": 42.49,
+    "destination_text": "Table\u00a012:   Numbers\u00a0of\u00a0EBS\u00a0pollock\u00a0contributing\u00a0age\u00a0estimates,\u00a0by\u00a0recorded\u00a0sex\u00a0and\u00a0processing\u00a0stratum,\u00a01977\u20132025.\u00a0The\u00a02024\u20132025\u00a0entries"
+  },
+  {
+    "source_page": 12,
+    "anchor": "ref-kimura1989",
+    "destination_page": 39,
+    "destination_y": 94.38,
+    "destination_text": "kimuradk1989variabilityinestimatingcatchinnumbersatageanditsimpactoncohortanalysisineffectsonoceanvariabilityo"
+  },
+  {
+    "source_page": 12,
+    "anchor": "ref-barbeaux2005",
+    "destination_page": 37,
+    "destination_y": 76.14,
+    "destination_text": "barbeauxsjsgaichasjnianelliandmwdorn2005evaluationofbiologicalsamplingprotocolsforatseagroundfishobserversinal"
+  },
+  {
+    "source_page": 12,
+    "anchor": "ref-ianelli2024safe",
+    "destination_page": 38,
+    "destination_y": 582.54,
+    "destination_text": "ianellijthonkalehtoswassermannetal2024assessmentofwalleyepollockintheeasternberingseanorthpacificfisherymanage"
+  },
+  {
+    "source_page": 13,
+    "anchor": "fig-waa-omit-bts2026",
+    "destination_page": 109,
+    "destination_y": 394.86,
+    "destination_text": "Figure 23:  Observed and predicted weight-at-age, 2014\u20132028, after omitting 2026 BTS weight observations from the"
+  },
+  {
+    "source_page": 13,
+    "anchor": "fig-model262-current-biological-schedules",
+    "destination_page": 122,
+    "destination_y": 389.4,
+    "destination_text": "Figure 35:  Model 26.0 biological and selectivity schedules. Maturity, female fraction and natural mortality are supplied inputs. The"
+  },
+  {
+    "source_page": 14,
+    "anchor": "tbl-ats-sampling-effort",
+    "destination_page": 62,
+    "destination_y": 42.49,
+    "destination_text": "Table\u00a017:   Sampling\u00a0effort\u00a0and\u00a0biological\u00a0collections\u00a0from\u00a0eastern\u00a0Bering\u00a0Sea\u00a0acoustic\u00adtrawl\u00a0surveys,\u00a01979\u20132026\u00a0(counts).\u00a0E\u00a0and\u00a0W\u00a0denote\u00a0collections\u00a0east\u00a0and\u00a0west\u00a0of\u00a0170\u00b0W\u00a0within\u00a0"
+  },
+  {
+    "source_page": 14,
+    "anchor": "tbl-ats-biomass",
+    "destination_page": 63,
+    "destination_y": 42.49,
+    "destination_text": "Table\u00a018:   Midwater\u00a0pollock\u00a0biomass\u00a0by\u00a0area\u00a0from\u00a0summer\u00a0ATS\u00a0surveys\u00a0of\u00a0the\u00a0U.S.\u00a0EEZ\u00a0Bering\u00a0Sea\u00a0shelf,\u00a01994\u20132026\u00a0(million\u00a0tons\u037e\u00a0near\u00a0surface\u00a0to\u00a00.5\u00a0m\u00a0above\u00a0the\u00a0seafloor).\u00a0The\u00a0core\u00a0"
+  },
+  {
+    "source_page": 14,
+    "anchor": "ref-honkalehto2015",
+    "destination_page": 38,
+    "destination_y": 289.74,
+    "destination_text": "honkalehtotandamccarthy2015resultsoftheacoustictrawlsurveyofwalleyepollockgadduschalcogrammusontheusandrussian"
+  },
+  {
+    "source_page": 14,
+    "anchor": "tbl-ats-regions",
+    "destination_page": 64,
+    "destination_y": 44.49,
+    "destination_text": "Table\u00a019:   Biomass\u00a0and\u00a0abundance\u00a0summed\u00a0across\u00a0the\u00a02026\u00a0survey\u00a0intervals,\u00a0including\u00a0the\u00a0below\u00ad3\u00a0m\u00a0analysis\u00a0and\u00a0northern\u00a0extension.\u00a0The"
+  },
+  {
+    "source_page": 15,
+    "anchor": "tbl-ats-core-estimates",
+    "destination_page": 66,
+    "destination_y": 44.49,
+    "destination_text": "Table\u00a021:   Recent\u00a0core\u00adarea\u00a0ATS\u00a0pollock\u00a0biomass\u00a0and\u00a0abundance\u00a0estimates.\u00a0The\u00a02026\u00a0estimates\u00a0are\u00a0preliminary."
+  },
+  {
+    "source_page": 15,
+    "anchor": "tbl-ats-tma-weights",
+    "destination_page": 67,
+    "destination_y": 40.78,
+    "destination_text": "Table\u00a023:   Provisional\u00a0core\u00adarea\u00a02026\u00a0ATS\u00a0TMA\u00a0biomass,\u00a0abundance\u00a0and\u00a0mean\u00a0weight-at-age\u00a0over\u00a0supported\u00a0lengths.\u00a0The\u00a015+\u00a0row\u00a0sums"
+  },
+  {
+    "source_page": 15,
+    "anchor": "fig-ats-derived-weights",
+    "destination_page": 103,
+    "destination_y": 338.1,
+    "destination_text": "Figure\u00a017:   Provisional\u00a0core\u00adarea\u00a02026\u00a0ATS\u00a0mean\u00a0weight\u00a0at\u00a0TMA\u00a0tester\u00a0age,\u00a0obtained\u00a0by\u00a0dividing\u00a0biomass\u00a0after\u00a0the\u00a0unchanged\u00a0BTS"
+  },
+  {
+    "source_page": 15,
+    "anchor": "tbl-ats-biomass",
+    "destination_page": 63,
+    "destination_y": 42.49,
+    "destination_text": "Table\u00a018:   Midwater\u00a0pollock\u00a0biomass\u00a0by\u00a0area\u00a0from\u00a0summer\u00a0ATS\u00a0surveys\u00a0of\u00a0the\u00a0U.S.\u00a0EEZ\u00a0Bering\u00a0Sea\u00a0shelf,\u00a01994\u20132026\u00a0(million\u00a0tons\u037e\u00a0near\u00a0surface\u00a0to\u00a00.5\u00a0m\u00a0above\u00a0the\u00a0seafloor).\u00a0The\u00a0core\u00a0"
+  },
+  {
+    "source_page": 15,
+    "anchor": "fig-ats-historical-heatmap",
+    "destination_page": 104,
+    "destination_y": 437.5,
+    "destination_text": "Figure\u00a018:   Historical\u00a0pollock\u00a0biomass\u00a0between\u00a0near\u00a0surface\u00a0and\u00a03.0\u00a0m\u00a0above\u00a0the\u00a0bottom\u00a0in\u00a0the\u00a0summer\u00a0eastern\u00a0Bering\u00a0Sea\u00a0acoustic\u00ad\u00a0trawl"
+  },
+  {
+    "source_page": 15,
+    "anchor": "tbl-ats-regions",
+    "destination_page": 64,
+    "destination_y": 44.49,
+    "destination_text": "Table\u00a019:   Biomass\u00a0and\u00a0abundance\u00a0summed\u00a0across\u00a0the\u00a02026\u00a0survey\u00a0intervals,\u00a0including\u00a0the\u00a0below\u00ad3\u00a0m\u00a0analysis\u00a0and\u00a0northern\u00a0extension.\u00a0The"
+  },
+  {
+    "source_page": 17,
+    "anchor": "tbl-avo-assessment-series",
+    "destination_page": 70,
+    "destination_y": 40.78,
+    "destination_text": "Table\u00a027:   ATS\u00a0biomass\u00a0(million\u00a0tons)\u00a0and\u00a0AVO\u00a0backscatter\u00a0(million\u00a0m\u00b2),\u00a02006\u20132026.\u00a0AVO\u00a0indices\u00a0and\u00a0sampling\u00a0relative\u00a0errors\u00a0for"
+  },
+  {
+    "source_page": 17,
+    "anchor": "ref-afscmace2026avo",
+    "destination_page": 36,
+    "destination_y": 245.01,
+    "destination_text": "AFSC-RACE MACE. 2026.  Preliminary Results, AVO 2026 . Unpublished report supplied privately."
+  },
+  {
+    "source_page": 17,
+    "anchor": "ref-ianelli2024safe",
+    "destination_page": 38,
+    "destination_y": 582.54,
+    "destination_text": "ianellijthonkalehtoswassermannetal2024assessmentofwalleyepollockintheeasternberingseanorthpacificfisherymanage"
+  },
+  {
+    "source_page": 19,
+    "anchor": "tbl-updated-configuration-effects",
+    "destination_page": 73,
+    "destination_y": 230.38,
+    "destination_text": "Table\u00a030:   Deterministic\u00a02026\u00a0population\u00a0estimates\u00a0with\u00a0the\u00a0selected\u00a0catch\u00a0inputs.\u00a0Model\u00a026.1.2\u00a0is\u00a0the\u00a0Early\u00adlate\u00a0fishery\u00a0split\u00a0comparison\u037e\u00a0its"
+  },
+  {
+    "source_page": 19,
+    "anchor": "fig-model23-ssb-change-density",
+    "destination_page": 112,
+    "destination_y": 352.3,
+    "destination_text": "Figure\u00a0 26 :   Approximate\u00a0distributions\u00a0of\u00a0spawning\u00adbiomass\u00a0change\u00a0from\u00a02026\u00a0to\u00a02027\u00a0across\u00a0five\u00a0selected\u00a0cumulative\u00a0input\u00adupdate\u00a0stages,"
+  },
+  {
+    "source_page": 19,
+    "anchor": "fig-model23-young-n-change-density",
+    "destination_page": 113,
+    "destination_y": 352.3,
+    "destination_text": "Figure\u00a0 27 :   Approximate\u00a0distributions\u00a0of\u00a0change\u00a0from\u00a02025\u00a0to\u00a02026\u00a0in\u00a0total\u00a0numbers\u00a0at\u00a0ages\u00a01\u20134.\u00a0Five\u00a0selected\u00a0cumulative\u00a0input\u00ad\u00a0update"
+  },
+  {
+    "source_page": 19,
+    "anchor": "fig-model230-vs232",
+    "destination_page": 114,
+    "destination_y": 403.2,
+    "destination_text": "Figure\u00a0 28 :   Models\u00a023.0\u00a0and\u00a023.2\u00a0fitted\u00a0to\u00a0the\u00a0same\u00a0observations\u00a0and\u00a0supplied\u00a0biological\u00a0schedules.\u00a0Lines\u00a0show\u00a0annual\u00a0estimates\u00a0and\u00a0shading"
+  },
+  {
+    "source_page": 19,
+    "anchor": "fig-model232-vs262",
+    "destination_page": 115,
+    "destination_y": 403.2,
+    "destination_text": "Figure\u00a0 29 :   Models\u00a023.2\u00a0and\u00a026.0\u00a0fitted\u00a0to\u00a0the\u00a0same\u00a0observations\u00a0and\u00a0supplied\u00a0biological\u00a0schedules.\u00a0Lines\u00a0show\u00a0annual\u00a0estimates\u00a0and\u00a0shading"
+  },
+  {
+    "source_page": 20,
+    "anchor": "fig-model262-current-full-uncertainty",
+    "destination_page": 116,
+    "destination_y": 357.65,
+    "destination_text": "Figure\u00a0 30 :   Model\u00a026.0\u00a0annual\u00a0total\u00a0biomass,\u00a0female\u00a0spawning\u00a0biomass,\u00a0age\u00ad1\u00a0recruitment\u00a0and\u00a0fishing\u00a0mortality\u00a0through\u00a02026,\u00a0with"
+  },
+  {
+    "source_page": 20,
+    "anchor": "tbl-model262-current-annual-estimates",
+    "destination_page": 73,
+    "destination_y": 552.08,
+    "destination_text": "Table\u00a032:   Model\u00a026.0\u00a0annual\u00a0estimates\u00a0and\u00a0approximate\u00a095%\u00a0confidence\u00a0intervals,\u00a01964\u20132026.\u00a0Each\u00a0cell\u00a0gives\u00a0the\u00a0estimate\u00a0followed\u00a0by\u00a0its"
+  },
+  {
+    "source_page": 21,
+    "anchor": "fig-model262-current-numbers-uncertainty",
+    "destination_page": 117,
+    "destination_y": 514.4,
+    "destination_text": "Figure\u00a0 31 :   Model\u00a026.0\u00a0start\u00adof\u00adyear\u00a0numbers\u00a0at\u00a0age,\u00a01964\u20131989,\u00a0followed\u00a0by\u00a01990\u20132026\u00a0as\u00a0the\u00a0same\u00a0figure\u00a0continued.\u00a0The\u00a0color\u00a0legend"
+  },
+  {
+    "source_page": 21,
+    "anchor": "tbl-model262-current-numbers-at-age",
+    "destination_page": 76,
+    "destination_y": 42.78,
+    "destination_text": "Table\u00a034:   Model\u00a026.0\u00a0start\u00adof\u00adyear\u00a0numbers\u00a0at\u00a0age,\u00a01964\u20132026,\u00a0in\u00a0billion\u00a0fish.\u00a0Age\u00a015+\u00a0includes\u00a0all\u00a0older\u00a0fish.\u00a0Values\u00a0are\u00a0rounded\u00a0to\u00a00.001\u00a0billion\u00a0fish\u037e\u00a0full\u00a0precision\u00a0is\u00a0retain"
+  },
+  {
+    "source_page": 21,
+    "anchor": "tbl-model262-current-terminal-numbers",
+    "destination_page": 78,
+    "destination_y": 42.78,
+    "destination_text": "Table\u00a035:   Model\u00a026.0\u00a0start\u00adof\u00ad2026\u00a0numbers\u00a0at\u00a0age\u00a0and\u00a0uncertainty,\u00a0in\u00a0billion\u00a0fish.\u00a0Ranges\u00a0are\u00a0approximate\u00a095%\u00a0confidence\u00a0intervals,"
+  },
+  {
+    "source_page": 21,
+    "anchor": "fig-model260-lnrs",
+    "destination_page": 121,
+    "destination_y": 649.07,
+    "destination_text": "Figure\u00a0 34 :   Model\u00a026.0\u00a0log\u00a0recruits\u00a0per\u00a0spawner,\u00a0updating\u00a0the\u00a0two\u00adpanel\u00a0diagnostic\u00a0from\u00a0the\u00a02024\u00a0assessment.\u00a0Age\u00ad1\u00a0recruits\u00a0in\u00a0year\u00a0t+1"
+  },
+  {
+    "source_page": 21,
+    "anchor": "fig-model262-current-biological-schedules",
+    "destination_page": 122,
+    "destination_y": 389.4,
+    "destination_text": "Figure 35:  Model 26.0 biological and selectivity schedules. Maturity, female fraction and natural mortality are supplied inputs. The"
+  },
+  {
+    "source_page": 21,
+    "anchor": "tbl-model262-current-biological-schedules",
+    "destination_page": 79,
+    "destination_y": 42.98,
+    "destination_text": "Table\u00a036:   Model\u00a026.0\u00a0biological\u00a0schedules\u00a0and\u00a0fishery\u00a0weight\u00a0predictions\u00a0at\u00a0ages\u00a01\u201315+,\u00a0with\u00a0weights\u00a0for\u00a02024\u20132026.\u00a0Mortality\u00a0is\u00a0an\u00a0annual\u00a0instantaneous\u00a0rate\u037e\u00a0maturity\u00a0and\u00a0female"
+  },
+  {
+    "source_page": 21,
+    "anchor": "tbl-model262-current-selectivity",
+    "destination_page": 80,
+    "destination_y": 42.78,
+    "destination_text": "Table\u00a037:   Model\u00a026.0\u00a0selectivity\u00a0at\u00a0age\u00a0in\u00a02026.\u00a0Cells\u00a0give\u00a0the\u00a0estimate\u00a0and\u00a0approximate\u00a095%\u00a0confidence\u00a0interval.\u00a0ATS\u00a0and\u00a0AVO\u00a0share\u00a0the"
+  },
+  {
+    "source_page": 21,
+    "anchor": "fig-model260-fishing-mortality-age",
+    "destination_page": 123,
+    "destination_y": 507.62,
+    "destination_text": "Figure\u00a0 36 :   Model\u00a026.0\u00a0instantaneous\u00a0fishing\u00a0mortality\u00a0by\u00a0age\u00a0through\u00a02026,\u00a0using\u00a0the\u00a0verified\u00a0fit.\u00a0Tiles\u00a0and\u00a0contours\u00a0show\u00a0the\u00a0same\u00a0realized"
+  },
+  {
+    "source_page": 21,
+    "anchor": "fig-model260-spawn-interval-exploitation",
+    "destination_page": 124,
+    "destination_y": 370.97,
+    "destination_text": "Figure\u00a0 37 :   Model\u00a026.0\u00a0spawning\u00a0exploitation\u00a0for\u00a0spawning\u00adto\u00adspawning\u00a0intervals\u00a0starting\u00a0in\u00a01964\u20132026.\u00a0Black\u00a0lines\u00a0show\u00a0the\u00a0revised"
+  },
+  {
+    "source_page": 21,
+    "anchor": "tbl-model262-current-parameter-families",
+    "destination_page": 80,
+    "destination_y": 321.13,
+    "destination_text": "Table\u00a038:   Estimated\u00a0parameter\u00a0groups\u00a0and\u00a0their\u00a0uncertainty\u00a0in\u00a0Model\u00a026.0.\u00a0Standard\u00a0errors\u00a0use\u00a0each\u00a0group\u2019s\u00a0estimation\u00a0scale\u037e\u00a0differences\u00a0in"
+  },
+  {
+    "source_page": 21,
+    "anchor": "tbl-model262-current-likelihood-summary",
+    "destination_page": 80,
+    "destination_y": 556.08,
+    "destination_text": "Table\u00a039:   Contributions\u00a0to\u00a0the\u00a0Model\u00a026.0\u00a0fit,\u00a0grouped\u00a0by\u00a0data\u00a0source\u00a0or\u00a0stabilizing\u00a0assumption.\u00a0Rounded\u00a0rows\u00a0may\u00a0differ\u00a0slightly\u00a0from\u00a0their"
+  },
+  {
+    "source_page": 21,
+    "anchor": "fig-model262-index-fits",
+    "destination_page": 125,
+    "destination_y": 496.02,
+    "destination_text": "Figure\u00a0 38 :   Observed\u00a0indices\u00a0and\u00a0Model\u00a026.0\u00a0fitted\u00a0predictions.\u00a0Black\u00a0points\u00a0show\u00a0source\u00a0observations,\u00a0lines\u00a0show\u00a0fitted\u00a0predictions,\u00a0and"
+  },
+  {
+    "source_page": 22,
+    "anchor": "fig-model262-index-residuals",
+    "destination_page": 126,
+    "destination_y": 473.77,
+    "destination_text": "Figure\u00a0 39 :   Model\u00a026.0\u00a0index\u00a0residuals\u00a0relative\u00a0to\u00a0the\u00a0selected\u00a0observation\u00a0errors,\u00a0with\u00a0BTS\u00a0accounting\u00a0for\u00a0supplied\u00a0covariance\u00a0among"
+  },
+  {
+    "source_page": 22,
+    "anchor": "tbl-model262-index-residual-summary",
+    "destination_page": 81,
+    "destination_y": 43.38,
+    "destination_text": "Table\u00a040:   Observed\u00adindex\u00a0residual\u00a0summaries\u00a0for\u00a0Model\u00a026.0.\u00a0Residuals\u00a0measure\u00a0observed\u00adminus\u00adpredicted\u00a0differences\u00a0relative\u00a0to\u00a0the"
+  },
+  {
+    "source_page": 22,
+    "anchor": "fig-model260-fishery-selectivity-history",
+    "destination_page": 127,
+    "destination_y": 674.27,
+    "destination_text": "Figure\u00a0 40 :   Annual\u00a0fishery\u00a0selectivity\u00a0at\u00a0ages\u00a01\u201315+\u00a0from\u00a0the\u00a0Model\u00a026.0\u00a0fit.\u00a0Each\u00a0ridge\u00a0shows\u00a0the\u00a0estimated\u00a0age\u00a0pattern\u00a0for\u00a0that\u00a0year,\u00a0using"
+  },
+  {
+    "source_page": 22,
+    "anchor": "fig-model260-bts-selectivity-history",
+    "destination_page": 128,
+    "destination_y": 674.27,
+    "destination_text": "Figure\u00a0 41 :   Annual\u00a0bottom\u00adtrawl\u00a0survey\u00a0selectivity\u00a0at\u00a0ages\u00a01\u201315+\u00a0from\u00a0the\u00a0Model\u00a026.0\u00a0fit.\u00a0Each\u00a0ridge\u00a0is\u00a0divided\u00a0by\u00a0its\u00a0maximum\u00a0over\u00a0the"
+  },
+  {
+    "source_page": 22,
+    "anchor": "fig-model260-ats-selectivity-history",
+    "destination_page": 129,
+    "destination_y": 674.27,
+    "destination_text": "Figure\u00a0 42 :   Annual\u00a0acoustic\u00adtrawl\u00a0survey\u00a0selectivity\u00a0at\u00a0ages\u00a02\u201315+\u00a0from\u00a0the\u00a0Model\u00a026.0\u00a0fit.\u00a0ATS\u00a0and\u00a0AVO\u00a0share\u00a0the\u00a0estimated\u00a0age\u00a0curve\u037e"
+  },
+  {
+    "source_page": 23,
+    "anchor": "tbl-catch-revised-mohn-rho",
+    "destination_page": 82,
+    "destination_y": 381.68,
+    "destination_text": "Table\u00a042:   Model\u00a026.0\u00a0Mohn\u2019s\u00a0rho\u00a0against\u00a0the\u00a0full\u00ad2026\u00a0fit.\u00a0Rho\u00a0is\u00a0the\u00a0mean\u00a0proportional\u00a0terminal\u00a0revision."
+  },
+  {
+    "source_page": 23,
+    "anchor": "tbl-model260-current-retrospective-revisions",
+    "destination_page": 82,
+    "destination_y": 482.58,
+    "destination_text": "Table\u00a043:   Model\u00a026.0\u00a0retrospective\u00a0terminal\u00a0estimates\u00a0and\u00a0revisions:\u00a0All\u00a0rows\u00a0use\u00a0the\u00a0full\u00ad2026\u00a0reference.\u00a0Each\u00a0row\u00a0omits\u00a0all\u00a0observations"
+  },
+  {
+    "source_page": 24,
+    "anchor": "tbl-model261-nll-comparison",
+    "destination_page": 83,
+    "destination_y": 40.78,
+    "destination_text": "Table\u00a044:   Native\u00a0fitting\u00a0objectives\u00a0with\u00a0the\u00a0selected\u00a0catch\u00a0inputs,\u00a0including\u00a0the\u00a0Early\u00adlate\u00a0fishery\u00a0split\u00a0comparison.\u00a0Model\u00adspecific\u00a0penalties"
+  },
+  {
+    "source_page": 24,
+    "anchor": "tbl-coordinated-model-abc",
+    "destination_page": 83,
+    "destination_y": 187.18,
+    "destination_text": "Table\u00a045:   Maximum\u00a0ABC\u00a0and\u00a0OFL\u00a0for\u00a0the\u00a0four\u00a0separately\u00a0fitted\u00a0Rceattle\u00a0configurations\u00a0and\u00a0the\u00a0Early\u00adlate\u00a0fishery\u00a0split\u00a0Model\u00a026.1.2"
+  },
+  {
+    "source_page": 27,
+    "anchor": "tbl-proposed-tier3-catch",
+    "destination_page": 84,
+    "destination_y": 260.83,
+    "destination_text": "Table\u00a050:   Projections\u00a0from\u00a0the\u00a0revised\u00a0fits.\u00a0Thirteen\u00adyear\u00a0catch\u00a0table\u00a0for\u00a0the\u00a0proposed\u00a0harvest\u00a0scenarios,\u00a0in\u00a0thousand\u00a0tons."
+  },
+  {
+    "source_page": 27,
+    "anchor": "tbl-proposed-tier3-ssb",
+    "destination_page": 85,
+    "destination_y": 40.78,
+    "destination_text": "Table\u00a051:   Projections\u00a0from\u00a0the\u00a0revised\u00a0fits.\u00a0Thirteen\u00adyear\u00a0female\u00a0spawning\u00adbiomass\u00a0table\u00a0for\u00a0the\u00a0proposed\u00a0harvest\u00a0scenarios,\u00a0in\u00a0thousand"
+  },
+  {
+    "source_page": 27,
+    "anchor": "tbl-proposed-tier3-f",
+    "destination_page": 85,
+    "destination_y": 289.78,
+    "destination_text": "Table\u00a052:   Thirteen\u00adyear\u00a0fishing\u00admortality\u00a0table\u00a0for\u00a0the\u00a0proposed\u00a0harvest\u00a0scenarios.\u00a0F\u00a0is\u00a0the\u00a0annual\u00a0rate\u00a0on\u00a0the\u00a0most\u00a0selected\u00a0age."
+  },
+  {
+    "source_page": 27,
+    "anchor": "fig-proposed-tier3-phase",
+    "destination_page": 155,
+    "destination_y": 445.57,
+    "destination_text": "Figure\u00a0 68: Historical\u00a0trajectory\u00a0of\u00a0Model\u00a026.0\u00a0female\u00a0spawning\u00a0biomass\u00a0(B)\u00a0and\u00a0maximum\u00a0fishing\u00a0mortality\u00a0at\u00a0age\u00a0(F),\u00a01981\u20132026,\u00a0with"
+  }
+]
