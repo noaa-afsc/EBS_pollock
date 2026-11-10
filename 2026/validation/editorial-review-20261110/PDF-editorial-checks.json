@@ -1,0 +1,1248 @@
+{
+  "pages": 280,
+  "frames": [
+    {
+      "page": 7,
+      "reason": "management context",
+      "font_size": 10.2,
+      "rect": [
+        50.49,
+        109.5,
+        565.0,
+        616.5
+      ],
+      "spare": 78.080078125
+    },
+    {
+      "page": 8,
+      "reason": "catch and spatial narrative",
+      "font_size": 10.2,
+      "rect": [
+        50.49,
+        49.5,
+        565.0,
+        618.0
+      ],
+      "spare": 20.54010009765625
+    },
+    {
+      "page": 9,
+      "reason": "fleet dispersion and fish size",
+      "font_size": 10.2,
+      "rect": [
+        50.49,
+        49.5,
+        565.0,
+        445.0
+      ],
+      "spare": 62.260009765625
+    },
+    {
+      "page": 102,
+      "reason": "Figure 1 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        568.4022216796875,
+        565.0,
+        740.0
+      ],
+      "spare": 100.19776916503906
+    },
+    {
+      "page": 103,
+      "reason": "Figure 2 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        415.27032470703125,
+        565.0,
+        740.0
+      ],
+      "spare": 273.7296714782715
+    },
+    {
+      "page": 105,
+      "reason": "Figure 4 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        351.95000610351565,
+        565.0,
+        740.0
+      ],
+      "spare": 357.449991607666
+    },
+    {
+      "page": 111,
+      "reason": "Figure 10 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        607.6861572265625,
+        565.0,
+        740.0
+      ],
+      "spare": 101.71384048461914
+    },
+    {
+      "page": 113,
+      "reason": "Figure 12 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        653.0500122070313,
+        565.0,
+        740.0
+      ],
+      "spare": 35.94998397827146
+    },
+    {
+      "page": 122,
+      "reason": "Figure 21 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        346.13360595703125,
+        565.0,
+        740.0
+      ],
+      "spare": 373.46639251708984
+    },
+    {
+      "page": 124,
+      "reason": "Figure 23 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        399.361572265625,
+        565.0,
+        740.0
+      ],
+      "spare": 289.63842391967773
+    },
+    {
+      "page": 125,
+      "reason": "Figure 24 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        444.75048828125,
+        565.0,
+        740.0
+      ],
+      "spare": 254.4495086669922
+    },
+    {
+      "page": 126,
+      "reason": "Figure 25 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        446.9004821777344,
+        565.0,
+        740.0
+      ],
+      "spare": 242.09951400756836
+    },
+    {
+      "page": 127,
+      "reason": "Figure 26 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        359.55047607421875,
+        565.0,
+        740.0
+      ],
+      "spare": 309.0495147705078
+    },
+    {
+      "page": 128,
+      "reason": "Figure 27 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        359.55047607421875,
+        565.0,
+        740.0
+      ],
+      "spare": 319.24951934814453
+    },
+    {
+      "page": 132,
+      "reason": "Figure 31 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        521.6505737304688,
+        565.0,
+        740.0
+      ],
+      "spare": 187.7494239807129
+    },
+    {
+      "page": 134,
+      "reason": "Figure 32 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        637.0505981445312,
+        565.0,
+        740.0
+      ],
+      "spare": 51.949398040771484
+    },
+    {
+      "page": 136,
+      "reason": "Figure 34 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        658.9505004882812,
+        565.0,
+        740.0
+      ],
+      "spare": 30.049495697021484
+    },
+    {
+      "page": 138,
+      "reason": "Figure 36 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        517.5005493164062,
+        565.0,
+        740.0
+      ],
+      "spare": 202.09944915771484
+    },
+    {
+      "page": 139,
+      "reason": "Figure 37 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        380.8504943847656,
+        565.0,
+        740.0
+      ],
+      "spare": 297.94950103759766
+    },
+    {
+      "page": 140,
+      "reason": "Figure 38 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        505.9004821777344,
+        565.0,
+        740.0
+      ],
+      "spare": 193.2995147705078
+    },
+    {
+      "page": 141,
+      "reason": "Figure 39 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        483.6504821777344,
+        565.0,
+        740.0
+      ],
+      "spare": 225.74951553344727
+    },
+    {
+      "page": 142,
+      "reason": "Figure 40 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        684.1505737304688,
+        565.0,
+        740.0
+      ],
+      "spare": 45.6494255065918
+    },
+    {
+      "page": 143,
+      "reason": "Figure 41 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        684.1505737304688,
+        565.0,
+        740.0
+      ],
+      "spare": 35.449424743652344
+    },
+    {
+      "page": 144,
+      "reason": "Figure 42 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        684.1505737304688,
+        565.0,
+        740.0
+      ],
+      "spare": 35.449424743652344
+    },
+    {
+      "page": 145,
+      "reason": "Figure 43 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        580.4005737304688,
+        565.0,
+        740.0
+      ],
+      "spare": 108.59942245483398
+    },
+    {
+      "page": 146,
+      "reason": "Figure 44 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        661.4505004882812,
+        565.0,
+        740.0
+      ],
+      "spare": 47.94949722290039
+    },
+    {
+      "page": 147,
+      "reason": "Figure 45 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        341.4004821777344,
+        565.0,
+        740.0
+      ],
+      "spare": 367.99951553344727
+    },
+    {
+      "page": 148,
+      "reason": "Figure 46 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        661.4505004882812,
+        565.0,
+        740.0
+      ],
+      "spare": 47.94949722290039
+    },
+    {
+      "page": 149,
+      "reason": "Figure 47 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        437.4504699707031,
+        565.0,
+        740.0
+      ],
+      "spare": 271.9495277404785
+    },
+    {
+      "page": 150,
+      "reason": "Figure 48 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        572.5505981445312,
+        565.0,
+        740.0
+      ],
+      "spare": 126.64939880371094
+    },
+    {
+      "page": 152,
+      "reason": "Figure 50 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        626.5505981445312,
+        565.0,
+        740.0
+      ],
+      "spare": 31.849395751953125
+    },
+    {
+      "page": 153,
+      "reason": "Figure 51 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        572.5505981445312,
+        565.0,
+        740.0
+      ],
+      "spare": 116.44939804077148
+    },
+    {
+      "page": 154,
+      "reason": "Figure 52 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        463.00048828125,
+        565.0,
+        740.0
+      ],
+      "spare": 236.1995086669922
+    },
+    {
+      "page": 155,
+      "reason": "Figure 53 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        368.05047607421875,
+        565.0,
+        740.0
+      ],
+      "spare": 310.74951934814453
+    },
+    {
+      "page": 156,
+      "reason": "Figure 54 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        465.4504699707031,
+        565.0,
+        740.0
+      ],
+      "spare": 254.14952850341797
+    },
+    {
+      "page": 157,
+      "reason": "Figure 55 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        465.4504699707031,
+        565.0,
+        740.0
+      ],
+      "spare": 254.14952850341797
+    },
+    {
+      "page": 158,
+      "reason": "Figure 56 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        684.1505737304688,
+        565.0,
+        740.0
+      ],
+      "spare": 35.449424743652344
+    },
+    {
+      "page": 159,
+      "reason": "Figure 57 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        309.1004943847656,
+        565.0,
+        740.0
+      ],
+      "spare": 420.6995048522949
+    },
+    {
+      "page": 160,
+      "reason": "Figure 58 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        615.1505737304688,
+        565.0,
+        740.0
+      ],
+      "spare": 63.64942169189453
+    },
+    {
+      "page": 161,
+      "reason": "Figure 59 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        615.1505737304688,
+        565.0,
+        740.0
+      ],
+      "spare": 63.64942169189453
+    },
+    {
+      "page": 163,
+      "reason": "Figure 61 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        533.2505493164062,
+        565.0,
+        740.0
+      ],
+      "spare": 145.54944610595703
+    },
+    {
+      "page": 164,
+      "reason": "Figure 62 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        515.7505493164062,
+        565.0,
+        740.0
+      ],
+      "spare": 183.44944763183594
+    },
+    {
+      "page": 165,
+      "reason": "Figure 63 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        368.05047607421875,
+        565.0,
+        740.0
+      ],
+      "spare": 351.54952239990234
+    },
+    {
+      "page": 166,
+      "reason": "Figure 64 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        479.6004943847656,
+        565.0,
+        740.0
+      ],
+      "spare": 188.99949645996094
+    },
+    {
+      "page": 171,
+      "reason": "Figure 69 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        368.0086975097656,
+        565.0,
+        740.0
+      ],
+      "spare": 351.59130096435547
+    },
+    {
+      "page": 172,
+      "reason": "Figure 70 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        572.5088500976562,
+        565.0,
+        740.0
+      ],
+      "spare": 147.09114837646484
+    },
+    {
+      "page": 173,
+      "reason": "Figure 71 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        456.30828857421875,
+        565.0,
+        740.0
+      ],
+      "spare": 253.0917091369629
+    },
+    {
+      "page": 174,
+      "reason": "Figure 72 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        479.5587158203125,
+        565.0,
+        740.0
+      ],
+      "spare": 240.0412826538086
+    },
+    {
+      "page": 175,
+      "reason": "Figure 73 caption",
+      "font_size": 8.5,
+      "rect": [
+        50.49,
+        444.9696960449219,
+        565.0,
+        740.0
+      ],
+      "spare": 264.43030166625977
+    },
+    {
+      "page": 10,
+      "reason": "prose/note cleanup",
+      "font_size": 9.2,
+      "rect": [
+        50.19977493286133,
+        380.21767578125,
+        561.852490234375,
+        442.00604248046875
+      ],
+      "spare": 23.66836776733396
+    },
+    {
+      "page": 42,
+      "reason": "prose/note cleanup",
+      "font_size": 9.5,
+      "rect": [
+        35.7,
+        68.72924194335937,
+        561.5,
+        116.64399719238281
+      ],
+      "spare": 8.71475448608399
+    },
+    {
+      "page": 46,
+      "reason": "prose/note cleanup",
+      "font_size": 9.5,
+      "rect": [
+        35.7,
+        40.22923812866211,
+        576.6374633789062,
+        108.41986083984375
+      ],
+      "spare": 6.190618896484381
+    },
+    {
+      "page": 47,
+      "reason": "prose/note cleanup",
+      "font_size": 9.5,
+      "rect": [
+        35.7,
+        40.22923812866211,
+        574.1308715820312,
+        97.16986083984375
+      ],
+      "spare": 6.34062042236328
+    },
+    {
+      "page": 195,
+      "reason": "prose/note cleanup",
+      "font_size": 8.3,
+      "rect": [
+        50.19948120117188,
+        420.0940185546875,
+        562.7940185546875,
+        589.940185546875
+      ],
+      "spare": 25.406164550781227
+    },
+    {
+      "page": 203,
+      "reason": "prose/note cleanup",
+      "font_size": 8.2,
+      "rect": [
+        50.199893188476565,
+        657.1706787109375,
+        561.5,
+        718.2636108398438
+      ],
+      "spare": 36.412931823730446
+    },
+    {
+      "page": 204,
+      "reason": "prose/note cleanup",
+      "font_size": 8.3,
+      "rect": [
+        50.199588012695315,
+        557.513818359375,
+        563.1456420898437,
+        640.4103393554688
+      ],
+      "spare": 38.05651702880857
+    },
+    {
+      "page": 205,
+      "reason": "prose/note cleanup",
+      "font_size": 8.3,
+      "rect": [
+        50.19963760375977,
+        557.5180297851563,
+        561.5,
+        640.4283447265625
+      ],
+      "spare": 38.07031097412107
+    },
+    {
+      "page": 207,
+      "reason": "prose/note cleanup",
+      "font_size": 8.3,
+      "rect": [
+        50.199946594238284,
+        646.113671875,
+        561.5,
+        739.8523559570312
+      ],
+      "spare": 38.938681030273415
+    },
+    {
+      "page": 208,
+      "reason": "prose/note cleanup",
+      "font_size": 9.7,
+      "rect": [
+        50.19986267089844,
+        116.93077239990234,
+        561.5,
+        187.8589630126953
+      ],
+      "spare": 7.728189849853521
+    },
+    {
+      "page": 260,
+      "reason": "prose/note cleanup",
+      "font_size": 9.6,
+      "rect": [
+        50.19967956542969,
+        458.93792114257815,
+        564.6717651367187,
+        542.6798095703125
+      ],
+      "spare": 9.621885681152321
+    }
+  ],
+  "graphic_replacements": [
+    {
+      "asset": 1,
+      "page": 102
+    },
+    {
+      "asset": 2,
+      "page": 103
+    },
+    {
+      "asset": 4,
+      "page": 105
+    },
+    {
+      "asset": 7,
+      "page": 108
+    },
+    {
+      "asset": 8,
+      "page": 109
+    },
+    {
+      "asset": 9,
+      "page": 110
+    },
+    {
+      "asset": 10,
+      "page": 111
+    },
+    {
+      "asset": 11,
+      "page": 112
+    },
+    {
+      "asset": 23,
+      "page": 125
+    },
+    {
+      "asset": 24,
+      "page": 126
+    },
+    {
+      "asset": 25,
+      "page": 127
+    },
+    {
+      "asset": 26,
+      "page": 128
+    },
+    {
+      "asset": 48,
+      "page": 150
+    },
+    {
+      "asset": 54,
+      "page": 156
+    },
+    {
+      "asset": 55,
+      "page": 157
+    },
+    {
+      "asset": 64,
+      "page": 166
+    },
+    {
+      "asset": 79,
+      "page": 201
+    },
+    {
+      "asset": 80,
+      "page": 202
+    },
+    {
+      "asset": 81,
+      "page": 203
+    }
+  ],
+  "native_links_created": [
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026reallocation",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026specifications",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026herringclosure",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026herringclosure",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026herringclosure",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026herringclosure",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026herringclosure",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026herringclosure",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026herringclosure",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026herringclosure",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2026herringclosure",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "tbl-management-measures",
+      "destination_page": 44
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2007am84",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2007am84",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2007am84",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2007am84",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2007am84",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2007am84",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2007am84",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2007am84",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2007am84",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2023salmonhistory",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2010am91",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2010am91",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2010am91",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2010am91",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2010am91",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2010am91",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2010am91",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2010am91",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2010am91",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2016am110",
+      "destination_page": 40
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-noaa2025electronicmonitoringalaska",
+      "destination_page": 39
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-guthrie2017chinook2015",
+      "destination_page": 38
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-guthrie2017chinook2015",
+      "destination_page": 38
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-guthrie2017chinook2015",
+      "destination_page": 38
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-guthrie2017chinook2015",
+      "destination_page": 38
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-guthrie2017chinook2015",
+      "destination_page": 38
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-guthrie2017chinook2015",
+      "destination_page": 38
+    },
+    {
+      "source_page": 7,
+      "anchor": "ref-guthrie2017chinook2015",
+      "destination_page": 38
+    },
+    {
+      "source_page": 8,
+      "anchor": "tbl-catch-area-season",
+      "destination_page": 46
+    },
+    {
+      "source_page": 8,
+      "anchor": "tbl-catch-retained-discarded",
+      "destination_page": 47
+    },
+    {
+      "source_page": 8,
+      "anchor": "fig-nominal-seasonal-cpue",
+      "destination_page": 102
+    },
+    {
+      "source_page": 8,
+      "anchor": "fig-catch-numbers-sex-season",
+      "destination_page": 103
+    },
+    {
+      "source_page": 8,
+      "anchor": "fig-cumulative-catch-tac",
+      "destination_page": 104
+    },
+    {
+      "source_page": 8,
+      "anchor": "fig-roe-production",
+      "destination_page": 105
+    },
+    {
+      "source_page": 8,
+      "anchor": "esp2026-economic-observations",
+      "destination_page": 185
+    },
+    {
+      "source_page": 8,
+      "anchor": "esp2026-economic-observations",
+      "destination_page": 185
+    },
+    {
+      "source_page": 8,
+      "anchor": "esp2026-economic-observations",
+      "destination_page": 185
+    },
+    {
+      "source_page": 8,
+      "anchor": "esp2026-economic-observations",
+      "destination_page": 185
+    },
+    {
+      "source_page": 8,
+      "anchor": "esp2026-economic-observations",
+      "destination_page": 185
+    },
+    {
+      "source_page": 8,
+      "anchor": "fig-spatial-catch-a",
+      "destination_page": 106
+    },
+    {
+      "source_page": 8,
+      "anchor": "fig-spatial-catch-b",
+      "destination_page": 107
+    },
+    {
+      "source_page": 9,
+      "anchor": "fig-fleet-dispersion-current",
+      "destination_page": 108
+    },
+    {
+      "source_page": 9,
+      "anchor": "fig-seasonal-mean-weight",
+      "destination_page": 109
+    },
+    {
+      "source_page": 9,
+      "anchor": "fig-seasonal-weekly-weight-a",
+      "destination_page": 110
+    },
+    {
+      "source_page": 9,
+      "anchor": "fig-seasonal-weekly-weight-b",
+      "destination_page": 111
+    }
+  ],
+  "all_original_external_link_targets_preserved": true,
+  "font": "Computer Modern Unicode Serif",
+  "manual_accessibility": "Not Tested"
+}

@@ -1,0 +1,19 @@
+{
+  "pages": 280,
+  "main_figures_reviewed": 73,
+  "main_captions_revised": 46,
+  "graphic_labels_revised": 19,
+  "all_89_numeric_tables_unchanged": true,
+  "all_unedited_graphic_pixels_unchanged": true,
+  "bookmark_labels_pages_unchanged": true,
+  "all_original_external_link_targets_preserved": true,
+  "Table2_source_links": 39,
+  "off_page_text_in_edited_pages": [],
+  "font": "Computer Modern Unicode Serif",
+  "model_fits_rerun": false,
+  "manual_accessibility": "Not Tested",
+  "Table2_PDF_link_annotations": 45,
+  "Table2_logical_HTML_source_links": 39,
+  "all_19_edited_HTML_PDF_graphics_pixel_identical": true,
+  "all_requested_prose_deletions_and_replacements_verified": true
+}

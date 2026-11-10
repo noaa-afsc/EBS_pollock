@@ -119,8 +119,8 @@ plot_group <- function(which) {
          x = "Year", y = "Departure from series mean (sample SD)",
          caption = paste(
            "Means and sample SDs use each series' available records, including its latest year.",
-           "Lines join consecutive years only; missing values remain blank. No model fits are shown.",
-           "Source: repository annual input matrix. Indicator metadata remain under review.", sep = "\n")) +
+           "Lines join consecutive years only; missing values remain blank.",
+           sep = "\n")) +
     ggthemes::theme_few(base_size = 11, base_family = "Arial") +
     theme(plot.title = element_text(size = 15, face = "bold", colour = "#17394a"),
           plot.subtitle = element_text(size = 9, colour = "#456273", margin = margin(b = 10)),

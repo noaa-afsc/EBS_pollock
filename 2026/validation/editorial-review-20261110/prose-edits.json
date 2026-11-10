@@ -1,0 +1,91 @@
+{
+  "management_paragraphs": [
+    "For 2026, the adopted ABC and OFL are 2,036,000 and 2,496,000 t. The Bering Sea subarea TAC increased from 1,375,000 to 1,389,500 t after inseason reallocations. The August allocations included 139,400 t for Community Development Quota (CDQ) directed fishing and 46,000 t for incidental catch. Bering Sea catch totals include CDQ directed catch and incidental catch, including incidental CDQ catch. Bogoslof and Aleutian Islands catches are reported separately <span class=\"citation\" data-cites=\"noaa2026specifications noaa2026reallocation\">(<a href=\"#ref-noaa2026specifications\" role=\"doc-biblioref\">National Marine Fisheries Service 2026a</a>, <a href=\"#ref-noaa2026reallocation\" role=\"doc-biblioref\">2026c</a>)</span>.",
+    "The directed pollock allowance is allocated 45% to the A season (January 20\u2013June 10) and 55% to the B season (June 10\u2013November 1). The non-CDQ allowance is divided among the inshore (50%), catcher/processor (40%) and mothership (10%) sectors. In the Steller sea lion conservation area, each sector may catch up to 28% of its annual directed allowance before noon April 1 <span class=\"citation\" data-cites=\"noaa2026specifications\">(<a href=\"#ref-noaa2026specifications\" role=\"doc-biblioref\">National Marine Fisheries Service 2026a</a>)</span>. The Winter Herring Savings Area (58\u201360\u00b0 N, 172\u2013175\u00b0 W) is closed to directed pollock trawling, including CDQ fishing, from September 30, 2026, to March 1, 2027 <span class=\"citation\" data-cites=\"noaa2026herringclosure\">(<a href=\"#ref-noaa2026herringclosure\" role=\"doc-biblioref\">National Marine Fisheries Service 2026b</a>)</span>.",
+    "Area restrictions, allocations, monitoring, and incentives are used to reduce prohibited species catch in the EBS pollock fishery. <a class=\"quarto-xref\" href=\"#tbl-management-measures\">Table\u00a02</a> summarizes major management changes. Industry cooperatives use rolling-hotspot closures to move fishing away from areas of high salmon bycatch. These voluntary programs began for chum salmon in 2001 and Chinook salmon in 2002. Amendment 84, implemented in 2007, allowed participating vessels to use approved intercooperative bycatch-reduction agreements in place of specified fixed salmon-area closures <span class=\"citation\" data-cites=\"noaa2007am84 noaa2023salmonhistory\">(<a href=\"#ref-noaa2007am84\" role=\"doc-biblioref\">National Marine Fisheries Service 2007</a>, <a href=\"#ref-noaa2023salmonhistory\" role=\"doc-biblioref\">2023</a>)</span>.",
+    "Amendment 91 established Chinook salmon bycatch limits and incentives to reduce bycatch while allowing the pollock TAC to be harvested. Implemented in the 2011 fishery, it combined a 60,000-fish annual prohibited species catch (PSC) limit with incentive plan agreements and a 47,591-fish performance standard. A sector that exceeds its share of the standard in three of seven consecutive years receives a lower allocation in all subsequent years. Amendment 110, implemented in 2016, strengthened Chinook and chum avoidance and tied Chinook limits to salmon returns in western Alaska. When the State of Alaska\u2019s index for the Kuskokwim, Unalakleet and Upper Yukon systems is 250,000 fish or less, the following year\u2019s PSC limit and performance standard fall to 45,000 and 33,318 fish, respectively. The index first applied to the 2017 fishery <span class=\"citation\" data-cites=\"noaa2010am91 noaa2016am110\">(<a href=\"#ref-noaa2010am91\" role=\"doc-biblioref\">National Marine Fisheries Service 2010</a>, <a href=\"#ref-noaa2016am110\" role=\"doc-biblioref\">2016</a>)</span>.",
+    "NOAA Fisheries\u2019 North Pacific Groundfish and Halibut Observer Program provides the salmon counts used to monitor PSC limits in the Bering Sea pollock fishery. Regulations require vessels to retain salmon until observers can count them at at-sea processors or during offloading. Catcher vessels carry an observer or an electronic monitoring (EM) system, and shoreside observers count salmon in deliveries <span class=\"citation\" data-cites=\"noaa2025electronicmonitoringalaska\">(<a href=\"#ref-noaa2025electronicmonitoringalaska\" role=\"doc-biblioref\">National Marine Fisheries Service Alaska Regional Office 2025</a>)</span>. The Alaska Fisheries Science Center\u2019s Genetics Program analyzes tissue samples collected by observers to identify the salmon stocks caught as bycatch. These stock-composition estimates help assess impacts on salmon populations and guide avoidance measures (<a href=\"https://www.fisheries.noaa.gov/alaska/bycatch/chinook-salmon-bycatch-management-alaska\">NOAA Fisheries salmon bycatch monitoring</a>). Genetic sampling of the 2015 Chinook bycatch is described by <span class=\"citation\" data-cites=\"guthrie2017chinook2015\">(<a href=\"#ref-guthrie2017chinook2015\" role=\"doc-biblioref\">Guthrie et al. 2017</a>)</span>."
+  ],
+  "paragraphs": {
+    "Catch by area and season is summarized": "Catch by area and season is summarized in <a class=\"quarto-xref\" href=\"#tbl-catch-area-season\">Table\u00a03</a>. The catch as of October 17, 2026, was 1,267,543 t: 604,041 t in the A season and 663,501 t in the B season.",
+    "The annual catch-accounting extract summarizes": "<a class=\"quarto-xref\" href=\"#tbl-catch-retained-discarded\">Table\u00a04</a> summarizes annual retained and discarded catch. The 2026 total is 1,312,505 t, including 8,997 t discarded (0.7%)."
+  },
+  "text_replacements": [
+    [
+      "The series combines offshore Bering Sea and inshore Bering Sea and Aleutian Islands (BSAI) records in the original January\u2013May and June\u2013December groups.",
+      ""
+    ],
+    [
+      "Those statistics retain their BSAI, national-trade and global-catch scopes and their latest available observation years.",
+      ""
+    ],
+    [
+      "The figure retains the historical day-of-year boundary at day 161, which approximates the seasonal transition. Dashed lines provide a common September 18 cutoff to support comparisons with the partial 2026 B season. The full series uses consistent duration calculations and vessel-type selections. Catcher-vessel coverage is incomplete because electronic- monitoring records are absent.",
+      ""
+    ],
+    [
+      "Grouping these record means into weight bins shows how the sizes encountered by the fishery change over time",
+      "Weight-bin distributions show how the sizes encountered by the fishery change over time"
+    ],
+    [
+      "one year before the requested 2026 catch and survey updates",
+      "because sample collections are still underway for the 2026 fishing year"
+    ],
+    [
+      "with the extract coverage cutoff unspecified",
+      "with the catch-data cutoff unspecified"
+    ],
+    [
+      "The seasonal extract extends through October 17, 2026.",
+      "The catch data extend through October 17, 2026."
+    ],
+    [
+      "from the annual catch-accounting extract",
+      "from annual catch-accounting data"
+    ],
+    [
+      "Values are rounded to one decimal place from the source extract.",
+      "Values are rounded to one decimal place."
+    ],
+    [
+      "Missing years and collection cells mean no record in this extract. The extract ends in 2025.",
+      "Missing years and collection cells indicate absent observations. The data end in 2025."
+    ],
+    [
+      "to extract information from spectral and associated fish length data to predict age",
+      "to predict age from spectral and fish-length data"
+    ],
+    [
+      "This figure describes the selected fit; it provides no direct comparison with the fit that included 2026 BTS weights.",
+      ""
+    ],
+    [
+      "Source: repository annual input matrix. Indicator metadata remain under review.",
+      ""
+    ],
+    [
+      "These descriptive histories contain no DSEM fitted states, forecast values or uncertainty bands. Primary-source metadata remain incomplete.",
+      "The panels show annual observations rather than DSEM estimates or forecasts."
+    ],
+    [
+      "The three groups shown cover part of total exports.",
+      "The three categories cover part of total exports."
+    ],
+    [
+      "China, Taiwan and Hong Kong form the legacy aggregate.",
+      "The combined trade category covers China, Taiwan and Hong Kong."
+    ],
+    [
+      "within each year, as in the dashboard",
+      "within each year"
+    ],
+    [
+      "Values and definitions match Table B7.",
+      "See Table B7 for definitions."
+    ],
+    [
+      "no record in this extract",
+      "absent observations"
+    ]
+  ]
+}

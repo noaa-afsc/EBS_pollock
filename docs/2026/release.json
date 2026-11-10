@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-10-prose-figure-cleanup",
+  "version": "2026-11-10-editorial-review",
   "status": "Review draft",
   "tables": 89,
   "images": 89,
@@ -8,11 +8,11 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "9ccc82891926c4fb641176f8ee58712b4fec622d2aefc670ba3ef8ed46f1d4b0",
-    "assessment.pdf": "3bcec82dd1a27d42674f7f8dec70af67a67e8e4e35bd577f1ba69cab50d5cc8c"
+    "assessment.html": "d6ffe1a2a4230ebab192e8f126b070b24aa615d29a6bfcde6de7b54d3b368f79",
+    "assessment.pdf": "48bf4df6f0866befddb3392d6fddf2fc42fb3d294496591bc954168e5e013604"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
-  "revision_note": "Deleted three requested passages, removed two ATS graphic subtitles, moved supported-length and calibration-screening detail into Figure 16 caption, and removed supplied from reader text and eight graphic labels. Exact graphic-to-caption mappings verified; scientific plot geometry, other figures, links, 280 pages and Computer Modern retained.",
+  "revision_note": "Reviewed all main and appendix figure captions and embedded labels; revised 46 main captions and 19 graphics, explained Figure 2 provisional FT-NIRS basis, clarified fishery regulation and salmon monitoring context, and applied author-requested prose deletions and data-coverage wording. Numeric tables and scientific results retained.",
   "psc_source_sha256": "1abb83dae9a149f3678a5bc5d6b21a399c13272321810333e75b0d99fca20d13",
   "fmp_bycatch_sources": {
     "FMP Groundfish Bycatch in pollock fishery.csv": "9e6f2df237f6c1dd40eea1cee9602d5a7deaa668448552f61fe118333a13ea13",

@@ -1,0 +1,12 @@
+{
+  "management_sources": [
+    "https://www.govinfo.gov/content/pkg/FR-2026-08-11/pdf/2026-16336.pdf",
+    "https://www.govinfo.gov/content/pkg/FR-2010-08-30/pdf/2010-20618.pdf",
+    "https://www.govinfo.gov/content/pkg/FR-2016-06-10/pdf/2016-13697.pdf",
+    "https://www.govinfo.gov/content/pkg/FR-2007-10-29/pdf/E7-21256.pdf",
+    "https://www.fisheries.noaa.gov/alaska/bycatch/chinook-salmon-bycatch-management-alaska",
+    "https://www.fisheries.noaa.gov/alaska/resources-fishing/electronic-monitoring-alaska"
+  ],
+  "Figure2_provisional_basis": "Frozen figure preparation README and numerical QA: released FT-NIRS ages, full-year coverage, unsupported biomass fractions 0.004950 and 0.003580. Scientific adoption status remains distinct from plotting verification.",
+  "science_changes": "None; captions and prose explain existing results."
+}

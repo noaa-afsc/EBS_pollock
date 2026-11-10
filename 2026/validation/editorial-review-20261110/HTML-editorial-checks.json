@@ -1,0 +1,86 @@
+{
+  "baseline": "448ae3f",
+  "main_captions_reviewed": 73,
+  "main_captions_revised": 46,
+  "text_edits": [
+    {
+      "old": "The series combines offshore Bering Sea and inshore Bering Sea and Aleutian Islands (BSAI) records in the original January\u2013May and June\u2013December groups.",
+      "new": "",
+      "count": 1
+    },
+    {
+      "old": "Those statistics retain their BSAI, national-trade and global-catch scopes and their latest available observation years.",
+      "new": "",
+      "count": 1
+    },
+    {
+      "old": "The figure retains the historical day-of-year boundary at day 161, which approximates the seasonal transition. Dashed lines provide a common September 18 cutoff to support comparisons with the partial 2026 B season. The full series uses consistent duration calculations and vessel-type selections. Catcher-vessel coverage is incomplete because electronic- monitoring records are absent.",
+      "new": "",
+      "count": 1
+    },
+    {
+      "old": "Grouping these record means into weight bins shows how the sizes encountered by the fishery change over time",
+      "new": "Weight-bin distributions show how the sizes encountered by the fishery change over time",
+      "count": 1
+    },
+    {
+      "old": "one year before the requested 2026 catch and survey updates",
+      "new": "because sample collections are still underway for the 2026 fishing year",
+      "count": 1
+    },
+    {
+      "old": "with the extract coverage cutoff unspecified",
+      "new": "with the catch-data cutoff unspecified",
+      "count": 1
+    },
+    {
+      "old": "The seasonal extract extends through October 17, 2026.",
+      "new": "The catch data extend through October 17, 2026.",
+      "count": 1
+    },
+    {
+      "old": "from the annual catch-accounting extract",
+      "new": "from annual catch-accounting data",
+      "count": 1
+    },
+    {
+      "old": "Values are rounded to one decimal place from the source extract.",
+      "new": "Values are rounded to one decimal place.",
+      "count": 1
+    },
+    {
+      "old": "These descriptive histories contain no DSEM fitted states, forecast values or uncertainty bands. Primary-source metadata remain incomplete.",
+      "new": "The panels show annual observations rather than DSEM estimates or forecasts.",
+      "count": 1
+    },
+    {
+      "old": "The three groups shown cover part of total exports.",
+      "new": "The three categories cover part of total exports.",
+      "count": 1
+    },
+    {
+      "old": "China, Taiwan and Hong Kong form the legacy aggregate.",
+      "new": "The combined trade category covers China, Taiwan and Hong Kong.",
+      "count": 1
+    },
+    {
+      "old": "within each year, as in the dashboard",
+      "new": "within each year",
+      "count": 1
+    },
+    {
+      "old": "Missing years and collection cells mean no record in this extract. The extract ends in 2025.",
+      "new": "Missing years and collection cells indicate absent observations. The data end in 2025.",
+      "count": 1
+    },
+    {
+      "old": "to extract information from spectral and associated fish length data to predict age",
+      "new": "to predict age from spectral and fish-length data",
+      "count": 1
+    }
+  ],
+  "management_rewritten": true,
+  "numeric_tables_modified": false,
+  "scientific_plot_data_modified": false,
+  "graphic_labels_modified_separately": true
+}
