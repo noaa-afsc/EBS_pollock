@@ -1,15 +1,15 @@
 {
-  "version": "2026-11-09-editorial-revisions",
+  "version": "2026-11-09-fishery-narrative",
   "status": "Review draft",
-  "tables": 91,
-  "images": 90,
-  "pages": 266,
+  "tables": 89,
+  "images": 89,
+  "pages": 265,
   "local_only_HTML_links_retained_as_text": 95,
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "17b24a76893b39bbb2fe991587e9e59186eb4f3477d213458fdcb392763cffb9",
-    "assessment.pdf": "d21c4c3263544ed23bd00ff02c488e178aefcc3f9aee4703c1dafb895e5e38f7"
+    "assessment.html": "ff29182353f857abc06ec147b9f4066ee5ecabae516c46f0c9e8768ed6f0bf9a",
+    "assessment.pdf": "9bfab718cef278686a5919b472bc060fad04b6ab166dbbafb65bdd4024d5a07b"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -260,5 +260,51 @@
     "scientific_inputs_changed": false,
     "manual_accessibility": "Not Tested",
     "credential_scan": "Passed: no credential patterns in changed code"
+  },
+  "fishery_narrative_revision": {
+    "ordered_bycatch_discussion": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "Table_8_right_aligned": true,
+    "requested_narrative_removals": true,
+    "cumulative_catch_purpose": "Detect earlier or later within-year A-season activity"
+  },
+  "removed_table": {
+    "ids": [
+      "tbl-ats-biomass-allocation",
+      "tbl-model262-current-likelihood-complete"
+    ],
+    "old_numbers": [
+      23,
+      41
+    ],
+    "subsequent_main_tables_renumbered": true,
+    "PDF_references_and_labels_updated": 99,
+    "pages": 265
+  },
+  "removed_figure": {
+    "id": "fig-model262-recruitment-deviations",
+    "old_number": 42,
+    "old_PDF_page": 129,
+    "subsequent_figures_renumbered": true
+  },
+  "moved_figure": {
+    "id": "fig-projection-vintages",
+    "after_id": "fig-recruitment-2024-current",
+    "new_number": 33,
+    "new_PDF_page": 120,
+    "narrative_moved_to_recruitment_discussion": true
+  },
+  "removed_report_sections": [
+    "5.2",
+    "5.3",
+    "14"
+  ],
+  "editorial_rounding": {
+    "specified_exploitation_paragraph_percent_decimals": 1,
+    "specified_exploitation_paragraph_million_t_decimals": 3
   }
 }

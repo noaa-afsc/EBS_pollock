@@ -31,7 +31,7 @@ for name in ['index.html','development.html','2026/assessment.html','2026/weight
         target=(ROOT/'docs'/unquote(u.path).lstrip('/')) if u.path.startswith('/') else p.parent/unquote(u.path)
         assert target.exists(),(name,url)
     if name=='2026/assessment.html':
-        assert parser.tables==91 and parser.images==90,(parser.tables,parser.images)
+        assert parser.tables==89 and parser.images==89,(parser.tables,parser.images)
         table2=Table2Links();table2.feed(s)
         assert len(table2.urls)==39,len(table2.urls)
         assert all(u.startswith('table2-sources/') for u in table2.urls)
@@ -41,4 +41,4 @@ for name in ['assessment.html','assessment.pdf']:
 manifest=json.loads((ROOT/'2026/release.json').read_text())
 for name,sha in manifest['files'].items():
     assert hashlib.sha256((ROOT/'2026'/name).read_bytes()).hexdigest()==sha,name
-print('PASS: homepage, development links, 91 tables, 90 images, 39 Table 2 source links, report assets, matching release hashes')
+print('PASS: homepage, development links, 89 tables, 89 images, 39 Table 2 source links, report assets, matching release hashes')

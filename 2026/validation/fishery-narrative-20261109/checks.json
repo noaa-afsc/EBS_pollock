@@ -1,0 +1,39 @@
+{
+  "pages": 265,
+  "requested_deletions_verified_in_HTML_and_PDF": true,
+  "all_89_remaining_table_values_preserved": true,
+  "Table_8_all_columns_right_aligned_in_both_formats": true,
+  "section_3_2_discussion_order": [
+    6,
+    7,
+    8,
+    9
+  ],
+  "eight_requested_paragraph_merges_verified": true,
+  "all_HTML_anchor_targets_verified": true,
+  "Table_2_PDF_source_links": 39,
+  "Computer_Modern_retained": true,
+  "retained_raster_figure_pixels_preserved": true,
+  "final_artifact_visual_review_pages": [
+    21,
+    36,
+    81,
+    120,
+    198
+  ],
+  "PDF_page_numbers_and_internal_link_destinations_verified": true,
+  "removed_sections": [
+    "5.2",
+    "5.3",
+    "14"
+  ],
+  "projection_comparison_after_recruitment": true,
+  "projection_comparison_new_figure_number": 33,
+  "removed_original_table_numbers": [
+    23,
+    41
+  ],
+  "removed_original_figure_number": 42,
+  "scientific_inputs_changed": false,
+  "manual_accessibility": "Not Tested"
+}
