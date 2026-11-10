@@ -109,3 +109,5 @@ November 10 terminology revision removes redundant “recorded” wording throug
 Author-supplied Figures 4–12 captions applied in both formats. Routine punctuation repaired, and the latest Figure 7 wording retains “recorded minutes”. Figures 8–10 footers now say “pollock catch”; bin data and numeric contents are unchanged.
 
 Figures 13–14 now use the author-supplied BTS captions, including the explicit statement that the BTS was not conducted in 2020.
+
+Author revisions to Figures 14–19 captions applied in both formats, covering BTS/ATS age compositions, provisional ATS age and weight estimates, and ATS biomass displays. Figure 18 corrects the supplied typo “tthe” to “The”. All 280 PDF pages and Computer Modern typography retained.

@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-10-BTS-captions",
+  "version": "2026-11-10-ATS-captions",
   "status": "Review draft",
   "tables": 89,
   "images": 89,
@@ -8,11 +8,11 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "aad42eb39130e5c6edf06e86a0dd2451f32e4e6ba00c53fcf634318cb46976f5",
-    "assessment.pdf": "aae756780af7e8540def3a364dae59adb1f2db77e9d42aacc9c7a400e698db2a"
+    "assessment.html": "faf46787bd646f965dbc1ec8dcd0b9a4f919a152e5ba507532e258b5ca5ac9b4",
+    "assessment.pdf": "aae27c4052666e77f8b03c2a14de33dfbde50326e3cd92cbe4c5aeb4a7bf682f"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
-  "revision_note": "Applied author-supplied captions for Figures 13 and 14, explicitly stating that the BTS was not conducted in 2020. All preceding caption revisions retained; 280-page Computer Modern PDF.",
+  "revision_note": "Applied author-supplied captions for Figures 14\u201319; corrected tthe to The in Figure 18. Earlier caption revisions retained. Computer Modern and 280-page PDF retained.",
   "psc_source_sha256": "1abb83dae9a149f3678a5bc5d6b21a399c13272321810333e75b0d99fca20d13",
   "fmp_bycatch_sources": {
     "FMP Groundfish Bycatch in pollock fishery.csv": "9e6f2df237f6c1dd40eea1cee9602d5a7deaa668448552f61fe118333a13ea13",
