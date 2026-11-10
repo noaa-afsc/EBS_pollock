@@ -1,0 +1,7 @@
+{
+  "sdmTMB": "https://doi.org/10.18637/jss.v115.i02",
+  "tinyVAST": "https://doi.org/10.1111/geb.70035",
+  "interval_method": "Log-scale Wald confidence interval, estimate * exp(+/- 1.959964 * se_log)",
+  "interval_source": "results/catch-csv-20261104/code/extract_products.R in assessment-model repository",
+  "scientific_inputs_changed": false
+}

@@ -12,7 +12,7 @@ execute:
 
 [Assessment homepage](../index.html) · [Current assessment](assessment.html)
 
-This separate sensitivity doubles the observation SDs for BTS weight at age in
+This separate sensitivity doubles the observation SDs for BTS weight-at-age in
 2025 and 2026. Observed means are identical, so CVs double and variances increase
 fourfold. All other input values, the saved RTMB model and adapter, default
 starts, and fitting procedure are preserved. The original fit and assessment

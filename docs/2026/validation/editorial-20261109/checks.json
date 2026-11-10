@@ -1,0 +1,25 @@
+{
+  "pages": 266,
+  "all_90_bibliography_entries_verified_against_HTML": true,
+  "all_HTML_internal_anchor_targets_verified": true,
+  "all_91_table_values_preserved": true,
+  "Table_2_source_links": 39,
+  "outdated_terms_absent": true,
+  "computer_modern": true,
+  "raster_figures": "ATS title updated; all other main-report raster figures retained",
+  "graphic_titles_updated": 3,
+  "visual_review_pages": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    36,
+    41,
+    264
+  ],
+  "model_compilation_and_convergence": "Not applicable: editorial changes use saved results; no model run",
+  "main_report_render": "Edited canonical HTML/PDF directly; no owning current Quarto main-report source",
+  "site_quarto_render": "Passed; local resource-embedding warnings checked by site link validator",
+  "manual_accessibility": "Not Tested"
+}
