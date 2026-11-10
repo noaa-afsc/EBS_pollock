@@ -1,0 +1,380 @@
+[
+  {
+    "number": 1,
+    "id": "tbl-catch-management-history",
+    "first_PDF_page": 42,
+    "pages": 2,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 2,
+    "id": "tbl-management-measures",
+    "first_PDF_page": 44,
+    "pages": 2,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 3,
+    "id": "tbl-catch-area-season",
+    "first_PDF_page": 46,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 4,
+    "id": "tbl-catch-retained-discarded",
+    "first_PDF_page": 47,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 5,
+    "id": "tbl-fishery-catch-at-age",
+    "first_PDF_page": 48,
+    "pages": 2,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 6,
+    "id": "tbl-fmp-species-in-pollock",
+    "first_PDF_page": 50,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 7,
+    "id": "tbl-pollock-in-other-fisheries",
+    "first_PDF_page": 51,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 8,
+    "id": "tbl-prohibited-species-catch",
+    "first_PDF_page": 52,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 9,
+    "id": "tbl-nontarget-species-bycatch",
+    "first_PDF_page": 53,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 10,
+    "id": "tbl-fishery-length-samples",
+    "first_PDF_page": 54,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 11,
+    "id": "tbl-fishery-weight-length-samples",
+    "first_PDF_page": 55,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 12,
+    "id": "tbl-fishery-age-samples",
+    "first_PDF_page": 56,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 13,
+    "id": "tbl-bts-sampling-effort",
+    "first_PDF_page": 57,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 14,
+    "id": "tbl-bts-biomass",
+    "first_PDF_page": 58,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 15,
+    "id": "tbl-bts-abundance-at-age",
+    "first_PDF_page": 59,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 16,
+    "id": "tbl-bts-historical-weights",
+    "first_PDF_page": 60,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 17,
+    "id": "tbl-ats-sampling-effort",
+    "first_PDF_page": 61,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 18,
+    "id": "tbl-ats-biomass",
+    "first_PDF_page": 62,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 19,
+    "id": "tbl-ats-regions",
+    "first_PDF_page": 63,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 20,
+    "id": "tbl-ats-age-history",
+    "first_PDF_page": 64,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 21,
+    "id": "tbl-ats-core-estimates",
+    "first_PDF_page": 65,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 22,
+    "id": "tbl-ats-derived-abundance",
+    "first_PDF_page": 66,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 23,
+    "id": "tbl-ats-tma-weights",
+    "first_PDF_page": 67,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 24,
+    "id": "tbl-model23-age-sample-sizes",
+    "first_PDF_page": 68,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 25,
+    "id": "tbl-avo-index",
+    "first_PDF_page": 69,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 26,
+    "id": "tbl-avo-coverage",
+    "first_PDF_page": 70,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 27,
+    "id": "tbl-avo-assessment-series",
+    "first_PDF_page": 71,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 28,
+    "id": "tbl-fishery-weights-projections",
+    "first_PDF_page": 72,
+    "pages": 2,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 29,
+    "id": "tbl-model23-data-impacts",
+    "first_PDF_page": 74,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 30,
+    "id": "tbl-updated-configuration-effects",
+    "first_PDF_page": 75,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 31,
+    "id": "tbl-model262-current-terminal-estimates",
+    "first_PDF_page": 76,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 32,
+    "id": "tbl-model262-current-annual-estimates",
+    "first_PDF_page": 77,
+    "pages": 2,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 33,
+    "id": "tbl-model260-regularized-posterior",
+    "first_PDF_page": 79,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 34,
+    "id": "tbl-model262-current-numbers-at-age",
+    "first_PDF_page": 80,
+    "pages": 2,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 35,
+    "id": "tbl-model262-current-terminal-numbers",
+    "first_PDF_page": 82,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 36,
+    "id": "tbl-model262-current-biological-schedules",
+    "first_PDF_page": 83,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 37,
+    "id": "tbl-model262-current-selectivity",
+    "first_PDF_page": 84,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 38,
+    "id": "tbl-model262-current-parameter-families",
+    "first_PDF_page": 85,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 39,
+    "id": "tbl-model262-current-likelihood-summary",
+    "first_PDF_page": 86,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 40,
+    "id": "tbl-model262-index-residual-summary",
+    "first_PDF_page": 87,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 41,
+    "id": "tbl-model260-ats-q-ssb2027",
+    "first_PDF_page": 88,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 42,
+    "id": "tbl-catch-revised-mohn-rho",
+    "first_PDF_page": 89,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 43,
+    "id": "tbl-model260-current-retrospective-revisions",
+    "first_PDF_page": 90,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 44,
+    "id": "tbl-model261-nll-comparison",
+    "first_PDF_page": 91,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 45,
+    "id": "tbl-coordinated-model-abc",
+    "first_PDF_page": 92,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 46,
+    "id": "tbl-catch-revised-posterior-check",
+    "first_PDF_page": 93,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 47,
+    "id": "tbl-proposed-tier3-reference-points",
+    "first_PDF_page": 94,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 48,
+    "id": "tbl-proposed-tier3-scenarios",
+    "first_PDF_page": 95,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 49,
+    "id": "tbl-proposed-tier3-short-term",
+    "first_PDF_page": 96,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 50,
+    "id": "tbl-proposed-tier3-catch",
+    "first_PDF_page": 97,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 51,
+    "id": "tbl-proposed-tier3-ssb",
+    "first_PDF_page": 98,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 52,
+    "id": "tbl-proposed-tier3-f",
+    "first_PDF_page": 99,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 53,
+    "id": "tbl-current-decision-definitions",
+    "first_PDF_page": 100,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  },
+  {
+    "number": 54,
+    "id": "tbl-current-decision-model26",
+    "first_PDF_page": 101,
+    "pages": 1,
+    "all_text_and_values_verified": true
+  }
+]

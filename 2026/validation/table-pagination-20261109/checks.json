@@ -1,0 +1,43 @@
+{
+  "pages": 280,
+  "main_table_section_pages_before": 45,
+  "main_table_section_pages_after": 60,
+  "tables_starting_on_fresh_pages": 54,
+  "single_page_main_tables": 48,
+  "long_tables": [
+    {
+      "number": 1,
+      "pages": 2
+    },
+    {
+      "number": 2,
+      "pages": 2
+    },
+    {
+      "number": 5,
+      "pages": 2
+    },
+    {
+      "number": 28,
+      "pages": 2
+    },
+    {
+      "number": 32,
+      "pages": 2
+    },
+    {
+      "number": 34,
+      "pages": 2
+    }
+  ],
+  "all_table_text_and_values_verified_against_HTML": true,
+  "all_other_report_body_text_preserved": true,
+  "all_figure_pixels_and_sequence_preserved": true,
+  "all_existing_external_links_preserved": true,
+  "all_PDF_internal_links_remapped": true,
+  "same_report_HTML_links": 0,
+  "Table_38_page": 85,
+  "Table_2_distinct_source_targets_preserved": 15,
+  "original_figure_pages_without_printed_footer_retained": [],
+  "manual_accessibility": "Not Tested"
+}

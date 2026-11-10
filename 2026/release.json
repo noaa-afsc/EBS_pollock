@@ -1,15 +1,15 @@
 {
-  "version": "2026-11-09-internal-pdf-links",
+  "version": "2026-11-09-table-pagination",
   "status": "Review draft",
   "tables": 89,
   "images": 89,
-  "pages": 265,
+  "pages": 280,
   "local_only_HTML_links_retained_as_text": 95,
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
     "assessment.html": "ff29182353f857abc06ec147b9f4066ee5ecabae516c46f0c9e8768ed6f0bf9a",
-    "assessment.pdf": "577a714c61948707d86dca918811258b7a5ea671711221d138a65d807e56706a"
+    "assessment.pdf": "2649f82e8b12064368dc629ed61656456229b1daced1db3a1b677cef65570e2e"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
   "revision_note": "Extended the historical nontarget audit to all columns; identified six near-doubled same-named columns and nonuniform changes in four others. Table 57 notes and narrative updated; annual values unchanged.",
@@ -317,13 +317,53 @@
     "all_existing_bookmarks_preserved": true,
     "Table_2_external_source_links_preserved": 39,
     "Table_38_destination": {
-      "source_page": 21,
-      "anchor": "tbl-model262-current-parameter-families",
-      "destination_page": 80,
-      "destination_y": 321.13,
-      "destination_text": "Table\u00a038:   Estimated\u00a0parameter\u00a0groups\u00a0and\u00a0their\u00a0uncertainty\u00a0in\u00a0Model\u00a026.0.\u00a0Standard\u00a0errors\u00a0use\u00a0each\u00a0group\u2019s\u00a0estimation\u00a0scale\u037e\u00a0differences\u00a0in"
+      "destination_page": 85,
+      "destination_y": 36.63
     },
     "pages": 265,
+    "manual_accessibility": "Not Tested"
+  },
+  "PDF_table_pagination": {
+    "pages": 280,
+    "main_table_section_pages_before": 45,
+    "main_table_section_pages_after": 60,
+    "tables_starting_on_fresh_pages": 54,
+    "single_page_main_tables": 48,
+    "long_tables": [
+      {
+        "number": 1,
+        "pages": 2
+      },
+      {
+        "number": 2,
+        "pages": 2
+      },
+      {
+        "number": 5,
+        "pages": 2
+      },
+      {
+        "number": 28,
+        "pages": 2
+      },
+      {
+        "number": 32,
+        "pages": 2
+      },
+      {
+        "number": 34,
+        "pages": 2
+      }
+    ],
+    "all_table_text_and_values_verified_against_HTML": true,
+    "all_other_report_body_text_preserved": true,
+    "all_figure_pixels_and_sequence_preserved": true,
+    "all_existing_external_links_preserved": true,
+    "all_PDF_internal_links_remapped": true,
+    "same_report_HTML_links": 0,
+    "Table_38_page": 85,
+    "Table_2_distinct_source_targets_preserved": 15,
+    "original_figure_pages_without_printed_footer_retained": [],
     "manual_accessibility": "Not Tested"
   }
 }
