@@ -38,5 +38,5 @@ p4<-ggplot(sel,aes(age,estimate,colour=series,linetype=series))+geom_ribbon(aes(
   scale_x_continuous(breaks=c(1,5,10,15),labels=c(1,5,10,'15+'))+
   labs(x='Age',y='Relative selectivity',title='2026 fishing and survey selectivity',colour=NULL,linetype=NULL)+theme_report()+theme(plot.title=element_text(size=14))
 pbio<-(p1+p2)/(p3+p4)+plot_annotation(title='Model 26.0 biological and selectivity schedules',
-  caption='Mortality, maturity, sex proportions and weights are supplied inputs. The 2027 projection uses the selected WtAgeRE fishery forecast for catch and spawning. Shaded selectivity bands show 95% uncertainty ranges.',theme=theme_report())
+  caption='Mortality, maturity, sex proportions and weights are inputs. The 2027 projection uses the selected WtAgeRE fishery forecast for catch and spawning. Shaded selectivity bands show 95% uncertainty ranges.',theme=theme_report())
 for(ext in c('png','svg'))ggsave(file.path(out,paste0('model26_2_biological_schedules.',ext)),pbio,width=13.5,height=8.4,dpi=240,bg='white')

@@ -1,0 +1,7 @@
+suppressPackageStartupMessages({library(dplyr);library(ggplot2);library(ggthemes)})
+args<-commandArgs(trailingOnly=TRUE);stopifnot(length(args)==1L)
+index<-read.csv(args[1])
+unit_labels <- c(AVO='AVO (million m²)',BTS='BTS (thousand t)',ATS='ATS (thousand t)',ATS_1='ATS age 1 (million fish)',CPUE='Historical CPUE (native units)')
+index$Fleet_label <- unname(unit_labels[as.character(index$Fleet_name)]);stopifnot(!anyNA(index$Fleet_label))
+g <- ggplot(index,aes(Year,Observation))+geom_ribbon(aes(ymin=predictive_lower,ymax=predictive_upper),fill='#56B4E9',alpha=.3)+geom_line(aes(y=expected_median),color='#0072B2')+geom_point(aes(shape=existing_pseudodata),size=1.5)+facet_wrap(~Fleet_label,scales='free_y',ncol=2)+theme_few()+labs(x='Year',y='Index units',shape='Existing substitute',title='Do simulated index observations resemble the data?',subtitle='Points: observed indices; line: median model expectation.\nShading: middle 95% of simulated observations from 1,000 MCMC draws.')
+ggsave('2026/assets/figure-064.png',g,width=11,height=9,dpi=160)

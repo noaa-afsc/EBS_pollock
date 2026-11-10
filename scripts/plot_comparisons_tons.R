@@ -49,7 +49,7 @@ plot_config <- function(models,name,title) {
     scale_fill_manual(values = c("Model 23.0" = "#202020","Model 23.2" = "#0072B2","Model 26.2" = "#D55E00"), labels = display_model) +
     scale_linetype_manual(values = c("Model 23.0" = "solid","Model 23.2" = "longdash","Model 26.2" = "solid"), labels = display_model) +
     scale_y_continuous(limits = c(0,NA),labels = axis_numbers) +
-    labs(title = title,subtitle = "The observations and supplied biological schedules are held fixed.",
+    labs(title = title,subtitle = "The observations and biological schedules are held fixed.",
        x = "Year",y = NULL,colour = NULL,fill = NULL,linetype = NULL,
        caption = paste("Lines: estimates; shading: approximate 95% uncertainty ranges conditional on each model.",
                        "Biomass uses common population weights; fishing mortality uses the most exposed age.",sep = "\n")) + common

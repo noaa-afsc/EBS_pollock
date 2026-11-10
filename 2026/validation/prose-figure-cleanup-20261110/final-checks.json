@@ -1,0 +1,62 @@
+{
+  "prose_deletions": 3,
+  "Figure16_methods_in_caption": true,
+  "all_links_bookmarks_and_unedited_figure_pixels_preserved": true,
+  "numeric_text_preserved_outside_two_edited_pages": true,
+  "all_graphic_to_caption_mappings_verified": [
+    {
+      "asset": "12",
+      "PDF_page": 113,
+      "caption_label": "Figure 12:"
+    },
+    {
+      "asset": "16",
+      "PDF_page": 117,
+      "caption_label": "Figure 16:"
+    },
+    {
+      "asset": "17",
+      "PDF_page": 118,
+      "caption_label": "Figure 17:"
+    },
+    {
+      "asset": "19",
+      "PDF_page": 120,
+      "caption_label": "Figure 19:"
+    },
+    {
+      "asset": "27",
+      "PDF_page": 129,
+      "caption_label": "Figure 28:"
+    },
+    {
+      "asset": "28",
+      "PDF_page": 130,
+      "caption_label": "Figure 29:"
+    },
+    {
+      "asset": "29",
+      "PDF_page": 131,
+      "caption_label": "Figure 30:"
+    },
+    {
+      "asset": "34",
+      "PDF_page": 137,
+      "caption_label": "Figure 35:"
+    },
+    {
+      "asset": "38",
+      "PDF_page": 141,
+      "caption_label": "Figure 39:"
+    },
+    {
+      "asset": "64",
+      "PDF_page": 166,
+      "caption_label": "Figure 64:"
+    }
+  ],
+  "supplied_remaining_in_reader_text": 0,
+  "pages": 280,
+  "model_fits_rerun": false,
+  "manual_accessibility": "Not Tested"
+}

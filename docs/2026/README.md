@@ -111,3 +111,5 @@ Author-supplied Figures 4–12 captions applied in both formats. Routine punctua
 Figures 13–14 now use the author-supplied BTS captions, including the explicit statement that the BTS was not conducted in 2020.
 
 Author revisions to Figures 14–19 captions applied in both formats, covering BTS/ATS age compositions, provisional ATS age and weight estimates, and ATS biomass displays. Figure 18 corrects the supplied typo “tthe” to “The”. All 280 PDF pages and Computer Modern typography retained.
+
+Prose and graphic cleanup removes three author-selected passages, the two ATS subtitles, and “supplied” from reader text and eight graphics. Figure 16 retains supported 1-cm length bins and calibration-outlier screening in its caption. Graphic replacement uses original pixel identities, with individual caption/page checks; unedited image pixels, numeric text outside the edited passages, links, bookmarks, 280 pages and Computer Modern are preserved. Evidence: `validation/prose-figure-cleanup-20261110/final-checks.json`.
