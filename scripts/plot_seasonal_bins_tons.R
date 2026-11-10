@@ -18,7 +18,7 @@ for (kind in c('annual','weekly-A','weekly-B')) {
     name <- if(kind=='weekly-A')'fsh_wt_freq_week_A' else 'fsh_wt_freq_week_B'
     title <- if(kind=='weekly-A')'A-season weekly mean fish weight' else 'B-season weekly mean fish weight';width <- 8.4
   }
-  p <- p+labs(title=title,subtitle='Pooled legacy series\n2026 data through September 18; B-season partial',x='Mean fish weight per haul (grams)',caption='Ridge heights: recorded pollock catch (tons) per weight bin. Source: inseas26.csv.')+
+  p <- p+labs(title=title,subtitle='Pooled legacy series\n2026 data through September 18; B-season partial',x='Mean fish weight per haul (grams)',caption='Ridge heights: pollock catch (tons) per weight bin. Source: inseas26.csv.')+
     theme(plot.title=element_text(size=14),plot.subtitle=element_text(size=10),plot.caption=element_text(size=8))
   ggsave(file.path(out,paste0(name,'.png')),p,width=width,height=9,dpi=300,bg='white')
 }

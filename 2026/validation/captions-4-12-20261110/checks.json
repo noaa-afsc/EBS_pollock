@@ -1,0 +1,29 @@
+{
+  "caption_numbers": [
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12"
+  ],
+  "PDF_pages": [
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113
+  ],
+  "total_pages": 280,
+  "all_caption_text_verified": true,
+  "all_figure_pixels_and_bookmarks_preserved": true,
+  "font": "Computer Modern Unicode Serif",
+  "manual_accessibility": "Not Tested"
+}

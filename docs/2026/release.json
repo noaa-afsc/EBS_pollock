@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-10-catch-terminology",
+  "version": "2026-11-10-caption-revisions",
   "status": "Review draft",
   "tables": 89,
   "images": 89,
@@ -8,11 +8,11 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "34b41df5a02b1a1918fccf1658ec78122df80d0aeb1c6420154da94403a559da",
-    "assessment.pdf": "2227f560bd4ad542d77cda04aa46cec804a13f8dd4092ff206dc91c77bec3791"
+    "assessment.html": "c319e627d378c0a08e354dd7c7cbbb2002937b1184af2542dc0e79cc50df5658",
+    "assessment.pdf": "f229a7dd8433ac9520c2bb8a8ac5f335beb10fd10bb62d8eab3f28793e684043"
   },
   "suggested_citation_url": "https://files.npfmc.org/SAFE/2026/EBSpollock.pdf",
-  "revision_note": "Removed redundant recorded wording throughout report text, captions, headings and ecosystem figure labels; removed matching the original figure convention from Figure 3. Numeric content and 280-page Computer Modern PDF retained.",
+  "revision_note": "Applied author-supplied captions for Figures 4\u201312, with punctuation repairs. Removed recorded from the Figures 8\u201310 image footers; retained recorded minutes in Figure 7 as explicitly requested. Computer Modern and 280-page PDF retained.",
   "psc_source_sha256": "1abb83dae9a149f3678a5bc5d6b21a399c13272321810333e75b0d99fca20d13",
   "fmp_bycatch_sources": {
     "FMP Groundfish Bycatch in pollock fishery.csv": "9e6f2df237f6c1dd40eea1cee9602d5a7deaa668448552f61fe118333a13ea13",
