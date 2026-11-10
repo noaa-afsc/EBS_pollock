@@ -107,3 +107,5 @@ November 10 observer attribution revision: both formats use “Available observe
 November 10 terminology revision removes redundant “recorded” wording throughout the report, including three regenerated ecosystem graphics with identical plot data. Figure 3 omits “matching the original figure convention”. Computer Modern, all 280 pages, links and bookmarks are retained.
 
 Author-supplied Figures 4–12 captions applied in both formats. Routine punctuation repaired, and the latest Figure 7 wording retains “recorded minutes”. Figures 8–10 footers now say “pollock catch”; bin data and numeric contents are unchanged.
+
+Figures 13–14 now use the author-supplied BTS captions, including the explicit statement that the BTS was not conducted in 2020.
