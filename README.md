@@ -24,3 +24,11 @@ The primary author(s) responsible for maintaining this repository are:
 [U.S. Department of Commerce](https://www.commerce.gov/) | [National Oceanographic and Atmospheric Administration](https://www.noaa.gov) | [NOAA Fisheries](https://www.fisheries.noaa.gov/)
 
 
+
+## 2026 SAFE report source
+
+[Edit assessment.qmd](safe-report/assessment.qmd) and follow the
+[build and publication instructions](safe-report/README.md).
+The HTML reproduces the November 10 release. The full PDF build uses the QMD
+and figure/font assets. Exact reproduction of the published 280-page layout
+remains in progress, and the publication command checks that requirement.

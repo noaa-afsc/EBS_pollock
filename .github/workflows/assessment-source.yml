@@ -1,0 +1,57 @@
+name: Assessment source build
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'safe-report/**'
+      - '.github/workflows/assessment-source.yml'
+  pull_request:
+    paths:
+      - 'safe-report/**'
+      - '.github/workflows/assessment-source.yml'
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            safe-report
+            2026
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.10.18'
+      - name: Install PDF renderer
+        run: |
+          python -m pip install -r safe-report/pdf-requirements.txt
+          python -m playwright install chromium
+      - name: Build directly from source
+        env:
+          SAFE_PYTHON: python
+        run: bash safe-report/render.sh
+      - name: Compare with published reference
+        run: |
+          cmp safe-report/_build/2026/assessment.html 2026/assessment.html
+          python safe-report/verify_release.py --inspect
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result = json.loads(Path('safe-report/_build/release-comparison.json').read_text())
+          if not result['exact_layout']:
+              print('::warning::Exact PDF migration is pending. See release-comparison.json.')
+          PY
+      - name: Verify edits across both formats without an input PDF
+        run: python safe-report/check_editable_source.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: assessment-source-comparison
+          path: |
+            safe-report/_build/release-comparison.json
+            safe-report/_build/2026/assessment.render.json
+            safe-report/_build/2026/assessment.pdf

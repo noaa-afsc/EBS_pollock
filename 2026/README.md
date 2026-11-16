@@ -1,5 +1,16 @@
 # 2026 assessment publication
 
+## Current source migration
+
+Content edits start in [assessment.qmd](../safe-report/assessment.qmd).
+[Build instructions and status](../safe-report/README.md) describe the independent
+HTML/PDF renderer and the exact 280-page publication requirement. The HTML
+matches the release. The new PDF layout still differs, and the publication
+comparison stops promotion. The history below records the earlier artifact
+editing workflow.
+
+## Publication history
+
 This directory owns the current web-ready report: `assessment.html`,
 `assessment.pdf`, and the figure assets in `assets/`. Future report revisions
 belong here, rather than in Downloads or a private report export. Keep both

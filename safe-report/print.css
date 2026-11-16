@@ -1,0 +1,28 @@
+@font-face { font-family: CMU; src: url('fonts/cmunrm.otf'); }
+@font-face { font-family: CMU; src: url('fonts/cmunbx.otf'); font-weight: bold; }
+@font-face { font-family: CMU; src: url('fonts/cmunti.otf'); font-style: italic; }
+@font-face { font-family: CMU; src: url('fonts/cmunbi.otf'); font-weight: bold; font-style: italic; }
+@page { size: letter; margin: 42pt 36pt 48pt; }
+@media print {
+  #quarto-margin-sidebar, nav[aria-label="Assessment links"], .anchorjs-link,
+  button, .glightbox-container { display: none !important; }
+  #quarto-content, main#quarto-document-content {
+    display: block !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body, p, li, h1, h2, h3, h4, table, th, td, caption, figcaption {
+    font-family: CMU, serif !important;
+  }
+  body { font-size: 10pt; color: #111; }
+  h1, h2, h3, h4, caption { break-after: avoid; }
+  .quarto-figure, figure, tr { break-inside: avoid; }
+  main img { max-width: 100% !important; max-height: 7.3in; object-fit: contain; }
+  div:has(> table) { overflow: visible !important; }
+  table { max-width: 100% !important; }
+  thead { display: table-header-group; }
+  #tables > div { break-before: page; }
+  #figures > .quarto-figure, #figures > .quarto-float { break-before: page; }
+}

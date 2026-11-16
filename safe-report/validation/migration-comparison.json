@@ -1,0 +1,23 @@
+{
+  "reference_version": "2026-11-10-editorial-review-note-sync",
+  "html_byte_identical": true,
+  "published_pages": 280,
+  "generated_pages": 293,
+  "text_elements_checked": 23542,
+  "text_elements_requiring_visual_review": [
+    "Describe the historical low-biomass benchmark used in this decision table; Model 26.0 uses mean-recruitment B100 and ADMB uses stock\u2013recruit Bzero."
+  ],
+  "math_review": "Not Tested",
+  "source_images": 89,
+  "pdf_images": 89,
+  "image_pixel_checks_requiring_visual_review": [
+    "assets/pollock-esp-hex-sticker.png"
+  ],
+  "links": 819,
+  "bookmarks": 187,
+  "off_page_text": [],
+  "bookmark_layout_identical": false,
+  "exact_layout": false,
+  "different_pages": [],
+  "manual_accessibility": "Not Tested"
+}
