@@ -8,7 +8,7 @@ case "${1:-}" in
     bash safe-report/render.sh
     pdf_python="${SAFE_PYTHON:-$PWD/safe-report/_build/pdf-env/bin/python}"
     "$pdf_python" safe-report/verify_release.py
-    # The exact-layout comparison must pass before either release file changes.
+    # Source content, image pixels and link targets must pass before promotion.
     "$pdf_python" safe-report/promote.py
     ;;
   *) echo "Usage: bash scripts/update_assessment_site.sh [--assessment]" >&2; exit 2 ;;

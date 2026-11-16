@@ -29,6 +29,8 @@ The primary author(s) responsible for maintaining this repository are:
 
 [Edit assessment.qmd](safe-report/assessment.qmd) and follow the
 [build and publication instructions](safe-report/README.md).
-The HTML reproduces the November 10 release. The full PDF build uses the QMD
-and figure/font assets. Exact reproduction of the published 280-page layout
-remains in progress, and the publication command checks that requirement.
+The HTML reproduces the November 10 release byte for byte. The PDF uses a
+separate print template with the same QMD content and versioned figure/font
+assets, without reading an existing PDF. It closely follows the published
+report while allowing pagination to differ. Publication checks content, image
+pixels and links.

@@ -1,28 +1,111 @@
+/* The print template is independent of the published web template. */
 @font-face { font-family: CMU; src: url('fonts/cmunrm.otf'); }
 @font-face { font-family: CMU; src: url('fonts/cmunbx.otf'); font-weight: bold; }
 @font-face { font-family: CMU; src: url('fonts/cmunti.otf'); font-style: italic; }
 @font-face { font-family: CMU; src: url('fonts/cmunbi.otf'); font-weight: bold; font-style: italic; }
-@page { size: letter; margin: 42pt 36pt 48pt; }
-@media print {
-  #quarto-margin-sidebar, nav[aria-label="Assessment links"], .anchorjs-link,
-  button, .glightbox-container { display: none !important; }
-  #quarto-content, main#quarto-document-content {
-    display: block !important;
-    width: auto !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  body, p, li, h1, h2, h3, h4, table, th, td, caption, figcaption {
-    font-family: CMU, serif !important;
-  }
-  body { font-size: 10pt; color: #111; }
-  h1, h2, h3, h4, caption { break-after: avoid; }
-  .quarto-figure, figure, tr { break-inside: avoid; }
-  main img { max-width: 100% !important; max-height: 7.3in; object-fit: contain; }
-  div:has(> table) { overflow: visible !important; }
-  table { max-width: 100% !important; }
-  thead { display: table-header-group; }
-  #tables > div { break-before: page; }
-  #figures > .quarto-figure, #figures > .quarto-float { break-before: page; }
+@font-face { font-family: "Latin Modern Math"; src: url('fonts/latinmodern-math.otf'); }
+@page {
+  size: letter portrait; margin: 50.5pt 50.5pt 55pt;
+  @bottom-center { content: counter(page); font: 10pt CMU, serif; color: #000; }
 }
+@page tables { size: letter portrait; margin: 42pt 36pt 48pt; }
+@page wide { size: letter landscape; margin: 42pt 36pt 48pt; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font: 10.5pt/1.2 CMU, serif; color: #000; }
+main { display: block; width: auto; max-width: none; margin: 0; padding: 0; }
+p { margin: 0 0 7pt; orphans: 3; widows: 3; }
+li { margin-bottom: 3pt; }
+ul, ol { padding-left: 18pt; margin: 6pt 0 9pt; }
+h1, h2, h3, h4, h5 { color: #000; font-family: CMU, serif; line-height: 1.15; break-after: avoid; }
+h1 { font-size: 16pt; margin: 14pt 0 9pt; }
+h2 { font-size: 12pt; margin: 12pt 0 7pt; }
+h3 { font-size: 10.5pt; margin: 10pt 0 6pt; }
+h4, h5 { font-size: 10.5pt; margin: 8pt 0 5pt; }
+.header-section-number { margin-right: .25em; }
+a { color: #00338c; text-decoration: none; overflow-wrap: anywhere; }
+sup, sub { font-size: 70%; line-height: 0; }
+math { font-family: "Latin Modern Math", math; }
+math[display="block"] { margin: 9pt 0; break-inside: avoid; }
+annotation, .screen-reader-only, .visually-hidden, .anchorjs-link, button,
+.callout-icon-container, details, .code-copy-button { display: none !important; }
+pre { white-space: pre-wrap; font-size: 8pt; }
+.pdf-cover { break-after: page; }
+.pdf-cover h1 { font-size: 20pt; line-height: 1.12; text-align: center; margin: 0 14pt 43pt; }
+.pdf-authors { text-align: center; font-size: 10.5pt; line-height: 1.25; margin: 0 12pt 12pt; }
+.pdf-affiliation { text-align: center; margin: 0 0 28pt; }
+.callout { margin: 16pt 0; border: 0; background: none; }
+.callout-title-container { font-weight: bold; margin: 0 0 10pt; }
+.pdf-cover .callout { margin: 29pt 0; }
+.pdf-cover .callout em { font-style: normal; }
+.pdf-contents { break-after: page; }
+.pdf-contents h1 { margin-top: 0; }
+.pdf-contents ul { padding: 0; list-style: none; }
+.pdf-contents li { margin: 0 0 7pt; line-height: 1.15; }
+.pdf-contents a { color: #000; }
+.pdf-appendix-entry { padding-left: 12pt; }
+#executive-summary > h1 { margin-top: 0; }
+#advice-model260 { break-before: page; }
+#tables { page: tables; break-before: page; }
+#tables > h1, #figures > h1, #appendices > h1 { margin-top: 0; }
+.pdf-main-table { break-before: page; }
+#tables > .pdf-main-table:first-of-type { break-before: auto; }
+.pdf-wide { page: wide; }
+figure { margin: 0; }
+.pdf-table-figure, .quarto-float-tbl { break-inside: auto; }
+main#quarto-document-content table {
+  font-family: CMU, serif !important; width: 100% !important;
+  max-width: 100% !important; table-layout: auto !important;
+  border-collapse: collapse !important; font-size: 9.5pt !important;
+  line-height: 1.12 !important; margin: 0 0 10pt !important;
+}
+main#quarto-document-content th, main#quarto-document-content td {
+  font-family: CMU, serif !important; font-size: 9.5pt !important;
+  line-height: 1.12 !important; padding: 1.1pt 2pt !important;
+  vertical-align: top !important; height: auto !important;
+  overflow-wrap: normal; word-break: normal;
+}
+main#quarto-document-content th { text-align: left; font-weight: normal; }
+main#quarto-document-content th p, main#quarto-document-content td p { margin: 0; }
+main#quarto-document-content .gt_right { text-align: right !important; }
+main#quarto-document-content .gt_center { text-align: center !important; }
+main#quarto-document-content .gt_left { text-align: left !important; }
+main#quarto-document-content .gt_title { font-size: 10.5pt !important; padding: 3pt !important; }
+main#quarto-document-content .gt_sourcenote, main#quarto-document-content .gt_footnote {
+  font-size: 8pt !important; line-height: 1.15 !important; padding-top: 5pt !important;
+}
+main#quarto-document-content .pdf-compact-table td,
+main#quarto-document-content .pdf-compact-table th {
+  font-size: 9pt !important; line-height: 1.1 !important; padding-top: .7pt !important; padding-bottom: .7pt !important;
+}
+thead { display: table-header-group; }
+tfoot { display: table-row-group; }
+tr { break-inside: avoid; }
+thead th, thead td { background: #e8edf0 !important; }
+tbody tr:nth-child(odd) td, tbody tr:nth-child(odd) th { background: #f4f6f7; }
+div:has(> table), .cell-output-display { overflow: visible !important; max-height: none !important; height: auto !important; padding: 0 !important; }
+caption, figcaption, .safe-caption {
+  font-family: CMU, serif !important; font-size: 9.5pt !important;
+  line-height: 1.2 !important; text-align: left !important; color: #000 !important;
+  margin: 0 0 9pt !important; padding: 0 !important; break-inside: avoid;
+}
+caption { caption-side: top; }
+.safe-caption-hanging { display: grid; grid-template-columns: max-content 1fr; gap: 0 5pt; }
+.safe-caption-label { font-weight: normal; }
+.pdf-table-figure > figcaption { break-after: avoid; }
+#figures { break-before: page; }
+.pdf-main-figure { break-before: page; break-inside: avoid; }
+.pdf-first-figure { break-before: auto; }
+.pdf-main-figure figure { break-inside: avoid; }
+img { display: block; max-width: 100%; height: auto; margin: 0 auto 7pt; object-fit: contain; }
+.pdf-main-figure img { width: auto; max-height: 605pt; }
+.pdf-first-figure img { max-height: 468pt; }
+.pdf-main-figure figcaption { font-size: 8.5pt !important; margin-top: 7pt !important; }
+#appendices { break-before: page; }
+#appendices > section { break-before: page; }
+#appendices > section:first-of-type { break-before: auto; }
+h2.safe-appendix-heading { text-align: center; font-size: 12pt; margin-top: 0; }
+#appendices img { max-height: 540pt; }
+#appendices img.esp2026-logo { width: 104.4pt; height: auto; margin: 18pt auto 28pt; }
+#appendices .quarto-float-fig { break-inside: avoid; }
+.csl-entry { margin: 0 0 7pt; padding-left: 18pt; text-indent: -18pt; }

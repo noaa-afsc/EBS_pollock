@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-16",
+  "requirement": "Close visual match to the published PDF; exact pagination explicitly relaxed by the user. Separate HTML and PDF typesetting.",
+  "pdf_sha256": "8d512ea7fde9c1fcece5776968a078792db07651fa75c96e1db451316d15c373",
+  "source_sha256": "d9784980f2aabd48456227d6b472e4ee57c246662e0f41af93e00698b538526b",
+  "published_pages": 280,
+  "generated_pages": 261,
+  "sampled_pages": [
+    1,
+    2,
+    3,
+    4,
+    39,
+    86,
+    99,
+    106,
+    173,
+    176,
+    206,
+    237,
+    256
+  ],
+  "visual_checks": [
+    "Separate centered cover, contents and executive summary",
+    "Computer Modern print typography and page numbers",
+    "Advice tables start on page 4",
+    "Main table captions above, figure captions below with hanging labels",
+    "Compact table rows and repeating headers",
+    "One main figure per page with readable caption",
+    "Appendix headings and small ESP emblem",
+    "Sampled MathML equations with Latin Modern Math"
+  ],
+  "automated_checks": {
+    "all_23542_checked_text_elements_present": true,
+    "all_89_image_pixels_verified": true,
+    "blank_pages": 0,
+    "figure_pages_without_images": 0,
+    "unicode_replacement_characters": 0,
+    "off_page_text": [],
+    "links": 847,
+    "bookmarks": 188,
+    "independent_source_edit_test": "PASS: prose, cell and caption edits reach both formats with no input PDF or Git history",
+    "isolated_publication_test": "PASS: PDF, manifest and homepage updated; stale QMD rejected before writes"
+  },
+  "html_byte_identical": true,
+  "differences": [
+    "261 versus 280 pages; narrative and appendix pagination differs",
+    "Main tables occupy 60 pages; main figures occupy 74 pages",
+    "Line wrapping, table spacing and bookmark counts can differ"
+  ],
+  "limits": [
+    "Visual sampling is not a manual inspection of every page",
+    "Manual accessibility review remains pending",
+    "Rendering does not refit or scientifically validate the assessment model"
+  ]
+}

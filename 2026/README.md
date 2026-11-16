@@ -1,13 +1,14 @@
 # 2026 assessment publication
 
-## Current source migration
+## Editable source
 
 Content edits start in [assessment.qmd](../safe-report/assessment.qmd).
-[Build instructions and status](../safe-report/README.md) describe the independent
-HTML/PDF renderer and the exact 280-page publication requirement. The HTML
-matches the release. The new PDF layout still differs, and the publication
-comparison stops promotion. The history below records the earlier artifact
-editing workflow.
+[Build instructions and validation](../safe-report/README.md) describe the
+independent HTML/PDF workflow. HTML matches the November 10 release byte for
+byte. The PDF uses a separate print template that closely follows the report;
+pagination may differ. Source-content, image and link checks gate publication.
+The published PDF is retained as a comparison reference until a source revision
+is promoted. The history below records the earlier artifact editing workflow.
 
 ## Publication history
 

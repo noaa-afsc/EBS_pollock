@@ -1,23 +1,26 @@
 {
   "reference_version": "2026-11-10-editorial-review-note-sync",
+  "layout_requirement": "Close visual match; pagination may differ",
+  "source_sha256": "d9784980f2aabd48456227d6b472e4ee57c246662e0f41af93e00698b538526b",
+  "candidate_sha256": "8d512ea7fde9c1fcece5776968a078792db07651fa75c96e1db451316d15c373",
   "html_byte_identical": true,
   "published_pages": 280,
-  "generated_pages": 293,
+  "generated_pages": 261,
   "text_elements_checked": 23542,
-  "text_elements_requiring_visual_review": [
-    "Describe the historical low-biomass benchmark used in this decision table; Model 26.0 uses mean-recruitment B100 and ADMB uses stock\u2013recruit Bzero."
-  ],
-  "math_review": "Not Tested",
+  "text_elements_requiring_visual_review": [],
+  "math_review": "Native MathML with embedded Latin Modern Math; visual review recorded separately",
   "source_images": 89,
   "pdf_images": 89,
-  "image_pixel_checks_requiring_visual_review": [
+  "image_pixel_checks_requiring_visual_review": [],
+  "transparent_images_verified_on_white": [
     "assets/pollock-esp-hex-sticker.png"
   ],
-  "links": 819,
-  "bookmarks": 187,
+  "links": 847,
+  "bookmarks": 188,
   "off_page_text": [],
   "bookmark_layout_identical": false,
-  "exact_layout": false,
-  "different_pages": [],
-  "manual_accessibility": "Not Tested"
+  "exact_layout": null,
+  "different_pages": null,
+  "manual_accessibility": "Not Tested",
+  "source_content_checks_passed": true
 }

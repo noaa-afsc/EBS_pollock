@@ -37,15 +37,7 @@ jobs:
         run: bash safe-report/render.sh
       - name: Compare with published reference
         run: |
-          cmp safe-report/_build/2026/assessment.html 2026/assessment.html
-          python safe-report/verify_release.py --inspect
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          result = json.loads(Path('safe-report/_build/release-comparison.json').read_text())
-          if not result['exact_layout']:
-              print('::warning::Exact PDF migration is pending. See release-comparison.json.')
-          PY
+          python safe-report/verify_release.py
       - name: Verify edits across both formats without an input PDF
         run: python safe-report/check_editable_source.py
       - uses: actions/upload-artifact@v4
