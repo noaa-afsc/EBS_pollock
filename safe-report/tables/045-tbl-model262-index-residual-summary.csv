@@ -1,0 +1,9 @@
+cell_1,cell_2,cell_3,cell_4
+Model 26.0 index residuals
+Series,Observations,Mean residual,Residual SD
+ATS,20,−0.10,1.04
+ATS age 1,19,0.06,1.13
+AVO,20,0.12,0.97
+BTS,44,0.09,1.19
+Historical CPUE,12,0.05,0.53
+BTS residuals account for the covariance among survey years. A spread near 1 agrees with the selected observation-error scale. These are fitted-model diagnostics.

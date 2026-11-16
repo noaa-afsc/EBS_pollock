@@ -1,0 +1,6 @@
+cell_1,cell_2,cell_3,cell_4,cell_5
+Specification,Delta AIC,Residual variance reduction,Maximum gradient,Gradient below 1e-4
+Age-0 late-summer SST,0.00,10.5%,1.52e-04,Requires refit
+Cold pool + age-0 late-summer SST,1.63,12.0%,5.00e-05,Pass
+No-edge reference,2.25,0.0%,5.61e-05,Pass
+Cold pool,4.10,0.3%,5.69e-05,Pass

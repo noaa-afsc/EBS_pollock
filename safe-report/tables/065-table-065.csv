@@ -1,0 +1,10 @@
+cell_1,cell_2,cell_3
+Driver and mechanism,Expected relation and timing,Evidence and candidate measurement
+Spawner output → early supply,Positive toward egg supply in birth year t; later survival modifies the effect.,"Smart et al. 2012; SSB, eggs and spawning location."
+Prey quality and match → fall energy,Positive toward age-0 energy in t.,"Heintz 2013; Siddon 2013; prey lipid, biomass and fish--prey match."
+Fall size and energy → winter survival,Positive toward age-1 survival in t+1.,"Heintz 2013; Sogard and Olla 2000; mass, energy density and total energy."
+Summer mixing → production and prey,Conditional through nutrient supply and prey production in t.,"Gann 2016; wind mixing, stratification and nutrients."
+Spawning and transport → habitat match,Spatially dependent effect before and during age 0.,Petrik 2015; Smart 2012; transport and nursery-delivery indices.
+Predator overlap → juvenile mortality,Negative toward subsequent cohort survival in t+1 and t+2.,"Mueter 2006; Spencer 2016; overlap, diet and mortality."
+Cold pool → predator access,Hypothesized benefit through separation; depends on predator and stage.,Spencer 2016; common-domain cold pool and overlap.
+Late-summer SST → energetic conditions,Hypothesized negative relation with age-1 recruitment after birth-year exposure.,Mueter 2011 and pilot; seasonal SST is a broad proxy.

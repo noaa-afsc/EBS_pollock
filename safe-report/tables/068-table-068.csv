@@ -1,0 +1,16 @@
+cell_1,cell_2,cell_3,cell_4,cell_5,cell_6,cell_7
+Measure,Unit,2020,2021,2022,2023,2024
+"All products, published volume","1,000 t product weight",492.7,464.1,387.5,480.9,487.9
+"All products, published value",US\$ million (nominal),"1,352.9","1,370.5","1,400.9","1,603.0","1,474.3"
+"All products, unit value",US\$/lb (nominal),1.2,1.3,1.6,1.5,1.4
+At-sea share of published value,\%,60.4%,61.7%,61.6%,55.6%,57.9%
+"Fillets, volume","1,000 t product weight",149.4,Unavailable,Unavailable,142.9,158.6
+"Fillets, share of published value",\%,37.4%,Unavailable,Unavailable,40.2%,40.6%
+"Fillets, unit value",US\$/lb (nominal),1.5,Unavailable,Unavailable,2.0,1.7
+"Surimi, volume","1,000 t product weight",171.8,187.8,154.8,185.5,165.1
+"Surimi, share of published value",\%,35.2%,42.8%,37.8%,36.0%,32.2%
+"Surimi, unit value",US\$/lb (nominal),1.3,1.4,1.6,1.4,1.3
+"Roe, volume","1,000 t product weight",24.7,16.0,13.8,14.7,19.2
+"Roe, share of published value",\%,8.2%,6.5%,7.1%,6.0%,7.5%
+"Roe, unit value",US\$/lb (nominal),2.0,2.5,3.3,3.0,2.6
+At-sea minus shoreside all-product unit value,US\$/lb (nominal),0.4,0.4,0.4,0.1,0.2

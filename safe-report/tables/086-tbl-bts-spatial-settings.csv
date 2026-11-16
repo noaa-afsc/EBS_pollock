@@ -1,0 +1,15 @@
+cell_1,cell_2,cell_3
+Setting,Biomass-index fit,Abundance-at-age fit
+Platform and retained version,sdmTMB 1.0.0,tinyVAST 1.6.3
+Response,Biomass density,Numerical density by age
+Observation family,Poisson-link delta-gamma,Poisson-link delta-gamma
+Fixed effects,Year in both components,Age × year in both components
+Spatial mesh,250 interior knots; 307 total vertices,50 interior knots; 106 total vertices
+Spatiotemporal structure,AR(1) in both components,Shared lag-1 coefficient; age-specific variance structure
+Environmental coefficient,Spatially varying coefficient for env,None retained
+Anisotropy,Enabled in saved call,Disabled in saved control
+Observation years,"1982--2019, 2021--2026","1982--2019, 2021--2026"
+Saved input rows,"17,236","265,350 station--age rows"
+Reported output regions,"EBS, NBS, Both",Both
+Prediction grid in companion code,"5 nmi; 1,578 EBS + 672 NBS cells","Same combined 2,250-cell grid"
+Integration bias/SE settings in companion code,get_index: bias_correct=TRUE,apply.epsilon=TRUE; bias.correct=FALSE; getsd=FALSE

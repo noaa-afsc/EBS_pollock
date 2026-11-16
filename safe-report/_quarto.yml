@@ -1,0 +1,13 @@
+project:
+  type: default
+  output-dir: _build/2026
+  post-render:
+    - bash post-render.sh
+  render:
+    - EBSpollock.qmd
+  resources:
+    - assets
+    - report.css
+    - fonts
+execute:
+  enabled: false

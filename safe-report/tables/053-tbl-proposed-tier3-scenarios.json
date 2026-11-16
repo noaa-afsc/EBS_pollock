@@ -1,0 +1,15 @@
+{
+  "columns": 2,
+  "header_rows": 1,
+  "footer_rows": 0,
+  "spans": {},
+  "classes": {
+    "1:1": "highlighted-cell",
+    "1:2": "highlighted-cell"
+  },
+  "align": {},
+  "column_align": [
+    "right",
+    "left"
+  ]
+}

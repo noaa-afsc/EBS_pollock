@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 1
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: '1.10.18'
@@ -37,6 +37,7 @@ jobs:
         run: bash safe-report/render.sh
       - name: Compare with published reference
         run: |
+          python safe-report/verify_migration.py
           python safe-report/verify_release.py
       - name: Verify edits across both formats without an input PDF
         run: python safe-report/check_editable_source.py
@@ -44,6 +45,7 @@ jobs:
         with:
           name: assessment-source-comparison
           path: |
+            safe-report/_build/readable-source-comparison.json
             safe-report/_build/release-comparison.json
             safe-report/_build/2026/assessment.render.json
             safe-report/_build/2026/assessment.pdf

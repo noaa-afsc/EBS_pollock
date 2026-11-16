@@ -1,0 +1,102 @@
+{
+  "columns": 16,
+  "header_rows": 2,
+  "footer_rows": 3,
+  "spans": {
+    "1:1": [
+      2,
+      1
+    ],
+    "1:2": [
+      1,
+      15
+    ],
+    "44:1": [
+      1,
+      16
+    ],
+    "45:1": [
+      1,
+      16
+    ],
+    "46:1": [
+      1,
+      16
+    ]
+  },
+  "classes": {
+    "39:1": "highlighted-cell",
+    "39:2": "highlighted-cell",
+    "39:3": "highlighted-cell",
+    "39:4": "highlighted-cell",
+    "39:5": "highlighted-cell",
+    "39:6": "highlighted-cell",
+    "39:7": "highlighted-cell",
+    "39:8": "highlighted-cell",
+    "39:9": "highlighted-cell",
+    "39:10": "highlighted-cell",
+    "39:11": "highlighted-cell",
+    "39:12": "highlighted-cell",
+    "39:13": "highlighted-cell",
+    "39:14": "highlighted-cell",
+    "39:15": "highlighted-cell",
+    "39:16": "highlighted-cell",
+    "40:1": "highlighted-cell",
+    "40:2": "highlighted-cell",
+    "40:3": "highlighted-cell",
+    "40:4": "highlighted-cell",
+    "40:5": "highlighted-cell",
+    "40:6": "highlighted-cell",
+    "40:7": "highlighted-cell",
+    "40:8": "highlighted-cell",
+    "40:9": "highlighted-cell",
+    "40:10": "highlighted-cell",
+    "40:11": "highlighted-cell",
+    "40:12": "highlighted-cell",
+    "40:13": "highlighted-cell",
+    "40:14": "highlighted-cell",
+    "40:15": "highlighted-cell",
+    "40:16": "highlighted-cell",
+    "41:1": "highlighted-cell",
+    "41:2": "highlighted-cell",
+    "41:3": "highlighted-cell",
+    "41:4": "highlighted-cell",
+    "41:5": "highlighted-cell",
+    "41:6": "highlighted-cell",
+    "41:7": "highlighted-cell",
+    "41:8": "highlighted-cell",
+    "41:9": "highlighted-cell",
+    "41:10": "highlighted-cell",
+    "41:11": "highlighted-cell",
+    "41:12": "highlighted-cell",
+    "41:13": "highlighted-cell",
+    "41:14": "highlighted-cell",
+    "41:15": "highlighted-cell",
+    "41:16": "highlighted-cell",
+    "44:1": "gt_sourcenote",
+    "45:1": "gt_sourcenote",
+    "46:1": "gt_sourcenote"
+  },
+  "align": {
+    "1:2": "center",
+    "2:1": "right"
+  },
+  "column_align": [
+    "left",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right"
+  ]
+}

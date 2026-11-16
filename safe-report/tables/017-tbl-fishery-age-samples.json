@@ -1,0 +1,44 @@
+{
+  "columns": 8,
+  "header_rows": 2,
+  "footer_rows": 0,
+  "spans": {
+    "1:1": [
+      2,
+      1
+    ],
+    "1:2": [
+      1,
+      2
+    ],
+    "1:3": [
+      1,
+      2
+    ],
+    "1:4": [
+      1,
+      2
+    ],
+    "1:5": [
+      2,
+      1
+    ]
+  },
+  "classes": {},
+  "align": {
+    "1:2": "center",
+    "1:3": "center",
+    "1:4": "center",
+    "2:1": "right"
+  },
+  "column_align": [
+    "left",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right"
+  ]
+}

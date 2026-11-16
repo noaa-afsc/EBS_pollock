@@ -1,0 +1,20 @@
+cell_1,cell_2,cell_3,cell_4,cell_5
+Model 26.0 advice from revised fits
+Quantity,As estimated or specified in 2024 for:,Primary baseline Model 26.0 for:
+2025,2026,2027,2028
+"Natural mortality (annual rate, ages 3+)",0.300,0.300,0.300,0.300
+Tier and sub-tier,3a,3a,3a,3a
+"Projected total biomass (ages 3+, t)","8,526,000","8,075,000","11,270,000","12,367,000"
+Projected female spawning biomass (t),"3,118,000","3,342,000","3,198,000","3,394,000"
+B100% (t),"5,902,000","5,902,000","6,158,000","6,158,000"
+B40% (t),"2,361,000","2,361,000","2,463,000","2,463,000"
+B35% (t),"2,066,000","2,066,000","2,155,000","2,155,000"
+F_OFL (annual rate),0.513,0.513,0.658,0.658
+Maximum F_ABC (annual rate),0.394,0.394,0.513,0.513
+Recommended F_ABC (annual rate),0.394,0.394,0.513,0.513
+OFL (t),"2,957,000","2,496,000","2,328,000","2,422,000"
+Maximum ABC (t),"2,417,000","2,036,000","1,896,000","1,968,000"
+Recommended ABC (t),"2,417,000","2,036,000","1,896,000","1,968,000"
+"Historical source: December 2024 SAFE, Executive Summary, Tier 3 version, p. 4; B40% is printed in section 7.2, p. 35."
+"2027--2028 projections assume catch of 1,375,000 t in each year, mean 2023--2025 selectivity and fixed biological inputs. Total biomass covers ages 3+ at the start of the year. F_OFL and maximum F_ABC are the fully selected F35% and F40% rates. Biomass and catch are rounded to the nearest 1,000 t."
+"Spawning biomass exceeds B40% in both years, placing the stock in Tier 3a. All risk categories are Level 1, supporting the maximum ABC. Recruitment is fixed at the fitted 1978--2023 mean; these projections show point estimates. Adopted catch specifications are reported separately."

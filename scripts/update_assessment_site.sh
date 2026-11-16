@@ -6,7 +6,7 @@ case "${1:-}" in
   "") ;;
   --assessment)
     bash safe-report/render.sh
-    pdf_python="${SAFE_PYTHON:-$PWD/safe-report/_build/pdf-env/bin/python}"
+    pdf_python="${SAFE_PYTHON:-$PWD/safe-report/_build/python-env/bin/python}"
     "$pdf_python" safe-report/verify_release.py
     # Source content, image pixels and link targets must pass before promotion.
     "$pdf_python" safe-report/promote.py
@@ -23,6 +23,11 @@ for report in 2026/weight-at-age-bts-cv-sensitivity.qmd 2026/projection-empirica
   fi
 done
 mkdir -p docs/2026
-rsync -a --delete 2026/ docs/2026/
+# Prefer macOS's bundled copy, independent of Homebrew shared-library updates.
+if [[ "$(uname -s)" == Darwin && -x /usr/bin/rsync ]]; then
+  PATH=/usr/bin:/bin:/usr/sbin:/sbin /usr/bin/rsync -a --delete 2026/ docs/2026/
+else
+  rsync -a --delete 2026/ docs/2026/
+fi
 python3 scripts/update_site_navigation.py
 python3 scripts/check_assessment_site.py

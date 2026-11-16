@@ -35,7 +35,7 @@ def verify(require_exact=False, require_html_match=False, inspect=False):
         assert sha256((RELEASE / name).read_bytes()).hexdigest() == expected, name
     report = {"reference_version": manifest["version"],
               "layout_requirement": "Close visual match; pagination may differ",
-              "source_sha256": sha256((SOURCE / "assessment.qmd").read_bytes()).hexdigest(),
+              "source_sha256": sha256((SOURCE / "EBSpollock.qmd").read_bytes()).hexdigest(),
               "candidate_sha256": sha256((BUILD / "assessment.pdf").read_bytes()).hexdigest(),
               "html_byte_identical": (BUILD / "assessment.html").read_bytes() ==
                                      (RELEASE / "assessment.html").read_bytes()}
@@ -50,6 +50,8 @@ def verify(require_exact=False, require_html_match=False, inspect=False):
         unlocated = []
         count = 0
         for element in dom.xpath("//main//p | //main//th | //main//td | //main//figcaption"):
+            if element.xpath("ancestor::div[contains(@class,'assessment-links')]"):
+                continue  # Web homepage/download controls are omitted from print.
             if element.xpath(".//math"):
                 continue
             expected = normal(element.text_content())

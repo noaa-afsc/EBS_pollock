@@ -1,0 +1,23 @@
+{
+  "columns": 6,
+  "header_rows": 1,
+  "footer_rows": 0,
+  "spans": {},
+  "classes": {
+    "22:1": "highlighted-cell",
+    "22:2": "highlighted-cell",
+    "22:3": "highlighted-cell",
+    "22:4": "highlighted-cell",
+    "22:5": "highlighted-cell",
+    "22:6": "highlighted-cell"
+  },
+  "align": {},
+  "column_align": [
+    "left",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "columns": 5,
+  "header_rows": 2,
+  "footer_rows": 0,
+  "spans": {
+    "1:1": [
+      1,
+      5
+    ]
+  },
+  "classes": {
+    "1:1": "gt_title"
+  },
+  "align": {},
+  "column_align": [
+    "right",
+    "left",
+    "left",
+    "left",
+    "left"
+  ]
+}

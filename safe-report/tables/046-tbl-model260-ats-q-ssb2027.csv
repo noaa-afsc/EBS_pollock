@@ -1,0 +1,21 @@
+cell_1,cell_2,cell_3,cell_4,cell_5
+2027 female spawning biomass at fixed ATS catchability
+ATS q,ΔNLL,2027 SSB (kt),Lower 95% (kt),Upper 95% (kt)
+0.45000,2.477,"3,567.3","2,737.3","4,649.0"
+0.45837,1.866,"3,533.9","2,709.7","4,608.9"
+0.46674,1.349,"3,501.6","2,682.8","4,570.3"
+0.47510,0.922,"3,470.2","2,656.8","4,532.6"
+0.48347,0.581,"3,439.7","2,631.5","4,496.0"
+0.49184,0.322,"3,410.1","2,607.0","4,460.5"
+0.50021,0.141,"3,381.2","2,583.6","4,425.0"
+0.50858,0.035,"3,353.0","2,560.3","4,391.0"
+0.51694,0.000,"3,325.5","2,538.0","4,357.3"
+0.53358,0.130,"3,272.7","2,494.8","4,293.2"
+0.55021,0.505,"3,222.5","2,453.8","4,232.0"
+0.56684,1.102,"3,174.7","2,414.2","4,174.7"
+0.58347,1.901,"3,129.3","2,376.6","4,120.4"
+0.60010,2.886,"3,086.1","2,340.4","4,069.5"
+0.61674,4.039,"3,045.0","2,306.3","4,020.4"
+0.63337,5.347,"3,005.8","2,273.8","3,973.5"
+0.65000,6.797,"2,968.3","2,242.7","3,928.7"
+"Intervals use the fixed-q penalized Hessian and the delta method on log SSB. They propagate fitted-parameter uncertainty, including fitted abundance and selectivity, conditional on the stated catch, biological schedules and ATS q. They exclude uncertainty in ATS q, future recruitment process variation and weight-at-age schedules. Spawning occurs on April 1; age 15+ is retained."

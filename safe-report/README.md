@@ -1,89 +1,110 @@
-# Assessment source for HTML and PDF
+# Editable EBS pollock assessment
 
-[assessment.qmd](assessment.qmd) supplies the report's text, tables, equations,
-captions, and figure references to both formats. Edit its raw HTML block for
-content changes; that markup preserves the released web report exactly. Keep
-cross-reference element IDs stable. Figure assets live in `2026/assets/`.
+[EBSpollock.qmd](EBSpollock.qmd) is the authoring source for both the HTML report
+and PDF. It contains ordinary Markdown prose, headings, links, captions and
+LaTeX equations. The former HTML-heavy `assessment.qmd` and web-shell template
+have been retired; their history remains in Git.
 
-The formats have separate templates. `published-layout.html` supplies the web
-shell and navigation. `prepare_print.py` and `print.css` supply PDF typography,
-cover, contents, table pagination, figure pages, and appendix layout. The PDF
-build reads the QMD-generated HTML and versioned images/fonts. It reads no
-existing PDF and needs no Git history.
+## What to edit
 
-## Verified migration
+- **Prose, authors, captions, equations and links:** edit `EBSpollock.qmd`.
+- **Table values:** edit the CSV named in each table's `data-table` attribute.
+  [The table index](tables/README.md) identifies all 89 tables. Values remain
+  strings so precision, units and missing-value symbols survive rendering.
+- **Merged headers and footnotes:** edit the matching table JSON. It specifies
+  header/footer row counts, cell spans and alignment; it contains no report prose.
+- **Figures:** update the referenced images in `2026/assets/`; edit their captions
+  and `fig-alt` descriptions in the QMD.
+- **Appearance:** `report.css` controls the website; `print.css` controls the PDF.
 
-The November 16 source build reproduces the November 10 HTML byte for byte.
-The PDF uses a close visual match to the published report; exact pagination
-was explicitly relaxed on November 16. The revised local build has 261 pages
-versus the published 280. Its main tables and figures occupy 60 and 74 pages,
-respectively. The narrative and appendices reflow.
+A table declaration looks like this:
 
-All 89 source images and all 23,542 checked prose/table/caption elements are
-present. Link destinations and page boundaries are checked automatically.
-See [the comparison](validation/migration-comparison.json) and
-[visual checks](validation/print-layout-review.json). Math pages were sampled
-visually; full manual accessibility review remains pending.
+```markdown
+::: {#tbl-example .report-table data-table="tables/example.csv"}
+Table 1: A readable caption with [a source link](https://example.org).
+:::
+```
 
-The existing published PDF remains the comparison reference. A source build
-writes to `_build/2026/`; publication is a separate explicit command.
+Figure divisions group images, notes and captions. Their text is ordinary
+Markdown. Keep existing anchor IDs stable so published links keep working.
+Existing section, table and figure numbers are explicit in the source to
+preserve the assessment and appendix numbering during this migration.
 
-## Build
+## Build both formats
 
-From the repository root, install the pinned renderer:
+Use Python 3.11 or newer; CI uses Python 3.12. The existing dependency update to
+Pillow 13 requires a newer interpreter than Python 3.10. Quarto 1.10.18 is pinned
+for this release.
+
+From the repository root:
 
 ```sh
-python3 -m venv safe-report/_build/pdf-env
-safe-report/_build/pdf-env/bin/python -m pip install -r safe-report/pdf-requirements.txt
-safe-report/_build/pdf-env/bin/python -m playwright install chromium
+python3 -m venv safe-report/_build/python-env
+safe-report/_build/python-env/bin/python -m pip install -r safe-report/pdf-requirements.txt
+safe-report/_build/python-env/bin/python -m playwright install chromium
 bash safe-report/render.sh
 ```
 
-Quarto 1.10.18 supplies Pandoc. Linux also requires Playwright's browser system
-libraries (`playwright install --with-deps chromium`). CMU and Latin Modern Math
-fonts and their licenses are versioned in `fonts/`. PDF rendering is offline.
-Set `SAFE_PYTHON` to select another environment with the pinned dependencies.
+On Linux, install browser system libraries with
+`playwright install --with-deps chromium`. Set `SAFE_PYTHON` to use another
+Python environment containing the pinned dependencies.
 
-Outputs are `safe-report/_build/2026/assessment.html` and `assessment.pdf`.
-`assessment.print.html` is an intermediate print view. Pass `html` to
-`render.sh` to build only HTML.
+`quarto render EBSpollock.qmd` from this directory also builds both formats.
+Quarto renders native Markdown and native tables to HTML. The post-render step
+applies semantic caption/anchor formatting and prints a dedicated view with the
+pinned Chromium renderer. It reads no existing PDF and needs no Git history.
+Rendering consumes saved results and does not execute assessment models or R.
+
+Outputs are `_build/2026/assessment.html` and `_build/2026/assessment.pdf`. Their
+published filenames remain stable. For HTML-only editing:
+
+```sh
+bash safe-report/render.sh html
+# Or, from safe-report:
+SAFE_RENDER_TARGET=html quarto preview EBSpollock.qmd
+```
 
 ## Verify and publish
 
 ```sh
-safe-report/_build/pdf-env/bin/python safe-report/verify_release.py
-safe-report/_build/pdf-env/bin/python safe-report/check_editable_source.py
+safe-report/_build/python-env/bin/python safe-report/verify_migration.py
+safe-report/_build/python-env/bin/python safe-report/verify_release.py
+safe-report/_build/python-env/bin/python safe-report/check_editable_source.py
 ```
 
-The first command checks source text, image pixels (including transparency),
-internal/external link structure, and text page bounds. It records comparisons
-with the published artifacts. Use `--require-html-match` when checking that the
-migration preserves existing HTML bytes. Future intentional edits may change
-those bytes. `--require-exact` remains available as an optional archival test;
-exact PDF layout is no longer a publication condition.
+The migration comparison checks paragraphs/headings, every table cell and its
+spans, 89 images and their alt text, 84 LaTeX equations, links and anchors against
+the published HTML. It is appropriate for content-preserving changes; deliberate
+future content revisions should be reviewed as differences rather than forced
+to match old scientific results.
 
-The second command edits narrative, a table cell and a caption in a temporary
-source tree with no input PDF or Git history, rebuilds both formats and checks
-that all three edits appear. GitHub Actions runs these checks and uploads the
-candidate PDF and comparison report.
+The release check verifies current source hashes, PDF content, image pixels,
+link targets and page bounds. The editing test changes prose and a caption in
+the QMD plus a CSV value, then rebuilds both formats in a clean directory with
+no Git history or input PDF. CI runs these checks and uploads the candidate PDF.
+Exact HTML bytes and exact PDF pagination are outside the current requirement.
+Manual accessibility review remains pending; automated checks establish only
+the properties explicitly recorded in the validation reports.
 
-After reviewing a source revision, publish it with:
+After verification and visual review, publish with:
 
 ```sh
 bash scripts/update_assessment_site.sh --assessment
 ```
 
-This builds both formats, checks content and links, promotes them into `2026/`,
-updates the release manifest, and synchronizes `docs/2026/`. Commit source and
-publication artifacts together. The command without `--assessment` performs
-website-only updates.
+This builds and checks both formats, promotes the HTML/PDF and local web
+resources, updates the release manifest and homepage, and synchronizes `docs/`.
+Commit the source and publication artifacts together. Website-only updates use
+the same command without `--assessment`.
 
-## Scientific sources
+`tools/migrate_readable.py` records the one-time conversion from the November 10
+HTML. It is excluded from normal builds. Do not rerun it over subsequent edits.
 
-Rendering assembles saved assessment results. It does not refit the model.
-Model estimation and projections remain in the companion `ebswp_rceattle`
-workspace. The population fit is
-`results/catch-csv-20261104/rceattle/26_0/fit.rds`, with numerical checks in its
-`diagnostics.json`. Projection products are under
-`results/omit_bts2026_adopted_projections_20261109/`. New calculations require
-updated tables/figures and scientific review before publication.
+## Scientific provenance
+
+This is a report-source migration. Assessment fits, assumptions, units,
+interpretation and management recommendations are preserved. Scientific inputs,
+model diagnostics and estimation remain in the companion `ebswp_rceattle`
+workspace. The saved population fit is
+`results/catch-csv-20261104/rceattle/26_0/fit.rds`; projections are under
+`results/omit_bts2026_adopted_projections_20261109/`.

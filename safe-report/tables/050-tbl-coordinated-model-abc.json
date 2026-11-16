@@ -1,0 +1,50 @@
+{
+  "columns": 5,
+  "header_rows": 3,
+  "footer_rows": 1,
+  "spans": {
+    "1:1": [
+      1,
+      5
+    ],
+    "2:1": [
+      2,
+      1
+    ],
+    "2:2": [
+      1,
+      2
+    ],
+    "2:3": [
+      1,
+      2
+    ],
+    "9:1": [
+      1,
+      5
+    ]
+  },
+  "classes": {
+    "1:1": "gt_title highlighted-cell",
+    "2:1": "highlighted-cell",
+    "2:2": "highlighted-cell",
+    "2:3": "highlighted-cell",
+    "3:1": "highlighted-cell",
+    "3:2": "highlighted-cell",
+    "3:3": "highlighted-cell",
+    "3:4": "highlighted-cell",
+    "9:1": "gt_sourcenote"
+  },
+  "align": {
+    "2:2": "center",
+    "2:3": "center",
+    "3:1": "right"
+  },
+  "column_align": [
+    "left",
+    "right",
+    "right",
+    "right",
+    "right"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "columns": 5,
+  "header_rows": 3,
+  "footer_rows": 2,
+  "spans": {
+    "1:1": [
+      1,
+      5
+    ],
+    "2:1": [
+      2,
+      1
+    ],
+    "2:2": [
+      1,
+      2
+    ],
+    "2:3": [
+      1,
+      2
+    ],
+    "7:1": [
+      1,
+      5
+    ],
+    "8:1": [
+      1,
+      5
+    ]
+  },
+  "classes": {
+    "1:1": "gt_title",
+    "7:1": "gt_sourcenote",
+    "8:1": "gt_sourcenote"
+  },
+  "align": {
+    "3:1": "center"
+  },
+  "column_align": [
+    "left",
+    "center",
+    "center",
+    "center",
+    "center"
+  ]
+}

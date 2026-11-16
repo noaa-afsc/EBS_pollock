@@ -1,0 +1,1271 @@
+cell_1,cell_2,cell_3,cell_4,cell_5,cell_6,cell_7
+Complete parameter estimates and uncertainty
+ID,Group,Parameter context,Estimate,SE,95% lower,95% upper
+P0001,Recruitment level,R0,9.6728,0.1212,9.4352,9.9104
+P0002,Recruitment deviation,1964,−1.0198,0.4681,−1.9373,−0.1023
+P0003,Recruitment deviation,1965,0.3917,0.2916,−0.1798,0.9632
+P0004,Recruitment deviation,1966,0.0001,0.3593,−0.7041,0.7042
+P0005,Recruitment deviation,1967,0.5387,0.2917,−0.0330,1.1104
+P0006,Recruitment deviation,1968,0.3459,0.3165,−0.2745,0.9662
+P0007,Recruitment deviation,1969,0.5038,0.2931,−0.0705,1.0782
+P0008,Recruitment deviation,1970,0.3846,0.3052,−0.2136,0.9828
+P0009,Recruitment deviation,1971,−0.1528,0.3739,−0.8856,0.5800
+P0010,Recruitment deviation,1972,−0.3766,0.3851,−1.1314,0.3782
+P0011,Recruitment deviation,1973,0.5213,0.2325,0.0655,0.9770
+P0012,Recruitment deviation,1974,0.1941,0.2371,−0.2706,0.6589
+P0013,Recruitment deviation,1975,0.0354,0.2205,−0.3967,0.4675
+P0014,Recruitment deviation,1976,−0.2044,0.2104,−0.6169,0.2081
+P0015,Recruitment deviation,1977,−0.1243,0.1911,−0.4989,0.2503
+P0016,Recruitment deviation,1978,0.5126,0.1555,0.2078,0.8175
+P0017,Recruitment deviation,1979,1.3692,0.1375,1.0997,1.6387
+P0018,Recruitment deviation,1980,0.6249,0.1492,0.3324,0.9174
+P0019,Recruitment deviation,1981,0.7685,0.1463,0.4817,1.0553
+P0020,Recruitment deviation,1982,0.1889,0.1614,−0.1274,0.5052
+P0021,Recruitment deviation,1983,1.1863,0.1357,0.9204,1.4521
+P0022,Recruitment deviation,1984,−0.1097,0.1634,−0.4299,0.2104
+P0023,Recruitment deviation,1985,0.7176,0.1390,0.4450,0.9901
+P0024,Recruitment deviation,1986,−0.2200,0.1558,−0.5254,0.0853
+P0025,Recruitment deviation,1987,−0.7740,0.1648,−1.0971,−0.4510
+P0026,Recruitment deviation,1988,−1.0224,0.1658,−1.3474,−0.6974
+P0027,Recruitment deviation,1989,−0.2878,0.1424,−0.5669,−0.0086
+P0028,Recruitment deviation,1990,1.1562,0.1262,0.9090,1.4035
+P0029,Recruitment deviation,1991,0.5442,0.1307,0.2881,0.8003
+P0030,Recruitment deviation,1992,0.4032,0.1325,0.1436,0.6628
+P0031,Recruitment deviation,1993,1.0698,0.1269,0.8211,1.3186
+P0032,Recruitment deviation,1994,0.0032,0.1356,−0.2625,0.2690
+P0033,Recruitment deviation,1995,−0.3517,0.1389,−0.6239,−0.0794
+P0034,Recruitment deviation,1996,0.3553,0.1292,0.1020,0.6086
+P0035,Recruitment deviation,1997,0.6464,0.1269,0.3977,0.8950
+P0036,Recruitment deviation,1998,−0.0602,0.1317,−0.3183,0.1978
+P0037,Recruitment deviation,1999,0.0094,0.1306,−0.2466,0.2654
+P0038,Recruitment deviation,2000,0.4371,0.1273,0.1876,0.6866
+P0039,Recruitment deviation,2001,0.7735,0.1252,0.5281,1.0189
+P0040,Recruitment deviation,2002,0.3678,0.1265,0.1199,0.6157
+P0041,Recruitment deviation,2003,−0.1019,0.1286,−0.3540,0.1502
+P0042,Recruitment deviation,2004,−0.8894,0.1362,−1.1564,−0.6224
+P0043,Recruitment deviation,2005,−1.2337,0.1415,−1.5110,−0.9563
+P0044,Recruitment deviation,2006,−0.3192,0.1309,−0.5758,−0.0627
+P0045,Recruitment deviation,2007,0.4533,0.1271,0.2041,0.7025
+P0046,Recruitment deviation,2008,−0.1584,0.1330,−0.4192,0.1024
+P0047,Recruitment deviation,2009,1.1374,0.1249,0.8925,1.3823
+P0048,Recruitment deviation,2010,0.3763,0.1287,0.1240,0.6287
+P0049,Recruitment deviation,2011,−0.1110,0.1328,−0.3713,0.1493
+P0050,Recruitment deviation,2012,−0.2546,0.1337,−0.5166,0.0074
+P0051,Recruitment deviation,2013,1.0028,0.1249,0.7580,1.2475
+P0052,Recruitment deviation,2014,1.1366,0.1252,0.8912,1.3819
+P0053,Recruitment deviation,2015,0.2917,0.1313,0.0344,0.5490
+P0054,Recruitment deviation,2016,−0.6103,0.1475,−0.8995,−0.3212
+P0055,Recruitment deviation,2017,−0.6994,0.1519,−0.9971,−0.4018
+P0056,Recruitment deviation,2018,0.0578,0.1410,−0.2187,0.3342
+P0057,Recruitment deviation,2019,1.7104,0.1302,1.4552,1.9656
+P0058,Recruitment deviation,2020,0.5518,0.1454,0.2667,0.8368
+P0059,Recruitment deviation,2021,−0.2033,0.1786,−0.5534,0.1467
+P0060,Recruitment deviation,2022,−0.2247,0.2049,−0.6263,0.1768
+P0061,Recruitment deviation,2023,−0.3126,0.2286,−0.7606,0.1353
+P0062,Recruitment deviation,2024,0.9050,0.2517,0.4118,1.3983
+P0063,Recruitment deviation,2025,0.5663,0.2920,−0.0060,1.1387
+P0064,Recruitment deviation,2026,0.8281,0.5378,−0.2260,1.8822
+P0065,Initial-age deviation,Age1,−0.3949,0.3509,−1.0827,0.2928
+P0066,Initial-age deviation,Age2,−0.4683,0.3455,−1.1455,0.2089
+P0067,Initial-age deviation,Age3,−1.2468,0.4532,−2.1351,−0.3586
+P0068,Initial-age deviation,Age4,−1.4797,0.5231,−2.5049,−0.4545
+P0069,Initial-age deviation,Age5,−0.9725,0.4745,−1.9026,−0.0424
+P0070,Initial-age deviation,Age6,−1.1558,0.5508,−2.2353,−0.0762
+P0071,Initial-age deviation,Age7,−1.3132,0.6310,−2.5499,−0.0765
+P0072,Initial-age deviation,Age8,−1.2359,0.6710,−2.5510,0.0791
+P0073,Initial-age deviation,Age9,−1.0702,0.6957,−2.4338,0.2934
+P0074,Initial-age deviation,Age10,−0.9172,0.7220,−2.3322,0.4979
+P0075,Initial-age deviation,Age11,−0.7788,0.7491,−2.2470,0.6894
+P0076,Initial-age deviation,Age12,−0.6579,0.7760,−2.1789,0.8631
+P0077,Initial-age deviation,Age13,−0.5491,0.8035,−2.1239,1.0256
+P0078,Initial-age deviation,Age14,−1.0041,0.7100,−2.3957,0.3874
+P0079,Log fishing scale,Fishery; 1964,−2.9386,0.2174,−3.3647,−2.5125
+P0080,Log fishing scale,Fishery; 1965,−2.7303,0.2116,−3.1450,−2.3155
+P0081,Log fishing scale,Fishery; 1966,−2.6737,0.2155,−3.0960,−2.2513
+P0082,Log fishing scale,Fishery; 1967,−2.0362,0.2270,−2.4811,−1.5913
+P0083,Log fishing scale,Fishery; 1968,−1.9723,0.2260,−2.4153,−1.5292
+P0084,Log fishing scale,Fishery; 1969,−1.9071,0.2317,−2.3611,−1.4530
+P0085,Log fishing scale,Fishery; 1970,−1.5364,0.2309,−1.9890,−1.0838
+P0086,Log fishing scale,Fishery; 1971,−1.1811,0.2325,−1.6368,−0.7254
+P0087,Log fishing scale,Fishery; 1972,−1.0495,0.2265,−1.4935,−0.6055
+P0088,Log fishing scale,Fishery; 1973,−0.9062,0.2295,−1.3561,−0.4563
+P0089,Log fishing scale,Fishery; 1974,−0.8209,0.2280,−1.2679,−0.3740
+P0090,Log fishing scale,Fishery; 1975,−0.9945,0.2055,−1.3973,−0.5916
+P0091,Log fishing scale,Fishery; 1976,−1.0737,0.2009,−1.4673,−0.6800
+P0092,Log fishing scale,Fishery; 1977,−1.1394,0.2153,−1.5614,−0.7174
+P0093,Log fishing scale,Fishery; 1978,−1.0271,0.2171,−1.4525,−0.6017
+P0094,Log fishing scale,Fishery; 1979,−0.9874,0.2107,−1.4003,−0.5745
+P0095,Log fishing scale,Fishery; 1980,−1.0814,0.1983,−1.4701,−0.6927
+P0096,Log fishing scale,Fishery; 1981,−1.4230,0.1935,−1.8023,−1.0438
+P0097,Log fishing scale,Fishery; 1982,−1.8679,0.1901,−2.2404,−1.4954
+P0098,Log fishing scale,Fishery; 1983,−2.0507,0.1833,−2.4100,−1.6914
+P0099,Log fishing scale,Fishery; 1984,−2.0663,0.1527,−2.3655,−1.7671
+P0100,Log fishing scale,Fishery; 1985,−2.0559,0.1408,−2.3318,−1.7801
+P0101,Log fishing scale,Fishery; 1986,−2.1239,0.1347,−2.3878,−1.8599
+P0102,Log fishing scale,Fishery; 1987,−2.4130,0.1266,−2.6611,−2.1649
+P0103,Log fishing scale,Fishery; 1988,−2.0653,0.1178,−2.2962,−1.8344
+P0104,Log fishing scale,Fishery; 1989,−2.0069,0.1006,−2.2040,−1.8098
+P0105,Log fishing scale,Fishery; 1990,−1.5822,0.0944,−1.7672,−1.3972
+P0106,Log fishing scale,Fishery; 1991,−1.4032,0.0849,−1.5696,−1.2368
+P0107,Log fishing scale,Fishery; 1992,−1.1200,0.0920,−1.3004,−0.9396
+P0108,Log fishing scale,Fishery; 1993,−1.5672,0.1086,−1.7800,−1.3543
+P0109,Log fishing scale,Fishery; 1994,−1.8109,0.1176,−2.0413,−1.5804
+P0110,Log fishing scale,Fishery; 1995,−1.8155,0.1118,−2.0347,−1.5964
+P0111,Log fishing scale,Fishery; 1996,−1.6567,0.1114,−1.8751,−1.4383
+P0112,Log fishing scale,Fishery; 1997,−1.6452,0.1244,−1.8890,−1.4014
+P0113,Log fishing scale,Fishery; 1998,−1.8130,0.1174,−2.0431,−1.5830
+P0114,Log fishing scale,Fishery; 1999,−2.0245,0.1131,−2.2463,−1.8028
+P0115,Log fishing scale,Fishery; 2000,−1.9078,0.0941,−2.0923,−1.7232
+P0116,Log fishing scale,Fishery; 2001,−1.7581,0.0844,−1.9236,−1.5926
+P0117,Log fishing scale,Fishery; 2002,−1.5902,0.0776,−1.7424,−1.4381
+P0118,Log fishing scale,Fishery; 2003,−1.5098,0.0772,−1.6611,−1.3585
+P0119,Log fishing scale,Fishery; 2004,−1.5953,0.0838,−1.7596,−1.4311
+P0120,Log fishing scale,Fishery; 2005,−1.6359,0.0829,−1.7985,−1.4734
+P0121,Log fishing scale,Fishery; 2006,−1.4267,0.0820,−1.5873,−1.2660
+P0122,Log fishing scale,Fishery; 2007,−1.3555,0.0809,−1.5141,−1.1970
+P0123,Log fishing scale,Fishery; 2008,−1.2726,0.0841,−1.4374,−1.1078
+P0124,Log fishing scale,Fishery; 2009,−1.3188,0.0943,−1.5036,−1.1341
+P0125,Log fishing scale,Fishery; 2010,−1.5006,0.1034,−1.7033,−1.2978
+P0126,Log fishing scale,Fishery; 2011,−1.1973,0.1005,−1.3944,−1.0003
+P0127,Log fishing scale,Fishery; 2012,−1.2027,0.1268,−1.4512,−0.9542
+P0128,Log fishing scale,Fishery; 2013,−1.2580,0.1457,−1.5435,−0.9725
+P0129,Log fishing scale,Fishery; 2014,−1.3178,0.1579,−1.6272,−1.0085
+P0130,Log fishing scale,Fishery; 2015,−1.2383,0.1649,−1.5615,−0.9152
+P0131,Log fishing scale,Fishery; 2016,−1.5367,0.1456,−1.8220,−1.2513
+P0132,Log fishing scale,Fishery; 2017,−1.5614,0.1284,−1.8130,−1.3097
+P0133,Log fishing scale,Fishery; 2018,−1.7471,0.1197,−1.9818,−1.5124
+P0134,Log fishing scale,Fishery; 2019,−1.6372,0.1073,−1.8475,−1.4269
+P0135,Log fishing scale,Fishery; 2020,−1.3656,0.1186,−1.5980,−1.1331
+P0136,Log fishing scale,Fishery; 2021,−1.4188,0.1220,−1.6579,−1.1798
+P0137,Log fishing scale,Fishery; 2022,−1.7708,0.1385,−2.0422,−1.4993
+P0138,Log fishing scale,Fishery; 2023,−1.8165,0.1494,−2.1092,−1.5238
+P0139,Log fishing scale,Fishery; 2024,−1.9059,0.1439,−2.1878,−1.6239
+P0140,Log fishing scale,Fishery; 2025,−1.8131,0.1338,−2.0753,−1.5508
+P0141,Log fishing scale,Fishery; 2026,−1.6691,0.1614,−1.9853,−1.3528
+P0142,Log catchability,AVO,−8.2249,0.0711,−8.3642,−8.0855
+P0143,Log catchability,ATS,−0.6599,0.0620,−0.7814,−0.5384
+P0144,Log catchability,CPUE,−0.2481,0.1849,−0.6104,0.1143
+P0145,Selectivity increment,Fishery; Bin1; 1964 \*,1.2875,0.5969,0.1177,2.4573
+P0146,Selectivity increment,Fishery; Bin2; 1964 \*,0.7997,0.4928,−0.1663,1.7656
+P0147,Selectivity increment,Fishery; Bin3; 1964 \*,0.4574,0.4383,−0.4016,1.3164
+P0148,Selectivity increment,Fishery; Bin4; 1964 \*,0.3677,0.3979,−0.4122,1.1476
+P0149,Selectivity increment,Fishery; Bin5; 1964 \*,−0.1820,0.3965,−0.9591,0.5952
+P0150,Selectivity increment,Fishery; Bin6; 1964 \*,−0.4579,0.2958,−1.0377,0.1219
+P0151,Selectivity increment,Fishery; Bin7; 1964 \*,−0.5719,0.2747,−1.1103,−0.0335
+P0152,Selectivity increment,Fishery; Bin8; 1964 \*,−0.5861,0.2680,−1.1114,−0.0608
+P0153,Selectivity increment,Fishery; Bin9; 1964 \*,−0.4992,0.2677,−1.0239,0.0255
+P0154,Selectivity increment,Fishery; Bin10; 1964 \*,−0.2953,0.2716,−0.8277,0.2371
+P0155,Selectivity increment,Fishery; Bin11; 1964 \*,−0.2831,0.2799,−0.8317,0.2654
+P0156,Selectivity increment,Fishery; Bin12; 1964 \*,−0.0367,0.2934,−0.6117,0.5383
+P0157,Selectivity increment,Fishery; Bin1; 1965 \*,0.3571,0.4151,−0.4565,1.1708
+P0158,Selectivity increment,Fishery; Bin2; 1965 \*,0.1619,0.4026,−0.6272,0.9511
+P0159,Selectivity increment,Fishery; Bin3; 1965 \*,0.1307,0.3944,−0.6423,0.9037
+P0160,Selectivity increment,Fishery; Bin4; 1965 \*,0.0902,0.3777,−0.6500,0.8304
+P0161,Selectivity increment,Fishery; Bin5; 1965 \*,−0.0379,0.3792,−0.7810,0.7053
+P0162,Selectivity increment,Fishery; Bin6; 1965 \*,−0.1784,0.3055,−0.7771,0.4203
+P0163,Selectivity increment,Fishery; Bin7; 1965 \*,−0.1639,0.2839,−0.7203,0.3926
+P0164,Selectivity increment,Fishery; Bin8; 1965 \*,−0.1318,0.2797,−0.6799,0.4163
+P0165,Selectivity increment,Fishery; Bin9; 1965 \*,−0.0992,0.2797,−0.6475,0.4491
+P0166,Selectivity increment,Fishery; Bin10; 1965 \*,−0.0684,0.2813,−0.6198,0.4830
+P0167,Selectivity increment,Fishery; Bin11; 1965 \*,−0.0439,0.2832,−0.5990,0.5111
+P0168,Selectivity increment,Fishery; Bin12; 1965 \*,−0.0165,0.2786,−0.5626,0.5295
+P0169,Selectivity increment,Fishery; Bin1; 1966 \*,0.3379,0.4159,−0.4772,1.1530
+P0170,Selectivity increment,Fishery; Bin2; 1966 \*,0.1962,0.4019,−0.5915,0.9838
+P0171,Selectivity increment,Fishery; Bin3; 1966 \*,0.1357,0.3933,−0.6351,0.9065
+P0172,Selectivity increment,Fishery; Bin4; 1966 \*,−0.0528,0.3090,−0.6585,0.5528
+P0173,Selectivity increment,Fishery; Bin5; 1966 \*,−0.0653,0.2844,−0.6227,0.4921
+P0174,Selectivity increment,Fishery; Bin6; 1966 \*,−0.0912,0.2786,−0.6373,0.4549
+P0175,Selectivity increment,Fishery; Bin7; 1966 \*,−0.0904,0.2774,−0.6341,0.4534
+P0176,Selectivity increment,Fishery; Bin8; 1966 \*,−0.0915,0.2773,−0.6350,0.4519
+P0177,Selectivity increment,Fishery; Bin9; 1966 \*,−0.0850,0.2779,−0.6298,0.4597
+P0178,Selectivity increment,Fishery; Bin10; 1966 \*,−0.0744,0.2795,−0.6221,0.4733
+P0179,Selectivity increment,Fishery; Bin11; 1966 \*,−0.0638,0.2811,−0.6149,0.4872
+P0180,Selectivity increment,Fishery; Bin12; 1966 \*,−0.0553,0.2749,−0.5940,0.4834
+P0181,Selectivity increment,Fishery; Bin1; 1967 \*,0.3044,0.4161,−0.5112,1.1200
+P0182,Selectivity increment,Fishery; Bin2; 1967 \*,0.1602,0.3988,−0.6214,0.9418
+P0183,Selectivity increment,Fishery; Bin3; 1967 \*,0.2062,0.3907,−0.5595,0.9719
+P0184,Selectivity increment,Fishery; Bin4; 1967 \*,−0.1132,0.3085,−0.7179,0.4915
+P0185,Selectivity increment,Fishery; Bin5; 1967 \*,−0.1023,0.2828,−0.6566,0.4520
+P0186,Selectivity increment,Fishery; Bin6; 1967 \*,−0.0914,0.2781,−0.6364,0.4536
+P0187,Selectivity increment,Fishery; Bin7; 1967 \*,−0.0794,0.2773,−0.6229,0.4641
+P0188,Selectivity increment,Fishery; Bin8; 1967 \*,−0.0677,0.2772,−0.6110,0.4757
+P0189,Selectivity increment,Fishery; Bin9; 1967 \*,−0.0629,0.2779,−0.6075,0.4818
+P0190,Selectivity increment,Fishery; Bin10; 1967 \*,−0.0573,0.2794,−0.6049,0.4904
+P0191,Selectivity increment,Fishery; Bin11; 1967 \*,−0.0511,0.2811,−0.6020,0.4998
+P0192,Selectivity increment,Fishery; Bin12; 1967 \*,−0.0455,0.2747,−0.5838,0.4928
+P0193,Selectivity increment,Fishery; Bin1; 1968 \*,0.3127,0.4163,−0.5033,1.1286
+P0194,Selectivity increment,Fishery; Bin2; 1968 \*,0.1419,0.3978,−0.6377,0.9215
+P0195,Selectivity increment,Fishery; Bin3; 1968 \*,0.0120,0.3855,−0.7436,0.7675
+P0196,Selectivity increment,Fishery; Bin4; 1968 \*,−0.0108,0.3097,−0.6179,0.5963
+P0197,Selectivity increment,Fishery; Bin5; 1968 \*,−0.0366,0.2850,−0.5952,0.5220
+P0198,Selectivity increment,Fishery; Bin6; 1968 \*,−0.0514,0.2793,−0.5988,0.4960
+P0199,Selectivity increment,Fishery; Bin7; 1968 \*,−0.0611,0.2781,−0.6061,0.4839
+P0200,Selectivity increment,Fishery; Bin8; 1968 \*,−0.0644,0.2790,−0.6113,0.4824
+P0201,Selectivity increment,Fishery; Bin9; 1968 \*,−0.0626,0.2800,−0.6114,0.4863
+P0202,Selectivity increment,Fishery; Bin10; 1968 \*,−0.0612,0.2825,−0.6149,0.4925
+P0203,Selectivity increment,Fishery; Bin11; 1968 \*,−0.0596,0.2834,−0.6150,0.4958
+P0204,Selectivity increment,Fishery; Bin12; 1968 \*,−0.0589,0.2764,−0.6007,0.4829
+P0205,Selectivity increment,Fishery; Bin1; 1969 \*,0.2851,0.4165,−0.5312,1.1014
+P0206,Selectivity increment,Fishery; Bin2; 1969 \*,0.0924,0.3968,−0.6852,0.8701
+P0207,Selectivity increment,Fishery; Bin3; 1969 \*,0.1579,0.3857,−0.5981,0.9139
+P0208,Selectivity increment,Fishery; Bin4; 1969 \*,−0.0960,0.3101,−0.7037,0.5117
+P0209,Selectivity increment,Fishery; Bin5; 1969 \*,−0.0947,0.2880,−0.6590,0.4697
+P0210,Selectivity increment,Fishery; Bin6; 1969 \*,−0.0822,0.2892,−0.6490,0.4846
+P0211,Selectivity increment,Fishery; Bin7; 1969 \*,−0.0710,0.3110,−0.6805,0.5385
+P0212,Selectivity increment,Fishery; Bin8; 1969 \*,−0.0543,0.3363,−0.7134,0.6047
+P0213,Selectivity increment,Fishery; Bin9; 1969 \*,−0.0484,0.3372,−0.7094,0.6125
+P0214,Selectivity increment,Fishery; Bin10; 1969 \*,−0.0360,0.4001,−0.8201,0.7481
+P0215,Selectivity increment,Fishery; Bin11; 1969 \*,−0.0272,0.3244,−0.6629,0.6085
+P0216,Selectivity increment,Fishery; Bin12; 1969 \*,−0.0257,0.2858,−0.5858,0.5345
+P0217,Selectivity increment,Fishery; Bin1; 1970 \*,0.3011,0.4170,−0.5161,1.1183
+P0218,Selectivity increment,Fishery; Bin2; 1970 \*,0.1488,0.3965,−0.6283,0.9259
+P0219,Selectivity increment,Fishery; Bin3; 1970 \*,−0.0316,0.3840,−0.7843,0.7211
+P0220,Selectivity increment,Fishery; Bin4; 1970 \*,−0.2072,0.3635,−0.9196,0.5052
+P0221,Selectivity increment,Fishery; Bin5; 1970 \*,−0.1218,0.3161,−0.7413,0.4976
+P0222,Selectivity increment,Fishery; Bin6; 1970 \*,−0.1011,0.3166,−0.7217,0.5194
+P0223,Selectivity increment,Fishery; Bin7; 1970 \*,−0.0529,0.3685,−0.7751,0.6693
+P0224,Selectivity increment,Fishery; Bin8; 1970 \*,−0.0096,0.3991,−0.7920,0.7727
+P0225,Selectivity increment,Fishery; Bin9; 1970 \*,−0.0009,0.3998,−0.7845,0.7828
+P0226,Selectivity increment,Fishery; Bin10; 1970 \*,0.0133,0.4076,−0.7855,0.8122
+P0227,Selectivity increment,Fishery; Bin11; 1970 \*,0.0230,0.4049,−0.7706,0.8167
+P0228,Selectivity increment,Fishery; Bin12; 1970 \*,0.0389,0.3034,−0.5557,0.6335
+P0229,Selectivity increment,Fishery; Bin1; 1971 \*,0.0965,0.4172,−0.7211,0.9142
+P0230,Selectivity increment,Fishery; Bin2; 1971 \*,0.0278,0.3955,−0.7474,0.8031
+P0231,Selectivity increment,Fishery; Bin3; 1971 \*,−0.0921,0.3808,−0.8385,0.6544
+P0232,Selectivity increment,Fishery; Bin4; 1971 \*,−0.0308,0.3714,−0.7587,0.6972
+P0233,Selectivity increment,Fishery; Bin5; 1971 \*,0.0085,0.3196,−0.6179,0.6350
+P0234,Selectivity increment,Fishery; Bin6; 1971 \*,−0.0046,0.3151,−0.6222,0.6129
+P0235,Selectivity increment,Fishery; Bin7; 1971 \*,−0.0485,0.3697,−0.7730,0.6761
+P0236,Selectivity increment,Fishery; Bin8; 1971 \*,0.0021,0.4013,−0.7845,0.7887
+P0237,Selectivity increment,Fishery; Bin9; 1971 \*,0.0038,0.4016,−0.7833,0.7910
+P0238,Selectivity increment,Fishery; Bin10; 1971 \*,0.0043,0.4080,−0.7953,0.8040
+P0239,Selectivity increment,Fishery; Bin11; 1971 \*,0.0104,0.4051,−0.7835,0.8044
+P0240,Selectivity increment,Fishery; Bin12; 1971 \*,0.0224,0.3007,−0.5671,0.6118
+P0241,Selectivity increment,Fishery; Bin1; 1972 \*,−0.1540,0.4171,−0.9715,0.6635
+P0242,Selectivity increment,Fishery; Bin2; 1972 \*,0.1905,0.3966,−0.5868,0.9678
+P0243,Selectivity increment,Fishery; Bin3; 1972 \*,0.0918,0.3791,−0.6513,0.8349
+P0244,Selectivity increment,Fishery; Bin4; 1972 \*,0.0742,0.3605,−0.6324,0.7808
+P0245,Selectivity increment,Fishery; Bin5; 1972 \*,−0.0186,0.3073,−0.6208,0.5836
+P0246,Selectivity increment,Fishery; Bin6; 1972 \*,−0.0055,0.2955,−0.5847,0.5738
+P0247,Selectivity increment,Fishery; Bin7; 1972 \*,−0.0047,0.3201,−0.6322,0.6227
+P0248,Selectivity increment,Fishery; Bin8; 1972 \*,−0.0323,0.4015,−0.8192,0.7546
+P0249,Selectivity increment,Fishery; Bin9; 1972 \*,−0.0229,0.4016,−0.8100,0.7641
+P0250,Selectivity increment,Fishery; Bin10; 1972 \*,−0.0315,0.4079,−0.8311,0.7680
+P0251,Selectivity increment,Fishery; Bin11; 1972 \*,−0.0396,0.4049,−0.8332,0.7540
+P0252,Selectivity increment,Fishery; Bin12; 1972 \*,−0.0473,0.3006,−0.6364,0.5419
+P0253,Selectivity increment,Fishery; Bin1; 1973 \*,−0.1854,0.4165,−1.0018,0.6309
+P0254,Selectivity increment,Fishery; Bin2; 1973 \*,0.1006,0.3966,−0.6767,0.8779
+P0255,Selectivity increment,Fishery; Bin3; 1973 \*,0.0425,0.3793,−0.7010,0.7860
+P0256,Selectivity increment,Fishery; Bin4; 1973 \*,0.0386,0.3526,−0.6525,0.7298
+P0257,Selectivity increment,Fishery; Bin5; 1973 \*,0.0410,0.3027,−0.5522,0.6342
+P0258,Selectivity increment,Fishery; Bin6; 1973 \*,0.0434,0.2924,−0.5296,0.6165
+P0259,Selectivity increment,Fishery; Bin7; 1973 \*,0.0391,0.3170,−0.5822,0.6604
+P0260,Selectivity increment,Fishery; Bin8; 1973 \*,0.0045,0.3969,−0.7735,0.7825
+P0261,Selectivity increment,Fishery; Bin9; 1973 \*,−0.0153,0.3987,−0.7967,0.7660
+P0262,Selectivity increment,Fishery; Bin10; 1973 \*,−0.0262,0.4063,−0.8225,0.7701
+P0263,Selectivity increment,Fishery; Bin11; 1973 \*,−0.0364,0.4038,−0.8279,0.7550
+P0264,Selectivity increment,Fishery; Bin12; 1973 \*,−0.0463,0.3011,−0.6364,0.5438
+P0265,Selectivity increment,Fishery; Bin1; 1974 \*,−0.1610,0.4155,−0.9753,0.6534
+P0266,Selectivity increment,Fishery; Bin2; 1974 \*,0.1384,0.3933,−0.6324,0.9092
+P0267,Selectivity increment,Fishery; Bin3; 1974 \*,0.1528,0.3689,−0.5702,0.8759
+P0268,Selectivity increment,Fishery; Bin4; 1974 \*,0.0118,0.3473,−0.6690,0.6926
+P0269,Selectivity increment,Fishery; Bin5; 1974 \*,0.0042,0.3027,−0.5891,0.5975
+P0270,Selectivity increment,Fishery; Bin6; 1974 \*,−0.0021,0.2923,−0.5750,0.5709
+P0271,Selectivity increment,Fishery; Bin7; 1974 \*,−0.0010,0.3158,−0.6200,0.6180
+P0272,Selectivity increment,Fishery; Bin8; 1974 \*,−0.0203,0.3456,−0.6978,0.6571
+P0273,Selectivity increment,Fishery; Bin9; 1974 \*,−0.0200,0.3422,−0.6907,0.6507
+P0274,Selectivity increment,Fishery; Bin10; 1974 \*,−0.0257,0.4021,−0.8137,0.7624
+P0275,Selectivity increment,Fishery; Bin11; 1974 \*,−0.0326,0.4002,−0.8171,0.7518
+P0276,Selectivity increment,Fishery; Bin12; 1974 \*,−0.0446,0.3017,−0.6360,0.5468
+P0277,Selectivity increment,Fishery; Bin1; 1975 \*,−0.1574,0.4148,−0.9705,0.6557
+P0278,Selectivity increment,Fishery; Bin2; 1975 \*,−0.1858,0.3879,−0.9460,0.5745
+P0279,Selectivity increment,Fishery; Bin3; 1975 \*,0.1323,0.3078,−0.4710,0.7357
+P0280,Selectivity increment,Fishery; Bin4; 1975 \*,0.0781,0.2842,−0.4789,0.6351
+P0281,Selectivity increment,Fishery; Bin5; 1975 \*,0.0430,0.2808,−0.5074,0.5933
+P0282,Selectivity increment,Fishery; Bin6; 1975 \*,0.0290,0.2859,−0.5313,0.5893
+P0283,Selectivity increment,Fishery; Bin7; 1975 \*,0.0231,0.3077,−0.5801,0.6262
+P0284,Selectivity increment,Fishery; Bin8; 1975 \*,0.0028,0.3377,−0.6589,0.6646
+P0285,Selectivity increment,Fishery; Bin9; 1975 \*,0.0035,0.3448,−0.6722,0.6792
+P0286,Selectivity increment,Fishery; Bin10; 1975 \*,0.0104,0.3139,−0.6049,0.6257
+P0287,Selectivity increment,Fishery; Bin11; 1975 \*,0.0105,0.2910,−0.5598,0.5807
+P0288,Selectivity increment,Fishery; Bin12; 1975 \*,0.0104,0.2783,−0.5351,0.5558
+P0289,Selectivity increment,Fishery; Bin1; 1976 \*,−0.1591,0.4145,−0.9714,0.6533
+P0290,Selectivity increment,Fishery; Bin2; 1976 \*,−0.0964,0.3884,−0.8577,0.6650
+P0291,Selectivity increment,Fishery; Bin3; 1976 \*,−0.0776,0.3491,−0.7618,0.6066
+P0292,Selectivity increment,Fishery; Bin4; 1976 \*,0.0621,0.3017,−0.5292,0.6534
+P0293,Selectivity increment,Fishery; Bin5; 1976 \*,0.0496,0.2832,−0.5055,0.6048
+P0294,Selectivity increment,Fishery; Bin6; 1976 \*,0.0379,0.2801,−0.5111,0.5870
+P0295,Selectivity increment,Fishery; Bin7; 1976 \*,0.0310,0.2819,−0.5214,0.5835
+P0296,Selectivity increment,Fishery; Bin8; 1976 \*,0.0269,0.2950,−0.5513,0.6051
+P0297,Selectivity increment,Fishery; Bin9; 1976 \*,0.0252,0.3416,−0.6443,0.6947
+P0298,Selectivity increment,Fishery; Bin10; 1976 \*,0.0334,0.3214,−0.5965,0.6633
+P0299,Selectivity increment,Fishery; Bin11; 1976 \*,0.0339,0.2922,−0.5388,0.6066
+P0300,Selectivity increment,Fishery; Bin12; 1976 \*,0.0329,0.2785,−0.5129,0.5787
+P0301,Selectivity increment,Fishery; Bin1; 1977 \*,−0.1490,0.4140,−0.9604,0.6624
+P0302,Selectivity increment,Fishery; Bin2; 1977 \*,−0.0115,0.3875,−0.7709,0.7479
+P0303,Selectivity increment,Fishery; Bin3; 1977 \*,−0.1853,0.3694,−0.9094,0.5387
+P0304,Selectivity increment,Fishery; Bin4; 1977 \*,−0.0719,0.3558,−0.7692,0.6254
+P0305,Selectivity increment,Fishery; Bin5; 1977 \*,0.0195,0.3047,−0.5777,0.6167
+P0306,Selectivity increment,Fishery; Bin6; 1977 \*,0.0338,0.2861,−0.5269,0.5945
+P0307,Selectivity increment,Fishery; Bin7; 1977 \*,0.0379,0.2880,−0.5266,0.6024
+P0308,Selectivity increment,Fishery; Bin8; 1977 \*,0.0395,0.3108,−0.5697,0.6487
+P0309,Selectivity increment,Fishery; Bin9; 1977 \*,0.0514,0.3946,−0.7220,0.8247
+P0310,Selectivity increment,Fishery; Bin10; 1977 \*,0.0697,0.3962,−0.7069,0.8463
+P0311,Selectivity increment,Fishery; Bin11; 1977 \*,0.0816,0.3251,−0.5556,0.7189
+P0312,Selectivity increment,Fishery; Bin12; 1977 \*,0.0844,0.2885,−0.4811,0.6498
+P0313,Selectivity increment,Fishery; Bin1; 1978 \*,−0.1935,0.4131,−1.0032,0.6162
+P0314,Selectivity increment,Fishery; Bin2; 1978 \*,−0.1580,0.3803,−0.9035,0.5874
+P0315,Selectivity increment,Fishery; Bin3; 1978 \*,−0.0660,0.3645,−0.7803,0.6483
+P0316,Selectivity increment,Fishery; Bin4; 1978 \*,−0.0381,0.3640,−0.7515,0.6753
+P0317,Selectivity increment,Fishery; Bin5; 1978 \*,0.0269,0.3143,−0.5891,0.6429
+P0318,Selectivity increment,Fishery; Bin6; 1978 \*,0.0307,0.3083,−0.5736,0.6349
+P0319,Selectivity increment,Fishery; Bin7; 1978 \*,0.0457,0.3154,−0.5725,0.6639
+P0320,Selectivity increment,Fishery; Bin8; 1978 \*,0.0496,0.3259,−0.5891,0.6883
+P0321,Selectivity increment,Fishery; Bin9; 1978 \*,0.0673,0.3989,−0.7144,0.8491
+P0322,Selectivity increment,Fishery; Bin10; 1978 \*,0.0741,0.3989,−0.7076,0.8559
+P0323,Selectivity increment,Fishery; Bin11; 1978 \*,0.0807,0.3341,−0.5741,0.7354
+P0324,Selectivity increment,Fishery; Bin12; 1978 \*,0.0808,0.2890,−0.4856,0.6472
+P0325,Selectivity increment,Fishery; Bin1; 1979 \*,−0.1527,0.4072,−0.9509,0.6455
+P0326,Selectivity increment,Fishery; Bin2; 1979 \*,−0.3807,0.3608,−1.0879,0.3265
+P0327,Selectivity increment,Fishery; Bin3; 1979 \*,−0.1744,0.3505,−0.8614,0.5126
+P0328,Selectivity increment,Fishery; Bin4; 1979 \*,−0.0494,0.3568,−0.7488,0.6499
+P0329,Selectivity increment,Fishery; Bin5; 1979 \*,0.0853,0.3491,−0.5990,0.7695
+P0330,Selectivity increment,Fishery; Bin6; 1979 \*,0.1164,0.3292,−0.5289,0.7617
+P0331,Selectivity increment,Fishery; Bin7; 1979 \*,0.0994,0.3399,−0.5669,0.7656
+P0332,Selectivity increment,Fishery; Bin8; 1979 \*,0.1032,0.3687,−0.6194,0.8257
+P0333,Selectivity increment,Fishery; Bin9; 1979 \*,0.1059,0.4008,−0.6796,0.8914
+P0334,Selectivity increment,Fishery; Bin10; 1979 \*,0.0896,0.3983,−0.6910,0.8703
+P0335,Selectivity increment,Fishery; Bin11; 1979 \*,0.0792,0.3286,−0.5649,0.7232
+P0336,Selectivity increment,Fishery; Bin12; 1979 \*,0.0784,0.2878,−0.4856,0.6424
+P0337,Selectivity increment,Fishery; Bin1; 1980 \*,−0.1661,0.4085,−0.9667,0.6344
+P0338,Selectivity increment,Fishery; Bin2; 1980 \*,−0.4732,0.3535,−1.1660,0.2197
+P0339,Selectivity increment,Fishery; Bin3; 1980 \*,−0.2547,0.3436,−0.9282,0.4188
+P0340,Selectivity increment,Fishery; Bin4; 1980 \*,0.0750,0.3564,−0.6234,0.7734
+P0341,Selectivity increment,Fishery; Bin5; 1980 \*,0.1095,0.3585,−0.5930,0.8121
+P0342,Selectivity increment,Fishery; Bin6; 1980 \*,0.1351,0.3138,−0.4800,0.7502
+P0343,Selectivity increment,Fishery; Bin7; 1980 \*,0.1332,0.3106,−0.4757,0.7420
+P0344,Selectivity increment,Fishery; Bin8; 1980 \*,0.1202,0.3686,−0.6023,0.8427
+P0345,Selectivity increment,Fishery; Bin9; 1980 \*,0.0907,0.3988,−0.6909,0.8722
+P0346,Selectivity increment,Fishery; Bin10; 1980 \*,0.0826,0.3937,−0.6891,0.8542
+P0347,Selectivity increment,Fishery; Bin11; 1980 \*,0.0751,0.3175,−0.5472,0.6975
+P0348,Selectivity increment,Fishery; Bin12; 1980 \*,0.0726,0.2867,−0.4893,0.6345
+P0349,Selectivity increment,Fishery; Bin1; 1981 \*,−0.1370,0.4123,−0.9450,0.6710
+P0350,Selectivity increment,Fishery; Bin2; 1981 \*,−0.2530,0.3700,−0.9782,0.4722
+P0351,Selectivity increment,Fishery; Bin3; 1981 \*,−0.2579,0.3394,−0.9230,0.4072
+P0352,Selectivity increment,Fishery; Bin4; 1981 \*,0.0107,0.3493,−0.6739,0.6953
+P0353,Selectivity increment,Fishery; Bin5; 1981 \*,0.1230,0.3471,−0.5573,0.8033
+P0354,Selectivity increment,Fishery; Bin6; 1981 \*,0.0783,0.3012,−0.5121,0.6686
+P0355,Selectivity increment,Fishery; Bin7; 1981 \*,0.0847,0.2895,−0.4827,0.6522
+P0356,Selectivity increment,Fishery; Bin8; 1981 \*,0.0882,0.3089,−0.5172,0.6936
+P0357,Selectivity increment,Fishery; Bin9; 1981 \*,0.0812,0.3921,−0.6872,0.8497
+P0358,Selectivity increment,Fishery; Bin10; 1981 \*,0.0626,0.3238,−0.5721,0.6973
+P0359,Selectivity increment,Fishery; Bin11; 1981 \*,0.0595,0.2952,−0.5191,0.6382
+P0360,Selectivity increment,Fishery; Bin12; 1981 \*,0.0596,0.2817,−0.4925,0.6117
+P0361,Selectivity increment,Fishery; Bin1; 1982 \*,−0.1040,0.4154,−0.9182,0.7102
+P0362,Selectivity increment,Fishery; Bin2; 1982 \*,−0.0931,0.3823,−0.8423,0.6562
+P0363,Selectivity increment,Fishery; Bin3; 1982 \*,−0.3008,0.3536,−0.9937,0.3922
+P0364,Selectivity increment,Fishery; Bin4; 1982 \*,−0.0092,0.3403,−0.6762,0.6579
+P0365,Selectivity increment,Fishery; Bin5; 1982 \*,0.0660,0.3012,−0.5244,0.6565
+P0366,Selectivity increment,Fishery; Bin6; 1982 \*,0.0694,0.2805,−0.4804,0.6193
+P0367,Selectivity increment,Fishery; Bin7; 1982 \*,0.0670,0.2772,−0.4763,0.6104
+P0368,Selectivity increment,Fishery; Bin8; 1982 \*,0.0685,0.2771,−0.4746,0.6116
+P0369,Selectivity increment,Fishery; Bin9; 1982 \*,0.0662,0.2794,−0.4813,0.6137
+P0370,Selectivity increment,Fishery; Bin10; 1982 \*,0.0600,0.2812,−0.4911,0.6111
+P0371,Selectivity increment,Fishery; Bin11; 1982 \*,0.0560,0.2836,−0.5000,0.6119
+P0372,Selectivity increment,Fishery; Bin12; 1982 \*,0.0538,0.2777,−0.4905,0.5981
+P0373,Selectivity increment,Fishery; Bin1; 1983 \*,−0.1223,0.4165,−0.9386,0.6940
+P0374,Selectivity increment,Fishery; Bin2; 1983 \*,0.1032,0.3892,−0.6597,0.8660
+P0375,Selectivity increment,Fishery; Bin3; 1983 \*,−0.0970,0.3645,−0.8113,0.6174
+P0376,Selectivity increment,Fishery; Bin4; 1983 \*,−0.1890,0.3452,−0.8656,0.4876
+P0377,Selectivity increment,Fishery; Bin5; 1983 \*,−0.0624,0.3207,−0.6909,0.5661
+P0378,Selectivity increment,Fishery; Bin6; 1983 \*,0.0676,0.2926,−0.5059,0.6410
+P0379,Selectivity increment,Fishery; Bin7; 1983 \*,0.0552,0.2786,−0.4908,0.6012
+P0380,Selectivity increment,Fishery; Bin8; 1983 \*,0.0486,0.2766,−0.4935,0.5906
+P0381,Selectivity increment,Fishery; Bin9; 1983 \*,0.0482,0.2775,−0.4956,0.5921
+P0382,Selectivity increment,Fishery; Bin10; 1983 \*,0.0497,0.2797,−0.4985,0.5978
+P0383,Selectivity increment,Fishery; Bin11; 1983 \*,0.0494,0.2820,−0.5033,0.6021
+P0384,Selectivity increment,Fishery; Bin12; 1983 \*,0.0488,0.2760,−0.4922,0.5898
+P0385,Selectivity increment,Fishery; Bin1; 1984 \*,−0.1099,0.4185,−0.9301,0.7102
+P0386,Selectivity increment,Fishery; Bin2; 1984 \*,−0.1521,0.3905,−0.9174,0.6132
+P0387,Selectivity increment,Fishery; Bin3; 1984 \*,0.0489,0.3700,−0.6763,0.7742
+P0388,Selectivity increment,Fishery; Bin4; 1984 \*,−0.0874,0.3505,−0.7743,0.5996
+P0389,Selectivity increment,Fishery; Bin5; 1984 \*,0.0264,0.3403,−0.6405,0.6933
+P0390,Selectivity increment,Fishery; Bin6; 1984 \*,0.0367,0.2951,−0.5417,0.6151
+P0391,Selectivity increment,Fishery; Bin7; 1984 \*,0.0512,0.2785,−0.4946,0.5970
+P0392,Selectivity increment,Fishery; Bin8; 1984 \*,0.0411,0.2762,−0.5002,0.5824
+P0393,Selectivity increment,Fishery; Bin9; 1984 \*,0.0380,0.2771,−0.5051,0.5811
+P0394,Selectivity increment,Fishery; Bin10; 1984 \*,0.0360,0.2792,−0.5113,0.5833
+P0395,Selectivity increment,Fishery; Bin11; 1984 \*,0.0358,0.2814,−0.5158,0.5874
+P0396,Selectivity increment,Fishery; Bin12; 1984 \*,0.0354,0.2754,−0.5043,0.5751
+P0397,Selectivity increment,Fishery; Bin1; 1985 \*,−0.1272,0.4190,−0.9484,0.6940
+P0398,Selectivity increment,Fishery; Bin2; 1985 \*,0.0402,0.3949,−0.7338,0.8141
+P0399,Selectivity increment,Fishery; Bin3; 1985 \*,0.1307,0.3677,−0.5900,0.8513
+P0400,Selectivity increment,Fishery; Bin4; 1985 \*,−0.0902,0.3563,−0.7885,0.6081
+P0401,Selectivity increment,Fishery; Bin5; 1985 \*,−0.2409,0.3470,−0.9210,0.4392
+P0402,Selectivity increment,Fishery; Bin6; 1985 \*,0.0564,0.2947,−0.5213,0.6340
+P0403,Selectivity increment,Fishery; Bin7; 1985 \*,0.0519,0.2754,−0.4879,0.5917
+P0404,Selectivity increment,Fishery; Bin8; 1985 \*,0.0500,0.2751,−0.4892,0.5891
+P0405,Selectivity increment,Fishery; Bin9; 1985 \*,0.0345,0.2765,−0.5074,0.5765
+P0406,Selectivity increment,Fishery; Bin10; 1985 \*,0.0325,0.2789,−0.5141,0.5790
+P0407,Selectivity increment,Fishery; Bin11; 1985 \*,0.0318,0.2811,−0.5191,0.5827
+P0408,Selectivity increment,Fishery; Bin12; 1985 \*,0.0304,0.2749,−0.5084,0.5693
+P0409,Selectivity increment,Fishery; Bin1; 1986 \*,−0.1344,0.4196,−0.9569,0.6881
+P0410,Selectivity increment,Fishery; Bin2; 1986 \*,−0.0383,0.3972,−0.8168,0.7401
+P0411,Selectivity increment,Fishery; Bin3; 1986 \*,0.0606,0.3691,−0.6628,0.7840
+P0412,Selectivity increment,Fishery; Bin4; 1986 \*,0.1677,0.3543,−0.5267,0.8622
+P0413,Selectivity increment,Fishery; Bin5; 1986 \*,−0.0207,0.3550,−0.7164,0.6751
+P0414,Selectivity increment,Fishery; Bin6; 1986 \*,−0.0709,0.3319,−0.7214,0.5796
+P0415,Selectivity increment,Fishery; Bin7; 1986 \*,0.0143,0.2940,−0.5620,0.5905
+P0416,Selectivity increment,Fishery; Bin8; 1986 \*,−0.0173,0.2782,−0.5626,0.5279
+P0417,Selectivity increment,Fishery; Bin9; 1986 \*,0.0089,0.2789,−0.5378,0.5555
+P0418,Selectivity increment,Fishery; Bin10; 1986 \*,0.0072,0.2788,−0.5393,0.5537
+P0419,Selectivity increment,Fishery; Bin11; 1986 \*,0.0093,0.2807,−0.5408,0.5594
+P0420,Selectivity increment,Fishery; Bin12; 1986 \*,0.0136,0.2745,−0.5244,0.5517
+P0421,Selectivity increment,Fishery; Bin1; 1987 \*,−0.1333,0.4198,−0.9561,0.6895
+P0422,Selectivity increment,Fishery; Bin2; 1987 \*,−0.0846,0.4008,−0.8702,0.7009
+P0423,Selectivity increment,Fishery; Bin3; 1987 \*,0.1086,0.3713,−0.6192,0.8364
+P0424,Selectivity increment,Fishery; Bin4; 1987 \*,−0.1061,0.3582,−0.8082,0.5959
+P0425,Selectivity increment,Fishery; Bin5; 1987 \*,0.0218,0.3538,−0.6717,0.7153
+P0426,Selectivity increment,Fishery; Bin6; 1987 \*,−0.0462,0.3557,−0.7433,0.6509
+P0427,Selectivity increment,Fishery; Bin7; 1987 \*,−0.0955,0.3359,−0.7538,0.5628
+P0428,Selectivity increment,Fishery; Bin8; 1987 \*,0.1044,0.2962,−0.4762,0.6850
+P0429,Selectivity increment,Fishery; Bin9; 1987 \*,0.0984,0.2793,−0.4491,0.6459
+P0430,Selectivity increment,Fishery; Bin10; 1987 \*,0.0660,0.2781,−0.4791,0.6112
+P0431,Selectivity increment,Fishery; Bin11; 1987 \*,0.0418,0.2801,−0.5072,0.5908
+P0432,Selectivity increment,Fishery; Bin12; 1987 \*,0.0248,0.2743,−0.5127,0.5624
+P0433,Selectivity increment,Fishery; Bin1; 1988 \*,−0.1650,0.4198,−0.9878,0.6577
+P0434,Selectivity increment,Fishery; Bin2; 1988 \*,−0.1229,0.4025,−0.9118,0.6660
+P0435,Selectivity increment,Fishery; Bin3; 1988 \*,0.4321,0.3737,−0.3003,1.1645
+P0436,Selectivity increment,Fishery; Bin4; 1988 \*,0.0242,0.3611,−0.6835,0.7320
+P0437,Selectivity increment,Fishery; Bin5; 1988 \*,0.0879,0.3542,−0.6062,0.7820
+P0438,Selectivity increment,Fishery; Bin6; 1988 \*,−0.0565,0.3542,−0.7508,0.6377
+P0439,Selectivity increment,Fishery; Bin7; 1988 \*,0.1187,0.3368,−0.5414,0.7788
+P0440,Selectivity increment,Fishery; Bin8; 1988 \*,−0.0812,0.2935,−0.6565,0.4941
+P0441,Selectivity increment,Fishery; Bin9; 1988 \*,−0.0785,0.2772,−0.6218,0.4648
+P0442,Selectivity increment,Fishery; Bin10; 1988 \*,−0.0796,0.2776,−0.6236,0.4644
+P0443,Selectivity increment,Fishery; Bin11; 1988 \*,−0.0497,0.2829,−0.6042,0.5048
+P0444,Selectivity increment,Fishery; Bin12; 1988 \*,−0.0295,0.2753,−0.5690,0.5100
+P0445,Selectivity increment,Fishery; Bin1; 1989 \*,−0.1307,0.4196,−0.9531,0.6916
+P0446,Selectivity increment,Fishery; Bin2; 1989 \*,−0.0816,0.4021,−0.8696,0.7065
+P0447,Selectivity increment,Fishery; Bin3; 1989 \*,−0.3948,0.3821,−1.1437,0.3540
+P0448,Selectivity increment,Fishery; Bin4; 1989 \*,0.1355,0.3658,−0.5814,0.8525
+P0449,Selectivity increment,Fishery; Bin5; 1989 \*,0.0220,0.3542,−0.6723,0.7163
+P0450,Selectivity increment,Fishery; Bin6; 1989 \*,0.0546,0.3531,−0.6374,0.7466
+P0451,Selectivity increment,Fishery; Bin7; 1989 \*,0.1293,0.2978,−0.4543,0.7130
+P0452,Selectivity increment,Fishery; Bin8; 1989 \*,0.1041,0.2772,−0.4392,0.6473
+P0453,Selectivity increment,Fishery; Bin9; 1989 \*,0.0309,0.2754,−0.5088,0.5706
+P0454,Selectivity increment,Fishery; Bin10; 1989 \*,0.0641,0.2773,−0.4795,0.6076
+P0455,Selectivity increment,Fishery; Bin11; 1989 \*,0.0445,0.2815,−0.5072,0.5962
+P0456,Selectivity increment,Fishery; Bin12; 1989 \*,0.0221,0.2747,−0.5163,0.5605
+P0457,Selectivity increment,Fishery; Bin1; 1990 \*,−0.1246,0.4192,−0.9462,0.6971
+P0458,Selectivity increment,Fishery; Bin2; 1990 \*,−0.0556,0.3998,−0.8392,0.7279
+P0459,Selectivity increment,Fishery; Bin3; 1990 \*,−0.3454,0.3826,−1.0953,0.4046
+P0460,Selectivity increment,Fishery; Bin4; 1990 \*,0.0258,0.3704,−0.7002,0.7518
+P0461,Selectivity increment,Fishery; Bin5; 1990 \*,0.1451,0.3528,−0.5464,0.8366
+P0462,Selectivity increment,Fishery; Bin6; 1990 \*,0.0542,0.3493,−0.6303,0.7387
+P0463,Selectivity increment,Fishery; Bin7; 1990 \*,−0.0416,0.3272,−0.6830,0.5997
+P0464,Selectivity increment,Fishery; Bin8; 1990 \*,0.0504,0.2894,−0.5169,0.6176
+P0465,Selectivity increment,Fishery; Bin9; 1990 \*,0.0621,0.2804,−0.4875,0.6116
+P0466,Selectivity increment,Fishery; Bin10; 1990 \*,0.0002,0.2925,−0.5731,0.5736
+P0467,Selectivity increment,Fishery; Bin11; 1990 \*,0.1328,0.2978,−0.4508,0.7164
+P0468,Selectivity increment,Fishery; Bin12; 1990 \*,0.0966,0.2719,−0.4364,0.6295
+P0469,Selectivity increment,Fishery; Bin1; 1991 \*,−0.0571,0.4181,−0.8765,0.7624
+P0470,Selectivity increment,Fishery; Bin2; 1991 \*,−0.0210,0.3915,−0.7883,0.7462
+P0471,Selectivity increment,Fishery; Bin3; 1991 \*,−0.3596,0.3748,−1.0942,0.3750
+P0472,Selectivity increment,Fishery; Bin4; 1991 \*,−0.2984,0.3583,−1.0006,0.4038
+P0473,Selectivity increment,Fishery; Bin5; 1991 \*,−0.1882,0.3484,−0.8710,0.4946
+P0474,Selectivity increment,Fishery; Bin6; 1991 \*,−0.0522,0.3230,−0.6853,0.5809
+P0475,Selectivity increment,Fishery; Bin7; 1991 \*,0.1413,0.3233,−0.4924,0.7750
+P0476,Selectivity increment,Fishery; Bin8; 1991 \*,−0.0373,0.2924,−0.6104,0.5359
+P0477,Selectivity increment,Fishery; Bin9; 1991 \*,0.1423,0.2774,−0.4014,0.6859
+P0478,Selectivity increment,Fishery; Bin10; 1991 \*,0.0714,0.2959,−0.5085,0.6513
+P0479,Selectivity increment,Fishery; Bin11; 1991 \*,0.3360,0.2985,−0.2491,0.9211
+P0480,Selectivity increment,Fishery; Bin12; 1991 \*,0.3228,0.2650,−0.1966,0.8421
+P0481,Selectivity increment,Fishery; Bin1; 1992 \*,−0.1291,0.4153,−0.9430,0.6848
+P0482,Selectivity increment,Fishery; Bin2; 1992 \*,−0.0575,0.3344,−0.7129,0.5978
+P0483,Selectivity increment,Fishery; Bin3; 1992 \*,0.5222,0.3061,−0.0779,1.1222
+P0484,Selectivity increment,Fishery; Bin4; 1992 \*,−0.2344,0.3156,−0.8530,0.3842
+P0485,Selectivity increment,Fishery; Bin5; 1992 \*,−0.3277,0.3180,−0.9509,0.2955
+P0486,Selectivity increment,Fishery; Bin6; 1992 \*,−0.0479,0.3127,−0.6607,0.5649
+P0487,Selectivity increment,Fishery; Bin7; 1992 \*,−0.0629,0.2927,−0.6365,0.5108
+P0488,Selectivity increment,Fishery; Bin8; 1992 \*,0.2020,0.2872,−0.3608,0.7648
+P0489,Selectivity increment,Fishery; Bin9; 1992 \*,0.0885,0.2802,−0.4607,0.6377
+P0490,Selectivity increment,Fishery; Bin10; 1992 \*,0.2149,0.2878,−0.3491,0.7790
+P0491,Selectivity increment,Fishery; Bin11; 1992 \*,−0.1178,0.2882,−0.6827,0.4471
+P0492,Selectivity increment,Fishery; Bin12; 1992 \*,−0.0503,0.2607,−0.5612,0.4607
+P0493,Selectivity increment,Fishery; Bin1; 1993 \*,−0.1187,0.4147,−0.9315,0.6940
+P0494,Selectivity increment,Fishery; Bin2; 1993 \*,−0.4719,0.3522,−1.1621,0.2184
+P0495,Selectivity increment,Fishery; Bin3; 1993 \*,−0.0290,0.2736,−0.5654,0.5073
+P0496,Selectivity increment,Fishery; Bin4; 1993 \*,0.8219,0.2800,0.2731,1.3708
+P0497,Selectivity increment,Fishery; Bin5; 1993 \*,0.0377,0.3059,−0.5619,0.6373
+P0498,Selectivity increment,Fishery; Bin6; 1993 \*,0.0368,0.3239,−0.5980,0.6717
+P0499,Selectivity increment,Fishery; Bin7; 1993 \*,0.0738,0.3239,−0.5609,0.7086
+P0500,Selectivity increment,Fishery; Bin8; 1993 \*,−0.0135,0.2905,−0.5830,0.5559
+P0501,Selectivity increment,Fishery; Bin9; 1993 \*,−0.0312,0.2806,−0.5812,0.5188
+P0502,Selectivity increment,Fishery; Bin10; 1993 \*,−0.0706,0.2792,−0.6178,0.4766
+P0503,Selectivity increment,Fishery; Bin11; 1993 \*,−0.1520,0.3012,−0.7423,0.4384
+P0504,Selectivity increment,Fishery; Bin12; 1993 \*,−0.0833,0.2738,−0.6200,0.4534
+P0505,Selectivity increment,Fishery; Bin1; 1994 \*,−0.0143,0.4166,−0.8309,0.8023
+P0506,Selectivity increment,Fishery; Bin2; 1994 \*,0.0152,0.3582,−0.6868,0.7172
+P0507,Selectivity increment,Fishery; Bin3; 1994 \*,−0.7774,0.3087,−1.3825,−0.1722
+P0508,Selectivity increment,Fishery; Bin4; 1994 \*,−0.3070,0.2656,−0.8275,0.2136
+P0509,Selectivity increment,Fishery; Bin5; 1994 \*,0.9075,0.2652,0.3877,1.4273
+P0510,Selectivity increment,Fishery; Bin6; 1994 \*,0.2876,0.3068,−0.3137,0.8890
+P0511,Selectivity increment,Fishery; Bin7; 1994 \*,0.0218,0.3155,−0.5966,0.6402
+P0512,Selectivity increment,Fishery; Bin8; 1994 \*,−0.0271,0.2831,−0.5820,0.5277
+P0513,Selectivity increment,Fishery; Bin9; 1994 \*,−0.0449,0.2690,−0.5721,0.4824
+P0514,Selectivity increment,Fishery; Bin10; 1994 \*,−0.0192,0.2727,−0.5538,0.5153
+P0515,Selectivity increment,Fishery; Bin11; 1994 \*,0.0142,0.2870,−0.5483,0.5767
+P0516,Selectivity increment,Fishery; Bin12; 1994 \*,−0.0564,0.2782,−0.6018,0.4889
+P0517,Selectivity increment,Fishery; Bin1; 1995 \*,0.0094,0.4170,−0.8078,0.8267
+P0518,Selectivity increment,Fishery; Bin2; 1995 \*,0.1923,0.3679,−0.5288,0.9134
+P0519,Selectivity increment,Fishery; Bin3; 1995 \*,−0.2946,0.3221,−0.9259,0.3368
+P0520,Selectivity increment,Fishery; Bin4; 1995 \*,−0.7007,0.2923,−1.2736,−0.1279
+P0521,Selectivity increment,Fishery; Bin5; 1995 \*,−0.3795,0.2662,−0.9013,0.1423
+P0522,Selectivity increment,Fishery; Bin6; 1995 \*,0.4455,0.2661,−0.0760,0.9671
+P0523,Selectivity increment,Fishery; Bin7; 1995 \*,0.1832,0.2782,−0.3621,0.7285
+P0524,Selectivity increment,Fishery; Bin8; 1995 \*,0.1784,0.2707,−0.3522,0.7090
+P0525,Selectivity increment,Fishery; Bin9; 1995 \*,0.1368,0.2714,−0.3951,0.6687
+P0526,Selectivity increment,Fishery; Bin10; 1995 \*,0.1109,0.2724,−0.4231,0.6449
+P0527,Selectivity increment,Fishery; Bin11; 1995 \*,0.0758,0.2748,−0.4628,0.6143
+P0528,Selectivity increment,Fishery; Bin12; 1995 \*,0.0424,0.2681,−0.4831,0.5680
+P0529,Selectivity increment,Fishery; Bin1; 1996 \*,−0.0097,0.4173,−0.8277,0.8083
+P0530,Selectivity increment,Fishery; Bin2; 1996 \*,0.5075,0.3722,−0.2219,1.2369
+P0531,Selectivity increment,Fishery; Bin3; 1996 \*,0.2794,0.3348,−0.3768,0.9357
+P0532,Selectivity increment,Fishery; Bin4; 1996 \*,−0.7854,0.3054,−1.3840,−0.1867
+P0533,Selectivity increment,Fishery; Bin5; 1996 \*,−0.7408,0.2866,−1.3026,−0.1790
+P0534,Selectivity increment,Fishery; Bin6; 1996 \*,−0.3569,0.2674,−0.8811,0.1672
+P0535,Selectivity increment,Fishery; Bin7; 1996 \*,0.2781,0.2585,−0.2285,0.7847
+P0536,Selectivity increment,Fishery; Bin8; 1996 \*,0.3081,0.2639,−0.2091,0.8253
+P0537,Selectivity increment,Fishery; Bin9; 1996 \*,0.2215,0.2701,−0.3080,0.7510
+P0538,Selectivity increment,Fishery; Bin10; 1996 \*,0.1476,0.2737,−0.3889,0.6841
+P0539,Selectivity increment,Fishery; Bin11; 1996 \*,0.0906,0.2752,−0.4489,0.6301
+P0540,Selectivity increment,Fishery; Bin12; 1996 \*,0.0601,0.2678,−0.4648,0.5849
+P0541,Selectivity increment,Fishery; Bin1; 1997 \*,−0.1094,0.4177,−0.9282,0.7093
+P0542,Selectivity increment,Fishery; Bin2; 1997 \*,0.3323,0.3622,−0.3776,1.0422
+P0543,Selectivity increment,Fishery; Bin3; 1997 \*,0.1555,0.3403,−0.5114,0.8224
+P0544,Selectivity increment,Fishery; Bin4; 1997 \*,0.6559,0.3059,0.0563,1.2556
+P0545,Selectivity increment,Fishery; Bin5; 1997 \*,−0.0012,0.2806,−0.5511,0.5488
+P0546,Selectivity increment,Fishery; Bin6; 1997 \*,−0.3984,0.2751,−0.9376,0.1409
+P0547,Selectivity increment,Fishery; Bin7; 1997 \*,−0.4036,0.2694,−0.9315,0.1243
+P0548,Selectivity increment,Fishery; Bin8; 1997 \*,−0.2889,0.2735,−0.8249,0.2471
+P0549,Selectivity increment,Fishery; Bin9; 1997 \*,−0.0227,0.2787,−0.5690,0.5235
+P0550,Selectivity increment,Fishery; Bin10; 1997 \*,0.0186,0.2746,−0.5197,0.5569
+P0551,Selectivity increment,Fishery; Bin11; 1997 \*,0.0284,0.2758,−0.5121,0.5689
+P0552,Selectivity increment,Fishery; Bin12; 1997 \*,0.0335,0.2671,−0.4900,0.5570
+P0553,Selectivity increment,Fishery; Bin1; 1998 \*,−0.0772,0.4183,−0.8971,0.7427
+P0554,Selectivity increment,Fishery; Bin2; 1998 \*,−0.3764,0.3344,−1.0318,0.2791
+P0555,Selectivity increment,Fishery; Bin3; 1998 \*,0.2778,0.3214,−0.3521,0.9077
+P0556,Selectivity increment,Fishery; Bin4; 1998 \*,0.2308,0.3062,−0.3693,0.8309
+P0557,Selectivity increment,Fishery; Bin5; 1998 \*,0.1763,0.2739,−0.3605,0.7132
+P0558,Selectivity increment,Fishery; Bin6; 1998 \*,0.2773,0.2583,−0.2290,0.7837
+P0559,Selectivity increment,Fishery; Bin7; 1998 \*,−0.2341,0.2704,−0.7642,0.2960
+P0560,Selectivity increment,Fishery; Bin8; 1998 \*,−0.0717,0.2888,−0.6378,0.4944
+P0561,Selectivity increment,Fishery; Bin9; 1998 \*,−0.0713,0.2812,−0.6223,0.4798
+P0562,Selectivity increment,Fishery; Bin10; 1998 \*,−0.0478,0.2738,−0.5845,0.4889
+P0563,Selectivity increment,Fishery; Bin11; 1998 \*,−0.0464,0.2758,−0.5870,0.4942
+P0564,Selectivity increment,Fishery; Bin12; 1998 \*,−0.0374,0.2688,−0.5643,0.4895
+P0565,Selectivity increment,Fishery; Bin1; 1999 \*,−0.1247,0.4186,−0.9452,0.6958
+P0566,Selectivity increment,Fishery; Bin2; 1999 \*,−0.3584,0.3509,−1.0462,0.3294
+P0567,Selectivity increment,Fishery; Bin3; 1999 \*,0.8134,0.2823,0.2601,1.3666
+P0568,Selectivity increment,Fishery; Bin4; 1999 \*,0.4525,0.2907,−0.1172,1.0221
+P0569,Selectivity increment,Fishery; Bin5; 1999 \*,0.1329,0.2861,−0.4279,0.6938
+P0570,Selectivity increment,Fishery; Bin6; 1999 \*,−0.2625,0.2614,−0.7749,0.2499
+P0571,Selectivity increment,Fishery; Bin7; 1999 \*,0.2338,0.2526,−0.2613,0.7289
+P0572,Selectivity increment,Fishery; Bin8; 1999 \*,−0.1112,0.2746,−0.6493,0.4269
+P0573,Selectivity increment,Fishery; Bin9; 1999 \*,−0.2599,0.2671,−0.7833,0.2636
+P0574,Selectivity increment,Fishery; Bin10; 1999 \*,−0.2373,0.2691,−0.7648,0.2901
+P0575,Selectivity increment,Fishery; Bin11; 1999 \*,−0.1704,0.2922,−0.7431,0.4023
+P0576,Selectivity increment,Fishery; Bin12; 1999 \*,−0.1081,0.2841,−0.6649,0.4487
+P0577,Selectivity increment,Fishery; Bin1; 2000 \*,−0.0558,0.4185,−0.8761,0.7645
+P0578,Selectivity increment,Fishery; Bin2; 2000 \*,−0.1443,0.3623,−0.8544,0.5658
+P0579,Selectivity increment,Fishery; Bin3; 2000 \*,−0.5590,0.2797,−1.1072,−0.0108
+P0580,Selectivity increment,Fishery; Bin4; 2000 \*,0.2946,0.2566,−0.2083,0.7976
+P0581,Selectivity increment,Fishery; Bin5; 2000 \*,0.4186,0.2725,−0.1155,0.9528
+P0582,Selectivity increment,Fishery; Bin6; 2000 \*,−0.0055,0.2800,−0.5544,0.5433
+P0583,Selectivity increment,Fishery; Bin7; 2000 \*,−0.0436,0.2605,−0.5542,0.4669
+P0584,Selectivity increment,Fishery; Bin8; 2000 \*,0.2266,0.2481,−0.2597,0.7129
+P0585,Selectivity increment,Fishery; Bin9; 2000 \*,0.0273,0.2558,−0.4741,0.5287
+P0586,Selectivity increment,Fishery; Bin10; 2000 \*,−0.0436,0.2647,−0.5624,0.4753
+P0587,Selectivity increment,Fishery; Bin11; 2000 \*,−0.0517,0.2881,−0.6163,0.5129
+P0588,Selectivity increment,Fishery; Bin12; 2000 \*,−0.0637,0.2858,−0.6239,0.4965
+P0589,Selectivity increment,Fishery; Bin1; 2001 \*,−0.0146,0.4182,−0.8342,0.8051
+P0590,Selectivity increment,Fishery; Bin2; 2001 \*,−0.2128,0.3639,−0.9260,0.5005
+P0591,Selectivity increment,Fishery; Bin3; 2001 \*,−0.4501,0.3107,−1.0591,0.1588
+P0592,Selectivity increment,Fishery; Bin4; 2001 \*,−0.3103,0.2707,−0.8409,0.2202
+P0593,Selectivity increment,Fishery; Bin5; 2001 \*,0.2544,0.2536,−0.2428,0.7515
+P0594,Selectivity increment,Fishery; Bin6; 2001 \*,0.6106,0.2699,0.0815,1.1397
+P0595,Selectivity increment,Fishery; Bin7; 2001 \*,0.1237,0.2651,−0.3958,0.6432
+P0596,Selectivity increment,Fishery; Bin8; 2001 \*,−0.1064,0.2514,−0.5990,0.3863
+P0597,Selectivity increment,Fishery; Bin9; 2001 \*,0.0296,0.2532,−0.4666,0.5259
+P0598,Selectivity increment,Fishery; Bin10; 2001 \*,0.0467,0.2626,−0.4679,0.5614
+P0599,Selectivity increment,Fishery; Bin11; 2001 \*,0.0368,0.2697,−0.4918,0.5654
+P0600,Selectivity increment,Fishery; Bin12; 2001 \*,−0.0076,0.2700,−0.5368,0.5215
+P0601,Selectivity increment,Fishery; Bin1; 2002 \*,−0.0584,0.4185,−0.8785,0.7618
+P0602,Selectivity increment,Fishery; Bin2; 2002 \*,0.1591,0.3560,−0.5386,0.8567
+P0603,Selectivity increment,Fishery; Bin3; 2002 \*,0.0693,0.3069,−0.5323,0.6709
+P0604,Selectivity increment,Fishery; Bin4; 2002 \*,−0.0089,0.2773,−0.5524,0.5345
+P0605,Selectivity increment,Fishery; Bin5; 2002 \*,−0.2313,0.2558,−0.7326,0.2699
+P0606,Selectivity increment,Fishery; Bin6; 2002 \*,0.0666,0.2451,−0.4137,0.5470
+P0607,Selectivity increment,Fishery; Bin7; 2002 \*,0.0798,0.2495,−0.4092,0.5689
+P0608,Selectivity increment,Fishery; Bin8; 2002 \*,0.0548,0.2547,−0.4443,0.5539
+P0609,Selectivity increment,Fishery; Bin9; 2002 \*,0.0383,0.2538,−0.4592,0.5357
+P0610,Selectivity increment,Fishery; Bin10; 2002 \*,−0.0247,0.2576,−0.5297,0.4802
+P0611,Selectivity increment,Fishery; Bin11; 2002 \*,−0.0785,0.2672,−0.6022,0.4452
+P0612,Selectivity increment,Fishery; Bin12; 2002 \*,−0.0660,0.2655,−0.5864,0.4544
+P0613,Selectivity increment,Fishery; Bin1; 2003 \*,−0.0709,0.4187,−0.8916,0.7499
+P0614,Selectivity increment,Fishery; Bin2; 2003 \*,−0.3090,0.3568,−1.0082,0.3902
+P0615,Selectivity increment,Fishery; Bin3; 2003 \*,0.6699,0.2727,0.1354,1.2045
+P0616,Selectivity increment,Fishery; Bin4; 2003 \*,−0.0671,0.2628,−0.5821,0.4478
+P0617,Selectivity increment,Fishery; Bin5; 2003 \*,0.0369,0.2581,−0.4690,0.5428
+P0618,Selectivity increment,Fishery; Bin6; 2003 \*,−0.1845,0.2516,−0.6775,0.3085
+P0619,Selectivity increment,Fishery; Bin7; 2003 \*,0.0299,0.2463,−0.4528,0.5126
+P0620,Selectivity increment,Fishery; Bin8; 2003 \*,0.0377,0.2530,−0.4581,0.5336
+P0621,Selectivity increment,Fishery; Bin9; 2003 \*,−0.0010,0.2590,−0.5085,0.5066
+P0622,Selectivity increment,Fishery; Bin10; 2003 \*,−0.0130,0.2594,−0.5213,0.4954
+P0623,Selectivity increment,Fishery; Bin11; 2003 \*,−0.0731,0.2643,−0.5912,0.4449
+P0624,Selectivity increment,Fishery; Bin12; 2003 \*,−0.0559,0.2639,−0.5732,0.4614
+P0625,Selectivity increment,Fishery; Bin1; 2004 \*,−0.0277,0.4190,−0.8489,0.7936
+P0626,Selectivity increment,Fishery; Bin2; 2004 \*,−0.1140,0.3769,−0.8527,0.6247
+P0627,Selectivity increment,Fishery; Bin3; 2004 \*,−0.6762,0.2837,−1.2323,−0.1201
+P0628,Selectivity increment,Fishery; Bin4; 2004 \*,0.7169,0.2537,0.2196,1.2142
+P0629,Selectivity increment,Fishery; Bin5; 2004 \*,0.0216,0.2568,−0.4817,0.5249
+P0630,Selectivity increment,Fishery; Bin6; 2004 \*,−0.1190,0.2671,−0.6425,0.4044
+P0631,Selectivity increment,Fishery; Bin7; 2004 \*,−0.0233,0.2567,−0.5265,0.4799
+P0632,Selectivity increment,Fishery; Bin8; 2004 \*,0.0195,0.2529,−0.4762,0.5151
+P0633,Selectivity increment,Fishery; Bin9; 2004 \*,0.0478,0.2620,−0.4656,0.5613
+P0634,Selectivity increment,Fishery; Bin10; 2004 \*,0.0528,0.2673,−0.4710,0.5766
+P0635,Selectivity increment,Fishery; Bin11; 2004 \*,0.0774,0.2682,−0.4484,0.6031
+P0636,Selectivity increment,Fishery; Bin12; 2004 \*,0.0243,0.2639,−0.4929,0.5415
+P0637,Selectivity increment,Fishery; Bin1; 2005 \*,−0.0551,0.4191,−0.8765,0.7662
+P0638,Selectivity increment,Fishery; Bin2; 2005 \*,0.1003,0.3875,−0.6593,0.8598
+P0639,Selectivity increment,Fishery; Bin3; 2005 \*,−0.0105,0.3079,−0.6139,0.5929
+P0640,Selectivity increment,Fishery; Bin4; 2005 \*,−0.3443,0.2523,−0.8388,0.1502
+P0641,Selectivity increment,Fishery; Bin5; 2005 \*,0.4211,0.2497,−0.0682,0.9104
+P0642,Selectivity increment,Fishery; Bin6; 2005 \*,0.2411,0.2598,−0.2682,0.7503
+P0643,Selectivity increment,Fishery; Bin7; 2005 \*,−0.1040,0.2576,−0.6089,0.4009
+P0644,Selectivity increment,Fishery; Bin8; 2005 \*,−0.1580,0.2557,−0.6591,0.3431
+P0645,Selectivity increment,Fishery; Bin9; 2005 \*,−0.0584,0.2607,−0.5694,0.4527
+P0646,Selectivity increment,Fishery; Bin10; 2005 \*,0.0069,0.2686,−0.5195,0.5333
+P0647,Selectivity increment,Fishery; Bin11; 2005 \*,0.0034,0.2723,−0.5304,0.5371
+P0648,Selectivity increment,Fishery; Bin12; 2005 \*,−0.0424,0.2634,−0.5586,0.4738
+P0649,Selectivity increment,Fishery; Bin1; 2006 \*,−0.0831,0.4190,−0.9043,0.7381
+P0650,Selectivity increment,Fishery; Bin2; 2006 \*,0.0868,0.3896,−0.6768,0.8504
+P0651,Selectivity increment,Fishery; Bin3; 2006 \*,0.5507,0.3137,−0.0642,1.1655
+P0652,Selectivity increment,Fishery; Bin4; 2006 \*,−0.0815,0.2585,−0.5881,0.4251
+P0653,Selectivity increment,Fishery; Bin5; 2006 \*,−0.3062,0.2441,−0.7846,0.1723
+P0654,Selectivity increment,Fishery; Bin6; 2006 \*,−0.0503,0.2432,−0.5269,0.4264
+P0655,Selectivity increment,Fishery; Bin7; 2006 \*,−0.0551,0.2479,−0.5410,0.4308
+P0656,Selectivity increment,Fishery; Bin8; 2006 \*,−0.0252,0.2559,−0.5268,0.4763
+P0657,Selectivity increment,Fishery; Bin9; 2006 \*,−0.0731,0.2605,−0.5836,0.4375
+P0658,Selectivity increment,Fishery; Bin10; 2006 \*,−0.0319,0.2663,−0.5540,0.4901
+P0659,Selectivity increment,Fishery; Bin11; 2006 \*,0.0189,0.2723,−0.5148,0.5526
+P0660,Selectivity increment,Fishery; Bin12; 2006 \*,0.0499,0.2638,−0.4671,0.5670
+P0661,Selectivity increment,Fishery; Bin1; 2007 \*,−0.0442,0.4186,−0.8647,0.7763
+P0662,Selectivity increment,Fishery; Bin2; 2007 \*,−0.0142,0.3863,−0.7714,0.7429
+P0663,Selectivity increment,Fishery; Bin3; 2007 \*,−0.0473,0.3156,−0.6659,0.5713
+P0664,Selectivity increment,Fishery; Bin4; 2007 \*,0.0167,0.2701,−0.5127,0.5461
+P0665,Selectivity increment,Fishery; Bin5; 2007 \*,−0.0412,0.2468,−0.5249,0.4425
+P0666,Selectivity increment,Fishery; Bin6; 2007 \*,0.0189,0.2405,−0.4525,0.4904
+P0667,Selectivity increment,Fishery; Bin7; 2007 \*,0.0371,0.2432,−0.4395,0.5138
+P0668,Selectivity increment,Fishery; Bin8; 2007 \*,−0.0466,0.2513,−0.5391,0.4459
+P0669,Selectivity increment,Fishery; Bin9; 2007 \*,−0.0207,0.2599,−0.5301,0.4886
+P0670,Selectivity increment,Fishery; Bin10; 2007 \*,0.0048,0.2650,−0.5145,0.5241
+P0671,Selectivity increment,Fishery; Bin11; 2007 \*,0.0473,0.2699,−0.4817,0.5762
+P0672,Selectivity increment,Fishery; Bin12; 2007 \*,0.0894,0.2630,−0.4261,0.6048
+P0673,Selectivity increment,Fishery; Bin1; 2008 \*,−0.0079,0.4177,−0.8266,0.8108
+P0674,Selectivity increment,Fishery; Bin2; 2008 \*,−0.1140,0.3624,−0.8243,0.5962
+P0675,Selectivity increment,Fishery; Bin3; 2008 \*,−0.5247,0.3047,−1.1219,0.0724
+P0676,Selectivity increment,Fishery; Bin4; 2008 \*,−0.1226,0.2806,−0.6725,0.4274
+P0677,Selectivity increment,Fishery; Bin5; 2008 \*,−0.0705,0.2571,−0.5745,0.4335
+P0678,Selectivity increment,Fishery; Bin6; 2008 \*,0.0489,0.2404,−0.4224,0.5201
+P0679,Selectivity increment,Fishery; Bin7; 2008 \*,0.0738,0.2405,−0.3975,0.5452
+P0680,Selectivity increment,Fishery; Bin8; 2008 \*,0.1378,0.2459,−0.3442,0.6198
+P0681,Selectivity increment,Fishery; Bin9; 2008 \*,0.1536,0.2555,−0.3472,0.6544
+P0682,Selectivity increment,Fishery; Bin10; 2008 \*,0.0828,0.2751,−0.4564,0.6220
+P0683,Selectivity increment,Fishery; Bin11; 2008 \*,0.1590,0.2830,−0.3956,0.7137
+P0684,Selectivity increment,Fishery; Bin12; 2008 \*,0.1838,0.2618,−0.3292,0.6969
+P0685,Selectivity increment,Fishery; Bin1; 2009 \*,−0.0405,0.4164,−0.8567,0.7757
+P0686,Selectivity increment,Fishery; Bin2; 2009 \*,−0.3417,0.3505,−1.0287,0.3453
+P0687,Selectivity increment,Fishery; Bin3; 2009 \*,0.1995,0.2750,−0.3395,0.7385
+P0688,Selectivity increment,Fishery; Bin4; 2009 \*,0.0605,0.2709,−0.4704,0.5914
+P0689,Selectivity increment,Fishery; Bin5; 2009 \*,−0.1362,0.2743,−0.6738,0.4015
+P0690,Selectivity increment,Fishery; Bin6; 2009 \*,−0.0916,0.2610,−0.6032,0.4199
+P0691,Selectivity increment,Fishery; Bin7; 2009 \*,−0.0530,0.2484,−0.5399,0.4339
+P0692,Selectivity increment,Fishery; Bin8; 2009 \*,−0.0082,0.2472,−0.4927,0.4763
+P0693,Selectivity increment,Fishery; Bin9; 2009 \*,0.0108,0.2611,−0.5009,0.5224
+P0694,Selectivity increment,Fishery; Bin10; 2009 \*,0.1422,0.2987,−0.4433,0.7277
+P0695,Selectivity increment,Fishery; Bin11; 2009 \*,0.1431,0.2927,−0.4305,0.7167
+P0696,Selectivity increment,Fishery; Bin12; 2009 \*,0.1152,0.2631,−0.4006,0.6309
+P0697,Selectivity increment,Fishery; Bin1; 2010 \*,0.0380,0.4155,−0.7764,0.8524
+P0698,Selectivity increment,Fishery; Bin2; 2010 \*,0.0713,0.3478,−0.6103,0.7529
+P0699,Selectivity increment,Fishery; Bin3; 2010 \*,−0.6053,0.2855,−1.1648,−0.0458
+P0700,Selectivity increment,Fishery; Bin4; 2010 \*,0.4401,0.2487,−0.0475,0.9276
+P0701,Selectivity increment,Fishery; Bin5; 2010 \*,0.1763,0.2702,−0.3533,0.7059
+P0702,Selectivity increment,Fishery; Bin6; 2010 \*,−0.2436,0.2851,−0.8024,0.3152
+P0703,Selectivity increment,Fishery; Bin7; 2010 \*,−0.0793,0.2864,−0.6407,0.4821
+P0704,Selectivity increment,Fishery; Bin8; 2010 \*,0.0697,0.2604,−0.4407,0.5800
+P0705,Selectivity increment,Fishery; Bin9; 2010 \*,0.0800,0.2622,−0.4339,0.5940
+P0706,Selectivity increment,Fishery; Bin10; 2010 \*,0.0262,0.2937,−0.5494,0.6018
+P0707,Selectivity increment,Fishery; Bin11; 2010 \*,−0.0324,0.2989,−0.6181,0.5533
+P0708,Selectivity increment,Fishery; Bin12; 2010 \*,0.0589,0.2752,−0.4806,0.5984
+P0709,Selectivity increment,Fishery; Bin1; 2011 \*,0.0295,0.4160,−0.7858,0.8448
+P0710,Selectivity increment,Fishery; Bin2; 2011 \*,−0.0180,0.3414,−0.6872,0.6511
+P0711,Selectivity increment,Fishery; Bin3; 2011 \*,0.0445,0.2837,−0.5116,0.6005
+P0712,Selectivity increment,Fishery; Bin4; 2011 \*,−1.0769,0.2551,−1.5769,−0.5770
+P0713,Selectivity increment,Fishery; Bin5; 2011 \*,0.4190,0.2469,−0.0649,0.9030
+P0714,Selectivity increment,Fishery; Bin6; 2011 \*,0.3585,0.2725,−0.1757,0.8927
+P0715,Selectivity increment,Fishery; Bin7; 2011 \*,0.1392,0.2841,−0.4176,0.6961
+P0716,Selectivity increment,Fishery; Bin8; 2011 \*,−0.0029,0.2677,−0.5275,0.5217
+P0717,Selectivity increment,Fishery; Bin9; 2011 \*,0.0017,0.2713,−0.5299,0.5334
+P0718,Selectivity increment,Fishery; Bin10; 2011 \*,0.0820,0.2732,−0.4534,0.6174
+P0719,Selectivity increment,Fishery; Bin11; 2011 \*,0.0533,0.2812,−0.4978,0.6044
+P0720,Selectivity increment,Fishery; Bin12; 2011 \*,−0.0299,0.2765,−0.5719,0.5121
+P0721,Selectivity increment,Fishery; Bin1; 2012 \*,−0.0139,0.4163,−0.8298,0.8021
+P0722,Selectivity increment,Fishery; Bin2; 2012 \*,0.2336,0.3613,−0.4745,0.9417
+P0723,Selectivity increment,Fishery; Bin3; 2012 \*,0.1890,0.2724,−0.3450,0.7229
+P0724,Selectivity increment,Fishery; Bin4; 2012 \*,0.6247,0.2561,0.1228,1.1266
+P0725,Selectivity increment,Fishery; Bin5; 2012 \*,−1.0798,0.2559,−1.5813,−0.5782
+P0726,Selectivity increment,Fishery; Bin6; 2012 \*,−0.0236,0.2490,−0.5115,0.4644
+P0727,Selectivity increment,Fishery; Bin7; 2012 \*,0.0121,0.2637,−0.5047,0.5289
+P0728,Selectivity increment,Fishery; Bin8; 2012 \*,0.0237,0.2771,−0.5194,0.5668
+P0729,Selectivity increment,Fishery; Bin9; 2012 \*,0.0051,0.2797,−0.5432,0.5533
+P0730,Selectivity increment,Fishery; Bin10; 2012 \*,−0.0627,0.2976,−0.6459,0.5205
+P0731,Selectivity increment,Fishery; Bin11; 2012 \*,0.0107,0.3307,−0.6375,0.6590
+P0732,Selectivity increment,Fishery; Bin12; 2012 \*,0.0811,0.2825,−0.4726,0.6347
+P0733,Selectivity increment,Fishery; Bin1; 2013 \*,0.0205,0.4165,−0.7958,0.8368
+P0734,Selectivity increment,Fishery; Bin2; 2013 \*,−0.1915,0.3668,−0.9104,0.5275
+P0735,Selectivity increment,Fishery; Bin3; 2013 \*,0.0270,0.2910,−0.5434,0.5974
+P0736,Selectivity increment,Fishery; Bin4; 2013 \*,−0.1384,0.2482,−0.6249,0.3481
+P0737,Selectivity increment,Fishery; Bin5; 2013 \*,0.5116,0.2562,0.0094,1.0138
+P0738,Selectivity increment,Fishery; Bin6; 2013 \*,−0.6014,0.2588,−1.1087,−0.0941
+P0739,Selectivity increment,Fishery; Bin7; 2013 \*,−0.1571,0.2700,−0.6863,0.3720
+P0740,Selectivity increment,Fishery; Bin8; 2013 \*,0.0768,0.3021,−0.5153,0.6688
+P0741,Selectivity increment,Fishery; Bin9; 2013 \*,0.1177,0.2916,−0.4538,0.6892
+P0742,Selectivity increment,Fishery; Bin10; 2013 \*,0.1362,0.2948,−0.4415,0.7139
+P0743,Selectivity increment,Fishery; Bin11; 2013 \*,0.1077,0.3419,−0.5625,0.7778
+P0744,Selectivity increment,Fishery; Bin12; 2013 \*,0.0911,0.2877,−0.4728,0.6550
+P0745,Selectivity increment,Fishery; Bin1; 2014 \*,−0.0208,0.4159,−0.8359,0.7943
+P0746,Selectivity increment,Fishery; Bin2; 2014 \*,0.1368,0.3573,−0.5635,0.8372
+P0747,Selectivity increment,Fishery; Bin3; 2014 \*,−0.0265,0.3022,−0.6189,0.5659
+P0748,Selectivity increment,Fishery; Bin4; 2014 \*,−0.1390,0.2622,−0.6529,0.3749
+P0749,Selectivity increment,Fishery; Bin5; 2014 \*,−0.0989,0.2478,−0.5845,0.3868
+P0750,Selectivity increment,Fishery; Bin6; 2014 \*,0.3036,0.2553,−0.1967,0.8038
+P0751,Selectivity increment,Fishery; Bin7; 2014 \*,0.1480,0.2667,−0.3747,0.6708
+P0752,Selectivity increment,Fishery; Bin8; 2014 \*,−0.1281,0.2924,−0.7011,0.4449
+P0753,Selectivity increment,Fishery; Bin9; 2014 \*,−0.1334,0.3287,−0.7777,0.5110
+P0754,Selectivity increment,Fishery; Bin10; 2014 \*,−0.0146,0.3099,−0.6219,0.5927
+P0755,Selectivity increment,Fishery; Bin11; 2014 \*,−0.0181,0.3208,−0.6467,0.6106
+P0756,Selectivity increment,Fishery; Bin12; 2014 \*,−0.0092,0.2918,−0.5810,0.5627
+P0757,Selectivity increment,Fishery; Bin1; 2015 \*,−0.0049,0.4173,−0.8228,0.8129
+P0758,Selectivity increment,Fishery; Bin2; 2015 \*,−0.4664,0.3403,−1.1335,0.2006
+P0759,Selectivity increment,Fishery; Bin3; 2015 \*,1.0864,0.2825,0.5327,1.6401
+P0760,Selectivity increment,Fishery; Bin4; 2015 \*,0.1881,0.2654,−0.3321,0.7083
+P0761,Selectivity increment,Fishery; Bin5; 2015 \*,−0.1869,0.2562,−0.6890,0.3151
+P0762,Selectivity increment,Fishery; Bin6; 2015 \*,−0.1074,0.2478,−0.5930,0.3783
+P0763,Selectivity increment,Fishery; Bin7; 2015 \*,−0.1479,0.2510,−0.6399,0.3441
+P0764,Selectivity increment,Fishery; Bin8; 2015 \*,−0.1207,0.2715,−0.6527,0.4113
+P0765,Selectivity increment,Fishery; Bin9; 2015 \*,−0.1278,0.3310,−0.7765,0.5209
+P0766,Selectivity increment,Fishery; Bin10; 2015 \*,−0.0646,0.3500,−0.7505,0.6213
+P0767,Selectivity increment,Fishery; Bin11; 2015 \*,−0.0234,0.3684,−0.7454,0.6986
+P0768,Selectivity increment,Fishery; Bin12; 2015 \*,−0.0245,0.2928,−0.5983,0.5493
+P0769,Selectivity increment,Fishery; Bin1; 2016 \*,0.0709,0.4184,−0.7491,0.8909
+P0770,Selectivity increment,Fishery; Bin2; 2016 \*,0.0205,0.3679,−0.7006,0.7417
+P0771,Selectivity increment,Fishery; Bin3; 2016 \*,−1.4595,0.2654,−1.9797,−0.9393
+P0772,Selectivity increment,Fishery; Bin4; 2016 \*,1.0623,0.2498,0.5726,1.5519
+P0773,Selectivity increment,Fishery; Bin5; 2016 \*,0.2840,0.2593,−0.2243,0.7922
+P0774,Selectivity increment,Fishery; Bin6; 2016 \*,−0.0027,0.2623,−0.5167,0.5114
+P0775,Selectivity increment,Fishery; Bin7; 2016 \*,−0.0982,0.2597,−0.6071,0.4107
+P0776,Selectivity increment,Fishery; Bin8; 2016 \*,0.2058,0.2624,−0.3085,0.7201
+P0777,Selectivity increment,Fishery; Bin9; 2016 \*,0.1100,0.3019,−0.4817,0.7018
+P0778,Selectivity increment,Fishery; Bin10; 2016 \*,−0.0858,0.3388,−0.7498,0.5782
+P0779,Selectivity increment,Fishery; Bin11; 2016 \*,−0.0413,0.3728,−0.7720,0.6894
+P0780,Selectivity increment,Fishery; Bin12; 2016 \*,−0.0660,0.2958,−0.6458,0.5138
+P0781,Selectivity increment,Fishery; Bin1; 2017 \*,0.0527,0.4179,−0.7664,0.8719
+P0782,Selectivity increment,Fishery; Bin2; 2017 \*,0.2806,0.3829,−0.4698,1.0311
+P0783,Selectivity increment,Fishery; Bin3; 2017 \*,−0.2525,0.3120,−0.8641,0.3590
+P0784,Selectivity increment,Fishery; Bin4; 2017 \*,−1.1177,0.2428,−1.5936,−0.6418
+P0785,Selectivity increment,Fishery; Bin5; 2017 \*,0.5963,0.2497,0.1068,1.0857
+P0786,Selectivity increment,Fishery; Bin6; 2017 \*,0.3303,0.2619,−0.1831,0.8436
+P0787,Selectivity increment,Fishery; Bin7; 2017 \*,0.1867,0.2691,−0.3407,0.7141
+P0788,Selectivity increment,Fishery; Bin8; 2017 \*,−0.0775,0.2733,−0.6132,0.4583
+P0789,Selectivity increment,Fishery; Bin9; 2017 \*,0.0698,0.2694,−0.4582,0.5978
+P0790,Selectivity increment,Fishery; Bin10; 2017 \*,0.0476,0.2886,−0.5180,0.6133
+P0791,Selectivity increment,Fishery; Bin11; 2017 \*,−0.0586,0.3038,−0.6541,0.5369
+P0792,Selectivity increment,Fishery; Bin12; 2017 \*,−0.0577,0.2800,−0.6065,0.4910
+P0793,Selectivity increment,Fishery; Bin1; 2018 \*,0.0269,0.4176,−0.7916,0.8454
+P0794,Selectivity increment,Fishery; Bin2; 2018 \*,0.3297,0.3844,−0.4237,1.0831
+P0795,Selectivity increment,Fishery; Bin3; 2018 \*,0.1383,0.3454,−0.5386,0.8153
+P0796,Selectivity increment,Fishery; Bin4; 2018 \*,−0.5920,0.2685,−1.1182,−0.0658
+P0797,Selectivity increment,Fishery; Bin5; 2018 \*,0.0098,0.2416,−0.4637,0.4833
+P0798,Selectivity increment,Fishery; Bin6; 2018 \*,0.1787,0.2486,−0.3085,0.6660
+P0799,Selectivity increment,Fishery; Bin7; 2018 \*,0.1098,0.2599,−0.3996,0.6191
+P0800,Selectivity increment,Fishery; Bin8; 2018 \*,0.0802,0.2732,−0.4553,0.6156
+P0801,Selectivity increment,Fishery; Bin9; 2018 \*,−0.0363,0.2658,−0.5572,0.4847
+P0802,Selectivity increment,Fishery; Bin10; 2018 \*,−0.0785,0.2671,−0.6021,0.4451
+P0803,Selectivity increment,Fishery; Bin11; 2018 \*,−0.0815,0.2758,−0.6221,0.4591
+P0804,Selectivity increment,Fishery; Bin12; 2018 \*,−0.0851,0.2740,−0.6221,0.4518
+P0805,Selectivity increment,Fishery; Bin1; 2019 \*,0.0466,0.4171,−0.7710,0.8641
+P0806,Selectivity increment,Fishery; Bin2; 2019 \*,0.4753,0.3768,−0.2631,1.2138
+P0807,Selectivity increment,Fishery; Bin3; 2019 \*,0.2133,0.3498,−0.4724,0.8989
+P0808,Selectivity increment,Fishery; Bin4; 2019 \*,−0.3828,0.3044,−0.9794,0.2138
+P0809,Selectivity increment,Fishery; Bin5; 2019 \*,−1.2476,0.2535,−1.7444,−0.7507
+P0810,Selectivity increment,Fishery; Bin6; 2019 \*,0.0949,0.2440,−0.3833,0.5732
+P0811,Selectivity increment,Fishery; Bin7; 2019 \*,0.4408,0.2500,−0.0491,0.9307
+P0812,Selectivity increment,Fishery; Bin8; 2019 \*,0.2212,0.2554,−0.2793,0.7217
+P0813,Selectivity increment,Fishery; Bin9; 2019 \*,0.1280,0.2577,−0.3771,0.6332
+P0814,Selectivity increment,Fishery; Bin10; 2019 \*,0.1319,0.2624,−0.3825,0.6463
+P0815,Selectivity increment,Fishery; Bin11; 2019 \*,−0.0475,0.2710,−0.5786,0.4836
+P0816,Selectivity increment,Fishery; Bin12; 2019 \*,−0.0742,0.2705,−0.6044,0.4561
+P0817,Selectivity increment,Fishery; Bin1; 2020 \*,−0.0191,0.4206,−0.8434,0.8052
+P0818,Selectivity increment,Fishery; Bin2; 2020 \*,0.6177,0.3313,−0.0316,1.2671
+P0819,Selectivity increment,Fishery; Bin3; 2020 \*,0.4207,0.3273,−0.2208,1.0622
+P0820,Selectivity increment,Fishery; Bin4; 2020 \*,0.5413,0.3105,−0.0673,1.1498
+P0821,Selectivity increment,Fishery; Bin5; 2020 \*,0.1307,0.2757,−0.4096,0.6709
+P0822,Selectivity increment,Fishery; Bin6; 2020 \*,−0.4191,0.2437,−0.8968,0.0586
+P0823,Selectivity increment,Fishery; Bin7; 2020 \*,−0.5005,0.2439,−0.9786,−0.0224
+P0824,Selectivity increment,Fishery; Bin8; 2020 \*,−0.4159,0.2603,−0.9260,0.0942
+P0825,Selectivity increment,Fishery; Bin9; 2020 \*,−0.1799,0.2700,−0.7091,0.3493
+P0826,Selectivity increment,Fishery; Bin10; 2020 \*,−0.1332,0.2641,−0.6509,0.3844
+P0827,Selectivity increment,Fishery; Bin11; 2020 \*,0.0035,0.2686,−0.5231,0.5300
+P0828,Selectivity increment,Fishery; Bin12; 2020 \*,−0.0460,0.2683,−0.5718,0.4798
+P0829,Selectivity increment,Fishery; Bin1; 2021 \*,−0.0184,0.4212,−0.8439,0.8071
+P0830,Selectivity increment,Fishery; Bin2; 2021 \*,0.3251,0.2749,−0.2138,0.8639
+P0831,Selectivity increment,Fishery; Bin3; 2021 \*,0.9147,0.2699,0.3857,1.4437
+P0832,Selectivity increment,Fishery; Bin4; 2021 \*,−0.1532,0.2838,−0.7093,0.4030
+P0833,Selectivity increment,Fishery; Bin5; 2021 \*,−0.0152,0.2871,−0.5779,0.5474
+P0834,Selectivity increment,Fishery; Bin6; 2021 \*,−0.6384,0.2690,−1.1655,−0.1113
+P0835,Selectivity increment,Fishery; Bin7; 2021 \*,−0.1600,0.2500,−0.6500,0.3299
+P0836,Selectivity increment,Fishery; Bin8; 2021 \*,0.0909,0.2552,−0.4093,0.5910
+P0837,Selectivity increment,Fishery; Bin9; 2021 \*,−0.1014,0.2714,−0.6334,0.4305
+P0838,Selectivity increment,Fishery; Bin10; 2021 \*,−0.1057,0.2667,−0.6285,0.4170
+P0839,Selectivity increment,Fishery; Bin11; 2021 \*,−0.0815,0.2704,−0.6114,0.4484
+P0840,Selectivity increment,Fishery; Bin12; 2021 \*,−0.0567,0.2670,−0.5800,0.4666
+P0841,Selectivity increment,Fishery; Bin1; 2022 \*,0.0125,0.4227,−0.8160,0.8411
+P0842,Selectivity increment,Fishery; Bin2; 2022 \*,0.2365,0.3079,−0.3670,0.8399
+P0843,Selectivity increment,Fishery; Bin3; 2022 \*,−0.4506,0.2537,−0.9478,0.0466
+P0844,Selectivity increment,Fishery; Bin4; 2022 \*,0.5723,0.2483,0.0856,1.0591
+P0845,Selectivity increment,Fishery; Bin5; 2022 \*,0.0776,0.2801,−0.4714,0.6266
+P0846,Selectivity increment,Fishery; Bin6; 2022 \*,0.0682,0.2955,−0.5109,0.6473
+P0847,Selectivity increment,Fishery; Bin7; 2022 \*,−0.2542,0.2823,−0.8076,0.2991
+P0848,Selectivity increment,Fishery; Bin8; 2022 \*,−0.0369,0.2568,−0.5401,0.4664
+P0849,Selectivity increment,Fishery; Bin9; 2022 \*,−0.0857,0.2572,−0.5898,0.4184
+P0850,Selectivity increment,Fishery; Bin10; 2022 \*,−0.1450,0.2819,−0.6976,0.4076
+P0851,Selectivity increment,Fishery; Bin11; 2022 \*,−0.0111,0.2962,−0.5915,0.5694
+P0852,Selectivity increment,Fishery; Bin12; 2022 \*,0.0163,0.2718,−0.5165,0.5491
+P0853,Selectivity increment,Fishery; Bin1; 2023 \*,0.0335,0.4240,−0.7975,0.8646
+P0854,Selectivity increment,Fishery; Bin2; 2023 \*,−0.5536,0.3485,−1.2367,0.1295
+P0855,Selectivity increment,Fishery; Bin3; 2023 \*,0.1024,0.3004,−0.4864,0.6911
+P0856,Selectivity increment,Fishery; Bin4; 2023 \*,−0.1481,0.2631,−0.6638,0.3677
+P0857,Selectivity increment,Fishery; Bin5; 2023 \*,0.5445,0.2616,0.0319,1.0572
+P0858,Selectivity increment,Fishery; Bin6; 2023 \*,0.3275,0.2881,−0.2372,0.8923
+P0859,Selectivity increment,Fishery; Bin7; 2023 \*,−0.1214,0.2972,−0.7039,0.4612
+P0860,Selectivity increment,Fishery; Bin8; 2023 \*,−0.2840,0.3093,−0.8901,0.3222
+P0861,Selectivity increment,Fishery; Bin9; 2023 \*,0.0082,0.2801,−0.5408,0.5572
+P0862,Selectivity increment,Fishery; Bin10; 2023 \*,0.0548,0.2938,−0.5211,0.6307
+P0863,Selectivity increment,Fishery; Bin11; 2023 \*,0.0069,0.3066,−0.5941,0.6079
+P0864,Selectivity increment,Fishery; Bin12; 2023 \*,0.0292,0.2763,−0.5124,0.5707
+P0865,Selectivity increment,Fishery; Bin1; 2024 \*,0.0203,0.4247,−0.8122,0.8528
+P0866,Selectivity increment,Fishery; Bin2; 2024 \*,−0.5495,0.3664,−1.2676,0.1685
+P0867,Selectivity increment,Fishery; Bin3; 2024 \*,0.1606,0.3170,−0.4607,0.7819
+P0868,Selectivity increment,Fishery; Bin4; 2024 \*,0.1045,0.2938,−0.4713,0.6804
+P0869,Selectivity increment,Fishery; Bin5; 2024 \*,−0.2087,0.2602,−0.7186,0.3012
+P0870,Selectivity increment,Fishery; Bin6; 2024 \*,0.3659,0.2595,−0.1427,0.8745
+P0871,Selectivity increment,Fishery; Bin7; 2024 \*,0.2160,0.2755,−0.3239,0.7559
+P0872,Selectivity increment,Fishery; Bin8; 2024 \*,−0.0331,0.3171,−0.6545,0.5884
+P0873,Selectivity increment,Fishery; Bin9; 2024 \*,−0.0209,0.2958,−0.6007,0.5589
+P0874,Selectivity increment,Fishery; Bin10; 2024 \*,−0.0052,0.2983,−0.5898,0.5795
+P0875,Selectivity increment,Fishery; Bin11; 2024 \*,−0.0403,0.3419,−0.7104,0.6298
+P0876,Selectivity increment,Fishery; Bin12; 2024 \*,−0.0097,0.2891,−0.5763,0.5569
+P0877,Selectivity increment,Fishery; Bin1; 2025 \*,0.0465,0.4277,−0.7917,0.8847
+P0878,Selectivity increment,Fishery; Bin2; 2025 \*,−0.1805,0.3689,−0.9034,0.5425
+P0879,Selectivity increment,Fishery; Bin3; 2025 \*,−0.3735,0.3337,−1.0275,0.2805
+P0880,Selectivity increment,Fishery; Bin4; 2025 \*,−0.1775,0.3158,−0.7964,0.4414
+P0881,Selectivity increment,Fishery; Bin5; 2025 \*,−0.2383,0.2955,−0.8174,0.3409
+P0882,Selectivity increment,Fishery; Bin6; 2025 \*,0.1600,0.2522,−0.3343,0.6542
+P0883,Selectivity increment,Fishery; Bin7; 2025 \*,0.3901,0.2527,−0.1051,0.8854
+P0884,Selectivity increment,Fishery; Bin8; 2025 \*,0.2710,0.2754,−0.2687,0.8107
+P0885,Selectivity increment,Fishery; Bin9; 2025 \*,0.0724,0.2890,−0.4940,0.6388
+P0886,Selectivity increment,Fishery; Bin10; 2025 \*,0.0628,0.2921,−0.5098,0.6354
+P0887,Selectivity increment,Fishery; Bin11; 2025 \*,−0.0233,0.3339,−0.6777,0.6312
+P0888,Selectivity increment,Fishery; Bin12; 2025 \*,−0.0097,0.2915,−0.5811,0.5617
+P0889,Selectivity increment,Fishery; Bin1; 2026 \*,0.0057,0.4326,−0.8422,0.8537
+P0890,Selectivity increment,Fishery; Bin2; 2026 \*,−0.0131,0.4291,−0.8541,0.8278
+P0891,Selectivity increment,Fishery; Bin3; 2026 \*,0.0024,0.4306,−0.8416,0.8464
+P0892,Selectivity increment,Fishery; Bin4; 2026 \*,0.0136,0.4330,−0.8351,0.8622
+P0893,Selectivity increment,Fishery; Bin5; 2026 \*,0.0458,0.4381,−0.8128,0.9045
+P0894,Selectivity increment,Fishery; Bin6; 2026 \*,−0.1266,0.3089,−0.7320,0.4787
+P0895,Selectivity increment,Fishery; Bin7; 2026 \*,−0.1276,0.2822,−0.6807,0.4256
+P0896,Selectivity increment,Fishery; Bin8; 2026 \*,0.0580,0.2800,−0.4908,0.6068
+P0897,Selectivity increment,Fishery; Bin9; 2026 \*,0.0408,0.2804,−0.5087,0.5903
+P0898,Selectivity increment,Fishery; Bin10; 2026 \*,0.0264,0.2850,−0.5322,0.5850
+P0899,Selectivity increment,Fishery; Bin11; 2026 \*,0.0629,0.3040,−0.5330,0.6587
+P0900,Selectivity increment,Fishery; Bin12; 2026 \*,0.0118,0.2926,−0.5617,0.5853
+P0901,Selectivity increment,AVO; Bin2; 1994 \*,0.4268,0.3221,−0.2045,1.0581
+P0902,Selectivity increment,AVO; Bin3; 1994 \*,0.2014,0.3578,−0.4998,0.9027
+P0903,Selectivity increment,AVO; Bin4; 1994 \*,0.0307,0.3479,−0.6511,0.7125
+P0904,Selectivity increment,AVO; Bin5; 1994 \*,0.1390,0.3399,−0.5273,0.8052
+P0905,Selectivity increment,AVO; Bin6; 1994 \*,0.1843,0.3570,−0.5154,0.8839
+P0906,Selectivity increment,AVO; Bin7; 1994 \*,−0.2044,0.3577,−0.9055,0.4967
+P0907,Selectivity increment,AVO; Bin8; 1994 \*,0.0739,0.3182,−0.5498,0.6976
+P0908,Selectivity increment,AVO; Bin2; 1995 \*,0.2193,0.2842,−0.3376,0.7763
+P0909,Selectivity increment,AVO; Bin3; 1995 \*,0.2252,0.2938,−0.3507,0.8010
+P0910,Selectivity increment,AVO; Bin4; 1995 \*,0.1966,0.2925,−0.3766,0.7699
+P0911,Selectivity increment,AVO; Bin5; 1995 \*,0.1891,0.2912,−0.3817,0.7599
+P0912,Selectivity increment,AVO; Bin6; 1995 \*,0.2052,0.2922,−0.3676,0.7779
+P0913,Selectivity increment,AVO; Bin7; 1995 \*,0.2084,0.2921,−0.3640,0.7808
+P0914,Selectivity increment,AVO; Bin8; 1995 \*,0.2116,0.2641,−0.3061,0.7293
+P0915,Selectivity increment,AVO; Bin2; 1996 \*,0.2181,0.2742,−0.3193,0.7556
+P0916,Selectivity increment,AVO; Bin3; 1996 \*,0.2133,0.2742,−0.3240,0.7507
+P0917,Selectivity increment,AVO; Bin4; 1996 \*,0.2070,0.2725,−0.3271,0.7412
+P0918,Selectivity increment,AVO; Bin5; 1996 \*,0.1986,0.2723,−0.3351,0.7323
+P0919,Selectivity increment,AVO; Bin6; 1996 \*,0.2015,0.2730,−0.3335,0.7364
+P0920,Selectivity increment,AVO; Bin7; 1996 \*,0.2067,0.2721,−0.3266,0.7400
+P0921,Selectivity increment,AVO; Bin8; 1996 \*,0.2151,0.2472,−0.2694,0.6997
+P0922,Selectivity increment,AVO; Bin2; 1997 \*,0.2620,0.2631,−0.2535,0.7776
+P0923,Selectivity increment,AVO; Bin3; 1997 \*,0.2517,0.2607,−0.2594,0.7627
+P0924,Selectivity increment,AVO; Bin4; 1997 \*,0.2206,0.2594,−0.2877,0.7289
+P0925,Selectivity increment,AVO; Bin5; 1997 \*,0.2321,0.2585,−0.2745,0.7387
+P0926,Selectivity increment,AVO; Bin6; 1997 \*,0.2202,0.2597,−0.2888,0.7292
+P0927,Selectivity increment,AVO; Bin7; 1997 \*,0.2254,0.2590,−0.2822,0.7331
+P0928,Selectivity increment,AVO; Bin8; 1997 \*,0.2178,0.2340,−0.2408,0.6764
+P0929,Selectivity increment,AVO; Bin2; 1998 \*,0.2201,0.2506,−0.2710,0.7112
+P0930,Selectivity increment,AVO; Bin3; 1998 \*,0.2988,0.2509,−0.1930,0.7905
+P0931,Selectivity increment,AVO; Bin4; 1998 \*,0.2887,0.2506,−0.2025,0.7799
+P0932,Selectivity increment,AVO; Bin5; 1998 \*,0.2513,0.2507,−0.2401,0.7427
+P0933,Selectivity increment,AVO; Bin6; 1998 \*,0.2567,0.2509,−0.2351,0.7485
+P0934,Selectivity increment,AVO; Bin7; 1998 \*,0.2612,0.2497,−0.2283,0.7507
+P0935,Selectivity increment,AVO; Bin8; 1998 \*,0.2331,0.2239,−0.2057,0.6719
+P0936,Selectivity increment,AVO; Bin2; 1999 \*,0.2312,0.2468,−0.2526,0.7149
+P0937,Selectivity increment,AVO; Bin3; 1999 \*,0.3187,0.2435,−0.1584,0.7959
+P0938,Selectivity increment,AVO; Bin4; 1999 \*,0.3135,0.2427,−0.1622,0.7891
+P0939,Selectivity increment,AVO; Bin5; 1999 \*,0.2774,0.2435,−0.1999,0.7547
+P0940,Selectivity increment,AVO; Bin6; 1999 \*,0.2693,0.2437,−0.2083,0.7470
+P0941,Selectivity increment,AVO; Bin7; 1999 \*,0.2849,0.2420,−0.1894,0.7593
+P0942,Selectivity increment,AVO; Bin8; 1999 \*,0.2551,0.2166,−0.1694,0.6796
+P0943,Selectivity increment,AVO; Bin2; 2000 \*,0.2540,0.2396,−0.2156,0.7236
+P0944,Selectivity increment,AVO; Bin3; 2000 \*,0.2719,0.2393,−0.1972,0.7410
+P0945,Selectivity increment,AVO; Bin4; 2000 \*,0.3283,0.2384,−0.1390,0.7955
+P0946,Selectivity increment,AVO; Bin5; 2000 \*,0.2944,0.2392,−0.1744,0.7632
+P0947,Selectivity increment,AVO; Bin6; 2000 \*,0.2994,0.2398,−0.1707,0.7694
+P0948,Selectivity increment,AVO; Bin7; 2000 \*,0.2678,0.2390,−0.2007,0.7363
+P0949,Selectivity increment,AVO; Bin8; 2000 \*,0.2747,0.2126,−0.1419,0.6913
+P0950,Selectivity increment,AVO; Bin2; 2001 \*,0.3133,0.2345,−0.1463,0.7729
+P0951,Selectivity increment,AVO; Bin3; 2001 \*,0.3023,0.2373,−0.1628,0.7673
+P0952,Selectivity increment,AVO; Bin4; 2001 \*,0.2844,0.2370,−0.1800,0.7489
+P0953,Selectivity increment,AVO; Bin5; 2001 \*,0.3131,0.2372,−0.1517,0.7780
+P0954,Selectivity increment,AVO; Bin6; 2001 \*,0.3172,0.2374,−0.1480,0.7824
+P0955,Selectivity increment,AVO; Bin7; 2001 \*,0.2960,0.2370,−0.1685,0.7605
+P0956,Selectivity increment,AVO; Bin8; 2001 \*,0.2805,0.2102,−0.1314,0.6925
+P0957,Selectivity increment,AVO; Bin2; 2002 \*,0.3008,0.2355,−0.1608,0.7625
+P0958,Selectivity increment,AVO; Bin3; 2002 \*,0.3180,0.2342,−0.1411,0.7771
+P0959,Selectivity increment,AVO; Bin4; 2002 \*,0.3056,0.2342,−0.1533,0.7645
+P0960,Selectivity increment,AVO; Bin5; 2002 \*,0.3188,0.2346,−0.1410,0.7786
+P0961,Selectivity increment,AVO; Bin6; 2002 \*,0.3244,0.2345,−0.1353,0.7840
+P0962,Selectivity increment,AVO; Bin7; 2002 \*,0.3085,0.2345,−0.1510,0.7680
+P0963,Selectivity increment,AVO; Bin8; 2002 \*,0.2908,0.2078,−0.1165,0.6980
+P0964,Selectivity increment,AVO; Bin2; 2003 \*,0.2507,0.2309,−0.2019,0.7033
+P0965,Selectivity increment,AVO; Bin3; 2003 \*,0.2393,0.2357,−0.2227,0.7013
+P0966,Selectivity increment,AVO; Bin4; 2003 \*,0.3117,0.2351,−0.1490,0.7725
+P0967,Selectivity increment,AVO; Bin5; 2003 \*,0.3291,0.2351,−0.1317,0.7898
+P0968,Selectivity increment,AVO; Bin6; 2003 \*,0.3118,0.2353,−0.1493,0.7729
+P0969,Selectivity increment,AVO; Bin7; 2003 \*,0.3008,0.2349,−0.1597,0.7612
+P0970,Selectivity increment,AVO; Bin8; 2003 \*,0.3001,0.2080,−0.1075,0.7077
+P0971,Selectivity increment,AVO; Bin2; 2004 \*,0.2241,0.2342,−0.2349,0.6830
+P0972,Selectivity increment,AVO; Bin3; 2004 \*,0.2365,0.2351,−0.2244,0.6973
+P0973,Selectivity increment,AVO; Bin4; 2004 \*,0.3237,0.2336,−0.1342,0.7816
+P0974,Selectivity increment,AVO; Bin5; 2004 \*,0.3248,0.2340,−0.1338,0.7835
+P0975,Selectivity increment,AVO; Bin6; 2004 \*,0.3064,0.2345,−0.1533,0.7661
+P0976,Selectivity increment,AVO; Bin7; 2004 \*,0.2994,0.2344,−0.1600,0.7588
+P0977,Selectivity increment,AVO; Bin8; 2004 \*,0.2971,0.2078,−0.1101,0.7043
+P0978,Selectivity increment,AVO; Bin2; 2005 \*,0.3122,0.2340,−0.1465,0.7708
+P0979,Selectivity increment,AVO; Bin3; 2005 \*,0.2707,0.2370,−0.1939,0.7353
+P0980,Selectivity increment,AVO; Bin4; 2005 \*,0.2088,0.2361,−0.2539,0.6714
+P0981,Selectivity increment,AVO; Bin5; 2005 \*,0.2422,0.2355,−0.2193,0.7037
+P0982,Selectivity increment,AVO; Bin6; 2005 \*,0.2737,0.2355,−0.1878,0.7352
+P0983,Selectivity increment,AVO; Bin7; 2005 \*,0.2837,0.2354,−0.1776,0.7450
+P0984,Selectivity increment,AVO; Bin8; 2005 \*,0.2886,0.2091,−0.1212,0.6985
+P0985,Selectivity increment,AVO; Bin2; 2006 \*,0.2699,0.2375,−0.1956,0.7355
+P0986,Selectivity increment,AVO; Bin3; 2006 \*,0.2465,0.2377,−0.2194,0.7124
+P0987,Selectivity increment,AVO; Bin4; 2006 \*,0.2044,0.2360,−0.2583,0.6670
+P0988,Selectivity increment,AVO; Bin5; 2006 \*,0.2238,0.2353,−0.2374,0.6850
+P0989,Selectivity increment,AVO; Bin6; 2006 \*,0.2520,0.2353,−0.2091,0.7131
+P0990,Selectivity increment,AVO; Bin7; 2006 \*,0.2653,0.2354,−0.1961,0.7267
+P0991,Selectivity increment,AVO; Bin8; 2006 \*,0.2690,0.2100,−0.1426,0.6806
+P0992,Selectivity increment,AVO; Bin2; 2007 \*,0.2692,0.2368,−0.1949,0.7332
+P0993,Selectivity increment,AVO; Bin3; 2007 \*,0.2569,0.2368,−0.2071,0.7210
+P0994,Selectivity increment,AVO; Bin4; 2007 \*,0.2281,0.2359,−0.2343,0.6904
+P0995,Selectivity increment,AVO; Bin5; 2007 \*,0.2419,0.2351,−0.2189,0.7027
+P0996,Selectivity increment,AVO; Bin6; 2007 \*,0.2516,0.2350,−0.2090,0.7122
+P0997,Selectivity increment,AVO; Bin7; 2007 \*,0.2401,0.2350,−0.2206,0.7008
+P0998,Selectivity increment,AVO; Bin8; 2007 \*,0.2437,0.2092,−0.1664,0.6538
+P0999,Selectivity increment,AVO; Bin2; 2008 \*,0.2695,0.2362,−0.1933,0.7324
+P1000,Selectivity increment,AVO; Bin3; 2008 \*,0.2401,0.2375,−0.2253,0.7055
+P1001,Selectivity increment,AVO; Bin4; 2008 \*,0.1914,0.2376,−0.2743,0.6571
+P1002,Selectivity increment,AVO; Bin5; 2008 \*,0.1803,0.2377,−0.2856,0.6462
+P1003,Selectivity increment,AVO; Bin6; 2008 \*,0.1896,0.2375,−0.2758,0.6551
+P1004,Selectivity increment,AVO; Bin7; 2008 \*,0.2055,0.2371,−0.2592,0.6702
+P1005,Selectivity increment,AVO; Bin8; 2008 \*,0.2248,0.2109,−0.1886,0.6382
+P1006,Selectivity increment,AVO; Bin2; 2009 \*,0.2256,0.2352,−0.2354,0.6867
+P1007,Selectivity increment,AVO; Bin3; 2009 \*,0.2164,0.2381,−0.2503,0.6832
+P1008,Selectivity increment,AVO; Bin4; 2009 \*,0.1855,0.2380,−0.2810,0.6519
+P1009,Selectivity increment,AVO; Bin5; 2009 \*,0.1817,0.2386,−0.2860,0.6494
+P1010,Selectivity increment,AVO; Bin6; 2009 \*,0.1921,0.2389,−0.2761,0.6602
+P1011,Selectivity increment,AVO; Bin7; 2009 \*,0.2021,0.2383,−0.2650,0.6692
+P1012,Selectivity increment,AVO; Bin8; 2009 \*,0.2012,0.2114,−0.2132,0.6156
+P1013,Selectivity increment,AVO; Bin2; 2010 \*,0.2367,0.2353,−0.2245,0.6979
+P1014,Selectivity increment,AVO; Bin3; 2010 \*,0.1889,0.2390,−0.2795,0.6574
+P1015,Selectivity increment,AVO; Bin4; 2010 \*,0.2100,0.2375,−0.2554,0.6754
+P1016,Selectivity increment,AVO; Bin5; 2010 \*,0.1807,0.2382,−0.2861,0.6476
+P1017,Selectivity increment,AVO; Bin6; 2010 \*,0.1855,0.2386,−0.2821,0.6531
+P1018,Selectivity increment,AVO; Bin7; 2010 \*,0.1926,0.2382,−0.2742,0.6595
+P1019,Selectivity increment,AVO; Bin8; 2010 \*,0.1823,0.2112,−0.2316,0.5962
+P1020,Selectivity increment,AVO; Bin2; 2011 \*,0.2198,0.2349,−0.2407,0.6802
+P1021,Selectivity increment,AVO; Bin3; 2011 \*,0.1828,0.2393,−0.2863,0.6519
+P1022,Selectivity increment,AVO; Bin4; 2011 \*,0.1560,0.2379,−0.3103,0.6223
+P1023,Selectivity increment,AVO; Bin5; 2011 \*,0.1683,0.2383,−0.2987,0.6354
+P1024,Selectivity increment,AVO; Bin6; 2011 \*,0.1801,0.2385,−0.2872,0.6475
+P1025,Selectivity increment,AVO; Bin7; 2011 \*,0.1860,0.2383,−0.2810,0.6531
+P1026,Selectivity increment,AVO; Bin8; 2011 \*,0.1717,0.2116,−0.2430,0.5863
+P1027,Selectivity increment,AVO; Bin2; 2012 \*,0.2201,0.2381,−0.2465,0.6868
+P1028,Selectivity increment,AVO; Bin3; 2012 \*,0.1874,0.2380,−0.2791,0.6539
+P1029,Selectivity increment,AVO; Bin4; 2012 \*,0.1557,0.2357,−0.3062,0.6177
+P1030,Selectivity increment,AVO; Bin5; 2012 \*,0.1715,0.2374,−0.2937,0.6367
+P1031,Selectivity increment,AVO; Bin6; 2012 \*,0.1797,0.2375,−0.2857,0.6451
+P1032,Selectivity increment,AVO; Bin7; 2012 \*,0.1825,0.2377,−0.2834,0.6484
+P1033,Selectivity increment,AVO; Bin8; 2012 \*,0.1626,0.2112,−0.2513,0.5765
+P1034,Selectivity increment,AVO; Bin2; 2013 \*,0.2090,0.2344,−0.2504,0.6683
+P1035,Selectivity increment,AVO; Bin3; 2013 \*,0.2204,0.2364,−0.2429,0.6837
+P1036,Selectivity increment,AVO; Bin4; 2013 \*,0.2464,0.2350,−0.2142,0.7070
+P1037,Selectivity increment,AVO; Bin5; 2013 \*,0.2349,0.2351,−0.2258,0.6957
+P1038,Selectivity increment,AVO; Bin6; 2013 \*,0.2267,0.2351,−0.2342,0.6875
+P1039,Selectivity increment,AVO; Bin7; 2013 \*,0.2029,0.2354,−0.2585,0.6643
+P1040,Selectivity increment,AVO; Bin8; 2013 \*,0.1606,0.2081,−0.2473,0.5686
+P1041,Selectivity increment,AVO; Bin2; 2014 \*,0.2387,0.2348,−0.2216,0.6989
+P1042,Selectivity increment,AVO; Bin3; 2014 \*,0.2282,0.2328,−0.2281,0.6845
+P1043,Selectivity increment,AVO; Bin4; 2014 \*,0.2623,0.2318,−0.1920,0.7167
+P1044,Selectivity increment,AVO; Bin5; 2014 \*,0.2438,0.2321,−0.2111,0.6986
+P1045,Selectivity increment,AVO; Bin6; 2014 \*,0.2492,0.2316,−0.2048,0.7032
+P1046,Selectivity increment,AVO; Bin7; 2014 \*,0.2315,0.2330,−0.2251,0.6881
+P1047,Selectivity increment,AVO; Bin8; 2014 \*,0.1816,0.2054,−0.2211,0.5842
+P1048,Selectivity increment,AVO; Bin2; 2015 \*,0.1440,0.2281,−0.3030,0.5910
+P1049,Selectivity increment,AVO; Bin3; 2015 \*,0.2648,0.2323,−0.1904,0.7200
+P1050,Selectivity increment,AVO; Bin4; 2015 \*,0.2820,0.2321,−0.1729,0.7370
+P1051,Selectivity increment,AVO; Bin5; 2015 \*,0.2515,0.2330,−0.2053,0.7082
+P1052,Selectivity increment,AVO; Bin6; 2015 \*,0.2218,0.2332,−0.2352,0.6788
+P1053,Selectivity increment,AVO; Bin7; 2015 \*,0.2269,0.2336,−0.2309,0.6847
+P1054,Selectivity increment,AVO; Bin8; 2015 \*,0.2145,0.2058,−0.1888,0.6178
+P1055,Selectivity increment,AVO; Bin2; 2016 \*,0.1171,0.2337,−0.3409,0.5752
+P1056,Selectivity increment,AVO; Bin3; 2016 \*,0.2099,0.2333,−0.2474,0.6671
+P1057,Selectivity increment,AVO; Bin4; 2016 \*,0.2846,0.2324,−0.1708,0.7401
+P1058,Selectivity increment,AVO; Bin5; 2016 \*,0.2301,0.2344,−0.2294,0.6896
+P1059,Selectivity increment,AVO; Bin6; 2016 \*,0.2050,0.2348,−0.2552,0.6652
+P1060,Selectivity increment,AVO; Bin7; 2016 \*,0.2006,0.2352,−0.2604,0.6616
+P1061,Selectivity increment,AVO; Bin8; 2016 \*,0.2355,0.2086,−0.1734,0.6444
+P1062,Selectivity increment,AVO; Bin2; 2017 \*,0.2189,0.2350,−0.2416,0.6795
+P1063,Selectivity increment,AVO; Bin3; 2017 \*,0.1560,0.2388,−0.3121,0.6240
+P1064,Selectivity increment,AVO; Bin4; 2017 \*,0.1020,0.2369,−0.3624,0.5664
+P1065,Selectivity increment,AVO; Bin5; 2017 \*,0.1924,0.2378,−0.2738,0.6585
+P1066,Selectivity increment,AVO; Bin6; 2017 \*,0.2094,0.2389,−0.2588,0.6777
+P1067,Selectivity increment,AVO; Bin7; 2017 \*,0.2076,0.2398,−0.2625,0.6776
+P1068,Selectivity increment,AVO; Bin8; 2017 \*,0.2362,0.2134,−0.1821,0.6545
+P1069,Selectivity increment,AVO; Bin2; 2018 \*,0.1941,0.2406,−0.2776,0.6657
+P1070,Selectivity increment,AVO; Bin3; 2018 \*,0.1519,0.2425,−0.3234,0.6271
+P1071,Selectivity increment,AVO; Bin4; 2018 \*,0.1254,0.2409,−0.3467,0.5975
+P1072,Selectivity increment,AVO; Bin5; 2018 \*,0.1977,0.2397,−0.2722,0.6675
+P1073,Selectivity increment,AVO; Bin6; 2018 \*,0.2034,0.2414,−0.2698,0.6766
+P1074,Selectivity increment,AVO; Bin7; 2018 \*,0.2057,0.2430,−0.2707,0.6820
+P1075,Selectivity increment,AVO; Bin8; 2018 \*,0.2230,0.2169,−0.2022,0.6481
+P1076,Selectivity increment,AVO; Bin2; 2019 \*,0.2102,0.2403,−0.2607,0.6811
+P1077,Selectivity increment,AVO; Bin3; 2019 \*,0.2093,0.2441,−0.2692,0.6878
+P1078,Selectivity increment,AVO; Bin4; 2019 \*,0.2316,0.2446,−0.2477,0.7110
+P1079,Selectivity increment,AVO; Bin5; 2019 \*,0.2064,0.2446,−0.2730,0.6857
+P1080,Selectivity increment,AVO; Bin6; 2019 \*,0.2099,0.2448,−0.2698,0.6897
+P1081,Selectivity increment,AVO; Bin7; 2019 \*,0.2061,0.2448,−0.2737,0.6859
+P1082,Selectivity increment,AVO; Bin8; 2019 \*,0.2140,0.2181,−0.2135,0.6416
+P1083,Selectivity increment,AVO; Bin2; 2020 \*,0.1981,0.2447,−0.2815,0.6777
+P1084,Selectivity increment,AVO; Bin3; 2020 \*,0.2065,0.2472,−0.2781,0.6910
+P1085,Selectivity increment,AVO; Bin4; 2020 \*,0.2306,0.2472,−0.2538,0.7151
+P1086,Selectivity increment,AVO; Bin5; 2020 \*,0.1997,0.2474,−0.2853,0.6847
+P1087,Selectivity increment,AVO; Bin6; 2020 \*,0.1935,0.2475,−0.2916,0.6787
+P1088,Selectivity increment,AVO; Bin7; 2020 \*,0.2048,0.2475,−0.2802,0.6898
+P1089,Selectivity increment,AVO; Bin8; 2020 \*,0.2187,0.2214,−0.2152,0.6527
+P1090,Selectivity increment,AVO; Bin2; 2021 \*,0.1941,0.2490,−0.2939,0.6820
+P1091,Selectivity increment,AVO; Bin3; 2021 \*,0.1939,0.2508,−0.2977,0.6855
+P1092,Selectivity increment,AVO; Bin4; 2021 \*,0.2316,0.2500,−0.2584,0.7216
+P1093,Selectivity increment,AVO; Bin5; 2021 \*,0.1960,0.2505,−0.2951,0.6871
+P1094,Selectivity increment,AVO; Bin6; 2021 \*,0.1941,0.2507,−0.2972,0.6854
+P1095,Selectivity increment,AVO; Bin7; 2021 \*,0.2074,0.2505,−0.2837,0.6985
+P1096,Selectivity increment,AVO; Bin8; 2021 \*,0.2175,0.2256,−0.2246,0.6596
+P1097,Selectivity increment,AVO; Bin2; 2022 \*,0.1766,0.2549,−0.3230,0.6761
+P1098,Selectivity increment,AVO; Bin3; 2022 \*,0.1694,0.2554,−0.3312,0.6701
+P1099,Selectivity increment,AVO; Bin4; 2022 \*,0.2445,0.2534,−0.2521,0.7411
+P1100,Selectivity increment,AVO; Bin5; 2022 \*,0.1840,0.2548,−0.3154,0.6834
+P1101,Selectivity increment,AVO; Bin6; 2022 \*,0.1910,0.2550,−0.3088,0.6908
+P1102,Selectivity increment,AVO; Bin7; 2022 \*,0.2070,0.2551,−0.2930,0.7069
+P1103,Selectivity increment,AVO; Bin8; 2022 \*,0.2136,0.2312,−0.2396,0.6667
+P1104,Selectivity increment,AVO; Bin2; 2023 \*,0.2450,0.2591,−0.2628,0.7527
+P1105,Selectivity increment,AVO; Bin3; 2023 \*,0.2141,0.2631,−0.3016,0.7298
+P1106,Selectivity increment,AVO; Bin4; 2023 \*,0.0901,0.2626,−0.4245,0.6048
+P1107,Selectivity increment,AVO; Bin5; 2023 \*,0.1396,0.2622,−0.3742,0.6535
+P1108,Selectivity increment,AVO; Bin6; 2023 \*,0.1864,0.2622,−0.3274,0.7002
+P1109,Selectivity increment,AVO; Bin7; 2023 \*,0.2082,0.2629,−0.3070,0.7234
+P1110,Selectivity increment,AVO; Bin8; 2023 \*,0.2057,0.2401,−0.2648,0.6762
+P1111,Selectivity increment,AVO; Bin2; 2024 \*,0.2261,0.2708,−0.3046,0.7569
+P1112,Selectivity increment,AVO; Bin3; 2024 \*,0.1919,0.2739,−0.3449,0.7287
+P1113,Selectivity increment,AVO; Bin4; 2024 \*,0.0979,0.2727,−0.4366,0.6324
+P1114,Selectivity increment,AVO; Bin5; 2024 \*,0.1236,0.2711,−0.4077,0.6549
+P1115,Selectivity increment,AVO; Bin6; 2024 \*,0.1798,0.2705,−0.3504,0.7100
+P1116,Selectivity increment,AVO; Bin7; 2024 \*,0.2037,0.2727,−0.3309,0.7382
+P1117,Selectivity increment,AVO; Bin8; 2024 \*,0.1924,0.2513,−0.3001,0.6849
+P1118,Selectivity increment,AVO; Bin2; 2025 \*,0.2192,0.2804,−0.3304,0.7688
+P1119,Selectivity increment,AVO; Bin3; 2025 \*,0.2323,0.2862,−0.3287,0.7934
+P1120,Selectivity increment,AVO; Bin4; 2025 \*,0.1656,0.2871,−0.3970,0.7283
+P1121,Selectivity increment,AVO; Bin5; 2025 \*,0.1703,0.2867,−0.3916,0.7321
+P1122,Selectivity increment,AVO; Bin6; 2025 \*,0.1740,0.2869,−0.3883,0.7362
+P1123,Selectivity increment,AVO; Bin7; 2025 \*,0.1884,0.2866,−0.3734,0.7501
+P1124,Selectivity increment,AVO; Bin8; 2025 \*,0.1812,0.2649,−0.3380,0.7004
+P1125,Selectivity increment,AVO; Bin2; 2026 \*,0.2093,0.3050,−0.3886,0.8072
+P1126,Selectivity increment,AVO; Bin3; 2026 \*,0.2386,0.3046,−0.3585,0.8356
+P1127,Selectivity increment,AVO; Bin4; 2026 \*,0.1551,0.3058,−0.4443,0.7544
+P1128,Selectivity increment,AVO; Bin5; 2026 \*,0.1576,0.3063,−0.4428,0.7581
+P1129,Selectivity increment,AVO; Bin6; 2026 \*,0.1761,0.3067,−0.4251,0.7772
+P1130,Selectivity increment,AVO; Bin7; 2026 \*,0.1927,0.3064,−0.4078,0.7932
+P1131,Selectivity increment,AVO; Bin8; 2026 \*,0.1815,0.2852,−0.3775,0.7406
+P1132,Log logistic slope,Asc; BTS,−0.8376,0.1962,−1.2221,−0.4531
+P1133,Logistic midpoint,Asc; BTS,6.9805,0.6409,5.7244,8.2367
+P1134,BTS age-1 log selectivity,Age-1 component; BTS,−3.0479,0.3067,−3.6490,−2.4469
+P1135,BTS slope deviation,Asc; BTS; 1983,0.9087,0.2274,0.4630,1.3543
+P1136,BTS slope deviation,Asc; BTS; 1984,0.7382,0.2286,0.2901,1.1863
+P1137,BTS slope deviation,Asc; BTS; 1985,0.2475,0.2461,−0.2348,0.7297
+P1138,BTS slope deviation,Asc; BTS; 1986,0.3667,0.2364,−0.0965,0.8300
+P1139,BTS slope deviation,Asc; BTS; 1987,0.3474,0.2949,−0.2306,0.9254
+P1140,BTS slope deviation,Asc; BTS; 1988,0.3002,0.3348,−0.3559,0.9564
+P1141,BTS slope deviation,Asc; BTS; 1989,0.5436,0.3985,−0.2374,1.3245
+P1142,BTS slope deviation,Asc; BTS; 1990,1.2073,0.3076,0.6043,1.8102
+P1143,BTS slope deviation,Asc; BTS; 1991,1.0413,0.2581,0.5355,1.5471
+P1144,BTS slope deviation,Asc; BTS; 1992,0.9879,0.2549,0.4883,1.4875
+P1145,BTS slope deviation,Asc; BTS; 1993,1.1449,0.2594,0.6365,1.6532
+P1146,BTS slope deviation,Asc; BTS; 1994,1.1404,0.2336,0.6827,1.5982
+P1147,BTS slope deviation,Asc; BTS; 1995,1.0736,0.2332,0.6165,1.5307
+P1148,BTS slope deviation,Asc; BTS; 1996,0.6664,0.2162,0.2428,1.0901
+P1149,BTS slope deviation,Asc; BTS; 1997,0.5019,0.2354,0.0406,0.9632
+P1150,BTS slope deviation,Asc; BTS; 1998,0.2949,0.2285,−0.1530,0.7427
+P1151,BTS slope deviation,Asc; BTS; 1999,0.2464,0.2318,−0.2079,0.7008
+P1152,BTS slope deviation,Asc; BTS; 2000,0.5104,0.2470,0.0264,0.9944
+P1153,BTS slope deviation,Asc; BTS; 2001,0.3417,0.2233,−0.0959,0.7793
+P1154,BTS slope deviation,Asc; BTS; 2002,0.7946,0.2240,0.3556,1.2337
+P1155,BTS slope deviation,Asc; BTS; 2003,1.0199,0.2354,0.5585,1.4812
+P1156,BTS slope deviation,Asc; BTS; 2004,0.9485,0.2234,0.5106,1.3864
+P1157,BTS slope deviation,Asc; BTS; 2005,1.0394,0.2342,0.5803,1.4985
+P1158,BTS slope deviation,Asc; BTS; 2006,0.7304,0.2221,0.2950,1.1657
+P1159,BTS slope deviation,Asc; BTS; 2007,1.1604,0.2459,0.6785,1.6424
+P1160,BTS slope deviation,Asc; BTS; 2008,1.3498,0.2211,0.9164,1.7832
+P1161,BTS slope deviation,Asc; BTS; 2009,1.0541,0.2284,0.6065,1.5016
+P1162,BTS slope deviation,Asc; BTS; 2010,1.5895,0.2493,1.1008,2.0781
+P1163,BTS slope deviation,Asc; BTS; 2011,1.3653,0.2144,0.9450,1.7856
+P1164,BTS slope deviation,Asc; BTS; 2012,1.0054,0.2373,0.5403,1.4705
+P1165,BTS slope deviation,Asc; BTS; 2013,1.1035,0.2417,0.6297,1.5773
+P1166,BTS slope deviation,Asc; BTS; 2014,1.3500,0.2227,0.9136,1.7864
+P1167,BTS slope deviation,Asc; BTS; 2015,1.2379,0.2284,0.7902,1.6856
+P1168,BTS slope deviation,Asc; BTS; 2016,1.2450,0.2421,0.7705,1.7195
+P1169,BTS slope deviation,Asc; BTS; 2017,1.0643,0.2207,0.6317,1.4968
+P1170,BTS slope deviation,Asc; BTS; 2018,0.5311,0.2347,0.0711,0.9911
+P1171,BTS slope deviation,Asc; BTS; 2019,0.8316,0.2327,0.3755,1.2876
+P1172,BTS slope deviation,Asc; BTS; 2020,0.7195,0.2985,0.1345,1.3046
+P1173,BTS slope deviation,Asc; BTS; 2021,0.6483,0.2169,0.2232,1.0734
+P1174,BTS slope deviation,Asc; BTS; 2022,0.8388,0.2317,0.3848,1.2929
+P1175,BTS slope deviation,Asc; BTS; 2023,0.5333,0.2269,0.0887,0.9779
+P1176,BTS slope deviation,Asc; BTS; 2024,0.5612,0.2527,0.0660,1.0564
+P1177,BTS slope deviation,Asc; BTS; 2025,0.6074,0.2290,0.1586,1.0562
+P1178,BTS slope deviation,Asc; BTS; 2026,0.8008,0.2609,0.2895,1.3121
+P1179,BTS midpoint deviation,Asc; BTS; 1983,−0.3111,0.0866,−0.4808,−0.1414
+P1180,BTS midpoint deviation,Asc; BTS; 1984,−0.1267,0.0895,−0.3021,0.0488
+P1181,BTS midpoint deviation,Asc; BTS; 1985,0.0383,0.0942,−0.1463,0.2229
+P1182,BTS midpoint deviation,Asc; BTS; 1986,0.0274,0.0975,−0.1637,0.2186
+P1183,BTS midpoint deviation,Asc; BTS; 1987,−0.0750,0.1102,−0.2909,0.1409
+P1184,BTS midpoint deviation,Asc; BTS; 1988,−0.2158,0.1232,−0.4573,0.0258
+P1185,BTS midpoint deviation,Asc; BTS; 1989,−0.2963,0.1204,−0.5324,−0.0603
+P1186,BTS midpoint deviation,Asc; BTS; 1990,−0.3506,0.1113,−0.5688,−0.1323
+P1187,BTS midpoint deviation,Asc; BTS; 1991,−0.2509,0.1111,−0.4688,−0.0331
+P1188,BTS midpoint deviation,Asc; BTS; 1992,−0.2448,0.1085,−0.4575,−0.0322
+P1189,BTS midpoint deviation,Asc; BTS; 1993,−0.2921,0.1020,−0.4920,−0.0922
+P1190,BTS midpoint deviation,Asc; BTS; 1994,−0.2291,0.0979,−0.4210,−0.0373
+P1191,BTS midpoint deviation,Asc; BTS; 1995,−0.1343,0.1012,−0.3326,0.0640
+P1192,BTS midpoint deviation,Asc; BTS; 1996,0.0653,0.0961,−0.1230,0.2536
+P1193,BTS midpoint deviation,Asc; BTS; 1997,0.1110,0.1035,−0.0917,0.3138
+P1194,BTS midpoint deviation,Asc; BTS; 1998,0.1916,0.1005,−0.0054,0.3885
+P1195,BTS midpoint deviation,Asc; BTS; 1999,0.1329,0.1076,−0.0780,0.3439
+P1196,BTS midpoint deviation,Asc; BTS; 2000,−0.0032,0.1111,−0.2210,0.2145
+P1197,BTS midpoint deviation,Asc; BTS; 2001,0.0394,0.1009,−0.1583,0.2372
+P1198,BTS midpoint deviation,Asc; BTS; 2002,−0.0939,0.1011,−0.2920,0.1042
+P1199,BTS midpoint deviation,Asc; BTS; 2003,−0.1374,0.1034,−0.3402,0.0653
+P1200,BTS midpoint deviation,Asc; BTS; 2004,−0.1130,0.0971,−0.3033,0.0773
+P1201,BTS midpoint deviation,Asc; BTS; 2005,−0.1589,0.0977,−0.3504,0.0326
+P1202,BTS midpoint deviation,Asc; BTS; 2006,−0.0355,0.0960,−0.2237,0.1527
+P1203,BTS midpoint deviation,Asc; BTS; 2007,−0.2089,0.0993,−0.4035,−0.0143
+P1204,BTS midpoint deviation,Asc; BTS; 2008,−0.2335,0.0961,−0.4219,−0.0451
+P1205,BTS midpoint deviation,Asc; BTS; 2009,−0.1517,0.0988,−0.3454,0.0420
+P1206,BTS midpoint deviation,Asc; BTS; 2010,−0.3339,0.0978,−0.5256,−0.1421
+P1207,BTS midpoint deviation,Asc; BTS; 2011,−0.2094,0.0940,−0.3936,−0.0251
+P1208,BTS midpoint deviation,Asc; BTS; 2012,−0.1593,0.0986,−0.3526,0.0339
+P1209,BTS midpoint deviation,Asc; BTS; 2013,−0.1905,0.0946,−0.3760,−0.0050
+P1210,BTS midpoint deviation,Asc; BTS; 2014,−0.2790,0.0959,−0.4670,−0.0911
+P1211,BTS midpoint deviation,Asc; BTS; 2015,−0.3231,0.0976,−0.5144,−0.1318
+P1212,BTS midpoint deviation,Asc; BTS; 2016,−0.2689,0.0984,−0.4617,−0.0762
+P1213,BTS midpoint deviation,Asc; BTS; 2017,−0.1865,0.0941,−0.3709,−0.0020
+P1214,BTS midpoint deviation,Asc; BTS; 2018,−0.0140,0.0995,−0.2090,0.1811
+P1215,BTS midpoint deviation,Asc; BTS; 2019,−0.1490,0.0969,−0.3390,0.0410
+P1216,BTS midpoint deviation,Asc; BTS; 2020,−0.0624,0.1177,−0.2930,0.1683
+P1217,BTS midpoint deviation,Asc; BTS; 2021,0.0125,0.0977,−0.1790,0.2041
+P1218,BTS midpoint deviation,Asc; BTS; 2022,−0.0671,0.0992,−0.2617,0.1274
+P1219,BTS midpoint deviation,Asc; BTS; 2023,0.0978,0.0985,−0.0952,0.2909
+P1220,BTS midpoint deviation,Asc; BTS; 2024,0.0068,0.1052,−0.1993,0.2130
+P1221,BTS midpoint deviation,Asc; BTS; 2025,0.0317,0.1021,−0.1684,0.2319
+P1222,BTS midpoint deviation,Asc; BTS; 2026,−0.1099,0.1145,−0.3344,0.1146
+P1223,BTS age-1 deviation,Age-1 component; BTS; 1983,−0.0145,0.1177,−0.2452,0.2162
+P1224,BTS age-1 deviation,Age-1 component; BTS; 1984,0.0371,0.1648,−0.2858,0.3600
+P1225,BTS age-1 deviation,Age-1 component; BTS; 1985,−0.1923,0.1416,−0.4698,0.0851
+P1226,BTS age-1 deviation,Age-1 component; BTS; 1986,−0.4013,0.1448,−0.6851,−0.1174
+P1227,BTS age-1 deviation,Age-1 component; BTS; 1987,−0.2452,0.1911,−0.6198,0.1294
+P1228,BTS age-1 deviation,Age-1 component; BTS; 1988,−0.2987,0.1852,−0.6616,0.0643
+P1229,BTS age-1 deviation,Age-1 component; BTS; 1989,−0.0598,0.1804,−0.4134,0.2939
+P1230,BTS age-1 deviation,Age-1 component; BTS; 1990,0.1030,0.1485,−0.1881,0.3941
+P1231,BTS age-1 deviation,Age-1 component; BTS; 1991,−0.1431,0.1368,−0.4113,0.1250
+P1232,BTS age-1 deviation,Age-1 component; BTS; 1992,−0.0165,0.1370,−0.2849,0.2520
+P1233,BTS age-1 deviation,Age-1 component; BTS; 1993,0.0411,0.1297,−0.2131,0.2953
+P1234,BTS age-1 deviation,Age-1 component; BTS; 1994,−0.1102,0.1451,−0.3946,0.1741
+P1235,BTS age-1 deviation,Age-1 component; BTS; 1995,−0.1370,0.1474,−0.4259,0.1519
+P1236,BTS age-1 deviation,Age-1 component; BTS; 1996,−0.1046,0.1174,−0.3346,0.1254
+P1237,BTS age-1 deviation,Age-1 component; BTS; 1997,0.0048,0.1318,−0.2534,0.2631
+P1238,BTS age-1 deviation,Age-1 component; BTS; 1998,0.0560,0.1447,−0.2275,0.3395
+P1239,BTS age-1 deviation,Age-1 component; BTS; 1999,0.0971,0.1390,−0.1753,0.3695
+P1240,BTS age-1 deviation,Age-1 component; BTS; 2000,0.1927,0.1380,−0.0778,0.4631
+P1241,BTS age-1 deviation,Age-1 component; BTS; 2001,0.0776,0.1172,−0.1521,0.3073
+P1242,BTS age-1 deviation,Age-1 component; BTS; 2002,0.0837,0.1210,−0.1534,0.3209
+P1243,BTS age-1 deviation,Age-1 component; BTS; 2003,0.2335,0.1390,−0.0389,0.5059
+P1244,BTS age-1 deviation,Age-1 component; BTS; 2004,0.0473,0.1386,−0.2242,0.3189
+P1245,BTS age-1 deviation,Age-1 component; BTS; 2005,−0.0147,0.1483,−0.3054,0.2759
+P1246,BTS age-1 deviation,Age-1 component; BTS; 2006,−0.0132,0.1166,−0.2417,0.2153
+P1247,BTS age-1 deviation,Age-1 component; BTS; 2007,−0.0358,0.1179,−0.2668,0.1952
+P1248,BTS age-1 deviation,Age-1 component; BTS; 2008,0.2024,0.1181,−0.0291,0.4340
+P1249,BTS age-1 deviation,Age-1 component; BTS; 2009,0.3586,0.1115,0.1400,0.5773
+P1250,BTS age-1 deviation,Age-1 component; BTS; 2010,0.3397,0.1320,0.0809,0.5984
+P1251,BTS age-1 deviation,Age-1 component; BTS; 2011,−0.0718,0.1226,−0.3121,0.1685
+P1252,BTS age-1 deviation,Age-1 component; BTS; 2012,−0.0599,0.1366,−0.3276,0.2078
+P1253,BTS age-1 deviation,Age-1 component; BTS; 2013,0.2090,0.1341,−0.0539,0.4719
+P1254,BTS age-1 deviation,Age-1 component; BTS; 2014,0.1700,0.1236,−0.0723,0.4123
+P1255,BTS age-1 deviation,Age-1 component; BTS; 2015,0.0604,0.1400,−0.2139,0.3347
+P1256,BTS age-1 deviation,Age-1 component; BTS; 2016,−0.0342,0.1521,−0.3322,0.2639
+P1257,BTS age-1 deviation,Age-1 component; BTS; 2017,−0.0710,0.1368,−0.3392,0.1972
+P1258,BTS age-1 deviation,Age-1 component; BTS; 2018,−0.0545,0.1279,−0.3053,0.1962
+P1259,BTS age-1 deviation,Age-1 component; BTS; 2019,0.2778,0.1171,0.0483,0.5074
+P1260,BTS age-1 deviation,Age-1 component; BTS; 2020,0.1488,0.2105,−0.2638,0.5614
+P1261,BTS age-1 deviation,Age-1 component; BTS; 2021,0.0198,0.1341,−0.2431,0.2826
+P1262,BTS age-1 deviation,Age-1 component; BTS; 2022,0.0699,0.1373,−0.1992,0.3390
+P1263,BTS age-1 deviation,Age-1 component; BTS; 2023,−0.0696,0.1428,−0.3494,0.2102
+P1264,BTS age-1 deviation,Age-1 component; BTS; 2024,0.1744,0.1502,−0.1201,0.4689
+P1265,BTS age-1 deviation,Age-1 component; BTS; 2025,0.0580,0.1478,−0.2317,0.3477
+P1266,BTS age-1 deviation,Age-1 component; BTS; 2026,−0.0438,0.2085,−0.4524,0.3649
+\* A parameter is shared across additional positions. The full shared-position mappings are in the numerical parameter table.
+"The BTS age-1 component reuses native coordinates named Descending; it is a separate first-age component rather than a descending limb. Its baseline is log selectivity, and its annual deviations multiply that baseline log value. Midpoint deviations likewise multiply the baseline midpoint. The selectivity table combines these parameters and their uncertainty."

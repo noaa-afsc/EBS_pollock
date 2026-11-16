@@ -58,9 +58,10 @@ def render(source, destination):
                   "table_layout": table_layout,
                   "template": "dedicated-print",
                   "historical_pdf_input": False}
-        inputs = ["assessment.qmd", "published-layout.html", "prepare_print.py", "print.css",
-                  "render_pdf.py", "pdf-requirements.txt"]
+        inputs = ["EBSpollock.qmd", "_quarto.yml", "tables.lua", "finish_html.py", "prepare_print.py", "print.css",
+                  "report.css", "render_pdf.py", "pdf-requirements.txt", "render.sh", "post-render.sh"]
         inputs += [str(path.relative_to(ROOT)) for path in sorted((ROOT / "fonts").glob("*.otf"))]
+        inputs += [str(path.relative_to(ROOT)) for path in sorted((ROOT / "tables").glob("*")) if path.is_file()]
         record["source_inputs"] = {name: sha256((ROOT / name).read_bytes()).hexdigest() for name in inputs}
         record["html_sha256"] = sha256(source.read_bytes()).hexdigest()
         record["pdf_sha256"] = sha256(destination.read_bytes()).hexdigest()

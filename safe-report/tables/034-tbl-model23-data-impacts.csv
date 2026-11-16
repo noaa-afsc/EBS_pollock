@@ -1,0 +1,10 @@
+cell_1,cell_2,cell_3,cell_4,cell_5
+Input updates within Model 23.0
+Cumulative input update,Biomass (million t),Spawning biomass (million t),Age-1 fish (billion),Fishing mortality (per year)
+Catch + endpoint,9.030,2.623,18.525,0.348
+\+ Fishery weights 2024,8.856,2.542,18.541,0.348
+\+ Fishery weights 2026,8.857,2.533,18.541,0.348
+\+ Fishery age data,9.323,2.746,18.523,0.341
+\+ BTS,9.966,2.834,24.345,0.335
+\+ ATS,11.043,2.761,31.731,0.345
+\+ AVO,11.227,2.808,31.948,0.341

@@ -1,0 +1,26 @@
+cell_1,cell_2,cell_3
+Annual data and weight-at-age register
+Data source,Year,Update or weight-at-age treatment
+Fishery catch,2024,Historical catch revision check
+Fishery catch,2025,Observed annual update
+Fishery catch,2026,Year-to-date plus annual completion forecast
+BTS index,2025,Observed annual update
+BTS index,2026,Observed annual update
+ATS index,2026,Observed annual update
+AVO index,2025,Observed annual update
+AVO index,2026,Observed annual update
+BTS ages,2025,Observed annual update
+BTS ages,2026,Observed annual update
+ATS ages,2026,Observed annual update
+Fishery ages,2024,Observed annual update
+Fishery ages,2025,Observed annual update
+Fishery weight-at-age,2024,Observed inputs plus forecast 2026
+Fishery weight-at-age,2025,Observed inputs plus forecast 2026
+Fishery weight-at-age,2026,Forecast schedule
+Spawning weight-at-age,2024,A-season schedule correction
+Spawning weight-at-age,2025,A-season schedule correction
+Spawning weight-at-age,2026,A-season schedule correction
+BTS weight-at-age,2025,Survey product with fills
+BTS weight-at-age,2026,Survey product with fills
+ATS weight-at-age,2025,Assumed carry of 2024 WAA
+ATS weight-at-age,2026,Carry or provisional survey product

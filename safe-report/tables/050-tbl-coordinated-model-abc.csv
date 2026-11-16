@@ -1,0 +1,10 @@
+cell_1,cell_2,cell_3,cell_4,cell_5
+Maximum ABC and OFL under matched Scenario 2 catches
+Model,2027,2028
+Maximum ABC (difference),OFL,Maximum ABC (difference),OFL
+Model 26.0,1.896 (+0.00%),2.328,1.968 (+0.00%),2.422
+Model 26.1.0,1.895 (-0.09%),2.326,1.966 (-0.09%),2.420
+Model 26.1.1,1.863 (-1.75%),2.281,1.953 (-0.74%),2.396
+26.1 decline penalty = 0,1.867 (-1.57%),2.278,1.970 (+0.09%),2.408
+26.1.2 Early-late fishery split,1.855 (-2.19%),2.269,1.958 (-0.51%),2.399
+"Million tons; differences are relative to Model 26.0 in the same year. Recruitment is fixed at each model\'s historical arithmetic mean. The 26.1.2 row is the Early-late fishery split comparator. Simulation, retrospective and MCMC analyses are excluded. Adopted specifications remain unchanged."

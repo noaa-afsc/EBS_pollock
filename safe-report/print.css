@@ -109,3 +109,11 @@ h2.safe-appendix-heading { text-align: center; font-size: 12pt; margin-top: 0; }
 #appendices img.esp2026-logo { width: 104.4pt; height: auto; margin: 18pt auto 28pt; }
 #appendices .quarto-float-fig { break-inside: avoid; }
 .csl-entry { margin: 0 0 7pt; padding-left: 18pt; text-indent: -18pt; }
+/* Native Quarto tables replace the generated gt HTML wrappers. */
+.report-table:has(#advice-model260) { break-before: page; }
+main#quarto-document-content .gt_title { text-align: center !important; }
+.assessment-data-table { border-top: 1pt solid #aaa; border-bottom: 1pt solid #aaa; }
+.assessment-data-table th, .assessment-data-table td { border-bottom: .4pt solid #ddd; }
+.table-notes { font-size: 9pt; line-height: 1.2; margin: 5pt 0 12pt; }
+.report-figure > p:has(> span[id]:only-child) { margin: 0; }
+.highlighted-cell { background: #fff2cc !important; }

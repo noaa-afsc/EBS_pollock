@@ -2,3 +2,7 @@
 /.quarto/
 /assessment_files/
 /__pycache__/
+/assets
+/EBSpollock_files
+
+**/*.quarto_ipynb

@@ -1,0 +1,53 @@
+{
+  "columns": 8,
+  "header_rows": 2,
+  "footer_rows": 0,
+  "spans": {
+    "1:1": [
+      2,
+      1
+    ],
+    "1:2": [
+      1,
+      7
+    ]
+  },
+  "classes": {
+    "1:1": "highlighted-cell",
+    "1:2": "highlighted-cell",
+    "2:1": "highlighted-cell",
+    "2:2": "highlighted-cell",
+    "2:3": "highlighted-cell",
+    "2:4": "highlighted-cell",
+    "2:5": "highlighted-cell",
+    "2:6": "highlighted-cell",
+    "2:7": "highlighted-cell",
+    "3:1": "highlighted-cell",
+    "4:1": "highlighted-cell",
+    "5:1": "highlighted-cell",
+    "6:1": "highlighted-cell",
+    "7:1": "highlighted-cell",
+    "8:1": "highlighted-cell",
+    "9:1": "highlighted-cell",
+    "10:1": "highlighted-cell",
+    "11:1": "highlighted-cell",
+    "12:1": "highlighted-cell",
+    "13:1": "highlighted-cell",
+    "14:1": "highlighted-cell",
+    "15:1": "highlighted-cell"
+  },
+  "align": {
+    "1:1": "left",
+    "1:2": "center"
+  },
+  "column_align": [
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right"
+  ]
+}

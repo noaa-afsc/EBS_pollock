@@ -1,0 +1,10 @@
+cell_1,cell_2,cell_3,cell_4,cell_5,cell_6,cell_7
+Measure,Unit,2020,2021,2022,2023,2024
+"Total catch, all harvesting sectors","1,000 t round weight","1,370.4","1,378.1","1,108.7","1,314.5","1,316.3"
+"Retained catch, all harvesting sectors","1,000 t round weight","1,358.4","1,363.9","1,094.9","1,299.2","1,298.6"
+Pollock-target vessels (all harvesting sectors),Vessels,117.0,116.0,114.0,105.0,103.0
+"Retained catch, trawl catcher vessels","1,000 t round weight",725.0,718.2,570.0,678.2,678.4
+"Ex-vessel value, trawl catcher vessels",US\$ million (nominal),233.7,242.8,242.0,244.0,213.4
+"Ex-vessel unit value, trawl catcher vessels",US\$/lb (nominal),0.1,0.2,0.2,0.2,0.1
+Trawl catcher-vessel share of retained catch,\%,53.4%,52.7%,52.1%,52.2%,52.2%
+Pollock-target catcher vessels,Vessels,88.0,84.0,84.0,77.0,76.0

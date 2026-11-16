@@ -1,6 +1,6 @@
 # Assessment website workflow
 
-Report content edits start in `safe-report/assessment.qmd`. The published
+Report content edits start in `safe-report/EBSpollock.qmd`. The published
 comparison baseline is `2026/assessment.html`, `2026/assessment.pdf`, and
 `2026/assets/`. The PDF uses a dedicated print template; it should closely resemble the
 published report, while pagination may differ. Follow the source commands below.
@@ -19,13 +19,15 @@ checks accurately; manual accessibility review remains pending.
 
 ## QMD source workflow
 
-`safe-report/assessment.qmd` supplies report content to both formats. Its PDF
+`safe-report/EBSpollock.qmd` supplies report content to both formats. Its PDF
 renderer generates all content from the QMD and versioned assets. Keep earlier
 PDFs exclusively as comparison references. Run `bash safe-report/render.sh`
-and `safe-report/_build/pdf-env/bin/python safe-report/verify_release.py`.
+and `safe-report/_build/python-env/bin/python safe-report/verify_release.py`.
 The user relaxed exact PDF reproduction on November 16: match the report's
 print style closely, with separate HTML/PDF layouts and flexible pagination.
-For this migration, HTML byte identity remains verified using
-`verify_release.py --require-html-match`. Future content edits may change HTML.
+HTML byte identity was also relaxed on November 16. Keep EBSpollock.qmd as
+readable Markdown; store table values in CSV and formatting in Lua/CSS helpers.
+Run verify_migration.py for content-preserving changes and verify_release.py
+for PDF content, images, links and source freshness. Inspect both formats.
 Use `bash scripts/update_assessment_site.sh --assessment` to build, validate,
 promote and synchronize both formats. General site updates omit that flag.

@@ -1,0 +1,11 @@
+cell_1,cell_2,cell_3,cell_4,cell_5
+2026 estimates after the catch revision
+Model,Biomass (million t),Spawning biomass (million t),Age-1 fish (billion),Maximum F (per year)
+Model 23.2,12.267,3.031,37.532,0.304
+Model 23.0,11.227,2.808,31.948,0.341
+Model 26.0,12.162,3.057,36.347,0.299
+Model 26.1.0,12.153,3.053,36.334,0.300
+Model 26.1.1,12.198,3.064,36.826,0.316
+Model 26.1 decline penalty 0,12.351,3.110,37.608,0.338
+Model 26.1.2 Early-late fishery split,12.235,3.065,36.518,0.315
+ADMB biomass uses the same population weights as Model 26.0. Model 26.1.2 is a deterministic native joint mode conditional on fixed Foreign and Modern SDs; its sampling-based marginal estimator was excluded by author instruction. This table presents point estimates; scientific model adoption remains separate.

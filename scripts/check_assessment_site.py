@@ -14,14 +14,18 @@ class Links(HTMLParser):
         self.tables+=tag=='table'; self.images+=tag=='img'
 class Table2Links(HTMLParser):
     def __init__(self):
-        super().__init__(); self.depth=0; self.urls=[]
+        super().__init__(); self.depth=0; self.active=False; self.urls=[]
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
-        if tag=='div' and a.get('id')=='tbl-management-measures':self.depth=1
+        if tag=='div' and (a.get('id')=='tbl-management-measures' or 'report-table' in a.get('class','').split()):
+            self.depth=1; self.active=a.get('id')=='tbl-management-measures'
         elif tag=='div' and self.depth:self.depth+=1
-        if self.depth and tag=='a' and 'href' in a:self.urls.append(a['href'])
+        if self.depth and a.get('id')=='tbl-management-measures':self.active=True
+        if self.depth and self.active and tag=='a' and 'href' in a:self.urls.append(a['href'])
     def handle_endtag(self,tag):
-        if tag=='div' and self.depth:self.depth-=1
+        if tag=='div' and self.depth:
+            self.depth-=1
+            if not self.depth:self.active=False
 for name in ['index.html','development.html','2026/assessment.html','2026/weight-at-age-bts-cv-sensitivity.html','2026/projection-empirical-weight-comparison.html','2026/projection-re-weight-comparison.html']:
     p=ROOT/'docs'/name; s=p.read_text(); parser=Links();parser.feed(s)
     assert '/Users/' not in s and 'file:///' not in s,name

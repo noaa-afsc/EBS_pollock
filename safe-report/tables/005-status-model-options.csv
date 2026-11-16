@@ -1,0 +1,15 @@
+cell_1,cell_2,cell_3,cell_4
+Comparison of Model 26.0 and the sensitivity analysis
+Quantity,Year / basis,Model 26.0,26.1.2 Early-late fishery split
+Estimated female spawning biomass,2026,"3,057,000","3,065,000"
+BMSY proxy: B35%,Reference point,"2,155,000","2,177,000"
+Lower status boundary: half B35%,Reference point,"1,078,000","1,088,000"
+Alternative 6 female spawning biomass,2036,"2,263,000","2,288,000"
+Alternative 7 female spawning biomass,2028,"3,123,000","3,179,000"
+Alternative 7 female spawning biomass,2038,"2,263,000","2,288,000"
+Maximum ABC: expected-catch scenario,2027,"1,896,000","1,855,000"
+OFL: expected-catch scenario,2027,"2,328,000","2,269,000"
+Maximum ABC: expected-catch scenario,2028,"1,968,000","1,958,000"
+OFL: expected-catch scenario,2028,"2,422,000","2,399,000"
+"Biomasses are female spawning biomass at April 1, in tons. B35% is the Tier 3 BMSY proxy. The intermediate MSST tests use Alternative 6 in 2036 and Alternative 7 in 2038; they are unnecessary here because current and two-year Alternative 7 biomass exceed B35%."
+"Future ABC/OFL rows use each model's expected-catch scenario, with 1,375,000 t catch in each of 2027 and 2028. They are model-based maxima, separate from adopted specifications. Model 26.0 (Rceattle) is the adopted assessment model and main proposal for Tier 3 calculations and specifications; Model 26.1.2 is the sensitivity analysis. Values are rounded to the nearest 1,000 t; source exports retain their original precision. Projections condition on the revised fitted population, fixed biology and constant historical-mean recruitment."

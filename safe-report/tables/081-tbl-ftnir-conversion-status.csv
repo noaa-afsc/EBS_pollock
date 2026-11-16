@@ -1,0 +1,6 @@
+cell_1,cell_2,cell_3
+Stream,Conversion key,Current action
+Fishery 2024,Distinct 2024 key: 693 pairs,Partial diagnostic; source age 13 unallocated
+Fishery 2025,2025 fishery tester-age key: 668 pairs,Converted with two approved probability rules
+BTS 2025,2025 BTS tester-age key: 390 pairs,Converted with joint model uncertainty
+BTS 2026,2026 BTS tester-age key: 329 pairs,Converted with joint model uncertainty

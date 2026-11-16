@@ -1,0 +1,9 @@
+cell_1,cell_2
+Scenario,Rule
+1,Fishing at maximum permissible ABC each year.
+2,"Expected catch of 1,375 kt in 2027 and 2028, followed by maximum permissible ABC; author F fraction 1."
+3,"Mean annual maximum fishery F over 2021--2025, held constant."
+4,"One-half the maximum permissible ABC fishing mortality, without fixed-catch conditioning."
+5,No fishing.
+6,Fishing at the OFL threshold each year.
+7,"Maximum ABC fishing in 2027 and 2028, followed by OFL fishing from 2029."

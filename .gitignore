@@ -133,3 +133,7 @@ auto/
 runs/ss/hake
 
 **/*.quarto_ipynb
+
+# Nested report build resources copied by the website renderer.
+/docs/safe-report/
+/site_libs/

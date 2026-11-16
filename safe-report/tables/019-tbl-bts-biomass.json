@@ -1,0 +1,25 @@
+{
+  "columns": 4,
+  "header_rows": 1,
+  "footer_rows": 1,
+  "spans": {
+    "46:1": [
+      1,
+      4
+    ]
+  },
+  "classes": {
+    "45:1": "highlighted-cell",
+    "45:2": "highlighted-cell",
+    "45:3": "highlighted-cell",
+    "45:4": "highlighted-cell",
+    "46:1": "gt_sourcenote"
+  },
+  "align": {},
+  "column_align": [
+    "right",
+    "right",
+    "right",
+    "right"
+  ]
+}

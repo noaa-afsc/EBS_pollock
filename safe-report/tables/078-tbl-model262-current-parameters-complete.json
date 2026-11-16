@@ -1,0 +1,34 @@
+{
+  "columns": 7,
+  "header_rows": 2,
+  "footer_rows": 2,
+  "spans": {
+    "1:1": [
+      1,
+      7
+    ],
+    "1269:1": [
+      1,
+      7
+    ],
+    "1270:1": [
+      1,
+      7
+    ]
+  },
+  "classes": {
+    "1:1": "gt_title",
+    "1269:1": "gt_sourcenote",
+    "1270:1": "gt_sourcenote"
+  },
+  "align": {},
+  "column_align": [
+    "left",
+    "left",
+    "left",
+    "right",
+    "right",
+    "right",
+    "right"
+  ]
+}

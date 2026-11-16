@@ -27,10 +27,10 @@ The primary author(s) responsible for maintaining this repository are:
 
 ## 2026 SAFE report source
 
-[Edit assessment.qmd](safe-report/assessment.qmd) and follow the
+[Edit EBSpollock.qmd](safe-report/EBSpollock.qmd) and follow the
 [build and publication instructions](safe-report/README.md).
-The HTML reproduces the November 10 release byte for byte. The PDF uses a
-separate print template with the same QMD content and versioned figure/font
-assets, without reading an existing PDF. It closely follows the published
-report while allowing pagination to differ. Publication checks content, image
-pixels and links.
+The source contains readable Markdown prose, captions, equations and links;
+table values are in CSV files. Quarto builds HTML, and a dedicated print view
+builds the PDF from the same content and versioned assets. Publication checks
+content, image pixels, links and source freshness. Pagination may differ from
+the earlier published PDF.

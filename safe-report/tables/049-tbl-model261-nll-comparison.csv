@@ -1,0 +1,8 @@
+cell_1,cell_2,cell_3
+model,objective,method
+26_0,751.989578,Established deterministic penalized fit
+26_1_0,746.780971,Established deterministic penalized fit
+26_1_1,726.234542,Established deterministic penalized fit
+26_1_decline_zero,706.054843,Established deterministic penalized fit
+26_1_2_conditional,731.019469,Early-late fishery split; Foreign 0.1235; Modern fixed at prior marginal estimate
+Objectives have model-specific penalties and normalizations. The Early-late fishery split comparison supplies its native joint objective. These values support run verification; direct AIC or likelihood-ratio ranking is excluded.

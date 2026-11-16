@@ -1,0 +1,12 @@
+cell_1,cell_2
+Check,Result
+Fishery independent recalculation,PASS
+Pre-2025 fishery decimal preservation,Pass
+Survey source SE reconstruction: largest relative difference,1.22e-15
+Ratio derivative check: largest scaled difference,1.68e-11
+Analytic versus numerical converted SE: largest relative difference,3.15e-11
+Survey random-effect gradient: maximum,4.36e-12
+Saved survey fixed Hessian positive definite,Yes
+2024 specimen/age-field identity and partial arithmetic,Pass: 22 checks; positive source-age-13 support unresolved
+Input adapter,Selected inputs used in completed working fits; historical partial-conversion support limits retained
+wtAgeRE optimization,Screened-key standalone RE-WAA fit complete; earlier partial-conversion branch remains a separate diagnostic

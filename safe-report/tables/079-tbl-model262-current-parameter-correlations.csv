@@ -1,0 +1,13 @@
+cell_1,cell_2,cell_3
+Strong parameter correlations
+Parameter 1,Parameter 2,Correlation
+P0001: Recruitment level: EBS Pollock; R0,P0039: Recruitment deviation: EBS Pollock; 2001,−0.96375
+P0001: Recruitment level: EBS Pollock; R0,P0051: Recruitment deviation: EBS Pollock; 2013,−0.96370
+P0001: Recruitment level: EBS Pollock; R0,P0047: Recruitment deviation: EBS Pollock; 2009,−0.96198
+P0001: Recruitment level: EBS Pollock; R0,P0052: Recruitment deviation: EBS Pollock; 2014,−0.96036
+P0001: Recruitment level: EBS Pollock; R0,P0028: Recruitment deviation: EBS Pollock; 1990,−0.95676
+P1133: Logistic midpoint: Ascending; BTS; Sex combined,P1207: BTS midpoint deviation: Ascending; BTS; Sex combined; 2011,−0.95670
+P1133: Logistic midpoint: Ascending; BTS; Sex combined,P1213: BTS midpoint deviation: Ascending; BTS; Sex combined; 2017,−0.95529
+P0001: Recruitment level: EBS Pollock; R0,P0040: Recruitment deviation: EBS Pollock; 2002,−0.95229
+P0001: Recruitment level: EBS Pollock; R0,P0035: Recruitment deviation: EBS Pollock; 1997,−0.95002
+P0001: Recruitment level: EBS Pollock; R0,P0045: Recruitment deviation: EBS Pollock; 2007,−0.94802

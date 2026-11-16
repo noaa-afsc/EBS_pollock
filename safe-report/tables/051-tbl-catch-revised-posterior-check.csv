@@ -1,0 +1,12 @@
+cell_1,cell_2,cell_3,cell_4,cell_5,cell_6
+Posterior stock and selectivity summaries
+Quantity and units,Mean,Posterior SD,Median,2.5%,97.5%
+SSB 2026 (million t),2.9645,0.2928,2.9465,2.4497,3.5844
+Biomass 2026 (million t),11.5860,1.4111,11.4616,9.2151,14.7192
+Recruitment 2026 (billion fish),36.4680,21.2479,31.1518,12.2880,91.0616
+Ages1-3 2026 (billion fish),56.0356,22.4635,50.9012,28.5376,113.5991
+BTS selectivity age 1,0.0702,0.0354,0.0635,0.0207,0.1578
+BTS selectivity age 2,0.0330,0.0120,0.0314,0.0152,0.0605
+BTS selectivity age 5,0.3631,0.0795,0.3541,0.2332,0.5394
+BTS selectivity age 10,0.9772,0.0215,0.9839,0.9172,0.9985
+BTS selectivity age 15,0.9995,0.0009,0.9999,0.9969,1.0000

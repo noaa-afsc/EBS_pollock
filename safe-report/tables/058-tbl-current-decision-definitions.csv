@@ -1,0 +1,12 @@
+cell_1,cell_2,cell_3
+Probability event,Definition,Purpose
+P(*F*~2027~ \> *F*~35%~),2027 fishing mortality exceeds the rate giving 35% of unfished spawning potential per recruit.,Compare the catch scenario with the Tier 3 reference rate.
+P(*B*~2028~ \< mean B),2028 female spawning biomass at spawning is below mean estimated SSB over 1978--2025.,Compare the following year\'s stock with its historical mean.
+P(*B*~2031~ \< mean B),2031 female spawning biomass at spawning is below mean estimated SSB over 1978--2025.,Compare medium-term stock condition with its historical mean.
+P(*B*~2031~ \< *B*~2027~),2031 female spawning biomass at spawning is below the first projected-year value under the same scenario.,Describe medium-term change relative to 2027.
+P(*B*~2029~ \< *B*~20%~),2029 female spawning biomass at spawning is below 20% of the model-specific unfished reference biomass.,Describe the historical low-biomass benchmark used in this decision table; Model 26.0 uses mean-recruitment *B*~100~ and ADMB uses stock--recruit Bzero.
+P(*Y*~2031~ \> *Y*~hist~),The 2031 abundance ratio of ages 1--5 to ages 6--15+ exceeds the corresponding ratio pooled over 1964--2026.,"Describe relative abundance of young fish. The historical threshold pools abundance across years, rather than averaging annual proportions."
+P(*D*~2028~ \< *D*~1994~),The effective number of mature-biomass age classes in 2028 is below its estimated 1994 value.,Describe near-term age diversity relative to a historical low-diversity year.
+P(*D*~2031~ \< *D*~1994~),The effective number of mature-biomass age classes in 2031 is below its estimated 1994 value.,Describe medium-term age diversity relative to 1994.
+P(*E*~2027~ \> *E*~2026~),Mean age-specific fishing mortality in 2027 exceeds mean age-specific fishing mortality in 2026.,"Provide an F-based relative-effort proxy. Observed vessel effort, catchability changes and costs are outside this indicator."
+"B denotes female spawning biomass at spawning. Y denotes the young-to-old abundance ratio. D is exp(−sum(p × log(p))), with p the beginning-year mature-biomass age shares. E is the mean-age F proxy. Model-specific biological schedules and reference points are retained."

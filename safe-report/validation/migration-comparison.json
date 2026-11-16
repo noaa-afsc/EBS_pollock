@@ -1,12 +1,12 @@
 {
   "reference_version": "2026-11-10-editorial-review-note-sync",
   "layout_requirement": "Close visual match; pagination may differ",
-  "source_sha256": "d9784980f2aabd48456227d6b472e4ee57c246662e0f41af93e00698b538526b",
-  "candidate_sha256": "8d512ea7fde9c1fcece5776968a078792db07651fa75c96e1db451316d15c373",
-  "html_byte_identical": true,
+  "source_sha256": "0796e706337f429590c700139503a1035b77d846af22ed861b28f6fefe830962",
+  "candidate_sha256": "f236326fc43e9835c9d7183bfe0e88f72b455abb965b3b6bcf31fa6cc1cd9744",
+  "html_byte_identical": false,
   "published_pages": 280,
-  "generated_pages": 261,
-  "text_elements_checked": 23542,
+  "generated_pages": 258,
+  "text_elements_checked": 46177,
   "text_elements_requiring_visual_review": [],
   "math_review": "Native MathML with embedded Latin Modern Math; visual review recorded separately",
   "source_images": 89,
@@ -15,7 +15,7 @@
   "transparent_images_verified_on_white": [
     "assets/pollock-esp-hex-sticker.png"
   ],
-  "links": 847,
+  "links": 867,
   "bookmarks": 188,
   "off_page_text": [],
   "bookmark_layout_identical": false,

@@ -1,0 +1,6 @@
+cell_1,cell_2,cell_3,cell_4
+Specification,Pathway,Estimate,95 percent interval
+Cold pool,Cold pool,0.041,-0.170 to 0.251
+Age-0 late-summer SST,Age-0 SST,-0.222,-0.426 to -0.017
+Cold pool + age-0 late-summer SST,Cold pool,-0.069,-0.292 to 0.153
+Cold pool + age-0 late-summer SST,Age-0 SST,-0.254,-0.484 to -0.024

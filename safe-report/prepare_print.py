@@ -18,7 +18,7 @@ def add_class(element, name):
 def prepare(source):
     tree = html.parse(str(source), parser=html.HTMLParser(huge_tree=True))
     main = deepcopy(tree.xpath("//main")[0])
-    for element in main.xpath(".//script | .//nav[@aria-label='Assessment links'] | .//button"):
+    for element in main.xpath(".//script | .//nav[@aria-label='Assessment links'] | .//div[contains(@class,'assessment-links')] | .//button"):
         element.getparent().remove(element)
     for anchor in main.xpath(".//a[@href]"):
         href = anchor.get("href")
