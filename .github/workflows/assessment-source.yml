@@ -13,7 +13,7 @@ permissions:
   contents: read
 jobs:
   source:
-    runs-on: macos-14
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
@@ -30,7 +30,7 @@ jobs:
       - name: Install PDF renderer
         run: |
           python -m pip install -r safe-report/pdf-requirements.txt
-          python -m playwright install chromium
+          python -m playwright install --with-deps chromium
       - name: Build directly from source
         env:
           SAFE_PYTHON: python
