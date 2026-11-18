@@ -31,7 +31,8 @@ annotation, .screen-reader-only, .visually-hidden, .anchorjs-link, button,
 .callout-icon-container, details, .code-copy-button { display: none !important; }
 pre { white-space: pre-wrap; font-size: 8pt; }
 .pdf-cover { break-after: page; }
-.pdf-cover h1 { font-size: 20pt; line-height: 1.12; text-align: center; margin: 0 14pt 43pt; }
+.pdf-cover h1 { font-size: 20pt; line-height: 1.12; text-align: center; margin: 0 14pt 8pt; }
+.pdf-cover .assessment-timestamp { text-align: center; font-size: 10pt; margin: 0 12pt 24pt; }
 .pdf-authors { text-align: center; font-size: 10.5pt; line-height: 1.25; margin: 0 12pt 12pt; }
 .pdf-affiliation { text-align: center; margin: 0 0 28pt; }
 .callout { margin: 16pt 0; border: 0; background: none; }

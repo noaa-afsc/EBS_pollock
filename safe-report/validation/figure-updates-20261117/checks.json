@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-17",
+  "track": "release editorial figure update",
+  "model_changes": false,
+  "track_gate": "Pass",
+  "provenance_gate": "Pass: supplied images and existing spawning-exploitation-summary.csv; label plot regenerated without fitting",
+  "scientific_gate": "Not Applicable: model compilation, gradients and Hessian unchanged; no estimation performed",
+  "consistency_gate": "Pass: 74 sequential main figures; linked figure labels renumbered; heatmap caption uses tonnes",
+  "render_gate": "Pass: full HTML and PDF render, verify_release.py, update_assessment_site.sh --assessment; 89 tables, 90 images, local links and release hashes checked",
+  "visual_review": "Pass: inserted fishery figure, replacement heatmap and exploitation legend inspected on PDF pages 109, 116 and 136; HTML figure screenshots saved",
+  "accessibility_gate": "Partial: all 90 HTML images have alt text; new cohort information appears in text and Table 5 supplies values. Full manual accessibility and screen-reader checks Not Tested",
+  "publication": "Local release and docs synchronized; no git commit or push"
+}

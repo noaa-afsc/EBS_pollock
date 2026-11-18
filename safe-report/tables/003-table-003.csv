@@ -1,6 +1,6 @@
 cell_1,cell_2,cell_3
 Source,Type,Years
-Fishery,Catch biomass,1964--2025; 2026 year to date and projected annual input
+Fishery,Catch biomass,1964-2026
 Fishery,Catch age composition,1964--2025
 Fishery,Historical trawl CPUE,1965--1976
 Bottom-trawl survey,Biomass index and age-specific proportions,"1982--2019, 2021--2026"
