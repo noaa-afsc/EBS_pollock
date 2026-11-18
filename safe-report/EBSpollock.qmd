@@ -922,9 +922,8 @@ fitted annual effects.
 
 ## 6.1 Model 26.0 assessment
 
-Model 26.0 provides the main estimates of stock size and the basis for the Tier 3 catch limits
-presented here. Results from the other model configurations, including Model 26.1.2, show how
-alternative assumptions affect the assessment. Additional analyses describe uncertainty in Model
+This section provides results from Model 26.0, which provides the main estimates of stock size and the basis for the Tier 3 catch limits
+presented here. We include analyses describing uncertainty in Model
 26.0 estimates and how those estimates change when recent years of data are removed. Comparisons
 with past assessments use the data and catch advice reported in each assessment year.
 
@@ -938,46 +937,31 @@ The local asymptotic 95% ranges in the tables use the revised fit's native covar
 uncertainty figure is shown in [Figure 31](#fig-model262-current-full-uncertainty). Annual estimates
 and ranges appear in [Table 32](#tbl-model262-current-annual-estimates).
 
-Regularized-posterior intervals use all 5,000 existing draws, using the final reported summaries
-([Table 33](#tbl-model260-regularized-posterior)). The 2026 female spawning-biomass median is
+Results from MCMC runs show that the posterior median 2026 total biomass, SSB and age-1 recruitment values were lower than for the maximum likelihoood point estimates  
+([Table 33](#tbl-model260-regularized-posterior)). The 2026 female spawning-biomass posterior median is
 **2.946 million t**, with a central 95% credible interval of **2.450--3.584 million t**.
-Total-biomass median is **11.462 million t**, with interval **9.215--14.719 million t**. Age-1
-recruitment median is **31.1518 billion fish**, with interval **12.2880--91.0616 billion fish**.
-These are the final reported MCMC summaries; production point estimates and asymptotic intervals
-retain their separate roles.
+Total-biomass posterior median is **11.462 million t**, with a 95% credible interval **9.215--14.719 million t**. The age-1
+recruitment posterior median is **31.1518 billion fish**, with a 95% credible interval of **12.2880--91.0616 billion fish**.
+While MCMC-based results are useful for comparison and assessing uncertainty, the management quantities in this SAFE are calculated based on the maximum likelihood point estimates.
 
-Numbers-at-age track cohorts through the population
-([Figure 32](#fig-model262-current-numbers-uncertainty)). This shows periods of how recruitment and
-changes in fishing mortality by age affect abundance relative to their mean abundance estimates (and
-uncertainty) propagates through time. Actual point estimates are reported in
-[Table 34](#tbl-model262-current-numbers-at-age), while the 2026 abundance-at-age estimates (and
-asymptotic uncertainties) are shown in [Table 35](#tbl-model262-current-terminal-numbers).
+Visualizations of numbers-at-age over time track cohorts through the population and show periods of how recruitment and changes in fishing mortality by age affect abundance (and uncertainty) in a given year relative to the mean abundance over time, and how these impacts propagate through time. 
+([Figure 32](#fig-model262-current-numbers-uncertainty)). Yearly point estimates of numbers-at-age are reported in
+[Table 34](#tbl-model262-current-numbers-at-age). The 2026 abundance-at-age estimates and corresponding 
+asymptotic uncertainty metrics are shown in [Table 35](#tbl-model262-current-terminal-numbers).
 
 #### Comparison with the 2024 assessment
 
-The 2018 year class remains a large recruitment point estimate
-([Figure 33](#fig-recruitment-2024-current)). Its age-1 abundance in 2019 is **87.8 billion fish**
-in the Model 26.0 base model, compared with **81.1 billion** in the accepted 2024 assessment, a
-revision of **8.3%**. The revision reflects both updated observations and changes in model
-structure.
+As for the 2024 assessment, the 2018 year class estimate is the largest in the time-series
+([Figure 33](#fig-recruitment-2024-current)). Estimated age-1 abundance in 2019 is **87.8 billion fish**
+in Model 26.0, compared with **81.1 billion** in the accepted 2024 assessment, a
+revision of **8.3%**. 
 
-The estimate for the same 2024 female spawning biomass changes from **3.389 million t** in the saved
-2024 assessment to **3.526 million t** in Model 26.0, a revision of **4.0%**. Within the trajectory,
-spawning biomass changes from that 2024 estimate to **3.057 million t** in 2026 (**-13.3%**). Total
-biomass changes from **10.767 million t** to **12.162 million t** over the same years (**13.0%**).
-These within-trajectory changes differ from shared-year assessment revisions.
+The estimated 2024 female spawning biomass changed from **3.389 million t** in the
+2024 assessment to **3.526 million t** in Model 26.0, an increase of **4.0%**. The 2026 estimated spawning biomass is **3.057 million t** (a decrease of **-13.3%** from the Model 26.0 estimate of 2024 spawning biomass). The estimated total
+biomass time series from Model 26.0 shows an increase of (**13.0%**), from **10.767 million t** in 2024 to **12.162 million t** in 2026. Recruitment estimates for Model 26.1.2 are similar to those for Model 26.0 ([Figure 33](#fig-recruitment-2024-current)).
 
-The recruitment comparison uses calendar age-1 year and billion-fish units
-([Figure 33](#fig-recruitment-2024-current)). Model 26.1.2 results are included to examine how
-recruitment estimates for the early period change relative to the 2024 assessment. Historical values
-are point estimates. Current error bars use each model's local asymptotic covariance: the base-model
-covariance for Model 26.0 and the marginal information for Model 26.1.2. Recent years without a
-historical estimate are identified. These intervals describe uncertainty around the fitted
-estimates.
-
-The two assessments project different spawning-biomass paths through 2028 ([Figure
-34](#fig-projection-vintages)). The comparison retains each assessment's Scenario 2 catch
-assumptions; the current uncertainty band propagates local assessment-parameter uncertainty.
+The spawning biomass trajectory from Model 26.0 is slightly larger than for the accepted 2024 assessment throughout the time series. In addition, projected spawning biomass based on Model 26.0  shows expected increases in 2027 and 2028, while the 2024 assessment projected declining spawning biomass from 2025-2028  ([Figure
+34](#fig-projection-vintages)).
 
 #### Recruitment per unit of spawning biomass
 
