@@ -821,52 +821,38 @@ weights and observed-data residual patterns in [Section 6.1.6](#sec-francis-com
 
 ## 5.1 Main and comparison models
 
-Model 26.0 (Rceattle) is the adopted model for Tier 3 calculations and specifications. Models 23.0
+Model 26.0 (Rceattle) is the base case model used for Tier 3 calculations and specifications this year. Models 23.0
 and 23.2 provide comparisons with the previous assessment and the transition in model structure.
-Other sensitivities separate the early Foreign fishery (1964--1990) from the later domestic fishery
+Other sensitivities separate the early foreign fishery (1964--1990) from the later domestic fishery
 (1991--2026) and vary the penalty on declining selectivity. Model 26.1.2 is the Early-late fishery
 split sensitivity. The fits and retrospective comparisons hold the process standard deviations fixed
 at the values estimated by its marginal model. Model 26.0 uncertainty and retrospective diagnostics
-are described below.
+are described below. Model equations are given in [the model-equations
+appendix](#sec-model-equations). The projection methodology is described in ([Section 7](#sec-projections)).
 
 ### 5.1.1 Model 23.0 and impact of new data {#sec-model23-data-impacts}
 
 As in past years, we incrementally introduced new data relative to the previous assessment while
 retaining the Model 23.0 formulation. We began with total catch through 2026, incorporating the
-revised catch estimates for 1991--2026 (2026: 1,312,504.58 t) and extending the model endpoint and
-parameter and projection horizons to accommodate the added years. At this first step, fishery age
-compositions and survey observations retained their historical coverage. We then updated
+revised catch estimates for 1991--2026 (2026: 1,312,504.58 t). We then updated
 weight-at-age and A-season spawning weights, followed by fishery catch-at-age data and their
 information weights.
 
 The survey updates followed in sequence: the bottom-trawl survey (BTS), the acoustic-trawl survey
-(ATS), and the acoustic vessels of opportunity (AVO) index. BTS retained the 2020 survey gap and
-annual information weights, including the real-valued 2026 input. ATS incorporated the selected
-age-1 rule and provisional 2026 age information, and AVO incorporated its annual observations and
+(ATS), and the acoustic vessels of opportunity (AVO) index. ATS incorporated the selected
+age-1 rule and provisional 2026 age information, and the AVO index included annual observations and
 assessment-error recalibration. Historical revisions and uncertainty recalibration were included
 with each survey's update ([Section 4.2.2](#sec-ats); [Section 4.2.3](#sec-avo)).
 
-Each step includes all preceding updates, so its estimated effect depends on the order in which the
-data were added. The resulting 2026 estimates are summarized in
-[Table 29](#tbl-model23-data-impacts), and the cumulative annual point estimates are shown in
+Each step included all preceding updates, with estimated effects of each data addition depending on the order in which the
+data sources were added. The resulting 2026 estimates are summarized in
+[Table 29](#tbl-model23-data-impacts), and the trends over time in total and spawning biomass, age-1 recruitment, and relative fishing mortality are shown in
 [Figure 24](#fig-model23-data-impacts). These comparisons use matched definitions of
 population-weight biomass, female spawning biomass, age-1 recruitment and maximum realized fishing
-mortality across ages. Model equations are given in [the model-equations
-appendix](#sec-model-equations).
+mortality across ages. 
 
-The saved 2027 spawning-biomass and young-abundance projections from the cumulative input-update
-analyses are compared in [Figure 25](#fig-model23-2027-increments). These diagnostic projections
-retain the earlier 2026 catch estimate of 1,310,000 t; the 2026 estimates above use the revised
-catch inputs. The display starts with Catch + 2026 endpoint, followed by + Fishery age data and the
-subsequent survey updates. The intervening weight-at-age and A-season spawning-weight updates remain
-incorporated in the fishery-age and later fits. Abundance at ages 1--3 is measured at the start of
-2027, before removals; spawning biomass includes mortality to spawning time. Projection settings are
-detailed in the technical supplement. Management projections retain their separate catch,
-selectivity, weight and recruitment assumptions ([Section 7](#sec-projections)).
-
-The input sequence and configuration comparison answer different questions. The former retains the
-Model 23.0 formulation while adding observations and updating schedules. The latter compares
-formulations on matched observations and biology ([Table 30](#tbl-updated-configuration-effects)).
+The 2027 projected spawning biomass and abundance of age 1-3 fish from each cumulative data source addition are compared in [Figure 25](#fig-model23-2027-increments). These diagnostic projections use the 2026 catch estimate of 1,310,000 t from the 2024 stock assessment, while the numbered models in the document use updated catch inputs. Abundance at ages 1--3 is measured at the start of
+2027, before removals; spawning biomass includes mortality to spawning time. 
 
 Approximate distributions compare the change in spawning biomass from 2026 to 2027
 ([Figure 26](#fig-model23-ssb-change-density)) and the historical change in total abundance at ages
@@ -876,21 +862,19 @@ are documented in the technical supplement. Each distribution retains its matchi
 covariance between years and, for abundance, among ages. The normal approximations are conditional
 on the model and biological and projection assumptions.
 
-Among the additions in the saved 2027 projection comparison, ATS produced the largest increase in
+Among the additions in the 2027 projection comparison, ATS produced the largest increase in
 female spawning biomass: from 2.685 to 2.975 million t, an increase of about 290,000 t (10.8%)
 relative to the preceding BTS step. AVO increased projected spawning biomass a further 61,000 t
 (2.0%), to 3.036 million t. The effects on estimated 2026 spawning biomass differed: fishery age
 data produced the largest increase, about 213,000 t (8.4%); ATS reduced it by about 73,000 t (2.6%),
-and AVO increased it by about 47,000 t (1.7%). These are successive changes within the specified
-sequence, with each survey contrast including its historical revisions and error calibration.
+and AVO increased it by about 47,000 t (1.7%). 
+
+  
 
 ### 5.1.2 Model 23.2 fitted to the 2026 assessment data {#sec-model232-updated}
 
 Model 23.2 is a structural bridge between the ADMB continuity model and the Rceattle configuration.
-Its annual spawning-biomass and recruitment trajectories retain their documented scope. The
-established zero-variance management quantities are excluded from management comparisons. Current
-configuration effects use verified saved population outputs and their stated units. The comparison
-of Models 23.0 and 23.2 includes matching local asymptotic uncertainty ranges
+The comparison of Models 23.0 and 23.2 includes matching local asymptotic uncertainty ranges
 ([Figure 28](#fig-model230-vs232)).
 
 ### 5.1.3 Model 26.0 fitted to the 2026 assessment data {#sec-model262-updated}
@@ -904,15 +888,17 @@ compared with Model 23.2 in [Figure 29](#fig-model232-vs262).
 
 ### 5.1.4 Model 26.1: Foreign and Modern domestic fisheries {#sec-model261-configuration}
 
-The split-fishery alternatives distinguish Foreign fishing in 1964--1990 from Modern domestic
-fishing in 1991--2026. Model 26.1.0 supplies the fitted split-fishery comparison; Model 26.1.1
-reduces the declining-selectivity penalty, and the zero-penalty case removes it. Model 26.1.2
-extends that formulation by estimating the Modern annual selectivity-process SD while integrating
-over annual selectivity effects. The Foreign process SD remains fixed. Local uncertainty uses the
+The split-fishery alternatives distinguish foreign fishing in 1964--1990 from modern domestic
+fishing in 1991--2026. Model 26.1.0 models the fitted split-fishery comparison; Model 26.1.1
+reduces the declining-selectivity penalty, and the Model 26.1.1 zero-penalty case removes it. Model 26.1.2
+extends that formulation by estimating the modern annual selectivity process standard deviation while integrating
+over annual selectivity effects. The foreign process standard deviation remains fixed. Local uncertainty uses the
 verified marginal information for this alternative; its observation diagnostics condition on the
 fitted annual effects.
 
 # 6 Results {#sec-results}
+
+A comparison of estimated 2026 biomass, spawning biomass, age--1 recruitment, and maximum F across the 2026 model configurations are shown in   [Table 30](#tbl-updated-configuration-effects).  
 
 ## 6.1 Model 26.0 assessment
 
