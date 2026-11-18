@@ -823,9 +823,8 @@ weights and observed-data residual patterns in [Section 6.1.6](#sec-francis-com
 
 Model 26.0 (Rceattle) is the base case model used for Tier 3 calculations and specifications this year. Models 23.0
 and 23.2 provide comparisons with the previous assessment and the transition in model structure.
-Other sensitivities separate the early foreign fishery (1964--1990) from the later domestic fishery
-(1991--2026) and vary the penalty on declining selectivity. Model 26.1.2 is the Early-late fishery
-split sensitivity. The fits and retrospective comparisons hold the process standard deviations fixed
+Model 26.1.2 is a sensitivity analysis that separates the early foreign fishery (1964--1990) from the later domestic fishery
+(1991--2026) and varied the penalty on declining selectivity. The fits and retrospective comparisons hold the process standard deviations fixed
 at the values estimated by its marginal model. Model 26.0 uncertainty and retrospective diagnostics
 are described below. Model equations are given in [the model-equations
 appendix](#sec-model-equations). The projection methodology is described in ([Section 7](#sec-projections)).
@@ -851,30 +850,27 @@ data sources were added. The resulting 2026 estimates are summarized in
 population-weight biomass, female spawning biomass, age-1 recruitment and maximum realized fishing
 mortality across ages. 
 
-The 2027 projected spawning biomass and abundance of age 1-3 fish from each cumulative data source addition are compared in [Figure 25](#fig-model23-2027-increments). These diagnostic projections use the 2026 catch estimate of 1,310,000 t from the 2024 stock assessment, while the numbered models in the document use updated catch inputs. Abundance at ages 1--3 is measured at the start of
-2027, before removals; spawning biomass includes mortality to spawning time. 
+The 2027 projected spawning biomass and abundance of age 1-3 fish from each cumulative data source addition are compared in [Figure 25](#fig-model23-2027-increments). These diagnostic projections use the 2026 catch estimate of 1,310,000 t from the 2024 stock assessment, while the numbered models in the document use updated catch inputs. Abundance at ages 1--3 is measured at the start of 2027, before removals; spawning biomass includes mortality to spawning time. 
 
 Approximate distributions compare the change in spawning biomass from 2026 to 2027
 ([Figure 26](#fig-model23-ssb-change-density)) and the historical change in total abundance at ages
-1--4 from 2025 to 2026 ([Figure 27](#fig-model23-young-n-change-density)). They show the same
-selected cumulative sequence, followed by Models 23.2 and 26.0. Their input and projection settings
+1--4 from 2025 to 2026 ([Figure 27](#fig-model23-young-n-change-density)) corresponding with the cumulative addition of each updated data source, alongside Models 23.2 and 26.0. Their input and projection settings
 are documented in the technical supplement. Each distribution retains its matching fitted-parameter
 covariance between years and, for abundance, among ages. The normal approximations are conditional
 on the model and biological and projection assumptions.
 
-Among the additions in the 2027 projection comparison, ATS produced the largest increase in
+Among the additions in the 2027 projection comparison, addition of the updated ATS inputs produced the largest increase in
 female spawning biomass: from 2.685 to 2.975 million t, an increase of about 290,000 t (10.8%)
-relative to the preceding BTS step. AVO increased projected spawning biomass a further 61,000 t
-(2.0%), to 3.036 million t. The effects on estimated 2026 spawning biomass differed: fishery age
-data produced the largest increase, about 213,000 t (8.4%); ATS reduced it by about 73,000 t (2.6%),
-and AVO increased it by about 47,000 t (1.7%). 
+relative to the preceding BTS step. Adding the updated AVO inputs increased projected spawning biomass a further 61,000 t
+(2.0%), to 3.036 million t. The effects of data updates on estimated 2026 spawning biomass differed: adding updated fishery age
+data produced the largest increase, about 213,000 t (8.4%); adding the updated ATS data reduced spawning biomass by about 73,000 t (2.6%),
+and adding the updated AVO data increased spawning biomass by about 47,000 t (1.7%). 
 
   
 
 ### 5.1.2 Model 23.2 fitted to the 2026 assessment data {#sec-model232-updated}
 
-Model 23.2 is a structural bridge between the ADMB continuity model and the Rceattle configuration.
-The comparison of Models 23.0 and 23.2 includes matching local asymptotic uncertainty ranges
+Model 23.2 is a structural bridge between the ADMB continuity model and the Rceattle model configuration 
 ([Figure 28](#fig-model230-vs232)).
 
 ### 5.1.3 Model 26.0 fitted to the 2026 assessment data {#sec-model262-updated}
@@ -886,7 +882,7 @@ Population-weight biomass, female spawning biomass, age-1 recruitment and maximu
 retain distinct definitions. Their annual estimates and matching local asymptotic uncertainty are
 compared with Model 23.2 in [Figure 29](#fig-model232-vs262).
 
-### 5.1.4 Model 26.1: Foreign and Modern domestic fisheries {#sec-model261-configuration}
+### 5.1.4 Model 26.1: Foreign and modern domestic fisheries {#sec-model261-configuration}
 
 The split-fishery alternatives distinguish foreign fishing in 1964--1990 from modern domestic
 fishing in 1991--2026. Model 26.1.0 models the fitted split-fishery comparison; Model 26.1.1
