@@ -998,11 +998,10 @@ summary likelihood contributions are in [Table 39](#tbl-model262-current-likelih
 
 ### 6.1.3 Fits to the observations
 
-The fitted indices follow the main rises and falls in the survey series, including the low ATS
-biomass in 2006--2009 and its subsequent increase ([Figure 39](#fig-model262-index-fits)). Annual
-departures remain. The BTS residuals include negative departures in 2006 and 2009 and positive
-departures in 2014--2015, each outside the plotted 95% reference range. The AVO observation in 2015
-is also higher than fitted, whereas all ATS biomass residuals fall within that range
+The fitted indices generally follow the increases and decreases for the three main indices in the survey series, including the low ATS
+biomass in 2006--2009 and its subsequent increase ([Figure 39](#fig-model262-index-fits)). Some exceptions where the survey biomass estimates differ from the observations are: the negative BTS residuals in 2006 and 2009 and positive
+residuals in 2014--2015, each outside the plotted 95% observation error interval. The AVO observation in 2015
+is also higher than the model's estimate for that year, whereas all ATS total biomass estimates fall within the approximate 95% observation error intervals.
 ([Figure 40](#fig-model262-index-residuals); [Table 40](#tbl-model262-index-residual-summary)).
 Thus, the broad survey trends are represented more closely than some individual annual observations.
 BTS residuals account for covariance among survey years.
