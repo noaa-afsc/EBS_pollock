@@ -9,12 +9,12 @@ Projected female spawning biomass (t),"3,118,000","3,342,000","3,223,000","3,432
 B100% (t),"5,902,000","5,902,000","6,220,000","6,220,000"
 B40% (t),"2,361,000","2,361,000","2,488,000","2,488,000"
 B35% (t),"2,066,000","2,066,000","2,177,000","2,177,000"
-F_OFL (annual rate),0.513,0.513,0.666,0.666
-Maximum F_ABC (annual rate),0.394,0.394,0.524,0.524
+F_OFL (annual rate),0.513,0.513,0.377,0.377
+Maximum F_ABC (annual rate),0.394,0.394,0.296,0.296
 Recommended F_ABC (annual rate),0.394,0.394,Not selected,Not selected
 OFL (t),"2,957,000","2,496,000","2,269,000","2,399,000"
 Maximum ABC (t),"2,417,000","2,036,000","1,855,000","1,958,000"
 Recommended ABC (t),"2,417,000","2,036,000",Not selected,Not selected
 "Historical source: December 2024 SAFE, Executive Summary, Tier 3 version, p. 4; B40% is printed in section 7.2, p. 35."
-"2027--2028 projections assume catch of 1,375,000 t in each year, mean 2023--2025 selectivity and fixed biological inputs. Total biomass covers ages 3+ at the start of the year. F_OFL and maximum F_ABC are the fully selected F35% and F40% rates. Biomass and catch are rounded to the nearest 1,000 t."
+"2027--2028 projections assume catch of 1,375,000 t in each year, mean 2023--2025 selectivity and fixed biological inputs. Total biomass covers ages 3+ at the start of the year. F_OFL and maximum F_ABC are the F35% and F40% rates under mean-one selectivity. Biomass and catch are rounded to the nearest 1,000 t."
 Model 26.1.2 is a sensitivity analysis. Recruitment is fixed at the fitted 1978--2023 mean; these projections show point estimates. Model 26.0 supplies the assessment recommendation.

@@ -43,7 +43,7 @@ Tools assisted data processing, code execution, figure preparation and report wr
 :::
 
 ::: {.callout-note title="Suggested citation"}
-Ianelli, J., S. Wassermann, A. McCarthy, C. McGilliard, E. Siddon, K. Shotwell, G. Adams, and N. Lauffenburger. 2026. *2026 Assessment of Eastern Bering Sea Walleye Pollock.* <https://files.npfmc.org/SAFE/2026/EBSpollock.pdf>.
+Ianelli, J., S. Wassermann, A. McCarthy, C. McGilliard, E. Siddon, K. Shotwell, G. Adams, and N. Lauffenburger. 2026. *2026 Assessment of Eastern Bering Sea Walleye Pollock.* <https://www.npfmc.org/library/safe-reports/>.
 :::
 
 # 1 Executive summary
@@ -53,7 +53,7 @@ The last full EBS pollock assessment was completed in 2024 ([Ianelli et al.
 National Marine Fisheries Service 2025](#ref-afsc2025pollockcatch)). Changes in this assessment are
 described relative to 2024.
 
-This executive summary presents Model 26.0 (Rceattle), the base model for this assessment and its
+This executive summary presents Model 26.0 (Rceattle), the base case model for this assessment and its
 Tier 3 harvest recommendations. Model 23.0 (ADMB), accepted in 2024, provides the comparison with
 the previous assessment.
 
@@ -65,9 +65,11 @@ and data treatments.
 
 ## 1.2 Changes in assessment methods
 
-Model 26.0 implements the age-structured assessment in Rceattle and uses weight-at-age schedules
-estimated by a separate random-effects model. [Section 2.1.2](#changes-methods-detail) describes
-these changes from Model 23.0.
+Model 26.0 implements the age-structured assessment in Rceattle and uses fixed weight-at-age
+schedules estimated by a separate random-effects model. In contrast, Model 23.0 estimates cohort
+and year effects on weight-at-age within the assessment. Uncertainty intervals for Model 26.0
+exclude uncertainty in the separately estimated weight-at-age schedules. [Section
+2.1.2](#changes-methods-detail) describes these changes from Model 23.0.
 
 ## 1.3 Summary of results
 
@@ -137,8 +139,8 @@ tinyVAST ([Thorson et al. 2025](#ref-thorson2025tinyvast)), respectively.
 
 The 2024--2025 fishery age compositions use year-specific FT-NIRS-to-traditional-microscopic-age
 conversions, with likelihood sample sizes of 578 and 530. The provisional 2026 ATS age composition
-applies the BTS age--length key to ATS lengths; FT-NIRS ages from the ATS samples are expected in
-2027.
+applies the BTS age--length key to expanded ATS length distributions that extend to 0.5 m above
+the seafloor. The full 2026 ATS age dataset is expected in 2027.
 
 Fishery weight-at-age retains the fixed 1964--1990 schedule and annual observation means for
 1991--2025. A separate random-effects model fitted to fishery and BTS weights through 2025 supplies
@@ -167,7 +169,7 @@ Unimak Island in March and April and later near the Pribilof Islands (Bacheler e
 year (during the peak spawning period). Eggs and larvae of EBS pollock are planktonic for a period
 of about 90 days and appear to be sensitive to environmental conditions. These conditions likely
 affect their dispersal into favorable areas (for subsequent separation from predators) and also
-affect general food requirements for over-wintering survival (Gann et al. ([2015](#ref-gann2015)),
+affect general food requirements for over-wintering survival (Gann et al. ([2016](#ref-gann2015)),
 Heintz et al. ([2013](#ref-heintz2013)), Hunt Jr. et al. ([2011](#ref-hunt2011)), Ciannelli et al.
 ([2004](#ref-ciannelli2004))). Duffy-Anderson et al. ([2016](#ref-duffy2016)) provide a review of
 the early life history of EBS pollock.
@@ -183,10 +185,9 @@ raschii*, are among the most important prey items for pollock in the Bering Sea 
 ([1991](#ref-livingston1991)); Lang et al. ([2000](#ref-lang2000)); Brodeur et al.
 ([2002](#ref-brodeur2002)); Ciannelli et al. ([2004](#ref-ciannelli2004)); Lang et al.
 ([2005](#ref-lang2005))). Pollock diets become more piscivorous with age, and cannibalism has been
-commonly observed in this region. However, Buckley et al. ([2015](#ref-buckley2015)) showed that
-spatial patterns of pollock foraging, including cannibalism, vary with the size of the foraging
-pollock. For example, pollock in the northern shelf region between the 100 and 200 m isobaths
-(closest to the shelf break) tend to be more piscivorous than pollock in shallow nearshore areas.
+commonly observed in this region. Buckley et al. ([2016](#ref-buckley2015)) showed that diet composition varies
+with pollock size and geographic area. Fish prey became more important with increasing pollock size, especially on the northwestern
+outer shelf.
 
 ## 2.3 Stock structure {#sec-stock-structure-life-history}
 
@@ -209,11 +210,12 @@ during offloading ([Ianelli et al. 2024](#ref-ianelli2024safe)). The directed fi
 pelagic trawl gear, with inshore, catcher/processor and mothership sectors. The historical catch and
 adopted harvest-limit series is continued through 2026 in [Table 1](#tbl-catch-management-history).
 
-Updated reported catches are 1,311,261 t in 2024 (2025 catch report) and 1,326,193 t in 2025
-([National Marine Fisheries Service Alaska Region 2026b](#ref-noaa2025inseason)). The catch table
-reports two 2026 values: reported catch of 1,297,206 t through October 17 ([National Marine
-Fisheries Service Alaska Region 2026a](#ref-noaa2026cas)) and the annual catch estimate of
-1,312,504.58 t used in this assessment.
+[Table 1](#tbl-catch-management-history) shows updated annual assessment catches of 1,311,261 t
+in 2024 and 1,326,216 t in 2025. Excluding Bogoslof (reporting area 518) accounts for the
+difference from the broader AKFIN Answers totals for these years: 22.76 t in 2024 and 63.43 t in
+2025. The October 22 Alaska Region catch report lists 1,297,206 t for the Bering Sea subarea
+through October 17, 2026 ([National Marine Fisheries Service Alaska Region 2026a](#ref-noaa2026cas)).
+Table 1 shows the annual estimate of 1,312,505 t, rounded from the assessment input of 1,312,504.58 t.
 
 For 2026, the adopted ABC and OFL are 2,036,000 and 2,496,000 t. The Bering Sea subarea TAC
 increased from 1,375,000 to 1,389,500 t after inseason reallocations. The August allocations
@@ -273,8 +275,10 @@ choices also influence where fishing occurs. Available observer data suggest goo
 in the 2026 A season; later in the B season fishing moved farther north and pollock of desirable
 sizes were less available.
 
-Catch by area and season is summarized in [Table 3](#tbl-catch-area-season). The catch as of October
-17, 2026, was 1,267,543 t: 604,041 t in the A season and 663,501 t in the B season.
+The weekly reporting-area data in [Table 3](#tbl-catch-area-season) sum to 1,267,543 t through
+October 17, 2026: 604,041 t in the A season and 663,501 t in the B season. This series provides
+the seasonal and area split used here. Its total is 29,663 t below the Alaska Region catch report
+for the same cutoff; the sources have not been reconciled.
 
 [Table 4](#tbl-catch-retained-discarded) summarizes annual retained and discarded catch. The 2026 total is 1,312,505 t, including 8,997 t discarded (0.7%).
 
@@ -379,10 +383,13 @@ Pollock catch in identified non-pollock fisheries declined from 46,996 t in 2024
 different cutoffs and partial-year coverage qualify comparisons with the other bycatch tables. See
 [Table 7](#tbl-pollock-in-other-fisheries).
 
-Prohibited-species bycatch is summarized in [Table 8](#tbl-prohibited-species-catch). Chinook
-catches increased from 8,054 fish in 2024 to 19,825 in 2025, and non-Chinook catches increased from
-35,152 to 151,457 fish. Halibut mortality rose from 53 to 66 t. Preliminary 2026 catches through
-October 24 were 15,153 Chinook, 149,468 non-Chinook, and 56 t of halibut mortality.
+Prohibited-species bycatch in the midwater pollock fishery is summarized in
+[Table 8](#tbl-prohibited-species-catch). Chinook catches increased from 8,034 fish in 2024 to
+19,702 in 2025, and non-Chinook catches increased from 34,888 to 142,809 fish. Halibut mortality
+rose from 22 to 50 t. Preliminary 2026 catches through October 24 were 14,503 Chinook,
+145,788 non-Chinook, and 43 t of halibut mortality. The 2024 assessment also included trips
+classified as bottom pollock, where pollock was the main species in the catch, outside the main
+directed pollock fishery; the current table is restricted to the midwater pollock trip target.
 
 Jellyfish dominated the selected nontarget-species catch by weight. Estimated jellyfish catch
 declined from 4,402 t in 2024 to 1,769 t in 2025. Miscellaneous fish contributed 99 t in 2025, with
@@ -394,8 +401,8 @@ with fishing effort, distribution, and reporting coverage. See [Table
 # 4 Data {#sec-data}
 
 Fishery catch data begin in 1964, whereas the BTS began in 1982 and the ATS in 1994 for the purposes
-of this assessment (see the table below). Available fishery age compositions end in 2025 because
-sample collections are still underway for the 2026 fishing year.
+of this assessment (see the table below). Fishery age compositions are available through 2025. The 2026 BTS age estimates and provisional
+ATS age compositions are described separately below.
 
 ::: {#table-003 .report-table .unnumbered data-table="tables/003-table-003.csv"}
 
@@ -412,12 +419,10 @@ total 1.268 million t through October 17 and represent a partial year. Records b
 annual totals; later records distinguish the A-season and northwest and southeast B-season catches.
 
 The annual assessment catch includes retained and discarded commercial pollock across gears and
-targets in the Bering Sea, with CDQ counted once and the separately reported Bogoslof and Aleutian
-Islands catches excluded. The catch update uses the catch estimates for 1991--2026, with pre-1991
+targets in the Bering Sea, including CDQ catches but excluding the separately reported Bogoslof and
+Aleutian Islands catches. The catch update uses the catch estimates for 1991--2026, with pre-1991
 model inputs retained. The revised totals are 1,311,260.74 t in 2024, 1,326,215.61 t in 2025 and
-1,312,504.58 t in 2026. The 2026 estimate is the annual input selected for this assessment. Explicit
-Bogoslof (518) and outside-stock area codes are excluded. The 1998 records with blank area codes
-remain included under their Bering Sea classification. Noncommercial removals remain separately
+1,312,504.58 t in 2026. Noncommercial removals remain separately
 documented in [Appendix C](#sec-other-removals).
 
 ### 4.1.2 Age compositions {#sec-fishery-age-compositions}
@@ -443,32 +448,30 @@ mean weight at length. Age--length keys allocate the expanded numbers to ages; w
 numbers across strata and sexes and normalize them to give annual proportions ([Kimura
 1989](#ref-kimura1989); [Barbeaux et al. 2005](#ref-barbeaux2005); [Ianelli et al.
 2024](#ref-ianelli2024safe)). Earlier assessments provide the pre-1991 age compositions. For the
-2024--2025 update, the processing strata are January--May across Bering Sea areas, followed by
+2026 assessment update, the 2024--2025 fishery samples are processed in strata defined as January--May across Bering Sea areas, followed by
 June--December split into northwest (NMFS reporting areas 520 and above) and southeast (areas below
-520). The 2024 assessment describes January--June and July--December groups; the current sampling
-groups use the calendar periods defined above. The new length and age records cover all 12 months.
+520).
 
-The linked bootstrap represents variation among sampling units and among length and age observations
-within those units. Its composition precision estimates inform the selected likelihood sample sizes:
+A hierarchical bootstrap resamples sampling units within fishery strata and length and age
+observations within those units, preserving their sampling links. Its composition precision estimates inform the selected likelihood sample sizes:
 443, 578 and 530 for 2023, 2024 and 2025, respectively. They represent effective information for
 fitting the annual proportions, rather than numbers of fish measured or aged
 ([Section 4.3.1](#sec-weights)). The model fits annual sex-combined proportions at ages 1--14 and
 15+. Fishery age observations end in 2025.
 
-The 2024--2025 age-estimate data are from pelagic trawl fisheries. For 2025, FT-NIRS predictions
-from model a00-d3 are expressed on an independent traditional microscopic-ageing (TMA) basis using
-668 paired estimates ([Appendix G](#sec-ftnir-appendix)). Within each FT-NIRS age, the paired
+The 2024--2025 age-estimate data are from pelagic trawl fisheries. For 2025, ages predicted by
+Fourier-transform near-infrared spectroscopy (FT-NIRS) of otoliths are converted to an independent
+traditional microscopic-ageing (TMA) basis using 668 paired estimates. The FT-NIRS prediction model
+is identified as a00-d3 ([Appendix G](#sec-ftnir-appendix)). Within each FT-NIRS age, the paired
 observations define the proportions assigned to each tester age. These probabilities redistribute
-the catch-expanded numbers among ages while preserving their total. Source age 13 lacks paired
-tester observations; its conditional probabilities are the midpoint of the age-12 and age-14 rows.
-The 2025 source and tester ages range from 2 to 15, and the assessment fits ages 1--14 and 15+. The
+the catch-expanded numbers among ages while preserving their total. No paired tester observations are available for fish assigned FT-NIRS age 13, so the conversion
+probabilities for this age are the averages of those for FT-NIRS ages 12 and 14. The
 likelihood uses the selected input sample size of 530. Uncertainty in the conversion key and the
 age-13 interpolation is additional to the sampling uncertainty represented by that input weight.
 
-The 2024 fishery age composition is expressed on the independent TMA basis using 693 paired
-reader--tester observations. For source age 13, the key pools TMA-minus-FT-NIRS age offsets from the
-same year's source ages 9--12 (34 pairs) and adds those offsets to age 13. Empirical key rows retain
-their observed probabilities.
+The 2024 fishery age composition is converted to the independent TMA basis using 693 paired
+reader--tester observations. The conversion for age 13 uses age offsets from paired observations
+at ages 9--12; [Appendix G](#sec-ftnir-appendix) describes this year-specific treatment.
 
 ### 4.1.3 Weight-at-age {#sec-fishery-weights}
 
@@ -501,7 +504,8 @@ biological inputs.
 The annual fishery weights in [Table 28](#tbl-fishery-weights-projections) retain the historical
 observational inputs through 2025, with fitted values for missing 2025 ages 13 and 14. The 2026
 predictions and 2027--2028 forecasts use the standalone WtAgeRE fit. Ages 1--2 retain the 2024
-inputs, the 1964--1990 schedule remains fixed, and the terminal age is 15+.
+inputs, and the terminal age is 15+. The fixed 1964--1990 schedule matches the historical
+fishery weight-at-age series in [Ianelli et al. (2001), Table 1.9](#ref-ianelli2001).
 
 Cohort growth and annual changes in condition link observed weights to the schedules used for catch
 and spawning projections. Observed fishery and BTS weights and the selected fishery-scale estimates
@@ -538,8 +542,8 @@ with concentrations often near the margins of colder shelf water. Depth, prey, a
 vertical movements can also contribute to the pattern. The maps show spatial associations between
 survey distributions and temperature. Other environmental and biological factors may also
 contribute. They use locally interpolated, density-dependent-corrected CPUE within survey coverage.
-The example's correction version and adoption status are unspecified, so its CPUE surface serves as
-a descriptive illustration alongside the assessment indices.
+These maps illustrate survey distributions; they are not the biomass index fitted in the assessment.
+The example does not identify the version of its density-dependent correction.
 
 The standard EBS survey expanded northwest in 1987. Sampling in the separate NBS region has varied
 among years, while pollock distribution has shifted between regions. Model-based estimates integrate
@@ -559,9 +563,7 @@ size directly.
 
 The BTS age compositions show changes in the ages represented in the survey and the progression of
 cohorts through time ([Figure 15](#fig-bts-age-composition-history)). Highlighted bars follow the
-1992, 2012 and 2018 year classes through successive ages. The 2012 year class progresses from age 1
-in 2013 to age 10 in 2022, while the 2018 year class progresses from age 1 in 2019 to age 8 in 2026.
-The blank 2020 row marks the gap when the survey was absent.
+1992, 2012 and 2018 year classes through successive ages. The blank 2020 row marks the gap when the survey was absent.
 
 The age compositions combined traditional age readings and FT-NIRS estimates. We converted the 2026
 FT-NIRS estimates to traditional ages using 307 screened paired readings ([Appendix
@@ -570,9 +572,8 @@ older into the 15+ group.
 
 Spatiotemporal estimation of BTS weight-at-age, adopted in 2022, replaces the earlier conversion of
 mean length to weight ([Indivero et al. 2023](#ref-indivero2023)). The full BTS-derived weight
-schedules used for population biomass are presented in [Table 16](#tbl-bts-historical-weights); the
-compact biological-input summary retains the recent fishery and spawning schedules and fixed
-biological parameters. We applied the screened 2026 age key consistently to BTS weight-at-age means
+schedules used for population biomass are presented in [Table 16](#tbl-bts-historical-weights); [Section 4.3](#sec-other-data) summarizes the fishery and spawning weight schedules and fixed
+biological assumptions. We applied the screened 2026 age key consistently to BTS weight-at-age means
 and their delta-method standard errors, retaining the joint covariance treatment. We used the same
 key for the provisional ATS abundance and biomass-derived weights, including the weights used to
 predict the 2026 AVO index. We refitted the standalone random-effects weight-at-age model with the
@@ -587,13 +588,13 @@ Retrospective comparisons describe changes in population estimates as observatio
 
 ### 4.2.2 Acoustic-trawl survey {#sec-ats}
 
-The 2026 ATS ages are provisional: we apply the BTS age--length key (ALK) to ATS population
-length-frequency estimates. FT-NIRS ages from the 2026 ATS samples will be available in 2027.
+The provisional 2026 core-shelf ATS age estimates apply the BTS age--length key (ALK) to
+expanded ATS length distributions that extend to 0.5 m above the seafloor. The full 2026 ATS
+age dataset is expected in 2027.
 
 Acoustic-trawl surveys (ATS) are typically conducted every other year and estimate the off-bottom
 component of the pollock stock, complementing the annual BTS index of near-bottom pollock.
 Historical and acoustic-trawl sampling effort is summarized in [Table 17](#tbl-ats-sampling-effort).
-The 2026 collections retain their regional scope, while unavailable direct age counts remain NA.
 
 Estimated pollock biomass for the EBS shelf has averaged about 3.202 million t since 1994, when the
 revised time series begins ([Table 18](#tbl-ats-biomass)). The revised estimates include the water
@@ -615,9 +616,7 @@ The historical series showed strong pulses of age-1 fish in 1997, 2007, 2009, 20
 The ATS age compositions show pulses of young fish and the progression of cohorts through successive
 surveys ([Figure 16](#fig-ats-age-composition-history)). The highlighted 2018 year class appears at
 age 4 in 2022, age 6 in 2024 and age 8 in 2026. Ages 2 and 3 dominate the provisional 2026
-composition. The 2026 estimates use the BTS age--length key applied to ATS population length
-frequencies; FT-NIRS ages from the 2026 ATS samples are expected in 2027. Blank years represent gaps
-in the age-composition series.
+composition. Blank years represent gaps in the age-composition series.
 
 #### 2026 survey design and results
 
@@ -631,7 +630,6 @@ The 2026 core-area estimate was 12.7 billion fish and 3.682 million t of biomass
 ([Table 21](#tbl-ats-core-estimates)). Biomass increased by 28% relative to the 2024 estimate of
 2.875 million t (11.4 billion fish). The 2026 biomass estimate was 4% below the 2022 estimate of
 3.834 million t (9.67 billion fish) and 16% above the 1994--2024 survey mean of 3.176 million t.
-These are survey estimates; assessment intake and adoption remain separate decisions.
 
 We estimated provisional 2026 ATS age compositions by applying the FT-NIRS-based BTS
 age--length key to ATS abundance in the length bins covered by the key ([Appendix G](#sec-ftnir-appendix)).
@@ -704,9 +702,9 @@ Relative AVO backscatter is lowest at 0.299 in 2009 and highest at 1.55 in 2015
 ([Table 25](#tbl-avo-index); [Figure 22](#fig-avo-index)). It is 0.863 in 2024, 1.07 in 2025 and
 1.12 in 2026, with sampling CVs of 2.72%, 5.26% and 4.55%, respectively. The 2025 and 2026 sampling
 confidence intervals overlap. The display series covers 2009--2026, excluding 2020, when no
-bottom-trawl survey took place. Each annual area-integrated estimate is divided by the mean of the
-17 estimates to give a mean-one series. The table also retains total pollock backscatter, in
-millions of square metres, with sampling errors and scaled confidence intervals. This is an acoustic
+bottom-trawl survey took place. The relative AVO index divides each annual area-integrated estimate by the mean of the
+17 estimates, producing a series with a mean of one. The table also shows total pollock backscatter,
+in millions of square meters, with sampling errors and scaled confidence intervals. This is an acoustic
 backscattering cross section, rather than geographic area ([Lauffenburger et al.
 2025](#ref-lauffenburger2025avo)).
 
@@ -729,8 +727,8 @@ unavailable. Survey coverage and processing vary among years. Inferences about p
 redistribution require comparable sampling and integration across years.
 
 The number of observed survey intervals ranges from 5,557 in 2009 to 12,229 in 2024
-([Table 26](#tbl-avo-coverage)). Zero shares fall from 56.3% in 2009 to 7.8% in 2015, vary
-subsequently, and are 14.9%, 5.0% and 14.2% in 2024--2026, respectively.
+([Table 26](#tbl-avo-coverage)). The percentage of sampling intervals with zero pollock backscatter fell from 56.3% in 2009
+to 7.8% in 2015 and varied thereafter. It was 14.9%, 5.0% and 14.2% in 2024--2026, respectively.
 
 The maps summarize observed pollock backscatter in approximately 20-nautical-mile cells, including
 zeros. GMT gridding and contours show the mean backscatter in m² nmi⁻² on a common color scale.
@@ -752,7 +750,7 @@ The two newly processed years use the existing modern-year error inflation rule,
 recalibration of all 20 CVs to that mean. Assessment errors differ from sampling errors and from the
 ATS mean assessment CV of 20%.
 
-For the Normal index likelihood, arithmetic observation SEs equal the retained assessment index
+For the Normal index likelihood, arithmetic observation SEs equal the assessment index
 multiplied by its selected CV. For the display series, let $I_t$ denote the original index, $\bar I$
 its 17-year mean and $R_t=I_t/\bar I$. The same constant rescales its index, SEs and confidence
 limits, leaving the CV unchanged:
@@ -762,14 +760,14 @@ $$
 [L_t,U_t]=\frac{I_t\pm1.96\,I_t\mathrm{CV}_t}{\bar I}.
 $$
 
-The source 95% interval is represented by the half-width $1.96 I_t\mathrm{CV}_t$, checked for every
-observed year. The displayed intervals describe survey sampling uncertainty with normalization
+The approximate 95% interval has half-width $1.96 I_t\mathrm{CV}_t$. The displayed intervals describe survey sampling uncertainty with normalization
 treated as a change of units; assessment error inflation is a separate model input.
 
 ## 4.3 Other data {#sec-other-data}
 
-Model 26.0 fitted the 12 historical CPUE observations from 1965--1976 using fishery selectivity and
-fishery weights at age. We retained the observations and errors from the reference fit through 2024.
+Model 26.0 fits 12 annual observations of catch per unit effort (CPUE) from the Japanese trawl
+fishery, 1965--1976, using fishery selectivity and weight-at-age. The 2024 assessment describes
+the vessel-size restriction in this series ([Ianelli et al. 2024](#ref-ianelli2024safe)).
 
 ***Fixed biological assumptions***
 
@@ -787,8 +785,7 @@ weights to calculate spawning biomass.
 
 ***Population and spawning weights***
 
-Population weights use BTS observations through 2026. Three historical values retain their previous
-treatment; details are in the technical supplement. For spawning biomass, we replaced the older
+Population weights use BTS observations through 2026. For spawning biomass, we replaced the older
 weights at ages 3--15+ with A-season fitted values for 2024--2025 and projections for 2026. Within
 the common-year comparison, this update changed the 13 values at ages 3--15+ in 2024. We retained
 baseline weights at ages 1--2; age-2 maturity was .008.
@@ -801,23 +798,19 @@ biomass by the corresponding abundance. For age 15+, we pooled biomass and abund
 division. [Appendix G](#sec-ftnir-appendix) documents which lengths the BTS key covers and which remain unallocated.
 We used the 2026 ATS vector as a proxy for AVO weights, although the historical schedules differed.
 
-[Section 4.1.3](#sec-fishery-weights) described the rationale for changing weight estimation. Weight-schedule uncertainty remained separate from the assessment's conditional parameter uncertainty. Native forecasts repeated the 2026 weight vectors.
+[Section 4.1.3](#sec-fishery-weights) described the rationale for changing weight estimation. Weight-schedule uncertainty remained separate from the assessment's conditional parameter uncertainty.
 
 ### 4.3.1 Age-composition input sample sizes {#sec-weights}
 
 The full-data Model 23.0 fit uses fishery composition N=443, 578 and 530 for 2023, 2024 and 2025,
-respectively ([Table 24](#tbl-model23-age-sample-sizes)). These are the rounded continuity-scaled
-harmonic estimates from the corrected sampler bootstrap, applied in the completed full-data Model
-23.0 fit at the author's direction. The bootstrap preserves linked sampling units within fishery
-strata and uses 10,000 replicates per year. ATS 2026 uses N=94, and BTS retains the selected 2026 N,
+respectively ([Table 24](#tbl-model23-age-sample-sizes)). These likelihood sample sizes are rounded harmonic estimates of composition precision from
+10,000 bootstrap replicates per year, scaled for continuity with the historical series. The
+bootstrap resamples sampling units within fishery strata and observations within those units,
+preserving their sampling links. ATS 2026 uses N=94, and BTS retains the selected 2026 N,
 shown as 131. Fishery N is fixed at 10 in each year from 1964--1977. The three
 composition-likelihood multipliers are 1.
 
-Model 26.0 fits age compositions with a multinomial model. The baseline retains likelihood sample
-sizes from the bridge workbook. These likelihood sample sizes differ from counts of fish sampled and
-from diagnostic effective sample sizes. For every fishery or survey year, the final assessment must
-provide the raw sampling information, starting sample size, adjustment method, and final sample size
-used in the likelihood. The 2020 biomass estimate remains a separate fitted survey observation.
+Model 26.0 fits age compositions with a multinomial model.
 
 One-step-ahead (OSA) residuals compare an observation with its conditional prediction after
 preceding age categories have been considered. The OSA and Francis comparisons document the selected
@@ -827,48 +820,47 @@ weights and observed-data residual patterns in [Section 6.1.6](#sec-francis-com
 
 ## 5.1 Main and comparison models
 
-Model 26.0 (Rceattle) is the adopted model for Tier 3 calculations and specifications. Models 23.0
-and 23.2 provide comparisons with the previous assessment and the transition in model structure.
-Other sensitivities separate the early Foreign fishery (1964--1990) from the later domestic fishery
-(1991--2026) and vary the penalty on declining selectivity. Model 26.1.2 is the Early-late fishery
-split sensitivity. The fits and retrospective comparisons hold the process standard deviations fixed
-at the values estimated by its marginal model. Model 26.0 uncertainty and retrospective diagnostics
-are described below.
+Model 26.0 is the base case model used for Tier 3 calculations and harvest recommendations.
+The cumulative data comparison holds the Model 23.0 formulation fixed; the configuration
+comparison uses matched updated observations to separate changes in model structure from changes
+in data.
+
+| Model | Data and purpose | Main configuration difference |
+|---|---|---|
+| 23.0 (ADMB) | Accepted in 2024; refitted through 2026 to measure the effects of each data update | One fishery; cohort and year effects on weight-at-age are estimated within the assessment. |
+| 23.2 (ADMB bridge) | Same updated observations as the full-data 23.0 fit | Brings key features of the Rceattle formulation into ADMB, including mean recruitment and fixed weight-at-age schedules. |
+| 26.0 (Rceattle) | Updated observations; basis for the 2026 assessment | Uses one fishery and fixed weight-at-age schedules. Differs from the bridge in the annual fishery-selectivity setup and its penalties. |
+| 26.1.0 and 26.1.1 (Rceattle) | Same updated observations; split-fishery sensitivities | Estimate separate selectivity for the early and modern fisheries, with different penalties on declining selectivity. |
+| 26.1.2 (Rceattle) | Same updated observations; split-fishery sensitivity | Estimates variation in modern selectivity after integrating over annual fishery selectivity effects. |
 
 ### 5.1.1 Model 23.0 and impact of new data {#sec-model23-data-impacts}
 
-As in past years, we incrementally introduced new data relative to the previous assessment while
-retaining the Model 23.0 formulation. We began with total catch through 2026, incorporating the
-revised catch estimates for 1991--2026 (2026: 1,312,504.58 t) and extending the model endpoint and
-parameter and projection horizons to accommodate the added years. At this first step, fishery age
-compositions and survey observations retained their historical coverage. We then updated
-weight-at-age and A-season spawning weights, followed by fishery catch-at-age data and their
-information weights.
+We added the new data to Model 23.0 in steps. First, we updated annual catches for 1991--2026
+(the 2026 estimate was 1,312,504.58 t). We then updated weight-at-age and A-season spawning weights,
+followed by fishery catch-at-age data and their likelihood weights.
 
-The survey updates followed in sequence: the bottom-trawl survey (BTS), the acoustic-trawl survey
-(ATS), and the acoustic vessels of opportunity (AVO) index. BTS retained the 2020 survey gap and
-annual information weights, including the real-valued 2026 input. ATS incorporated the selected
-age-1 rule and provisional 2026 age information, and AVO incorporated its annual observations and
-assessment-error recalibration. Historical revisions and uncertainty recalibration were included
-with each survey's update ([Section 4.2.2](#sec-ats); [Section 4.2.3](#sec-avo)).
+We added survey data in the following order: bottom-trawl survey (BTS), acoustic-trawl survey
+(ATS), and acoustic vessel-of-opportunity (AVO) index. The survey updates included historical
+revisions and changes to observation errors. The ATS step used the provisional 2026 ages and
+included all 20 entries in the separate age-1 index likelihood, including the newest year and the
+inherited 2020 substitute of 350 million fish. The latter is distinct from the observed 2020
+uncrewed-surface-vessel biomass estimate. The ATS age-composition likelihood uses ages 2--15+
+([Section 4.2.2](#sec-ats); [Section 4.2.3](#sec-avo)).
 
 Each step includes all preceding updates, so its estimated effect depends on the order in which the
 data were added. The resulting 2026 estimates are summarized in
 [Table 29](#tbl-model23-data-impacts), and the cumulative annual point estimates are shown in
-[Figure 25](#fig-model23-data-impacts). These comparisons use matched definitions of
-population-weight biomass, female spawning biomass, age-1 recruitment and maximum realized fishing
-mortality across ages. Model equations are given in [the model-equations
-appendix](#sec-model-equations).
+[Figure 25](#fig-model23-data-impacts). See [Appendix F](#sec-model-equations) for the model
+equations.
 
-The saved 2027 spawning-biomass and young-abundance projections from the cumulative input-update
-analyses are compared in [Figure 26](#fig-model23-2027-increments). These diagnostic projections
-retain the earlier 2026 catch estimate of 1,310,000 t; the 2026 estimates above use the revised
-catch inputs. The display starts with Catch + 2026 endpoint, followed by + Fishery age data and the
+[Figure 26](#fig-model23-2027-increments) compares projections of 2027 spawning biomass and
+abundance at ages 1--3 as each dataset was added. These diagnostics use the earlier assumed
+2026 catch of 1,310,000 t. The 2026 estimates in [Table 29](#tbl-model23-data-impacts) use
+1,312,504.58 t. The display starts with Catch + 2026 endpoint, followed by + Fishery age data and the
 subsequent survey updates. The intervening weight-at-age and A-season spawning-weight updates remain
 incorporated in the fishery-age and later fits. Abundance at ages 1--3 is measured at the start of
 2027, before removals; spawning biomass includes mortality to spawning time. Projection settings are
-detailed in the technical supplement. Management projections retain their separate catch,
-selectivity, weight and recruitment assumptions ([Section 7](#sec-projections)).
+detailed in the technical supplement. See [Section 7](#sec-projections) for the management projections.
 
 The input sequence and configuration comparison answer different questions. The former retains the
 Model 23.0 formulation while adding observations and updating schedules. The latter compares
@@ -882,83 +874,84 @@ are documented in the technical supplement. Each distribution retains its matchi
 covariance between years and, for abundance, among ages. The normal approximations are conditional
 on the model and biological and projection assumptions.
 
-Among the additions in the saved 2027 projection comparison, ATS produced the largest increase in
-female spawning biomass: from 2.685 to 2.975 million t, an increase of about 290,000 t (10.8%)
-relative to the preceding BTS step. AVO increased projected spawning biomass a further 61,000 t
-(2.0%), to 3.036 million t. The effects on estimated 2026 spawning biomass differed: fishery age
-data produced the largest increase, about 213,000 t (8.4%); ATS reduced it by about 73,000 t (2.6%),
-and AVO increased it by about 47,000 t (1.7%). These are successive changes within the specified
-sequence, with each survey contrast including its historical revisions and error calibration.
+Adding ATS data produced the largest increase in projected 2027 female spawning biomass: from
+2.685 to 2.975 million t, about 290,000 t (10.8%) above the preceding BTS step. Adding AVO data
+increased it by a further 61,000 t (2.0%), to 3.036 million t. For estimated 2026 spawning biomass,
+adding fishery ages produced the largest increase, about 213,000 t (8.4%). Adding ATS data reduced
+the estimate by about 73,000 t (2.6%), and adding AVO data increased it by about 47,000 t (1.7%).
 
 ### 5.1.2 Model 23.2 fitted to the 2026 assessment data {#sec-model232-updated}
 
-Model 23.2 is a structural bridge between the ADMB continuity model and the Rceattle configuration.
-Its annual spawning-biomass and recruitment trajectories retain their documented scope. The
-established zero-variance management quantities are excluded from management comparisons. Current
-configuration effects use verified saved population outputs and their stated units. The comparison
-of Models 23.0 and 23.2 includes matching local asymptotic uncertainty ranges
-([Figure 29](#fig-model230-vs232)).
+Model 23.2 implements key features of the Rceattle formulation in ADMB. Compared with Model 23.0,
+it uses mean recruitment, estimates annual fishing mortality without the penalty on annual
+deviations, and treats weight-at-age as fixed. It predicts ATS and AVO biomass from ages 2--15+;
+age 1 enters the separate ATS index. With the observations held constant,
+[Figure 29](#fig-model230-vs232) compares annual trajectories and approximate 95% confidence
+intervals calculated from each fit's parameter covariance.
 
 ### 5.1.3 Model 26.0 fitted to the 2026 assessment data {#sec-model262-updated}
 
-Model 26.0 uses one fishery and fixed weight-at-age schedules. The updated base model fit retains
-its native working-likelihood, parameter bounds, selectivity forms, priors and fixed biological
-assumptions. We check outputs against the written inputs and saved native quantities.
-Population-weight biomass, female spawning biomass, age-1 recruitment and maximum fishing mortality
-retain distinct definitions. Their annual estimates and matching local asymptotic uncertainty are
-compared with Model 23.2 in [Figure 30](#fig-model232-vs262).
+Model 26.0 fits one fishery in Rceattle with fixed weight-at-age schedules. The comparison with
+Model 23.2 uses the same updated observations and biological schedules, but the implementations
+differ. Model 26.0 estimates a separate 1965 fishery selectivity curve; Model 23.2 uses the 1964
+curve in both years. The models also differ in the penalties on changes in fishery selectivity
+and in how future recruitment deviations enter estimation. [Figure 30](#fig-model232-vs262)
+compares annual estimates and approximate 95% confidence intervals.
 
 ### 5.1.4 Model 26.1: Foreign and Modern domestic fisheries {#sec-model261-configuration}
 
-The split-fishery alternatives distinguish Foreign fishing in 1964--1990 from Modern domestic
-fishing in 1991--2026. Model 26.1.0 supplies the fitted split-fishery comparison; Model 26.1.1
-reduces the declining-selectivity penalty, and the zero-penalty case removes it. Model 26.1.2
-extends that formulation by estimating the Modern annual selectivity-process SD while integrating
-over annual selectivity effects. The Foreign process SD remains fixed. Local uncertainty uses the
-verified marginal information for this alternative; its observation diagnostics condition on the
-fitted annual effects.
+The split-fishery sensitivities estimate separate selectivity curves and annual changes for the
+early (1964--1990) and modern domestic (1991--2026) periods. The split changes which selectivity
+curve applies to each year's catch and age composition; it does not divide the stock or reassign
+catches by vessel nationality. Model 26.1.0 applies the original penalty on declining selectivity
+at older ages. Model 26.1.1 reduces the penalty, and a separate comparison removes it.
+
+Model 26.1.2 keeps the reduced penalty and integrates over the annual fishery selectivity effects
+when estimating the modern period's process standard deviation (SD). The early period's SD is fixed
+at 0.1235; the modern period's marginal estimate is 0.582. The conditional fits used for observation
+diagnostics, projections and retrospective comparisons hold both SDs at those values. Marginal-fit
+confidence intervals use the curvature of the likelihood after integrating over the selectivity
+effects. [Section 6.2](#sec-model261-results) describes the resulting comparisons.
 
 # 6 Results {#sec-results}
 
 ## 6.1 Model 26.0 assessment
 
-Model 26.0 provides the main estimates of stock size and the basis for the Tier 3 catch limits
-presented here. Results from the other model configurations, including Model 26.1.2, show how
-alternative assumptions affect the assessment. Additional analyses describe uncertainty in Model
-26.0 estimates and how those estimates change when recent years of data are removed. Comparisons
-with past assessments use the data and catch advice reported in each assessment year.
+This section reports Model 26.0 estimates, which are the basis for the Tier 3 catch limits.
+We describe their uncertainty and how they change when recent years of data are removed.
+Comparisons with past assessments use each assessment's data and catch assumptions. Results from
+alternative configurations, including Model 26.1.2, are presented in [Section 6.2](#sec-model261-results).
 
 ### 6.1.1 Population estimates and uncertainty {#sec-model262-current-estimates}
 
-The Model 26.0 base model estimates 2026 total biomass at **12.162 million t**, female spawning
+The Model 26.0 base case model estimates 2026 total biomass at **12.162 million t**, female spawning
 biomass at **3.057 million t**, age-1 recruitment at **36.3 billion fish**, and maximum fishing
 mortality across ages at **0.299 per year** ([Table 31](#tbl-model262-current-terminal-estimates)).
 
-The local asymptotic 95% ranges in the tables use the revised fit's native covariance. The
-uncertainty figure is shown in [Figure 31](#fig-model262-current-full-uncertainty). Annual estimates
-and ranges appear in [Table 32](#tbl-model262-current-annual-estimates).
+The approximate 95% confidence intervals use the parameter covariance from the Model 26.0 fit,
+with biological schedules held fixed. [Figure 31](#fig-model262-current-full-uncertainty) shows
+the annual estimates and intervals, and [Table 32](#tbl-model262-current-annual-estimates)
+reports the values.
 
-Regularized-posterior intervals use all 5,000 existing draws, using the final reported summaries
-([Table 33](#tbl-model260-regularized-posterior)). The 2026 female spawning-biomass median is
-**2.946 million t**, with a central 95% credible interval of **2.450--3.584 million t**.
-Total-biomass median is **11.462 million t**, with interval **9.215--14.719 million t**. Age-1
-recruitment median is **31.1518 billion fish**, with interval **12.2880--91.0616 billion fish**.
-These are the final reported MCMC summaries; production point estimates and asymptotic intervals
-retain their separate roles.
+The 2026 posterior medians for total biomass, female spawning biomass and age-1 recruitment
+are below their corresponding fitted point estimates. The regularized posterior uses all 5,000
+MCMC draws ([Table 33](#tbl-model260-regularized-posterior)). The female spawning-biomass median
+is **2.946 million t** (central 95% credible interval **2.450--3.584 million t**), the total-biomass
+median is **11.462 million t** (**9.215--14.719 million t**), and median age-1 recruitment is
+**31.1518 billion fish** (**12.2880--91.0616 billion fish**). The management calculations use
+the fitted point estimates; the MCMC summaries provide a separate view of uncertainty.
 
-Numbers-at-age track cohorts through the population
-([Figure 32](#fig-model262-current-numbers-uncertainty)). This shows periods of how recruitment and
-changes in fishing mortality by age affect abundance relative to their mean abundance estimates (and
-uncertainty) propagates through time. Actual point estimates are reported in
-[Table 34](#tbl-model262-current-numbers-at-age), while the 2026 abundance-at-age estimates (and
-asymptotic uncertainties) are shown in [Table 35](#tbl-model262-current-terminal-numbers).
+[Figure 32](#fig-model262-current-numbers-uncertainty) tracks cohorts as they age by showing
+abundance at each age relative to its long-term mean, alongside the coefficient of variation.
+[Table 34](#tbl-model262-current-numbers-at-age) reports the annual abundance estimates, and
+[Table 35](#tbl-model262-current-terminal-numbers) reports estimates and uncertainty by age in 2026.
 
 #### Comparison with the 2024 assessment
 
-The 2018 year class remains a large recruitment point estimate
-([Figure 33](#fig-recruitment-2024-current)). Its age-1 abundance in 2019 is **87.8 billion fish**
-in the Model 26.0 base model, compared with **81.1 billion** in the accepted 2024 assessment, a
-revision of **8.3%**. The revision reflects both updated observations and changes in model
+The 2018 year class remains the largest recruitment point estimate in both assessments
+([Figure 33](#fig-recruitment-2024-current)). Model 26.0 estimates its age-1 abundance in 2019 at
+**87.8 billion fish**, compared with **81.1 billion** in the accepted 2024 assessment, a revision
+of **8.3%**. The revision reflects both updated observations and changes in model
 structure.
 
 The estimate for the same 2024 female spawning biomass changes from **3.389 million t** in the saved
@@ -967,17 +960,19 @@ spawning biomass changes from that 2024 estimate to **3.057 million t** in 2026 
 biomass changes from **10.767 million t** to **12.162 million t** over the same years (**13.0%**).
 These within-trajectory changes differ from shared-year assessment revisions.
 
-The recruitment comparison uses calendar age-1 year and billion-fish units
-([Figure 33](#fig-recruitment-2024-current)). Model 26.1.2 results are included to examine how
-recruitment estimates for the early period change relative to the 2024 assessment. Historical values
-are point estimates. Current error bars use each model's local asymptotic covariance: the base-model
-covariance for Model 26.0 and the marginal information for Model 26.1.2. Recent years without a
-historical estimate are identified. These intervals describe uncertainty around the fitted
-estimates.
+[Figure 33](#fig-recruitment-2024-current) compares recruitment from Models 26.0 and 26.1.2
+with the accepted 2024 assessment, using the calendar year each cohort entered at age 1. The two
+current fits show a similar pattern of strong and weak year classes. The 2024 series uses point
+estimates from the original assessment rather than the 23.0 refit with data through 2026. Error bars
+for the current models are approximate 95% confidence
+intervals using the fitted parameter covariance for Model 26.0 and the marginal likelihood for
+Model 26.1.2.
 
-The two assessments project different spawning-biomass paths through 2028 ([Figure
-34](#fig-projection-vintages)). The comparison retains each assessment's Scenario 2 catch
-assumptions; the current uncertainty band propagates local assessment-parameter uncertainty.
+Model 26.0 estimates higher female spawning biomass over the shared fitted years shown in
+[Figure 34](#fig-projection-vintages) (2002--2024). Its Scenario 2 point projections rise in 2027
+and 2028, whereas the 2024 assessment projected a decline from 2025 through 2028. Each assessment
+uses its own Scenario 2 catch assumptions. The Model 26.0 band reflects uncertainty in the fitted
+assessment parameters under the stated projection assumptions.
 
 #### Recruitment per unit of spawning biomass
 
@@ -1000,7 +995,7 @@ Biological schedules and selectivity retain their age, sex and year definitions
 [Table 36](#tbl-model262-current-biological-schedules);
 [Table 37](#tbl-model262-current-selectivity)). Fishing mortality is also shown by age
 ([Figure 37](#fig-model260-fishing-mortality-age)). Whole-year spawning exploitation compares paired
-spawning-biomass calculations from the base model production fit
+spawning-biomass calculations from the base case model production fit
 ([Figure 38](#fig-model260-spawn-interval-exploitation)). For the interval from spawning in 2026 to
 spawning in 2027, its production-point estimate is **13.7%**: **3.326 million t** with fishing
 versus **3.853 million t** without fishing. The branches share prior fishing history and their
@@ -1293,7 +1288,7 @@ would be interesting to evaluate.
 
 ### 6.3.2 Posterior diagnostics and predictive checks {#sec-model260-posterior-review}
 
-The regularized posterior explores parameter uncertainty separately from the production base-model
+The regularized posterior explores parameter uncertainty separately from the production base case model
 estimates ([Figure 62](#fig-model260-snuts-pairs); [Figure 63](#fig-model260-snuts-uncertainty);
 [Figure 64](#fig-model260-snuts-marginals)). Four chains each retained 1,250 draws after 1,000
 warmup iterations. Combined parameter diagnostics give maximum R-hat 1.024 and minimum bulk ESS 242,
@@ -1339,8 +1334,8 @@ years of data become available.
 ## 7.1 Proposed Tier 3 configuration and reference points
 
 The proposed fishery selectivity is the mean of the 2023--2025 annual curves, the latest three years
-with fishery age observations. Each age is averaged before scaling the resulting curve to a maximum
-of one. The separately inferred 2026 curve is distinguished from directly age-informed years ([the
+with fishery age observations. Each age is averaged before scaling the resulting curve to an arithmetic mean
+of one over ages 1--14 and 15+, consistent with earlier assessments. The separately inferred 2026 curve is distinguished from directly age-informed years ([the
 projection-input appendix](#sec-proposed-projection-input-curves)).
 
 The deterministic recruitment level uses the arithmetic mean of age-1 entries in 1978--2023,
@@ -1380,8 +1375,8 @@ mean ([Table 50](#tbl-proposed-tier3-catch); [Table 51](#tbl-proposed-tier3-ssb)
 52](#tbl-proposed-tier3-f)). The historical phase plot places the fitted 1981--2026 trajectory and
 deterministic Alternative 2 projections for 2027--2028 on common axes ([Figure
 69](#fig-proposed-tier3-phase)). The horizontal axis is female spawning biomass divided by B35%; the
-vertical axis is maximum fishing mortality at age divided by F35%. Both denominators are the current
-primary projection reference points (B35% = 2.155 million t; F35% = 0.658 per year), held constant
+vertical axis is mean fishing mortality across model ages divided by F35%. Both denominators are the current
+primary projection reference points (B35% = 2.155 million t; F35% = 0.429 per year), held constant
 across the trajectory. This common benchmark shows changes in the fitted stock and fishing mortality
 through time. The 2024 assessment used annually varying reference points; the historical positions
 here therefore also reflect the choice of a common current benchmark. F35% is a spawning-per-recruit
@@ -1431,7 +1426,7 @@ than MCMC draws.
 Fishery selectivity determines how fishing mortality is distributed across ages and therefore
 affects both the reference fishing rates and the catches obtained at those rates. The central
 projection uses the age-specific arithmetic mean of the raw 2023--2025 fishery selectivity curves,
-rescaled so that its maximum is one. This recent three-year average smooths annual variation while
+rescaled so that its mean over ages 1--14 and 15+ is one. This recent three-year average smooths annual variation while
 retaining the age pattern from the latest years with fishery age observations. Averaging precedes
 rescaling because normalizing each annual curve first would give a different average.
 [Figure 70](#fig-projection-selectivity-recent) introduces this recent-average specification and
@@ -1480,10 +1475,10 @@ model ages 1--15, with age 15 representing the plus group; population abundance 
 composition are excluded from that shape index.
 
 The reference-rate comparison makes the dependence on age selection explicit
-([Figure 74](#fig-selectivity-f35-mean-age)). Under fixed biology, each curve has its own fully
-selected F35% rate, the fishing-mortality scalar that reduces lifetime spawning output per recruit
+([Figure 74](#fig-selectivity-f35-mean-age)). Under fixed biology, each curve has its own
+F35% rate under mean-one selectivity, the fishing-mortality scalar that reduces lifetime spawning output per recruit
 to 35% of the unfished level. Later exposure can allow more spawning before capture and therefore
-support a higher fully selected rate at the same spawning-per-recruit target. However, the full
+support a higher reference rate at the same spawning-per-recruit target. However, the full
 curve, including its older-age tail, determines this response. The high 2019 F35% illustrates how a
 reference scalar can rise sharply under a particular age pattern. Such an increase describes the
 rate permitted under that pattern; it provides no independent evidence of increased stock
@@ -1492,7 +1487,7 @@ productivity or a larger sustainable catch.
 Two distinctions are essential when interpreting an FMSY proxy against selected age. First, F35% is
 a spawning-per-recruit proxy for FMSY, whereas FMSY itself depends on the equilibrium yield and
 recruitment relationship. The historical FMSY comparison and this F35% diagnostic therefore
-represent different reference quantities. Second, fully selected F is a scalar: fishing mortality at
+represent different reference quantities. Second, F is a scalar: fishing mortality at
 each age equals that scalar multiplied by selectivity at that age. Comparisons among years require
 the same selectivity normalization and the corresponding age-specific mortality pattern. The
 scatterplot uses a selectivity-weighted age index over ages 1--10, whereas its spawning-per-recruit
@@ -1654,11 +1649,9 @@ adopted **2025 Bering Sea pollock OFL of 2.957 million t** (National Marine Fish
 ([2025](#ref-noaa2025bsaifinalspecs))) and the Model 26.0 beginning-of-year 2025 numbers at age,
 fishery weights, natural mortality and realized selectivity.
 
-Solving the annual Baranov catch equation gives **F limit = 0.787 per year** on the
-maximum-F-across-ages scale used in this report, with the maximum at age 6. The equivalent scalar on
-Rceattle's native mean-normalized selectivity scale is **0.439 per year**. Both scalings give the
-same fishing mortality at age and reproduce the adopted 2025 OFL. This calculation holds the fitted
-population and biological inputs fixed while changing fishing mortality.
+Solving the annual Baranov catch equation gives **F limit = 0.439 per year** under mean-one
+selectivity, reproducing the adopted 2025 OFL. This calculation holds the fitted population and
+biological inputs fixed while changing fishing mortality.
 
 The calculation finds the value of $F_{\mathrm{limit}}$ satisfying
 
@@ -1672,9 +1665,8 @@ C^{\mathrm{OFL}}_{2025}=
 $$
 
 Here $N$ is beginning-of-year abundance, $w^{\mathrm{fishery}}$ is fishery weight-at-age, $M$ is
-annual natural mortality, and $s^{*}$ is the fitted selectivity curve rescaled to a maximum of one.
-Thus $F_{\mathrm{limit}}$ is the maximum annual fishing mortality across ages. The sum includes ages
-1--15+. Abundance in millions of fish and weight in kg give catch in thousand tons.
+annual natural mortality, and $s^{*}$ is the fitted selectivity curve rescaled to a mean of one
+over ages 1--14 and 15+. Thus $F_{\mathrm{limit}}$ is mean annual fishing mortality across model ages. Abundance in millions of fish and weight in kg give catch in thousand tons.
 
 # 11 Ecosystem considerations {#sec-ecosystem-considerations}
 
@@ -1955,7 +1947,7 @@ Buckley, T. W., A. Greig, and J. L. Boldt. 2009. *Describing Summer Pelagic Habi
 :::
 
 ::: {#ref-buckley2015 .csl-entry}
-Buckley, T. W., I. Ortiz, S. Kotwicki, and K. Aydin. 2015. "Summer Diet Composition of Walleye Pollock and Predator-Prey Relationships with Copepods and Euphausiids in the Eastern Bering Sea, 1987-2011." *Deep-Sea Research Part II: Topical Studies in Oceanography* 134: 302--11. <http://doi.org/10.1016/j.dsr2.2015.10.009>.
+Buckley, T. W., I. Ortiz, S. Kotwicki, and K. Aydin. 2016. "Summer Diet Composition of Walleye Pollock and Predator-Prey Relationships with Copepods and Euphausiids in the Eastern Bering Sea, 1987-2011." *Deep-Sea Research Part II: Topical Studies in Oceanography* 134: 302--11. <http://doi.org/10.1016/j.dsr2.2015.10.009>.
 :::
 
 ::: {#ref-buser2026jellyfish .csl-entry}
@@ -1991,7 +1983,7 @@ Fournier, D. A., J. R. Sibert, J. Majkowski, and J. Hampton. 1990. "MULTIFAN a L
 :::
 
 ::: {#ref-Fournier1982 .csl-entry}
-Fournier, D., and C. Archibald. 1982. "A General Theory for Analyzing Catch at Age Data." *Canadian Journal of Fisheries and ...*. <http://www.nrcresearchpress.com/doi/abs/10.1139/f82-157>.
+Fournier, D., and C. P. Archibald. 1982. "A General Theory for Analyzing Catch at Age Data." *Canadian Journal of Fisheries and Aquatic Sciences* 39 (8): 1195--1207. <https://doi.org/10.1139/f82-157>.
 :::
 
 ::: {#ref-francis1992use .csl-entry}
@@ -1999,7 +1991,7 @@ Francis, R. I. C. C. 1992. "Use of Risk Analysis to Assess Fishery Management St
 :::
 
 ::: {#ref-francis2011weighting .csl-entry}
-Francis, R. I. C. C. 2011. "Data Weighting in Statistical Fisheries Stock Assessment Models." *Canadian Journal of Fisheries and Aquatic Sciences* 68: 1124--38. <https://doi.org/10.1139/F2011-025>.
+Francis, R. I. C. C. 2011. "Data Weighting in Statistical Fisheries Stock Assessment Models." *Canadian Journal of Fisheries and Aquatic Sciences* 68: 1124--38. <https://doi.org/10.1139/F2011-025>. Corrigendum: *Canadian Journal of Fisheries and Aquatic Sciences* 68: 2228 (2011). <https://doi.org/10.1139/F2011-165>.
 :::
 
 ::: {#ref-gann2026nutrients .csl-entry}
@@ -2007,7 +1999,7 @@ Gann, J. C. 2026. "Surface Phosphate Concentrations and Mixed Layer Depth Correl
 :::
 
 ::: {#ref-gann2015 .csl-entry}
-Gann, J. C., L. B. Eisner, S. Porter, et al. 2015. "Possible Mechanism Linking Ocean Conditions to Low Body Weight and Poor Recruitment of Age-0 Walleye Pollock (*Gadus Chalcogrammus*) in the Southeast Bering Sea During 2007." *Deep Sea Research Part II: Topical Studies in Oceanography* 134: 1--13. <http://doi.org/10.1016/j.dsr2.2015.07.010>.
+Gann, J. C., L. B. Eisner, S. Porter, et al. 2016. "Possible Mechanism Linking Ocean Conditions to Low Body Weight and Poor Recruitment of Age-0 Walleye Pollock (*Gadus Chalcogrammus*) in the Southeast Bering Sea During 2007." *Deep Sea Research Part II: Topical Studies in Oceanography* 134: 115--127. <https://doi.org/10.1016/j.dsr2.2015.07.010>.
 :::
 
 ::: {#ref-gannetal2026chlorophyll .csl-entry}
@@ -2035,7 +2027,7 @@ Holsman, K. K., J. Ianelli, K. Shotwell, et al. 2026. "Bering Sea Multispecies M
 :::
 
 ::: {#ref-honkalehto2015 .csl-entry}
-Honkalehto, T., and A. McCarthy. 2015. *Results of the Acoustic-Trawl Survey of Walleye Pollock (*Gaddus Chalcogrammus*) on the u.s. And Russian Bering Sea Shelf in June - August 2014*. AFSC Processed Rep. 2015-07, 62 p. Alaska Fish. Sci. Cent., NOAA, Natl. Mar. Fish. Serv., 7600 Sand Point Way NE, Seattle WA 98115. <http://www.afsc.noaa.gov/Publications/ProcRpt/PR2015-07.pdf>.
+Honkalehto, T., and A. McCarthy. 2015. *Results of the Acoustic-Trawl Survey of Walleye Pollock (Gadus chalcogrammus) on the U.S. and Russian Bering Sea Shelf in June--August 2014 (DY1407)*. AFSC Processed Report 2015-07, 62 p. Alaska Fisheries Science Center, NOAA, National Marine Fisheries Service. <https://doi.org/10.25923/z93x-ft82>.
 :::
 
 ::: {#ref-honkalehto2011 .csl-entry}
@@ -2051,11 +2043,11 @@ Ianelli, J. 2026. *AKsf: Alaska Fisheries Spatial Features*. R package. Version 
 :::
 
 ::: {#ref-ianelli1998 .csl-entry}
-Ianelli, J. N., and D. A. Fournier. 1998. *Alternative Age-Structured Analyses of the NRC Simulated Stock Assessment Data*. NOAA Tech. Memo. NMFS-F/SPO-30. NOAA.
+Ianelli, J. N., and D. A. Fournier. 1998. "Alternative Age-Structured Analyses of the NRC Simulated Stock Assessment Data." In *Analyses of Simulated Data Sets in Support of the NRC Study on Stock Assessment Methods*, edited by V. R. Restrepo. NOAA Technical Memorandum NMFS-F/SPO-30. <https://repository.library.noaa.gov/view/noaa/26616>.
 :::
 
 ::: {#ref-ianelli2015 .csl-entry}
-Ianelli, J., S. Kotwicki, and T. Honkalehto. 2015. *Chapter 1 : Assessment of the Walleye Pollock Stock in the Eastern Bering Sea*. (Anchorage, Alaska), no. December.
+Ianelli, J. N., T. Honkalehto, S. Barbeaux, and S. Kotwicki. 2015. *Assessment of the Walleye Pollock Stock in the Eastern Bering Sea*. North Pacific Fishery Management Council, Anchorage, AK. <https://apps-afsc.fisheries.noaa.gov/REFM/Docs/2015/EBSpollock.pdf>.
 :::
 
 ::: {#ref-ianelli2026developments .csl-entry}
@@ -2063,19 +2055,24 @@ Ianelli, J., S. Wassermann, C. McGilliard, et al. 2026. *September 2026 Assessme
 :::
 
 ::: {#ref-ianelli2021 .csl-entry}
-Ianelli, J., T. Honkalehto, Allen-Akselrud C., S. Stienessen, and E. Siddon. 2021. *Chapter 1 : Assessment of the Walleye Pollock Stock in the Eastern Bering Sea*. (1007 West Third, Suite 400, Anchorage, Alaska 99501). <https://apps-afsc.fisheries.noaa.gov/Plan_Team/2021/EBSPollock.pdf>.
+Ianelli, J., T. Honkalehto, C. Allen-Akselrud, S. Stienessen, and E. Siddon. 2021. *Assessment of the Walleye Pollock Stock in the Eastern Bering Sea*. North Pacific Fishery Management Council, Anchorage, AK. <https://apps-afsc.fisheries.noaa.gov/Plan_Team/2021/EBSPollock.pdf>.
 :::
 
 ::: {#ref-ianelli2024safe .csl-entry}
-Ianelli, J., T. Honkalehto, S. Wassermann, et al. 2024. *Assessment of Walleye Pollock in the Eastern Bering Sea*. North Pacific Fishery Management Council. <https://files.npfmc.org/SAFE/2024/EBSpollock.pdf>.
+Ianelli, J., T. Honkalehto, S. Wassermann, et al. 2024. *Assessment of Walleye Pollock in the Eastern Bering Sea*. North Pacific Fishery Management Council, Anchorage, AK. <https://files.npfmc.org/SAFE/2024/EBSpollock.pdf>.
 :::
 
 ::: {#ref-ianelli2023a .csl-entry}
-Ianelli, J., T. Honkalehto, Wasserman S., N. Lauffenburger, McGilliard C., and E. Siddon. 2023. *Chapter 1 : Assessment of the Walleye Pollock Stock in the Eastern Bering Sea*. (1007 West Third, Suite 400, Anchorage, Alaska 99501). <https://apps-afsc.fisheries.noaa.gov/Plan_Team/2023/EBSPollock.pdf>.
+Ianelli, J., T. Honkalehto, S. Wassermann, N. Lauffenburger, C. McGilliard, and E. Siddon. 2023. *Assessment of the Walleye Pollock Stock in the Eastern Bering Sea*. North Pacific Fishery Management Council, Anchorage, AK. <https://apps-afsc.fisheries.noaa.gov/Plan_Team/2023/EBSPollock.pdf>.
 :::
 
 ::: {#ref-ianelli2001 .csl-entry}
-Ianelli, S. B., James N., and N. Williamson. 2001. *Chapter 1 : Assessment of the Walleye Pollock Stock in the Eastern Bering Sea*. (Anchorage, Alaska), no. December.
+Ianelli, J. N., T. Buckley, T. Honkalehto, G. Walters, and N. Williamson. 2001. *Eastern Bering Sea Walleye Pollock Stock Assessment*. November draft. Alaska Fisheries Science Center, National Marine Fisheries Service. <https://apps-afsc.fisheries.noaa.gov/refm/docs/2001/BSpollock.pdf>.
+
+:::
+
+::: {#ref-ianelli2007safe .csl-entry}
+Ianelli, J. N., S. Barbeaux, T. Honkalehto, S. Kotwicki, K. Aydin, and N. Williamson. 2007. *Eastern Bering Sea Walleye Pollock*. Alaska Fisheries Science Center, National Marine Fisheries Service. <https://apps-afsc.fisheries.noaa.gov/refm/docs/2007/EBSpollock.pdf>.
 :::
 
 ::: {#ref-indivero2023 .csl-entry}
@@ -2091,11 +2088,11 @@ Kimmel, D. G., C. E. Harpold, J. Keister, et al. 2026. "Current and Historical T
 :::
 
 ::: {#ref-kimura1989 .csl-entry}
-Kimura, D. K. 1989. "Variability in Estimating Catch-in-Numbers-at-Age and Its Impact on Cohort Analysis." In *Effects on Ocean Variability on Recruitment and an Evaluation of Parameters Used in Stock Assessment Models*, edited by R. J. Beamish and G. A. McFarlane. Can. Spec. Publ. Fish. Aq. Sci.
+Kimura, D. K. 1989. "Variability in Estimating Catch-in-Numbers-at-Age and Its Impact on Cohort Analysis." In *Effects of Ocean Variability on Recruitment and an Evaluation of Parameters Used in Stock Assessment Models*, edited by R. J. Beamish and G. A. McFarlane, 57--66. Canadian Special Publication of Fisheries and Aquatic Sciences 108. Ottawa: Department of Fisheries and Oceans. <https://publications.gc.ca/collections/collection_2016/mpo-dfo/Fs41-31-108-eng.pdf>.
 :::
 
 ::: {#ref-lang2005 .csl-entry}
-Lang, G. M., P. A. Livingston, and K. A. Dodd. 2005. *Groundfish Food Habits and Predation on Commercially Important Prey Species in the Eastern Bering Sea from 1997 Through 2001*. No. 158. U.S. Dep. Commer., NOAA Tech. Memo. NMFS-AFSC. <http://www.afsc.noaa.gov/Publications/AFSC-TM/NOAA-TM-AFSC-158.pdf>.
+Lang, G. M., P. A. Livingston, and K. A. Dodd. 2005. *Groundfish Food Habits and Predation on Commercially Important Prey Species in the Eastern Bering Sea from 1997 Through 2001*. No. 158. U.S. Dep. Commer., NOAA Tech. Memo. NMFS-AFSC. <https://repository.library.noaa.gov/view/noaa/22869>.
 :::
 
 ::: {#ref-lang2000 .csl-entry}
@@ -2103,7 +2100,7 @@ Lang, G. M., R. D. Brodeur, J. M. Napp, and R. Schabetsberger. 2000. "Variation 
 :::
 
 ::: {#ref-lauffenburger2025avo .csl-entry}
-Lauffenburger, N., T. Honkalehto, S. C. Stienessen, and D. Stevenson. 2025. *Acoustic Vessel-of-Opportunity (AVO) Index for Midwater Bering Sea Walleye Pollock: A Reanalysis and New Results for 2022--2023*. AFSC Processed Report Nos. 2025-09. Alaska Fisheries Science Center, NOAA, National Marine Fisheries Service. <https://repository.library.noaa.gov/view/noaa/71126/noaa_71126_DS1.pdf>.
+Lauffenburger, N., T. Honkalehto, S. C. Stienessen, and D. Stevenson. 2025. *Acoustic Vessel-of-Opportunity (AVO) Index for Midwater Bering Sea Walleye Pollock: A Reanalysis and New Results for 2022--2023*. AFSC Processed Report Nos. 2025-09. Alaska Fisheries Science Center, NOAA, National Marine Fisheries Service. <https://doi.org/10.25923/hv7m-1z58>.
 :::
 
 ::: {#ref-lemagiecallahan2026sst .csl-entry}
@@ -2119,7 +2116,7 @@ Levine, M., A. De Robertis, P. Ressler, and B. Lucca. 2026. "Summer Eastern Beri
 :::
 
 ::: {#ref-livingston1991 .csl-entry}
-Livingston, P. A. 1991. *Walleye Pollock*. U.S. Dep. Commer., NOAA Tech. Memo. NMFS-F/NWC-207.
+Livingston, P. A., editor. 1991. *Groundfish Food Habits and Predation on Commercially Important Prey Species in the Eastern Bering Sea from 1984 to 1986*. NOAA Technical Memorandum NMFS F/NWC-207. Alaska Fisheries Science Center, NOAA, National Marine Fisheries Service. <https://repository.library.noaa.gov/view/noaa/23355>.
 :::
 
 ::: {#ref-mcallister1997 .csl-entry}
@@ -2283,8 +2280,8 @@ than a complete regulatory history.
 
 ::: {#tbl-catch-area-season .report-table .unnumbered data-table="tables/008-tbl-catch-area-season.csv"}
 
-Table 3: EBS pollock catch by reporting area and season, 1991--2026 (tons). Southeast (SE) comprises
-NMFS areas 520--539; Northwest (NW) comprises areas 500--517 and 519. Area 518 (Bogoslof) is
+Table 3: EBS pollock catch by reporting area and season, 1991--2026 (tons). Northwest (NW) comprises
+NMFS areas 520--539; Southeast (SE) comprises areas 500--517 and 519. Area 518 (Bogoslof) is
 excluded. A and B group records with week-ending dates before June 1 and from June 1 onward,
 respectively. The catch data extend through October 17, 2026. Only the 1998 records included catch
 without an area; this catch is allocated between NW and SE in proportion to reported catch within
@@ -2295,7 +2292,7 @@ each season. Totals include retained and discarded catch; values are rounded to 
 ::: {#tbl-catch-retained-discarded .report-table .unnumbered data-table="tables/009-tbl-catch-retained-discarded.csv"}
 
 Table 4: Retained and discarded EBS pollock catch by reporting area, 1991--2026 (tons), from annual
-catch-accounting data. Southeast (SE) comprises NMFS areas 520--539; Northwest (NW) comprises areas
+catch-accounting data. Northwest (NW) comprises NMFS areas 520--539; Southeast (SE) comprises areas
 500--517 and 519. Area 518 (Bogoslof) is excluded. Discarded percentage equals discarded catch
 divided by total catch. Values are rounded to whole tons; 2026 estimates are preliminary.
 
@@ -2328,11 +2325,11 @@ Table 7:Pollock bycatch (t) in identified non-pollock directed Bering Sea fisher
 
 ::: {#tbl-prohibited-species-catch .report-table .unnumbered data-table="tables/013-tbl-prohibited-species-catch.csv"}
 
-Table 8:Bycatch estimates of prohibited species in the BSAI directed pollock fishery, 1991--2026.
+Table 8:Bycatch estimates of prohibited species in the BSAI midwater pollock fishery, 1991--2026.
 
 :::
 
-[Source: author-provided AKFIN / NMFS Alaska Regional Office export, received from AKR October 27, 2026 and loaded November 7, 2026 (earlier source dates remain in some historical records). Both pollock target categories and all reported gears are included. Herring, halibut catch (Halib), and halibut mortality (Halib.M) are metric tons; other columns are estimated numbers of individuals. Values are summed before rounding. NA denotes unavailable estimates; zero denotes a reported zero. Sums use available values when individual records are missing; halibut mortality is unavailable for 1991--1993 and has some missing records in 1998--2003. The 2026 values are preliminary, through the week ending October 24. Other King Crab is outside the species columns of the example table. [Download annual PSC estimates (CSV)](tables/prohibited-species-catch.csv) · [Column definitions (CSV)](tables/prohibited-species-column-map.csv).]{.small}
+[Source: author-provided AKFIN / NMFS Alaska Regional Office export, received from AKR October 27, 2026 and loaded November 7, 2026 (earlier source dates remain in some historical records). Only trips classified as Pollock - midwater are included, with no additional gear or vessel-sector filter. Herring, halibut catch (Halib), and halibut mortality (Halib.M) are metric tons; other columns are estimated numbers of individuals. Values are summed before rounding. NA denotes unavailable estimates; zero denotes a reported zero. Sums use available values when individual records are missing; halibut mortality is unavailable for 1991--1993 and has some missing records in 1998--2003. The 2026 values are preliminary, through the week ending October 24. Other King Crab is outside the species columns of the example table. [Download annual PSC estimates (CSV)](tables/prohibited-species-catch.csv) · [Column definitions (CSV)](tables/prohibited-species-column-map.csv).]{.small}
 
 ::: {#tbl-nontarget-species-bycatch .report-table .unnumbered data-table="tables/014-tbl-nontarget-species-bycatch.csv"}
 
@@ -2360,7 +2357,9 @@ processing stratum, 1977--2025.
 ::: {#tbl-fishery-age-samples .report-table .unnumbered data-table="tables/017-tbl-fishery-age-samples.csv"}
 
 Table 12: Numbers of EBS pollock contributing age estimates, by sex and processing stratum,
-1977--2025. The 2024--2025 entries are released FT-NIRS age predictions.
+1977--2025. The 2024--2025 entries are released FT-NIRS age predictions. Stratified sample
+counts are unavailable in this series for 1988--1990; historical catch-at-age estimates for
+those years are reported in [Ianelli et al. (2001), Table 1.3](#ref-ianelli2001).
 
 :::
 
@@ -2423,8 +2422,8 @@ the Northern Extension is additional.
 ::: {#tbl-ats-age-history .report-table .unnumbered data-table="tables/025-tbl-ats-age-history.csv"}
 
 Table 20: ATS estimates of EBS pollock abundance at age, 1979--2026 (million fish). Ages 10 and
-older are pooled as 10+. The 2026 estimates use the BTS age--length key applied to ATS length
-distributions and remain provisional; ages from the 2026 ATS samples are expected in 2027. Mean and
+older are pooled as 10+. The provisional 2026 estimates apply the BTS age--length key to expanded
+ATS length distributions that extend to 0.5 m above the seafloor. Mean and
 median summarize surveys with age compositions during 1994--2026; 1979--1991 provides historical
 context.
 
@@ -2727,7 +2726,7 @@ Figure 2: Estimated EBS pollock catch numbers (thousands of fish) by sex for th
 ![](assets/figure-003.png){fig-alt="Four annual series show cumulative catch through the January–April week-ending groups. April values are near 40% before 2017 and generally 43–45% thereafter. In 2026 the January, February, March, and April values are 6.69%, 23.14%, 39.42%, and 43.72%. The accompanying data table contains all 108 plotted values."}
 
 ::: {.figure-caption}
-Figure 3: Cumulative EBS pollock catch as a proportion of annual specified TAC for weeks ending in January, February, March, and April, 2000--2026. Catch includes retained and discarded pollock from all gears and targets in the Bering Sea subarea, excluding Bogoslof reporting area 518. Each full reporting week is assigned to its week-ending month. The denominator is the annual stock TAC from harvest specifications, before later AI-to-BS quota transfers. Amendment 110 shifted five percentage points of the directed fishery seasonal allocation from B to A to provide greater flexibility to avoid Chinook salmon bycatch; 2017 was the first A season after the rule took effect.
+Figure 3: Cumulative EBS pollock catch as a proportion of annual specified TAC for weeks ending in January, February, March, and April, 2000--2026. Catch includes retained and discarded pollock from all gears and targets in the Bering Sea subarea, excluding Bogoslof reporting area 518. Each full reporting week is assigned to its week-ending month. The denominator is the annual stock TAC from harvest specifications, before later Aleutian Islands-to-Bering Sea quota transfers. Amendment 110 shifted five percentage points of the directed fishery seasonal allocation from B to A to provide greater flexibility to avoid Chinook salmon bycatch; 2017 was the first A season after the rule took effect.
 :::
 
 ::::
@@ -2744,20 +2743,20 @@ Figure 4: Pollock roe production for the A (January--May) and B (June--December
 
 :::: {#fig-spatial-catch-a .report-figure}
 
-![](assets/figure-005.png){fig-alt="Spatial distribution of observed pollock catch in the A season, 2024–2026, using January 20–June 9 in each year. Vertical bar height represents catch tons within 0.5-degree longitude by 0.25-degree latitude cells; the height scale is fixed across years within each season, with separate A- and B-season scales and a 10,000-t reference column in each panel. Data are from inseas26.csv and include available catcher-processor, mothership and observed catcher-vessel records in NMFS areas below 540. Electronic-monitoring catcher-vessel records are absent. These are observed-record catch totals rather than fleet-wide expanded catches. The B-season comparison is restricted to the September 18 cutoff in all three years. Rendered with GMT using the AKsf coastline and the local bottom_topo.grd bathymetry grid. Blue shades show ocean depth and green shades show land elevation. Mercator projection viewed at azimuth 155 degrees and elevation 35 degrees, with increased column heights; vertical bars represent catch rather than seafloor height. Updated in the style of Figures 4 and 7 of the 2024 assessment."}
+![](assets/figure-005.png){fig-alt="Spatial distribution of observed pollock catch in the A season, 2024–2026, using January 20–June 9 in each year. Vertical bar height represents catch tons within 0.5-degree longitude by 0.25-degree latitude cells; the height scale is fixed across years within each season, with separate A- and B-season scales and a 10,000-t reference column in each panel. Data include available catcher-processor, mothership and observed catcher-vessel records in NMFS areas below 540. Electronic-monitoring catcher-vessel records are absent. These are observed-record catch totals rather than fleet-wide expanded catches. The B-season comparison is restricted to the September 18 cutoff in all three years. Rendered with GMT using the AKsf coastline and the local bottom_topo.grd bathymetry grid. Blue shades show ocean depth and green shades show land elevation. Mercator projection viewed at azimuth 155 degrees and elevation 35 degrees, with increased column heights; vertical bars represent catch rather than seafloor height. Updated in the style of Figures 4 and 7 of the 2024 assessment."}
 
 ::: {.figure-caption}
-Figure 5: Spatial distribution of observed pollock catch in the A season (January 20--June 9), 2024--2026, in each year. Purple vertical bar height represents catch tons within 0.5-degree longitude by 0.25-degree latitude cells; the height scale is fixed across years within each season and a 10,000-t reference column in each panel. Data include available catcher-processor, mothership and observed catcher-vessel records in NMFS areas below 540. Electronic-monitoring catcher-vessel records are absent. The maps show observed-record catch totals rather than fleet-wide expanded catches. Blue shades show ocean depth and green shades show land elevation.
+Figure 5: Spatial distribution of observed pollock catch in the A season (January 20--June 9), 2024--2026, in each year. Purple vertical bar height represents catch tons within 0.5-degree longitude by 0.25-degree latitude cells; the height scale is fixed across years within each season, with a 10,000-t reference column in each panel. Data include available catcher-processor, mothership and observed catcher-vessel records in NMFS areas below 540. Electronic-monitoring catcher-vessel records are absent. The maps show observed-record catch totals rather than fleet-wide expanded catches. Blue shades show ocean depth and green shades show land elevation.
 :::
 
 ::::
 
 :::: {#fig-spatial-catch-b .report-figure}
 
-![](assets/figure-006.png){fig-alt="Spatial distribution of observed pollock catch in the B season, 2024–2026, using June 10–September 18 in each year. Vertical bar height represents catch tons within 0.5-degree longitude by 0.25-degree latitude cells; the height scale is fixed across years within each season, with separate A- and B-season scales and a 10,000-t reference column in each panel. Data are from inseas26.csv and include available catcher-processor, mothership and observed catcher-vessel records in NMFS areas below 540. Electronic-monitoring catcher-vessel records are absent. These are observed-record catch totals rather than fleet-wide expanded catches. The B-season comparison is restricted to the September 18 cutoff in all three years. Rendered with GMT using the AKsf coastline and the local bottom_topo.grd bathymetry grid. Blue shades show ocean depth and green shades show land elevation. Mercator projection viewed at azimuth 155 degrees and elevation 35 degrees, with increased column heights; vertical bars represent catch rather than seafloor height. Updated in the style of Figures 4 and 7 of the 2024 assessment."}
+![](assets/figure-006.png){fig-alt="Spatial distribution of observed pollock catch in the B season, 2024–2026, using June 10–September 18 in each year. Vertical bar height represents catch tons within 0.5-degree longitude by 0.25-degree latitude cells; the height scale is fixed across years within each season, with separate A- and B-season scales and a 10,000-t reference column in each panel. Data include available catcher-processor, mothership and observed catcher-vessel records in NMFS areas below 540. Electronic-monitoring catcher-vessel records are absent. These are observed-record catch totals rather than fleet-wide expanded catches. The B-season comparison is restricted to the September 18 cutoff in all three years. Rendered with GMT using the AKsf coastline and the local bottom_topo.grd bathymetry grid. Blue shades show ocean depth and green shades show land elevation. Mercator projection viewed at azimuth 155 degrees and elevation 35 degrees, with increased column heights; vertical bars represent catch rather than seafloor height. Updated in the style of Figures 4 and 7 of the 2024 assessment."}
 
 ::: {.figure-caption}
-Figure 6: Spatial distribution of observed pollock catch in the B season (June 10--September 18), 2024--2026, in each year. Purple vertical bar height represents catch tons within 0.5-degree longitude by 0.25-degree latitude cells; the height scale is fixed across years within each season and a 10,000-t reference column in each panel. Data include available catcher-processor, mothership and observed catcher-vessel records in NMFS areas below 540. Electronic-monitoring catcher-vessel records are absent. The maps show observed-record catch totals rather than fleet-wide expanded catches. Blue shades show ocean depth and green shades show land elevation.
+Figure 6: Spatial distribution of observed pollock catch in the B season (June 10--September 18), 2024--2026, in each year. Purple vertical bar height represents catch tons within 0.5-degree longitude by 0.25-degree latitude cells; the height scale is fixed across years within each season, with a 10,000-t reference column in each panel. Data include available catcher-processor, mothership and observed catcher-vessel records in NMFS areas below 540. Electronic-monitoring catcher-vessel records are absent. The maps show observed-record catch totals rather than fleet-wide expanded catches. Blue shades show ocean depth and green shades show land elevation.
 :::
 
 ::::
@@ -2774,7 +2773,7 @@ Figure 7: Fleet dispersion in the A and B seasons, 2000--2026 using a daily pai
 
 :::: {#fig-seasonal-mean-weight .report-figure}
 
-![](assets/figure-008.png){fig-alt="Catch-weighted distributions of mean pollock weight per source record for A and B seasons, 1991–2026. Catch tons are grouped in 50-g bins; the vertical line marks 500 g. A is source week 24 or earlier and B is later than week 24. The extract ends September 18, 2026, so B-season coverage is partial. Available catcher-vessel records exclude electronic-monitoring records. Ridges describe the distribution of record means, with heights scaled for display."}
+![](assets/figure-008.png){fig-alt="Catch-weighted distributions of mean pollock weight per record for A and B seasons, 1991–2026. Catch tons are grouped in 50-g bins; the vertical line marks 500 g. A is source week 24 or earlier and B is later than week 24. The observations end September 18, 2026, so B-season coverage is partial. Available catcher-vessel records exclude electronic-monitoring records. Ridges describe the distribution of record means, with heights scaled for display."}
 
 ::: {.figure-caption}
 Figure 8: Catch-weighted distributions of mean pollock weight per individual for A and B seasons, 1991--2026. Catch tons are grouped in 50-g bins; the vertical line marks 500 g. The 2026 B-season coverage includes data up to September 18. Available catcher-vessel records exclude electronic-monitoring records. Ridges describe the distribution of the mean individual weight by haul.
@@ -2794,7 +2793,7 @@ Figure 9: Weekly A-season (defined here as weeks 2--15) distributions of mean p
 
 :::: {#fig-seasonal-weekly-weight-b .report-figure}
 
-![](assets/figure-010.png){fig-alt="Weekly B-season-window distributions of mean pollock weight, 2001–2026, for source weeks 25–40. Catch tons are grouped in approximately 66.7-g bins; the vertical line marks 500 g. The 2026 data extend through September 18 and therefore covers only part of this window. Available catcher-vessel coverage is incomplete."}
+![](assets/figure-010.png){fig-alt="Weekly B-season-window distributions of mean pollock weight, 2001–2026, for source weeks 25–40. Catch tons are grouped in approximately 66.7-g bins; the vertical line marks 500 g. The 2026 data extend through September 18 and therefore cover only part of this window. Available catcher-vessel coverage is incomplete."}
 
 ::: {.figure-caption}
 Figure 10: Weekly B-season (defined here as weeks 25--40) distributions of mean pollock weight, 2001--2026. Catch tons are grouped in approximately 66.7-g bins; the vertical line marks 500 g. The 2026 series extends through September 18 and covers only part of this window. Available catcher-vessel coverage is incomplete.
@@ -2807,7 +2806,11 @@ Figure 10: Weekly B-season (defined here as weeks 25--40) distributions of mean
 ![](assets/figure-011.png){fig-alt="Annual stacked bars show EBS pollock catch from 1964 through 2026 in million tons. The 1964–1990 bars are neutral gray historical totals with no seasonal or regional split. From 1991, blue SE B-season bars are below green NW B-season and orange A-season bars. A dashed line separates the source periods; the final bar shows partial 2026 catch through October 17."}
 
 ::: {.figure-caption}
-Figure 11: Eastern Bering Sea pollock catch, 1964--2026, in million tons. Catches for 1964--1990 are undifferentiated by season and area; from 1991--2026 the A-season catches (January--June) are undifferentiated by area, while the B-season catches (June--December) are shown separately by area (NW and SE). The NW area comprises NMFS areas 520--529; SE comprises 500--517 and 519. The 2026 bar includes 1.268 million tons of catch through October 17 and is incomplete.
+Figure 11: Eastern Bering Sea pollock catch, 1964--2026, in million tons. Catches for
+1964--1990 are undifferentiated by season and area. From 1991, catch from weeks ending before June 1
+(A season) is combined across regions; catch from weeks ending June 1 or later (B season) is shown
+by region. The figure uses NMFS areas 520--529 for NW and 500--517 and 519 for SE. Tables 3 and 4
+use the broader NW range 520--539. The partial 2026 bar shows 1.268 million tons through October 17.
 :::
 
 ::::
@@ -2857,7 +2860,7 @@ Figure 15: BTS age composition by year, 1990--2026. Highlighted bars trace the 
 ![](assets/figure-015.png){fig-alt="Perspective bar chart shows changing ATS age distributions and cohorts advancing through age groups. The highlighted 2018 year class appears at age 4 in 2022, age 6 in 2024 and age 8 in 2026. Ages 2 and 3 dominate the provisional 2026 distribution."}
 
 ::: {.figure-caption}
-Figure 16: ATS age composition by year, 1994--2026. Blank rows indicate years without age-composition observations. Highlighted bars trace the 2014 (green) and 2018 (red) year classes. The 2026 ages are provisional estimates derived by applying the BTS age--length key to ATS population length frequencies.
+Figure 16: ATS age composition by year, 1994--2026. Blank rows indicate years without age-composition observations. Highlighted bars trace the 2014 (green) and 2018 (red) year classes. The provisional 2026 estimates apply the BTS age--length key to expanded ATS length distributions that extend to 0.5 m above the seafloor.
 :::
 
 ::::
@@ -2867,7 +2870,7 @@ Figure 16: ATS age composition by year, 1994--2026. Blank rows indicate years w
 ![](assets/figure-016.png){fig-alt="Two bar charts show provisional core-area ATS abundances. The FT-NIRS length-key product peaks at age 2 at 5.341 billion fish. Conditional conversion to TMA tester ages shifts the largest bar to age 3 at 3.958 billion, with age 2 at 3.729 billion. Both panels allocate 12.662522 billion fish."}
 
 ::: {.figure-caption}
-Figure 17: Provisional core-area 2026 ATS abundance-at-age after applying a BTS FT-NIRS length key (upper panel) and the screened 307-pair BTS conditional tester-age key (lower panel). Bars show billion fish over observed lengths only, with no uncertainty intervals. The analysis uses 1-cm length bins covered by the BTS age--length key; the 307-pair tester-age key excludes flagged calibration outliers.
+Figure 17: Provisional core-area 2026 ATS abundance-at-age after applying a BTS FT-NIRS length key (upper panel) and the screened 307-pair BTS conditional tester-age key (lower panel). Bars show billion fish over observed lengths only, with no uncertainty intervals. The expanded ATS length distributions extend to 0.5 m above the seafloor. The analysis uses 1-cm length bins covered by the BTS age--length key; the 307-pair tester-age key excludes flagged calibration outliers.
 :::
 
 ::::
@@ -2884,10 +2887,10 @@ Figure 18: Provisional core-area 2026 ATS mean weight-at-age using TMA tester a
 
 :::: {#fig-ats-historical-heatmap .report-figure}
 
-![](assets/ats-historical-heatmap-updated-20261117.jpg){fig-alt="Nineteen maps show pollock biomass in tonnes for survey years 1994, 1996, 1997, 1999, 2000, 2002, 2004, 2006, 2007, 2008, 2009, 2010, 2012, 2014, 2016, 2018, 2022, 2024, and 2026. Purple-to-yellow bins show increasing biomass; geographic patterns vary across the EBS shelf. The bottom three metres are excluded."}
+![](assets/ats-historical-heatmap-updated-20261117.jpg){fig-alt="Nineteen maps show pollock biomass in tons for survey years 1994, 1996, 1997, 1999, 2000, 2002, 2004, 2006, 2007, 2008, 2009, 2010, 2012, 2014, 2016, 2018, 2022, 2024, and 2026. Purple-to-yellow bins show increasing biomass; geographic patterns vary across the EBS shelf. The bottom three metres are excluded."}
 
 ::: {.figure-caption}
-Figure 19: ATS pollock biomass between near surface and 3.0 m above the bottom, 1994--2026. Biomass between 3.0 m and the seafloor is excluded. The legend gives biomass in tonnes (t).
+Figure 19: ATS pollock biomass between near surface and 3.0 m above the bottom, 1994--2026. Biomass between 3.0 m and the seafloor is excluded. The legend gives biomass in tons (t).
 :::
 
 ::::
@@ -3036,10 +3039,10 @@ Figure 32: Model 26.0 start-of-year numbers at age, 1964--2026, displayed acros
 
 :::: {#fig-recruitment-2024-current .report-figure}
 
-![](assets/figure-032.png){fig-alt="Age-1 recruitment from the accepted 2024 assessment, Model 23.0, compared with Models 26.0 (panel A) and 26.1.2 (panel B). Bars show point estimates for both sexes in billions of fish. Historical estimates are repeated unchanged without intervals. Whiskers show local 95% log-scale intervals: the native asymptotic covariance for Model 26.0 and the marginal fit’s Louis observed information for Model 26.1.2, conditional on its integration samples and normalizer grid. Calendar year denotes age 1; the 2018 year class enters at age 1 in 2019."}
+![](assets/figure-032.png){fig-alt="Age-1 recruitment from the accepted 2024 assessment compared with Models 26.0 (panel A) and 26.1.2 (panel B). Bars show point estimates for both sexes in billions of fish. Historical estimates are repeated unchanged without intervals. Whiskers show local 95% log-scale intervals: the native asymptotic covariance for Model 26.0 and the marginal fit’s Louis observed information for Model 26.1.2, conditional on its integration samples and normalizer grid. Calendar year denotes age 1; the 2018 year class enters at age 1 in 2019."}
 
 ::: {.figure-caption}
-Figure 33: Age-1 recruitment from the accepted 2024 assessment, Model 23.0, compared with Models 26.0 (panel A) and 26.1.2 (panel B). Bars show point estimates for both sexes in billions of fish. Historical estimates are shown without intervals. Whiskers show local 95% log-scale intervals: the native asymptotic covariance for Model 26.0 and the marginal fit's Louis observed information for Model 26.1.2, conditional on its integration samples and normalizer grid. Calendar year denotes age 1; the 2018 year class enters at age 1 in 2019.
+Figure 33: Age-1 recruitment from the accepted 2024 assessment compared with Models 26.0 (panel A) and 26.1.2 (panel B). Bars show point estimates for both sexes in billions of fish. Historical estimates are shown without intervals. Whiskers show local 95% log-scale intervals: the native asymptotic covariance for Model 26.0 and the marginal fit's Louis observed information for Model 26.1.2, conditional on its integration samples and normalizer grid. Calendar year denotes age 1; the 2018 year class enters at age 1 in 2019.
 :::
 
 ::::
@@ -3396,30 +3399,30 @@ Figure 68: Female spawning-biomass projections for Model 26.0 under Alternative
 
 :::: {#fig-proposed-tier3-phase .report-figure}
 
-![](assets/figure-068.png){fig-alt="Year-labelled trajectory of biomass relative to B35 percent and fishing mortality relative to F35 percent. The final fitted year and both projections lie above B35 percent and below F35 percent. Boxed 27 and 28 labels distinguish projected years. Historical ratios use the same current reference points throughout."}
+![](assets/projection-phase-mean-one.png){fig-alt="Year-labelled trajectory of biomass relative to B35 percent and fishing mortality relative to F35 percent. The final fitted year and both projections lie above B35 percent and below F35 percent. Boxed 27 and 28 labels distinguish projected years. Historical ratios use the same current reference points throughout."}
 
 ::: {.figure-caption}
-Figure 69: Historical trajectory of Model 26.0 female spawning biomass (B) and maximum fishing mortality at age (F), 1981--2026, with deterministic Alternative 2 projections for 2027--2028. Ratios use the current primary Tier 3 reference points, B35% = 2.155 million t and F35% = 0.658 per year, held constant across years. Lines connect consecutive years; two-digit labels identify years, and boxed labels with yellow shading identify projections. Solid lines mark ratios of one; the dashed vertical line marks half B35%. Projected catch is 1.375 million t in each year.
+Figure 69: Historical trajectory of Model 26.0 female spawning biomass (B) and mean fishing mortality across model ages (F), 1981--2026, with deterministic Alternative 2 projections for 2027--2028. Ratios use the current primary Tier 3 reference points, B35% = 2.155 million t and F35% = 0.429 per year, held constant across years. Lines connect consecutive years; two-digit labels identify years, and boxed labels with yellow shading identify projections. Solid lines mark ratios of one; the dashed vertical line marks half B35%. Projected catch is 1.375 million t in each year.
 :::
 
 ::::
 
 :::: {#fig-projection-selectivity-recent .report-figure}
 
-![](assets/figure-069.png){fig-alt="Recent normalized fishery selectivity curves from the Model 26.0 and the proposed raw-curve averaging reference. Half-maximum crossings and curve-shape summaries use the existing verified definitions."}
+![](assets/projection-selectivity-recent-mean-one.png){fig-alt="Recent normalized fishery selectivity curves from the Model 26.0 and the proposed raw-curve averaging reference. The black reference curve is the 2023–2025 raw-curve average; all curves are scaled to mean one."}
 
 ::: {.figure-caption}
-Figure 70: Recent normalized Model 26.0 fishery selectivity curves and the proposed reference based on averaging the unnormalized curves.
+Figure 70: Recent Model 26.0 fishery selectivity curves and the proposed reference based on averaging the unnormalized curves. Curves are scaled to mean one.
 :::
 
 ::::
 
 :::: {#fig-projection-selectivity-annual .report-figure}
 
-![](assets/figure-070.png){fig-alt="Annual Model 26.0 fishery selectivity curves for 2007–2026, each compared with the proposed 2023–2025 raw-curve average rescaled to maximum one. The inferred 2026 curve retains its distinction from directly informed earlier-year curves."}
+![](assets/projection-selectivity-annual-mean-one.png){fig-alt="Annual Model 26.0 fishery selectivity curves for 2007–2026, each compared with the proposed 2023–2025 raw-curve average rescaled to mean one. The inferred 2026 curve retains its distinction from directly informed earlier-year curves."}
 
 ::: {.figure-caption}
-Figure 71: Annual Model 26.0 fishery selectivity curves for 2007--2026, each compared with the proposed 2023--2025 raw-curve average rescaled to maximum one. The 2026 curve is estimated without 2026 fishery age compositions.
+Figure 71: Annual Model 26.0 fishery selectivity curves for 2007--2026, each compared with the proposed 2023--2025 raw-curve average rescaled to mean one. The 2026 curve is estimated without 2026 fishery age compositions.
 :::
 
 ::::
@@ -3439,17 +3442,17 @@ Figure 72: Changes in maximum ABC and OFL under the annual future-selectivity c
 ![](assets/figure-072.png){fig-alt="Annual younger-age selectivity measures for 2007–2026 from the Model 26.0. The inferred 2026 point is distinguished. Curve-weighted mean age is a shape measure under equal age weights, distinct from a population-weighted selected age."}
 
 ::: {.figure-caption}
-Figure 73: Annual younger-age selectivity measures for 2007--2026 from the Model 26.0. The 2026 estimate is highlighted. Curve-weighted mean age is a shape measure under equal age weights, distinct from a population-weighted selected age.
+Figure 73: Annual younger-age selectivity measures relative to the annual peak for 2007--2026 from Model 26.0. The 2026 estimate is highlighted. Curve-weighted mean age is a shape measure under equal age weights, distinct from a population-weighted selected age.
 :::
 
 ::::
 
 :::: {#fig-selectivity-f35-mean-age .report-figure}
 
-![](assets/figure-073.png){fig-alt="Annual Model 26.0 fishery selectivity and fully selected F35%, a proxy for FMSY, for 2001–2026. Mean selected age uses ages 1–10; SPR uses ages 1–14 and 15+, fixed 2026 mortality, maturity and female spawning weights, and quarter-year spawning timing. Curves are normalized to maximum one. The 2023–2025 mean-curve reference and inferred 2026 curve remain separately identified. The historical 2024 figure used FMSY, a different quantity."}
+![](assets/projection-selectivity-f35-mean-one.png){fig-alt="Annual Model 26.0 fishery selectivity and F35% under mean-one selectivity, a proxy for FMSY, for 2001–2026. Mean selected age uses ages 1–10; SPR uses ages 1–14 and 15+, fixed 2026 mortality, maturity and female spawning weights, and quarter-year spawning timing. Curves are normalized to mean one. The 2023–2025 mean-curve reference and inferred 2026 curve remain separately identified. The historical 2024 figure used FMSY, a different quantity."}
 
 ::: {.figure-caption}
-Figure 74: Annual Model 26.0 fishery selectivity and fully selected F35%, a proxy for FMSY, for 2001--2026. Mean selected age uses ages 1--10; SPR uses ages 1--14 and 15+, fixed mortality, maturity and the selected projection spawning weights, and quarter-year spawning timing. Curves are normalized to maximum one. The 2024 figure plotted FMSY.
+Figure 74: Annual Model 26.0 fishery selectivity and F35% under mean-one selectivity, a proxy for FMSY, for 2001--2026. Mean selected age uses ages 1--10; SPR uses ages 1--14 and 15+, fixed mortality, maturity and the selected projection spawning weights, and quarter-year spawning timing. Curves are normalized to mean one. The 2024 figure plotted FMSY.
 :::
 
 ::::
@@ -4504,7 +4507,7 @@ their conditional projection effects.
 
 :::: {#fig-proposed-tier3-selectivity .report-figure}
 
-![](assets/figure-086.png){fig-alt="Fishery selectivity at ages 1 to 15 plus compares the proposed 2023 to 2025 average with a 2024 to 2026 average. Solid-circle and dashed-triangle curves distinguish the two selected averaging windows. Colour, line type and point shape distinguish the curves."}
+![](assets/projection-selectivity-windows-mean-one.png){fig-alt="Fishery selectivity at ages 1 to 15 plus compares the proposed 2023 to 2025 average with a 2024 to 2026 average. Solid-circle and dashed-triangle curves distinguish the two selected averaging windows. Colour, line type and point shape distinguish the curves."}
 
 *Note.* Proposed three-year fishery selectivity and the alternative window check. The two curves are
 distinguished by colour, line type and point shape.
@@ -4744,8 +4747,9 @@ weights.
 
 ### Uncertainty in mean body mass
 
-The 2024 appendix described estimating future weights within the assessment to propagate uncertainty
-into derived quantities ([Ianelli and Williamson 2001](#ref-ianelli2001)). Its earlier option used
+[Ianelli et al. (2001), Section 1.14.2](#ref-ianelli2001), described calculating fishing
+mortality at maximum sustainable yield within the assessment model. The [2007 assessment](#ref-ianelli2007safe)
+extended that approach to propagate uncertainty in future weight-at-age. That option used
 $w^{\mathrm{future}}_a\sim\mathcal{N}(\bar w_a,\sigma_{w,a}^2)$. The retained implementation fits a
 mean growth curve plus cohort and year effects. For starting modeled age $a_0$, its mean curve is
 
@@ -4863,10 +4867,10 @@ its existing marginal observation likelihood, and empirical-key uncertainty is e
 checks distinguish fitted use from the retained full-pair conversion diagnostics ([Table
 G6](#tbl-ftnir-checks)).
 
-Provisional 2026 ATS ages use the BTS age--length key (ALK) applied to ATS population
-length-frequency estimates, followed by conversion to the TMA basis. FT-NIRS ages from the 2026 ATS
-samples will be available in 2027. Fish in length bins outside the BTS key remain unallocated. The resulting weights
-also supply the 2026 AVO predictions.
+Provisional 2026 ATS ages use the BTS age--length key (ALK) applied to expanded ATS length
+distributions that extend to 0.5 m above the seafloor, followed by conversion to the TMA basis.
+The full 2026 ATS age dataset is expected in 2027. Fish in length bins outside the BTS key remain
+unallocated. The resulting weights also supply the 2026 AVO predictions.
 
 ### Fourier transform near-infrared spectroscopy (FT-NIRS) Overview {#sec-ftnir-overview}
 
@@ -5108,7 +5112,7 @@ established before using it in a comparison.
 
 Provisional ATS products retain their transferred BTS age--length and tester-age keys,
 length-bin coverage of the BTS key and separate sampling conditions. Direct ATS age and weight validation
-remains open, with age-composition data expected in 2027. Archived full-pair calibration products
+remains open, with the full 2026 ATS age dataset expected in 2027. Archived full-pair calibration products
 remain available alongside the screened-key input records. Prior fit, projection and posterior
 records retain their original dates and input identities. Final model and recommendation selection
 remain separate review decisions.
