@@ -992,9 +992,8 @@ interval of **11.2--18.4%**.
 
 ### 6.1.2 Estimated model parameters
 
-The parameter-family summary identifies fitted parameter groups and their asymptotic uncertainty
-([Table 38](#tbl-model262-current-parameter-families)). Complete estimates and the largest parameter
-correlations are retained in [the detailed estimates appendix](#sec-current-output-appendix). The
+[Table 38](#tbl-model262-current-parameter-families) shows minimum and maximum estimates for groups of parameters (such as the three log catchability estimates and the 63 recruitment deviation estimates) with corresponding median and maximum asymptotic standard errors. A full table of estimates and the largest parameter
+correlations are available in [the detailed estimates appendix](#sec-current-output-appendix). The
 summary likelihood contributions are in [Table 39](#tbl-model262-current-likelihood-summary).
 
 ### 6.1.3 Fits to the observations
