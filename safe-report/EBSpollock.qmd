@@ -965,34 +965,30 @@ The spawning biomass trajectory from Model 26.0 is slightly larger than for the 
 
 #### Recruitment per unit of spawning biomass
 
-The log recruits-per-spawner diagnostic from the 2024 assessment is updated using the Model 26.0
-estimates ([Figure 35](#fig-model260-lnrs)). For each year of hatching, age-1 recruitment in the
+[Figure 35](#fig-model260-lnrs) shows the log recruits-per-spawner where, for each year of hatching, age-1 recruitment in the
 following year is divided by female spawning biomass in the year of hatching. Taking the natural
 logarithm puts proportional changes on a comparable scale: higher values indicate more recruits per
 unit of spawning biomass. The series shows substantial variation among year classes. The 1978, 2008
 and 2018 year classes have particularly high recruits-per-spawner values. Following the strong 2018
 year class, the ratio declined through the 2022 year class; estimates for 2023--2025 are higher but
-remain less certain. The spawning-biomass panel generally shows lower ratios at higher biomass, with
+are less certain, as the estimates are supported by fewer years of data and a smaller proportion of age 1-3 fish are caught in the surveys and fishery than for older fish. The panel showing recruits-per-spawner as a function of spawning biomass generally shows lower ratios at higher biomass, with
 considerable variation among years at similar biomass. This pattern can reflect density dependence,
 environmental conditions and estimation uncertainty. Spawning biomass appears in both the horizontal
 axis and the ratio, which can contribute to the apparent relationship. Model 26.0 uses mean
-recruitment rather than an estimated Ricker curve. The figure provides a descriptive check on
-productivity using point estimates of the recruitment-to-biomass ratio.
+recruitment rather than an estimated stock-recruit curve. The figure provides a information on productivity across stock sizes and years.
 
-Biological schedules and selectivity retain their age, sex and year definitions
+Biological schedules and selectivity are shown in 
 ([Figure 36](#fig-model262-current-biological-schedules);
 [Table 36](#tbl-model262-current-biological-schedules);
-[Table 37](#tbl-model262-current-selectivity)). Fishing mortality is also shown by age
+[Table 37](#tbl-model262-current-selectivity)). Fishing mortality estimates are shown by age
 ([Figure 37](#fig-model260-fishing-mortality-age)). Whole-year spawning exploitation compares paired
 spawning-biomass calculations from the base model production fit
 ([Figure 38](#fig-model260-spawn-interval-exploitation)). For the interval from spawning in 2026 to
-spawning in 2027, its production-point estimate is **13.7%**: **3.326 million t** with fishing
+spawning in 2027, the point estimate is **13.7%**: **3.326 million t** with fishing
 versus **3.853 million t** without fishing. The branches share prior fishing history and their
 spawning-date starting population, with 1.375 million t annual catch assumed in 2027. The separate
 MCMC posterior median for this exploitation fraction is **14.5%**, with a central 95% credible
-interval of **11.2--18.4%**. These paired-state calculations carry the revised fishery-weight
-schedule into 2027 and retain the fixed 1.375 million t catch assumption. The production-fit point
-remains separate from that posterior interval.
+interval of **11.2--18.4%**.
 
 ### 6.1.2 Estimated model parameters
 
