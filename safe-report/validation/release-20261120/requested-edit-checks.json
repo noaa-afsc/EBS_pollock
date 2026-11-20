@@ -1,0 +1,18 @@
+{
+  "summary_is_two_paragraphs": true,
+  "summary_values": true,
+  "table2_three_columns": true,
+  "table2_audit_link_removed": true,
+  "table8_all_right": true,
+  "section4_heading": true,
+  "historical_heading_removed": true,
+  "posterior_heading": true,
+  "selftest_unbolded": true,
+  "conditional_rho_unbolded": true,
+  "si_after_citation": true,
+  "future_weighting_recommendation": true,
+  "roe_paragraph_merged": true,
+  "requested_past_tense": true,
+  "numeric_tokens_unchanged_by_tense": true,
+  "equations_unchanged": true
+}

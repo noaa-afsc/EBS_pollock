@@ -3,6 +3,6 @@ Quantity,Model 26.0,26.1.2 Early-late fishery split,Units
 B100%,6.158,6.220,Million tons
 B40%,2.463,2.488,Million tons
 B35%,2.155,2.177,Million tons
-F40%,0.513,0.524,Per year
-F35%,0.658,0.666,Per year
+F40%,0.335,0.296,Per year
+F35%,0.429,0.377,Per year
 Revised fits; model-specific 1978--2023 arithmetic mean recruitment. These SPR reference points condition on fixed biology and the stated selectivity window.

@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-20",
+  "source_sha256": "955df1155aa4a57d7c2105205049b3062ba7773f2660b0f6c2e49322b37aec3d",
+  "clean_directory_edit_check": "Pass",
+  "site_links_assets_release_hashes": "Pass",
+  "visual_review": [
+    "title/citation/SI order",
+    "Section 1.3",
+    "Table 2 single page",
+    "Table 8 HTML and PDF right alignment"
+  ],
+  "manual_accessibility": "Not Tested",
+  "model_compilation_gradient_hessian": "Not Applicable: editorial changes to saved-output report"
+}

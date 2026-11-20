@@ -1,0 +1,30 @@
+{
+  "source": "EBSpollock.qmd",
+  "source_sha256": "955df1155aa4a57d7c2105205049b3062ba7773f2660b0f6c2e49322b37aec3d",
+  "reference_html_sha256": "61de24066e198eb670de5fc9cfadb4f04f74f022db68841ae735bcdba7149b93",
+  "reference_version": "2026-11-20-qmd-e35367a1",
+  "html_sha256": "61de24066e198eb670de5fc9cfadb4f04f74f022db68841ae735bcdba7149b93",
+  "paragraphs_and_headings_checked": 23661,
+  "missing_text": [],
+  "tables": [
+    90,
+    90
+  ],
+  "table_differences": [],
+  "images": [
+    90,
+    90
+  ],
+  "image_content_and_alt_match": true,
+  "missing_images": [],
+  "equations": [
+    83,
+    83
+  ],
+  "equations_match": true,
+  "missing_equations": [],
+  "missing_links": [],
+  "broken_fragment_links": [],
+  "duplicate_ids": [],
+  "passed": true
+}

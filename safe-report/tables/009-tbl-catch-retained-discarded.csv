@@ -1,5 +1,5 @@
 cell_1,cell_2,cell_3,cell_4,cell_5,cell_6,cell_7
-Year,NW Discarded,SE Discarded,NW Retained,SE Retained,Total,Discarded %
+Year,SE Discarded,NW Discarded,SE Retained,NW Retained,Total,Discarded %
 1991,"66,792","48,257","586,763","493,852","1,195,664",9.6
 1992,"71,194","57,578","759,365","502,163","1,390,299",9.3
 1993,"83,986","26,100","1,010,443","206,073","1,326,602",8.3

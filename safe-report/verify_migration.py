@@ -17,7 +17,8 @@ def norm(value):
 def load(path):
     dom=html.parse(str(path),parser=html.HTMLParser(huge_tree=True))
     main=dom.xpath('//main')[0]
-    for element in main.xpath('.//script | .//style'):
+    # Render time varies across machines and builds; compare authored content.
+    for element in main.xpath('.//script | .//style | .//*[@class="assessment-timestamp"]'):
         element.drop_tree()
     return main
 

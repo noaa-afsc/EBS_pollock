@@ -1,11 +1,13 @@
 """Attach publication anchors and semantic captions to Quarto's native output.
 
-No report text is sourced here: prose, captions, tables and figures all come
+Report prose, captions, tables and figures all come
 from EBSpollock.qmd and the CSV files consumed by tables.lua.
 """
+from datetime import datetime
 from pathlib import Path
 import re
 import sys
+from zoneinfo import ZoneInfo
 from lxml import html
 
 
@@ -29,6 +31,16 @@ def caption_layout(caption):
 
 def finish(path):
     document=html.parse(str(path),parser=html.HTMLParser(huge_tree=True))
+    title = document.xpath('//header[@id="title-block-header"]//h1')[0]
+    for previous in title.getparent().xpath('./p[@class="assessment-timestamp"]'):
+        title.getparent().remove(previous)
+    built_at = datetime.now(ZoneInfo("America/Los_Angeles"))
+    timestamp = html.Element("p", {"class": "assessment-timestamp"})
+    timestamp.text = "Rendered "
+    time = html.Element("time", datetime=built_at.isoformat(timespec="seconds"))
+    time.text = built_at.strftime("%Y-%m-%d %H:%M:%S %Z")
+    timestamp.append(time)
+    title.addnext(timestamp)
     for figure in document.xpath('//main//div[@data-public-id]'):
         figure.set('id',figure.get('data-public-id'));figure.attrib.pop('data-public-id')
         figure.tag='figure'

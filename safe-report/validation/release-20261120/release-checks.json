@@ -1,0 +1,26 @@
+{
+  "reference_version": "2026-11-20-qmd-e343b9e8",
+  "layout_requirement": "Close visual match; pagination may differ",
+  "source_sha256": "955df1155aa4a57d7c2105205049b3062ba7773f2660b0f6c2e49322b37aec3d",
+  "candidate_sha256": "102ec3aad1fd1ae40a1d9c3a22478e47ee6db5515c5f3d6efc021f1d7e7a698f",
+  "html_byte_identical": false,
+  "published_pages": 260,
+  "generated_pages": 259,
+  "text_elements_checked": 46139,
+  "text_elements_requiring_visual_review": [],
+  "math_review": "Native MathML with embedded Latin Modern Math; visual review recorded separately",
+  "source_images": 90,
+  "pdf_images": 90,
+  "image_pixel_checks_requiring_visual_review": [],
+  "transparent_images_verified_on_white": [
+    "assets/pollock-esp-hex-sticker.png"
+  ],
+  "links": 893,
+  "bookmarks": 187,
+  "off_page_text": [],
+  "bookmark_layout_identical": false,
+  "exact_layout": null,
+  "different_pages": null,
+  "manual_accessibility": "Not Tested",
+  "source_content_checks_passed": true
+}

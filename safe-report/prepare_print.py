@@ -28,6 +28,7 @@ def prepare(source):
     header = main.xpath("./header")[0]
     title = deepcopy(header.xpath(".//h1")[0])
     cover.append(title)
+    cover.append(deepcopy(header.xpath('.//p[@class="assessment-timestamp"]')[0]))
     authors = etree.SubElement(cover, "p", {"class": "pdf-authors"})
     authors.text = ", ".join(" ".join(e.text_content().split()) for e in header.xpath(".//p[@class='author']"))
     for affiliation in header.xpath(".//p[@class='affiliation']"):
