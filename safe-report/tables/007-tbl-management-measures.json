@@ -1,23 +1,23 @@
 {
-  "columns": 4,
+  "columns": 3,
   "header_rows": 2,
   "footer_rows": 3,
   "spans": {
     "1:1": [
       1,
-      4
+      3
     ],
     "26:1": [
       1,
-      4
+      3
     ],
     "27:1": [
       1,
-      4
+      3
     ],
     "28:1": [
       1,
-      4
+      3
     ]
   },
   "classes": {
@@ -28,7 +28,6 @@
   },
   "align": {},
   "column_align": [
-    "left",
     "left",
     "left",
     "left"
