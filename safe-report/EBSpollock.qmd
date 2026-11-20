@@ -896,8 +896,8 @@ effects. [Section 6.2](#sec-model261-results) described the resulting compariso
 
 ## 6.1 Model 26.0 assessment
 
-This section reported Model 26.0 estimated, which were the basis for the Tier 3 catch limits.
-We described their uncertainty and how they change when recent years of data were removed.
+Model 26.0 estimates provided the basis for the Tier 3 catch limits. We described their uncertainty
+and how they changed when we removed recent years of data.
 Comparisons with past assessments used each assessment's data and catch assumptions. Results from
 alternative configurations, including Model 26.1.2, were presented in [Section 6.2](#sec-model261-results).
 
@@ -910,7 +910,7 @@ mortality across ages at **0.299 per year** ([Table 31](#tbl-model262-current-t
 The approximate 95% confidence intervals used the parameter covariance from the Model 26.0 fit,
 with biological schedules held fixed. [Figure 31](#fig-model262-current-full-uncertainty) showed
 the annual estimates and intervals, and [Table 32](#tbl-model262-current-annual-estimates)
-reports the values.
+reported the values.
 
 The 2026 posterior medians for total biomass, female spawning biomass and age-1 recruitment
 were below their corresponding fitted point estimates. The regularized posterior used all 5,000
