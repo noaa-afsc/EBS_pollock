@@ -264,7 +264,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Assessment of walleye pollock in the eastern Bering Sea</h1>
-<p class="assessment-timestamp">Rendered <time datetime="2026-11-20T08:06:15-08:00">2026-11-20 08:06:15 PST</time></p></div>
+<p class="assessment-timestamp">Rendered <time datetime="2026-11-20T11:18:07-08:00">2026-11-20 11:18:07 PST</time></p></div>
 
 
 <div class="quarto-title-meta-author">
@@ -815,7 +815,8 @@ ul.task-list li input[type="checkbox"] {
 <h1>5 Analytic approach</h1>
 <section id="main-and-comparison-models" class="level2">
 <h2 class="anchored" data-anchor-id="main-and-comparison-models">5.1 Main and comparison models</h2>
-<p>Model 26.0 was the base case model used for Tier 3 calculations and harvest recommendations. The cumulative data comparison holds the Model 23.0 formulation fixed; the configuration comparison used matched updated observations to separate changes in model structure from changes in data.</p>
+<p>Model 26.0 was the base case model used for Tier 3 calculations and harvest recommendations. Models 23.0 and 23.2 provide comparisons with the previous assessment and the transition in model structure. Model 26.1.2 is a sensitivity analysis that separates the early (1964–1990) and modern (1991–2026) fisheries and estimates modern selectivity variation after integrating over annual fishery selectivity effects. Its conditional fits and retrospective comparisons hold both process standard deviations fixed; the modern period’s value comes from the marginal model. Model 26.0 uncertainty and retrospective diagnostics are described below. Model equations are given in <a href="#sec-model-equations">the model-equations appendix</a>. The projection methodology is described in <a href="#sec-projections">Section 7</a>.</p>
+<p>The cumulative data comparison holds the Model 23.0 formulation fixed; the configuration comparison used matched updated observations to separate changes in model structure from changes in data.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -873,17 +874,18 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="sec-model262-updated" class="level3">
 <h3 class="anchored" data-anchor-id="sec-model262-updated">5.1.3 Model 26.0 fitted to the 2026 assessment data</h3>
-<p>Model 26.0 fitted one fishery in Rceattle with fixed weight-at-age schedules. The comparison with Model 23.2 used the same updated observations and biological schedules, but the implementations differed. Model 26.0 estimated a separate 1965 fishery selectivity curve; Model 23.2 used the 1964 curve in both years. The models also differ in the penalties on changes in fishery selectivity and in how future recruitment deviations enter estimation. <a href="#fig-model232-vs262">Figure 30</a> compared annual estimates and approximate 95% confidence intervals.</p>
+<p>Model 26.0 fitted one fishery in Rceattle with fixed weight-at-age schedules. The comparison with Model 23.2 used the same updated observations and biological schedules, but the implementations differed. Model 26.0 estimated a separate 1965 fishery selectivity curve; Model 23.2 used the 1964 curve in both years. The models also differ in the penalties on changes in fishery selectivity and in how future recruitment deviations enter estimation. <a href="#fig-model232-vs262">Figure 30</a> compared annual estimates and approximate 95% confidence intervals. The base-model fit retained its native working likelihood, parameter bounds, selectivity forms, priors and fixed biological assumptions; outputs were checked against the written inputs and saved native quantities. Population-weight biomass, female spawning biomass, age-1 recruitment and maximum fishing mortality retain distinct definitions.</p>
 </section>
 <section id="sec-model261-configuration" class="level3">
 <h3 class="anchored" data-anchor-id="sec-model261-configuration">5.1.4 Model 26.1: Early and modern domestic fisheries</h3>
 <p>The split-fishery sensitivities estimate separate selectivity curves and annual changes for the early (1964–1990) and modern domestic (1991–2026) periods. The split changed which selectivity curve applied to each year’s catch and age composition; it does not divide the stock or reassign catches by vessel nationality. Model 26.1.0 applied the original penalty on declining selectivity at older ages. Model 26.1.1 reduced the penalty, and a separate comparison removed it.</p>
-<p>Model 26.1.2 keeps the reduced penalty and integrated over the annual fishery selectivity effects when estimating the modern period’s process standard deviation (SD). The early period’s SD was fixed at 0.1235; the modern period’s marginal estimate was 0.582. The conditional fits used for observation diagnostics, projections and retrospective comparisons hold both SDs at those values. Marginal-fit confidence intervals use the curvature of the likelihood after integrating over the selectivity effects. <a href="#sec-model261-results">Section 6.2</a> described the resulting comparisons.</p>
+<p>Model 26.1.2 kept the reduced penalty and integrated over the annual fishery selectivity effects when estimating the modern period’s process standard deviation (SD). The early period’s SD was fixed at 0.1235; the modern period’s marginal estimate was 0.582. The conditional fits used for observation diagnostics, projections and retrospective comparisons hold both SDs at those values. Marginal-fit confidence intervals use the curvature of the likelihood after integrating over the selectivity effects. Local uncertainty uses the verified marginal information for Model 26.1.2; its observation diagnostics condition on the fitted annual effects. <a href="#sec-model261-results">Section 6.2</a> described the resulting comparisons.</p>
 </section>
 </section>
 </section>
 <section id="sec-results" class="level1">
 <h1>6 Results</h1>
+<p><a href="#tbl-updated-configuration-effects">Table 30</a> compares estimated 2026 total biomass, female spawning biomass, age-1 recruitment and maximum fishing mortality across the 2026 model configurations.</p>
 <section id="model-26.0-assessment" class="level2">
 <h2 class="anchored" data-anchor-id="model-26.0-assessment">6.1 Model 26.0 assessment</h2>
 <p>Model 26.0 estimates provided the basis for the Tier 3 catch limits. We described their uncertainty and how they changed when we removed recent years of data. Comparisons with past assessments used each assessment’s data and catch assumptions. Results from alternative configurations, including Model 26.1.2, were presented in <a href="#sec-model261-results">Section 6.2</a>.</p>
