@@ -38,7 +38,7 @@ The [November 10 Plan Team PDF](https://drive.google.com/file/d/1SlGpfiS_XBxj3xW
 
 The 260-page PDF and HTML were rebuilt from the QMD. The release checks passed for text, 90 figures and links. The separate Council-format PDF retains the body, image placements, links and bookmarks. It has December 2026 headers and footers, page numbering and no Plan Team disclaimer. Manual accessibility review remains separate. Nothing was submitted or published, and this pass did not refit models or change numerical inputs or harvest advice.
 
-In your `EBS_pollock-publish-20261108` checkout, the editable log is `safe-report/REVIEW-CHANGELOG.md`. 
+In your `EBS_pollock-publish-20261108` checkout, the editable log is `safe-report/REVIEW-CHANGELOG.md`.
 
 The Council review copy before the Table 8 correction was `Council/EBSpollock.pdf` in this build folder:
 
@@ -109,3 +109,9 @@ Read [Carey's re-write suggestions](https://docs.google.com/document/d/1OG8IfkO3
 | Reference corrections | Fournier, Gann, Honkalehto 2015/DY1407/DOI, Ianelli reports, Kimura, Lang, Lauffenburger and Livingston corrected previously; Francis corrigendum already present. Added missing Honkalehto 2011 original DOI and corrigendum, verified from publisher-deposited Crossref metadata (10.1139/f2011-101; 68(8):1508–1509). |
 
 All comments attached to deleted source text were reviewed as historical context; their open UI status alone does not identify a remaining draft defect. No Google Doc comments were resolved or suggestions accepted in the shared document.
+
+### Reconciled-draft validation
+
+The final build and local site synchronization completed successfully. Source-content verification passed with 260 pages, 90 figures, 890 links, 188 bookmarks and no off-page text. Site validation passed for 90 HTML tables (89 data tables plus the model-comparison table), 39 Table 2 source links, local assets, matching HTML/PDF copies and release hashes. Credential-pattern scan of the edited report source and site-check script found no matches.
+
+The new Council proof is `safe-report/_build/council-reconciled-20261120/Council/EBSpollock.pdf`. Its 260 pages preserve the plain PDF's body text, image pixels and placements, 890 links, 188 bookmarks and 353 named destinations. It has December 2026 headers/footers and one page number, with the first page unnumbered and the disclaimer disabled. Pages 1, 18, 50 and 137 were visually checked. Formatting warned that inherited accessibility tags require review; manual accessibility validation remains Not Tested. The earlier approved PDF remains available unchanged. These are local review products; no push or Council submission was performed.
