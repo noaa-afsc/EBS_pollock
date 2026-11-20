@@ -976,18 +976,20 @@ assessment parameters under the stated projection assumptions.
 
 #### Recruitment per unit of spawning biomass
 
-The log recruits-per-spawner diagnostic from the 2024 assessment is updated using the Model 26.0
-estimates ([Figure 35](#fig-model260-lnrs)). For each year of hatching, age-1 recruitment in the
+[Figure 35](#fig-model260-lnrs) shows Model 26.0 estimates of log recruits per spawner. For each year
+of hatching, age-1 recruitment in the
 following year is divided by female spawning biomass in the year of hatching. Taking the natural
 logarithm puts proportional changes on a comparable scale: higher values indicate more recruits per
 unit of spawning biomass. The series shows substantial variation among year classes. The 1978, 2008
 and 2018 year classes have particularly high recruits-per-spawner values. Following the strong 2018
 year class, the ratio declined through the 2022 year class; estimates for 2023--2025 are higher but
-remain less certain. The spawning-biomass panel generally shows lower ratios at higher biomass, with
+remain less certain because fewer observation years are available and the surveys and fishery
+sample a smaller proportion of younger fish, especially ages 1–3, than older fish. The
+spawning-biomass panel generally shows lower ratios at higher biomass, with
 considerable variation among years at similar biomass. This pattern can reflect density dependence,
 environmental conditions and estimation uncertainty. Spawning biomass appears in both the horizontal
 axis and the ratio, which can contribute to the apparent relationship. Model 26.0 uses mean
-recruitment rather than an estimated Ricker curve. The figure provides a descriptive check on
+recruitment rather than a fitted stock–recruitment relationship. The figure provides a descriptive check on
 productivity using point estimates of the recruitment-to-biomass ratio.
 
 Biological schedules and selectivity retain their age, sex and year definitions
@@ -1007,14 +1009,15 @@ remains separate from that posterior interval.
 
 ### 6.1.2 Estimated model parameters
 
-The parameter-family summary identifies fitted parameter groups and their asymptotic uncertainty
-([Table 38](#tbl-model262-current-parameter-families)). Complete estimates and the largest parameter
+[Table 38](#tbl-model262-current-parameter-families) gives the minimum and maximum estimates and
+the median and maximum asymptotic standard errors for each parameter group, including three log
+catchability estimates and 63 recruitment deviations. Complete estimates and the largest parameter
 correlations are retained in [the detailed estimates appendix](#sec-current-output-appendix). The
 summary likelihood contributions are in [Table 39](#tbl-model262-current-likelihood-summary).
 
 ### 6.1.3 Fits to the observations
 
-The fitted indices follow the main rises and falls in the survey series, including the low ATS
+The fitted biomass indices generally follow broad survey trends, including the low ATS
 biomass in 2006--2009 and its subsequent increase ([Figure 39](#fig-model262-index-fits)). Annual
 departures remain. The BTS residuals include negative departures in 2006 and 2009 and positive
 departures in 2014--2015, each outside the plotted 95% reference range. The AVO observation in 2015
@@ -1023,9 +1026,10 @@ is also higher than fitted, whereas all ATS biomass residuals fall within that r
 Thus, the broad survey trends are represented more closely than some individual annual observations.
 BTS residuals account for covariance among survey years.
 
-The fishery selectivity curves show substantial changes in the ages most vulnerable to fishing, with
-dome-shaped patterns in many years and flatter patterns in others
-([Figure 41](#fig-model260-fishery-selectivity-history)). BTS selectivity generally increases with
+Fishery selectivity varies among years, with dome-shaped curves in many years and flatter curves
+at older ages in others ([Figure 41](#fig-model260-fishery-selectivity-history)). Selectivity also
+begins to rise at younger ages in the early, pre-domestic years than in most later years.
+BTS selectivity generally increases with
 age and approaches a plateau, while the ATS curve, shared with AVO, is relatively flat at older ages
 ([Figure 42](#fig-model260-bts-selectivity-history);
 [Figure 43](#fig-model260-ats-selectivity-history)). Recruitment varies strongly among years: the
@@ -1034,7 +1038,7 @@ recruitment level.
 
 The mean-age comparisons show that the model follows most of the observed changes in survey age
 composition and closely tracks fishery mean age in the domestic period. The clearest sustained
-fishery discrepancy occurs in the early years, when predicted mean ages are higher than observed
+fishery discrepancy occurs in 1965–1975, when predicted mean ages are higher than observed
 ([Figure 44](#fig-model260-observed-predicted-mean-age)). The observed bars show plus or minus two
 standard errors of mean age; they describe sampling uncertainty, rather than uncertainty in the
 fitted population. Fishery age observations end in 2025. The annual composition panels show how
@@ -1043,14 +1047,15 @@ as they age ([Figure 45](#fig-model262-fishery-cohort-fits-1);
 [Figure 46](#fig-model262-fishery-cohort-fits-2); [Figure 47](#fig-model262-bts-cohort-fits);
 [Figure 48](#fig-model262-ats-cohort-fits)).
 
-Aggregate observed and fitted age proportions agree closely, especially for the fishery, but the
-residual panels retain patterns by age and year ([Figure 49](#fig-model260-composition-osa); Stewart
+Aggregate observed and fitted age proportions agree closely, especially for the fishery, but
+OSA residuals show patterns by age and year ([Figure 49](#fig-model260-composition-osa); Stewart
 and Monnahan ([2025](#ref-stewart2025osa)); Monnahan et al. ([2026](#ref-monnahan2026afscosa))). For
 example, BTS residuals include extended runs of the same sign at several ages, and the early fishery
 residuals also show structured departures. Averaging across years can obscure these differences. The
 OSA residual standard deviations are below one for all three sources (about 0.76 for the fishery,
 0.86 for BTS and 0.64 for ATS), and the QQ plots are generally narrower than the standard-normal
-reference, although some BTS tail residuals are large. Close aggregate fits therefore need to be
+reference. Some BTS tail residuals are large, and the ATS QQ plot also departs from the reference.
+Close aggregate fits therefore need to be
 considered alongside the annual patterns. The afscOSA v0.0.1 displays retain the native Model 26.0
 OSAs and selected likelihood sample sizes. They describe conditional observation fit under the
 working-score approximation; parameter uncertainty is outside their scope.
