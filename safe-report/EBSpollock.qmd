@@ -1127,7 +1127,7 @@ ordinary fits and the Early-late fishery split Model 26.1.2 comparison. The alte
 matched observations, likelihood weights and projection assumptions
 ([Table 45](#tbl-coordinated-model-abc)).
 
-### 6.2.1 Selectivity
+### 6.2.1 Selectivity for split fishery alternatives
 
 Separating the Foreign (1964--1990) and Modern domestic (1991--2026) fisheries changed the fitted
 selectivity most visibly near the boundary between the two periods. Over much of the later period,
