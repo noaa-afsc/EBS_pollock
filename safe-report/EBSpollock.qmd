@@ -1063,7 +1063,7 @@ freely estimated value of 0.51694, and re-estimated all other active parameters.
 eight equal intervals on each side of the estimated value: approximately 0.00837 below it and
 0.01663 above it ([Figure 50](#fig-model260-ats-q-profile)).
 
-The lowest NLL for ATS-q was 0.51694. ATS-q values between  0.4576 and 0.5838 were below 1.92 NLL units. 
+The lowest NLL for ATS-q was 0.51694. ATS-q values between  0.4576 and 0.5838 were below 1.92 NLL units.
 
 NLL profiles by likelihood component shows that both the index and composition data inform the ATS-q parameter.
 
@@ -1075,7 +1075,7 @@ sensitivity to data weighting and selectivity assumptions.
 ATS-q marginal density with its optimized NLL profile, showing very similar outcomes for the two methods. The kernel density integrated to one, and
 each displayed curve was centered at its own minimum over ATS-q. The negative log marginal density integrated over the
 other parameters and included posterior regularization; the profile optimizes those parameters under
-the native penalized objective.The final ATS-q posterior median was 0.5093, with a central 95% credible interval of 
+the native penalized objective.The final ATS-q posterior median was 0.5093, with a central 95% credible interval of
 0.4514--0.5755  Panel B fitted weighted quadratic curves directly to individual-draw
 native NLL components and compared them with the profile components (the MCMC quadratic method). Here, MCMC curves were centered at the ATS-q parameter's marginal mode and displayed over the
 central 99% of sampled catchability. Smoothers were used to summarize the broad component trends, with tail coverage limited by the available
@@ -1098,44 +1098,19 @@ In [Table 41](#tbl-model260-ats-q-ssb2027), we show projected 2027 spawning biom
 
 ### 6.1.5 Retrospective patterns {#sec-paired-current-retrospectives}
 
-Across the full nine peels ending in 2017--2025, Model 26.0 female spawning-biomass Mohn's rho was
-+0.121 ([Table 42](#tbl-catch-revised-mohn-rho)). Age-1 recruitment rho was −0.0985, and
-maximum fishing-mortality rho was −0.0636. Each statistic averages the relative revision between
-a peel's terminal estimate and the full-2026 estimate for that same calendar year. The annual
-revisions were reported in [Table 43](#tbl-model260-current-retrospective-revisions).
+The retrospective analysis showed substantially smaller estimates of 2016--2019 spawning biomass and larger estimates of maximum F from the current model run, relative to those estimates from runs with data endpoint years 2017--2020 ([Figure 53](#fig-current-observed-retrospective-trajectories), [Table 43](#tbl-model260-current-retrospective-revisions)). Additionally, estimates of the 2008, 2012, and 2013 year classes become smaller with the addition of new data. Retrospective patterns for Model 26.1.2 (the sensitivity run splitting early and late fishery characteristics) were nearly identical to those from Model 26.0 (the base model). Across the full nine peels ending in 2017--2025, Mohn's rho for spawning biomass was
++0.121 ([Table 42](#tbl-catch-revised-mohn-rho)).
 
-The paired retrospective comparison showed female spawning biomass, age-1 recruitment and maximum
-fishing mortality for Model 26.0 and the Early-late fishery split Model 26.1.2 sensitivity
-([Figure 53](#fig-current-observed-retrospective-trajectories)). Each colored curve removed one
-through nine terminal years and was compared with its own analysis's full 2026 reference. Model
-26.0's full nine-peel statistics were reported above.
-
-The conditional Model 26.1.2 comparison had nine-peel spawning-biomass rho of +0.0735,
-recruitment rho of −0.133, and maximum fishing-mortality rho of +0.00226. Both
-configurations showed positive average spawning-biomass revisions and negative average recruitment
-revisions, while their average fishing-mortality revisions differed. These full-window summaries
-described the overall direction of retrospective change across all nine endpoints. The Model 26.0 simulated-data and posterior-predictive retrospective experiments provided separate
+The Model 26.0 simulated-data and posterior-predictive retrospective experiments provided separate
 conditional comparisons ([Section 6.3.1](#sec-model260-selftest)).
 
 [Figure 54](#fig-historical-retrospectives) compared beginning-of-year age-3+ biomass from earlier
-assessments with Model 26.0, using each assessment's fishery weight-at-age. The current assessment
-estimated higher biomass in 2023--2024 than the 2024 assessment and showed a decline through 2025
-followed by an increase in 2026. Historical revisions reflected new observations, updated biological
-inputs and changes in model structure; the retrospective peels above examined the effect of removing
-recent data within a specified model framework.
+assessments with this year's base model, Model 26.0. Estimated biomass trends over time are consistent across the current and historical assessments. Historical estimates of age 3 biomass from this year's base model are larger than for the 2024 assessment in many years, but nearly identical in years of low biomass. The plot shows that in period of higher biomass, the current model estimates of age 3 biomass are largely consistent with the 2007--2023 assessment results.
 
 ### 6.1.6 Age-composition weighting comparison {#sec-francis-comparison}
 
-The age-composition diagnostics suggested relatively minor changes to the weights used in the 2026
-assessment ([Figure 55](#fig-francis-sample-size-comparison);
-[Figure 56](#fig-francis-mean-age-residuals)). Given the small suggested adjustments, sample size values reported in the data section were retained.
-We note that age-composition weighting should be more fully evaluated in future assessments.
-Specifically, examining alternatives such as the Dirichlet-multinomial distribution coupled with more
-complete random-effects specifications may resolve some of the historical subjectively evaluated
-choices for process-error penalty weights. Such comparisons would help assess whether estimating
-this additional variation within the model improves the treatment of age-composition data and
-changes the resulting stock estimates. In the process of adopting such practices, we encourage
-checking that the resulting data weights remain sensible and robust.
+We compared the sample sizes used in the 2026 models to those calculated from the approach described in Francis (2011), showing that for the fishery and BTS age composition data, the two approaches to data weighting lead to very similar resulting sample sizes;  [Figure 55](#fig-francis-sample-size-comparison);
+[Figure 56](#fig-francis-mean-age-residuals)).
 
 ## 6.2 Model 26.1 split-fishery alternatives {#sec-model261-results}
 
@@ -1816,6 +1791,13 @@ variability the data can resolve, evaluating correlation across ages and years, 
 process variation within a coherent framework. Simulation tests, retrospective analyses, and
 predictive checks should evaluate model performance and the propagation of uncertainty into stock
 status and catch projections.
+
+Future assessments could explore alternative weighting methods for age composition data, such as the Dirichlet-multinomial distribution coupled with more
+complete random-effects specifications. Such an approach may refine historical process-error penalty weights and would help assess whether estimating
+this additional variation within the model improves the treatment of age-composition data and
+changes the resulting stock estimates. In the process of adopting new data weighting practices, we encourage
+checking that the resulting data weights remain sensible and robust.
+
 
 The Ecosystem and Socioeconomic Profile (ESP) provides a basis for fuller implementation and use of
 dynamic structural equation models (DSEM). This work should develop and test hypothesized links
