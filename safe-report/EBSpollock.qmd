@@ -803,10 +803,10 @@ Model 26.0 was the base case model used for Tier 3 calculations and harvest reco
 and 23.2 provide comparisons with the previous assessment and the transition in model structure.
 Model 26.1.2 is a sensitivity analysis that separates the early (1964--1990) and modern (1991--2026)
 fisheries and estimates modern selectivity variation after integrating over annual fishery selectivity
-effects. The fits and retrospective comparisons hold the process standard deviations fixed at values
-estimated by the marginal model. Model 26.0 uncertainty and retrospective diagnostics are described
+effects. Its conditional fits and retrospective comparisons hold both process standard deviations fixed;
+the modern period's value comes from the marginal model. Model 26.0 uncertainty and retrospective diagnostics are described
 below. Model equations are given in [the model-equations appendix](#sec-model-equations). The
-projection methodology is described in ([Section 7](#sec-projections)).
+projection methodology is described in [Section 7](#sec-projections).
 
 The cumulative data comparison holds the Model 23.0 formulation fixed; the configuration
 comparison used matched updated observations to separate changes in model structure from changes
@@ -897,7 +897,7 @@ curve applied to each year's catch and age composition; it does not divide the s
 catches by vessel nationality. Model 26.1.0 applied the original penalty on declining selectivity
 at older ages. Model 26.1.1 reduced the penalty, and a separate comparison removed it.
 
-Model 26.1.2 keeps the reduced penalty and integrated over the annual fishery selectivity effects
+Model 26.1.2 kept the reduced penalty and integrated over the annual fishery selectivity effects
 when estimating the modern period's process standard deviation (SD). The early period's SD was fixed
 at 0.1235; the modern period's marginal estimate was 0.582. The conditional fits used for observation
 diagnostics, projections and retrospective comparisons hold both SDs at those values. Marginal-fit
@@ -908,7 +908,8 @@ the resulting comparisons.
 
 # 6 Results {#sec-results}
 
-A comparison of estimated 2026 biomass, spawning biomass, age--1 recruitment, and maximum F across the 2026 model configurations are shown in   [Table 30](#tbl-updated-configuration-effects).  
+[Table 30](#tbl-updated-configuration-effects) compares estimated 2026 total biomass, female spawning
+biomass, age-1 recruitment and maximum fishing mortality across the 2026 model configurations.
 
 ## 6.1 Model 26.0 assessment
 
