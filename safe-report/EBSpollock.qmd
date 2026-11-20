@@ -898,7 +898,7 @@ curve in both years. The models also differ in the penalties on changes in fishe
 and in how future recruitment deviations enter estimation. [Figure 30](#fig-model232-vs262)
 compares annual estimates and approximate 95% confidence intervals.
 
-### 5.1.4 Model 26.1: Foreign and Modern domestic fisheries {#sec-model261-configuration}
+### 5.1.4 Model 26.1: Early and modern domestic fisheries {#sec-model261-configuration}
 
 The split-fishery sensitivities estimate separate selectivity curves and annual changes for the
 early (1964--1990) and modern domestic (1991--2026) periods. The split changes which selectivity
@@ -996,8 +996,10 @@ Biological schedules and selectivity are shown by age, sex and year
 [Table 37](#tbl-model262-current-selectivity)). Fishing mortality is also shown by age
 ([Figure 37](#fig-model260-fishing-mortality-age)). Whole-year spawning exploitation compares paired
 spawning-biomass calculations from the base case model production fit
-([Figure 38](#fig-model260-spawn-interval-exploitation)). For the interval from spawning in 2026 to
-spawning in 2027, its production-point estimate is **13.7%**: **3.326 million t** with fishing
+([Figure 38](#fig-model260-spawn-interval-exploitation)). Spawning exploitation is the percentage
+reduction in next-spawning female biomass caused by fishing: 100 × (1 − biomass with fishing /
+biomass without fishing). For the interval from spawning in 2026 to spawning in 2027, its
+production-point estimate is **13.7%**: **3.326 million t** with fishing
 versus **3.853 million t** without fishing. The branches share prior fishing history and their
 spawning-date starting population, with 1.375 million t annual catch assumed in 2027. The separate
 MCMC posterior median for this exploitation fraction is **14.5%**, with a central 95% credible
@@ -1053,9 +1055,8 @@ residuals also show structured departures. Averaging across years can obscure th
 OSA residual standard deviations are below one for all three sources (about 0.76 for the fishery,
 0.86 for BTS and 0.64 for ATS), and the QQ plots are generally narrower than the standard-normal
 reference. Some BTS tail residuals are large, and the ATS QQ plot also departs from the reference.
-Close aggregate fits therefore need to be considered alongside the annual patterns. The afscOSA v0.0.1 displays retain the native Model 26.0
-OSAs and selected likelihood sample sizes. They describe conditional observation fit under the
-working-score approximation; parameter uncertainty is outside their scope.
+Close aggregate fits therefore need to be considered alongside the annual patterns. These residuals assess observation fit conditional on the
+fitted model parameters.
 
 ### 6.1.4 Profile likelihood diagnostics {#sec-model260-ats-q-profile}
 
@@ -2033,7 +2034,7 @@ Honkalehto, T., and A. McCarthy. 2015. *Results of the Acoustic-Trawl Survey of 
 :::
 
 ::: {#ref-honkalehto2011 .csl-entry}
-Honkalehto, T., P. H. Ressler, R. Towler, and C. D. Wilson. 2011. "Using Acoustic Data from Fishing Vessels to Estimate Walleye Pollock Abundance in the Eastern Bering Sea." *Can. J. Fish. Aquat. Sci.* 68: 1231--42.
+Honkalehto, T., P. H. Ressler, R. Towler, and C. D. Wilson. 2011. "Using Acoustic Data from Fishing Vessels to Estimate Walleye Pollock Abundance in the Eastern Bering Sea." *Can. J. Fish. Aquat. Sci.* 68: 1231--42. <https://doi.org/10.1139/f2011-050>. Corrigendum: *Canadian Journal of Fisheries and Aquatic Sciences* 68 (8): 1508--1509 (2011). <https://doi.org/10.1139/f2011-101>.
 :::
 
 ::: {#ref-hunt2011 .csl-entry}
@@ -3094,7 +3095,7 @@ Figure 37: Model 26.0 instantaneous fishing mortality by age through 2026. Tile
 ![](assets/spawning-exploitation-model260-fit.png){fig-alt="Spawning exploitation over 63 whole-year intervals. Solid black shows Model 26.0 fitted values; dashed blue shows posterior medians with a central 95 percent shaded interval. Terminal values and assumptions appear in the caption."}
 
 ::: {.figure-caption}
-Figure 38: Model 26.0 spawning exploitation for spawning-to-spawning intervals starting in 1964--2026. Black lines show the Model 26.0 fit; dashed blue lines and shading show MCMC posterior medians and central 95% credible intervals from 5,000 draws. Each within-draw ratio compares next-spawning biomass with and without fishing from a shared spawning-date population. The terminal interval assumes 1.375 million t catch in 2027, within-draw mean 1978--2023 recruitment and mean 2023--2025 selectivity, and the deterministic fishery-weight schedule. Biology is fixed. The terminal posterior median is 14.5333%, with interval 11.2075--18.3700%.
+Figure 38: Model 26.0 spawning exploitation for spawning-to-spawning intervals starting in 1964--2026. Black lines show the Model 26.0 fit; dashed blue lines and shading show MCMC posterior medians and central 95% credible intervals from 5,000 draws. Spawning exploitation is 100 × (1 − next-spawning female biomass with fishing / next-spawning female biomass without fishing). Each paired calculation starts from the same spawning-date population. The terminal interval assumes 1.375 million t catch in 2027, within-draw mean 1978--2023 recruitment and mean 2023--2025 selectivity, and the deterministic fishery-weight schedule. Biology is fixed. The terminal posterior median is 14.5333%, with interval 11.2075--18.3700%.
 :::
 
 ::::
