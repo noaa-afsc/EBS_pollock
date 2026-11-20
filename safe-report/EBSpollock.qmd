@@ -1039,51 +1039,32 @@ fitted model parameters.
 
 ### 6.1.4 Profile likelihood diagnostics {#sec-model260-ats-q-profile}
 
-A profile examined how strongly the observations and model assumptions constrain ATS survey
-catchability in Model 26.0. Catchability scales the survey index relative to the population
-available to the survey. We fixed this parameter at **17 values from 0.45 to 0.65**, including the
-freely estimated value of **0.51694**, and re-estimated all other active parameters. The grid used
+A likelihood profile examined how strongly the observations and model assumptions constrain ATS survey
+catchability (ATS-q) in Model 26.0. The catchability parameter scales the ATS  index relative to the population
+available to the survey. We fixed this parameter at 17 values from 0.45 to 0.65, including the
+freely estimated value of 0.51694, and re-estimated all other active parameters. The grid used
 eight equal intervals on each side of the estimated value: approximately 0.00837 below it and
-0.01663 above it. Data, bounds, likelihood terms, and penalties match the Model 26.0 fit, including
-the updated 2011 and 2013 AVO observations ([Figure 50](#fig-model260-ats-q-profile)).
+0.01663 above it ([Figure 50](#fig-model260-ats-q-profile)).
 
-The best fit remained at catchability **0.51694**. Lower or higher values increase the negative log
-likelihood (NLL), indicating a poorer overall fit after the other parameters adjusted. The
-conventional change of 1.92 NLL units was crossed between **0.45000 and 0.45837** on the lower side
-and between **0.58347 and 0.60010** on the upper side. Linear interpolation between these points
-gave approximate crossings of **0.4576 and 0.5838**. These were diagnostic bounds from the sampled
-profile; the objective included model penalties, and the crossings were interpolated rather
-than directly fitted.
+The lowest NLL for ATS-q was **0.51694**. ATS-q values between  **0.4576 and 0.5838** were below 1.92 NLL units. 
 
-The component breakdown showed how the model balances the different data sources. At catchability
-0.45, the total NLL increased by **2.48** units. Index likelihoods contributed 2.36 units, while the
-combined composition fit improves by 0.43 units. The ATS index and compositions fit less well, while
-BTS compositions fit better. At catchability 0.65, the total increase was **6.80** units.
-Compositions contributed 4.50 units, largely from the BTS, and selectivity penalties contributed 1.93
-units. The combined index term changed by only 0.14 units because improved BTS index fit partly
-offsets poorer ATS index fit. Thus, the preferred catchability reflected agreement across surveys,
-fishery observations, and selectivity assumptions.
+NLL profiles by likelihood component shows that both the index and composition data inform the ATS-q parameter.
 
-All 17 fits had maximum absolute gradients below $10^{-4}$ and positive-definite Hessians. Seven
-points required additional numerical refinement or successful optimizer confirmation. Weighted NLL
-components sum to the total objective at every point. Scientific evaluation should also consider
-sensitivity to composition weighting and selectivity assumptions.
+All 17 fits had maximum absolute gradients below $10^{-4}$ and positive-definite Hessians. Weighted NLL
+components sum to the total objective at every point. Further evaluation could consider
+sensitivity to data weighting and selectivity assumptions.
 
-The final ATS-q posterior median was **0.5093**, with central 95% credible interval
-**0.4514--0.5755**. The profile minimum was **0.51694**, with approximate profile limits
-**0.4576--0.5838**. [Figure 51](#fig-model260-ats-q-marginal-profile) compared the negative log
-ATS-q marginal density with the optimized profile NLL. The kernel density integrated to one, and
-each displayed curve was centered at its own minimum over ATS q. The marginal integrated over the
+[Figure 51](#fig-model260-ats-q-marginal-profile) compared the negative log
+ATS-q marginal density with its optimized NLL profile, showing very similar outcomes for the two methods. The kernel density integrated to one, and
+each displayed curve was centered at its own minimum over ATS-q. The negative log marginal density integrated over the
 other parameters and included posterior regularization; the profile optimizes those parameters under
-the native penalized objective. Panel B fitted weighted quadratic curves directly to individual-draw
-native NLL components and compared them with the profile components. All 5,000 draws contributed;
-binning was excluded. MCMC curves were centered at the ATS-q marginal mode and displayed over the
-central 99% of sampled q. These conditional mean curves had a different interpretation from the
-negative log marginal density, which had no unique additive decomposition into the native likelihood
-terms. The smoothers summarize the broad component trends; tail coverage was limited by the available
-draws.
+the native penalized objective.The final ATS-q posterior median was **0.5093**, with a central 95% credible interval of 
+**0.4514--0.5755**  Panel B fitted weighted quadratic curves directly to individual-draw
+native NLL components and compared them with the profile components (the MCMC quadratic method). Here, MCMC curves were centered at the ATS-q parameter's marginal mode and displayed over the
+central 99% of sampled catchability. Smoothers were used to summarize the broad component trends, with tail coverage limited by the available
+draws. For the index data, both the MCMC quadratic method and the profile indicate a best value between 0.55 and 0.60 for ATS-q, while results between the two methods are not as clearly aligned for the composition data and selectivity deviates.
 
-The paired MCMC draws showed the relationships among ATS q, summed abundance at ages 2--5 in 2026,
+The paired MCMC draws show the relationships among ATS-q, summed abundance at ages 2--5 in 2026,
 age-1 abundance in 2019 (the 2018 year class), and projected 2027 female spawning biomass
 ([Figure 52](#fig-model260-ats-bts-q-ssb2027-pairs)). Diagonal panels showed their marginal densities.
 All four quantities were paired within each saved draw.
@@ -1096,17 +1077,7 @@ projection, as shown by its positive correlation with 2027 spawning biomass ($r 
 less pronounced than the dependence on the younger fish now approaching or contributing to spawning
 biomass.
 
-At each fixed ATS catchability, we also project 2027 female spawning biomass and its conditional 95%
-confidence interval ([Table 41](#tbl-model260-ats-q-ssb2027)). The projection used 1,375 kt catch in
-2027, mean 2023--2025 fishery selectivity, April 1 spawning, the weight schedules, and the age-15+
-group. These conditional profile calculations retained the biological schedules of the fitted
-assessment.
-
-These intervals propagate fitted-parameter uncertainty using the inverse fixed-q penalized Hessian
-and the delta method on log spawning biomass. They condition on each ATS q and the stated projection
-assumptions. They excluded uncertainty in ATS q, future recruitment process variation, and
-weight-at-age schedules. Thus, they described uncertainty in the estimated 2027 SSB at each profile
-point.
+In [Table 41](#tbl-model260-ats-q-ssb2027), we show projected 2027 spawning biomass for a range of fixed ATS q values. These projected spawning biomass values and corresponding approximate 95% confidence intervals were based on fitting the model to the data conditioned on fixed ATS q values (with all other parameters estimated). Estimates of projected 2027 spawning biomass range from 2,968 kt with ATS q fixed at 0.65 to 3,567 kt with an ATS q fixed at 0.45.
 
 ### 6.1.5 Retrospective patterns {#sec-paired-current-retrospectives}
 
