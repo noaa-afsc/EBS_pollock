@@ -1109,16 +1109,8 @@ assessments with this year's base model, Model 26.0. Estimated biomass trends ov
 
 ### 6.1.6 Age-composition weighting comparison {#sec-francis-comparison}
 
-The age-composition diagnostics suggested relatively minor changes to the weights used in the 2026
-assessment ([Figure 55](#fig-francis-sample-size-comparison);
-[Figure 56](#fig-francis-mean-age-residuals)). Given the small suggested adjustments, sample size values reported in the data section were retained.
-We note that age-composition weighting should be more fully evaluated in future assessments.
-Specifically, examining alternatives such as the Dirichlet-multinomial distribution coupled with more
-complete random-effects specifications may resolve some of the historical subjectively evaluated
-choices for process-error penalty weights. Such comparisons would help assess whether estimating
-this additional variation within the model improves the treatment of age-composition data and
-changes the resulting stock estimates. In the process of adopting such practices, we encourage
-checking that the resulting data weights remain sensible and robust.
+We compared the sample sizes used in the 2026 models to those calculated from the approach described in Francis (2011), showing that for the fishery and BTS age composition data, the two approaches to data weighting lead to very similar resulting sample sizes;  [Figure 55](#fig-francis-sample-size-comparison);
+[Figure 56](#fig-francis-mean-age-residuals)).
 
 ## 6.2 Model 26.1 split-fishery alternatives {#sec-model261-results}
 
@@ -1799,6 +1791,13 @@ variability the data can resolve, evaluating correlation across ages and years, 
 process variation within a coherent framework. Simulation tests, retrospective analyses, and
 predictive checks should evaluate model performance and the propagation of uncertainty into stock
 status and catch projections.
+
+Future assessments could explore alternative weighting methods for age composition data, such as the Dirichlet-multinomial distribution coupled with more
+complete random-effects specifications. Such an approach may refine historical process-error penalty weights and would help assess whether estimating
+this additional variation within the model improves the treatment of age-composition data and
+changes the resulting stock estimates. In the process of adopting new data weighting practices, we encourage
+checking that the resulting data weights remain sensible and robust.
+
 
 The Ecosystem and Socioeconomic Profile (ESP) provides a basis for fuller implementation and use of
 dynamic structural equation models (DSEM). This work should develop and test hypothesized links
