@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-20-qmd-8649b2e8",
+  "version": "2026-11-20-qmd-a42ee4fd",
   "status": "Review draft",
   "tables": 89,
   "images": 89,
@@ -8,8 +8,8 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "ce1b57b68cce0af5522f11ae8a5dc484179929f10351117b8affd6eb10ab793b",
-    "assessment.pdf": "345677110fcd432cecd44cd8d6a3203562a5ff9092b2aeb6f459ea4d7defb60a",
+    "assessment.html": "ee8472a5516ee16c1f0eef6db8c990c07aaafef7ee6b94bfacc816c91078d33a",
+    "assessment.pdf": "7f29de81c8fd7e38bf3854391d9ec641a0c0b9a63653ffeedbc4853aa21b1871",
     "report.css": "4599522582360773b31f89f81d44cbdac91d9c7235b2d5fead9f24ccf6095925",
     "EBSpollock_files/libs/bootstrap/bootstrap-917079515d91bccb85b543faf8aa8bb6.min.css": "e664aba4c1a08083c8992b2d0b632c2bb76cc2f610ad1ecbe232884adf4f64a3",
     "EBSpollock_files/libs/bootstrap/bootstrap-icons.css": "01253947f506e030589e4f33fc7ec7ccdfb9505e2e596dedf16445f12e243c0a",
@@ -392,9 +392,9 @@
     "links_bookmarks_figure_pixels_preserved": true
   },
   "report_entrypoint": "safe-report/EBSpollock.qmd",
-  "source_sha256": "c1a4b6cd8c7f6d373556326de7023a21ca9645d516752a546caa5fac56b1032d",
+  "source_sha256": "4b5d2a323aa49e1c41a1d71b9251a5cb7f8fb2a1d032099243a79e5648e2e6ab",
   "build_inputs_sha256": {
-    "EBSpollock.qmd": "c1a4b6cd8c7f6d373556326de7023a21ca9645d516752a546caa5fac56b1032d",
+    "EBSpollock.qmd": "4b5d2a323aa49e1c41a1d71b9251a5cb7f8fb2a1d032099243a79e5648e2e6ab",
     "_quarto.yml": "6ee0fda44bbdda9186f15aa2f4eb0000d17d208438a6174e8cff7ef76159a23c",
     "tables.lua": "3de6996895ac67a065ec6cf922d083b07ebff6bc75a6327e6da83556e1ddc270",
     "finish_html.py": "0abd3e55ddbde113ea4f280a04981c5f3f2e034e972060ff23db2001d90050df",
@@ -593,6 +593,6 @@
   "PDF_layout": "QMD print template; close visual match with pagination allowed to differ",
   "authoring_format": "Native Quarto Markdown and editable CSV tables",
   "source_content_verification": true,
-  "source_base_revision": "4db0b796ca2c029e6202eaedef9202bbcf73090b",
-  "source_tree_dirty": false
+  "source_base_revision": "829a4ae7be36c3425a91eda0f13f6c8efb1eedda",
+  "source_tree_dirty": true
 }
