@@ -3,7 +3,13 @@ main { max-width: 1000px; }
 .report-table { margin: 1.5rem 0; overflow-x: auto; }
 table.assessment-data-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
 .assessment-data-table caption { caption-side: top; color: inherit; text-align: left; margin-bottom: .6rem; }
-.assessment-data-table th, .assessment-data-table td { padding: .3rem .45rem; border-bottom: 1px solid #ddd; }
+table.assessment-data-table th, table.assessment-data-table td {
+  padding: .24rem .45rem;
+  line-height: 1.35;
+  border-bottom: 1px solid #ddd;
+}
+.assessment-data-table :is(th, td) > p { margin: 0; }
+.assessment-data-table :is(th, td) > p + p { margin-top: .35em; }
 .assessment-data-table thead { background: #e8edf0; }
 .assessment-data-table tbody tr:nth-child(odd) { background: #f4f6f7; }
 .assessment-data-table .gt_title { text-align: center; font-weight: bold; }

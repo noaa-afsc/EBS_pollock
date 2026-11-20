@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-20-qmd-e35367a1",
+  "version": "2026-11-20-qmd-b5ad84bc",
   "status": "Review draft",
   "tables": 89,
   "images": 89,
@@ -8,9 +8,9 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "61de24066e198eb670de5fc9cfadb4f04f74f022db68841ae735bcdba7149b93",
-    "assessment.pdf": "102ec3aad1fd1ae40a1d9c3a22478e47ee6db5515c5f3d6efc021f1d7e7a698f",
-    "report.css": "79c291535310148ad4387119edc17859e44a0eefce3cd6a5dd621caebd57fd6b",
+    "assessment.html": "4d39b335923a96d61eef6077729d5114d0bc733db869be9c8c372dd34d2709df",
+    "assessment.pdf": "7092b28616a3254c4ac4db030ace621cb36f89a7f8d380be60fffdd588671188",
+    "report.css": "4599522582360773b31f89f81d44cbdac91d9c7235b2d5fead9f24ccf6095925",
     "EBSpollock_files/libs/bootstrap/bootstrap-917079515d91bccb85b543faf8aa8bb6.min.css": "e664aba4c1a08083c8992b2d0b632c2bb76cc2f610ad1ecbe232884adf4f64a3",
     "EBSpollock_files/libs/bootstrap/bootstrap-icons.css": "01253947f506e030589e4f33fc7ec7ccdfb9505e2e596dedf16445f12e243c0a",
     "EBSpollock_files/libs/bootstrap/bootstrap-icons.woff": "f55513b7b591cb84a3b87ff0e34ea24d4831d6fedc22e54b911ca64b5b544a15",
@@ -392,15 +392,15 @@
     "links_bookmarks_figure_pixels_preserved": true
   },
   "report_entrypoint": "safe-report/EBSpollock.qmd",
-  "source_sha256": "955df1155aa4a57d7c2105205049b3062ba7773f2660b0f6c2e49322b37aec3d",
+  "source_sha256": "55dc8df4400ae2bf161e6bb7e14050cd47558b06fa3d8ce04c4b0a233c9d5a21",
   "build_inputs_sha256": {
-    "EBSpollock.qmd": "955df1155aa4a57d7c2105205049b3062ba7773f2660b0f6c2e49322b37aec3d",
+    "EBSpollock.qmd": "55dc8df4400ae2bf161e6bb7e14050cd47558b06fa3d8ce04c4b0a233c9d5a21",
     "_quarto.yml": "6ee0fda44bbdda9186f15aa2f4eb0000d17d208438a6174e8cff7ef76159a23c",
     "tables.lua": "3de6996895ac67a065ec6cf922d083b07ebff6bc75a6327e6da83556e1ddc270",
     "finish_html.py": "0abd3e55ddbde113ea4f280a04981c5f3f2e034e972060ff23db2001d90050df",
     "prepare_print.py": "29eab56b58108b62702ab6fd0ae5cdb69626acf3c52c61a9d4027ea74b612c14",
     "print.css": "75604f8b0e761ffdea4b238b8a8604b9273c4c752390cd2d4db774afb30e002e",
-    "report.css": "79c291535310148ad4387119edc17859e44a0eefce3cd6a5dd621caebd57fd6b",
+    "report.css": "4599522582360773b31f89f81d44cbdac91d9c7235b2d5fead9f24ccf6095925",
     "render_pdf.py": "705f496a00a109d5c169fe980c2b77b7c25b6391a5b28335864cee67881d668a",
     "pdf-requirements.txt": "f24c52f2fe269e10b18fc8469b64cb5029153be0f2415a044cc27de71c583e6d",
     "render.sh": "c8cd5e18a70ea666cadf8a400bbf6c24f5b8c922c505e0d19a28815a1ce63c33",
@@ -593,6 +593,6 @@
   "PDF_layout": "QMD print template; close visual match with pagination allowed to differ",
   "authoring_format": "Native Quarto Markdown and editable CSV tables",
   "source_content_verification": true,
-  "source_base_revision": "8948e52f5487255b99ea150a668c9c2155cbfaa4",
+  "source_base_revision": "a9376be63c52e50a0f40f707614121245c6b0d91",
   "source_tree_dirty": true
 }
