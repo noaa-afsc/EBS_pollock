@@ -977,22 +977,20 @@ assessment parameters under the stated projection assumptions.
 #### Recruitment per unit of spawning biomass
 
 [Figure 35](#fig-model260-lnrs) shows Model 26.0 estimates of log recruits per spawner. For each year
-of hatching, age-1 recruitment in the
-following year is divided by female spawning biomass in the year of hatching. Taking the natural
+of hatching, age-1 recruitment in the following year is divided by female spawning biomass in the year of hatching. Taking the natural
 logarithm puts proportional changes on a comparable scale: higher values indicate more recruits per
 unit of spawning biomass. The series shows substantial variation among year classes. The 1978, 2008
 and 2018 year classes have particularly high recruits-per-spawner values. Following the strong 2018
 year class, the ratio declined through the 2022 year class; estimates for 2023--2025 are higher but
 remain less certain because fewer observation years are available and the surveys and fishery
-sample a smaller proportion of younger fish, especially ages 1–3, than older fish. The
-spawning-biomass panel generally shows lower ratios at higher biomass, with
+sample a smaller proportion of younger fish, especially ages 1–3, than older fish. The spawning-biomass panel generally shows lower ratios at higher biomass, with
 considerable variation among years at similar biomass. This pattern can reflect density dependence,
 environmental conditions and estimation uncertainty. Spawning biomass appears in both the horizontal
 axis and the ratio, which can contribute to the apparent relationship. Model 26.0 uses mean
 recruitment rather than a fitted stock–recruitment relationship. The figure provides a descriptive check on
 productivity using point estimates of the recruitment-to-biomass ratio.
 
-Biological schedules and selectivity retain their age, sex and year definitions
+Biological schedules and selectivity are shown by age, sex and year
 ([Figure 36](#fig-model262-current-biological-schedules);
 [Table 36](#tbl-model262-current-biological-schedules);
 [Table 37](#tbl-model262-current-selectivity)). Fishing mortality is also shown by age
@@ -1055,8 +1053,7 @@ residuals also show structured departures. Averaging across years can obscure th
 OSA residual standard deviations are below one for all three sources (about 0.76 for the fishery,
 0.86 for BTS and 0.64 for ATS), and the QQ plots are generally narrower than the standard-normal
 reference. Some BTS tail residuals are large, and the ATS QQ plot also departs from the reference.
-Close aggregate fits therefore need to be
-considered alongside the annual patterns. The afscOSA v0.0.1 displays retain the native Model 26.0
+Close aggregate fits therefore need to be considered alongside the annual patterns. The afscOSA v0.0.1 displays retain the native Model 26.0
 OSAs and selected likelihood sample sizes. They describe conditional observation fit under the
 working-score approximation; parameter uncertainty is outside their scope.
 
