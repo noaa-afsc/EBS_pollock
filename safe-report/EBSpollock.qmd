@@ -922,9 +922,8 @@ fitted annual effects.
 
 ## 6.1 Model 26.0 assessment
 
-Model 26.0 provides the main estimates of stock size and the basis for the Tier 3 catch limits
-presented here. Results from the other model configurations, including Model 26.1.2, show how
-alternative assumptions affect the assessment. Additional analyses describe uncertainty in Model
+This section provides results from Model 26.0, which provides the main estimates of stock size and the basis for the Tier 3 catch limits
+presented here. We include analyses describing uncertainty in Model
 26.0 estimates and how those estimates change when recent years of data are removed. Comparisons
 with past assessments use the data and catch advice reported in each assessment year.
 
@@ -938,127 +937,102 @@ The local asymptotic 95% ranges in the tables use the revised fit's native covar
 uncertainty figure is shown in [Figure 31](#fig-model262-current-full-uncertainty). Annual estimates
 and ranges appear in [Table 32](#tbl-model262-current-annual-estimates).
 
-Regularized-posterior intervals use all 5,000 existing draws, using the final reported summaries
-([Table 33](#tbl-model260-regularized-posterior)). The 2026 female spawning-biomass median is
+Results from MCMC runs show that the posterior median 2026 total biomass, SSB and age-1 recruitment values were lower than for the maximum likelihoood point estimates  
+([Table 33](#tbl-model260-regularized-posterior)). The 2026 female spawning-biomass posterior median is
 **2.946 million t**, with a central 95% credible interval of **2.450--3.584 million t**.
-Total-biomass median is **11.462 million t**, with interval **9.215--14.719 million t**. Age-1
-recruitment median is **31.1518 billion fish**, with interval **12.2880--91.0616 billion fish**.
-These are the final reported MCMC summaries; production point estimates and asymptotic intervals
-retain their separate roles.
+Total-biomass posterior median is **11.462 million t**, with a 95% credible interval **9.215--14.719 million t**. The age-1
+recruitment posterior median is **31.1518 billion fish**, with a 95% credible interval of **12.2880--91.0616 billion fish**.
+While MCMC-based results are useful for comparison and assessing uncertainty, the management quantities in this SAFE are calculated based on the maximum likelihood point estimates.
 
-Numbers-at-age track cohorts through the population
-([Figure 32](#fig-model262-current-numbers-uncertainty)). This shows periods of how recruitment and
-changes in fishing mortality by age affect abundance relative to their mean abundance estimates (and
-uncertainty) propagates through time. Actual point estimates are reported in
-[Table 34](#tbl-model262-current-numbers-at-age), while the 2026 abundance-at-age estimates (and
-asymptotic uncertainties) are shown in [Table 35](#tbl-model262-current-terminal-numbers).
+Visualizations of numbers-at-age over time track cohorts through the population and show periods of how recruitment and changes in fishing mortality by age affect abundance (and uncertainty) in a given year relative to the mean abundance over time, and how these impacts propagate through time. 
+([Figure 32](#fig-model262-current-numbers-uncertainty)). Yearly point estimates of numbers-at-age are reported in
+[Table 34](#tbl-model262-current-numbers-at-age). The 2026 abundance-at-age estimates and corresponding 
+asymptotic uncertainty metrics are shown in [Table 35](#tbl-model262-current-terminal-numbers).
 
 #### Comparison with the 2024 assessment
 
-The 2018 year class remains a large recruitment point estimate
-([Figure 33](#fig-recruitment-2024-current)). Its age-1 abundance in 2019 is **87.8 billion fish**
-in the Model 26.0 base model, compared with **81.1 billion** in the accepted 2024 assessment, a
-revision of **8.3%**. The revision reflects both updated observations and changes in model
-structure.
+As for the 2024 assessment, recruitment is highly variable across time and the 2018 year class estimate is the largest in the time-series
+([Figure 33](#fig-recruitment-2024-current)). Estimated age-1 abundance in 2019 is **87.8 billion fish**
+in Model 26.0, compared with **81.1 billion** in the accepted 2024 assessment, a
+revision of **8.3%**. 
 
-The estimate for the same 2024 female spawning biomass changes from **3.389 million t** in the saved
-2024 assessment to **3.526 million t** in Model 26.0, a revision of **4.0%**. Within the trajectory,
-spawning biomass changes from that 2024 estimate to **3.057 million t** in 2026 (**-13.3%**). Total
-biomass changes from **10.767 million t** to **12.162 million t** over the same years (**13.0%**).
-These within-trajectory changes differ from shared-year assessment revisions.
+The estimated 2024 female spawning biomass changed from **3.389 million t** in the
+2024 assessment to **3.526 million t** in Model 26.0, an increase of **4.0%**. The 2026 estimated spawning biomass is **3.057 million t** (a decrease of **-13.3%** from the Model 26.0 estimate of 2024 spawning biomass). The estimated total
+biomass time series from Model 26.0 shows an increase of (**13.0%**), from **10.767 million t** in 2024 to **12.162 million t** in 2026. Recruitment estimates for Model 26.1.2 are similar to those for Model 26.0 ([Figure 33](#fig-recruitment-2024-current)).
 
-The recruitment comparison uses calendar age-1 year and billion-fish units
-([Figure 33](#fig-recruitment-2024-current)). Model 26.1.2 results are included to examine how
-recruitment estimates for the early period change relative to the 2024 assessment. Historical values
-are point estimates. Current error bars use each model's local asymptotic covariance: the base-model
-covariance for Model 26.0 and the marginal information for Model 26.1.2. Recent years without a
-historical estimate are identified. These intervals describe uncertainty around the fitted
-estimates.
-
-The two assessments project different spawning-biomass paths through 2028 ([Figure
-34](#fig-projection-vintages)). The comparison retains each assessment's Scenario 2 catch
-assumptions; the current uncertainty band propagates local assessment-parameter uncertainty.
+The spawning biomass trajectory from Model 26.0 is slightly larger than for the accepted 2024 assessment throughout the time series. In addition, projected spawning biomass based on Model 26.0  shows expected increases in 2027 and 2028, while the 2024 assessment projected declining spawning biomass from 2025-2028  ([Figure
+34](#fig-projection-vintages)).
 
 #### Recruitment per unit of spawning biomass
 
-The log recruits-per-spawner diagnostic from the 2024 assessment is updated using the Model 26.0
-estimates ([Figure 35](#fig-model260-lnrs)). For each year of hatching, age-1 recruitment in the
+[Figure 35](#fig-model260-lnrs) shows the log recruits-per-spawner where, for each year of hatching, age-1 recruitment in the
 following year is divided by female spawning biomass in the year of hatching. Taking the natural
 logarithm puts proportional changes on a comparable scale: higher values indicate more recruits per
 unit of spawning biomass. The series shows substantial variation among year classes. The 1978, 2008
 and 2018 year classes have particularly high recruits-per-spawner values. Following the strong 2018
 year class, the ratio declined through the 2022 year class; estimates for 2023--2025 are higher but
-remain less certain. The spawning-biomass panel generally shows lower ratios at higher biomass, with
+are less certain, as the estimates are supported by fewer years of data and a smaller proportion of age 1-3 fish are caught in the surveys and fishery than for older fish. The panel showing recruits-per-spawner as a function of spawning biomass generally shows lower ratios at higher biomass, with
 considerable variation among years at similar biomass. This pattern can reflect density dependence,
 environmental conditions and estimation uncertainty. Spawning biomass appears in both the horizontal
 axis and the ratio, which can contribute to the apparent relationship. Model 26.0 uses mean
-recruitment rather than an estimated Ricker curve. The figure provides a descriptive check on
-productivity using point estimates of the recruitment-to-biomass ratio.
+recruitment rather than an estimated stock-recruit curve. The figure provides a information on productivity across stock sizes and years.
 
-Biological schedules and selectivity retain their age, sex and year definitions
+Biological schedules and selectivity are shown in 
 ([Figure 36](#fig-model262-current-biological-schedules);
 [Table 36](#tbl-model262-current-biological-schedules);
-[Table 37](#tbl-model262-current-selectivity)). Fishing mortality is also shown by age
+[Table 37](#tbl-model262-current-selectivity)). Fishing mortality estimates are shown by age
 ([Figure 37](#fig-model260-fishing-mortality-age)). Whole-year spawning exploitation compares paired
 spawning-biomass calculations from the base model production fit
 ([Figure 38](#fig-model260-spawn-interval-exploitation)). For the interval from spawning in 2026 to
-spawning in 2027, its production-point estimate is **13.7%**: **3.326 million t** with fishing
+spawning in 2027, the point estimate is **13.7%**: **3.326 million t** with fishing
 versus **3.853 million t** without fishing. The branches share prior fishing history and their
 spawning-date starting population, with 1.375 million t annual catch assumed in 2027. The separate
 MCMC posterior median for this exploitation fraction is **14.5%**, with a central 95% credible
-interval of **11.2--18.4%**. These paired-state calculations carry the revised fishery-weight
-schedule into 2027 and retain the fixed 1.375 million t catch assumption. The production-fit point
-remains separate from that posterior interval.
+interval of **11.2--18.4%**.
 
 ### 6.1.2 Estimated model parameters
 
-The parameter-family summary identifies fitted parameter groups and their asymptotic uncertainty
-([Table 38](#tbl-model262-current-parameter-families)). Complete estimates and the largest parameter
-correlations are retained in [the detailed estimates appendix](#sec-current-output-appendix). The
+[Table 38](#tbl-model262-current-parameter-families) shows minimum and maximum estimates for groups of parameters (such as the three log catchability estimates and the 63 recruitment deviation estimates) with corresponding median and maximum asymptotic standard errors. A full table of estimates and the largest parameter
+correlations are available in [the detailed estimates appendix](#sec-current-output-appendix). The
 summary likelihood contributions are in [Table 39](#tbl-model262-current-likelihood-summary).
 
 ### 6.1.3 Fits to the observations
 
-The fitted indices follow the main rises and falls in the survey series, including the low ATS
-biomass in 2006--2009 and its subsequent increase ([Figure 39](#fig-model262-index-fits)). Annual
-departures remain. The BTS residuals include negative departures in 2006 and 2009 and positive
-departures in 2014--2015, each outside the plotted 95% reference range. The AVO observation in 2015
-is also higher than fitted, whereas all ATS biomass residuals fall within that range
+The fitted indices generally follow the increases and decreases for the three main indices in the survey series, including the low ATS
+biomass in 2006--2009 and its subsequent increase ([Figure 39](#fig-model262-index-fits)). Some exceptions where the survey biomass estimates differ from the observations are: the negative BTS residuals in 2006 and 2009 and positive
+residuals in 2014--2015, each outside the plotted 95% observation error interval. The AVO observation in 2015
+is also higher than the model's estimate for that year, whereas all ATS total biomass estimates fall within the approximate 95% observation error intervals.
 ([Figure 40](#fig-model262-index-residuals); [Table 40](#tbl-model262-index-residual-summary)).
 Thus, the broad survey trends are represented more closely than some individual annual observations.
 BTS residuals account for covariance among survey years.
 
-The fishery selectivity curves show substantial changes in the ages most vulnerable to fishing, with
-dome-shaped patterns in many years and flatter patterns in others
-([Figure 41](#fig-model260-fishery-selectivity-history)). BTS selectivity generally increases with
-age and approaches a plateau, while the ATS curve, shared with AVO, is relatively flat at older ages
-([Figure 42](#fig-model260-bts-selectivity-history);
-[Figure 43](#fig-model260-ats-selectivity-history)). Recruitment varies strongly among years: the
-2018 year class, entering at age 1 in 2019, has the largest positive departure from the fitted
-recruitment level.
+The fishery selectivity curves show substantial changes in the ages most vulnerable to fishing over time, with
+dome-shaped patterns in many years and more consistent selectivity across older age classes in other years
+([Figure 41](#fig-model260-fishery-selectivity-history)). In addition, the age selection to the fishery varies over years between ages 3-5 and tends to occur at younger ages (e.g. approximately age 2) in the early years of the model, prior to the domestic fishery.  
 
-The mean-age comparisons show that the model follows most of the observed changes in survey age
-composition and closely tracks fishery mean age in the domestic period. The clearest sustained
-fishery discrepancy occurs in the early years, when predicted mean ages are higher than observed
-([Figure 44](#fig-model260-observed-predicted-mean-age)). The observed bars show plus or minus two
-standard errors of mean age; they describe sampling uncertainty, rather than uncertainty in the
-fitted population. Fishery age observations end in 2025. The annual composition panels show how
+Estimated BTS selectivity-at-age generally increases with
+age and approaches a plateau. The ATS selectivity-at-age, shared with AVO, is relatively flat at older ages
+([Figure 42](#fig-model260-bts-selectivity-history);
+[Figure 43](#fig-model260-ats-selectivity-history)).  
+
+Comparisons of annual observed and estimated mean age of fish show that the model follows most of the observed changes in survey age
+composition and closely tracks fishery mean age in the domestic period. A mismatch between observed and estimated mean age in the fishery occurs between 1965 and 1975, when predicted mean ages are higher than observed
+([Figure 44](#fig-model260-observed-predicted-mean-age)). 
+
+The annual fits to age composition data show how
 these mean ages arise from the proportions at each age and allow individual cohorts to be followed
 as they age ([Figure 45](#fig-model262-fishery-cohort-fits-1);
 [Figure 46](#fig-model262-fishery-cohort-fits-2); [Figure 47](#fig-model262-bts-cohort-fits);
 [Figure 48](#fig-model262-ats-cohort-fits)).
 
-Aggregate observed and fitted age proportions agree closely, especially for the fishery, but the
-residual panels retain patterns by age and year ([Figure 49](#fig-model260-composition-osa); Stewart
-and Monnahan ([2025](#ref-stewart2025osa)); Monnahan et al. ([2026](#ref-monnahan2026afscosa))). For
+Aggregate observed and fitted proportions-at-age agree closely, especially for the fishery. Diagnostic QQ-plots show that the residuals are relatively normally distributed for fishery and BTS age composition data. The QQ-plot for ATS age composition data shows evidence that residuals are not perfectly normally distributed ([Figure 49](#fig-model260-composition-osa); Stewart
+and Monnahan ([2025](#ref-stewart2025osa)); Monnahan et al. ([2026](#ref-monnahan2026afscosa))). OSA residual bubble plots show some residual patterns over ages and years. For
 example, BTS residuals include extended runs of the same sign at several ages, and the early fishery
 residuals also show structured departures. Averaging across years can obscure these differences. The
 OSA residual standard deviations are below one for all three sources (about 0.76 for the fishery,
 0.86 for BTS and 0.64 for ATS), and the QQ plots are generally narrower than the standard-normal
 reference, although some BTS tail residuals are large. Close aggregate fits therefore need to be
-considered alongside the annual patterns. The afscOSA v0.0.1 displays retain the native Model 26.0
-OSAs and selected likelihood sample sizes. They describe conditional observation fit under the
-working-score approximation; parameter uncertainty is outside their scope.
+considered alongside the annual patterns. 
 
 ### 6.1.4 Profile likelihood diagnostics {#sec-model260-ats-q-profile}
 
