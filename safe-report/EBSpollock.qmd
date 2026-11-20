@@ -1081,10 +1081,8 @@ In [Table 41](#tbl-model260-ats-q-ssb2027), we show projected 2027 spawning biom
 
 ### 6.1.5 Retrospective patterns {#sec-paired-current-retrospectives}
 
-Across the full nine peels ending in 2017--2025, Model 26.0 female spawning-biomass Mohn's rho was
-**+0.121** ([Table 42](#tbl-catch-revised-mohn-rho)). Age-1 recruitment rho was **−0.0985**, and
-maximum fishing-mortality rho was **−0.0636**. Each statistic averages the relative revision between
-a peel's terminal estimate and the full-2026 estimate for that same calendar year. The annual
+Across the full nine peels ending in 2017--2025, Mohn's rho for spawning biomass was
++0.121 ([Table 42](#tbl-catch-revised-mohn-rho)). The annual
 revisions were reported in [Table 43](#tbl-model260-current-retrospective-revisions).
 
 The paired retrospective comparison showed female spawning biomass, age-1 recruitment and maximum
