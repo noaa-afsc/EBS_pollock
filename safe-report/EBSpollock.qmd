@@ -29,7 +29,13 @@ filters:
   - path: tables.lua
     at: pre-ast
 ---
+```{r}
+#| label: setup
+#| include: false
 
+thisyr <- 2026
+nextyr <- 2027
+```
 <!-- Edit prose, captions and links here. Table values are in tables/*.csv;
      grouped headers and cell spans are in the matching tables/*.json files.
      Build both formats with: bash safe-report/render.sh -->
@@ -45,12 +51,6 @@ Ianelli, J., S. Wassermann, A. McCarthy, C. McGilliard, E. Siddon, K. Shotwell, 
 ::: {.callout-note title="SI-assisted development"}
 Tools assisted data processing, code execution, figure preparation and report writing under author direction. The authors retain responsibility for the scientific content, analyses, interpretations and conclusions.
 :::
-
-```{r}
-#| echo: false
-thisyr <- 2026
-nextyr <- 2027
-```
 
 # 1 Executive summary
 
