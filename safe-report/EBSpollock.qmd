@@ -5605,11 +5605,3 @@ Table I1 Annual Data Additions, Revisions and Weight-at-Age Assumptions
 ::: {.table-notes}
 *Note.* Annual data additions, revisions and weight-at-age assumptions relative to the 2024 assessment. Listed updates are incorporated in the Model 23.x and 26.x fits. Cumulative input-update fits retain their stated stepwise history.
 :::
-
-## Appendix J Contents {#sec-contents-appendix}
-
-### Table of Contents
-
-### List of Tables
-
-### List of Figures

@@ -1,15 +1,15 @@
 {
-  "version": "2026-11-21-qmd-e689f8b2",
+  "version": "2026-11-21-qmd-099a0123",
   "status": "Review draft",
   "tables": 89,
   "images": 89,
-  "pages": 259,
+  "pages": 258,
   "local_only_HTML_links_retained_as_text": 95,
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "2d52dd993fa918aaf5cc0d9e4229020fa0a3e68a05ff967e952ca34254c64b2b",
-    "assessment.pdf": "13a334304c59fcdaba1eb2785f0fe3ed28f1407bd905e20e86ba384ddc9eedf9",
+    "assessment.html": "f97144b75b0548bb77a7e6de230ffc393bfb52e1f447dec3e10ac34b848a22b2",
+    "assessment.pdf": "c19a0fe1140e099938d129332d55bab2a79dde5e13efa54b3af326cb01b8b4b6",
     "report.css": "4599522582360773b31f89f81d44cbdac91d9c7235b2d5fead9f24ccf6095925",
     "EBSpollock_files/libs/bootstrap/bootstrap-917079515d91bccb85b543faf8aa8bb6.min.css": "e664aba4c1a08083c8992b2d0b632c2bb76cc2f610ad1ecbe232884adf4f64a3",
     "EBSpollock_files/libs/bootstrap/bootstrap-icons.css": "01253947f506e030589e4f33fc7ec7ccdfb9505e2e596dedf16445f12e243c0a",
@@ -392,9 +392,9 @@
     "links_bookmarks_figure_pixels_preserved": true
   },
   "report_entrypoint": "safe-report/EBSpollock.qmd",
-  "source_sha256": "34d20ddf8bb04439dcafaf128e96bc84878a5ffb84466a998132abb2a48725f6",
+  "source_sha256": "8fa4ec92c107c597905ba220d5738194907f389f86f3f20027046d3437eda22a",
   "build_inputs_sha256": {
-    "EBSpollock.qmd": "34d20ddf8bb04439dcafaf128e96bc84878a5ffb84466a998132abb2a48725f6",
+    "EBSpollock.qmd": "8fa4ec92c107c597905ba220d5738194907f389f86f3f20027046d3437eda22a",
     "_quarto.yml": "6ee0fda44bbdda9186f15aa2f4eb0000d17d208438a6174e8cff7ef76159a23c",
     "tables.lua": "3de6996895ac67a065ec6cf922d083b07ebff6bc75a6327e6da83556e1ddc270",
     "finish_html.py": "0abd3e55ddbde113ea4f280a04981c5f3f2e034e972060ff23db2001d90050df",
@@ -593,6 +593,6 @@
   "PDF_layout": "QMD print template; close visual match with pagination allowed to differ",
   "authoring_format": "Native Quarto Markdown and editable CSV tables",
   "source_content_verification": true,
-  "source_base_revision": "790ed174b857af0a04ef5faadfaa4b5ca6b26df8",
+  "source_base_revision": "98f649bc1a547da9c5a6b1ea2a4b9b7d2ac37e22",
   "source_tree_dirty": true
 }

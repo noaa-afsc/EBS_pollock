@@ -137,3 +137,7 @@ The 259-page Council review proof is also in Downloads as `EBSpollock-2026-Counc
 ### Author-approved catch and ecosystem QA corrections, November 21
 
 Section 3.1 now distinguishes the two observed October 17 catch-to-date series (a 29,663 t difference) from the estimated full-year 2026 model catch. Table 4 identifies the 2026 row as the assessment estimate. Section 8.2 and Table 55 distinguish the small observed adult diet share from modeled predation mortality of age-1 pollock. Sections 11.1 and 11.2 retain the supported year-over-year decline in overall age-1 predation mortality but omit conflicting historical cannibalism benchmarks. Table 8, catch data, model inputs, stock status, risk scores and harvest advice are unchanged.
+
+### November 21: Remove empty Appendix J
+
+Removed the unused Appendix J headings and contents entries. Appendices A–I, assessment content, tables, figures, and advice are unchanged.
