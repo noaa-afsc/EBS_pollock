@@ -1310,48 +1310,45 @@ and catches under alternative fishing mortality rate scenarios.
 
 Five of the seven standard scenarios are designed to provide a range of harvest alternatives that are likely to bracket the final TAC for `r nextyr`, and are as follows ("$maxFABC$" refers to the maximum permissible value of FABC under Amendment 56), with shorter descriptions in ([Table 48](#tbl-proposed-tier3-scenarios)):
 
-\begin{description}
-\item[Scenario 1:]   
-In all future years, $F$ is set equal to max$F_{ABC}$. (Rationale:  Historically,
-TAC has been constrained by ABC, so this scenario provides a likely upper
-limit on future TACs).
+- **Scenario 1:**
+  In all future years, $F$ is set equal to max$F_{ABC}$. (Rationale:  Historically,
+  TAC has been constrained by ABC, so this scenario provides a likely upper
+  limit on future TACs).
 
-\item[Scenario 2:]   
-In `r nextyr` and `r nextyr+1` the catch is set equal to 1.30 million t
-and in future years $F$ is set equal to the Tier 3 estimate (Rationale: this 
-has been about equal to the catch level in recent years).
+- **Scenario 2:**
+  In `r nextyr` and `r nextyr+1` the catch is set equal to 1.30 million t
+  and in future years $F$ is set equal to the Tier 3 estimate (Rationale: this 
+  has been about equal to the catch level in recent years).
 
-\item[Scenario 3:]   
-In all future years, $F$ is set equal to the `r thisyr-6;print("-");thisyr-1` average $F$. (Rationale:
-For some stocks, TAC can be well below ABC, and recent average $F$ may provide a
-better indicator of $F_{TAC}$ than $F_{ABC}$.)
+- **Scenario 3:**
+  In all future years, $F$ is set equal to the `r thisyr-6;print("-");thisyr-1` average $F$. (Rationale:
+  For some stocks, TAC can be well below ABC, and recent average $F$ may provide a
+  better indicator of $F_{TAC}$ than $F_{ABC}$.)
 
-\item[Scenario 4:]   
-In all future years, $F$ is set equal to $F_{60\%}$. (Rationale:  This
-scenario provides a likely lower bound on $F_{ABC}$ that still allows future
-harvest rates to be adjusted downward when stocks fall below reference levels.
+- **Scenario 4:**
+  In all future years, $F$ is set equal to $F_{60\%}$. (Rationale:  This
+  scenario provides a likely lower bound on $F_{ABC}$ that still allows future
+  harvest rates to be adjusted downward when stocks fall below reference levels.
 
-\item[Scenario 5:]   
-In all future years, $F$ is set equal to zero. (Rationale:  In
-extreme cases, TAC may be set at a level close to zero.)
+- **Scenario 5:**
+  In all future years, $F$ is set equal to zero. (Rationale:  In
+  extreme cases, TAC may be set at a level close to zero.)
 
 Two other scenarios are needed to satisfy the MSFCMA’s requirement to determine whether a stock is currently in an overfished condition or is approaching an overfished condition. These two scenarios are as follows (for Tier 3 stocks, the MSY level is defined as $B_35\%$):  
 
-\item[Scenario 6:]   
-In all future years, F is set equal to $F_{OFL}$. (Rationale:  This scenario
-determines whether a stock is overfished. If the stock is expected to be 
-1) below its MSY level in `r thisyr` or 2) below half of its MSY level in `r thisyr` or below
-its MSY level in `r thisyr +10` under this scenario, then the stock is overfished.)
+- **Scenario 6:**
+  In all future years, F is set equal to $F_{OFL}$. (Rationale:  This scenario
+  determines whether a stock is overfished. If the stock is expected to be 
+  1) below its MSY level in `r thisyr` or 2) below half of its MSY level in `r thisyr` or below
+  its MSY level in `r thisyr +10` under this scenario, then the stock is overfished.)
 
-\item[Scenario 7:]   
-In `r nextyr` and `r nextyr+1`, F is set equal to $maxFABC$, and in all subsequent years, F
-is set equal to $F_{OFL}$. (Rationale:  This scenario determines whether a stock is
-approaching an overfished condition. If the stock is 1) below its MSY level in
-`r nextyr+1` or 2) below 1/2 of its MSY level in `r nextyr+1` and expected to be below its MSY
-level in `r thisyr+12` under this scenario, then the stock is approaching an
-overfished condition).
-
-\end{description}
+- **Scenario 7:**
+  In `r nextyr` and `r nextyr+1`, F is set equal to $maxFABC$, and in all subsequent years, F
+  is set equal to $F_{OFL}$. (Rationale:  This scenario determines whether a stock is
+  approaching an overfished condition. If the stock is 1) below its MSY level in
+  `r nextyr+1` or 2) below 1/2 of its MSY level in `r nextyr+1` and expected to be below its MSY
+  level in `r thisyr+12` under this scenario, then the stock is approaching an
+  overfished condition).
 
 The 13 year projections of catch, spawning biomass, and fishing mortality are shown in ([Table 50](#tbl-proposed-tier3-catch), [Table 51](#tbl-proposed-tier3-ssb), and [Table
 52](#tbl-proposed-tier3-f)). 
