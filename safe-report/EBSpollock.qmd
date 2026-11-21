@@ -46,6 +46,12 @@ Ianelli, J., S. Wassermann, A. McCarthy, C. McGilliard, E. Siddon, K. Shotwell, 
 Tools assisted data processing, code execution, figure preparation and report writing under author direction. The authors retain responsibility for the scientific content, analyses, interpretations and conclusions.
 :::
 
+```{r}
+#| echo: false
+thisyr <- 2026
+nextyr <- 2027
+```
+
 # 1 Executive summary
 
 The last full EBS pollock assessment was completed in 2024 ([Ianelli et al.
@@ -1252,72 +1258,184 @@ conversions, weights and other biological inputs were held fixed. These checks a
 model reproduced observations; the retrospective analyses addressed how estimates changed as additional
 years of data become available.
 
-# 7 Projections and harvest recommendations {#sec-projections}
+# 7 Projections and Harvest Recommendations {#sec-projections}
 
-## 7.1 Proposed Tier 3 configuration and reference points
+## 7.1 Amendment 56 Reference Points
+Amendment 56 to the GOA and BSAI Groundfish Fishery Management Plans (FMPs) define ABC and OFL for the groundfish fisheries, where the fishing mortality rate is denoted F, stock biomass (or spawning stock biomass, as appropriate) is B, and the F and B levels corresponding to $F_{MSY}$ and MSY (or proxies for $F_{MSY}$ and MSY). The EBS pollock stock is categorized as Tier 3 in the BSAI Fisheries Management Plan and therefore uses proxies for $F_{MSY}$ and MSY.
 
-The proposed fishery selectivity was the mean of the 2023--2025 annual curves, the latest three years
-with fishery age observations. Each age was averaged before scaling the resulting curve to an arithmetic mean
-of one over ages 1--14 and 15+, consistent with earlier assessments. The separately inferred 2026 curve was distinguished from directly age-informed years ([the
-projection-input appendix](#sec-proposed-projection-input-curves)).
+Amendment 56 specifically defines the fishing mortality rate used to set OFL (FOFL), the maximum permissible ABC, and the fishing mortality rate used to set the maximum permissible ABC (max $F_{ABC}$). The fishing mortality rate used to set ABC ($F_{ABC}$) may be less than this maximum permissible level, but not greater. The overfishing and maximum allowable ABC fishing mortality rates are given in terms of unfished female spawning biomass ($F_{SPR\%}$), on fully selected age groups, where unfished female biomass is the average biomass if fishing had not occurred and is estimated as the historical biomass prior to fishing. The reference points are calculated using the long-term average female spawning biomass that would be expected under average estimated recruitment (state time series of years used).
 
-The deterministic recruitment level used the arithmetic mean of age-1 entries in 1978--2023,
-corresponding to birth cohorts 1977--2022. The less precise 2024--2026 entries were excluded. Every
-entry in the advice tables equaled this selected historical mean. The separate projection figures added
-future recruitment variation to illustrate a range of possible paths. Reference points and fishing
-rates were reported in [Table 47](#tbl-proposed-tier3-reference-points). The Model 26.1.2 column used
-the revised Early-late fishery split comparison under the same projection assumptions.
+For the purposes of these projections, we present results based on Tier 3 management, 
+selecting the $F_{40\%}$ harvest rate as the $F_{ABC}$ value and use
+$F_{35\%}$ as a proxy for $F_{MSY}$. 
 
-The Tier 3 reference points were spawning-potential quantities. The ABC rule reduced fishing
-mortality below B40% and sets it to zero below B20%. Projections start from each fitted population
-and used the stated catch scenarios and biological inputs. The author-rate fraction was one, subject
-to the risk evaluation and final review.
+The base model was projected forward 13 years using a standard set of projection scenarios (described below) from `r thisyr+1` for Model
+26.0. These projections assumed estimated catches of 1,375,000 t in 2027 and 2028. Total biomass was defined as biomass at ages 3+ at the start of the year. Average recruitment was defined as the average of the abundance of age-1 individuals from  1978--2023, corresponding to the 1977--2022 year classes; age 1 abundance estimates from 2024--2026 were omitted from the calculation, as data informing these recruits was still limited.  The projected fishery selectivity-at-age was the mean of the 2023--2025 estimates of fishery selectivity-at-age, the latest three years
+with fishery age observations. The selectivity for each age was averaged before scaling the resulting curve to an arithmetic mean of one, consistent with earlier assessments ([theprojection-input appendix](#sec-proposed-projection-input-curves)).  
 
-The previous-year OFL-equivalent fishing mortality was reported in [Section 10](#sec-prior-year-ofl-f).
+We present Tier 3 reference points for EBS pollock in [Table 47](#tbl-proposed-tier3-reference-points).  
 
-## 7.2 Standard harvest scenarios
+## 7.2 Specification of OFL and Maximum Permissible ABC
+The OFL and maximum permissible ABC for 2027 and 2028 are reported in [Table 49](#tbl-proposed-tier3-short-term).  
 
-The proposed projections retained the standard harvest scenarios and their common biology
-([Table 48](#tbl-proposed-tier3-scenarios)). The expected-catch scenario assumed 1.375 million t in
-each of 2027 and 2028; the 2028 catch was a planning assumption. Short-term outputs were reported in
-[Table 49](#tbl-proposed-tier3-short-term).
+## 7.3 Standard Harvest Scenarios and Projection Methodology
+A standard set of projections is required for each stock managed under Tiers 1, 2, or 3, of Amendment 56. This set of projections encompasses harvest scenarios designed to satisfy the requirements of Amendment 56, the National Environmental Policy Act, and the Magnuson-Stevens Act (MSA).  
+
+The R package spmR was used to conduct the projections. The spmR package can be found in the repository https://github.com/afsc-assessments/spmR. Corresponding documentation and examples can be found at: https://afsc-assessments.github.io/spmR/index.html.  
+
+A standard set of projections is required for each stock managed under
+Tiers 1, 2, or 3 of Amendment 56 to the FMP. This set of projections
+encompasses seven harvest scenarios designed to satisfy the requirements
+of Amendment 56, the National Environmental Policy Act, and the
+Magnuson-Stevens Fishery Conservation and Management Act (MSFCMA).  
+
+The projections in this subsection are based on Tier 3.  
+
+For each scenario, the projections begin with the vector of `r thisyr`
+numbers at age estimated in the assessment. This vector is then
+projected forward to the beginning of `r nextyr` using the schedules of
+natural mortality and selectivity described in the assessment and the
+best available estimate of total (year-end) catch assumed for
+`r thisyr`. In each subsequent year, the fishing mortality rate is
+prescribed on the basis of the spawning biomass in that year and the
+respective harvest scenario. Annual recruits are simulated from an
+inverse Gaussian distribution whose parameters consist of maximum
+likelihood estimates determined from the estimated age-1 recruits.
+Spawning biomass is computed in each year based on the time of peak
+spawning and the maturity and weight schedules described in the
+assessment. Total catch is assumed to equal the catch associated with
+the respective harvest scenario in all years. This projection scheme is
+run 1,000 times to obtain distributions of possible future stock sizes
+and catches under alternative fishing mortality rate scenarios.
+
+Five of the seven standard scenarios are designed to provide a range of harvest alternatives that are likely to bracket the final TAC for `r nextyr`, and are as follows ("$maxFABC$" refers to the maximum permissible value of FABC under Amendment 56), with shorter descriptions in ([Table 48](#tbl-proposed-tier3-scenarios)):
+
+- **Scenario 1:**
+  In all future years, $F$ is set equal to max$F_{ABC}$. (Rationale:  Historically,
+  TAC has been constrained by ABC, so this scenario provides a likely upper
+  limit on future TACs).
+
+- **Scenario 2:**
+  In `r nextyr` and `r nextyr+1` the catch is set equal to 1.30 million t
+  and in future years $F$ is set equal to the Tier 3 estimate (Rationale: this 
+  has been about equal to the catch level in recent years).
+
+- **Scenario 3:**
+  In all future years, $F$ is set equal to the `r thisyr-6;print("-");thisyr-1` average $F$. (Rationale:
+  For some stocks, TAC can be well below ABC, and recent average $F$ may provide a
+  better indicator of $F_{TAC}$ than $F_{ABC}$.)
+
+- **Scenario 4:**
+  In all future years, $F$ is set equal to $F_{60\%}$. (Rationale:  This
+  scenario provides a likely lower bound on $F_{ABC}$ that still allows future
+  harvest rates to be adjusted downward when stocks fall below reference levels.
+
+- **Scenario 5:**
+  In all future years, $F$ is set equal to zero. (Rationale:  In
+  extreme cases, TAC may be set at a level close to zero.)
+
+Two other scenarios are needed to satisfy the MSFCMA’s requirement to determine whether a stock is currently in an overfished condition or is approaching an overfished condition. These two scenarios are as follows (for Tier 3 stocks, the MSY level is defined as $B_35\%$):  
+
+- **Scenario 6:**
+  In all future years, F is set equal to $F_{OFL}$. (Rationale:  This scenario
+  determines whether a stock is overfished. If the stock is expected to be 
+  1) below its MSY level in `r thisyr` or 2) below half of its MSY level in `r thisyr` or below
+  its MSY level in `r thisyr +10` under this scenario, then the stock is overfished.)
+
+- **Scenario 7:**
+  In `r nextyr` and `r nextyr+1`, F is set equal to $maxFABC$, and in all subsequent years, F
+  is set equal to $F_{OFL}$. (Rationale:  This scenario determines whether a stock is
+  approaching an overfished condition. If the stock is 1) below its MSY level in
+  `r nextyr+1` or 2) below 1/2 of its MSY level in `r nextyr+1` and expected to be below its MSY
+  level in `r thisyr+12` under this scenario, then the stock is approaching an
+  overfished condition).
+
+The 13 year projections of catch, spawning biomass, and fishing mortality are shown in ([Table 50](#tbl-proposed-tier3-catch), [Table 51](#tbl-proposed-tier3-ssb), and [Table
+52](#tbl-proposed-tier3-f)). 
+
+
+## 7.4 Risk table and ABC recommendation
+
+
+
+
+
+## 7.5 Status determination
+Any stock that is below its minimum stock size threshold (MSST) is
+defined to be overfished. Any stock that is expected to fall below its
+MSST in the next two years is defined to be approaching an overfished
+condition. Harvest scenarios 6 and 7 are used in these determinations as
+follows:
+
+Is the stock overfished? This depends on the stock's estimated spawning
+biomass in `r thisyr`:
+
+-   If spawning biomass for `r thisyr` is estimated to be below 1/2
+    $B_{35\%}$ the stock is below its MSST.
+
+-   If spawning biomass for `r thisyr` is estimated to be above
+    $B_{35\%}$, the stock is above its MSST.
+
+-   If spawning biomass for `r thisyr` is estimated to be above 1/2
+    $B_{35\%}$ but below $B_{35\%}$, the stock's status relative to MSST
+    is determined by referring to harvest scenario 6 (\cref{tbl:tier3C}
+    through \cref{tbl:tier3SSB}). If the mean spawning biomass for
+    `r thisyr + 10` is below $B_{35\%}$, the stock is below its MSST.
+    Otherwise, the stock is above its MSST.
+
+Is the stock approaching an overfished condition? This is determined by
+referring to harvest Scenario 7:
+
+-   If the mean spawning biomass for `r thisyr` is below 1/2 $B_{35\%}$,
+    the stock is approaching an overfished condition.
+
+-   If the mean spawning biomass for `r thisyr` is above $B_{35\%}$, the
+    stock is not approaching an overfished condition.
+
+-   If the mean spawning biomass for `r nextyr+1` is above 1/2
+    $B_{35\%}$ but below $B_{35\%}$, the determination depends on the
+    mean spawning biomass for `r nextyr+11`. If the mean spawning
+    biomass for `r nextyr+11` is below $B_{35\%}$, the stock is
+    approaching an overfished condition. Otherwise, the stock is not
+    approaching an overfished condition.
+
+For scenarios 6 and 7, we conclude that pollock is above MSST for the
+year `r thisyr`, and it is expected to be above the "overfished
+condition" based on Scenario 7 (the mean spawning biomass in `r thisyr`
+is between the 1/2 $B_{35\%}$ and $B_{35\%}$ estimate but by
+`r nextyr+11` the stock is above $B_{35\%}$; [Table 47](#tbl-proposed-tier3-reference-points).
+Based on this, the EBS pollock stock is being fished below the
+overfishing level and is not approaching an overfished condition. 
 
 The catch and female spawning-biomass panels compared Alternative 2 with recent-mean-F Alternative 3
-([Figure 67](#fig-proposed-tier3-catch); [Figure 68](#fig-proposed-tier3-ssb)). Black lines showed the
-means of 1,000 future-recruitment simulations, ribbons showed their 5th--95th percentiles, and ten
-colored trajectories illustrate individual outcomes. Each color followed the same recruitment
-realization across both alternatives and figures. Recruitment followed the established
-inverse-Gaussian method, using the arithmetic and harmonic means of the fitted 1978--2023 age-1
-entries. Initial age-1 abundance in 2027 equals the historical arithmetic mean; each subsequent
-entry varied among simulations. The widening bands showed how future recruitment variation accumulated
-as new cohorts enter the fishery and spawning population. Alternative 2 catch paths coincide in 2027
-and 2028 because those catches were prescribed.
+([Figure 67](#fig-proposed-tier3-catch); [Figure 68](#fig-proposed-tier3-ssb)). Each color followed the same recruitment
+realization across both alternatives and figures. The widening bands show how future recruitment variation accumulated
+as new cohorts enter the fishery and spawning population. 
 
-The projection tables retained all seven scenarios with recruitment fixed at the historical arithmetic
-mean ([Table 50](#tbl-proposed-tier3-catch); [Table 51](#tbl-proposed-tier3-ssb); [Table
-52](#tbl-proposed-tier3-f)). The historical phase plot places the fitted 1981--2026 trajectory and
+The historical phase plot places the fitted 1981--2026 trajectory and
 deterministic Alternative 2 projections for 2027--2028 on common axes ([Figure
 69](#fig-proposed-tier3-phase)). The horizontal axis was female spawning biomass divided by B35%; the
-vertical axis was mean fishing mortality across model ages divided by F35%. Both denominators were the current
-primary projection reference points (B35% = 2.155 million t; F35% = 0.429 per year), held constant
-across the trajectory. This common benchmark showed changes in the fitted stock and fishing mortality
-through time. The 2024 assessment used annually varying reference points; the historical positions
-here therefore also reflect the choice of a common current benchmark. F35% was a spawning-per-recruit
-proxy for FMSY, and B35% was the corresponding spawning-biomass reference point. Solid lines mark
-ratios of one, and the dashed vertical line marks half B35%. Two-digit year labels trace the
-trajectory, with the two projection years boxed and shaded yellow. The fitted 2026 position and both
-projected positions were above B35% and below F35%.
+vertical axis was mean fishing mortality across model ages divided by $F_35/%$.
 
-### 7.2.1 Decision table {#sec-catch-decision-probabilities}
+## 7.6 The F_limit
+
+To fulfill reporting requirements for [NOAA's Species Information
+System](https://www.fisheries.noaa.gov/resource/data/species-information-system),
+we computed the average fishing mortality rate corresponding to the
+specified OFL for the last complete year (`r thisyr-1`). This
+hypothetical `r thisyr-1` $F_{OFL}$ from this year's model was estimated
+to be ______ for EBS pollock (assuming this year's estimated 
+selectivity and weight-at-age for 2025).
+
+
+
+## 7.7 Decision table {#sec-catch-decision-probabilities}
 
 As in past assessments, we present estimated consequences and probabilities for a range of future
 catches and the subsequent fishing effort implied by each choice
 ([Table 53](#tbl-current-decision-definitions); [Table 54](#tbl-current-decision-model26)). The
-decision table compared eight possible 2027 catches, from 10 to 2,540 kt, using Model 26.0 with the
-updated AVO data. The indicator definitions identify the quantities, comparison benchmarks and years
-used in the calculations. Together, the tables showed how catch choices affected fishing mortality,
-future spawning biomass and age structure, and how likely each choice was to meet the specified
-benchmarks.
+decision table compared eight possible 2027 catches, from 10 to 2,540 kt, using the base model. Together, the tables showed how catch choices affect fishing mortality,
+future spawning biomass and age structure, and how likely each choice is to meet the specified benchmarks.
 
 Each catch column represented a different fishing strategy. Fishing mortality was calculated to
 achieve that catch in 2027, then held constant through 2031. Catches in subsequent years therefore
@@ -1344,7 +1462,7 @@ expected-catch scenario elsewhere in this section assumed 1,375 kt in 2027 and 2
 tables provided a broader comparison of catch choices; they used local asymptotic uncertainty rather
 than MCMC draws.
 
-### 7.2.2 Reference point sensitivity to fishery selectivity specification {#sec-projection-selectivity-sensitivity}
+## 7.8 Reference point sensitivity to fishery selectivity specification {#sec-projection-selectivity-sensitivity}
 
 Fishery selectivity determined how fishing mortality was distributed across ages and therefore
 affects both the reference fishing rates and the catches obtained at those rates. The central
@@ -1423,17 +1541,12 @@ appropriate basis for interpreting the FMSY proxy and comparing harvest specific
 
 # 8 Risk table and ABC recommendation {#sec-risk-table-abc}
 
-The author risk evaluation retained all four categories at **Level 1 -- Normal**
-([Table 55](#tbl-risk-summary)). The ecosystem and fishery observations were summarized below.
-Working recommendations remain subject to author scientific evaluation and Plan Team, SSC and
-Council review. The Level 1 evaluation supported no reduction from maximum permissible ABC.
+The four categories in the risk table were scored **Level 1 -- Normal**
+([Table 55](#tbl-risk-summary)), and the recommended ABC is equal to the max ABC.
 
 ::: {#tbl-risk-summary .report-table .unnumbered data-table="tables/004-tbl-risk-summary.csv"}
 
-Table 55: 2026 risk-category scores and supporting summaries. Assessment-related and
-fishery-informed stock evaluations were **Level 1 -- Normal**; population dynamics and ecosystem
-evaluations draw on the synthesis by Elizabeth Siddon and Kalei Shotwell.
-
+Table 55: 2026 Risk Table scores
 :::
 
 ## 8.1 Assessment-related considerations {#sec-risk-assessment}
