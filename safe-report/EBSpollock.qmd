@@ -46,6 +46,12 @@ Ianelli, J., S. Wassermann, A. McCarthy, C. McGilliard, E. Siddon, K. Shotwell, 
 Tools assisted data processing, code execution, figure preparation and report writing under author direction. The authors retain responsibility for the scientific content, analyses, interpretations and conclusions.
 :::
 
+```{r}
+#| echo: false
+thisyr <- 2026
+
+```
+
 # 1 Executive summary
 
 The last full EBS pollock assessment was completed in 2024 ([Ianelli et al.
@@ -1277,28 +1283,96 @@ conversions, weights and other biological inputs were held fixed. These checks a
 model reproduced observations; the retrospective analyses addressed how estimates changed as additional
 years of data become available.
 
-# 7 Projections and harvest recommendations {#sec-projections}
+# 7 Projections and Harvest Recommendations {#sec-projections}
 
-## 7.1 Proposed Tier 3 configuration and reference points
+For the purposes of these projections, we present results based on
+selecting the $F_{40\%}$ harvest rate as the $F_{ABC}$ value and use
+$F_{35\%}$ as a proxy for $F_{MSY}$. 
 
-The proposed fishery selectivity was the mean of the 2023--2025 annual curves, the latest three years
-with fishery age observations. Each age was averaged before scaling the resulting curve to an arithmetic mean
-of one over ages 1--14 and 15+, consistent with earlier assessments. The separately inferred 2026 curve was distinguished from directly age-informed years ([the
+Projections (Scenarios 1 through 7 described below) were
+projected forward 13 years from `r thisyr+1` for Model
+26.0--including the 1978 year-class as is convention for Tier 3
+estimates). The proposed fishery selectivity was the mean of the 2023--2025 estimates of fishery selectivity-at-age, the latest three years
+with fishery age observations. The selectivity for each age was averaged before scaling the resulting curve to an arithmetic mean
+of one, consistent with earlier assessments ([the
 projection-input appendix](#sec-proposed-projection-input-curves)).
 
-The deterministic recruitment level used the arithmetic mean of age-1 entries in 1978--2023,
-corresponding to birth cohorts 1977--2022. The less precise 2024--2026 entries were excluded. Every
-entry in the advice tables equaled this selected historical mean. The separate projection figures added
-future recruitment variation to illustrate a range of possible paths. Reference points and fishing
-rates were reported in [Table 47](#tbl-proposed-tier3-reference-points). The Model 26.1.2 column used
-the revised Early-late fishery split comparison under the same projection assumptions.
+The projections assumed estimated catches of 1,375,000 t in 2027 and 2028. Total biomass was defined as biomass at ages 3+ at the start of the year. Average recruitment was defined as the average of the abundance of age-1 individuals from  1978--2023,
+corresponding to the 1977--2022 year classes; age 1 abundance estimates from 2024--2026 were omitted from the calculation, as data informing these recruits was still limited.  
 
-The Tier 3 reference points were spawning-potential quantities. The ABC rule reduced fishing
-mortality below B40% and sets it to zero below B20%. Projections start from each fitted population
-and used the stated catch scenarios and biological inputs. The author-rate fraction was one, subject
-to the risk evaluation and final review.
+## 7.1 Amendment 56 Reference Points
+Amendment 56 to the BSAI Groundfish Fishery Management Plan (FMP)
+defines overfishing level (OFL), the fishing mortality rate used to set
+OFL (FOFL), the maximum permissible ABC, and the fishing mortality rate
+used to set the maximum permissible ABC. The fishing mortality rate used
+to set ABC ($F_{ABC}$) may be less than this maximum permissible level,
+but not greater. We present Tier 3 reference points for pollock in the BSAI in [Table 47](#tbl-proposed-tier3-reference-points). 
 
-The previous-year OFL-equivalent fishing mortality was reported in [Section 10](#sec-prior-year-ofl-f).
+
+
+
+
+Under catches set to Tier 3 ABC estimates, the expected
+spawning biomass is well above $B_{35\%}$ and is expected to drop
+below $B_{40\%}$ by 2026 (given mean recruitment; @fig-tier3_proj and
+assuming catches \>2 million t in 2025).
+
+Any stock that is below its minimum stock size threshold (MSST) is
+defined to be overfished. Any stock that is expected to fall below its
+MSST in the next two years is defined to be approaching an overfished
+condition. Harvest scenarios 6 and 7 are used in these determinations as
+follows:
+
+Is the stock overfished? This depends on the stock's estimated spawning
+biomass in `r thisyr`:
+
+-   If spawning biomass for `r thisyr` is estimated to be below 1/2
+    $B_{35\%}$ the stock is below its MSST.
+
+-   If spawning biomass for `r thisyr` is estimated to be above
+    $B_{35\%}$, the stock is above its MSST.
+
+-   If spawning biomass for `r thisyr` is estimated to be above 1/2
+    $B_{35\%}$ but below $B_{35\%}$, the stock's status relative to MSST
+    is determined by referring to harvest scenario 6 (\cref{tbl:tier3C}
+    through \cref{tbl:tier3SSB}). If the mean spawning biomass for
+    `r thisyr + 10` is below $B_{35\%}$, the stock is below its MSST.
+    Otherwise, the stock is above its MSST.
+
+Is the stock approaching an overfished condition? This is determined by
+referring to harvest Scenario 7:
+
+-   If the mean spawning biomass for `r thisyr` is below 1/2 $B_{35\%}$,
+    the stock is approaching an overfished condition.
+
+-   If the mean spawning biomass for `r thisyr` is above $B_{35\%}$, the
+    stock is not approaching an overfished condition.
+
+-   If the mean spawning biomass for `r nextyr+1` is above 1/2
+    $B_{35\%}$ but below $B_{35\%}$, the determination depends on the
+    mean spawning biomass for `r nextyr+11`. If the mean spawning
+    biomass for `r nextyr+11` is below $B_{35\%}$, the stock is
+    approaching an overfished condition. Otherwise, the stock is not
+    approaching an overfished condition.
+
+For scenarios 6 and 7, we conclude that pollock is above MSST for the
+year `r thisyr`, and it is expected to be above the "overfished
+condition" based on Scenario 7 (the mean spawning biomass in `r thisyr`
+is between the 1/2 $B_{35\%}$ and $B_{35\%}$ estimate but by
+`r nextyr+11` the stock is above $B_{35\%}$; (\cref{tbl:tier3SSB}).
+Based on this, the EBS pollock stock is being fished below the
+overfishing level and is not approaching an overfished condition.
+
+To fulfill reporting requirements for [NOAA's Species Information
+System](https://www.fisheries.noaa.gov/resource/data/species-information-system),
+we computed the average fishing mortality rate corresponding to the
+specified OFL for the last complete year (`r thisyr-1`). This
+hypothetical `r thisyr-1` $F_{OFL}$ from this year's model was estimated
+to be 0.375 for EBS pollock (assuming this year's estimated 
+selectivity and weight-at-age for 2023).
+
+
+
 
 ## 7.2 Standard harvest scenarios
 
