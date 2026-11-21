@@ -15,7 +15,7 @@ format:
 [Editable assessment source: EBSpollock.qmd](https://github.com/noaa-afsc/EBS_pollock/blob/main/safe-report/EBSpollock.qmd)
 · [Editing and rendering instructions](https://github.com/noaa-afsc/EBS_pollock/tree/main/safe-report)
 
-**Version: November 20, 2026 · Review draft · Built from EBSpollock.qmd**
+**Version: November 21, 2026 · Review draft · Built from EBSpollock.qmd**
 
 The HTML and PDF present the same assessment revision. The HTML provides
 interactive figures and navigation; the PDF provides a paginated copy for

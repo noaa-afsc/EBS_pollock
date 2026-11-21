@@ -73,9 +73,9 @@ exclude uncertainty in the separately estimated weight-at-age schedules. [Sectio
 
 ## 1.3 Summary of results
 
-The estimated female spawning biomass (SSB) was 3.057 million t (2.489–3.754 million t, confidence interval).
+The estimated 2026 female spawning biomass (SSB) was 3.057 million t (2.489–3.754 million t, confidence interval).
 
-The stock was above MSST in 2026 and was not approaching an overfished condition ([Section 9](#sec-status-determination)). All risk categories were Level 1, supporting maximum ABC ([Section 8](#sec-risk-table-abc)).
+The estimated spawning stock is therefore above MSST in 2026 and is not approaching an overfished condition ([Section 9](#sec-status-determination)). All risk categories were Level 1, supporting maximum ABC ([Section 8](#sec-risk-table-abc)).
 
 ::: {#advice-model260 .report-table .unnumbered data-table="tables/001-advice-model260.csv"}
 
@@ -258,10 +258,13 @@ sizes were less available.
 
 The weekly reporting-area data in [Table 3](#tbl-catch-area-season) sum to 1,267,543 t through
 October 17, 2026: 604,041 t in the A season and 663,501 t in the B season. This series provided
-the seasonal and area split used here. Its total was 29,663 t below the Alaska Region catch report
-for the same cutoff; the sources had not been reconciled.
+the seasonal and area split used here. The Alaska Region Catch Accounting System reported
+1,297,206 t through the same date, 29,663 t more than the reporting-area series. The difference
+between the two reported totals remains unresolved.
 
-[Table 4](#tbl-catch-retained-discarded) summarized annual retained and discarded catch. The 2026 total was 1,312,505 t, including 8,997 t discarded (0.7%).
+The assessment used an estimated full-year 2026 catch of 1,312,505 t, including 8,997 t discarded
+(0.7%; [Table 4](#tbl-catch-retained-discarded)). This estimate is separate from either October 17
+catch-to-date total.
 
 Nominal pollock catch per tow-hour was generally higher in the A season than in the B season, with
 A-season peaks in 2019 and 2023 ([Figure 1](#fig-nominal-seasonal-cpue)). Species-specific patterns
@@ -924,10 +927,8 @@ The Model 26.0 base case model estimated 2026 total biomass at 12.162 million t,
 biomass at 3.057 million t, age-1 recruitment at 36.3 billion fish, and maximum fishing
 mortality across ages at 0.299 per year ([Table 31](#tbl-model262-current-terminal-estimates)).
 
-The approximate 95% confidence intervals used the parameter covariance from the Model 26.0 fit,
-with biological schedules held fixed. [Figure 31](#fig-model262-current-full-uncertainty) showed
-the annual estimates and intervals, and [Table 32](#tbl-model262-current-annual-estimates)
-reported the values.
+The approximate 95% confidence intervals, based on parameter uncertainty from the Model 26.0 fit,
+are shown in [Figure 31](#fig-model262-current-full-uncertainty) and [Table 32](#tbl-model262-current-annual-estimates).
 
 The 2026 posterior medians for total biomass, female spawning biomass and age-1 recruitment
 were below their corresponding fitted point estimates. The regularized posterior used all 5,000
@@ -937,10 +938,12 @@ median was 11.462 million t (9.215--14.719 million t), and median age-1 recruitm
 31.1518 billion fish (12.2880--91.0616 billion fish). The management calculations used
 the fitted point estimates; the MCMC summaries provided a separate view of uncertainty.
 
-[Figure 32](#fig-model262-current-numbers-uncertainty) tracked cohorts as they aged by showing
+In an effort to illustrate how the population age structure has evolved over time, we provide a
+color-coded heatmap showing values relative to their mean abundances-at-age from 1964--2026
+([Figure 32](#fig-model262-current-numbers-uncertainty)). This tracks cohorts as they age by showing
 abundance at each age relative to its long-term mean, alongside the coefficient of variation.
-[Table 34](#tbl-model262-current-numbers-at-age) reported the annual abundance estimates, and
-[Table 35](#tbl-model262-current-terminal-numbers) reported estimates and uncertainty by age in 2026.
+[Table 34](#tbl-model262-current-numbers-at-age) reports the annual abundance estimates, and
+[Table 35](#tbl-model262-current-terminal-numbers) reports estimates and uncertainty by age in 2026.
 
 #### Comparison with the 2024 assessment
 
@@ -956,13 +959,10 @@ spawning biomass changed from that 2024 estimate to 3.057 million t in 2026 (-13
 biomass changed from 10.767 million t to 12.162 million t over the same years (13.0%).
 These within-trajectory changes differed from shared-year assessment revisions.
 
-[Figure 33](#fig-recruitment-2024-current) compared recruitment from Models 26.0 and 26.1.2
-with the accepted 2024 assessment, using the calendar year each cohort entered at age 1. The two
-current fits showed a similar pattern of strong and weak year classes. The 2024 series used point
-estimates from the original assessment rather than the 23.0 refit with data through 2026. Error bars
-for the current models were approximate 95% confidence
-intervals using the fitted parameter covariance for Model 26.0 and the marginal likelihood for
-Model 26.1.2.
+As a sensitivity, we compared age-1 recruitment from Models 26.0 and 26.1.2 with the accepted
+2024 assessment ([Figure 33](#fig-recruitment-2024-current)), using the calendar year each cohort
+entered at age 1. The two current fits showed a similar pattern of strong and weak year classes.
+Error bars for the current models are approximate 95% confidence intervals.
 
 Model 26.0 estimated higher female spawning biomass over the shared fitted years shown in
 [Figure 34](#fig-projection-vintages) (2002--2024). Its Scenario 2 point projections rise in 2027
@@ -972,8 +972,8 @@ assessment parameters under the stated projection assumptions.
 
 #### Recruitment per unit of spawning biomass
 
-[Figure 35](#fig-model260-lnrs) showed Model 26.0 estimates of log recruits per spawner. For each year
-of hatching, age-1 recruitment in the following year was divided by female spawning biomass in the year of hatching. Taking the natural
+Log recruits-per-spawning biomass compared to spawning biomass shows a linear pattern ([Figure 35](#fig-model260-lnrs)).
+For each year of hatching, age-1 recruitment in the following year was divided by female spawning biomass in the year of hatching. Taking the natural
 logarithm puts proportional changes on a comparable scale: higher values indicated more recruits per
 unit of spawning biomass. The series showed substantial variation among year classes. The 1978, 2008
 and 2018 year classes had particularly high recruits-per-spawner values. Following the strong 2018
@@ -982,9 +982,7 @@ remain less certain because fewer observation years were available and the surve
 sample a smaller proportion of younger fish, especially ages 1–3, than older fish. The spawning-biomass panel generally showed lower ratios at higher biomass, with
 considerable variation among years at similar biomass. This pattern can reflect density dependence,
 environmental conditions and estimation uncertainty. Spawning biomass appears in both the horizontal
-axis and the ratio, which can contribute to the apparent relationship. Model 26.0 used mean
-recruitment rather than a fitted stock–recruitment relationship. The figure provided a descriptive check on
-productivity using point estimates of the recruitment-to-biomass ratio.
+axis and the ratio, which can contribute to the apparent relationship.
 
 Biological schedules and selectivity were shown by age, sex and year
 ([Figure 36](#fig-model262-current-biological-schedules);
@@ -992,16 +990,14 @@ Biological schedules and selectivity were shown by age, sex and year
 [Table 37](#tbl-model262-current-selectivity)). Fishing mortality was also shown by age
 ([Figure 37](#fig-model260-fishing-mortality-age)). Whole-year spawning exploitation compared paired
 spawning-biomass calculations from the base case model production fit
-([Figure 38](#fig-model260-spawn-interval-exploitation)). Spawning exploitation was the percentage
-reduction in next-spawning female biomass caused by fishing: 100 × (1 − biomass with fishing /
+([Figure 38](#fig-model260-spawn-interval-exploitation)). Spawning exploitation is defined as the
+percentage reduction in next-spawning female biomass caused by fishing: 100 × (1 − biomass with fishing /
 biomass without fishing). For the interval from spawning in 2026 to spawning in 2027, its
 production-point estimate was 13.7%: 3.326 million t with fishing
-versus 3.853 million t without fishing. The branches share prior fishing history and their
-spawning-date starting population, with 1.375 million t annual catch assumed in 2027. The separate
-MCMC posterior median for this exploitation fraction was 14.5%, with a central 95% credible
+versus 3.853 million t without fishing. The separate MCMC posterior median for this exploitation
+fraction was 14.5%, with a central 95% credible
 interval of 11.2--18.4%. These paired-state calculations carry the revised fishery-weight
-schedule into 2027 and retained the fixed 1.375 million t catch assumption. The production-fit point
-remained separate from that posterior interval.
+schedule into 2027 and retained the fixed 1.375 million t catch assumption.
 
 ### 6.1.2 Estimated and fixed model parameters
 
@@ -1009,7 +1005,7 @@ Fixed parameters are shown in [Section 4.3](#sec-other-data) while [Table 38](#t
 the median and maximum asymptotic standard errors for each parameter group, including three log
 catchability estimates and 63 recruitment deviations. Complete estimates and the largest parameter
 correlations were retained in [the detailed estimates appendix](#sec-current-output-appendix). The
-summary likelihood contributions were in [Table 39](#tbl-model262-current-likelihood-summary).
+summary likelihood contributions are in [Table 39](#tbl-model262-current-likelihood-summary).
 
 ### 6.1.3 Fits to the observations
 
@@ -1056,9 +1052,9 @@ fitted model parameters.
 
 ### 6.1.4 Profile likelihood diagnostics {#sec-model260-ats-q-profile}
 
-A likelihood profile examined how strongly the observations and model assumptions constrain ATS survey
-catchability (ATS-q) in Model 26.0. The catchability parameter scales the ATS  index relative to the population
-available to the survey. We fixed this parameter at 17 values from 0.45 to 0.65, including the
+To examine the conflict among data types and model assumptions and a parameter that affects population
+scale, we constructed a profile-likelihood over ATS survey catchability (ATS-q) for Model 26.0.
+We fixed this parameter at 17 values from 0.45 to 0.65, including the
 freely estimated value of 0.51694, and re-estimated all other active parameters. The grid used
 eight equal intervals on each side of the estimated value: approximately 0.00837 below it and
 0.01663 above it ([Figure 50](#fig-model260-ats-q-profile)).
@@ -1098,19 +1094,34 @@ In [Table 41](#tbl-model260-ats-q-ssb2027), we show projected 2027 spawning biom
 
 ### 6.1.5 Retrospective patterns {#sec-paired-current-retrospectives}
 
-The retrospective analysis showed substantially smaller estimates of 2016--2019 spawning biomass and larger estimates of maximum F from the current model run, relative to those estimates from runs with data endpoint years 2017--2020 ([Figure 53](#fig-current-observed-retrospective-trajectories), [Table 43](#tbl-model260-current-retrospective-revisions)). Additionally, estimates of the 2008, 2012, and 2013 year classes become smaller with the addition of new data. Retrospective patterns for Model 26.1.2 (the sensitivity run splitting early and late fishery characteristics) were nearly identical to those from Model 26.0 (the base model). Across the full nine peels ending in 2017--2025, Mohn's rho for spawning biomass was
-+0.121 ([Table 42](#tbl-catch-revised-mohn-rho)).
+The full Model 26.0 fit estimated lower spawning biomass and higher maximum fishing mortality
+in much of 2016--2019 than fits ending in 2017--2020 did
+([Figure 53](#fig-current-observed-retrospective-trajectories);
+[Table 43](#tbl-model260-current-retrospective-revisions) shows terminal-year comparisons).
+The full fit also estimated smaller 2008, 2012, and 2013 year classes than the earlier peels.
 
-The Model 26.0 simulated-data and posterior-predictive retrospective experiments provided separate
-conditional comparisons ([Section 6.3.1](#sec-model260-selftest)).
+Model 26.0 and the conditional split-fishery Model 26.1.2 showed broadly similar patterns of
+spawning-biomass revision. Across the nine peels ending in 2017--2025, spawning-biomass Mohn's
+rho was +0.121 for Model 26.0 ([Table 42](#tbl-catch-revised-mohn-rho)) and +0.074 for Model
+26.1.2. The corresponding maximum-F values differed (−0.064 and +0.002). Each comparison
+used the model's own full 2026 fit for the same calendar year. The Model 26.0 simulated-data
+and posterior-predictive experiments provided separate conditional comparisons
+([Section 6.3.1](#sec-model260-selftest)).
 
-[Figure 54](#fig-historical-retrospectives) compared beginning-of-year age-3+ biomass from earlier
-assessments with this year's base model, Model 26.0. Estimated biomass trends over time are consistent across the current and historical assessments. Historical estimates of age 3 biomass from this year's base model are larger than for the 2024 assessment in many years, but nearly identical in years of low biomass. The plot shows that in period of higher biomass, the current model estimates of age 3 biomass are largely consistent with the 2007--2023 assessment results.
+[Figure 54](#fig-historical-retrospectives) compares beginning-of-year age-3+ biomass across
+assessment vintages. Model 26.0 followed the broad historical pattern and estimated higher
+biomass than the 2024 assessment in many shared years, including 2023--2024. Its estimates
+fell through 2025 and rose in 2026. Comparisons across assessment vintages reflect changes
+in data, biological inputs, and methods; comparisons among peels show the effect of
+truncating data within a model configuration.
 
 ### 6.1.6 Age-composition weighting comparison {#sec-francis-comparison}
 
-We compared the sample sizes used in the 2026 models to those calculated from the approach described in Francis (2011), showing that for the fishery and BTS age composition data, the two approaches to data weighting lead to very similar resulting sample sizes;  [Figure 55](#fig-francis-sample-size-comparison);
-[Figure 56](#fig-francis-mean-age-residuals)).
+The Francis (2011) diagnostic returned lower age-composition sample sizes than those used
+for the fishery, higher sizes for the BTS, and roughly twice the selected sizes for the ATS
+([Figure 55](#fig-francis-sample-size-comparison)). [Figure 56](#fig-francis-mean-age-residuals)
+shows the standardized mean-age residuals used in the comparison. The assessment retained
+the selected input weights for all three sources.
 
 ## 6.2 Model 26.1 split-fishery alternatives {#sec-model261-results}
 
@@ -1268,19 +1279,30 @@ future recruitment variation to illustrate a range of possible paths. Reference 
 rates were reported in [Table 47](#tbl-proposed-tier3-reference-points). The Model 26.1.2 column used
 the revised Early-late fishery split comparison under the same projection assumptions.
 
-The Tier 3 reference points were spawning-potential quantities. The ABC rule reduced fishing
-mortality below B40% and sets it to zero below B20%. Projections start from each fitted population
-and used the stated catch scenarios and biological inputs. The author-rate fraction was one, subject
-to the risk evaluation and final review.
+Under the [Bering Sea and Aleutian Islands Groundfish Fishery Management Plan](https://www.npfmc.org/wp-content/uploads/BSAIfmp.pdf),
+the Tier 3 rule uses spawning-potential reference points. F35% and F40% are the rates that
+leave 35% and 40% of unfished spawning biomass per recruit, respectively. The biomass
+reference points in Table 47 are equilibrium female spawning biomasses under the stated mean
+recruitment and fixed biological inputs. B100% is the unfished equilibrium benchmark, not
+an observation of biomass before fishing began.
+
+For Tier 3a (spawning biomass above B40%), F35% sets the OFL rate and F40% sets the
+maximum permissible ABC rate. The FMP scales both rates down when biomass is below B40%
+and sets both to zero at or below 5% of B40% under the default rule. The F35% and F40%
+values in Table 47 are annual rates under mean-one selectivity; age-specific rates follow
+the selectivity curve. The author-rate fraction was one, subject to the risk evaluation
+and final review.
 
 The previous-year OFL-equivalent fishing mortality was reported in [Section 10](#sec-prior-year-ofl-f).
 
 ## 7.2 Standard harvest scenarios
 
-The proposed projections retained the standard harvest scenarios and their common biology
-([Table 48](#tbl-proposed-tier3-scenarios)). The expected-catch scenario assumed 1.375 million t in
-each of 2027 and 2028; the 2028 catch was a planning assumption. Short-term outputs were reported in
-[Table 49](#tbl-proposed-tier3-short-term).
+The seven standard harvest scenarios were projected with [spmR](https://afsc-assessments.github.io/spmR/),
+starting from each model's fitted 2026 population and using the estimated 2026 catch to
+project the population to the start of 2027. [Table 48](#tbl-proposed-tier3-scenarios)
+defines the scenario rules. Scenario 2 assumes 1.375 million t of catch in both 2027 and
+2028; these are scenario inputs, separate from the ABC and OFL reported for those years
+in [Table 49](#tbl-proposed-tier3-short-term).
 
 The catch and female spawning-biomass panels compared Alternative 2 with recent-mean-F Alternative 3
 ([Figure 67](#fig-proposed-tier3-catch); [Figure 68](#fig-proposed-tier3-ssb)). Black lines showed the
@@ -1293,9 +1315,11 @@ entry varied among simulations. The widening bands showed how future recruitment
 as new cohorts enter the fishery and spawning population. Alternative 2 catch paths coincide in 2027
 and 2028 because those catches were prescribed.
 
-The projection tables retained all seven scenarios with recruitment fixed at the historical arithmetic
-mean ([Table 50](#tbl-proposed-tier3-catch); [Table 51](#tbl-proposed-tier3-ssb); [Table
-52](#tbl-proposed-tier3-f)). The historical phase plot places the fitted 1981--2026 trajectory and
+The tables report catch, female spawning biomass, and fishing mortality for the starting
+year (2026) and projections through 2038. Recruitment in all seven scenarios is fixed at
+the historical arithmetic mean
+([Table 50](#tbl-proposed-tier3-catch); [Table 51](#tbl-proposed-tier3-ssb);
+[Table 52](#tbl-proposed-tier3-f)). The historical phase plot places the fitted 1981--2026 trajectory and
 deterministic Alternative 2 projections for 2027--2028 on common axes ([Figure
 69](#fig-proposed-tier3-phase)). The horizontal axis was female spawning biomass divided by B35%; the
 vertical axis was mean fishing mortality across model ages divided by F35%. Both denominators were the current
@@ -1310,14 +1334,11 @@ projected positions were above B35% and below F35%.
 
 ### 7.2.1 Decision table {#sec-catch-decision-probabilities}
 
-As in past assessments, we present estimated consequences and probabilities for a range of future
-catches and the subsequent fishing effort implied by each choice
-([Table 53](#tbl-current-decision-definitions); [Table 54](#tbl-current-decision-model26)). The
-decision table compared eight possible 2027 catches, from 10 to 2,540 kt, using Model 26.0 with the
-updated AVO data. The indicator definitions identify the quantities, comparison benchmarks and years
-used in the calculations. Together, the tables showed how catch choices affected fishing mortality,
-future spawning biomass and age structure, and how likely each choice was to meet the specified
-benchmarks.
+The decision table compares eight possible 2027 catches, from 10 to 2,540 kt, using Model
+26.0 with the updated AVO data. [Table 53](#tbl-current-decision-definitions) defines the
+indicators, benchmarks, and years. [Table 54](#tbl-current-decision-model26) gives the
+estimated outcomes for fishing mortality, spawning biomass, and age structure and the
+probabilities of meeting the specified benchmarks.
 
 Each catch column represented a different fishing strategy. Fishing mortality was calculated to
 achieve that catch in 2027, then held constant through 2031. Catches in subsequent years therefore
@@ -1475,8 +1496,9 @@ larval abundance; temperature-dependent timing complicates interpretation of the
 indices. Southeastern Bering Sea (SEBS) age-0 abundance was also low. Above-average late-summer
 large copepod abundance, lipid-rich copepods and euphausiids, and above-average SEBS age-0 energy
 density indicate favorable feeding and potential survival through the first winter. Northern Bering
-Sea (NBS) age-0 energy density was below average, while adult-pollock cannibalism was low overall;
-age-1 specificity remained unverified. The regional contrasts and supporting evidence were described
+Sea (NBS) age-0 energy density was below average. Cannibalism made up a small share of observed
+adult pollock diets; that diet share does not measure predation mortality of age-1 pollock.
+The regional contrasts and supporting observations are described
 in [Section 11.1](#sec-ecosystem-population-dynamics) within
 [Section 11](#sec-ecosystem-considerations).
 
@@ -1680,10 +1702,9 @@ for pelagic juvenile prey; direct evidence for that competition remained unavail
 ### Predators
 
 Adult pollock diets consisted primarily of copepods and euphausiids, with a low overall proportion
-of cannibalism in 2026 ([Aydin 2026](#ref-aydin2026diets)). CNRG estimates showed that age-1 predation
-mortality declined from 2025, while mortality due to cannibalism remained slightly above its
-long-term mean. The biomass of pollock consumed by conspecifics was approximately average and lower
-than in 2024 and 2025 ([Holsman et al. 2026](#ref-holsmanaydin2026cannibalism)). Adult Bristol Bay
+of cannibalism in 2026 ([Aydin 2026](#ref-aydin2026diets)). CNRG estimates indicated that overall predation mortality
+of age-1 pollock declined from 2025 to 2026 ([Holsman et al.
+2026](#ref-holsmanaydin2026cannibalism)). Adult Bristol Bay
 sockeye salmon, which prey on juvenile pollock, decreased from 2025 ([Cunningham et al.
 2026](#ref-cunningham2026sockeye)).
 
@@ -1728,9 +1749,7 @@ Adult pollock diets continued to be dominated by copepods and euphausiids ([Aydi
 ([Levine et al. 2026](#ref-levine2026euphausiids); [Spear et al. 2026](#ref-spear2026euphausiids)),
 and above-average SEBS copepod and euphausiid lipid content provided lipid-rich prey ([Pinger et al.
 2026](#ref-pinger2026lipids)). Cannibalism formed a low proportion of adult pollock diets ([Aydin
-2026](#ref-aydin2026diets)). CNRG estimates separately indicated slightly above-average mortality of
-age-1 pollock from cannibalism, with approximately average biomass consumed by conspecifics
-([Holsman et al. 2026](#ref-holsmanaydin2026cannibalism)).
+2026](#ref-aydin2026diets)).
 
 Morphometric condition, measured as length--weight residuals, for large adult pollock (\>250 mm) in
 the EBS survey increased from 2023 to 2026 to above the long-term mean. The NBS condition series
@@ -2222,7 +2241,8 @@ each season. Totals include retained and discarded catch; values were rounded to
 Table 4: Retained and discarded EBS pollock catch by reporting area, 1991--2026 (tons), from annual
 catch-accounting data. Northwest (NW) comprises NMFS areas 520--539; Southeast (SE) comprises areas
 500--517 and 519. Area 518 (Bogoslof) was excluded. Discarded percentage equals discarded catch
-divided by total catch. Values were rounded to whole tons; 2026 estimates were preliminary.
+divided by total catch. Values were rounded to whole tons. The 2026 row gives the estimated
+full-year catch used in the assessment, not an observed year-end total.
 
 :::
 
@@ -3180,7 +3200,7 @@ Figure 53: Retrospective trajectories for Model 26.0 (left) and Model 26.1.2 wi
 ![](assets/figure-053.png){fig-alt="Historical age-3-plus biomass trajectories from assessments issued in 2007 through 2024, compared with the Model 26.0 trajectory through 2026. Estimates decline after 2022 through 2025 and rise in 2026."}
 
 ::: {.figure-caption}
-Figure 54: Historical retrospectives of beginning-of-year age-3+ EBS pollock biomass. Gray lines show archived 2007--2023 assessments; orange shows the official 2024 SAFE Table 27 estimates through 2024; blue shows Model 26.0 estimated through 2026. Biomass sums beginning-of-year numbers at ages 3--15+ multiplied by the corresponding annual fishery weights at age, using the Model 26.0 fit. Historical series use assessment-specific biomass definitions and may include next-year estimates. The 2024 tabulated values are rounded. No new assessment fit was produced in 2025. These are point estimates from successive assessments, encompassing changes in data, methods and biological inputs.
+Figure 54: Historical retrospectives of beginning-of-year age-3+ EBS pollock biomass. Gray lines show archived 2007--2023 assessments; orange shows the official 2024 SAFE Table 23 estimates through 2024; blue shows Model 26.0 estimated through 2026. Biomass sums beginning-of-year numbers at ages 3--15+ multiplied by the corresponding annual fishery weights at age, using the Model 26.0 fit. Historical series use assessment-specific biomass definitions and may include next-year estimates. The 2024 tabulated values are rounded. No new assessment fit was produced in 2025. These are point estimates from successive assessments, encompassing changes in data, methods and biological inputs.
 :::
 
 ::::

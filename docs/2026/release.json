@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-20-qmd-a42ee4fd",
+  "version": "2026-11-21-qmd-e689f8b2",
   "status": "Review draft",
   "tables": 89,
   "images": 89,
@@ -8,8 +8,8 @@
   "local_only_PDF_links_removed": 99,
   "manual_accessibility": "Not Tested",
   "files": {
-    "assessment.html": "ee8472a5516ee16c1f0eef6db8c990c07aaafef7ee6b94bfacc816c91078d33a",
-    "assessment.pdf": "7f29de81c8fd7e38bf3854391d9ec641a0c0b9a63653ffeedbc4853aa21b1871",
+    "assessment.html": "2d52dd993fa918aaf5cc0d9e4229020fa0a3e68a05ff967e952ca34254c64b2b",
+    "assessment.pdf": "13a334304c59fcdaba1eb2785f0fe3ed28f1407bd905e20e86ba384ddc9eedf9",
     "report.css": "4599522582360773b31f89f81d44cbdac91d9c7235b2d5fead9f24ccf6095925",
     "EBSpollock_files/libs/bootstrap/bootstrap-917079515d91bccb85b543faf8aa8bb6.min.css": "e664aba4c1a08083c8992b2d0b632c2bb76cc2f610ad1ecbe232884adf4f64a3",
     "EBSpollock_files/libs/bootstrap/bootstrap-icons.css": "01253947f506e030589e4f33fc7ec7ccdfb9505e2e596dedf16445f12e243c0a",
@@ -392,9 +392,9 @@
     "links_bookmarks_figure_pixels_preserved": true
   },
   "report_entrypoint": "safe-report/EBSpollock.qmd",
-  "source_sha256": "4b5d2a323aa49e1c41a1d71b9251a5cb7f8fb2a1d032099243a79e5648e2e6ab",
+  "source_sha256": "34d20ddf8bb04439dcafaf128e96bc84878a5ffb84466a998132abb2a48725f6",
   "build_inputs_sha256": {
-    "EBSpollock.qmd": "4b5d2a323aa49e1c41a1d71b9251a5cb7f8fb2a1d032099243a79e5648e2e6ab",
+    "EBSpollock.qmd": "34d20ddf8bb04439dcafaf128e96bc84878a5ffb84466a998132abb2a48725f6",
     "_quarto.yml": "6ee0fda44bbdda9186f15aa2f4eb0000d17d208438a6174e8cff7ef76159a23c",
     "tables.lua": "3de6996895ac67a065ec6cf922d083b07ebff6bc75a6327e6da83556e1ddc270",
     "finish_html.py": "0abd3e55ddbde113ea4f280a04981c5f3f2e034e972060ff23db2001d90050df",
@@ -416,7 +416,7 @@
     "tables/002-status-model260.json": "a20367e65b433b421b1f15cd8e9f6651b53b7affa8dc92afb8149c9afad4b0da",
     "tables/003-table-003.csv": "cf5b1ac376b54fb8325fa93ed3a51dd5b31a55591613865db272a699d928d747",
     "tables/003-table-003.json": "17be6467c2e489672d364912e46b071221eb1d967949e6542d014e89a4c53961",
-    "tables/004-tbl-risk-summary.csv": "0dce89d83f0a7fc6a90d718bb8d6b0ad61e808ba0607e483d964389ab1171fac",
+    "tables/004-tbl-risk-summary.csv": "8b3d89f926d067c5d13b17b1c0b23bb020f288e1b456e7a2c488eb33f88d53c4",
     "tables/004-tbl-risk-summary.json": "cd80b98b1584dfdf42752042d7e70855efc760dd4972f755f7c0feba6cfa7f22",
     "tables/005-status-model-options.csv": "ef8cf200d77b257692ab7937c9379e63b151bee22382c836ef0c8f7d64e07942",
     "tables/005-status-model-options.json": "427a12a669d7af99f62582c6bd9de08a7c3f92940fcf4ac235f26dba290c01cf",
@@ -593,6 +593,6 @@
   "PDF_layout": "QMD print template; close visual match with pagination allowed to differ",
   "authoring_format": "Native Quarto Markdown and editable CSV tables",
   "source_content_verification": true,
-  "source_base_revision": "829a4ae7be36c3425a91eda0f13f6c8efb1eedda",
+  "source_base_revision": "790ed174b857af0a04ef5faadfaa4b5ca6b26df8",
   "source_tree_dirty": true
 }

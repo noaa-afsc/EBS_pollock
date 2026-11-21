@@ -123,3 +123,17 @@ Simplified Section 1.3 to female spawning biomass and stock/risk status; retaine
 Source checks verified every requested edit and preserved numeric tokens and display equations during the tense pass. No model fits, input datasets or harvest advice were changed. Model compilation, gradients and Hessian verification are Not Applicable to this editorial release.
 
 The release layout review found Table 2's redundant verification notes on a nearly empty continuation page. Removed the two audit paragraphs from the table footer, retaining its historical-source download links and all milestone/source rows.
+
+## November 21: PR #18 Results follow-up
+
+Kept the merged Results edits and existing local edits. Clarified the model-specific retrospective summaries and distinguished historical age-3+ biomass from within-model peels. Corrected the Figure 54 source to 2024 SAFE Table 23 (including the 2024 estimate of 9,415 thousand t). Described the Francis diagnostic by source and confirmed the assessment retained its input weights. No fit, table values, or advice changed. PR #19 remains separate.
+
+## November 21: Selective prose from PR #19
+
+Reviewed Carey's projections branch at `f921b11`. Kept the current section order, headings, anchors, risk rationales, status tests, prior-year OFL-equivalent F, decision tables, and sensitivity discussion. Adopted or adapted explanations for Tier 3 reference points, scenario assumptions, spmR, and reading the decision table. Corrected the existing general Tier 3 rule description: the FMP's default zero-F threshold is 0.05 × B40%, not B20%. That correction describes the rule; no model code, outputs or advice changed. Kept the 1.375 Mt Scenario 2 catches supported by Tables 48 and 50, the distinction between deterministic tables and simulated figures, and the distinction between equilibrium and historical biomass. Left out the duplicate sections, unfinished risk language, inconsistent scenario/status text, SIS blank and executable fragments. No merge, push, or submission.
+
+The 259-page Council review proof is also in Downloads as `EBSpollock-2026-Council-review-20261121.pdf`. Review §§6.1.5–6.1.6 on page 21, §7 on page 24, Table 8 on page 49, and Figure 54 on page 152. The QA comparison found identical cell text across all 90 report tables versus merged PR #18. The Council copy preserves body text, figures, links, bookmarks, and named destinations, with the Council header/footer, a single page number, and no disclaimer. Manual accessibility conformance was not tested. This is a review proof, not a submitted or published release.
+
+### Author-approved catch and ecosystem QA corrections, November 21
+
+Section 3.1 now distinguishes the two observed October 17 catch-to-date series (a 29,663 t difference) from the estimated full-year 2026 model catch. Table 4 identifies the 2026 row as the assessment estimate. Section 8.2 and Table 55 distinguish the small observed adult diet share from modeled predation mortality of age-1 pollock. Sections 11.1 and 11.2 retain the supported year-over-year decline in overall age-1 predation mortality but omit conflicting historical cannibalism benchmarks. Table 8, catch data, model inputs, stock status, risk scores and harvest advice are unchanged.
